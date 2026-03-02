@@ -2407,12 +2407,26 @@ const LANG_CURRENCY = {
   vi:'VND', id:'IDR', he:'ILS', uk:'UAH', cs:'CZK',
 };
 
+// Regional pricing — discount by purchasing power
+// 1.0 = full price (Europe/USA/Israel/Japan/Korea)
+// 0.70 = -30% (Latin America, Middle East, Turkey, Russia)
+// 0.60 = -40% (Asia)
+// 0.50 = -50% (India, Vietnam, Indonesia, Ukraine)
+const REGION_PPP = {
+  es:1, en:1, bg:1, fr:1, de:1, it:1, nl:1, sv:1,
+  pl:1, ro:1, el:1, cs:1, he:1, ja:1, ko:1,
+  pt:0.70, ar:0.70, tr:0.70, ru:0.70,
+  zh:0.60, th:0.60,
+  hi:0.50, vi:0.50, id:0.50, uk:0.50,
+};
+
 function getCurr() {
   return CURRENCIES[LANG_CURRENCY[currentLang] || 'EUR'] || CURRENCIES.EUR;
 }
 function convertPrice(eur) {
   const c = getCurr();
-  const v = eur * c.rate;
+  const ppp = REGION_PPP[currentLang] || 1;
+  const v = eur * ppp * c.rate;
   return c.dec === 0 ? Math.round(v) : Math.round(v * 100) / 100;
 }
 function fmtNum(n, c) {
