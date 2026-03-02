@@ -2397,6 +2397,11 @@ const CURRENCIES = {
   ILS: { code:'ILS', symbol:'₪',    pos:'before', dec:2, rate:3.90,   sep:',', dsep:'.' },
   UAH: { code:'UAH', symbol:'₴',    pos:'before', dec:0, rate:44.0,   sep:' ', dsep:',' },
   CZK: { code:'CZK', symbol:'Kč',   pos:'after',  dec:0, rate:25.30,  sep:' ', dsep:',' },
+  MXN: { code:'MXN', symbol:'MX$',  pos:'before', dec:0, rate:18.50,  sep:',', dsep:'.' },
+  ARS: { code:'ARS', symbol:'AR$',  pos:'before', dec:0, rate:950,    sep:'.', dsep:',' },
+  COP: { code:'COP', symbol:'COL$', pos:'before', dec:0, rate:4400,   sep:'.', dsep:',' },
+  CLP: { code:'CLP', symbol:'CL$',  pos:'before', dec:0, rate:1020,   sep:'.', dsep:',' },
+  PEN: { code:'PEN', symbol:'S/',   pos:'before', dec:2, rate:4.05,   sep:',', dsep:'.' },
 };
 
 const LANG_CURRENCY = {
@@ -2405,6 +2410,7 @@ const LANG_CURRENCY = {
   ko:'KRW', ar:'SAR', hi:'INR', tr:'TRY', nl:'EUR',
   sv:'SEK', pl:'PLN', ro:'RON', el:'EUR', th:'THB',
   vi:'VND', id:'IDR', he:'ILS', uk:'UAH', cs:'CZK',
+  'es-mx':'MXN', 'es-ar':'ARS', 'es-co':'COP', 'es-cl':'CLP', 'es-pe':'PEN',
 };
 
 // Regional pricing — discount by purchasing power
@@ -2416,6 +2422,7 @@ const REGION_PPP = {
   es:1, en:1, bg:1, fr:1, de:1, it:1, nl:1, sv:1,
   pl:1, ro:1, el:1, cs:1, he:1, ja:1, ko:1,
   pt:0.70, ar:0.70, tr:0.70, ru:0.70,
+  'es-mx':0.70, 'es-ar':0.60, 'es-co':0.60, 'es-cl':0.70, 'es-pe':0.60,
   zh:0.60, th:0.60,
   hi:0.50, vi:0.50, id:0.50, uk:0.50,
 };
@@ -3121,7 +3128,12 @@ langs.forEach(function(l){if(T[l]){if(w4[l])T[l].why4=w4[l];if(s3[l])T[l].step3d
 
 // === LANGUAGE CONFIG ===
 const LANGS = [
-  { code: 'es', flag: '🇪🇸', name: 'Español', dir: 'ltr' },
+  { code: 'es', flag: '🇪🇸', name: 'Español (España)', dir: 'ltr' },
+  { code: 'es-mx', flag: '🇲🇽', name: 'Español (México)', dir: 'ltr' },
+  { code: 'es-ar', flag: '🇦🇷', name: 'Español (Argentina)', dir: 'ltr' },
+  { code: 'es-co', flag: '🇨🇴', name: 'Español (Colombia)', dir: 'ltr' },
+  { code: 'es-cl', flag: '🇨🇱', name: 'Español (Chile)', dir: 'ltr' },
+  { code: 'es-pe', flag: '🇵🇪', name: 'Español (Perú)', dir: 'ltr' },
   { code: 'en', flag: '🇬🇧', name: 'English', dir: 'ltr' },
   { code: 'bg', flag: '🇧🇬', name: 'Български', dir: 'ltr' },
   { code: 'fr', flag: '🇫🇷', name: 'Français', dir: 'ltr' },
@@ -3164,8 +3176,13 @@ const SIDEBAR_CATS = [
 ];
 
 // === TRANSLATION HELPER ===
+// Base language for regional variants (es-mx → es, pt-br → pt)
+function baseLang() { return currentLang.split('-')[0]; }
+
 function t(key) {
   if (T[currentLang] && T[currentLang][key] !== undefined) return T[currentLang][key];
+  const base = baseLang();
+  if (base !== currentLang && T[base] && T[base][key] !== undefined) return T[base][key];
   if (T.en && T.en[key] !== undefined) return T.en[key];
   if (T.es && T.es[key] !== undefined) return T.es[key];
   return key;
@@ -3174,7 +3191,8 @@ function t(key) {
 function ct(obj) {
   if (!obj) return '';
   if (typeof obj === 'string') return obj;
-  return obj[currentLang] || obj.en || obj.es || '';
+  const base = baseLang();
+  return obj[currentLang] || obj[base] || obj.en || obj.es || '';
 }
 
 // === LANGUAGE INSTRUCTION FOR READING GENERATION ===
@@ -4372,9 +4390,21 @@ function setLanguage(code) {
 }
 
 function detectLanguage() {
-  const navLang = navigator.language?.slice(0, 2) || 'es';
-  const supported = LANGS.find(l => l.code === navLang);
-  if (supported) currentLang = navLang;
+  const full = (navigator.language || 'es').toLowerCase();
+  // Try full match first (es-mx, es-ar, etc.)
+  const exactMatch = LANGS.find(l => l.code === full);
+  if (exactMatch) { currentLang = full; return; }
+  // Try language-country match (es-MX → es-mx)
+  const parts = full.split('-');
+  if (parts.length >= 2) {
+    const regionCode = parts[0] + '-' + parts[1];
+    const regionMatch = LANGS.find(l => l.code === regionCode);
+    if (regionMatch) { currentLang = regionCode; return; }
+  }
+  // Fall back to base language (es)
+  const base = parts[0];
+  const baseMatch = LANGS.find(l => l.code === base);
+  if (baseMatch) currentLang = base;
 }
 
 // === RENDER ALL ===
