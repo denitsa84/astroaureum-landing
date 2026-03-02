@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <linearGradient id="eyeG" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#F7D96E"/><stop offset="50%" stop-color="#D4A843"/><stop offset="100%" stop-color="#916E2B"/></linearGradient>
+    <linearGradient id="eyeV" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#C9AAFF"/><stop offset="100%" stop-color="#6B3FA0"/></linearGradient>
+    <radialGradient id="eyeIrisG" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#FFF8E0"/><stop offset="20%" stop-color="#F7D96E"/><stop offset="55%" stop-color="#D4A843"/><stop offset="80%" stop-color="#7B4FBF"/><stop offset="100%" stop-color="#3A1F6E"/></radialGradient>
+    <radialGradient id="eyeAura" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#D4A843" stop-opacity="0.18"/><stop offset="40%" stop-color="#7B4FBF" stop-opacity="0.07"/><stop offset="100%" stop-color="transparent" stop-opacity="0"/></radialGradient>
+    <radialGradient id="eyePupilG" cx="45%" cy="42%" r="55%"><stop offset="0%" stop-color="#1a1040"/><stop offset="100%" stop-color="#08071A"/></radialGradient>
+  </defs>
+  <rect width="500" height="500" rx="100" fill="#06050E"/>
+  <ellipse cx="250" cy="250" rx="248" ry="240" fill="url(#eyeAura)"/>
+  <g opacity="0.75">
+    <path d="M40,200 Q18,250 40,300 Q55,265 55,250 Q55,235 40,200Z" fill="url(#eyeV)"/>
+    <path d="M460,200 Q482,250 460,300 Q445,265 445,250 Q445,235 460,200Z" fill="url(#eyeV)"/>
+  </g>
+  <path d="M55,250 Q155,115 250,95 Q345,115 445,250 Q345,385 250,405 Q155,385 55,250Z" stroke="url(#eyeG)" stroke-width="2.5" fill="rgba(212,168,67,0.03)"/>
+  <circle cx="250" cy="250" r="75" stroke="url(#eyeG)" stroke-width="2" fill="none"/>
+  <circle cx="250" cy="250" r="73" fill="url(#eyeIrisG)" opacity="0.3"/>
+  <circle cx="250" cy="250" r="50" stroke="url(#eyeG)" stroke-width="1" fill="none" opacity="0.35"/>
+  <circle cx="250" cy="250" r="32" fill="url(#eyePupilG)"/>
+  <circle cx="250" cy="250" r="32" stroke="#7B4FBF" stroke-width="1.5" fill="none" opacity="0.2"/>
+  <path d="M250,225 L253,244 L270,250 L253,256 L250,275 L247,256 L230,250 L247,244Z" fill="url(#eyeG)" opacity="0.55"/>
+  <circle cx="238" cy="238" r="8" fill="white" opacity="0.22"/>
+  <circle cx="236" cy="236" r="4" fill="white" opacity="0.5"/>
+  <circle cx="265" cy="258" r="3.5" fill="#F7D96E" opacity="0.25"/>
+</svg>
