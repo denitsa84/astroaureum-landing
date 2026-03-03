@@ -4453,32 +4453,56 @@ function closeCheckout() {
   currentCheckoutData = null;
 }
 
-function payWithStripe() {
+async function payWithStripe() {
   if (!currentCheckoutData) return;
   const data = currentCheckoutData;
   const product = findProduct(data.productId) || findPack(data.productId);
-  const email = data.formData.field_4 || '';
-  const stripeLink = PAYMENT_CONFIG.stripeLinks[data.productId];
+  const fd = data.formData;
 
-  console.log('💳 Stripe Payment:', { product: data.productId, email, stripeLink });
+  // Map form fields to API payload
+  const payload = {
+    productId: data.productId,
+    customerName: fd.field_0 || '',
+    customerEmail: fd.field_4 || '',
+    birthDate: fd.field_1 || '',
+    birthTime: fd.field_2 || '',
+    birthCity: fd.field_3 || '',
+    birthCountry: fd.field_3 || '', // city field used as location
+  };
 
-  if (stripeLink) {
-    // Redirect to real Stripe Payment Link with pre-filled email
-    let url = stripeLink;
-    if (email) url += (url.includes('?') ? '&' : '?') + 'prefilled_email=' + encodeURIComponent(email);
-    url += (url.includes('?') ? '&' : '?') + 'client_reference_id=' + encodeURIComponent(data.productId + '|' + data.timestamp + '|' + getCurr().code);
-    window.location.href = url;
-  } else {
-    // No link configured yet — show setup instructions
-    const priceStr = product ? formatPriceS(product) : '';
-    alert('💳 Stripe — Configuración Pendiente\n\n' +
-      'Para activar pagos con tarjeta:\n\n' +
-      '1. Ve a dashboard.stripe.com/payment-links\n' +
-      '2. Crea un Payment Link para:\n' +
-      '   📖 ' + (product ? ct(product.name) : data.productId) + '\n' +
-      '   💰 ' + priceStr + '\n' +
-      '3. Copia el link y pégalo en PAYMENT_CONFIG\n' +
-      '   en la línea: \'' + data.productId + '\': \'TU_LINK\'');
+  // Partner data for compatibility products (pareja form: fields 5-8)
+  if (product && product.formType === 'pareja') {
+    payload.partnerName = fd.field_5 || '';
+    payload.partnerBirthDate = fd.field_6 || '';
+    payload.partnerBirthTime = fd.field_7 || '';
+    payload.partnerBirthCity = fd.field_8 || '';
+    payload.partnerBirthCountry = fd.field_8 || '';
+  }
+
+  console.log('💳 Creating checkout session:', payload);
+
+  // Disable button while processing
+  const btn = document.querySelector('.checkout-btn-stripe');
+  if (btn) { btn.disabled = true; btn.textContent = '⏳ Procesando...'; }
+
+  try {
+    const res = await fetch('https://my.astro-connect.app/api/order', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const result = await res.json();
+
+    if (result.url) {
+      window.location.href = result.url;
+    } else {
+      alert('Error: ' + (result.error || 'No se pudo crear la sesión de pago'));
+      if (btn) { btn.disabled = false; btn.textContent = '💳 Stripe'; }
+    }
+  } catch (err) {
+    console.error('Stripe checkout error:', err);
+    alert('Error de conexión. Inténtalo de nuevo.');
+    if (btn) { btn.disabled = false; btn.textContent = '💳 Stripe'; }
   }
 }
 
