@@ -4486,7 +4486,7 @@ async function payWithStripe() {
   if (btn) { btn.disabled = true; btn.textContent = '⏳ Procesando...'; }
 
   try {
-    const res = await fetch('https://my.astro-connect.app/api/order', {
+    const res = await fetch('https://mi.astro-connect.app/api/order', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
