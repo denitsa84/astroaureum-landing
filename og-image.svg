@@ -1,0 +1,189 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F7D96E"/>
+      <stop offset="50%" stop-color="#D4A843"/>
+      <stop offset="100%" stop-color="#916E2B"/>
+    </linearGradient>
+    <linearGradient id="v" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C9AAFF"/>
+      <stop offset="100%" stop-color="#6B3FA0"/>
+    </linearGradient>
+    <linearGradient id="gUp" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#D4A843" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#F7D96E"/>
+    </linearGradient>
+    <linearGradient id="gDn" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#D4A843" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#F7D96E"/>
+    </linearGradient>
+    <linearGradient id="textG" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F0CC6B"/>
+      <stop offset="50%" stop-color="#D4A843"/>
+      <stop offset="100%" stop-color="#F0CC6B"/>
+    </linearGradient>
+    <radialGradient id="irisG" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFF8E0"/>
+      <stop offset="20%" stop-color="#F7D96E"/>
+      <stop offset="55%" stop-color="#D4A843"/>
+      <stop offset="80%" stop-color="#7B4FBF"/>
+      <stop offset="100%" stop-color="#3A1F6E"/>
+    </radialGradient>
+    <radialGradient id="aura" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#D4A843" stop-opacity="0.18"/>
+      <stop offset="40%" stop-color="#7B4FBF" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#08071A" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="pupilG" cx="45%" cy="42%" r="55%">
+      <stop offset="0%" stop-color="#1a1040"/>
+      <stop offset="100%" stop-color="#08071A"/>
+    </radialGradient>
+    <filter id="gl">
+      <feGaussianBlur stdDeviation="3.5" result="b"/>
+      <feComposite in="SourceGraphic" in2="b" operator="over"/>
+    </filter>
+    <filter id="gl2">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+    <filter id="gl3">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feComposite in="SourceGraphic" in2="b" operator="over"/>
+    </filter>
+    <filter id="textGlow">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feComposite in="SourceGraphic" in2="b" operator="over"/>
+    </filter>
+    <filter id="subtleGlow">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feComposite in="SourceGraphic" in2="b" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#08071A"/>
+
+  <!-- Subtle star field -->
+  <g fill="#D4A843">
+    <circle cx="80" cy="60" r="1.2" opacity="0.3"/>
+    <circle cx="200" cy="120" r="0.8" opacity="0.2"/>
+    <circle cx="150" cy="500" r="1" opacity="0.25"/>
+    <circle cx="1050" cy="80" r="1.2" opacity="0.3"/>
+    <circle cx="1120" cy="200" r="0.8" opacity="0.2"/>
+    <circle cx="1100" cy="520" r="1" opacity="0.25"/>
+    <circle cx="950" cy="560" r="0.9" opacity="0.2"/>
+    <circle cx="300" cy="580" r="0.7" opacity="0.15"/>
+    <circle cx="900" cy="100" r="0.9" opacity="0.2"/>
+    <circle cx="100" cy="300" r="0.6" opacity="0.15"/>
+    <circle cx="1150" cy="400" r="0.7" opacity="0.15"/>
+  </g>
+  <g fill="#9B6FDF">
+    <circle cx="120" cy="150" r="0.8" opacity="0.2"/>
+    <circle cx="1080" cy="150" r="0.8" opacity="0.2"/>
+    <circle cx="250" cy="550" r="0.7" opacity="0.15"/>
+    <circle cx="980" cy="480" r="0.7" opacity="0.15"/>
+  </g>
+
+  <!-- Eye centered at 400,280 (left portion) -->
+  <g transform="translate(400,280)">
+    <!-- Deep aura -->
+    <ellipse cx="0" cy="0" rx="180" ry="175" fill="url(#aura)"/>
+
+    <!-- Upper lash rays -->
+    <g opacity="0.5" filter="url(#gl3)">
+      <line x1="0" y1="-113" x2="0" y2="-162" stroke="url(#gUp)" stroke-width="2"/>
+      <line x1="-40" y1="-98" x2="-55" y2="-152" stroke="url(#gUp)" stroke-width="1.5"/>
+      <line x1="40" y1="-98" x2="55" y2="-152" stroke="url(#gUp)" stroke-width="1.5"/>
+      <line x1="-74" y1="-74" x2="-102" y2="-130" stroke="url(#gUp)" stroke-width="1.2"/>
+      <line x1="74" y1="-74" x2="102" y2="-130" stroke="url(#gUp)" stroke-width="1.2"/>
+      <line x1="-102" y1="-44" x2="-140" y2="-98" stroke="url(#gUp)" stroke-width="0.9" opacity="0.6"/>
+      <line x1="102" y1="-44" x2="140" y2="-98" stroke="url(#gUp)" stroke-width="0.9" opacity="0.6"/>
+    </g>
+
+    <!-- Lower lash rays -->
+    <g opacity="0.5" filter="url(#gl3)">
+      <line x1="0" y1="113" x2="0" y2="155" stroke="url(#gDn)" stroke-width="2"/>
+      <line x1="-40" y1="98" x2="-55" y2="145" stroke="url(#gDn)" stroke-width="1.5"/>
+      <line x1="40" y1="98" x2="55" y2="145" stroke="url(#gDn)" stroke-width="1.5"/>
+      <line x1="-74" y1="74" x2="-102" y2="122" stroke="url(#gDn)" stroke-width="1.2"/>
+      <line x1="74" y1="74" x2="102" y2="122" stroke="url(#gDn)" stroke-width="1.2"/>
+      <line x1="-102" y1="44" x2="-140" y2="93" stroke="url(#gDn)" stroke-width="0.9" opacity="0.6"/>
+      <line x1="102" y1="44" x2="140" y2="93" stroke="url(#gDn)" stroke-width="0.9" opacity="0.6"/>
+    </g>
+
+    <!-- Crescent moons -->
+    <g filter="url(#gl3)" opacity="0.75">
+      <path d="M-153,-36 Q-169,0 -153,36 Q-142,10 -142,0 Q-142,-10 -153,-36Z" fill="url(#v)"/>
+    </g>
+    <g filter="url(#gl3)" opacity="0.75">
+      <path d="M153,-36 Q169,0 153,36 Q142,10 142,0 Q142,-10 153,-36Z" fill="url(#v)"/>
+    </g>
+
+    <!-- Eye glow -->
+    <path d="M-142,0 Q-69,-98 0,-113 Q69,-98 142,0 Q69,98 0,113 Q-69,98 -142,0Z"
+          stroke="#D4A843" stroke-width="5" fill="none" opacity="0.08" filter="url(#gl2)"/>
+
+    <!-- Eye shape -->
+    <path d="M-142,0 Q-69,-98 0,-113 Q69,-98 142,0 Q69,98 0,113 Q-69,98 -142,0Z"
+          stroke="url(#g)" stroke-width="2" fill="rgba(212,168,67,0.03)" filter="url(#gl)"/>
+
+    <!-- Iris -->
+    <circle cx="0" cy="0" r="55" stroke="url(#g)" stroke-width="2" fill="none" filter="url(#gl)"/>
+    <circle cx="0" cy="0" r="53" fill="url(#irisG)" opacity="0.3"/>
+
+    <!-- Iris detail lines -->
+    <g stroke="#D4A843" stroke-width="0.5" opacity="0.2">
+      <line x1="0" y1="-53" x2="0" y2="-33"/>
+      <line x1="0" y1="33" x2="0" y2="53"/>
+      <line x1="-53" y1="0" x2="-33" y2="0"/>
+      <line x1="33" y1="0" x2="53" y2="0"/>
+      <line x1="-38" y1="-38" x2="-23" y2="-23"/>
+      <line x1="23" y1="23" x2="38" y2="38"/>
+      <line x1="38" y1="-38" x2="23" y2="-23"/>
+      <line x1="-38" y1="38" x2="-23" y2="23"/>
+    </g>
+
+    <!-- Inner iris ring -->
+    <circle cx="0" cy="0" r="36" stroke="url(#g)" stroke-width="1" fill="none" opacity="0.35"/>
+
+    <!-- Pupil -->
+    <circle cx="0" cy="0" r="23" fill="url(#pupilG)" filter="url(#gl)"/>
+    <circle cx="0" cy="0" r="23" stroke="#7B4FBF" stroke-width="1.5" fill="none" opacity="0.2"/>
+
+    <!-- Star inside pupil -->
+    <g filter="url(#gl3)">
+      <path d="M0,-18 L2,-4 L15,0 L2,4 L0,18 L-2,4 L-15,0 L-2,-4Z" fill="url(#g)" opacity="0.55"/>
+      <path d="M0,-10 L1.5,-3 L10,0 L1.5,3 L0,10 L-1.5,3 L-10,0 L-1.5,-3Z"
+            fill="#F7D96E" opacity="0.3" transform="rotate(45,0,0)"/>
+    </g>
+
+    <!-- Highlights -->
+    <circle cx="-9" cy="-9" r="6" fill="white" opacity="0.22"/>
+    <circle cx="-10" cy="-10" r="3" fill="white" opacity="0.5"/>
+    <circle cx="11" cy="6" r="2.5" fill="#F7D96E" opacity="0.25"/>
+  </g>
+
+  <!-- ASTRO CONNECT text (right portion) -->
+  <!-- Title glow -->
+  <text x="830" y="255" text-anchor="middle" font-family="'Cinzel','Georgia','Times New Roman',serif" font-weight="700"
+        font-size="60" letter-spacing="12" fill="#D4A843" opacity="0.12" filter="url(#gl2)">ASTRO</text>
+  <text x="830" y="330" text-anchor="middle" font-family="'Cinzel','Georgia','Times New Roman',serif" font-weight="700"
+        font-size="60" letter-spacing="12" fill="#D4A843" opacity="0.12" filter="url(#gl2)">CONNECT</text>
+  <!-- Main title -->
+  <text x="830" y="255" text-anchor="middle" font-family="'Cinzel','Georgia','Times New Roman',serif" font-weight="700"
+        font-size="60" letter-spacing="12" fill="url(#textG)" filter="url(#textGlow)">ASTRO</text>
+  <text x="830" y="330" text-anchor="middle" font-family="'Cinzel','Georgia','Times New Roman',serif" font-weight="700"
+        font-size="60" letter-spacing="12" fill="url(#textG)" filter="url(#textGlow)">CONNECT</text>
+
+  <!-- Decorative line -->
+  <line x1="680" y1="355" x2="780" y2="355" stroke="url(#g)" stroke-width="0.8" opacity="0.4"/>
+  <text x="830" y="361" text-anchor="middle" font-size="14" fill="#D4A843" opacity="0.5">&#10022;</text>
+  <line x1="880" y1="355" x2="980" y2="355" stroke="url(#g)" stroke-width="0.8" opacity="0.4"/>
+
+  <!-- Tagline -->
+  <text x="830" y="390" text-anchor="middle" font-family="'Georgia','Times New Roman',serif"
+        font-size="18" letter-spacing="4" fill="#C9AAFF" opacity="0.7" filter="url(#subtleGlow)">ASTROLOGIA CON IA</text>
+
+  <!-- URL -->
+  <text x="830" y="430" text-anchor="middle" font-family="'Georgia','Times New Roman',serif"
+        font-size="14" letter-spacing="3" fill="#D4A843" opacity="0.4">astro-connect.app</text>
+</svg>
