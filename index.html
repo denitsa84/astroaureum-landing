@@ -319,6 +319,89 @@ body {
   margin-bottom: 32px;
   animation: fadeUp 1s 0.4s ease both;
 }
+/* === MEGA CTA === */
+.hero-mega-cta {
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto 36px;
+  padding: 32px 36px;
+  background: linear-gradient(135deg, rgba(212,168,67,0.08), rgba(123,79,191,0.08));
+  border: 2px solid rgba(212,168,67,0.25);
+  border-radius: 24px;
+  animation: fadeUp 0.8s 0.5s ease both, ctaGlow 3s ease-in-out infinite;
+  position: relative;
+}
+.hero-mega-cta::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 26px;
+  background: linear-gradient(135deg, var(--gold), var(--purple), var(--gold));
+  z-index: -1;
+  opacity: 0.15;
+  filter: blur(8px);
+}
+@keyframes ctaGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(212,168,67,0.1), 0 0 60px rgba(123,79,191,0.05); }
+  50% { box-shadow: 0 0 30px rgba(212,168,67,0.25), 0 0 80px rgba(123,79,191,0.1); }
+}
+.hero-mega-cta h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.4rem;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+.hero-mega-cta .cta-hint {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  margin-bottom: 18px;
+}
+.hero-mega-cta .cta-row {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+}
+.hero-mega-cta .cta-input {
+  flex: 1;
+  padding: 16px 18px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(212,168,67,0.25);
+  border-radius: 14px;
+  color: var(--text);
+  font-size: 1.1rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.3s;
+  cursor: pointer;
+}
+.hero-mega-cta .cta-input:focus { border-color: var(--gold); }
+.hero-mega-cta .cta-input::-webkit-calendar-picker-indicator { filter: invert(0.8); cursor: pointer; }
+.hero-mega-cta .cta-btn {
+  padding: 16px 28px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: #06050E;
+  border: none;
+  border-radius: 14px;
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+.hero-mega-cta .cta-btn:hover { transform: scale(1.04); box-shadow: 0 8px 32px rgba(212,168,67,0.35); }
+.hero-mega-cta .cta-free {
+  font-size: 0.75rem;
+  color: var(--gold);
+  margin-top: 12px;
+  opacity: 0.7;
+}
+@media (max-width: 600px) {
+  .hero-mega-cta { padding: 24px 20px; }
+  .hero-mega-cta h3 { font-size: 1.2rem; }
+  .hero-mega-cta .cta-row { flex-direction: column; }
+  .hero-mega-cta .cta-btn { width: 100%; padding: 16px; }
+}
 .hero-btns {
   display: flex;
   gap: 16px;
@@ -1204,6 +1287,7 @@ es: {
   heroSub: '8 Tradiciones · 36 Servicios · 12 Packs',
   heroDesc: 'La plataforma de astrología más completa del mundo. Tecnología avanzada combinada con 8 tradiciones milenarias.',
   heroBtn1: '✦ Explorar Catálogo', heroBtn2: 'Ver Tradiciones',
+  ctaTitle: 'Descubre tu destino hoy', ctaHint: 'Introduce tu fecha de nacimiento y recibe tu lectura gratuita', ctaBtn: 'Revelar mi destino', ctaFree: '✦ 100% gratis · Sin tarjeta · Resultado inmediato',
   heroLeadPremium: '✦ Auditoria Astral GRATIS', heroLeadEconomy: '✦ Tu Suerte Semanal GRATIS',
   leadTitle: 'Tu Lectura Gratuita', leadTitlePremium: 'Auditoria de Inversion Astral', leadTitleEconomy: 'Tu Suerte Semanal',
   leadSub: 'Descubre lo que las estrellas tienen para ti', leadSubmit: 'Obtener mi lectura GRATIS',
@@ -1291,6 +1375,7 @@ en: {
   heroSub: '8 Traditions · 36 Services · 12 Packs',
   heroDesc: 'The world\'s most complete astrology platform. Advanced technology combined with 8 ancient traditions.',
   heroBtn1: '✦ Explore Catalog', heroBtn2: 'View Traditions',
+  ctaTitle: 'Discover your destiny today', ctaHint: 'Enter your birth date and receive your free reading', ctaBtn: 'Reveal my destiny', ctaFree: '✦ 100% free · No card required · Instant result',
   heroLeadPremium: '✦ Free Astral Audit', heroLeadEconomy: '✦ Free Weekly Luck',
   leadTitle: 'Your Free Reading', leadTitlePremium: 'Astral Investment Audit', leadTitleEconomy: 'Your Weekly Luck',
   leadSub: 'Discover what the stars have for you', leadSubmit: 'Get my FREE reading',
@@ -1378,6 +1463,7 @@ bg: {
   heroSub: '8 Традиции · 36 Услуги · 12 Пакета',
   heroDesc: 'Най-пълната астрологична платформа в света. Изкуствен интелект от последно поколение, комбиниран с 8 хилядолетни традиции.',
   heroBtn1: '✦ Разгледай Каталога', heroBtn2: 'Виж Традициите',
+  ctaTitle: 'Открий съдбата си днес', ctaHint: 'Въведи рождената си дата и получи безплатно четене', ctaBtn: 'Разкрий съдбата ми', ctaFree: '✦ 100% безплатно · Без карта · Мигновен резултат',
   heroLeadPremium: '✦ Безплатен Астрален Одит', heroLeadEconomy: '✦ Безплатен Седмичен Късмет',
   leadTitle: 'Твоето Безплатно Четене', leadTitlePremium: 'Одит на Астрални Инвестиции', leadTitleEconomy: 'Твоят Седмичен Късмет',
   leadSub: 'Открий какво звездите имат за теб', leadSubmit: 'Получи БЕЗПЛАТНО четене',
@@ -3676,6 +3762,15 @@ function renderHero() {
     <h1 class="hero-title">${t('heroTitle')}</h1>
     <h2 class="hero-sub">${t('heroSub')}</h2>
     <p class="hero-desc">${t('heroDesc')}</p>
+    <div class="hero-mega-cta">
+      <h3>${t('ctaTitle') || 'Descubre tu destino hoy'}</h3>
+      <p class="cta-hint">${t('ctaHint') || 'Introduce tu fecha de nacimiento y recibe tu lectura gratuita'}</p>
+      <div class="cta-row">
+        <input type="date" class="cta-input" id="hero-birth-date" max="${new Date().toISOString().split('T')[0]}" min="1920-01-01">
+        <button class="cta-btn" onclick="heroRevealDestiny()">${t('ctaBtn') || 'Revelar mi destino'}</button>
+      </div>
+      <p class="cta-free">${t('ctaFree') || '✦ 100% gratis · Sin tarjeta · Resultado inmediato'}</p>
+    </div>
     <div class="hero-btns">
       <button class="btn-gold" onclick="openProductModal('mega-carta')">${t('heroBtn1')}</button>
       <button class="btn-lead" onclick="openLeadMagnetModal()">${currentPricing.tier === 'premium' ? (t('heroLeadPremium') || '✦ Auditoria Astral GRATIS') : (t('heroLeadEconomy') || '✦ Tu Suerte Semanal GRATIS')}</button>
@@ -4772,8 +4867,22 @@ function initTestMode() {
   panel.classList.add('open');
 }
 
+// === HERO MEGA CTA ===
+function heroRevealDestiny() {
+  var dateInput = document.getElementById('hero-birth-date');
+  var birthDate = dateInput ? dateInput.value : '';
+  if (!birthDate) {
+    dateInput.focus();
+    dateInput.style.borderColor = 'var(--gold)';
+    dateInput.style.boxShadow = '0 0 16px rgba(212,168,67,0.4)';
+    setTimeout(function() { dateInput.style.boxShadow = ''; }, 1500);
+    return;
+  }
+  openLeadMagnetModal(birthDate);
+}
+
 // === LEAD MAGNET ===
-function openLeadMagnetModal() {
+function openLeadMagnetModal(preBirthDate) {
   var isPremium = currentPricing.tier === 'premium';
   var leadType = isPremium ? 'auditoria-astral' : 'suerte-semanal';
   var titleKey = isPremium ? 'leadTitlePremium' : 'leadTitleEconomy';
@@ -4799,7 +4908,7 @@ function openLeadMagnetModal() {
         <label>${t('fName') || 'Nombre completo'}</label>
         <input type="text" name="customerName" required placeholder="${t('fName') || 'Nombre completo'}">
         <label>${t('fDate') || 'Fecha de nacimiento'}</label>
-        <input type="date" name="birthDate" required>
+        <input type="date" name="birthDate" required value="${preBirthDate || ''}">
         <label>${t('fTime') || 'Hora de nacimiento'} <span style="color:#6B5B8D;font-size:0.8rem">(${t('fTimeNote') || 'opcional'})</span></label>
         <input type="time" name="birthTime">
         <label>${t('fCity') || 'Ciudad de nacimiento'}</label>
@@ -4811,7 +4920,13 @@ function openLeadMagnetModal() {
         <button type="submit" class="lead-submit" id="lead-submit-btn">${t('leadSubmit') || 'Obtener mi lectura GRATIS'}</button>
       </form>
     </div>`;
-  requestAnimationFrame(function() { overlay.classList.add('active'); });
+  requestAnimationFrame(function() {
+    overlay.classList.add('active');
+    if (preBirthDate) {
+      var nameInput = overlay.querySelector('input[name="customerName"]');
+      if (nameInput) nameInput.focus();
+    }
+  });
 }
 
 function closeLeadModal() {
