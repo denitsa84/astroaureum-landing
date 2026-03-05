@@ -27,6 +27,141 @@
   <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="canonical" href="https://astro-connect.app">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#06050E">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="author" content="Astro Connect">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="Astro Connect">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:title" content="Astro Connect | Tu Guía Cósmica">
+  <meta name="twitter:description" content="8 Tradiciones · 36 Servicios · 12 Packs — Astrología Personalizada">
+
+  <!-- JSON-LD: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Astro Connect",
+    "url": "https://astro-connect.app",
+    "logo": "https://astro-connect.app/favicon-192.png",
+    "description": "La plataforma de astrología más completa del mundo. 8 tradiciones, 36 servicios, 12 packs.",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "url": "https://astro-connect.app",
+      "availableLanguage": ["Spanish","English","Bulgarian","French","German","Italian","Portuguese","Russian","Chinese","Japanese","Korean","Arabic","Hindi","Turkish","Dutch","Swedish","Polish","Romanian","Greek","Thai","Vietnamese","Indonesian","Hebrew","Ukrainian","Czech"]
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Astro Connect",
+    "url": "https://astro-connect.app",
+    "description": "Plataforma de astrología personalizada con 8 tradiciones ancestrales"
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cómo se generan las lecturas?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cada lectura se genera mediante un sistema avanzado de análisis astrológico que calcula las posiciones planetarias exactas en tu momento y lugar de nacimiento. Nuestro sistema interpreta estos datos según 8 tradiciones ancestrales milenarias para crear un análisis profundo, 100% personalizado y único para ti."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Es un horóscopo genérico?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. A diferencia de los horóscopos de revistas, nuestras lecturas utilizan tus datos exactos de nacimiento (fecha, hora y lugar) para calcular la posición precisa de cada planeta, casa y aspecto en tu carta. El resultado es una lectura de 3,000 a 5,500 palabras completamente única."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué datos necesitan para mi lectura?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Necesitamos tu nombre, fecha de nacimiento, hora de nacimiento (cuanto más precisa, mejor) y ciudad de nacimiento. Para servicios de compatibilidad, necesitamos los mismos datos de ambas personas."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿En cuánto tiempo recibo mi lectura?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tu lectura personalizada se genera en pocos minutos y se entrega instantáneamente en formato digital. Puedes leerla en pantalla o guardarla como PDF para siempre."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Puedo pedir mi lectura en otro idioma?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Ofrecemos lecturas en 25 idiomas: español, inglés, búlgaro, francés, alemán, italiano, portugués, ruso, chino, japonés, coreano, árabe, hindi, turco, holandés, sueco, polaco, rumano, griego, tailandés, vietnamita, indonesio, hebreo, ucraniano y checo."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Incluyen remedios y meditaciones?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Dependiendo de la tradición, tu lectura incluye remedios prácticos personalizados: mantras, gemas recomendadas, meditaciones guiadas, colores favorables, rituales y herramientas de transformación espiritual."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Son fiables las lecturas?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nuestro sistema utiliza cálculos astronómicos precisos y las reglas interpretativas de tradiciones con miles de años de historia. Las lecturas son una herramienta de autoconocimiento y orientación personal."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Ofrecen garantía de satisfacción?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Si tu lectura no cumple tus expectativas, contáctanos y buscaremos una solución. Tu satisfacción es nuestra prioridad."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: Product -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Lectura de Carta Natal Personalizada",
+    "description": "Análisis completo de tu carta natal con posiciones planetarias exactas, casas astrológicas y aspectos. Lectura de 3,000-5,500 palabras única para ti.",
+    "brand": { "@type": "Brand", "name": "Astro Connect" },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "EUR",
+      "lowPrice": "9.99",
+      "highPrice": "49.99",
+      "offerCount": "48",
+      "availability": "https://schema.org/InStock"
+    },
+    "category": "Astrología Personalizada"
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Philosopher:wght@400;700&family=Noto+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -1191,6 +1326,7 @@ body {
   </style>
 </head>
 <body>
+  <a href="#catalog" class="skip-link" style="position:absolute;top:-100px;left:0;background:#D4A843;color:#06050E;padding:8px 16px;z-index:10000;font-weight:bold;transition:top 0.3s;" onfocus="this.style.top='0'" onblur="this.style.top='-100px'">Ir al contenido</a>
   <canvas id="stars"></canvas>
   <div id="particles"></div>
 

@@ -1,0 +1,30 @@
+{
+  "name": "Astro Connect — Tu Guía Cósmica",
+  "short_name": "Astro Connect",
+  "description": "La plataforma de astrología más completa del mundo. 8 tradiciones, 36 servicios, 12 packs.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#06050E",
+  "theme_color": "#06050E",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["lifestyle", "entertainment"],
+  "lang": "es"
+}
