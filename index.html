@@ -4854,11 +4854,9 @@ function initScrollSpy() {
 // === LANGUAGE SWITCH ===
 function setLanguage(code) {
   currentLang = code;
-  currentLocale = code;
   const lang = LANGS.find(l => l.code === code);
   document.documentElement.lang = code;
   document.documentElement.dir = lang ? lang.dir : 'ltr';
-  detectPricing();
   renderAll();
 }
 
