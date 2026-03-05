@@ -2964,9 +2964,12 @@ var CURRENCIES = {
   ILS:{code:'ILS',sym:'₪',pos:'before',zd:false},AED:{code:'AED',sym:'AED',pos:'before',zd:false},
   THB:{code:'THB',sym:'฿',pos:'before',zd:false},VND:{code:'VND',sym:'₫',pos:'after',zd:true},
   IDR:{code:'IDR',sym:'Rp',pos:'before',zd:false},UAH:{code:'UAH',sym:'₴',pos:'after',zd:false},
-  MXN:{code:'MXN',sym:'MX$',pos:'before',zd:false}
+  MXN:{code:'MXN',sym:'MX$',pos:'before',zd:false},
+  BGN:{code:'BGN',sym:'лв',pos:'after',zd:false},NOK:{code:'NOK',sym:'kr',pos:'after',zd:false},
+  CHF:{code:'CHF',sym:'CHF',pos:'before',zd:false},HUF:{code:'HUF',sym:'Ft',pos:'after',zd:false},
+  DKK:{code:'DKK',sym:'kr',pos:'after',zd:false}
 };
-var FX_RATES = {EUR:1,USD:1.08,GBP:0.86,JPY:163,KRW:1450,BRL:5.40,INR:92,TRY:34,PLN:4.30,CZK:25.3,RON:4.97,SEK:11.3,ILS:3.95,AED:3.97,THB:38,VND:26800,IDR:17000,UAH:43,MXN:18.5};
+var FX_RATES = {EUR:1,USD:1.08,GBP:0.86,JPY:163,KRW:1450,BRL:5.40,INR:92,TRY:34,PLN:4.30,CZK:25.3,RON:4.97,SEK:11.3,ILS:3.95,AED:3.97,THB:38,VND:26800,IDR:17000,UAH:43,RUB:99,MXN:18.5,BGN:1.96,NOK:11.5,CHF:0.94,HUF:395,DKK:7.46};
 var LOCALE_PRICING = {
   'es-ES':{t:'premium',c:'EUR'},'es-MX':{t:'economy',c:'MXN'},'es-AR':{t:'economy',c:'USD'},
   'es-CO':{t:'economy',c:'USD'},'es-CL':{t:'economy',c:'USD'},'es-PE':{t:'economy',c:'USD'},
@@ -2979,19 +2982,32 @@ var LOCALE_PRICING = {
   'en-US':{t:'premium',c:'USD'},'en-GB':{t:'premium',c:'GBP'},'en-IN':{t:'economy',c:'INR'}
 };
 var LANG_PRICING = {
-  es:{t:'premium',c:'EUR'},en:{t:'premium',c:'EUR'},fr:{t:'premium',c:'EUR'},
+  es:{t:'premium',c:'EUR'},en:{t:'premium',c:'USD'},fr:{t:'premium',c:'EUR'},
   de:{t:'premium',c:'EUR'},it:{t:'premium',c:'EUR'},nl:{t:'premium',c:'EUR'},
   el:{t:'premium',c:'EUR'},sv:{t:'premium',c:'SEK'},ja:{t:'premium',c:'JPY'},
-  bg:{t:'standard',c:'EUR'},cs:{t:'standard',c:'CZK'},pl:{t:'standard',c:'PLN'},
+  bg:{t:'standard',c:'BGN'},cs:{t:'standard',c:'CZK'},pl:{t:'standard',c:'PLN'},
   ro:{t:'standard',c:'RON'},ko:{t:'standard',c:'KRW'},he:{t:'standard',c:'ILS'},
   ar:{t:'standard',c:'AED'},zh:{t:'standard',c:'USD'},pt:{t:'standard',c:'EUR'},
-  ru:{t:'economy',c:'EUR'},uk:{t:'economy',c:'UAH'},hi:{t:'economy',c:'INR'},
+  ru:{t:'economy',c:'RUB'},uk:{t:'economy',c:'UAH'},hi:{t:'economy',c:'INR'},
   tr:{t:'economy',c:'TRY'},th:{t:'economy',c:'THB'},vi:{t:'economy',c:'VND'},
   id:{t:'economy',c:'IDR'}
 };
 var currentPricing = { tier: 'premium', currencyCode: 'EUR' };
 
+// Try to restore geo-IP pricing from cache (instant on return visits)
+try {
+  var _cached = sessionStorage.getItem('ac_geo_pricing');
+  if (_cached) {
+    var _cp = JSON.parse(_cached);
+    if (_cp.tier && _cp.currency) {
+      currentPricing = { tier: _cp.tier, currencyCode: _cp.currency };
+    }
+  }
+} catch(e) {}
+
 function detectPricing() {
+  // If we already have a cached geo-IP result, keep it
+  try { if (sessionStorage.getItem('ac_geo_pricing')) return; } catch(e) {}
   var lp = LOCALE_PRICING[currentLocale];
   if (lp) { currentPricing = { tier: lp.t, currencyCode: lp.c }; return; }
   var langP = LANG_PRICING[currentLang];
@@ -3003,6 +3019,7 @@ function psychoRound(amount, code) {
   if (code === 'VND') return Math.round(amount / 10000) * 10000;
   if (code === 'IDR') return Math.round(amount / 5000) * 5000;
   if (code === 'KRW') return Math.round(amount / 1000) * 1000;
+  if (code === 'HUF') return Math.round(amount / 100) * 100;
   if (code === 'JPY') return Math.round(amount / 100) * 100;
   if (amount > 50) { var f = Math.floor(amount); return f - (f % 10) + 9; }
   if (amount > 10) { var f2 = Math.floor(amount); return f2 - (f2 % 5) + 4.90; }
@@ -3090,6 +3107,8 @@ function fetchServerPricing() {
     .then(function(res) { return res.json(); })
     .then(function(data) {
       if (data.tier && data.currency) {
+        // Cache the geo-IP result for instant pricing on return visits
+        try { sessionStorage.setItem('ac_geo_pricing', JSON.stringify({ tier: data.tier, currency: data.currency })); } catch(e) {}
         var changed = data.tier !== currentPricing.tier || data.currency !== currentPricing.currencyCode;
         if (changed) {
           currentPricing.tier = data.tier;
