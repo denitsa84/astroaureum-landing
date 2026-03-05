@@ -246,6 +246,28 @@ body {
   color: var(--gold);
   padding: 24px 16px 4px;
 }
+.logo-eye {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 8px;
+  position: relative;
+  filter: drop-shadow(0 0 12px rgba(212,168,67,0.4));
+  animation: logoFloat 4s ease-in-out infinite;
+}
+.logo-eye svg { width: 100%; height: 100%; }
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0); filter: drop-shadow(0 0 12px rgba(212,168,67,0.4)); }
+  50% { transform: translateY(-3px); filter: drop-shadow(0 0 20px rgba(212,168,67,0.6)); }
+}
+@keyframes pupilGlow {
+  0%, 100% { r: 4; fill: #D4A843; }
+  50% { r: 5; fill: #F0CC6B; }
+}
+@keyframes irisRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 .sidebar-sub {
   text-align: center;
   font-size: 0.6rem;
@@ -3790,7 +3812,40 @@ function initParticles() {
 function renderSidebar() {
   const sb = document.getElementById('sidebar');
   let html = `
-    <div class="sidebar-logo">${t('sidebarLogo')}</div>
+    <div class="sidebar-logo">
+      <div class="logo-eye">
+        <svg viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg">
+          <!-- Outer eye shape -->
+          <path d="M2 20 Q16 2 32 2 Q48 2 62 20 Q48 38 32 38 Q16 38 2 20Z" fill="none" stroke="#D4A843" stroke-width="1.5" opacity="0.8"/>
+          <path d="M6 20 Q18 6 32 6 Q46 6 58 20 Q46 34 32 34 Q18 34 6 20Z" fill="none" stroke="#7B4FBF" stroke-width="0.8" opacity="0.5"/>
+          <!-- Iris rays -->
+          <g style="transform-origin:32px 20px;animation:irisRotate 20s linear infinite" opacity="0.3">
+            <line x1="32" y1="8" x2="32" y2="12" stroke="#D4A843" stroke-width="0.5"/>
+            <line x1="42" y1="10" x2="40" y2="13" stroke="#D4A843" stroke-width="0.5"/>
+            <line x1="48" y1="16" x2="44" y2="17" stroke="#D4A843" stroke-width="0.5"/>
+            <line x1="48" y1="24" x2="44" y2="23" stroke="#D4A843" stroke-width="0.5"/>
+            <line x1="42" y1="30" x2="40" y2="27" stroke="#D4A843" stroke-width="0.5"/>
+            <line x1="32" y1="32" x2="32" y2="28" stroke="#D4A843" stroke-width="0.5"/>
+            <line x1="22" y1="30" x2="24" y2="27" stroke="#D4A843" stroke-width="0.5"/>
+            <line x1="16" y1="24" x2="20" y2="23" stroke="#D4A843" stroke-width="0.5"/>
+            <line x1="16" y1="16" x2="20" y2="17" stroke="#D4A843" stroke-width="0.5"/>
+            <line x1="22" y1="10" x2="24" y2="13" stroke="#D4A843" stroke-width="0.5"/>
+          </g>
+          <!-- Iris circle -->
+          <circle cx="32" cy="20" r="10" fill="none" stroke="#7B4FBF" stroke-width="1" opacity="0.6"/>
+          <circle cx="32" cy="20" r="7" fill="rgba(123,79,191,0.15)" stroke="#D4A843" stroke-width="0.8" opacity="0.8"/>
+          <!-- Pupil -->
+          <circle cx="32" cy="20" r="4" fill="#D4A843" style="animation:pupilGlow 3s ease-in-out infinite"/>
+          <!-- Highlight -->
+          <circle cx="29" cy="17" r="1.5" fill="rgba(255,255,255,0.5)"/>
+          <!-- Stars around eye -->
+          <text x="4" y="10" fill="#D4A843" font-size="5" opacity="0.6">✦</text>
+          <text x="54" y="10" fill="#7B4FBF" font-size="4" opacity="0.5">✦</text>
+          <text x="56" y="36" fill="#D4A843" font-size="3" opacity="0.4">✦</text>
+        </svg>
+      </div>
+      Astro Connect
+    </div>
     <div class="sidebar-sub">${t('sidebarSub')}</div>
     <select class="lang-select" id="langSelect">
       ${LANGS.map(l => `<option value="${l.code}" ${l.code === currentLang ? 'selected' : ''}>${l.flag} ${l.name}</option>`).join('')}
