@@ -4291,6 +4291,7 @@ function submitDailySubscribe(e) {
       email: fd.get('email'),
       customerName: fd.get('customerName'),
       sunSign: fd.get('sunSign'),
+      lang: (navigator.language || 'es').split('-')[0],
     }),
   })
   .then(function(res) {
