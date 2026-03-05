@@ -103,7 +103,7 @@
         "name": "¿En cuánto tiempo recibo mi lectura?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Tu lectura personalizada se genera en pocos minutos y se entrega instantáneamente en formato digital. Puedes leerla en pantalla o guardarla como PDF para siempre."
+          "text": "Tu lectura personalizada se genera y se entrega por email en un máximo de 24 horas. Puedes leerla en pantalla o guardarla como PDF para siempre."
         }
       },
       {
@@ -1513,7 +1513,7 @@ es: {
   faq3q: '¿Qué datos necesitan para mi lectura?',
   faq3a: 'Necesitamos tu nombre, fecha de nacimiento, hora de nacimiento (cuanto más precisa, mejor) y ciudad de nacimiento. Para servicios de compatibilidad, necesitamos los mismos datos de ambas personas. Para el Diseño Humano, la hora exacta de nacimiento es obligatoria.',
   faq4q: '¿En cuánto tiempo recibo mi lectura?',
-  faq4a: 'Tu lectura personalizada se genera en pocos minutos y se entrega instantáneamente en formato digital. Puedes leerla en pantalla o guardarla como PDF para siempre.',
+  faq4a: 'Tu lectura personalizada se genera y se entrega por email en un máximo de 24 horas. Puedes leerla en pantalla o guardarla como PDF para siempre.',
   faq5q: '¿Puedo pedir mi lectura en otro idioma?',
   faq5a: 'Sí. Ofrecemos lecturas en 25 idiomas: español, inglés, búlgaro, francés, alemán, italiano, portugués, ruso, chino, japonés, coreano, árabe, hindi, turco, holandés, sueco, polaco, rumano, griego, tailandés, vietnamita, indonesio, hebreo, ucraniano y checo. Selecciona tu idioma en el menú y toda tu lectura se generará nativamente en ese idioma.',
   faq6q: '¿Incluyen remedios y meditaciones?',
@@ -1601,7 +1601,7 @@ en: {
   faq3q: 'What data do you need for my reading?',
   faq3a: 'We need your name, date of birth, time of birth (the more precise, the better) and city of birth. For compatibility services, we need the same data for both people. For Human Design, the exact time of birth is mandatory.',
   faq4q: 'How quickly do I receive my reading?',
-  faq4a: 'Your personalized reading is generated in a few minutes and delivered instantly in digital format. You can read it on screen or save it as a PDF forever.',
+  faq4a: 'Your personalized reading is generated and delivered by email within a maximum of 24 hours. You can read it on screen or save it as a PDF forever.',
   faq5q: 'Can I request my reading in another language?',
   faq5a: 'Yes. We offer readings in 25 languages: Spanish, English, Bulgarian, French, German, Italian, Portuguese, Russian, Chinese, Japanese, Korean, Arabic, Hindi, Turkish, Dutch, Swedish, Polish, Romanian, Greek, Thai, Vietnamese, Indonesian, Hebrew, Ukrainian and Czech. Select your language in the menu and your entire reading will be generated natively in that language.',
   faq6q: 'Do they include remedies and meditations?',
@@ -5448,7 +5448,7 @@ function showFreeReading(reading, readingUrl, customerName, birthDate) {
         <h2>${t('leadUpsellTitle') || 'Tu lectura gratuita es solo el comienzo'}</h2>
         <p>${t('leadUpsellDesc') || 'Descubre tu Carta Natal Completa con 36 paginas de analisis profundo.'}</p>
         <button class="btn-gold" onclick="closeFreeReading();scrollTo('#catalog');">${t('leadUpsellBtn') || 'Ver mi Carta Natal Completa'}</button>
-        <p class="fr-price-note">${t('leadUpsellPrice') || 'Desde 139 EUR'} · ${t('checkoutNote') || 'Entrega inmediata'}</p>
+        <p class="fr-price-note">${t('leadUpsellPrice') || 'Desde 139 EUR'} · ${t('checkoutNote') || 'Entrega por email en máximo 24h'}</p>
       </div>
       ${readingUrl ? '<div style="text-align:center;margin:24px 0;"><a href="' + readingUrl + '" target="_blank" style="color:#9B8EC4;font-size:0.85rem;">Ver lectura online →</a></div>' : ''}
       <div style="text-align:center;margin-top:32px;padding-top:16px;border-top:1px solid rgba(247,217,110,0.08);">
