@@ -2997,6 +2997,7 @@ var LANG_PRICING = {
   id:{t:'economy',c:'IDR'}
 };
 var currentPricing = { tier: 'premium', currencyCode: 'EUR' };
+var pricingConfirmed = false;
 
 // Try to restore geo-IP pricing from cache (instant on return visits)
 try {
@@ -3005,6 +3006,7 @@ try {
     var _cp = JSON.parse(_cached);
     if (_cp.tier && _cp.currency) {
       currentPricing = { tier: _cp.tier, currencyCode: _cp.currency };
+      pricingConfirmed = true;
     }
   }
 } catch(e) {}
@@ -3037,6 +3039,7 @@ function calcLocalPrice(eurWholeUnits) {
 }
 
 function fmtPrice(amount) {
+  if (!pricingConfirmed) return '...';
   var cur = CURRENCIES[currentPricing.currencyCode] || CURRENCIES.EUR;
   var s;
   if (cur.zd || amount === Math.floor(amount)) {
@@ -3111,17 +3114,18 @@ function fetchServerPricing() {
     .then(function(res) { return res.json(); })
     .then(function(data) {
       if (data.tier && data.currency) {
-        // Cache the geo-IP result for instant pricing on return visits
         try { sessionStorage.setItem('ac_geo_pricing', JSON.stringify({ tier: data.tier, currency: data.currency })); } catch(e) {}
-        var changed = data.tier !== currentPricing.tier || data.currency !== currentPricing.currencyCode;
-        if (changed) {
-          currentPricing.tier = data.tier;
-          currentPricing.currencyCode = data.currency;
-          renderAll();
-        }
+        currentPricing.tier = data.tier;
+        currentPricing.currencyCode = data.currency;
+        pricingConfirmed = true;
+        renderAll();
       }
     })
-    .catch(function() { /* use client-side estimates */ });
+    .catch(function() {
+      // Server unreachable — use client-side locale estimate as fallback
+      pricingConfirmed = true;
+      renderAll();
+    });
 }
 
 // ═══════════════════════════════════════════════════
