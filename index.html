@@ -27,6 +27,33 @@
   <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="canonical" href="https://astro-connect.app">
+  <!-- hreflang: SEO internacional 25 idiomas -->
+  <link rel="alternate" hreflang="x-default" href="https://astro-connect.app">
+  <link rel="alternate" hreflang="es" href="https://astro-connect.app?lang=es">
+  <link rel="alternate" hreflang="en" href="https://astro-connect.app?lang=en">
+  <link rel="alternate" hreflang="bg" href="https://astro-connect.app?lang=bg">
+  <link rel="alternate" hreflang="fr" href="https://astro-connect.app?lang=fr">
+  <link rel="alternate" hreflang="de" href="https://astro-connect.app?lang=de">
+  <link rel="alternate" hreflang="it" href="https://astro-connect.app?lang=it">
+  <link rel="alternate" hreflang="pt" href="https://astro-connect.app?lang=pt">
+  <link rel="alternate" hreflang="ru" href="https://astro-connect.app?lang=ru">
+  <link rel="alternate" hreflang="zh" href="https://astro-connect.app?lang=zh">
+  <link rel="alternate" hreflang="ja" href="https://astro-connect.app?lang=ja">
+  <link rel="alternate" hreflang="ko" href="https://astro-connect.app?lang=ko">
+  <link rel="alternate" hreflang="ar" href="https://astro-connect.app?lang=ar">
+  <link rel="alternate" hreflang="hi" href="https://astro-connect.app?lang=hi">
+  <link rel="alternate" hreflang="tr" href="https://astro-connect.app?lang=tr">
+  <link rel="alternate" hreflang="nl" href="https://astro-connect.app?lang=nl">
+  <link rel="alternate" hreflang="sv" href="https://astro-connect.app?lang=sv">
+  <link rel="alternate" hreflang="pl" href="https://astro-connect.app?lang=pl">
+  <link rel="alternate" hreflang="ro" href="https://astro-connect.app?lang=ro">
+  <link rel="alternate" hreflang="el" href="https://astro-connect.app?lang=el">
+  <link rel="alternate" hreflang="th" href="https://astro-connect.app?lang=th">
+  <link rel="alternate" hreflang="vi" href="https://astro-connect.app?lang=vi">
+  <link rel="alternate" hreflang="id" href="https://astro-connect.app?lang=id">
+  <link rel="alternate" hreflang="he" href="https://astro-connect.app?lang=he">
+  <link rel="alternate" hreflang="uk" href="https://astro-connect.app?lang=uk">
+  <link rel="alternate" hreflang="cs" href="https://astro-connect.app?lang=cs">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#06050E">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -454,20 +481,31 @@ body {
 }
 .hero-title {
   font-family: 'Cinzel', serif;
-  font-size: 3.5rem;
-  line-height: 1.15;
+  font-size: 2.8rem;
+  line-height: 1.2;
   margin-bottom: 16px;
   background: linear-gradient(135deg, var(--gold), var(--gold-light), var(--purple-light));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: fadeUp 1s ease both;
+  max-width: 700px;
 }
-.hero-sub {
-  font-size: 1.5rem;
+.hero-hook-sub {
+  font-size: 1.15rem;
   color: var(--text);
-  margin-bottom: 16px;
+  max-width: 540px;
+  margin-bottom: 28px;
   animation: fadeUp 1s 0.2s ease both;
+  line-height: 1.6;
+}
+.hero-sub-small {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+  margin-bottom: 16px;
+  animation: fadeUp 1s 0.6s ease both;
+  letter-spacing: 1px;
 }
 .hero-desc {
   font-size: 1rem;
@@ -475,6 +513,18 @@ body {
   max-width: 600px;
   margin-bottom: 32px;
   animation: fadeUp 1s 0.4s ease both;
+}
+/* Hero big CTA override */
+.hero-mega-cta--big { max-width: 620px; padding: 36px 40px; }
+.hero-mega-cta--big .cta-btn--hero {
+  padding: 18px 36px;
+  font-size: 1.15rem;
+  letter-spacing: 0.5px;
+  animation: ctaPulse 2.5s ease-in-out infinite;
+}
+@keyframes ctaPulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(212,168,67,0.3); }
+  50% { box-shadow: 0 8px 40px rgba(212,168,67,0.55), 0 0 60px rgba(212,168,67,0.15); }
 }
 /* === MEGA CTA === */
 .hero-mega-cta {
@@ -1337,6 +1387,41 @@ body {
 [dir="rtl"] .hamburger { left: auto; right: 16px; }
 [dir="rtl"] .hero-why { text-align: right; }
 [dir="rtl"] .hero-why li::before { content: " ✦"; float: right; margin-left: 6px; }
+/* === VIRAL SHARE BUTTONS === */
+.viral-btn {
+  width: 44px; height: 44px; border-radius: 50%; border: none; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.viral-btn:hover { transform: scale(1.15); box-shadow: 0 4px 16px rgba(212,168,67,0.3); }
+.viral-btn:active { transform: scale(0.95); }
+.viral-unlock-btn:hover { transform: scale(1.05); box-shadow: 0 4px 20px rgba(212,168,67,0.4); }
+
+/* === FLOATING VIRAL BAR === */
+.viral-float-bar {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 9998;
+  background: linear-gradient(135deg, rgba(6,5,14,0.97), rgba(18,16,36,0.97));
+  border-top: 1px solid rgba(212,168,67,0.2);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  padding: 12px 16px; display: flex; align-items: center; justify-content: center; gap: 12px;
+  transform: translateY(100%); transition: transform 0.4s ease;
+}
+.viral-float-bar.visible { transform: translateY(0); }
+.viral-float-bar .vf-text { color: #F7D96E; font-size: 0.85rem; font-weight: 600; }
+.viral-float-bar .vf-btn {
+  padding: 8px 20px; border-radius: 20px; border: none; cursor: pointer;
+  font-weight: bold; font-size: 0.8rem; transition: transform 0.2s;
+}
+.viral-float-bar .vf-btn:hover { transform: scale(1.05); }
+.viral-float-bar .vf-close {
+  background: none; border: none; color: #6B5B8D; cursor: pointer; font-size: 1.2rem;
+  padding: 4px 8px; margin-left: 4px;
+}
+@media (max-width: 600px) {
+  .viral-float-bar { flex-wrap: wrap; gap: 8px; padding: 10px 12px; }
+  .viral-float-bar .vf-text { font-size: 0.75rem; text-align: center; width: 100%; }
+}
+
 [dir="rtl"] .sidebar-cat-head::after { content: "◂"; }
 [dir="rtl"] .sidebar-cat-head.open::after { transform: rotate(-90deg); }
 
@@ -1432,6 +1517,20 @@ body {
     </div>
   </div>
 
+  <!-- VIRAL FLOATING BAR -->
+  <div id="viral-float-bar" class="viral-float-bar">
+    <span class="vf-text" id="vf-text"></span>
+    <button class="vf-btn" style="background:#25D366;color:#fff;" onclick="viralFloatShare('whatsapp')" title="WhatsApp">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-right:4px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp
+    </button>
+    <button class="vf-btn" style="background:linear-gradient(135deg,#D4A843,#7B4FBF);color:#fff;" onclick="viralFloatShare('native')">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:4px;"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+      <span id="vf-share-label"></span>
+    </button>
+    <button class="vf-close" onclick="closeViralBar()" aria-label="Cerrar">&times;</button>
+  </div>
+
   <!-- TEST MODE PANEL -->
   <div id="test-panel" class="test-panel"></div>
   <div id="test-result-overlay" class="test-result-overlay" onclick="if(event.target===this)this.style.display='none'">
@@ -1446,11 +1545,13 @@ const T = {
 es: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'Tu Guía Cósmica',
   badge: 'Plataforma Líder en Astrología Personalizada',
+  heroHook: '¿Que dicen los astros sobre tu futuro inmediato?',
+  heroHookSub: 'Introduce tu fecha de nacimiento y recibe tu guia astrologica personalizada. Analisis real basado en transitos planetarios.',
   heroTitle: 'Descubre Tu Destino Cósmico',
   heroSub: '8 Tradiciones · 36 Servicios · 12 Packs',
   heroDesc: 'La plataforma de astrología más completa del mundo. Tecnología avanzada combinada con 8 tradiciones milenarias.',
-  heroBtn1: '✦ Explorar Catálogo', heroBtn2: 'Ver Tradiciones',
-  ctaTitle: 'Descubre tu destino hoy', ctaHint: 'Introduce tu fecha de nacimiento y recibe tu lectura gratuita', ctaBtn: 'Revelar mi destino', ctaFree: '✦ 100% gratis · Sin tarjeta · Resultado inmediato',
+  heroBtn1: '✦ Explorar Catalogo Completo', heroBtn2: 'Ver Tradiciones',
+  ctaTitle: 'Descubre tu destino hoy', ctaHint: 'Introduce tu fecha de nacimiento y recibe tu lectura gratuita', ctaBtn: 'Revelar mi destino', ctaBtnBig: '✦ Generar mi analisis ahora', ctaPlaceholder: 'Tu fecha de nacimiento', ctaFree: '✦ 100% gratis · Sin tarjeta · Resultado inmediato',
   heroLeadPremium: '✦ Mapa del Alma GRATIS', heroLeadEconomy: '✦ Predicción de Suerte GRATIS',
   leadTitle: 'Tu Lectura Gratuita', leadTitlePremium: 'Mapa del Alma', leadTitleEconomy: 'Tu Predicción de Suerte Personalizada',
   leadSub: 'Descubre lo que las estrellas tienen para ti', leadSubmit: 'Obtener mi lectura GRATIS', subscribeCheckbox: 'Recibir mi horoscopo diario por email',
@@ -1529,16 +1630,22 @@ es: {
   businessDisclaimer: '💼 Aviso importante: La Astrología Business estudia las tendencias astrológicas aplicadas al emprendimiento y la carrera profesional. Esta lectura ofrece orientación sobre timing, fortalezas y áreas de oportunidad según tu carta natal. NO es asesoramiento financiero, NO garantiza resultados económicos, y NO sustituye el consejo de un asesor financiero, abogado o consultor de negocios cualificado.',
   tagPopular: 'Popular', tagNuevo: 'Nuevo', tagPremium: 'Premium', tagExclusivo: 'Exclusivo',
   tagBestseller: 'Bestseller', tagParejas: 'Parejas', tagPadres: 'Padres',
-  tagNegocios: 'Negocios', tagSalud: 'Salud', tagEspiritual: 'Espiritual', tagOriental: 'Oriental', dailyTitle: 'Horoscopo diario gratuito', dailySub: 'Cada manana en tu email — lectura general para tu signo zodiacal', dailyBtn: 'Suscribirme gratis', dailySuccess: 'Suscrito con exito!', dailySuccessMsg: 'Recibiras tu horoscopo general por signo cada manana. Es gratuito.', dailyFree: '100% gratis. Es un horoscopo general por signo, no una lectura personalizada. Puedes cancelar en cualquier momento.', dailySign: 'Tu signo zodiacal', dailySignPlaceholder: 'Selecciona tu signo', signs: { Aries:'Aries', Tauro:'Tauro', Geminis:'Geminis', Cancer:'Cancer', Leo:'Leo', Virgo:'Virgo', Libra:'Libra', Escorpio:'Escorpio', Sagitario:'Sagitario', Capricornio:'Capricornio', Acuario:'Acuario', Piscis:'Piscis' }
+  tagNegocios: 'Negocios', tagSalud: 'Salud', tagEspiritual: 'Espiritual', tagOriental: 'Oriental', dailyTitle: 'Horoscopo diario gratuito', dailySub: 'Cada manana en tu email — lectura general para tu signo zodiacal', dailyBtn: 'Suscribirme gratis', dailySuccess: 'Suscrito con exito!', dailySuccessMsg: 'Recibiras tu horoscopo general por signo cada manana. Es gratuito.', dailyFree: '100% gratis. Es un horoscopo general por signo, no una lectura personalizada. Puedes cancelar en cualquier momento.', dailySign: 'Tu signo zodiacal', dailySignPlaceholder: 'Selecciona tu signo', signs: { Aries:'Aries', Tauro:'Tauro', Geminis:'Geminis', Cancer:'Cancer', Leo:'Leo', Virgo:'Virgo', Libra:'Libra', Escorpio:'Escorpio', Sagitario:'Sagitario', Capricornio:'Capricornio', Acuario:'Acuario', Piscis:'Piscis' },
+  viralShareTitle: 'Comparte tu lectura con el mundo', viralShareSub: 'Tus amigos tambien quieren saber su destino',
+  viralBonusPreview: 'Tu Numero de la Suerte · Color del Dia · Cristal Protector',
+  viralUnlockTitle: 'Contenido Bonus Bloqueado', viralUnlockSub: 'Comparte tu lectura en cualquier red para desbloquearlo', viralUnlockBtn: 'Compartir para desbloquear',
+  viralFloatText: 'Conoce tu destino cosmico gratis', viralFloatShare: 'Compartir'
 },
 en: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'Your Cosmic Guide',
   badge: 'Leading Personalized Astrology Platform',
+  heroHook: 'What do the stars say about your immediate future?',
+  heroHookSub: 'Enter your birth date and receive your personalized astrological guide. Real analysis based on planetary transits.',
   heroTitle: 'Discover Your Cosmic Destiny',
   heroSub: '8 Traditions · 36 Services · 12 Packs',
   heroDesc: 'The world\'s most complete astrology platform. Advanced technology combined with 8 ancient traditions.',
-  heroBtn1: '✦ Explore Catalog', heroBtn2: 'View Traditions',
-  ctaTitle: 'Discover your destiny today', ctaHint: 'Enter your birth date and receive your free reading', ctaBtn: 'Reveal my destiny', ctaFree: '✦ 100% free · No card required · Instant result',
+  heroBtn1: '✦ Explore Full Catalog', heroBtn2: 'View Traditions',
+  ctaTitle: 'Discover your destiny today', ctaHint: 'Enter your birth date and receive your free reading', ctaBtn: 'Reveal my destiny', ctaBtnBig: '✦ Generate my analysis now', ctaPlaceholder: 'Your birth date', ctaFree: '✦ 100% free · No card required · Instant result',
   heroLeadPremium: '✦ Free Soul Map', heroLeadEconomy: '✦ Free Luck Prediction',
   leadTitle: 'Your Free Reading', leadTitlePremium: 'Soul Map', leadTitleEconomy: 'Your Personalized Luck Prediction',
   leadSub: 'Discover what the stars have for you', leadSubmit: 'Get my FREE reading', subscribeCheckbox: 'Receive my daily horoscope by email',
@@ -1617,16 +1724,22 @@ en: {
   businessDisclaimer: '💼 Important notice: Business Astrology studies astrological trends applied to entrepreneurship and professional careers. This reading offers guidance on timing, strengths and areas of opportunity based on your birth chart. It is NOT financial advice, does NOT guarantee economic results, and does NOT replace the counsel of a qualified financial advisor, lawyer or business consultant.',
   tagPopular: 'Popular', tagNuevo: 'New', tagPremium: 'Premium', tagExclusivo: 'Exclusive',
   tagBestseller: 'Bestseller', tagParejas: 'Couples', tagPadres: 'Parents',
-  tagNegocios: 'Business', tagSalud: 'Health', tagEspiritual: 'Spiritual', tagOriental: 'Oriental', dailyTitle: 'Free daily horoscope', dailySub: 'Every morning in your email — general reading for your zodiac sign', dailyBtn: 'Subscribe for free', dailySuccess: 'Subscribed successfully!', dailySuccessMsg: 'You will receive your general horoscope by sign every morning. It is free.', dailyFree: '100% free. This is a general horoscope by sign, not a personalized reading. Cancel anytime.', dailySign: 'Your zodiac sign', dailySignPlaceholder: 'Select your sign', signs: { Aries:'Aries', Tauro:'Taurus', Geminis:'Gemini', Cancer:'Cancer', Leo:'Leo', Virgo:'Virgo', Libra:'Libra', Escorpio:'Scorpio', Sagitario:'Sagittarius', Capricornio:'Capricorn', Acuario:'Aquarius', Piscis:'Pisces' }
+  tagNegocios: 'Business', tagSalud: 'Health', tagEspiritual: 'Spiritual', tagOriental: 'Oriental', dailyTitle: 'Free daily horoscope', dailySub: 'Every morning in your email — general reading for your zodiac sign', dailyBtn: 'Subscribe for free', dailySuccess: 'Subscribed successfully!', dailySuccessMsg: 'You will receive your general horoscope by sign every morning. It is free.', dailyFree: '100% free. This is a general horoscope by sign, not a personalized reading. Cancel anytime.', dailySign: 'Your zodiac sign', dailySignPlaceholder: 'Select your sign', signs: { Aries:'Aries', Tauro:'Taurus', Geminis:'Gemini', Cancer:'Cancer', Leo:'Leo', Virgo:'Virgo', Libra:'Libra', Escorpio:'Scorpio', Sagitario:'Sagittarius', Capricornio:'Capricorn', Acuario:'Aquarius', Piscis:'Pisces' },
+  viralShareTitle: 'Share your reading with the world', viralShareSub: 'Your friends also want to know their destiny',
+  viralBonusPreview: 'Your Lucky Number · Color of the Day · Protective Crystal',
+  viralUnlockTitle: 'Bonus Content Locked', viralUnlockSub: 'Share your reading on any network to unlock it', viralUnlockBtn: 'Share to unlock',
+  viralFloatText: 'Discover your cosmic destiny for free', viralFloatShare: 'Share'
 },
 bg: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'Твоят Космически Пътеводител',
   badge: 'Водеща платформа за ИИ астрология',
   heroTitle: 'Открий Своята Космическа Съдба',
+  heroHook: 'Какво казват звездите за близкото ти бъдеще?',
+  heroHookSub: 'Въведи рождената си дата и получи персонализирано астрологично ръководство. Реален анализ, базиран на планетарни транзити.',
   heroSub: '8 Традиции · 36 Услуги · 12 Пакета',
   heroDesc: 'Най-пълната астрологична платформа в света. Изкуствен интелект от последно поколение, комбиниран с 8 хилядолетни традиции.',
   heroBtn1: '✦ Разгледай Каталога', heroBtn2: 'Виж Традициите',
-  ctaTitle: 'Открий съдбата си днес', ctaHint: 'Въведи рождената си дата и получи безплатно четене', ctaBtn: 'Разкрий съдбата ми', ctaFree: '✦ 100% безплатно · Без карта · Мигновен резултат',
+  ctaTitle: 'Открий съдбата си днес', ctaHint: 'Въведи рождената си дата и получи безплатно четене', ctaBtn: 'Разкрий съдбата ми', ctaBtnBig: '✦ Генерирай моя анализ сега', ctaPlaceholder: 'Твоята рождена дата', ctaFree: '✦ 100% безплатно · Без карта · Мигновен резултат',
   heroLeadPremium: '✦ Безплатна Карта на Душата', heroLeadEconomy: '✦ Безплатна Предсказание за Късмет',
   leadTitle: 'Твоето Безплатно Четене', leadTitlePremium: 'Карта на Душата', leadTitleEconomy: 'Твоето Персонализирано Предсказание за Късмет',
   leadSub: 'Открий какво звездите имат за теб', leadSubmit: 'Получи БЕЗПЛАТНО четене', subscribeCheckbox: 'Получавай дневния си хороскоп по имейл',
@@ -1688,6 +1801,8 @@ fr: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'Votre Guide Cosmique',
   badge: 'Plateforme Leader en Astrologie IA',
   heroTitle: 'Découvrez Votre Destin Cosmique',
+  heroHook: 'Que disent les astres sur votre avenir immediat?',
+  heroHookSub: 'Entrez votre date de naissance et recevez votre guide astrologique personnalise. Analyse reelle basee sur les transits planetaires.',
   heroSub: '8 Traditions · 36 Services · 12 Packs',
   heroDesc: 'La plateforme d\'astrologie la plus complète au monde. Intelligence artificielle de pointe combinée à 8 traditions millénaires.',
   heroBtn1: '✦ Explorer le Catalogue', heroBtn2: 'Voir les Traditions',
@@ -1717,7 +1832,7 @@ fr: {
   test3: '"The Ba Zi reading was mind-blowing. Combined with Western synastry, it gave us a complete picture."',
   test3a: 'James R.', test3l: 'London, UK',
   ctaTitle: '✦ Découvrez la Carte de Votre Âme', ctaSub: 'Choisissez parmi 36 services et 12 packs. Votre destin vous attend.',
-  ctaBtn: '✦ Explorer le Catalogue',
+  ctaBtn: '✦ Explorer le Catalogue', ctaBtnBig: '✦ Generer mon analyse maintenant', ctaPlaceholder: 'Votre date de naissance',
   catOcc: 'Occidentale', catCab: 'Kabbalistique', catVed: 'Védique', catChi: 'Chinoise',
   catEsp: 'Spécialisée', catAlm: 'Âme', catCel: 'Céleste', catHd: 'Human Design', catPack: 'Packs',
   fName: 'Nom complet', fDate: 'Date de naissance', fTime: 'Heure de naissance',
@@ -1744,6 +1859,8 @@ de: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'Dein Kosmischer Führer',
   badge: 'Führende KI-Astrologie-Plattform',
   heroTitle: 'Entdecke Dein Kosmisches Schicksal',
+  heroHook: 'Was sagen die Sterne uber deine unmittelbare Zukunft?',
+  heroHookSub: 'Gib dein Geburtsdatum ein und erhalte deinen personalisierten astrologischen Leitfaden. Echte Analyse basierend auf Planetentransiten.',
   heroSub: '8 Traditionen · 36 Dienste · 12 Pakete',
   heroDesc: 'Die weltweit umfassendste Astrologie-Plattform. Modernste künstliche Intelligenz kombiniert mit 8 jahrtausendealten Traditionen.',
   heroBtn1: '✦ Katalog Erkunden', heroBtn2: 'Traditionen Ansehen',
@@ -1773,7 +1890,7 @@ de: {
   test3: '"The Ba Zi reading was mind-blowing. Combined with Western synastry, it gave us a complete picture."',
   test3a: 'James R.', test3l: 'London, UK',
   ctaTitle: '✦ Entdecke die Karte Deiner Seele', ctaSub: 'Wähle aus 36 Diensten und 12 Paketen. Dein Schicksal erwartet dich.',
-  ctaBtn: '✦ Katalog Erkunden',
+  ctaBtn: '✦ Katalog Erkunden', ctaBtnBig: '✦ Meine Analyse jetzt erstellen', ctaPlaceholder: 'Dein Geburtsdatum',
   catOcc: 'Westlich', catCab: 'Kabbalistisch', catVed: 'Vedisch', catChi: 'Chinesisch',
   catEsp: 'Spezialisiert', catAlm: 'Seele', catCel: 'Himmlisch', catHd: 'Human Design', catPack: 'Pakete',
   fName: 'Vollständiger Name', fDate: 'Geburtsdatum', fTime: 'Geburtszeit',
@@ -1800,6 +1917,8 @@ it: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'La Tua Guida Cosmica',
   badge: 'Piattaforma Leader di Astrologia IA',
   heroTitle: 'Scopri il Tuo Destino Cosmico',
+  heroHook: 'Cosa dicono gli astri sul tuo futuro immediato?',
+  heroHookSub: 'Inserisci la tua data di nascita e ricevi la tua guida astrologica personalizzata. Analisi reale basata sui transiti planetari.',
   heroSub: '8 Tradizioni · 36 Servizi · 12 Pack',
   heroDesc: 'La piattaforma di astrologia più completa al mondo. Intelligenza artificiale all\'avanguardia combinata con 8 tradizioni millenarie.',
   heroBtn1: '✦ Esplora il Catalogo', heroBtn2: 'Vedi le Tradizioni',
@@ -1829,7 +1948,7 @@ it: {
   test3: '"The Ba Zi reading was mind-blowing. Combined with Western synastry, it gave us a complete picture."',
   test3a: 'James R.', test3l: 'London, UK',
   ctaTitle: '✦ Scopri la Mappa della Tua Anima', ctaSub: 'Scegli tra 36 servizi e 12 pack. Il tuo destino ti aspetta.',
-  ctaBtn: '✦ Esplora il Catalogo',
+  ctaBtn: '✦ Esplora il Catalogo', ctaBtnBig: '✦ Genera la mia analisi ora', ctaPlaceholder: 'La tua data di nascita',
   catOcc: 'Occidentale', catCab: 'Cabalistica', catVed: 'Vedica', catChi: 'Cinese',
   catEsp: 'Specializzata', catAlm: 'Anima', catCel: 'Celeste', catHd: 'Human Design', catPack: 'Pack',
   fName: 'Nome completo', fDate: 'Data di nascita', fTime: 'Ora di nascita',
@@ -1856,6 +1975,8 @@ pt: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'Seu Guia Cósmico',
   badge: 'Plataforma Líder em Astrologia IA',
   heroTitle: 'Descubra Seu Destino Cósmico',
+  heroHook: 'O que dizem os astros sobre seu futuro imediato?',
+  heroHookSub: 'Insira sua data de nascimento e receba seu guia astrologico personalizado. Analise real baseada em transitos planetarios.',
   heroSub: '8 Tradições · 36 Serviços · 12 Packs',
   heroDesc: 'A plataforma de astrologia mais completa do mundo. Inteligência artificial de última geração combinada com 8 tradições milenares.',
   heroBtn1: '✦ Explorar Catálogo', heroBtn2: 'Ver Tradições',
@@ -1885,7 +2006,7 @@ pt: {
   test3: '"The Ba Zi reading was mind-blowing. Combined with Western synastry, it gave us a complete picture."',
   test3a: 'James R.', test3l: 'London, UK',
   ctaTitle: '✦ Descubra o Mapa da Sua Alma', ctaSub: 'Escolha entre 36 serviços e 12 packs. Seu destino espera.',
-  ctaBtn: '✦ Explorar Catálogo',
+  ctaBtn: '✦ Explorar Catálogo', ctaBtnBig: '✦ Gerar minha analise agora', ctaPlaceholder: 'Sua data de nascimento',
   catOcc: 'Ocidental', catCab: 'Cabalística', catVed: 'Védica', catChi: 'Chinesa',
   catEsp: 'Especializada', catAlm: 'Alma', catCel: 'Celestial', catHd: 'Human Design', catPack: 'Packs',
   fName: 'Nome completo', fDate: 'Data de nascimento', fTime: 'Hora de nascimento',
@@ -1912,6 +2033,8 @@ ru: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'Ваш Космический Путеводитель',
   badge: 'Ведущая Платформа ИИ-Астрологии',
   heroTitle: 'Откройте Свою Космическую Судьбу',
+  heroHook: 'Что говорят звезды о вашем ближайшем будущем?',
+  heroHookSub: 'Введите дату рождения и получите персональный астрологический гид. Реальный анализ на основе планетарных транзитов.',
   heroSub: '8 Традиций · 36 Услуг · 12 Пакетов',
   heroDesc: 'Самая полная астрологическая платформа в мире. Искусственный интеллект последнего поколения в сочетании с 8 тысячелетними традициями.',
   heroBtn1: '✦ Открыть Каталог', heroBtn2: 'Смотреть Традиции',
@@ -1941,7 +2064,7 @@ ru: {
   test3: '"The Ba Zi reading was mind-blowing. Combined with Western synastry, it gave us a complete picture."',
   test3a: 'James R.', test3l: 'London, UK',
   ctaTitle: '✦ Откройте Карту Вашей Души', ctaSub: 'Выберите из 36 услуг и 12 пакетов. Ваша судьба ждёт.',
-  ctaBtn: '✦ Открыть Каталог',
+  ctaBtn: '✦ Открыть Каталог', ctaBtnBig: '✦ Создать мой анализ сейчас', ctaPlaceholder: 'Ваша дата рождения',
   catOcc: 'Западная', catCab: 'Каббалистическая', catVed: 'Ведическая', catChi: 'Китайская',
   catEsp: 'Специализированная', catAlm: 'Душа', catCel: 'Небесная', catHd: 'Human Design', catPack: 'Пакеты',
   fName: 'Полное имя', fDate: 'Дата рождения', fTime: 'Время рождения',
@@ -1968,6 +2091,8 @@ zh: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: '你的宇宙指南',
   badge: '领先的AI占星平台',
   heroTitle: '探索你的宇宙命运',
+  heroHook: '星星对你的近期未来有何预示？',
+  heroHookSub: '输入你的出生日期，获取个性化占星指南。基于行星过境的真实分析。',
   heroSub: '8 传统 · 36 服务 · 12 套餐',
   heroDesc: '世界上最完整的占星平台。最先进的人工智能结合8大千年传统。',
   heroBtn1: '✦ 浏览目录', heroBtn2: '查看传统',
@@ -1994,7 +2119,7 @@ zh: {
   test3: '"The Ba Zi reading was mind-blowing. Combined with Western synastry, it gave us a complete picture."',
   test3a: 'James R.', test3l: 'London, UK',
   ctaTitle: '✦ 发现你的灵魂地图', ctaSub: '从36项服务和12个套餐中选择。你的命运在等待。',
-  ctaBtn: '✦ 浏览目录',
+  ctaBtn: '✦ 浏览目录', ctaBtnBig: '✦ 立即生成我的分析', ctaPlaceholder: '你的出生日期',
   catOcc: '西方', catCab: '卡巴拉', catVed: '吠陀', catChi: '中国',
   catEsp: '专业', catAlm: '灵魂', catCel: '天体', catHd: 'Human Design', catPack: '套餐',
   fName: '全名', fDate: '出生日期', fTime: '出生时间',
@@ -2021,6 +2146,8 @@ ja: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'あなたの宇宙ガイド',
   badge: 'AI占星術リーディングプラットフォーム',
   heroTitle: 'あなたの宇宙の運命を発見',
+  heroHook: '星はあなたの近い未来について何と言っていますか？',
+  heroHookSub: '生年月日を入力して、パーソナライズされた占星術ガイドを受け取りましょう。惑星トランジットに基づくリアルな分析。',
   heroSub: '8 伝統 · 36 サービス · 12 パック',
   heroDesc: '世界で最も完全な占星術プラットフォーム。最先端のAIと8つの古代の伝統を融合。',
   heroBtn1: '✦ カタログを見る', heroBtn2: '伝統を見る',
@@ -2047,7 +2174,7 @@ ja: {
   test3: '"The Ba Zi reading was mind-blowing. Combined with Western synastry, it gave us a complete picture."',
   test3a: 'James R.', test3l: 'London, UK',
   ctaTitle: '✦ 魂の地図を発見しよう', ctaSub: '36のサービスと12のパックから選択。あなたの運命が待っています。',
-  ctaBtn: '✦ カタログを見る',
+  ctaBtn: '✦ カタログを見る', ctaBtnBig: '✦ 今すぐ分析を生成', ctaPlaceholder: 'あなたの生年月日',
   catOcc: '西洋', catCab: 'カバラ', catVed: 'ヴェーダ', catChi: '中国',
   catEsp: '専門', catAlm: '魂', catCel: '天体', catHd: 'Human Design', catPack: 'パック',
   fName: '氏名', fDate: '生年月日', fTime: '出生時間',
@@ -2074,6 +2201,8 @@ ko: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: '당신의 우주 가이드',
   badge: '최고의 AI 점성술 플랫폼',
   heroTitle: '당신의 우주적 운명을 발견하세요',
+  heroHook: '별들이 당신의 가까운 미래에 대해 무엇을 말하고 있나요?',
+  heroHookSub: '생년월일을 입력하고 맞춤 점성술 가이드를 받으세요. 행성 트랜짓에 기반한 실제 분석.',
   heroSub: '8 전통 · 36 서비스 · 12 팩',
   heroDesc: '세계에서 가장 완전한 점성술 플랫폼. 최첨단 AI와 8개 고대 전통의 결합.',
   heroBtn1: '✦ 카탈로그 탐색', heroBtn2: '전통 보기',
@@ -2100,7 +2229,7 @@ ko: {
   test3: '"The Ba Zi reading was mind-blowing. Combined with Western synastry, it gave us a complete picture."',
   test3a: 'James R.', test3l: 'London, UK',
   ctaTitle: '✦ 영혼의 지도를 발견하세요', ctaSub: '36개 서비스와 12개 팩에서 선택하세요. 당신의 운명이 기다립니다.',
-  ctaBtn: '✦ 카탈로그 탐색',
+  ctaBtn: '✦ 카탈로그 탐색', ctaBtnBig: '✦ 지금 내 분석 생성', ctaPlaceholder: '생년월일',
   catOcc: '서양', catCab: '카발라', catVed: '베다', catChi: '중국',
   catEsp: '전문', catAlm: '영혼', catCel: '천체', catHd: 'Human Design', catPack: '팩',
   fName: '성명', fDate: '생년월일', fTime: '출생 시간',
@@ -2127,6 +2256,8 @@ ar: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'دليلك الكوني',
   badge: 'منصة التنجيم الرائدة بالذكاء الاصطناعي',
   heroTitle: 'اكتشف مصيرك الكوني',
+  heroHook: 'ماذا تقول النجوم عن مستقبلك القريب؟',
+  heroHookSub: 'ادخل تاريخ ميلادك واحصل على دليلك الفلكي المخصص. تحليل حقيقي مبني على العبور الكوكبي.',
   heroSub: '8 تقاليد · 36 خدمة · 12 باقة',
   heroDesc: 'أكمل منصة تنجيم في العالم. ذكاء اصطناعي متطور مع 8 تقاليد عريقة.',
   heroBtn1: '✦ استكشف الكتالوج', heroBtn2: 'عرض التقاليد',
@@ -2153,7 +2284,7 @@ ar: {
   test3: '"The Ba Zi reading was mind-blowing. Combined with Western synastry, it gave us a complete picture."',
   test3a: 'James R.', test3l: 'London, UK',
   ctaTitle: '✦ اكتشف خريطة روحك', ctaSub: 'اختر من 36 خدمة و12 باقة. مصيرك ينتظرك.',
-  ctaBtn: '✦ استكشف الكتالوج',
+  ctaBtn: '✦ استكشف الكتالوج', ctaBtnBig: '✦ أنشئ تحليلي الآن', ctaPlaceholder: 'تاريخ ميلادك',
   catOcc: 'غربي', catCab: 'قبالي', catVed: 'فيدي', catChi: 'صيني',
   catEsp: 'متخصص', catAlm: 'الروح', catCel: 'سماوي', catHd: 'Human Design', catPack: 'باقات',
   fName: 'الاسم الكامل', fDate: 'تاريخ الميلاد', fTime: 'وقت الولادة',
@@ -2180,6 +2311,8 @@ hi: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'आपका ब्रह्मांडीय मार्गदर्शक',
   badge: 'अग्रणी AI ज्योतिष मंच',
   heroTitle: 'अपनी ब्रह्मांडीय नियति खोजें',
+  heroHook: 'सितारे आपके निकट भविष्य के बारे में क्या कहते हैं?',
+  heroHookSub: 'अपनी जन्म तिथि दर्ज करें और अपनी व्यक्तिगत ज्योतिषीय मार्गदर्शिका प्राप्त करें। ग्रहीय गोचर पर आधारित वास्तविक विश्लेषण।',
   heroSub: '8 परंपराएं · 36 सेवाएं · 12 पैक',
   heroDesc: 'दुनिया का सबसे संपूर्ण ज्योतिष मंच। अत्याधुनिक AI और 8 प्राचीन परंपराओं का संयोजन।',
   heroBtn1: '✦ कैटलॉग देखें', heroBtn2: 'परंपराएं देखें',
@@ -2206,7 +2339,7 @@ hi: {
   test3: '"The Ba Zi reading was mind-blowing. Combined with Western synastry, it gave us a complete picture."',
   test3a: 'James R.', test3l: 'London, UK',
   ctaTitle: '✦ अपनी आत्मा का नक्शा खोजें', ctaSub: '36 सेवाएं और 12 पैक में से चुनें। आपकी नियति इंतजार कर रही है।',
-  ctaBtn: '✦ कैटलॉग देखें',
+  ctaBtn: '✦ कैटलॉग देखें', ctaBtnBig: '✦ अभी मेरा विश्लेषण बनाएं', ctaPlaceholder: 'आपकी जन्म तिथि',
   catOcc: 'पश्चिमी', catCab: 'कबालिस्टिक', catVed: 'वैदिक', catChi: 'चीनी',
   catEsp: 'विशेषीकृत', catAlm: 'आत्मा', catCel: 'आकाशीय', catHd: 'Human Design', catPack: 'पैक',
   fName: 'पूरा नाम', fDate: 'जन्म तिथि', fTime: 'जन्म समय',
@@ -2233,6 +2366,8 @@ tr: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'Kozmik Rehberiniz',
   badge: 'Lider AI Astroloji Platformu',
   heroTitle: 'Kozmik Kaderinizi Keşfedin',
+  heroHook: 'Yildizlar yakin gelecegin hakkinda ne diyor?',
+  heroHookSub: 'Dogum tarihini gir ve kisisellestirilmis astroloji rehberini al. Gezegen transitlerinden gercek analiz.',
   heroSub: '8 Gelenek · 36 Hizmet · 12 Paket',
   heroDesc: 'Dünyanın en kapsamlı astroloji platformu. En son yapay zeka teknolojisi ile 8 kadim geleneğin birleşimi.',
   heroBtn1: '✦ Kataloğu Keşfet', heroBtn2: 'Gelenekleri Gör',
@@ -2259,7 +2394,7 @@ tr: {
   test3: '"The Ba Zi reading was mind-blowing. Combined with Western synastry, it gave us a complete picture."',
   test3a: 'James R.', test3l: 'London, UK',
   ctaTitle: '✦ Ruhunuzun Haritasını Keşfedin', ctaSub: '36 hizmet ve 12 paket arasından seçin. Kaderiniz bekliyor.',
-  ctaBtn: '✦ Kataloğu Keşfet',
+  ctaBtn: '✦ Kataloğu Keşfet', ctaBtnBig: '✦ Analizimi simdi olustur', ctaPlaceholder: 'Dogum tarihin',
   catOcc: 'Batı', catCab: 'Kabalistik', catVed: 'Vedik', catChi: 'Çin',
   catEsp: 'Uzmanlaşmış', catAlm: 'Ruh', catCel: 'Göksel', catHd: 'Human Design', catPack: 'Paketler',
   fName: 'Tam ad', fDate: 'Doğum tarihi', fTime: 'Doğum saati',
@@ -2286,6 +2421,8 @@ nl: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'Jouw Kosmische Gids',
   badge: 'Toonaangevend AI Astrologie Platform',
   heroTitle: 'Ontdek Jouw Kosmische Bestemming',
+  heroHook: 'Wat zeggen de sterren over je nabije toekomst?',
+  heroHookSub: 'Voer je geboortedatum in en ontvang je persoonlijke astrologische gids. Echte analyse op basis van planetaire transits.',
   heroSub: '8 Tradities · 36 Diensten · 12 Pakketten',
   heroDesc: 'Het meest complete astrologieplatform ter wereld. Geavanceerde AI gecombineerd met 8 eeuwenoude tradities.',
   heroBtn1: '✦ Catalogus Bekijken', heroBtn2: 'Tradities Bekijken',
@@ -2312,7 +2449,7 @@ nl: {
   test3: '"The Ba Zi reading was mind-blowing. Combined with Western synastry, it gave us a complete picture."',
   test3a: 'James R.', test3l: 'London, UK',
   ctaTitle: '✦ Ontdek de Kaart van Je Ziel', ctaSub: 'Kies uit 36 diensten en 12 pakketten. Jouw bestemming wacht.',
-  ctaBtn: '✦ Catalogus Bekijken',
+  ctaBtn: '✦ Catalogus Bekijken', ctaBtnBig: '✦ Genereer mijn analyse nu', ctaPlaceholder: 'Je geboortedatum',
   catOcc: 'Westers', catCab: 'Kabbalistisch', catVed: 'Vedisch', catChi: 'Chinees',
   catEsp: 'Gespecialiseerd', catAlm: 'Ziel', catCel: 'Hemels', catHd: 'Human Design', catPack: 'Pakketten',
   fName: 'Volledige naam', fDate: 'Geboortedatum', fTime: 'Geboortetijd',
@@ -2339,6 +2476,8 @@ sv: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'Din Kosmiska Guide',
   badge: 'Ledande AI-astrologiplattform',
   heroTitle: 'Upptäck Ditt Kosmiska Öde',
+  heroHook: 'Vad sager stjarnorna om din nara framtid?',
+  heroHookSub: 'Ange ditt fodelsedatum och fa din personliga astrologiska guide. Riktig analys baserad pa planetara transiter.',
   heroSub: '8 Traditioner · 36 Tjänster · 12 Paket',
   heroDesc: 'Världens mest kompletta astrologiplattform. Banbrytande AI kombinerat med 8 tusenåriga traditioner.',
   heroBtn1: '✦ Utforska Katalogen', heroBtn2: 'Se Traditioner',
@@ -2365,7 +2504,7 @@ sv: {
   test3: '"The Ba Zi reading was mind-blowing. Combined with Western synastry, it gave us a complete picture."',
   test3a: 'James R.', test3l: 'London, UK',
   ctaTitle: '✦ Upptäck Din Själskarta', ctaSub: 'Välj bland 36 tjänster och 12 paket. Ditt öde väntar.',
-  ctaBtn: '✦ Utforska Katalogen',
+  ctaBtn: '✦ Utforska Katalogen', ctaBtnBig: '✦ Generera min analys nu', ctaPlaceholder: 'Ditt fodelsedatum',
   catOcc: 'Västerländsk', catCab: 'Kabbalistisk', catVed: 'Vedisk', catChi: 'Kinesisk',
   catEsp: 'Specialiserad', catAlm: 'Själ', catCel: 'Himmelsk', catHd: 'Human Design', catPack: 'Paket',
   fName: 'Fullständigt namn', fDate: 'Födelsedatum', fTime: 'Födelsetid',
@@ -2391,6 +2530,8 @@ pl: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'Twój Kosmiczny Przewodnik',
   badge: 'Wiodąca Platforma Astrologii AI',
   heroTitle: 'Odkryj Swoje Kosmiczne Przeznaczenie',
+  heroHook: 'Co mowia gwiazdy o twojej najblizszej przyszlosci?',
+  heroHookSub: 'Wpisz date urodzenia i otrzymaj spersonalizowany przewodnik astrologiczny. Prawdziwa analiza oparta na tranzytach planet.',
   heroSub: '8 Tradycji · 36 Usług · 12 Pakietów',
   heroDesc: 'Najbardziej kompletna platforma astrologiczna na świecie. Najnowocześniejsza AI w połączeniu z 8 tysiącletnimi tradycjami.',
   heroBtn1: '✦ Przeglądaj Katalog', heroBtn2: 'Zobacz Tradycje',
@@ -2417,7 +2558,7 @@ pl: {
   test3: '"The Ba Zi reading was mind-blowing. Combined with Western synastry, it gave us a complete picture."',
   test3a: 'James R.', test3l: 'London, UK',
   ctaTitle: '✦ Odkryj Mapę Swojej Duszy', ctaSub: 'Wybierz spośród 36 usług i 12 pakietów. Twoje przeznaczenie czeka.',
-  ctaBtn: '✦ Przeglądaj Katalog',
+  ctaBtn: '✦ Przeglądaj Katalog', ctaBtnBig: '✦ Wygeneruj moja analize teraz', ctaPlaceholder: 'Twoja data urodzenia',
   catOcc: 'Zachodnia', catCab: 'Kabalistyczna', catVed: 'Wedyjska', catChi: 'Chińska',
   catEsp: 'Specjalistyczna', catAlm: 'Dusza', catCel: 'Niebiańska', catHd: 'Human Design', catPack: 'Pakiety',
   fName: 'Imię i nazwisko', fDate: 'Data urodzenia', fTime: 'Godzina urodzenia',
@@ -2442,6 +2583,8 @@ pl: {
 ro: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'Ghidul Tău Cosmic',
   badge: 'Platformă Lider de Astrologie AI', heroTitle: 'Descoperă-ți Destinul Cosmic',
+  heroHook: 'Ce spun astrele despre viitorul tau imediat?',
+  heroHookSub: 'Introdu data nasterii si primeste ghidul tau astrologic personalizat. Analiza reala bazata pe tranzite planetare.',
   heroSub: '8 Tradiții · 36 Servicii · 12 Pachete',
   heroDesc: 'Cea mai completă platformă de astrologie din lume. AI de ultimă generație combinată cu 8 tradiții milenare.',
   heroBtn1: '✦ Explorează Catalogul', heroBtn2: 'Vezi Tradițiile',
@@ -2462,7 +2605,7 @@ ro: {
   test1a: 'María G.', test1l: 'Madrid, Spania',
   test2: '"Получила Мега Карту — 4 традиции в одном. Невероятная глубина анализа."', test2a: 'Катерина Д.', test2l: 'Sofia, Bulgaria',
   test3: '"The Ba Zi reading was mind-blowing. Combined with Western synastry, it gave us a complete picture."', test3a: 'James R.', test3l: 'London, UK',
-  ctaTitle: '✦ Descoperă Harta Sufletului Tău', ctaSub: 'Alege din 36 servicii și 12 pachete. Destinul tău te așteaptă.', ctaBtn: '✦ Explorează Catalogul',
+  ctaTitle: '✦ Descoperă Harta Sufletului Tău', ctaSub: 'Alege din 36 servicii și 12 pachete. Destinul tău te așteaptă.', ctaBtn: '✦ Explorează Catalogul', ctaBtnBig: '✦ Genereaza analiza mea acum', ctaPlaceholder: 'Data ta de nastere',
   catOcc: 'Occidentală', catCab: 'Cabalistică', catVed: 'Vedică', catChi: 'Chineză', catEsp: 'Specializată', catAlm: 'Suflet', catCel: 'Celestă', catHd: 'Human Design', catPack: 'Pachete',
   fName: 'Nume complet', fDate: 'Data nașterii', fTime: 'Ora nașterii', fTimeNote: 'Dacă este cunoscută, îmbunătățește precizia', fCity: 'Orașul nașterii', fCountry: 'Țara de naștere',
   fEmail: 'Email pentru lectură', fPerson2: 'Datele persoanei a doua', fSex: 'Sex biologic', fMale: 'Masculin', fFemale: 'Feminin',
@@ -2479,6 +2622,8 @@ ro: {
 el: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'Ο Κοσμικός σου Οδηγός',
   badge: 'Κορυφαία Πλατφόρμα Αστρολογίας AI', heroTitle: 'Ανακάλυψε την Κοσμική σου Μοίρα',
+  heroHook: 'Τι λενε τα αστρα για το αμεσο μελλον σου;',
+  heroHookSub: 'Εισαγετε την ημερομηνια γεννησης σας και λαβετε τον προσωπικο σας αστρολογικο οδηγο. Πραγματικη αναλυση βασισμενη σε πλανητικα τρανζιτ.',
   heroSub: '8 Παραδόσεις · 36 Υπηρεσίες · 12 Πακέτα',
   heroDesc: 'Η πιο ολοκληρωμένη πλατφόρμα αστρολογίας στον κόσμο. Τεχνητή νοημοσύνη αιχμής με 8 χιλιετείς παραδόσεις.',
   heroBtn1: '✦ Εξερεύνηση Καταλόγου', heroBtn2: 'Δες τις Παραδόσεις',
@@ -2499,7 +2644,7 @@ el: {
   test1a: 'María G.', test1l: 'Μαδρίτη, Ισπανία',
   test2: '"Получила Мега Карту — 4 традиции в одном. Невероятная глубина анализа."', test2a: 'Катерина Д.', test2l: 'Σόφια, Βουλγαρία',
   test3: '"The Ba Zi reading was mind-blowing. Combined with Western synastry, it gave us a complete picture."', test3a: 'James R.', test3l: 'London, UK',
-  ctaTitle: '✦ Ανακάλυψε τον Χάρτη της Ψυχής σου', ctaSub: 'Επίλεξε από 36 υπηρεσίες και 12 πακέτα.', ctaBtn: '✦ Εξερεύνηση Καταλόγου',
+  ctaTitle: '✦ Ανακάλυψε τον Χάρτη της Ψυχής σου', ctaSub: 'Επίλεξε από 36 υπηρεσίες και 12 πακέτα.', ctaBtn: '✦ Εξερεύνηση Καταλόγου', ctaBtnBig: '✦ Δημιουργηστε την αναλυση μου τωρα', ctaPlaceholder: 'Ημερομηνια γεννησης',
   catOcc: 'Δυτική', catCab: 'Καμπαλιστική', catVed: 'Βεδική', catChi: 'Κινεζική', catEsp: 'Εξειδικευμένη', catAlm: 'Ψυχή', catCel: 'Ουράνια', catHd: 'Human Design', catPack: 'Πακέτα',
   fName: 'Πλήρες όνομα', fDate: 'Ημ/νία γέννησης', fTime: 'Ώρα γέννησης', fTimeNote: 'Αν γνωστή, βελτιώνει την ακρίβεια', fCity: 'Πόλη γέννησης', fCountry: 'Χώρα γέννησης',
   fEmail: 'Email για ανάγνωση', fPerson2: 'Στοιχεία δεύτερου ατόμου', fSex: 'Βιολογικό φύλο', fMale: 'Άνδρας', fFemale: 'Γυναίκα',
@@ -2516,6 +2661,8 @@ el: {
 th: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'คู่มือจักรวาลของคุณ',
   badge: 'แพลตฟอร์มโหราศาสตร์ AI ชั้นนำ', heroTitle: 'ค้นพบโชคชะตาจักรวาลของคุณ',
+  heroHook: 'ดวงดาวบอกอะไรเกี่ยวกับอนาคตอันใกล้ของคุณ?',
+  heroHookSub: 'กรอกวันเกิดของคุณและรับคู่มือโหราศาสตร์ส่วนตัว การวิเคราะห์จริงจากการโคจรของดาวเคราะห์',
   heroSub: '8 ประเพณี · 36 บริการ · 12 แพ็ค',
   heroDesc: 'แพลตฟอร์มโหราศาสตร์ที่สมบูรณ์ที่สุดในโลก AI ล้ำสมัยผสมผสาน 8 ประเพณีโบราณ',
   heroBtn1: '✦ สำรวจแคตตาล็อก', heroBtn2: 'ดูประเพณี',
@@ -2533,7 +2680,7 @@ th: {
   test1: '"แผนที่คาบาลาเปิดเผยแง่มุมชีวิตที่ไม่มีระบบอื่นเคยแตะต้อง"', test1a: 'María G.', test1l: 'มาดริด สเปน',
   test2: '"Получила Мега Карту — 4 традиции в одном. Невероятная глубина анализа."', test2a: 'Катерина Д.', test2l: 'โซเฟีย บัลแกเรีย',
   test3: '"The Ba Zi reading was mind-blowing. Combined with Western synastry, it gave us a complete picture."', test3a: 'James R.', test3l: 'London, UK',
-  ctaTitle: '✦ ค้นพบแผนที่วิญญาณของคุณ', ctaSub: 'เลือกจาก 36 บริการและ 12 แพ็ค', ctaBtn: '✦ สำรวจแคตตาล็อก',
+  ctaTitle: '✦ ค้นพบแผนที่วิญญาณของคุณ', ctaSub: 'เลือกจาก 36 บริการและ 12 แพ็ค', ctaBtn: '✦ สำรวจแคตตาล็อก', ctaBtnBig: '✦ สร้างการวิเคราะห์ของฉันตอนนี้', ctaPlaceholder: 'วันเกิดของคุณ',
   catOcc: 'ตะวันตก', catCab: 'คาบาลา', catVed: 'เวทิก', catChi: 'จีน', catEsp: 'เฉพาะทาง', catAlm: 'วิญญาณ', catCel: 'สวรรค์', catHd: 'Human Design', catPack: 'แพ็ค',
   fName: 'ชื่อเต็ม', fDate: 'วันเกิด', fTime: 'เวลาเกิด', fTimeNote: 'หากทราบ เพิ่มความแม่นยำ', fCity: 'เมืองเกิด', fCountry: 'ประเทศเกิด',
   fEmail: 'อีเมลรับการอ่าน', fPerson2: 'ข้อมูลคนที่สอง', fSex: 'เพศทางชีวภาพ', fMale: 'ชาย', fFemale: 'หญิง',
@@ -2550,6 +2697,8 @@ th: {
 vi: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'Hướng Dẫn Vũ Trụ',
   badge: 'Nền tảng Chiêm tinh AI hàng đầu', heroTitle: 'Khám Phá Vận Mệnh Vũ Trụ',
+  heroHook: 'Cac vi sao noi gi ve tuong lai gan cua ban?',
+  heroHookSub: 'Nhap ngay sinh cua ban va nhan huong dan chiem tinh ca nhan hoa. Phan tich thuc dua tren cac hanh tinh qua canh.',
   heroSub: '8 Truyền thống · 36 Dịch vụ · 12 Gói',
   heroDesc: 'Nền tảng chiêm tinh hoàn chỉnh nhất thế giới. AI tiên tiến kết hợp 8 truyền thống ngàn năm.',
   heroBtn1: '✦ Khám Phá Danh Mục', heroBtn2: 'Xem Truyền Thống',
@@ -2568,7 +2717,7 @@ vi: {
   test1: '"Bản đồ Kabbalah tiết lộ những khía cạnh mà không hệ thống nào từng chạm tới."', test1a: 'María G.', test1l: 'Madrid, Tây Ban Nha',
   test2: '"Получила Мега Карту — 4 традиции в одном. Невероятная глубина анализа."', test2a: 'Катерина Д.', test2l: 'Sofia, Bulgaria',
   test3: '"The Ba Zi reading was mind-blowing. Combined with Western synastry, it gave us a complete picture."', test3a: 'James R.', test3l: 'London, UK',
-  ctaTitle: '✦ Khám Phá Bản Đồ Tâm Hồn', ctaSub: 'Chọn từ 36 dịch vụ và 12 gói.', ctaBtn: '✦ Khám Phá Danh Mục',
+  ctaTitle: '✦ Khám Phá Bản Đồ Tâm Hồn', ctaSub: 'Chọn từ 36 dịch vụ và 12 gói.', ctaBtn: '✦ Khám Phá Danh Mục', ctaBtnBig: '✦ Tao phan tich cua toi ngay', ctaPlaceholder: 'Ngay sinh cua ban',
   catOcc: 'Phương Tây', catCab: 'Kabbalah', catVed: 'Vệ Đà', catChi: 'Trung Quốc', catEsp: 'Chuyên biệt', catAlm: 'Tâm hồn', catCel: 'Thiên thể', catHd: 'Human Design', catPack: 'Gói',
   fName: 'Họ tên', fDate: 'Ngày sinh', fTime: 'Giờ sinh', fTimeNote: 'Nếu biết, tăng độ chính xác', fCity: 'Thành phố sinh', fCountry: 'Quốc gia sinh',
   fEmail: 'Email nhận bản đọc', fPerson2: 'Dữ liệu người thứ hai', fSex: 'Giới tính sinh học', fMale: 'Nam', fFemale: 'Nữ',
@@ -2585,6 +2734,8 @@ vi: {
 id: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'Panduan Kosmis Anda',
   badge: 'Platform Astrologi AI Terkemuka', heroTitle: 'Temukan Takdir Kosmis Anda',
+  heroHook: 'Apa yang dikatakan bintang tentang masa depan dekatmu?',
+  heroHookSub: 'Masukkan tanggal lahirmu dan dapatkan panduan astrologi personal. Analisis nyata berdasarkan transit planet.',
   heroSub: '8 Tradisi · 36 Layanan · 12 Paket',
   heroDesc: 'Platform astrologi terlengkap di dunia. AI mutakhir dikombinasikan dengan 8 tradisi kuno.',
   heroBtn1: '✦ Jelajahi Katalog', heroBtn2: 'Lihat Tradisi',
@@ -2603,7 +2754,7 @@ id: {
   test1: '"Peta Kabbalah mengungkap aspek kehidupan yang belum pernah disentuh sistem lain."', test1a: 'María G.', test1l: 'Madrid, Spanyol',
   test2: '"Получила Мега Карту — 4 традиции в одном. Невероятная глубина анализа."', test2a: 'Катерина Д.', test2l: 'Sofia, Bulgaria',
   test3: '"The Ba Zi reading was mind-blowing. Combined with Western synastry, it gave us a complete picture."', test3a: 'James R.', test3l: 'London, UK',
-  ctaTitle: '✦ Temukan Peta Jiwa Anda', ctaSub: 'Pilih dari 36 layanan dan 12 paket.', ctaBtn: '✦ Jelajahi Katalog',
+  ctaTitle: '✦ Temukan Peta Jiwa Anda', ctaSub: 'Pilih dari 36 layanan dan 12 paket.', ctaBtn: '✦ Jelajahi Katalog', ctaBtnBig: '✦ Buat analisis saya sekarang', ctaPlaceholder: 'Tanggal lahirmu',
   catOcc: 'Barat', catCab: 'Kabbalah', catVed: 'Veda', catChi: 'Tiongkok', catEsp: 'Khusus', catAlm: 'Jiwa', catCel: 'Langit', catHd: 'Human Design', catPack: 'Paket',
   fName: 'Nama lengkap', fDate: 'Tanggal lahir', fTime: 'Waktu lahir', fTimeNote: 'Jika diketahui, meningkatkan akurasi', fCity: 'Kota lahir', fCountry: 'Negara kelahiran',
   fEmail: 'Email untuk pembacaan', fPerson2: 'Data orang kedua', fSex: 'Jenis kelamin biologis', fMale: 'Pria', fFemale: 'Wanita',
@@ -2620,6 +2771,8 @@ id: {
 he: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'המדריך הקוסמי שלך',
   badge: 'פלטפורמת האסטרולוגיה המובילה עם AI', heroTitle: 'גלה את הגורל הקוסמי שלך',
+  heroHook: 'מה אומרים הכוכבים על העתיד הקרוב שלך?',
+  heroHookSub: 'הזינו את תאריך הלידה שלכם וקבלו מדריך אסטרולוגי מותאם אישית. ניתוח אמיתי מבוסס מעברי כוכבי לכת.',
   heroSub: '8 מסורות · 36 שירותים · 12 חבילות',
   heroDesc: 'פלטפורמת האסטרולוגיה המלאה ביותר בעולם. בינה מלאכותית מתקדמת בשילוב 8 מסורות עתיקות.',
   heroBtn1: '✦ גלה את הקטלוג', heroBtn2: 'צפה במסורות',
@@ -2639,7 +2792,7 @@ he: {
   test1: '"מפת הקבלה חשפה היבטים בחיי שאף מערכת אחרת לא נגעה בהם. דיוק מדהים."', test1a: 'María G.', test1l: 'מדריד, ספרד',
   test2: '"Получила Мега Карту — 4 традиции в одном. Невероятная глубина анализа."', test2a: 'Катерина Д.', test2l: 'סופיה, בולגריה',
   test3: '"The Ba Zi reading was mind-blowing. Combined with Western synastry, it gave us a complete picture."', test3a: 'James R.', test3l: 'London, UK',
-  ctaTitle: '✦ גלה את מפת הנשמה שלך', ctaSub: 'בחר מ-36 שירותים ו-12 חבילות.', ctaBtn: '✦ גלה את הקטלוג',
+  ctaTitle: '✦ גלה את מפת הנשמה שלך', ctaSub: 'בחר מ-36 שירותים ו-12 חבילות.', ctaBtn: '✦ גלה את הקטלוג', ctaBtnBig: '✦ צור את הניתוח שלי עכשיו', ctaPlaceholder: 'תאריך הלידה שלך',
   catOcc: 'מערבית', catCab: 'קבלית', catVed: 'ודית', catChi: 'סינית', catEsp: 'מומחית', catAlm: 'נשמה', catCel: 'שמימית', catHd: 'Human Design', catPack: 'חבילות',
   fName: 'שם מלא', fDate: 'תאריך לידה', fTime: 'שעת לידה', fTimeNote: 'אם ידועה, משפרת דיוק', fCity: 'עיר לידה', fCountry: 'ארץ לידה',
   fEmail: 'אימייל לקבלת קריאה', fPerson2: 'נתוני האדם השני', fSex: 'מין ביולוגי', fMale: 'זכר', fFemale: 'נקבה',
@@ -2656,6 +2809,8 @@ he: {
 uk: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'Ваш Космічний Путівник',
   badge: 'Провідна Платформа ШІ-Астрології', heroTitle: 'Відкрийте Свою Космічну Долю',
+  heroHook: 'Що говорять зiрки про ваше найближче майбутне?',
+  heroHookSub: 'Введiть дату народження та отримайте персональний астрологiчний путiвник. Реальний аналiз на основi планетарних транзитiв.',
   heroSub: '8 Традицій · 36 Послуг · 12 Пакетів',
   heroDesc: 'Найповніша астрологічна платформа у світі. ШІ останнього покоління у поєднанні з 8 тисячолітніми традиціями.',
   heroBtn1: '✦ Відкрити Каталог', heroBtn2: 'Дивитися Традиції',
@@ -2675,7 +2830,7 @@ uk: {
   test1: '"Каббалістична карта розкрила аспекти мого життя, яких жодна інша система не торкалася."', test1a: 'María G.', test1l: 'Мадрид, Іспанія',
   test2: '"Получила Мега Карту — 4 традиции в одном. Невероятная глубина анализа."', test2a: 'Катерина Д.', test2l: 'Софія, Болгарія',
   test3: '"The Ba Zi reading was mind-blowing. Combined with Western synastry, it gave us a complete picture."', test3a: 'James R.', test3l: 'London, UK',
-  ctaTitle: '✦ Відкрийте Карту Вашої Душі', ctaSub: 'Оберіть з 36 послуг і 12 пакетів.', ctaBtn: '✦ Відкрити Каталог',
+  ctaTitle: '✦ Відкрийте Карту Вашої Душі', ctaSub: 'Оберіть з 36 послуг і 12 пакетів.', ctaBtn: '✦ Відкрити Каталог', ctaBtnBig: '✦ Створити мiй аналiз зараз', ctaPlaceholder: 'Ваша дата народження',
   catOcc: 'Західна', catCab: 'Каббалістична', catVed: 'Ведична', catChi: 'Китайська', catEsp: 'Спеціалізована', catAlm: 'Душа', catCel: 'Небесна', catHd: 'Human Design', catPack: 'Пакети',
   fName: 'Повне ім\'я', fDate: 'Дата народження', fTime: 'Час народження', fTimeNote: 'Якщо відомо, покращує точність', fCity: 'Місто народження', fCountry: 'Країна народження',
   fEmail: 'Email для читання', fPerson2: 'Дані другої особи', fSex: 'Біологічна стать', fMale: 'Чоловік', fFemale: 'Жінка',
@@ -2692,6 +2847,8 @@ uk: {
 cs: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'Váš Kosmický Průvodce',
   badge: 'Přední AI Astrologická Platforma', heroTitle: 'Objevte Svůj Kosmický Osud',
+  heroHook: 'Co rikaji hvezdy o vasi blizke budoucnosti?',
+  heroHookSub: 'Zadejte datum narozeni a ziskejte svuj personalizovany astrologicky pruvodce. Skutecna analyza zalozena na planetarnich tranzitech.',
   heroSub: '8 Tradic · 36 Služeb · 12 Balíčků',
   heroDesc: 'Nejkompletnější astrologická platforma na světě. Nejmodernější AI v kombinaci s 8 tisíciletými tradicemi.',
   heroBtn1: '✦ Prozkoumat Katalog', heroBtn2: 'Zobrazit Tradice',
@@ -2711,7 +2868,7 @@ cs: {
   test1: '"Kabalistický horoskop odhalil aspekty mého života, kterých se žádný jiný systém nedotkl."', test1a: 'María G.', test1l: 'Madrid, Španělsko',
   test2: '"Получила Мега Карту — 4 традиции в одном. Невероятная глубина анализа."', test2a: 'Катерина Д.', test2l: 'Sofie, Bulharsko',
   test3: '"The Ba Zi reading was mind-blowing. Combined with Western synastry, it gave us a complete picture."', test3a: 'James R.', test3l: 'London, UK',
-  ctaTitle: '✦ Objevte Mapu Vaší Duše', ctaSub: 'Vyberte z 36 služeb a 12 balíčků.', ctaBtn: '✦ Prozkoumat Katalog',
+  ctaTitle: '✦ Objevte Mapu Vaší Duše', ctaSub: 'Vyberte z 36 služeb a 12 balíčků.', ctaBtn: '✦ Prozkoumat Katalog', ctaBtnBig: '✦ Vygenerovat mou analyzu nyni', ctaPlaceholder: 'Vase datum narozeni',
   catOcc: 'Západní', catCab: 'Kabalistická', catVed: 'Védská', catChi: 'Čínská', catEsp: 'Specializovaná', catAlm: 'Duše', catCel: 'Nebeská', catHd: 'Human Design', catPack: 'Balíčky',
   fName: 'Celé jméno', fDate: 'Datum narození', fTime: 'Čas narození', fTimeNote: 'Pokud znáte, zlepšuje přesnost', fCity: 'Město narození', fCountry: 'Země narození',
   fEmail: 'Email pro čtení', fPerson2: 'Údaje druhé osoby', fSex: 'Biologické pohlaví', fMale: 'Muž', fFemale: 'Žena',
@@ -3985,23 +4142,20 @@ function renderHero() {
       </svg>
     </div>
     <div class="hero-badge"><span class="pulse-dot"></span> ${t('badge')}</div>
-    <h1 class="hero-title">${t('heroTitle')}</h1>
-    <h2 class="hero-sub">${t('heroSub')}</h2>
-    <p class="hero-desc">${t('heroDesc')}</p>
-    <div class="hero-mega-cta">
-      <h3>${t('ctaTitle') || 'Descubre tu destino hoy'}</h3>
-      <p class="cta-hint">${t('ctaHint') || 'Introduce tu fecha de nacimiento y recibe tu lectura gratuita'}</p>
+    <h1 class="hero-title">${t('heroHook')}</h1>
+    <p class="hero-hook-sub">${t('heroHookSub')}</p>
+    <div class="hero-mega-cta hero-mega-cta--big">
       <div class="cta-row">
-        <input type="date" class="cta-input" id="hero-birth-date" max="${new Date().toISOString().split('T')[0]}" min="1920-01-01">
-        <button class="cta-btn" onclick="heroRevealDestiny()">${t('ctaBtn') || 'Revelar mi destino'}</button>
+        <input type="date" class="cta-input" id="hero-birth-date" max="${new Date().toISOString().split('T')[0]}" min="1920-01-01" placeholder="${t('ctaPlaceholder') || 'Tu fecha de nacimiento'}">
+        <button class="cta-btn cta-btn--hero" onclick="heroRevealDestiny()">${t('ctaBtnBig') || 'Generar mi analisis ahora'}</button>
       </div>
       <p class="cta-free">${t('ctaFree') || '✦ 100% gratis · Sin tarjeta · Resultado inmediato'}</p>
     </div>
     <div class="hero-btns">
       <button class="btn-gold" onclick="openProductModal('mega-carta')">${t('heroBtn1')}</button>
       <button class="btn-lead" onclick="openLeadMagnetModal(null,'suerte-semanal')">${t('heroLeadEconomy') || '✦ Predicción de Suerte GRATIS'}</button>
-      <button class="btn-ghost" onclick="scrollTo('#tradiciones')">${t('heroBtn2')}</button>
     </div>
+    <p class="hero-sub-small">${t('heroSub')}</p>
     <div class="hero-stats">
       <div><span class="stat-value">${t('stat1v')}</span><span class="stat-label">${t('stat1l')}</span></div>
       <div><span class="stat-value">${t('stat2v')}</span><span class="stat-label">${t('stat2l')}</span></div>
@@ -5050,15 +5204,38 @@ function setLanguage(code) {
   const lang = LANGS.find(l => l.code === code);
   document.documentElement.lang = code;
   document.documentElement.dir = lang ? lang.dir : 'ltr';
+  // Actualizar meta tags para SEO dinamico
+  document.title = 'Astro Connect | ' + t('heroTitle');
+  var metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) metaDesc.content = t('heroDesc');
+  var ogTitle = document.querySelector('meta[property="og:title"]');
+  if (ogTitle) ogTitle.content = 'Astro Connect | ' + t('heroTitle');
+  var ogDesc = document.querySelector('meta[property="og:description"]');
+  if (ogDesc) ogDesc.content = t('heroSub') + ' — ' + t('heroDesc');
+  var twTitle = document.querySelector('meta[property="twitter:title"]');
+  if (twTitle) twTitle.content = 'Astro Connect | ' + t('heroTitle');
+  var twDesc = document.querySelector('meta[property="twitter:description"]');
+  if (twDesc) twDesc.content = t('heroSub') + ' — ' + t('heroDesc');
+  // Actualizar canonical con lang param
+  var canonical = document.querySelector('link[rel="canonical"]');
+  if (canonical) canonical.href = code === 'es' ? 'https://astro-connect.app' : 'https://astro-connect.app?lang=' + code;
   renderAll();
 }
 
 function detectLanguage() {
+  // 1. URL param ?lang=xx tiene prioridad (para hreflang SEO)
+  var urlParams = new URLSearchParams(window.location.search);
+  var urlLang = urlParams.get('lang');
+  if (urlLang) {
+    var supported = LANGS.find(l => l.code === urlLang);
+    if (supported) { currentLang = urlLang; currentLocale = urlLang; return; }
+  }
+  // 2. Fallback: idioma del navegador
   var fullLocale = navigator.language || 'es-ES';
   currentLocale = fullLocale;
   var navLang = fullLocale.slice(0, 2);
-  const supported = LANGS.find(l => l.code === navLang);
-  if (supported) currentLang = navLang;
+  var supported2 = LANGS.find(l => l.code === navLang);
+  if (supported2) currentLang = navLang;
 }
 
 // === RENDER ALL ===
@@ -5368,6 +5545,64 @@ function buildShareCardUrl(title, intro, name, sign, date) {
   return baseUrl + '?' + params.toString();
 }
 
+// === VIRAL SHARE SYSTEM ===
+function viralShare(platform, title, name) {
+  var shareText = name + ' — ' + title + '\n\nDescubre tu destino cosmico:';
+  var shareUrl = 'https://astro-connect.app?lang=' + currentLang;
+  var encoded = encodeURIComponent(shareText + '\n' + shareUrl);
+  var encodedUrl = encodeURIComponent(shareUrl);
+  switch(platform) {
+    case 'whatsapp':
+      window.open('https://wa.me/?text=' + encoded, '_blank'); break;
+    case 'twitter':
+      window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText) + '&url=' + encodedUrl, '_blank'); break;
+    case 'facebook':
+      window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodedUrl, '_blank'); break;
+    case 'telegram':
+      window.open('https://t.me/share/url?url=' + encodedUrl + '&text=' + encodeURIComponent(shareText), '_blank'); break;
+    case 'copy':
+      navigator.clipboard.writeText(shareUrl).then(function(){
+        var toast = document.getElementById('viral-copy-toast');
+        if(toast){toast.style.display='block'; setTimeout(function(){toast.style.display='none';},2000);}
+      });
+      break;
+  }
+  // Marcar como compartido para desbloquear bonus
+  sessionStorage.setItem('viral_shared', '1');
+  setTimeout(function(){ unlockBonus(); }, 1500);
+}
+
+function viralUnlock(btn) {
+  // Abrir selector de red para compartir
+  if (navigator.share) {
+    navigator.share({
+      title: 'Astro Connect',
+      text: 'Descubre tu destino cosmico',
+      url: 'https://astro-connect.app?lang=' + currentLang
+    }).then(function(){
+      sessionStorage.setItem('viral_shared', '1');
+      unlockBonus();
+    }).catch(function(){});
+  } else {
+    // Fallback: copiar link
+    navigator.clipboard.writeText('https://astro-connect.app?lang=' + currentLang);
+    sessionStorage.setItem('viral_shared', '1');
+    unlockBonus();
+  }
+}
+
+function unlockBonus() {
+  var blocks = document.querySelectorAll('.viral-unlock-block');
+  blocks.forEach(function(block) {
+    var blur = block.querySelector('.viral-unlock-blur');
+    var overlay = block.querySelector('div[style*="position:absolute"]');
+    if (blur) { blur.style.filter = 'none'; blur.style.opacity = '1'; blur.style.pointerEvents = 'auto'; }
+    if (overlay) { overlay.style.display = 'none'; }
+    block.style.borderStyle = 'solid';
+    block.style.borderColor = 'rgba(212,168,67,0.3)';
+  });
+}
+
 function shareCardAction(imageUrl, title, name) {
   if (navigator.share) {
     fetch(imageUrl).then(function(r){return r.blob();}).then(function(blob){
@@ -5429,18 +5664,44 @@ function showFreeReading(reading, readingUrl, customerName, birthDate) {
       <div class="fr-final">
         <p>${reading.mensaje_final || ''}</p>
       </div>
-      <div style="text-align:center;margin:24px 0;">
-        <p style="color:#6B5B8D;font-size:0.85rem;margin-bottom:12px;">Comparte tu lectura con el mundo</p>
-        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-          <button onclick="shareCardAction('${shareUrl}', '${safeTitle}', '${safeName}')"
-            style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:12px;font-weight:bold;font-size:0.85rem;background:linear-gradient(135deg,rgba(212,168,67,0.15),rgba(123,79,191,0.15));border:1px solid rgba(212,168,67,0.3);color:#F7D96E;cursor:pointer;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-            Compartir
+      <div class="viral-share-block" style="text-align:center;margin:32px 0;padding:24px;border-radius:16px;background:linear-gradient(135deg,rgba(212,168,67,0.08),rgba(123,79,191,0.08));border:1px solid rgba(212,168,67,0.15);">
+        <p style="color:#F7D96E;font-size:1rem;font-weight:bold;margin-bottom:4px;">${t('viralShareTitle') || 'Comparte tu lectura con el mundo'}</p>
+        <p style="color:#8E84A6;font-size:0.8rem;margin-bottom:16px;">${t('viralShareSub') || 'Tus amigos tambien quieren saber su destino'}</p>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+          <button onclick="viralShare('whatsapp','${safeTitle}','${safeName}')" class="viral-btn" style="background:#25D366;color:#fff;" title="WhatsApp">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           </button>
-          <button onclick="downloadCard('${shareUrl}')"
-            style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:12px;font-weight:bold;font-size:0.85rem;background:transparent;border:1px solid rgba(155,142,196,0.3);color:#9B8EC4;cursor:pointer;">
+          <button onclick="viralShare('twitter','${safeTitle}','${safeName}')" class="viral-btn" style="background:#000;color:#fff;" title="X / Twitter">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </button>
+          <button onclick="viralShare('facebook','${safeTitle}','${safeName}')" class="viral-btn" style="background:#1877F2;color:#fff;" title="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </button>
+          <button onclick="viralShare('telegram','${safeTitle}','${safeName}')" class="viral-btn" style="background:#0088cc;color:#fff;" title="Telegram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          </button>
+          <button onclick="viralShare('copy','${safeTitle}','${safeName}')" class="viral-btn" style="background:rgba(155,142,196,0.2);color:#9B8EC4;border:1px solid rgba(155,142,196,0.3);" title="Copiar link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+          <button onclick="downloadCard('${shareUrl}')" class="viral-btn" style="background:rgba(155,142,196,0.2);color:#9B8EC4;border:1px solid rgba(155,142,196,0.3);" title="Descargar">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Descargar tarjeta
+          </button>
+        </div>
+        <p id="viral-copy-toast" style="display:none;color:#25D366;font-size:0.8rem;margin-top:8px;">Link copiado!</p>
+      </div>
+      <!-- VIRAL: Comparte para desbloquear bonus -->
+      <div id="viral-unlock-${Date.now()}" class="viral-unlock-block" style="text-align:center;margin:24px 0;padding:28px 20px;border-radius:16px;background:linear-gradient(135deg,rgba(123,79,191,0.12),rgba(212,168,67,0.06));border:1px dashed rgba(212,168,67,0.25);position:relative;overflow:hidden;">
+        <div class="viral-unlock-blur" style="filter:blur(4px);pointer-events:none;opacity:0.5;">
+          <p style="color:#D4A843;font-size:0.95rem;font-weight:bold;">${t('viralBonusPreview') || 'Tu Numero de la Suerte · Color del Dia · Cristal Protector'}</p>
+          <p style="color:#8E84A6;font-size:0.85rem;margin-top:8px;">7 · Violeta · Amatista · Luna en transito por Casa 5...</p>
+        </div>
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:2;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D4A843" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:8px;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <p style="color:#F7D96E;font-size:0.9rem;font-weight:bold;margin-bottom:4px;">${t('viralUnlockTitle') || 'Contenido Bonus Bloqueado'}</p>
+          <p style="color:#8E84A6;font-size:0.8rem;margin-bottom:12px;">${t('viralUnlockSub') || 'Comparte tu lectura en cualquier red para desbloquearlo'}</p>
+          <button onclick="viralUnlock(this)" class="viral-unlock-btn" style="padding:10px 24px;border-radius:12px;background:linear-gradient(135deg,#D4A843,#7B4FBF);color:#fff;border:none;font-weight:bold;font-size:0.85rem;cursor:pointer;display:inline-flex;align-items:center;gap:8px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            ${t('viralUnlockBtn') || 'Compartir para desbloquear'}
           </button>
         </div>
       </div>
@@ -5465,6 +5726,45 @@ function closeFreeReading() {
   if (overlay) { overlay.classList.remove('active'); }
 }
 
+// === VIRAL FLOATING BAR ===
+function initViralBar() {
+  if (sessionStorage.getItem('viral_bar_closed')) return;
+  var bar = document.getElementById('viral-float-bar');
+  if (!bar) return;
+  // Actualizar textos segun idioma
+  var vfText = document.getElementById('vf-text');
+  var vfLabel = document.getElementById('vf-share-label');
+  if (vfText) vfText.textContent = t('viralFloatText') || 'Conoce tu destino cosmico gratis';
+  if (vfLabel) vfLabel.textContent = t('viralFloatShare') || 'Compartir';
+  // Mostrar despues de 8 segundos de scroll
+  var shown = false;
+  window.addEventListener('scroll', function() {
+    if (shown) return;
+    if (window.scrollY > 600) { bar.classList.add('visible'); shown = true; }
+  });
+}
+
+function viralFloatShare(platform) {
+  var shareText = t('viralFloatText') || 'Conoce tu destino cosmico gratis';
+  var shareUrl = 'https://astro-connect.app?lang=' + currentLang;
+  if (platform === 'whatsapp') {
+    window.open('https://wa.me/?text=' + encodeURIComponent(shareText + '\n' + shareUrl), '_blank');
+  } else if (platform === 'native') {
+    if (navigator.share) {
+      navigator.share({ title: 'Astro Connect', text: shareText, url: shareUrl });
+    } else {
+      navigator.clipboard.writeText(shareUrl);
+      alert(t('viralFloatShare') + ' - Link copiado!');
+    }
+  }
+}
+
+function closeViralBar() {
+  var bar = document.getElementById('viral-float-bar');
+  if (bar) bar.classList.remove('visible');
+  sessionStorage.setItem('viral_bar_closed', '1');
+}
+
 // === INIT ===
 function init() {
   detectLanguage();
@@ -5479,6 +5779,7 @@ function init() {
   initCard3DTilt();
   initTestMode();
   fetchServerPricing();
+  initViralBar();
 }
 
 document.addEventListener('DOMContentLoaded', init);
