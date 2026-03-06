@@ -5682,12 +5682,6 @@ function openLeadMagnetModal(preBirthDate, forceType) {
         <input type="text" name="birthCity" placeholder="${t('fCity') || 'Ciudad de nacimiento'}">
         <label>${t('fCountry') || 'Pais de nacimiento'}</label>
         <input type="text" name="birthCountry" placeholder="${t('fCountry') || 'Pais de nacimiento'}">
-        <label>${t('fEmail') || 'Email'}</label>
-        <input type="email" name="email" required placeholder="tu@email.com">
-        <label style="display:flex;align-items:center;gap:10px;cursor:pointer;margin:16px 0 8px;padding:12px 16px;border-radius:12px;background:linear-gradient(135deg,rgba(123,79,191,0.08),rgba(212,168,67,0.08));border:1px solid rgba(123,79,191,0.15);">
-          <input type="checkbox" name="subscribeDaily" value="true" checked style="width:18px;height:18px;accent-color:#F7D96E;cursor:pointer;">
-          <span style="color:#EDE8F5;font-size:0.9rem;">${t('subscribeCheckbox') || 'Recibir mi horoscopo diario por email'}</span>
-        </label>
         <button type="submit" class="lead-submit" id="lead-submit-btn">${t('leadSubmit') || 'Obtener mi lectura GRATIS'}</button>
       </form>
     </div>`;
@@ -5715,7 +5709,7 @@ function submitLeadMagnet(e) {
   btn.textContent = t('leadLoading') || 'Las estrellas estan calculando...';
 
   var body = {
-    email: fd.get('email'),
+    email: '',
     customerName: fd.get('customerName'),
     birthDate: fd.get('birthDate'),
     birthTime: fd.get('birthTime') || '',
@@ -5723,10 +5717,7 @@ function submitLeadMagnet(e) {
     birthCountry: fd.get('birthCountry') || '',
     leadType: fd.get('leadType'),
     language: currentLang || 'es',
-    subscribeDaily: fd.get('subscribeDaily') === 'true',
   };
-  // Track daily subscription state for value ladder
-  if (body.subscribeDaily) window._userSubscribedDaily = true;
 
   fetch('https://my.astro-connect.app/api/lead-magnet', {
     method: 'POST',
