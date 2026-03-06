@@ -11,6 +11,17 @@
     gtag('js', new Date());
     gtag('config', 'AW-17991329624');
   </script>
+  <!-- PostHog Analytics -->
+  <script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageviewId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('phc_ATLBRaiNlfge5Ph0oGyy320CnPl66Q2Xgc7lRX0uoU3',{
+      api_host:'https://eu.i.posthog.com',
+      person_profiles:'identified_only',
+      capture_pageview: true,
+      capture_pageleave: true,
+      autocapture: true
+    });
+  </script>
   <title>Astro Connect | Tu Guía Cósmica — 8 Tradiciones · 36 Servicios · 12 Packs</title>
   <meta name="description" content="La plataforma de astrología más completa del mundo. 8 tradiciones, 36 servicios, 12 packs. Análisis astrológico personalizado.">
   <meta name="keywords" content="astrología, horóscopo, carta natal, sinastría, kabbalah, védica, china, ba zi, feng shui, human design, i ching">
@@ -753,6 +764,26 @@ body {
 }
 .ladder-btn-prem:hover { transform: scale(1.05); box-shadow: 0 8px 32px rgba(212,168,67,0.3); }
 .ladder-packs { color: #9B8EC4; font-size: 0.8rem; margin-top: 8px; }
+/* Astral Card Download */
+.fr-card-download {
+  text-align: center; margin: 36px 0; padding: 32px 24px; border-radius: 16px;
+  background: linear-gradient(135deg, rgba(123,79,191,0.12), rgba(212,168,67,0.08));
+  border: 1.5px solid rgba(212,168,67,0.25);
+}
+.fr-card-download .fr-card-icon { font-size: 2.2rem; margin-bottom: 12px; filter: drop-shadow(0 0 12px rgba(212,168,67,0.5)); }
+.fr-card-download h3 { color: var(--gold); font-family: 'Cinzel', serif; font-size: 1.15rem; margin-bottom: 6px; }
+.fr-card-download p { color: #9B8EC4; font-size: 0.85rem; margin-bottom: 18px; }
+.fr-card-download .btn-card-download {
+  background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: #06050E;
+  padding: 14px 32px; border-radius: 10px; border: none; font-weight: 700; cursor: pointer;
+  font-size: 0.95rem; transition: transform 0.2s, box-shadow 0.2s;
+  animation: cardPulse 2.5s ease-in-out infinite;
+}
+.fr-card-download .btn-card-download:hover { transform: scale(1.05); box-shadow: 0 8px 32px rgba(212,168,67,0.35); }
+@keyframes cardPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212,168,67,0.3); }
+  50% { box-shadow: 0 0 20px 4px rgba(212,168,67,0.2); }
+}
 /* Buy float bar */
 .buy-float-bar {
   position: fixed; bottom: 0; left: 0; right: 0; z-index: 9997;
@@ -1754,7 +1785,9 @@ es: {
   ladderFreeTag: 'GRATIS', ladderFreeTitle: 'Horóscopo Diario', ladderFreeDesc: 'Recibe cada mañana tu horóscopo personalizado por email. Gratis para siempre.', ladderFreeBtn: 'Suscribirme Gratis', ladderFreeActive: '✓ Ya estás suscrito',
   ladderMidTag: 'POPULAR', ladderMidTitle: 'Respuestas Cósmicas', ladderMidDesc: 'Compatibilidad de pareja, predicciones semanales o una pregunta al I Ching. Lecturas accesibles para cada momento.', ladderMidPrice: 'Desde €22', ladderMidBtn: 'Ver opciones desde €22',
   ladderPremTag: 'PREMIUM', ladderPremTitle: 'Tu Carta Natal Completa', ladderPremDesc: '36 páginas de análisis profundo: todos tus planetas, casas, aspectos y predicciones del año. Tu mapa cósmico definitivo.', ladderPremPrice: 'Desde €139', ladderPremBtn: 'Descubrir mi Carta Natal', ladderPremPacks: 'O elige un Pack desde €179 con hasta 40% de ahorro',
-  buyFloatText: '✦ Tu lectura completa te espera', buyFloatBtn: 'Ver Carta Natal — desde €139'
+  buyFloatText: '✦ Tu lectura completa te espera', buyFloatBtn: 'Ver Carta Natal — desde €139',
+  cardDownloadTitle: 'Descarga tu Tarjeta Astral', cardDownloadDesc: 'Compártela en Instagram Stories y descubre tu destino', cardDownloadBtn: 'Descargar Imagen para Stories',
+  cardYourNumber: 'Tu Número', cardYourColor: 'Tu Color', cardYourCrystal: 'Tu Cristal', cardWatermark: 'Tu Guía Cósmica', cardToast: 'Imagen descargada. ¡Compártela en tus Stories!'
 },
 en: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'Your Cosmic Guide',
@@ -1854,7 +1887,9 @@ en: {
   ladderFreeTag: 'FREE', ladderFreeTitle: 'Daily Horoscope', ladderFreeDesc: 'Receive your personalized horoscope every morning by email. Free forever.', ladderFreeBtn: 'Subscribe Free', ladderFreeActive: '✓ Already subscribed',
   ladderMidTag: 'POPULAR', ladderMidTitle: 'Cosmic Answers', ladderMidDesc: 'Couple compatibility, weekly predictions or an I Ching question. Accessible readings for every moment.', ladderMidPrice: 'From €22', ladderMidBtn: 'See options from €22',
   ladderPremTag: 'PREMIUM', ladderPremTitle: 'Your Complete Natal Chart', ladderPremDesc: '36 pages of deep analysis: all your planets, houses, aspects and yearly predictions. Your definitive cosmic blueprint.', ladderPremPrice: 'From €139', ladderPremBtn: 'Discover my Natal Chart', ladderPremPacks: 'Or choose a Pack from €179 with up to 40% off',
-  buyFloatText: '✦ Your complete reading awaits', buyFloatBtn: 'See Natal Chart — from €139'
+  buyFloatText: '✦ Your complete reading awaits', buyFloatBtn: 'See Natal Chart — from €139',
+  cardDownloadTitle: 'Download Your Astral Card', cardDownloadDesc: 'Share it on Instagram Stories and discover your destiny', cardDownloadBtn: 'Download Image for Stories',
+  cardYourNumber: 'Your Number', cardYourColor: 'Your Color', cardYourCrystal: 'Your Crystal', cardWatermark: 'Your Cosmic Guide', cardToast: 'Image downloaded. Share it on your Stories!'
 },
 bg: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'Твоят Космически Пътеводител',
@@ -1927,7 +1962,9 @@ bg: {
   ladderFreeTag: 'БЕЗПЛАТНО', ladderFreeTitle: 'Дневен Хороскоп', ladderFreeDesc: 'Получавай всяка сутрин персонален хороскоп по имейл. Безплатно завинаги.', ladderFreeBtn: 'Абонирай се безплатно', ladderFreeActive: '✓ Вече си абониран',
   ladderMidTag: 'ПОПУЛЯРНО', ladderMidTitle: 'Космически Отговори', ladderMidDesc: 'Съвместимост на двойката, седмични предсказания или въпрос към I Ching. Достъпни четения за всеки момент.', ladderMidPrice: 'От €22', ladderMidBtn: 'Виж опции от €22',
   ladderPremTag: 'ПРЕМИУМ', ladderPremTitle: 'Пълна Натална Карта', ladderPremDesc: '36 страници задълбочен анализ — всичките ти планети, домове, аспекти и годишни предсказания. Твоята окончателна космическа карта.', ladderPremPrice: 'От €139', ladderPremBtn: 'Открий Наталната си Карта', ladderPremPacks: 'Или избери Пакет от €179 с до 40% отстъпка',
-  buyFloatText: '✦ Пълното ти четене те очаква', buyFloatBtn: 'Виж Натална Карта — от €139'
+  buyFloatText: '✦ Пълното ти четене те очаква', buyFloatBtn: 'Виж Натална Карта — от €139',
+  cardDownloadTitle: 'Изтегли своята Астрална Карта', cardDownloadDesc: 'Сподели я в Instagram Stories и открий съдбата си', cardDownloadBtn: 'Изтегли изображение за Stories',
+  cardYourNumber: 'Твоето Число', cardYourColor: 'Твоят Цвят', cardYourCrystal: 'Твоят Кристал', cardWatermark: 'Твоят Космически Пътеводител', cardToast: 'Изображението е изтеглено. Сподели го в Stories!'
 },
 fr: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'Votre Guide Cosmique',
@@ -5830,6 +5867,166 @@ function downloadCard(imageUrl) {
   document.body.appendChild(a); a.click(); document.body.removeChild(a);
 }
 
+function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
+  var words = text.split(' ');
+  var line = '';
+  var lines = [];
+  for (var i = 0; i < words.length; i++) {
+    var test = line + words[i] + ' ';
+    if (ctx.measureText(test).width > maxWidth && i > 0) {
+      lines.push(line.trim());
+      line = words[i] + ' ';
+    } else {
+      line = test;
+    }
+  }
+  lines.push(line.trim());
+  for (var j = 0; j < lines.length; j++) {
+    ctx.fillText(lines[j], x, y + j * lineHeight);
+  }
+  return y + lines.length * lineHeight;
+}
+
+function generateAndDownloadCard() {
+  var data = window._lastReading;
+  if (!data) return;
+
+  var W = 1080, H = 1920;
+  var canvas = document.createElement('canvas');
+  canvas.width = W; canvas.height = H;
+  var ctx = canvas.getContext('2d');
+
+  // -- Background gradient --
+  var bgGrad = ctx.createLinearGradient(0, 0, 0, H);
+  bgGrad.addColorStop(0, '#06050E');
+  bgGrad.addColorStop(0.35, '#1A1040');
+  bgGrad.addColorStop(0.65, '#1A1040');
+  bgGrad.addColorStop(1, '#06050E');
+  ctx.fillStyle = bgGrad;
+  ctx.fillRect(0, 0, W, H);
+
+  // -- Decorative stars --
+  for (var i = 0; i < 80; i++) {
+    var sx = Math.random() * W;
+    var sy = Math.random() * H;
+    var sr = Math.random() * 2 + 0.5;
+    var alpha = Math.random() * 0.6 + 0.1;
+    ctx.beginPath();
+    ctx.arc(sx, sy, sr, 0, Math.PI * 2);
+    ctx.fillStyle = Math.random() > 0.7 ? 'rgba(212,168,67,' + alpha + ')' : 'rgba(255,255,255,' + alpha + ')';
+    ctx.fill();
+  }
+
+  // -- Subtle radial glow --
+  var glow = ctx.createRadialGradient(W/2, H*0.4, 100, W/2, H*0.4, 500);
+  glow.addColorStop(0, 'rgba(123,79,191,0.08)');
+  glow.addColorStop(1, 'rgba(123,79,191,0)');
+  ctx.fillStyle = glow;
+  ctx.fillRect(0, 0, W, H);
+
+  // -- Top decorative line --
+  ctx.strokeStyle = 'rgba(212,168,67,0.3)';
+  ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.moveTo(W*0.15, 180); ctx.lineTo(W*0.85, 180); ctx.stroke();
+
+  // -- Logo: ASTRO CONNECT --
+  ctx.textAlign = 'center';
+  ctx.fillStyle = '#D4A843';
+  ctx.font = '700 42px Cinzel, Georgia, serif';
+  ctx.fillText('\u2726 ASTRO CONNECT', W/2, 260);
+  ctx.fillStyle = '#9B8EC4';
+  ctx.font = '300 26px Philosopher, Georgia, serif';
+  ctx.fillText(t('sidebarSub') || 'Tu Guia Cosmica', W/2, 305);
+
+  // -- Zodiac symbol large --
+  ctx.fillStyle = '#F7D96E';
+  ctx.font = '160px serif';
+  ctx.fillText(data.symbol || '\u2728', W/2, 520);
+
+  // -- Sign name --
+  var signTranslated = t('signs') && t('signs')[data.sign] ? t('signs')[data.sign] : data.sign;
+  ctx.fillStyle = '#FFFFFF';
+  ctx.font = '700 56px Cinzel, Georgia, serif';
+  ctx.fillText(signTranslated ? signTranslated.toUpperCase() : '', W/2, 610);
+
+  // -- Decorative separator --
+  ctx.fillStyle = 'rgba(212,168,67,0.4)';
+  ctx.font = '28px serif';
+  ctx.fillText('\u2500\u2500\u2500  \u2726  \u2726  \u2726  \u2500\u2500\u2500', W/2, 680);
+
+  // -- Reading title (word-wrapped) --
+  var titulo = data.reading.titulo || '';
+  ctx.fillStyle = '#EDE8F5';
+  ctx.font = 'italic 38px Cinzel, Georgia, serif';
+  var titleEndY = wrapText(ctx, '"' + titulo + '"', W/2, 760, W * 0.75, 52);
+
+  // -- Second separator --
+  var sepY = titleEndY + 50;
+  ctx.fillStyle = 'rgba(212,168,67,0.4)';
+  ctx.font = '28px serif';
+  ctx.fillText('\u2500\u2500\u2500  \u2726  \u2726  \u2726  \u2500\u2500\u2500', W/2, sepY);
+
+  // -- Lucky data (bonus) --
+  var luckyY = sepY + 80;
+  var luckyNum = Math.floor(Math.random() * 99) + 1;
+  var luckyColors = { es:['Violeta','Dorado','Azul Indigo','Esmeralda','Plateado','Rubi','Ambar','Turquesa'], en:['Violet','Gold','Indigo Blue','Emerald','Silver','Ruby','Amber','Turquoise'], bg:['\u0412\u0438\u043E\u043B\u0435\u0442\u043E\u0432\u043E','\u0417\u043B\u0430\u0442\u043D\u043E','\u0418\u043D\u0434\u0438\u0433\u043E','\u0418\u0437\u0443\u043C\u0440\u0443\u0434\u0435\u043D\u043E','\u0421\u0440\u0435\u0431\u044A\u0440\u043D\u043E','\u0420\u0443\u0431\u0438\u043D\u0435\u043D\u043E','\u041A\u0435\u0445\u043B\u0438\u0431\u0430\u0440\u0435\u043D\u043E','\u0422\u044E\u0440\u043A\u043E\u0430\u0437\u0435\u043D\u043E'] };
+  var crystals = { es:['Amatista','Cuarzo Rosa','Obsidiana','Lapislazuli','Citrino','Selenita','Turmalina','Aguamarina'], en:['Amethyst','Rose Quartz','Obsidian','Lapis Lazuli','Citrine','Selenite','Tourmaline','Aquamarine'], bg:['\u0410\u043C\u0435\u0442\u0438\u0441\u0442','\u0420\u043E\u0437\u043E\u0432 \u043A\u0432\u0430\u0440\u0446','\u041E\u0431\u0441\u0438\u0434\u0438\u0430\u043D','\u041B\u0430\u043F\u0438\u0441 \u043B\u0430\u0437\u0443\u043B\u0438','\u0426\u0438\u0442\u0440\u0438\u043D','\u0421\u0435\u043B\u0435\u043D\u0438\u0442','\u0422\u0443\u0440\u043C\u0430\u043B\u0438\u043D','\u0410\u043A\u0432\u0430\u043C\u0430\u0440\u0438\u043D'] };
+  var lang = currentLang || 'es';
+  var colorArr = luckyColors[lang] || luckyColors.es;
+  var crystalArr = crystals[lang] || crystals.es;
+  var luckyColor = colorArr[Math.floor(Math.random() * colorArr.length)];
+  var luckyCrystal = crystalArr[Math.floor(Math.random() * crystalArr.length)];
+
+  ctx.font = '600 34px Philosopher, Georgia, serif';
+  ctx.fillStyle = '#D4A843';
+  ctx.fillText((t('cardYourNumber') || 'Tu Numero') + ':  ' + luckyNum, W/2, luckyY);
+  ctx.fillText((t('cardYourColor') || 'Tu Color') + ':  ' + luckyColor, W/2, luckyY + 60);
+  ctx.fillText((t('cardYourCrystal') || 'Tu Cristal') + ':  ' + luckyCrystal, W/2, luckyY + 120);
+
+  // -- User name + date --
+  var infoY = luckyY + 210;
+  ctx.fillStyle = '#9B8EC4';
+  ctx.font = '300 30px Philosopher, Georgia, serif';
+  var dateStr = '';
+  if (data.birthDate) {
+    var bd = new Date(data.birthDate);
+    var months = { es:['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'], en:['January','February','March','April','May','June','July','August','September','October','November','December'], bg:['\u044F\u043D\u0443\u0430\u0440\u0438','\u0444\u0435\u0432\u0440\u0443\u0430\u0440\u0438','\u043C\u0430\u0440\u0442','\u0430\u043F\u0440\u0438\u043B','\u043C\u0430\u0439','\u044E\u043D\u0438','\u044E\u043B\u0438','\u0430\u0432\u0433\u0443\u0441\u0442','\u0441\u0435\u043F\u0442\u0435\u043C\u0432\u0440\u0438','\u043E\u043A\u0442\u043E\u043C\u0432\u0440\u0438','\u043D\u043E\u0435\u043C\u0432\u0440\u0438','\u0434\u0435\u043A\u0435\u043C\u0432\u0440\u0438'] };
+    var mArr = months[lang] || months.es;
+    dateStr = bd.getDate() + ' ' + mArr[bd.getMonth()] + ' ' + bd.getFullYear();
+  }
+  ctx.fillText((data.customerName || '') + (dateStr ? '  \u00B7  ' + dateStr : ''), W/2, infoY);
+
+  // -- Bottom separator --
+  var bottomY = H - 200;
+  ctx.strokeStyle = 'rgba(212,168,67,0.25)';
+  ctx.lineWidth = 1.5;
+  ctx.beginPath(); ctx.moveTo(W*0.2, bottomY); ctx.lineTo(W*0.8, bottomY); ctx.stroke();
+
+  // -- Watermark --
+  ctx.fillStyle = '#D4A843';
+  ctx.font = '700 36px Cinzel, Georgia, serif';
+  ctx.fillText('astro-connect.app', W/2, bottomY + 60);
+  ctx.fillStyle = '#6B5B8D';
+  ctx.font = '300 26px Philosopher, Georgia, serif';
+  ctx.fillText(t('cardWatermark') || 'Tu Guia Cosmica', W/2, bottomY + 105);
+
+  // -- Export and download --
+  var signSlug = (data.sign || 'astral').toLowerCase().replace(/\s/g, '-');
+  var link = document.createElement('a');
+  link.download = 'mi-carta-astral-' + signSlug + '.png';
+  link.href = canvas.toDataURL('image/png');
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+
+  // -- Toast notification --
+  var toast = document.createElement('div');
+  toast.textContent = t('cardToast') || 'Imagen descargada. Compartela en tus Stories!';
+  toast.style.cssText = 'position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#D4A843,#7B4FBF);color:#fff;padding:14px 28px;border-radius:12px;font-size:0.9rem;font-weight:600;z-index:99999;animation:fadeUp 0.5s ease;';
+  document.body.appendChild(toast);
+  setTimeout(function() { toast.remove(); }, 4000);
+}
+
 function showFreeReading(reading, readingUrl, customerName, birthDate) {
   var overlay = document.getElementById('free-reading-overlay');
   if (!overlay) {
@@ -5847,6 +6044,8 @@ function showFreeReading(reading, readingUrl, customerName, birthDate) {
   }
 
   var sign = birthDate ? getSunSignJS(birthDate) : '';
+  var signSymbols = { Aries:'\u2648', Tauro:'\u2649', Geminis:'\u264A', Cancer:'\u264B', Leo:'\u264C', Virgo:'\u264D', Libra:'\u264E', Escorpio:'\u264F', Sagitario:'\u2650', Capricornio:'\u2651', Acuario:'\u2652', Piscis:'\u2653' };
+  window._lastReading = { reading: reading, customerName: customerName, birthDate: birthDate, sign: sign, symbol: signSymbols[sign] || '\u2728' };
   var shareUrl = birthDate ? buildShareCardUrl(reading.titulo, reading.introduccion, customerName, sign, birthDate) : '';
   var safeTitle = (reading.titulo || '').replace(/'/g, "\\'");
   var safeName = (customerName || '').replace(/'/g, "\\'");
@@ -5874,6 +6073,14 @@ function showFreeReading(reading, readingUrl, customerName, birthDate) {
       <div class="fr-final">
         <p>${reading.mensaje_final || ''}</p>
       </div>
+      <div class="fr-card-download">
+        <div class="fr-card-icon">✦</div>
+        <h3>${t('cardDownloadTitle') || 'Descarga tu Tarjeta Astral'}</h3>
+        <p>${t('cardDownloadDesc') || 'Compártela en Instagram Stories y descubre tu destino'}</p>
+        <button class="btn-card-download" onclick="generateAndDownloadCard()">
+          ${t('cardDownloadBtn') || 'Descargar Imagen para Stories'}
+        </button>
+      </div>
       <div class="viral-share-block" style="text-align:center;margin:32px 0;padding:24px;border-radius:16px;background:linear-gradient(135deg,rgba(212,168,67,0.08),rgba(123,79,191,0.08));border:1px solid rgba(212,168,67,0.15);">
         <p style="color:#F7D96E;font-size:1rem;font-weight:bold;margin-bottom:4px;">${t('viralShareTitle') || 'Comparte tu lectura con el mundo'}</p>
         <p style="color:#8E84A6;font-size:0.8rem;margin-bottom:16px;">${t('viralShareSub') || 'Tus amigos tambien quieren saber su destino'}</p>
@@ -5893,7 +6100,7 @@ function showFreeReading(reading, readingUrl, customerName, birthDate) {
           <button onclick="viralShare('copy','${safeTitle}','${safeName}')" class="viral-btn" style="background:rgba(155,142,196,0.2);color:#9B8EC4;border:1px solid rgba(155,142,196,0.3);" title="Copiar link">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
-          <button onclick="downloadCard('${shareUrl}')" class="viral-btn" style="background:rgba(155,142,196,0.2);color:#9B8EC4;border:1px solid rgba(155,142,196,0.3);" title="Descargar">
+          <button onclick="generateAndDownloadCard()" class="viral-btn" style="background:rgba(155,142,196,0.2);color:#9B8EC4;border:1px solid rgba(155,142,196,0.3);" title="Descargar Tarjeta">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           </button>
         </div>
