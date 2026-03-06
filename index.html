@@ -293,7 +293,7 @@ body {
   filter: drop-shadow(0 0 12px rgba(212,168,67,0.4));
   animation: logoFloat 4s ease-in-out infinite;
 }
-.logo-eye svg { width: 100%; height: 100%; }
+.logo-eye img { width: 100%; height: 100%; object-fit: contain; }
 @keyframes logoFloat {
   0%, 100% { transform: translateY(0); filter: drop-shadow(0 0 12px rgba(212,168,67,0.4)); }
   50% { transform: translateY(-3px); filter: drop-shadow(0 0 20px rgba(212,168,67,0.6)); }
@@ -1551,10 +1551,6 @@ body {
   font-weight: bold; font-size: 0.8rem; transition: transform 0.2s;
 }
 .viral-float-bar .vf-btn:hover { transform: scale(1.05); }
-.viral-float-bar .vf-close {
-  background: none; border: none; color: #6B5B8D; cursor: pointer; font-size: 1.2rem;
-  padding: 4px 8px; margin-left: 4px;
-}
 @media (max-width: 600px) {
   .viral-float-bar { flex-wrap: wrap; gap: 8px; padding: 10px 12px; }
   .viral-float-bar .vf-text { font-size: 0.75rem; text-align: center; width: 100%; }
@@ -1666,7 +1662,6 @@ body {
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:4px;"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
       <span id="vf-share-label"></span>
     </button>
-    <button class="vf-close" onclick="closeViralBar()" aria-label="Cerrar">&times;</button>
   </div>
 
   <!-- BUY FLOATING BAR (appears after free reading) -->
@@ -1957,6 +1952,7 @@ bg: {
   tagPopular: 'Популярен', tagNuevo: 'Нов', tagPremium: 'Премиум', tagExclusivo: 'Ексклузивен',
   tagBestseller: 'Бестселър', tagParejas: 'Двойки', tagPadres: 'Родители',
   tagNegocios: 'Бизнес', tagSalud: 'Здраве', tagEspiritual: 'Духовен', tagOriental: 'Ориенталски', dailyTitle: 'Безплатен дневен хороскоп', dailySub: 'Всяка сутрин в имейла ти — обща прогноза за твоя зодиакален знак', dailyBtn: 'Абонирай се безплатно', dailySuccess: 'Успешен абонамент!', dailySuccessMsg: 'Ще получаваш общия си хороскоп по знак всяка сутрин. Безплатно е.', dailyFree: '100% безплатно. Това е общ хороскоп по знак, не персонализирано четене. Отказ по всяко време.', dailySign: 'Твоят зодиакален знак', dailySignPlaceholder: 'Избери знак', signs: { Aries:'Овен', Tauro:'Телец', Geminis:'Близнаци', Cancer:'Рак', Leo:'Лъв', Virgo:'Дева', Libra:'Везни', Escorpio:'Скорпион', Sagitario:'Стрелец', Capricornio:'Козирог', Acuario:'Водолей', Piscis:'Риби' },
+  viralFloatText: 'Узнай космическата си съдба безплатно', viralFloatShare: 'Сподели',
   ladderTitle: '✦ Пътят ти е записан в звездите',
   ladderSub: 'Избери своята дълбочина на познание',
   ladderFreeTag: 'БЕЗПЛАТНО', ladderFreeTitle: 'Дневен Хороскоп', ladderFreeDesc: 'Получавай всяка сутрин персонален хороскоп по имейл. Безплатно завинаги.', ladderFreeBtn: 'Абонирай се безплатно', ladderFreeActive: '✓ Вече си абониран',
@@ -2022,7 +2018,8 @@ fr: {
   footerDisclaimer: 'Les lectures astrologiques sont indicatives et ne remplacent pas les conseils professionnels médicaux, juridiques ou financiers.',
   tagPopular: 'Populaire', tagNuevo: 'Nouveau', tagPremium: 'Premium', tagExclusivo: 'Exclusif',
   tagBestseller: 'Bestseller', tagParejas: 'Couples', tagPadres: 'Parents',
-  tagNegocios: 'Business', tagSalud: 'Santé', tagEspiritual: 'Spirituel', tagOriental: 'Oriental', dailyTitle: 'Horoscope quotidien gratuit', dailySub: 'Chaque matin dans votre email — lecture generale pour votre signe', dailyBtn: 'S\'abonner gratuitement', dailySuccess: 'Abonnement réussi !', dailySuccessMsg: 'Vous recevrez votre horoscope general par signe chaque matin. C\'est gratuit.', dailyFree: '100% gratuit. C\'est un horoscope general par signe, pas une lecture personnalisee. Annulez a tout moment.', dailySign: 'Votre signe du zodiaque', dailySignPlaceholder: 'Sélectionnez votre signe', signs: { Aries:'Bélier', Tauro:'Taureau', Geminis:'Gémeaux', Cancer:'Cancer', Leo:'Lion', Virgo:'Vierge', Libra:'Balance', Escorpio:'Scorpion', Sagitario:'Sagittaire', Capricornio:'Capricorne', Acuario:'Verseau', Piscis:'Poissons' }
+  tagNegocios: 'Business', tagSalud: 'Santé', tagEspiritual: 'Spirituel', tagOriental: 'Oriental', dailyTitle: 'Horoscope quotidien gratuit', dailySub: 'Chaque matin dans votre email — lecture generale pour votre signe', dailyBtn: 'S\'abonner gratuitement', dailySuccess: 'Abonnement réussi !', dailySuccessMsg: 'Vous recevrez votre horoscope general par signe chaque matin. C\'est gratuit.', dailyFree: '100% gratuit. C\'est un horoscope general par signe, pas une lecture personnalisee. Annulez a tout moment.', dailySign: 'Votre signe du zodiaque', dailySignPlaceholder: 'Sélectionnez votre signe', signs: { Aries:'Bélier', Tauro:'Taureau', Geminis:'Gémeaux', Cancer:'Cancer', Leo:'Lion', Virgo:'Vierge', Libra:'Balance', Escorpio:'Scorpion', Sagitario:'Sagittaire', Capricornio:'Capricorne', Acuario:'Verseau', Piscis:'Poissons' },
+  viralFloatText: 'Découvrez votre destin cosmique gratuitement', viralFloatShare: 'Partager'
 },
 de: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'Dein Kosmischer Führer',
@@ -2080,7 +2077,8 @@ de: {
   footerDisclaimer: 'Astrologische Deutungen dienen der Orientierung und ersetzen keine professionelle medizinische, rechtliche oder finanzielle Beratung.',
   tagPopular: 'Beliebt', tagNuevo: 'Neu', tagPremium: 'Premium', tagExclusivo: 'Exklusiv',
   tagBestseller: 'Bestseller', tagParejas: 'Paare', tagPadres: 'Eltern',
-  tagNegocios: 'Business', tagSalud: 'Gesundheit', tagEspiritual: 'Spirituell', tagOriental: 'Orientalisch', dailyTitle: 'Kostenloses tägliches Horoskop', dailySub: 'Jeden Morgen in deiner E-Mail — allgemeine Prognose für dein Sternzeichen', dailyBtn: 'Kostenlos abonnieren', dailySuccess: 'Erfolgreich abonniert!', dailySuccessMsg: 'Du erhältst dein allgemeines Horoskop nach Sternzeichen jeden Morgen. Es ist kostenlos.', dailyFree: '100% kostenlos. Dies ist ein allgemeines Horoskop nach Zeichen, keine personalisierte Lesung. Jederzeit kündbar.', dailySign: 'Dein Sternzeichen', dailySignPlaceholder: 'Wähle dein Zeichen', signs: { Aries:'Widder', Tauro:'Stier', Geminis:'Zwillinge', Cancer:'Krebs', Leo:'Löwe', Virgo:'Jungfrau', Libra:'Waage', Escorpio:'Skorpion', Sagitario:'Schütze', Capricornio:'Steinbock', Acuario:'Wassermann', Piscis:'Fische' }
+  tagNegocios: 'Business', tagSalud: 'Gesundheit', tagEspiritual: 'Spirituell', tagOriental: 'Orientalisch', dailyTitle: 'Kostenloses tägliches Horoskop', dailySub: 'Jeden Morgen in deiner E-Mail — allgemeine Prognose für dein Sternzeichen', dailyBtn: 'Kostenlos abonnieren', dailySuccess: 'Erfolgreich abonniert!', dailySuccessMsg: 'Du erhältst dein allgemeines Horoskop nach Sternzeichen jeden Morgen. Es ist kostenlos.', dailyFree: '100% kostenlos. Dies ist ein allgemeines Horoskop nach Zeichen, keine personalisierte Lesung. Jederzeit kündbar.', dailySign: 'Dein Sternzeichen', dailySignPlaceholder: 'Wähle dein Zeichen', signs: { Aries:'Widder', Tauro:'Stier', Geminis:'Zwillinge', Cancer:'Krebs', Leo:'Löwe', Virgo:'Jungfrau', Libra:'Waage', Escorpio:'Skorpion', Sagitario:'Schütze', Capricornio:'Steinbock', Acuario:'Wassermann', Piscis:'Fische' },
+  viralFloatText: 'Entdecke dein kosmisches Schicksal kostenlos', viralFloatShare: 'Teilen'
 },
 it: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'La Tua Guida Cosmica',
@@ -2138,7 +2136,8 @@ it: {
   footerDisclaimer: 'Le letture astrologiche sono orientative e non sostituiscono la consulenza professionale medica, legale o finanziaria.',
   tagPopular: 'Popolare', tagNuevo: 'Nuovo', tagPremium: 'Premium', tagExclusivo: 'Esclusivo',
   tagBestseller: 'Bestseller', tagParejas: 'Coppie', tagPadres: 'Genitori',
-  tagNegocios: 'Business', tagSalud: 'Salute', tagEspiritual: 'Spirituale', tagOriental: 'Orientale', dailyTitle: 'Oroscopo giornaliero gratuito', dailySub: 'Ogni mattina nella tua email — lettura generale per il tuo segno zodiacale', dailyBtn: 'Iscriviti gratis', dailySuccess: 'Iscrizione riuscita!', dailySuccessMsg: 'Riceverai il tuo oroscopo generale per segno ogni mattina. E gratuito.', dailyFree: '100% gratis. E un oroscopo generale per segno, non una lettura personalizzata. Cancella quando vuoi.', dailySign: 'Il tuo segno zodiacale', dailySignPlaceholder: 'Seleziona il tuo segno', signs: { Aries:'Ariete', Tauro:'Toro', Geminis:'Gemelli', Cancer:'Cancro', Leo:'Leone', Virgo:'Vergine', Libra:'Bilancia', Escorpio:'Scorpione', Sagitario:'Sagittario', Capricornio:'Capricorno', Acuario:'Acquario', Piscis:'Pesci' }
+  tagNegocios: 'Business', tagSalud: 'Salute', tagEspiritual: 'Spirituale', tagOriental: 'Orientale', dailyTitle: 'Oroscopo giornaliero gratuito', dailySub: 'Ogni mattina nella tua email — lettura generale per il tuo segno zodiacale', dailyBtn: 'Iscriviti gratis', dailySuccess: 'Iscrizione riuscita!', dailySuccessMsg: 'Riceverai il tuo oroscopo generale per segno ogni mattina. E gratuito.', dailyFree: '100% gratis. E un oroscopo generale per segno, non una lettura personalizzata. Cancella quando vuoi.', dailySign: 'Il tuo segno zodiacale', dailySignPlaceholder: 'Seleziona il tuo segno', signs: { Aries:'Ariete', Tauro:'Toro', Geminis:'Gemelli', Cancer:'Cancro', Leo:'Leone', Virgo:'Vergine', Libra:'Bilancia', Escorpio:'Scorpione', Sagitario:'Sagittario', Capricornio:'Capricorno', Acuario:'Acquario', Piscis:'Pesci' },
+  viralFloatText: 'Scopri il tuo destino cosmico gratis', viralFloatShare: 'Condividi'
 },
 pt: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'Seu Guia Cósmico',
@@ -2196,7 +2195,8 @@ pt: {
   footerDisclaimer: 'As leituras astrológicas são orientativas e não substituem aconselhamento profissional médico, jurídico ou financeiro.',
   tagPopular: 'Popular', tagNuevo: 'Novo', tagPremium: 'Premium', tagExclusivo: 'Exclusivo',
   tagBestseller: 'Bestseller', tagParejas: 'Casais', tagPadres: 'Pais',
-  tagNegocios: 'Negócios', tagSalud: 'Saúde', tagEspiritual: 'Espiritual', tagOriental: 'Oriental', dailyTitle: 'Horóscopo diário gratuito', dailySub: 'Toda manhã no seu email — leitura geral para o seu signo zodiacal', dailyBtn: 'Inscrever-se grátis', dailySuccess: 'Inscrito com sucesso!', dailySuccessMsg: 'Você receberá seu horóscopo geral por signo toda manhã. É gratuito.', dailyFree: '100% grátis. É um horóscopo geral por signo, não uma leitura personalizada. Cancele quando quiser.', dailySign: 'Seu signo do zodíaco', dailySignPlaceholder: 'Selecione seu signo', signs: { Aries:'Áries', Tauro:'Touro', Geminis:'Gêmeos', Cancer:'Câncer', Leo:'Leão', Virgo:'Virgem', Libra:'Libra', Escorpio:'Escorpião', Sagitario:'Sagitário', Capricornio:'Capricórnio', Acuario:'Aquário', Piscis:'Peixes' }
+  tagNegocios: 'Negócios', tagSalud: 'Saúde', tagEspiritual: 'Espiritual', tagOriental: 'Oriental', dailyTitle: 'Horóscopo diário gratuito', dailySub: 'Toda manhã no seu email — leitura geral para o seu signo zodiacal', dailyBtn: 'Inscrever-se grátis', dailySuccess: 'Inscrito com sucesso!', dailySuccessMsg: 'Você receberá seu horóscopo geral por signo toda manhã. É gratuito.', dailyFree: '100% grátis. É um horóscopo geral por signo, não uma leitura personalizada. Cancele quando quiser.', dailySign: 'Seu signo do zodíaco', dailySignPlaceholder: 'Selecione seu signo', signs: { Aries:'Áries', Tauro:'Touro', Geminis:'Gêmeos', Cancer:'Câncer', Leo:'Leão', Virgo:'Virgem', Libra:'Libra', Escorpio:'Escorpião', Sagitario:'Sagitário', Capricornio:'Capricórnio', Acuario:'Aquário', Piscis:'Peixes' },
+  viralFloatText: 'Descubra seu destino cósmico grátis', viralFloatShare: 'Compartilhar'
 },
 ru: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'Ваш Космический Путеводитель',
@@ -2254,7 +2254,8 @@ ru: {
   footerDisclaimer: 'Астрологические чтения носят ориентировочный характер и не заменяют профессиональные медицинские, юридические или финансовые консультации.',
   tagPopular: 'Популярный', tagNuevo: 'Новый', tagPremium: 'Премиум', tagExclusivo: 'Эксклюзив',
   tagBestseller: 'Бестселлер', tagParejas: 'Пары', tagPadres: 'Родители',
-  tagNegocios: 'Бизнес', tagSalud: 'Здоровье', tagEspiritual: 'Духовный', tagOriental: 'Восточный', dailyTitle: 'Бесплатный ежедневный гороскоп', dailySub: 'Каждое утро на вашу почту — общий прогноз для вашего знака зодиака', dailyBtn: 'Подписаться бесплатно', dailySuccess: 'Подписка оформлена!', dailySuccessMsg: 'Вы будете получать общий гороскоп по знаку каждое утро. Бесплатно.', dailyFree: '100% бесплатно. Это общий гороскоп по знаку, не персональное чтение. Отмена в любое время.', dailySign: 'Ваш знак зодиака', dailySignPlaceholder: 'Выберите знак', signs: { Aries:'Овен', Tauro:'Телец', Geminis:'Близнецы', Cancer:'Рак', Leo:'Лев', Virgo:'Дева', Libra:'Весы', Escorpio:'Скорпион', Sagitario:'Стрелец', Capricornio:'Козерог', Acuario:'Водолей', Piscis:'Рыбы' }
+  tagNegocios: 'Бизнес', tagSalud: 'Здоровье', tagEspiritual: 'Духовный', tagOriental: 'Восточный', dailyTitle: 'Бесплатный ежедневный гороскоп', dailySub: 'Каждое утро на вашу почту — общий прогноз для вашего знака зодиака', dailyBtn: 'Подписаться бесплатно', dailySuccess: 'Подписка оформлена!', dailySuccessMsg: 'Вы будете получать общий гороскоп по знаку каждое утро. Бесплатно.', dailyFree: '100% бесплатно. Это общий гороскоп по знаку, не персональное чтение. Отмена в любое время.', dailySign: 'Ваш знак зодиака', dailySignPlaceholder: 'Выберите знак', signs: { Aries:'Овен', Tauro:'Телец', Geminis:'Близнецы', Cancer:'Рак', Leo:'Лев', Virgo:'Дева', Libra:'Весы', Escorpio:'Скорпион', Sagitario:'Стрелец', Capricornio:'Козерог', Acuario:'Водолей', Piscis:'Рыбы' },
+  viralFloatText: 'Узнайте свою космическую судьбу бесплатно', viralFloatShare: 'Поделиться'
 },
 zh: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: '你的宇宙指南',
@@ -2312,7 +2313,8 @@ zh: {
   footerDisclaimer: '占星解读仅供参考，不替代专业的医疗、法律或财务建议。',
   tagPopular: '热门', tagNuevo: '新品', tagPremium: '高级', tagExclusivo: '独家',
   tagBestseller: '畅销', tagParejas: '情侣', tagPadres: '父母',
-  tagNegocios: '商业', tagSalud: '健康', tagEspiritual: '灵性', tagOriental: '东方', dailyTitle: '免费每日星座运势', dailySub: '每天早上发送到您的邮箱 — 您星座的一般预测', dailyBtn: '免费订阅', dailySuccess: '订阅成功！', dailySuccessMsg: '您将每天早上收到按星座的一般运势。完全免费。', dailyFree: '100%免费。这是按星座的一般运势，不是个性化解读。随时取消。', dailySign: '您的星座', dailySignPlaceholder: '选择您的星座', signs: { Aries:'白羊座', Tauro:'金牛座', Geminis:'双子座', Cancer:'巨蟹座', Leo:'狮子座', Virgo:'处女座', Libra:'天秤座', Escorpio:'天蝎座', Sagitario:'射手座', Capricornio:'摩羯座', Acuario:'水瓶座', Piscis:'双鱼座' }
+  tagNegocios: '商业', tagSalud: '健康', tagEspiritual: '灵性', tagOriental: '东方', dailyTitle: '免费每日星座运势', dailySub: '每天早上发送到您的邮箱 — 您星座的一般预测', dailyBtn: '免费订阅', dailySuccess: '订阅成功！', dailySuccessMsg: '您将每天早上收到按星座的一般运势。完全免费。', dailyFree: '100%免费。这是按星座的一般运势，不是个性化解读。随时取消。', dailySign: '您的星座', dailySignPlaceholder: '选择您的星座', signs: { Aries:'白羊座', Tauro:'金牛座', Geminis:'双子座', Cancer:'巨蟹座', Leo:'狮子座', Virgo:'处女座', Libra:'天秤座', Escorpio:'天蝎座', Sagitario:'射手座', Capricornio:'摩羯座', Acuario:'水瓶座', Piscis:'双鱼座' },
+  viralFloatText: '免费发现你的宇宙命运', viralFloatShare: '分享'
 },
 ja: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'あなたの宇宙ガイド',
@@ -2370,7 +2372,8 @@ ja: {
   footerDisclaimer: '占星術リーディングはガイダンスであり、専門的な医療、法律、財務アドバイスに代わるものではありません。',
   tagPopular: '人気', tagNuevo: '新着', tagPremium: 'プレミアム', tagExclusivo: '限定',
   tagBestseller: 'ベストセラー', tagParejas: 'カップル', tagPadres: '親',
-  tagNegocios: 'ビジネス', tagSalud: '健康', tagEspiritual: 'スピリチュアル', tagOriental: 'オリエンタル', dailyTitle: '無料の毎日の星占い', dailySub: '毎朝メールで — あなたの星座の一般的な予報', dailyBtn: '無料で購読', dailySuccess: '購読完了！', dailySuccessMsg: '毎朝星座別の一般的な星占いをお届けします。無料です。', dailyFree: '100%無料。星座別の一般的な星占いで、個人的なリーディングではありません。いつでも解約可能。', dailySign: 'あなたの星座', dailySignPlaceholder: '星座を選択', signs: { Aries:'おひつじ座', Tauro:'おうし座', Geminis:'ふたご座', Cancer:'かに座', Leo:'しし座', Virgo:'おとめ座', Libra:'てんびん座', Escorpio:'さそり座', Sagitario:'いて座', Capricornio:'やぎ座', Acuario:'みずがめ座', Piscis:'うお座' }
+  tagNegocios: 'ビジネス', tagSalud: '健康', tagEspiritual: 'スピリチュアル', tagOriental: 'オリエンタル', dailyTitle: '無料の毎日の星占い', dailySub: '毎朝メールで — あなたの星座の一般的な予報', dailyBtn: '無料で購読', dailySuccess: '購読完了！', dailySuccessMsg: '毎朝星座別の一般的な星占いをお届けします。無料です。', dailyFree: '100%無料。星座別の一般的な星占いで、個人的なリーディングではありません。いつでも解約可能。', dailySign: 'あなたの星座', dailySignPlaceholder: '星座を選択', signs: { Aries:'おひつじ座', Tauro:'おうし座', Geminis:'ふたご座', Cancer:'かに座', Leo:'しし座', Virgo:'おとめ座', Libra:'てんびん座', Escorpio:'さそり座', Sagitario:'いて座', Capricornio:'やぎ座', Acuario:'みずがめ座', Piscis:'うお座' },
+  viralFloatText: 'あなたの宇宙の運命を無料で発見', viralFloatShare: 'シェア'
 },
 ko: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: '당신의 우주 가이드',
@@ -2428,7 +2431,8 @@ ko: {
   footerDisclaimer: '점성술 리딩은 안내용이며 전문 의료, 법률 또는 재정 조언을 대체하지 않습니다.',
   tagPopular: '인기', tagNuevo: '신규', tagPremium: '프리미엄', tagExclusivo: '독점',
   tagBestseller: '베스트셀러', tagParejas: '커플', tagPadres: '부모',
-  tagNegocios: '비즈니스', tagSalud: '건강', tagEspiritual: '영적', tagOriental: '오리엔탈', dailyTitle: '무료 매일 별자리 운세', dailySub: '매일 아침 이메일로 — 별자리별 일반 운세', dailyBtn: '무료 구독', dailySuccess: '구독 완료!', dailySuccessMsg: '매일 아침 별자리별 일반 운세를 받아보실 수 있습니다. 무료입니다.', dailyFree: '100% 무료. 별자리별 일반 운세이며, 개인 맞춤 리딩이 아닙니다. 언제든 취소 가능.', dailySign: '당신의 별자리', dailySignPlaceholder: '별자리 선택', signs: { Aries:'양자리', Tauro:'황소자리', Geminis:'쌍둥이자리', Cancer:'게자리', Leo:'사자자리', Virgo:'처녀자리', Libra:'천칭자리', Escorpio:'전갈자리', Sagitario:'궁수자리', Capricornio:'염소자리', Acuario:'물병자리', Piscis:'물고기자리' }
+  tagNegocios: '비즈니스', tagSalud: '건강', tagEspiritual: '영적', tagOriental: '오리엔탈', dailyTitle: '무료 매일 별자리 운세', dailySub: '매일 아침 이메일로 — 별자리별 일반 운세', dailyBtn: '무료 구독', dailySuccess: '구독 완료!', dailySuccessMsg: '매일 아침 별자리별 일반 운세를 받아보실 수 있습니다. 무료입니다.', dailyFree: '100% 무료. 별자리별 일반 운세이며, 개인 맞춤 리딩이 아닙니다. 언제든 취소 가능.', dailySign: '당신의 별자리', dailySignPlaceholder: '별자리 선택', signs: { Aries:'양자리', Tauro:'황소자리', Geminis:'쌍둥이자리', Cancer:'게자리', Leo:'사자자리', Virgo:'처녀자리', Libra:'천칭자리', Escorpio:'전갈자리', Sagitario:'궁수자리', Capricornio:'염소자리', Acuario:'물병자리', Piscis:'물고기자리' },
+  viralFloatText: '무료로 우주의 운명을 발견하세요', viralFloatShare: '공유'
 },
 ar: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'دليلك الكوني',
@@ -2486,7 +2490,8 @@ ar: {
   footerDisclaimer: 'القراءات الفلكية إرشادية ولا تحل محل المشورة المهنية الطبية أو القانونية أو المالية.',
   tagPopular: 'شائع', tagNuevo: 'جديد', tagPremium: 'مميز', tagExclusivo: 'حصري',
   tagBestseller: 'الأكثر مبيعاً', tagParejas: 'أزواج', tagPadres: 'آباء',
-  tagNegocios: 'أعمال', tagSalud: 'صحة', tagEspiritual: 'روحي', tagOriental: 'شرقي', dailyTitle: 'برج يومي مجاني', dailySub: 'كل صباح في بريدك الإلكتروني — توقعات عامة لبرجك', dailyBtn: 'اشترك مجاناً', dailySuccess: 'تم الاشتراك بنجاح!', dailySuccessMsg: 'ستتلقى برجك العام حسب البرج كل صباح. مجاني.', dailyFree: '100% مجاني. هذا برج عام حسب البرج، وليس قراءة شخصية. إلغاء في أي وقت.', dailySign: 'برجك', dailySignPlaceholder: 'اختر برجك', signs: { Aries:'الحمل', Tauro:'الثور', Geminis:'الجوزاء', Cancer:'السرطان', Leo:'الأسد', Virgo:'العذراء', Libra:'الميزان', Escorpio:'العقرب', Sagitario:'القوس', Capricornio:'الجدي', Acuario:'الدلو', Piscis:'الحوت' }
+  tagNegocios: 'أعمال', tagSalud: 'صحة', tagEspiritual: 'روحي', tagOriental: 'شرقي', dailyTitle: 'برج يومي مجاني', dailySub: 'كل صباح في بريدك الإلكتروني — توقعات عامة لبرجك', dailyBtn: 'اشترك مجاناً', dailySuccess: 'تم الاشتراك بنجاح!', dailySuccessMsg: 'ستتلقى برجك العام حسب البرج كل صباح. مجاني.', dailyFree: '100% مجاني. هذا برج عام حسب البرج، وليس قراءة شخصية. إلغاء في أي وقت.', dailySign: 'برجك', dailySignPlaceholder: 'اختر برجك', signs: { Aries:'الحمل', Tauro:'الثور', Geminis:'الجوزاء', Cancer:'السرطان', Leo:'الأسد', Virgo:'العذراء', Libra:'الميزان', Escorpio:'العقرب', Sagitario:'القوس', Capricornio:'الجدي', Acuario:'الدلو', Piscis:'الحوت' },
+  viralFloatText: 'اكتشف مصيرك الكوني مجاناً', viralFloatShare: 'مشاركة'
 },
 hi: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'आपका ब्रह्मांडीय मार्गदर्शक',
@@ -2544,7 +2549,8 @@ hi: {
   footerDisclaimer: 'ज्योतिषीय रीडिंग मार्गदर्शन के लिए हैं और पेशेवर चिकित्सा, कानूनी या वित्तीय सलाह का विकल्प नहीं हैं।',
   tagPopular: 'लोकप्रिय', tagNuevo: 'नया', tagPremium: 'प्रीमियम', tagExclusivo: 'विशेष',
   tagBestseller: 'बेस्टसेलर', tagParejas: 'जोड़े', tagPadres: 'माता-पिता',
-  tagNegocios: 'व्यवसाय', tagSalud: 'स्वास्थ्य', tagEspiritual: 'आध्यात्मिक', tagOriental: 'पूर्वी', dailyTitle: 'मुफ्त दैनिक राशिफल', dailySub: 'हर सुबह अपने ईमेल में — आपकी राशि के लिए सामान्य भविष्यवाणी', dailyBtn: 'मुफ्त सदस्यता', dailySuccess: 'सफलतापूर्वक सदस्यता!', dailySuccessMsg: 'आपको हर सुबह राशि के अनुसार सामान्य राशिफल प्राप्त होगा। यह मुफ्त है।', dailyFree: '100% मुफ्त। यह राशि के अनुसार सामान्य राशिफल है, व्यक्तिगत रीडिंग नहीं। कभी भी रद्द करें।', dailySign: 'आपकी राशि', dailySignPlaceholder: 'अपनी राशि चुनें', signs: { Aries:'मेष', Tauro:'वृषभ', Geminis:'मिथुन', Cancer:'कर्क', Leo:'सिंह', Virgo:'कन्या', Libra:'तुला', Escorpio:'वृश्चिक', Sagitario:'धनु', Capricornio:'मकर', Acuario:'कुंभ', Piscis:'मीन' }
+  tagNegocios: 'व्यवसाय', tagSalud: 'स्वास्थ्य', tagEspiritual: 'आध्यात्मिक', tagOriental: 'पूर्वी', dailyTitle: 'मुफ्त दैनिक राशिफल', dailySub: 'हर सुबह अपने ईमेल में — आपकी राशि के लिए सामान्य भविष्यवाणी', dailyBtn: 'मुफ्त सदस्यता', dailySuccess: 'सफलतापूर्वक सदस्यता!', dailySuccessMsg: 'आपको हर सुबह राशि के अनुसार सामान्य राशिफल प्राप्त होगा। यह मुफ्त है।', dailyFree: '100% मुफ्त। यह राशि के अनुसार सामान्य राशिफल है, व्यक्तिगत रीडिंग नहीं। कभी भी रद्द करें।', dailySign: 'आपकी राशि', dailySignPlaceholder: 'अपनी राशि चुनें', signs: { Aries:'मेष', Tauro:'वृषभ', Geminis:'मिथुन', Cancer:'कर्क', Leo:'सिंह', Virgo:'कन्या', Libra:'तुला', Escorpio:'वृश्चिक', Sagitario:'धनु', Capricornio:'मकर', Acuario:'कुंभ', Piscis:'मीन' },
+  viralFloatText: 'अपनी ब्रह्मांडीय नियति मुफ्त में जानें', viralFloatShare: 'शेयर करें'
 },
 tr: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'Kozmik Rehberiniz',
@@ -2602,7 +2608,8 @@ tr: {
   footerDisclaimer: 'Astrolojik okumalar rehberlik amaçlıdır ve profesyonel tıbbi, hukuki veya finansal tavsiyenin yerini almaz.',
   tagPopular: 'Popüler', tagNuevo: 'Yeni', tagPremium: 'Premium', tagExclusivo: 'Özel',
   tagBestseller: 'Çok Satan', tagParejas: 'Çiftler', tagPadres: 'Ebeveynler',
-  tagNegocios: 'İş', tagSalud: 'Sağlık', tagEspiritual: 'Ruhani', tagOriental: 'Doğu', dailyTitle: 'Ücretsiz günlük burç yorumu', dailySub: 'Her sabah e-postanıza — burcunuz için genel tahmin', dailyBtn: 'Ücretsiz abone ol', dailySuccess: 'Başarıyla abone oldunuz!', dailySuccessMsg: 'Her sabah burca göre genel burcunuzu alacaksınız. Ücretsizdir.', dailyFree: '100% ücretsiz. Burca göre genel bir yorumdur, kişisel okuma değildir. İstediğiniz zaman iptal edin.', dailySign: 'Burcunuz', dailySignPlaceholder: 'Burcunuzu seçin', signs: { Aries:'Koç', Tauro:'Boğa', Geminis:'İkizler', Cancer:'Yengeç', Leo:'Aslan', Virgo:'Başak', Libra:'Terazi', Escorpio:'Akrep', Sagitario:'Yay', Capricornio:'Oğlak', Acuario:'Kova', Piscis:'Balık' }
+  tagNegocios: 'İş', tagSalud: 'Sağlık', tagEspiritual: 'Ruhani', tagOriental: 'Doğu', dailyTitle: 'Ücretsiz günlük burç yorumu', dailySub: 'Her sabah e-postanıza — burcunuz için genel tahmin', dailyBtn: 'Ücretsiz abone ol', dailySuccess: 'Başarıyla abone oldunuz!', dailySuccessMsg: 'Her sabah burca göre genel burcunuzu alacaksınız. Ücretsizdir.', dailyFree: '100% ücretsiz. Burca göre genel bir yorumdur, kişisel okuma değildir. İstediğiniz zaman iptal edin.', dailySign: 'Burcunuz', dailySignPlaceholder: 'Burcunuzu seçin', signs: { Aries:'Koç', Tauro:'Boğa', Geminis:'İkizler', Cancer:'Yengeç', Leo:'Aslan', Virgo:'Başak', Libra:'Terazi', Escorpio:'Akrep', Sagitario:'Yay', Capricornio:'Oğlak', Acuario:'Kova', Piscis:'Balık' },
+  viralFloatText: 'Kozmik kaderini ücretsiz keşfet', viralFloatShare: 'Paylaş'
 },
 nl: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'Jouw Kosmische Gids',
@@ -2660,7 +2667,8 @@ nl: {
   footerDisclaimer: 'Astrologische lezingen zijn ter oriëntatie en vervangen geen professioneel medisch, juridisch of financieel advies.',
   tagPopular: 'Populair', tagNuevo: 'Nieuw', tagPremium: 'Premium', tagExclusivo: 'Exclusief',
   tagBestseller: 'Bestseller', tagParejas: 'Koppels', tagPadres: 'Ouders',
-  tagNegocios: 'Zakelijk', tagSalud: 'Gezondheid', tagEspiritual: 'Spiritueel', tagOriental: 'Oriëntaals', dailyTitle: 'Gratis dagelijkse horoscoop', dailySub: 'Elke ochtend in je e-mail — algemene voorspelling voor je sterrenbeeld', dailyBtn: 'Gratis abonneren', dailySuccess: 'Succesvol geabonneerd!', dailySuccessMsg: 'Je ontvangt elke ochtend je algemene horoscoop per sterrenbeeld. Het is gratis.', dailyFree: '100% gratis. Dit is een algemene horoscoop per sterrenbeeld, geen persoonlijke lezing. Op elk moment opzegbaar.', dailySign: 'Je sterrenbeeld', dailySignPlaceholder: 'Selecteer je sterrenbeeld', signs: { Aries:'Ram', Tauro:'Stier', Geminis:'Tweelingen', Cancer:'Kreeft', Leo:'Leeuw', Virgo:'Maagd', Libra:'Weegschaal', Escorpio:'Schorpioen', Sagitario:'Boogschutter', Capricornio:'Steenbok', Acuario:'Waterman', Piscis:'Vissen' }
+  tagNegocios: 'Zakelijk', tagSalud: 'Gezondheid', tagEspiritual: 'Spiritueel', tagOriental: 'Oriëntaals', dailyTitle: 'Gratis dagelijkse horoscoop', dailySub: 'Elke ochtend in je e-mail — algemene voorspelling voor je sterrenbeeld', dailyBtn: 'Gratis abonneren', dailySuccess: 'Succesvol geabonneerd!', dailySuccessMsg: 'Je ontvangt elke ochtend je algemene horoscoop per sterrenbeeld. Het is gratis.', dailyFree: '100% gratis. Dit is een algemene horoscoop per sterrenbeeld, geen persoonlijke lezing. Op elk moment opzegbaar.', dailySign: 'Je sterrenbeeld', dailySignPlaceholder: 'Selecteer je sterrenbeeld', signs: { Aries:'Ram', Tauro:'Stier', Geminis:'Tweelingen', Cancer:'Kreeft', Leo:'Leeuw', Virgo:'Maagd', Libra:'Weegschaal', Escorpio:'Schorpioen', Sagitario:'Boogschutter', Capricornio:'Steenbok', Acuario:'Waterman', Piscis:'Vissen' },
+  viralFloatText: 'Ontdek je kosmische bestemming gratis', viralFloatShare: 'Delen'
 },
 sv: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'Din Kosmiska Guide',
@@ -2717,7 +2725,8 @@ sv: {
   footerDisclaimer: 'Astrologiska tolkningar är vägledande och ersätter inte professionell medicinsk, juridisk eller finansiell rådgivning.',
   tagPopular: 'Populär', tagNuevo: 'Ny', tagPremium: 'Premium', tagExclusivo: 'Exklusiv',
   tagBestseller: 'Bästsäljare', tagParejas: 'Par', tagPadres: 'Föräldrar',
-  tagNegocios: 'Affär', tagSalud: 'Hälsa', tagEspiritual: 'Andlig', tagOriental: 'Orientalisk', dailyTitle: 'Gratis dagligt horoskop', dailySub: 'Varje morgon i din e-post — allmän prognos för ditt stjärntecken', dailyBtn: 'Prenumerera gratis', dailySuccess: 'Prenumeration lyckades!', dailySuccessMsg: 'Du kommer att få ditt allmänna horoskop per stjärntecken varje morgon. Det är gratis.', dailyFree: '100% gratis. Detta är ett allmänt horoskop per stjärntecken, inte en personlig läsning. Avsluta när som helst.', dailySign: 'Ditt stjärntecken', dailySignPlaceholder: 'Välj ditt stjärntecken', signs: { Aries:'Väduren', Tauro:'Oxen', Geminis:'Tvillingarna', Cancer:'Kräftan', Leo:'Lejonet', Virgo:'Jungfrun', Libra:'Vågen', Escorpio:'Skorpionen', Sagitario:'Skytten', Capricornio:'Stenbocken', Acuario:'Vattumannen', Piscis:'Fiskarna' }
+  tagNegocios: 'Affär', tagSalud: 'Hälsa', tagEspiritual: 'Andlig', tagOriental: 'Orientalisk', dailyTitle: 'Gratis dagligt horoskop', dailySub: 'Varje morgon i din e-post — allmän prognos för ditt stjärntecken', dailyBtn: 'Prenumerera gratis', dailySuccess: 'Prenumeration lyckades!', dailySuccessMsg: 'Du kommer att få ditt allmänna horoskop per stjärntecken varje morgon. Det är gratis.', dailyFree: '100% gratis. Detta är ett allmänt horoskop per stjärntecken, inte en personlig läsning. Avsluta när som helst.', dailySign: 'Ditt stjärntecken', dailySignPlaceholder: 'Välj ditt stjärntecken', signs: { Aries:'Väduren', Tauro:'Oxen', Geminis:'Tvillingarna', Cancer:'Kräftan', Leo:'Lejonet', Virgo:'Jungfrun', Libra:'Vågen', Escorpio:'Skorpionen', Sagitario:'Skytten', Capricornio:'Stenbocken', Acuario:'Vattumannen', Piscis:'Fiskarna' },
+  viralFloatText: 'Upptäck ditt kosmiska öde gratis', viralFloatShare: 'Dela'
 },
 pl: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'Twój Kosmiczny Przewodnik',
@@ -2774,7 +2783,8 @@ pl: {
   footerDisclaimer: 'Odczyty astrologiczne mają charakter orientacyjny i nie zastępują profesjonalnej porady medycznej, prawnej lub finansowej.',
   tagPopular: 'Popularny', tagNuevo: 'Nowy', tagPremium: 'Premium', tagExclusivo: 'Ekskluzywny',
   tagBestseller: 'Bestseller', tagParejas: 'Pary', tagPadres: 'Rodzice',
-  tagNegocios: 'Biznes', tagSalud: 'Zdrowie', tagEspiritual: 'Duchowy', tagOriental: 'Orientalny', dailyTitle: 'Darmowy codzienny horoskop', dailySub: 'Każdego ranka na Twój e-mail — ogólna prognoza dla Twojego znaku', dailyBtn: 'Subskrybuj za darmo', dailySuccess: 'Subskrypcja udana!', dailySuccessMsg: 'Każdego ranka otrzymasz ogólny horoskop według znaku. Jest darmowy.', dailyFree: '100% za darmo. To ogólny horoskop według znaku, nie spersonalizowana lektura. Anuluj w każdej chwili.', dailySign: 'Twój znak zodiaku', dailySignPlaceholder: 'Wybierz swój znak', signs: { Aries:'Baran', Tauro:'Byk', Geminis:'Bliźnięta', Cancer:'Rak', Leo:'Lew', Virgo:'Panna', Libra:'Waga', Escorpio:'Skorpion', Sagitario:'Strzelec', Capricornio:'Koziorożec', Acuario:'Wodnik', Piscis:'Ryby' }
+  tagNegocios: 'Biznes', tagSalud: 'Zdrowie', tagEspiritual: 'Duchowy', tagOriental: 'Orientalny', dailyTitle: 'Darmowy codzienny horoskop', dailySub: 'Każdego ranka na Twój e-mail — ogólna prognoza dla Twojego znaku', dailyBtn: 'Subskrybuj za darmo', dailySuccess: 'Subskrypcja udana!', dailySuccessMsg: 'Każdego ranka otrzymasz ogólny horoskop według znaku. Jest darmowy.', dailyFree: '100% za darmo. To ogólny horoskop według znaku, nie spersonalizowana lektura. Anuluj w każdej chwili.', dailySign: 'Twój znak zodiaku', dailySignPlaceholder: 'Wybierz swój znak', signs: { Aries:'Baran', Tauro:'Byk', Geminis:'Bliźnięta', Cancer:'Rak', Leo:'Lew', Virgo:'Panna', Libra:'Waga', Escorpio:'Skorpion', Sagitario:'Strzelec', Capricornio:'Koziorożec', Acuario:'Wodnik', Piscis:'Ryby' },
+  viralFloatText: 'Odkryj swoje kosmiczne przeznaczenie za darmo', viralFloatShare: 'Udostępnij'
 },
 ro: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'Ghidul Tău Cosmic',
@@ -2816,7 +2826,8 @@ ro: {
   copyright: '© 2026 Astro Connect. Toate drepturile rezervate.',
   footerDisclaimer: 'Lecturile astrologice sunt orientative și nu înlocuiesc sfatul profesional medical, juridic sau financiar.',
   tagPopular: 'Popular', tagNuevo: 'Nou', tagPremium: 'Premium', tagExclusivo: 'Exclusiv',
-  tagBestseller: 'Bestseller', tagParejas: 'Cupluri', tagPadres: 'Părinți', tagNegocios: 'Afaceri', tagSalud: 'Sănătate', tagEspiritual: 'Spiritual', tagOriental: 'Oriental', dailyTitle: 'Horoscop zilnic gratuit', dailySub: 'În fiecare dimineață în emailul tău — previziune generală pentru zodia ta', dailyBtn: 'Abonează-te gratuit', dailySuccess: 'Abonare reușită!', dailySuccessMsg: 'Vei primi horoscopul general pe zodii în fiecare dimineață. Este gratuit.', dailyFree: '100% gratuit. Este un horoscop general pe zodii, nu o lectură personalizată. Anulează oricând.', dailySign: 'Zodia ta', dailySignPlaceholder: 'Selectează zodia', signs: { Aries:'Berbec', Tauro:'Taur', Geminis:'Gemeni', Cancer:'Rac', Leo:'Leu', Virgo:'Fecioară', Libra:'Balanță', Escorpio:'Scorpion', Sagitario:'Săgetător', Capricornio:'Capricorn', Acuario:'Vărsător', Piscis:'Pești' }
+  tagBestseller: 'Bestseller', tagParejas: 'Cupluri', tagPadres: 'Părinți', tagNegocios: 'Afaceri', tagSalud: 'Sănătate', tagEspiritual: 'Spiritual', tagOriental: 'Oriental', dailyTitle: 'Horoscop zilnic gratuit', dailySub: 'În fiecare dimineață în emailul tău — previziune generală pentru zodia ta', dailyBtn: 'Abonează-te gratuit', dailySuccess: 'Abonare reușită!', dailySuccessMsg: 'Vei primi horoscopul general pe zodii în fiecare dimineață. Este gratuit.', dailyFree: '100% gratuit. Este un horoscop general pe zodii, nu o lectură personalizată. Anulează oricând.', dailySign: 'Zodia ta', dailySignPlaceholder: 'Selectează zodia', signs: { Aries:'Berbec', Tauro:'Taur', Geminis:'Gemeni', Cancer:'Rac', Leo:'Leu', Virgo:'Fecioară', Libra:'Balanță', Escorpio:'Scorpion', Sagitario:'Săgetător', Capricornio:'Capricorn', Acuario:'Vărsător', Piscis:'Pești' },
+  viralFloatText: 'Descoperă-ți destinul cosmic gratuit', viralFloatShare: 'Distribuie'
 },
 el: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'Ο Κοσμικός σου Οδηγός',
@@ -2858,7 +2869,8 @@ el: {
   copyright: '© 2026 Astro Connect. Με επιφύλαξη παντός δικαιώματος.',
   footerDisclaimer: 'Οι αστρολογικές αναγνώσεις είναι ενδεικτικές.',
   tagPopular: 'Δημοφιλές', tagNuevo: 'Νέο', tagPremium: 'Premium', tagExclusivo: 'Αποκλειστικό',
-  tagBestseller: 'Bestseller', tagParejas: 'Ζευγάρια', tagPadres: 'Γονείς', tagNegocios: 'Επιχείρηση', tagSalud: 'Υγεία', tagEspiritual: 'Πνευματικό', tagOriental: 'Ανατολίτικο', dailyTitle: 'Δωρεάν ημερήσιο ωροσκόπιο', dailySub: 'Κάθε πρωί στο email σας — γενική πρόβλεψη για το ζώδιό σας', dailyBtn: 'Εγγραφή δωρεάν', dailySuccess: 'Επιτυχής εγγραφή!', dailySuccessMsg: 'Θα λαμβάνετε το γενικό ωροσκόπιο ανά ζώδιο κάθε πρωί. Είναι δωρεάν.', dailyFree: '100% δωρεάν. Είναι γενικό ωροσκόπιο ανά ζώδιο, όχι προσωπική ανάγνωση. Ακύρωση ανά πάσα στιγμή.', dailySign: 'Το ζώδιό σας', dailySignPlaceholder: 'Επιλέξτε ζώδιο', signs: { Aries:'Κριός', Tauro:'Ταύρος', Geminis:'Δίδυμοι', Cancer:'Καρκίνος', Leo:'Λέων', Virgo:'Παρθένος', Libra:'Ζυγός', Escorpio:'Σκορπιός', Sagitario:'Τοξότης', Capricornio:'Αιγόκερως', Acuario:'Υδροχόος', Piscis:'Ιχθύες' }
+  tagBestseller: 'Bestseller', tagParejas: 'Ζευγάρια', tagPadres: 'Γονείς', tagNegocios: 'Επιχείρηση', tagSalud: 'Υγεία', tagEspiritual: 'Πνευματικό', tagOriental: 'Ανατολίτικο', dailyTitle: 'Δωρεάν ημερήσιο ωροσκόπιο', dailySub: 'Κάθε πρωί στο email σας — γενική πρόβλεψη για το ζώδιό σας', dailyBtn: 'Εγγραφή δωρεάν', dailySuccess: 'Επιτυχής εγγραφή!', dailySuccessMsg: 'Θα λαμβάνετε το γενικό ωροσκόπιο ανά ζώδιο κάθε πρωί. Είναι δωρεάν.', dailyFree: '100% δωρεάν. Είναι γενικό ωροσκόπιο ανά ζώδιο, όχι προσωπική ανάγνωση. Ακύρωση ανά πάσα στιγμή.', dailySign: 'Το ζώδιό σας', dailySignPlaceholder: 'Επιλέξτε ζώδιο', signs: { Aries:'Κριός', Tauro:'Ταύρος', Geminis:'Δίδυμοι', Cancer:'Καρκίνος', Leo:'Λέων', Virgo:'Παρθένος', Libra:'Ζυγός', Escorpio:'Σκορπιός', Sagitario:'Τοξότης', Capricornio:'Αιγόκερως', Acuario:'Υδροχόος', Piscis:'Ιχθύες' },
+  viralFloatText: 'Ανακαλύψτε τη κοσμική σας μοίρα δωρεάν', viralFloatShare: 'Κοινοποίηση'
 },
 th: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'คู่มือจักรวาลของคุณ',
@@ -2898,7 +2910,8 @@ th: {
   copyright: '© 2026 Astro Connect. สงวนลิขสิทธิ์',
   footerDisclaimer: 'การอ่านโหราศาสตร์เป็นเพียงแนวทางและไม่ทดแทนคำแนะนำทางการแพทย์ กฎหมาย หรือการเงิน',
   tagPopular: 'ยอดนิยม', tagNuevo: 'ใหม่', tagPremium: 'พรีเมียม', tagExclusivo: 'พิเศษ',
-  tagBestseller: 'ขายดี', tagParejas: 'คู่รัก', tagPadres: 'พ่อแม่', tagNegocios: 'ธุรกิจ', tagSalud: 'สุขภาพ', tagEspiritual: 'จิตวิญญาณ', tagOriental: 'ตะวันออก', dailyTitle: 'ดวงรายวันฟรี', dailySub: 'ทุกเช้าในอีเมลของคุณ — พยากรณ์ทั่วไปสำหรับราศีของคุณ', dailyBtn: 'สมัครฟรี', dailySuccess: 'สมัครสำเร็จ!', dailySuccessMsg: 'คุณจะได้รับดวงทั่วไปตามราศีทุกเช้า ฟรี', dailyFree: '100% ฟรี เป็นดวงทั่วไปตามราศี ไม่ใช่การอ่านส่วนบุคคล ยกเลิกได้ตลอดเวลา', dailySign: 'ราศีของคุณ', dailySignPlaceholder: 'เลือกราศี', signs: { Aries:'ราศีเมษ', Tauro:'ราศีพฤษภ', Geminis:'ราศีเมถุน', Cancer:'ราศีกรกฎ', Leo:'ราศีสิงห์', Virgo:'ราศีกันย์', Libra:'ราศีตุลย์', Escorpio:'ราศีพิจิก', Sagitario:'ราศีธนู', Capricornio:'ราศีมังกร', Acuario:'ราศีกุมภ์', Piscis:'ราศีมีน' }
+  tagBestseller: 'ขายดี', tagParejas: 'คู่รัก', tagPadres: 'พ่อแม่', tagNegocios: 'ธุรกิจ', tagSalud: 'สุขภาพ', tagEspiritual: 'จิตวิญญาณ', tagOriental: 'ตะวันออก', dailyTitle: 'ดวงรายวันฟรี', dailySub: 'ทุกเช้าในอีเมลของคุณ — พยากรณ์ทั่วไปสำหรับราศีของคุณ', dailyBtn: 'สมัครฟรี', dailySuccess: 'สมัครสำเร็จ!', dailySuccessMsg: 'คุณจะได้รับดวงทั่วไปตามราศีทุกเช้า ฟรี', dailyFree: '100% ฟรี เป็นดวงทั่วไปตามราศี ไม่ใช่การอ่านส่วนบุคคล ยกเลิกได้ตลอดเวลา', dailySign: 'ราศีของคุณ', dailySignPlaceholder: 'เลือกราศี', signs: { Aries:'ราศีเมษ', Tauro:'ราศีพฤษภ', Geminis:'ราศีเมถุน', Cancer:'ราศีกรกฎ', Leo:'ราศีสิงห์', Virgo:'ราศีกันย์', Libra:'ราศีตุลย์', Escorpio:'ราศีพิจิก', Sagitario:'ราศีธนู', Capricornio:'ราศีมังกร', Acuario:'ราศีกุมภ์', Piscis:'ราศีมีน' },
+  viralFloatText: 'ค้นพบชะตาจักรวาลของคุณฟรี', viralFloatShare: 'แชร์'
 },
 vi: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'Hướng Dẫn Vũ Trụ',
@@ -2938,7 +2951,8 @@ vi: {
   copyright: '© 2026 Astro Connect. Bảo lưu mọi quyền.',
   footerDisclaimer: 'Bản đọc chiêm tinh chỉ mang tính hướng dẫn.',
   tagPopular: 'Phổ biến', tagNuevo: 'Mới', tagPremium: 'Cao cấp', tagExclusivo: 'Độc quyền',
-  tagBestseller: 'Bán chạy', tagParejas: 'Cặp đôi', tagPadres: 'Cha mẹ', tagNegocios: 'Kinh doanh', tagSalud: 'Sức khỏe', tagEspiritual: 'Tâm linh', tagOriental: 'Phương Đông', dailyTitle: 'Tử vi hàng ngày miễn phí', dailySub: 'Mỗi sáng trong email của bạn — dự đoán chung cho cung của bạn', dailyBtn: 'Đăng ký miễn phí', dailySuccess: 'Đăng ký thành công!', dailySuccessMsg: 'Bạn sẽ nhận được tử vi chung theo cung mỗi sáng. Miễn phí.', dailyFree: '100% miễn phí. Đây là tử vi chung theo cung, không phải bản đọc cá nhân. Hủy bất cứ lúc nào.', dailySign: 'Cung hoàng đạo', dailySignPlaceholder: 'Chọn cung của bạn', signs: { Aries:'Bạch Dương', Tauro:'Kim Ngưu', Geminis:'Song Tử', Cancer:'Cự Giải', Leo:'Sư Tử', Virgo:'Xử Nữ', Libra:'Thiên Bình', Escorpio:'Thiên Yết', Sagitario:'Nhân Mã', Capricornio:'Ma Kết', Acuario:'Bảo Bình', Piscis:'Song Ngư' }
+  tagBestseller: 'Bán chạy', tagParejas: 'Cặp đôi', tagPadres: 'Cha mẹ', tagNegocios: 'Kinh doanh', tagSalud: 'Sức khỏe', tagEspiritual: 'Tâm linh', tagOriental: 'Phương Đông', dailyTitle: 'Tử vi hàng ngày miễn phí', dailySub: 'Mỗi sáng trong email của bạn — dự đoán chung cho cung của bạn', dailyBtn: 'Đăng ký miễn phí', dailySuccess: 'Đăng ký thành công!', dailySuccessMsg: 'Bạn sẽ nhận được tử vi chung theo cung mỗi sáng. Miễn phí.', dailyFree: '100% miễn phí. Đây là tử vi chung theo cung, không phải bản đọc cá nhân. Hủy bất cứ lúc nào.', dailySign: 'Cung hoàng đạo', dailySignPlaceholder: 'Chọn cung của bạn', signs: { Aries:'Bạch Dương', Tauro:'Kim Ngưu', Geminis:'Song Tử', Cancer:'Cự Giải', Leo:'Sư Tử', Virgo:'Xử Nữ', Libra:'Thiên Bình', Escorpio:'Thiên Yết', Sagitario:'Nhân Mã', Capricornio:'Ma Kết', Acuario:'Bảo Bình', Piscis:'Song Ngư' },
+  viralFloatText: 'Khám phá vận mệnh vũ trụ miễn phí', viralFloatShare: 'Chia sẻ'
 },
 id: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'Panduan Kosmis Anda',
@@ -2978,7 +2992,8 @@ id: {
   copyright: '© 2026 Astro Connect. Hak cipta dilindungi.',
   footerDisclaimer: 'Pembacaan astrologi bersifat panduan dan bukan pengganti nasihat profesional.',
   tagPopular: 'Populer', tagNuevo: 'Baru', tagPremium: 'Premium', tagExclusivo: 'Eksklusif',
-  tagBestseller: 'Terlaris', tagParejas: 'Pasangan', tagPadres: 'Orang tua', tagNegocios: 'Bisnis', tagSalud: 'Kesehatan', tagEspiritual: 'Spiritual', tagOriental: 'Oriental', dailyTitle: 'Horoskop harian gratis', dailySub: 'Setiap pagi di email Anda — ramalan umum untuk zodiak Anda', dailyBtn: 'Berlangganan gratis', dailySuccess: 'Berlangganan berhasil!', dailySuccessMsg: 'Anda akan menerima horoskop umum per zodiak setiap pagi. Gratis.', dailyFree: '100% gratis. Ini horoskop umum per zodiak, bukan bacaan pribadi. Batalkan kapan saja.', dailySign: 'Zodiak Anda', dailySignPlaceholder: 'Pilih zodiak', signs: { Aries:'Aries', Tauro:'Taurus', Geminis:'Gemini', Cancer:'Cancer', Leo:'Leo', Virgo:'Virgo', Libra:'Libra', Escorpio:'Scorpio', Sagitario:'Sagitarius', Capricornio:'Capricorn', Acuario:'Aquarius', Piscis:'Pisces' }
+  tagBestseller: 'Terlaris', tagParejas: 'Pasangan', tagPadres: 'Orang tua', tagNegocios: 'Bisnis', tagSalud: 'Kesehatan', tagEspiritual: 'Spiritual', tagOriental: 'Oriental', dailyTitle: 'Horoskop harian gratis', dailySub: 'Setiap pagi di email Anda — ramalan umum untuk zodiak Anda', dailyBtn: 'Berlangganan gratis', dailySuccess: 'Berlangganan berhasil!', dailySuccessMsg: 'Anda akan menerima horoskop umum per zodiak setiap pagi. Gratis.', dailyFree: '100% gratis. Ini horoskop umum per zodiak, bukan bacaan pribadi. Batalkan kapan saja.', dailySign: 'Zodiak Anda', dailySignPlaceholder: 'Pilih zodiak', signs: { Aries:'Aries', Tauro:'Taurus', Geminis:'Gemini', Cancer:'Cancer', Leo:'Leo', Virgo:'Virgo', Libra:'Libra', Escorpio:'Scorpio', Sagitario:'Sagitarius', Capricornio:'Capricorn', Acuario:'Aquarius', Piscis:'Pisces' },
+  viralFloatText: 'Temukan takdir kosmis Anda gratis', viralFloatShare: 'Bagikan'
 },
 he: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'המדריך הקוסמי שלך',
@@ -3019,7 +3034,8 @@ he: {
   copyright: '© 2026 Astro Connect. כל הזכויות שמורות.',
   footerDisclaimer: 'קריאות אסטרולוגיות הן להנחיה בלבד ואינן מחליפות ייעוץ מקצועי.',
   tagPopular: 'פופולרי', tagNuevo: 'חדש', tagPremium: 'פרימיום', tagExclusivo: 'בלעדי',
-  tagBestseller: 'רב מכר', tagParejas: 'זוגות', tagPadres: 'הורים', tagNegocios: 'עסקים', tagSalud: 'בריאות', tagEspiritual: 'רוחני', tagOriental: 'מזרחי', dailyTitle: 'הורוסקופ יומי חינם', dailySub: 'כל בוקר במייל שלכם — תחזית כללית למזל שלכם', dailyBtn: 'הרשמה בחינם', dailySuccess: 'נרשמתם בהצלחה!', dailySuccessMsg: 'תקבלו הורוסקופ כללי לפי מזל כל בוקר. חינם.', dailyFree: '100% חינם. זהו הורוסקופ כללי לפי מזל, לא קריאה אישית. ביטול בכל עת.', dailySign: 'המזל שלכם', dailySignPlaceholder: 'בחרו מזל', signs: { Aries:'טלה', Tauro:'שור', Geminis:'תאומים', Cancer:'סרטן', Leo:'אריה', Virgo:'בתולה', Libra:'מאזניים', Escorpio:'עקרב', Sagitario:'קשת', Capricornio:'גדי', Acuario:'דלי', Piscis:'דגים' }
+  tagBestseller: 'רב מכר', tagParejas: 'זוגות', tagPadres: 'הורים', tagNegocios: 'עסקים', tagSalud: 'בריאות', tagEspiritual: 'רוחני', tagOriental: 'מזרחי', dailyTitle: 'הורוסקופ יומי חינם', dailySub: 'כל בוקר במייל שלכם — תחזית כללית למזל שלכם', dailyBtn: 'הרשמה בחינם', dailySuccess: 'נרשמתם בהצלחה!', dailySuccessMsg: 'תקבלו הורוסקופ כללי לפי מזל כל בוקר. חינם.', dailyFree: '100% חינם. זהו הורוסקופ כללי לפי מזל, לא קריאה אישית. ביטול בכל עת.', dailySign: 'המזל שלכם', dailySignPlaceholder: 'בחרו מזל', signs: { Aries:'טלה', Tauro:'שור', Geminis:'תאומים', Cancer:'סרטן', Leo:'אריה', Virgo:'בתולה', Libra:'מאזניים', Escorpio:'עקרב', Sagitario:'קשת', Capricornio:'גדי', Acuario:'דלי', Piscis:'דגים' },
+  viralFloatText: 'גלה את גורלך הקוסמי בחינם', viralFloatShare: 'שתף'
 },
 uk: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'Ваш Космічний Путівник',
@@ -3060,7 +3076,8 @@ uk: {
   copyright: '© 2026 Astro Connect. Всі права захищені.',
   footerDisclaimer: 'Астрологічні читання є орієнтовними і не замінюють професійних порад.',
   tagPopular: 'Популярний', tagNuevo: 'Новий', tagPremium: 'Преміум', tagExclusivo: 'Ексклюзив',
-  tagBestseller: 'Бестселер', tagParejas: 'Пари', tagPadres: 'Батьки', tagNegocios: 'Бізнес', tagSalud: 'Здоров\'я', tagEspiritual: 'Духовний', tagOriental: 'Східний', dailyTitle: 'Безкоштовний щоденний гороскоп', dailySub: 'Щоранку на вашу пошту — загальний прогноз для вашого знаку зодіаку', dailyBtn: 'Підписатися безкоштовно', dailySuccess: 'Підписка оформлена!', dailySuccessMsg: 'Ви будете отримувати загальний гороскоп за знаком щоранку. Безкоштовно.', dailyFree: '100% безкоштовно. Це загальний гороскоп за знаком, не персональне читання. Скасування будь-коли.', dailySign: 'Ваш знак зодіаку', dailySignPlaceholder: 'Оберіть знак', signs: { Aries:'Овен', Tauro:'Телець', Geminis:'Близнюки', Cancer:'Рак', Leo:'Лев', Virgo:'Діва', Libra:'Терези', Escorpio:'Скорпіон', Sagitario:'Стрілець', Capricornio:'Козеріг', Acuario:'Водолій', Piscis:'Риби' }
+  tagBestseller: 'Бестселер', tagParejas: 'Пари', tagPadres: 'Батьки', tagNegocios: 'Бізнес', tagSalud: 'Здоров\'я', tagEspiritual: 'Духовний', tagOriental: 'Східний', dailyTitle: 'Безкоштовний щоденний гороскоп', dailySub: 'Щоранку на вашу пошту — загальний прогноз для вашого знаку зодіаку', dailyBtn: 'Підписатися безкоштовно', dailySuccess: 'Підписка оформлена!', dailySuccessMsg: 'Ви будете отримувати загальний гороскоп за знаком щоранку. Безкоштовно.', dailyFree: '100% безкоштовно. Це загальний гороскоп за знаком, не персональне читання. Скасування будь-коли.', dailySign: 'Ваш знак зодіаку', dailySignPlaceholder: 'Оберіть знак', signs: { Aries:'Овен', Tauro:'Телець', Geminis:'Близнюки', Cancer:'Рак', Leo:'Лев', Virgo:'Діва', Libra:'Терези', Escorpio:'Скорпіон', Sagitario:'Стрілець', Capricornio:'Козеріг', Acuario:'Водолій', Piscis:'Риби' },
+  viralFloatText: 'Дізнайтесь свою космічну долю безкоштовно', viralFloatShare: 'Поділитися'
 },
 cs: {
   sidebarLogo: '✦ Astro Connect', sidebarSub: 'Váš Kosmický Průvodce',
@@ -3101,7 +3118,8 @@ cs: {
   copyright: '© 2026 Astro Connect. Všechna práva vyhrazena.',
   footerDisclaimer: 'Astrologická čtení jsou orientační a nenahrazují odborné poradenství.',
   tagPopular: 'Populární', tagNuevo: 'Nový', tagPremium: 'Premium', tagExclusivo: 'Exkluzivní',
-  tagBestseller: 'Bestseller', tagParejas: 'Páry', tagPadres: 'Rodiče', tagNegocios: 'Obchod', tagSalud: 'Zdraví', tagEspiritual: 'Duchovní', tagOriental: 'Orientální', dailyTitle: 'Denní horoskop zdarma', dailySub: 'Každé ráno ve vašem emailu — obecná předpověď pro vaše znamení', dailyBtn: 'Odebírat zdarma', dailySuccess: 'Odběr úspěšný!', dailySuccessMsg: 'Každé ráno obdržíte obecný horoskop podle znamení. Je zdarma.', dailyFree: '100% zdarma. Jde o obecný horoskop podle znamení, ne o osobní čtení. Zrušení kdykoli.', dailySign: 'Vaše znamení', dailySignPlaceholder: 'Vyberte znamení', signs: { Aries:'Beran', Tauro:'Býk', Geminis:'Blíženci', Cancer:'Rak', Leo:'Lev', Virgo:'Panna', Libra:'Váhy', Escorpio:'Štír', Sagitario:'Střelec', Capricornio:'Kozoroh', Acuario:'Vodnář', Piscis:'Ryby' }
+  tagBestseller: 'Bestseller', tagParejas: 'Páry', tagPadres: 'Rodiče', tagNegocios: 'Obchod', tagSalud: 'Zdraví', tagEspiritual: 'Duchovní', tagOriental: 'Orientální', dailyTitle: 'Denní horoskop zdarma', dailySub: 'Každé ráno ve vašem emailu — obecná předpověď pro vaše znamení', dailyBtn: 'Odebírat zdarma', dailySuccess: 'Odběr úspěšný!', dailySuccessMsg: 'Každé ráno obdržíte obecný horoskop podle znamení. Je zdarma.', dailyFree: '100% zdarma. Jde o obecný horoskop podle znamení, ne o osobní čtení. Zrušení kdykoli.', dailySign: 'Vaše znamení', dailySignPlaceholder: 'Vyberte znamení', signs: { Aries:'Beran', Tauro:'Býk', Geminis:'Blíženci', Cancer:'Rak', Leo:'Lev', Virgo:'Panna', Libra:'Váhy', Escorpio:'Štír', Sagitario:'Střelec', Capricornio:'Kozoroh', Acuario:'Vodnář', Piscis:'Ryby' },
+  viralFloatText: 'Objevte svůj kosmický osud zdarma', viralFloatShare: 'Sdílet'
 }
 };
 // ═══════════════════════════════════════════════════
@@ -4192,35 +4210,7 @@ function renderSidebar() {
   let html = `
     <div class="sidebar-logo">
       <div class="logo-eye">
-        <svg viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg">
-          <!-- Outer eye shape -->
-          <path d="M2 20 Q16 2 32 2 Q48 2 62 20 Q48 38 32 38 Q16 38 2 20Z" fill="none" stroke="#D4A843" stroke-width="1.5" opacity="0.8"/>
-          <path d="M6 20 Q18 6 32 6 Q46 6 58 20 Q46 34 32 34 Q18 34 6 20Z" fill="none" stroke="#7B4FBF" stroke-width="0.8" opacity="0.5"/>
-          <!-- Iris rays -->
-          <g style="transform-origin:32px 20px;animation:irisRotate 20s linear infinite" opacity="0.3">
-            <line x1="32" y1="8" x2="32" y2="12" stroke="#D4A843" stroke-width="0.5"/>
-            <line x1="42" y1="10" x2="40" y2="13" stroke="#D4A843" stroke-width="0.5"/>
-            <line x1="48" y1="16" x2="44" y2="17" stroke="#D4A843" stroke-width="0.5"/>
-            <line x1="48" y1="24" x2="44" y2="23" stroke="#D4A843" stroke-width="0.5"/>
-            <line x1="42" y1="30" x2="40" y2="27" stroke="#D4A843" stroke-width="0.5"/>
-            <line x1="32" y1="32" x2="32" y2="28" stroke="#D4A843" stroke-width="0.5"/>
-            <line x1="22" y1="30" x2="24" y2="27" stroke="#D4A843" stroke-width="0.5"/>
-            <line x1="16" y1="24" x2="20" y2="23" stroke="#D4A843" stroke-width="0.5"/>
-            <line x1="16" y1="16" x2="20" y2="17" stroke="#D4A843" stroke-width="0.5"/>
-            <line x1="22" y1="10" x2="24" y2="13" stroke="#D4A843" stroke-width="0.5"/>
-          </g>
-          <!-- Iris circle -->
-          <circle cx="32" cy="20" r="10" fill="none" stroke="#7B4FBF" stroke-width="1" opacity="0.6"/>
-          <circle cx="32" cy="20" r="7" fill="rgba(123,79,191,0.15)" stroke="#D4A843" stroke-width="0.8" opacity="0.8"/>
-          <!-- Pupil -->
-          <circle cx="32" cy="20" r="4" fill="#D4A843" style="animation:pupilGlow 3s ease-in-out infinite"/>
-          <!-- Highlight -->
-          <circle cx="29" cy="17" r="1.5" fill="rgba(255,255,255,0.5)"/>
-          <!-- Stars around eye -->
-          <text x="4" y="10" fill="#D4A843" font-size="5" opacity="0.6">✦</text>
-          <text x="54" y="10" fill="#7B4FBF" font-size="4" opacity="0.5">✦</text>
-          <text x="56" y="36" fill="#D4A843" font-size="3" opacity="0.4">✦</text>
-        </svg>
+        <img src="logo.png" alt="Astro Connect" width="48" height="48" style="border-radius:50%;">
       </div>
       Astro Connect
     </div>
@@ -6200,7 +6190,6 @@ function initBuyBar() {
 
 // === VIRAL FLOATING BAR ===
 function initViralBar() {
-  if (sessionStorage.getItem('viral_bar_closed')) return;
   if (sessionStorage.getItem('lead_completed')) return; // Buy bar takes priority
   var bar = document.getElementById('viral-float-bar');
   if (!bar) return;
@@ -6230,12 +6219,6 @@ function viralFloatShare(platform) {
       alert(t('viralFloatShare') + ' - Link copiado!');
     }
   }
-}
-
-function closeViralBar() {
-  var bar = document.getElementById('viral-float-bar');
-  if (bar) bar.classList.remove('visible');
-  sessionStorage.setItem('viral_bar_closed', '1');
 }
 
 // === INIT ===
