@@ -5682,6 +5682,8 @@ function openLeadMagnetModal(preBirthDate, forceType) {
         <input type="text" name="birthCity" placeholder="${t('fCity') || 'Ciudad de nacimiento'}">
         <label>${t('fCountry') || 'Pais de nacimiento'}</label>
         <input type="text" name="birthCountry" placeholder="${t('fCountry') || 'Pais de nacimiento'}">
+        <label>${t('fEmailOpt') || 'Email'} <span style="color:#6B5B8D;font-size:0.8rem">(${t('fOptional') || 'opcional'})</span></label>
+        <input type="email" name="email" placeholder="${t('fEmailOptPlaceholder') || 'Si quieres recibir tu lectura por email'}">
         <button type="submit" class="lead-submit" id="lead-submit-btn">${t('leadSubmit') || 'Obtener mi lectura GRATIS'}</button>
       </form>
     </div>`;
@@ -5709,7 +5711,7 @@ function submitLeadMagnet(e) {
   btn.textContent = t('leadLoading') || 'Las estrellas estan calculando...';
 
   var body = {
-    email: '',
+    email: fd.get('email') || '',
     customerName: fd.get('customerName'),
     birthDate: fd.get('birthDate'),
     birthTime: fd.get('birthTime') || '',
