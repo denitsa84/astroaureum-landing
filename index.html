@@ -741,25 +741,66 @@ body {
   margin-top: 64px;
   background: var(--card);
   border-radius: var(--radius);
-  padding: 32px;
+  padding: 40px 32px;
   border: 1px solid var(--border);
-  text-align: left;
-  max-width: 700px;
+  text-align: center;
+  max-width: 900px;
   width: 100%;
 }
 .hero-why h3 {
   font-family: 'Cinzel', serif;
   color: var(--gold);
-  margin-bottom: 16px;
+  margin-bottom: 8px;
+  font-size: 1.5rem;
 }
-.hero-why ul { list-style: none; padding: 0; }
-.hero-why li {
-  padding: 8px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
-  font-size: 0.85rem;
+.why-subtitle {
   color: var(--text-dim);
+  font-size: 0.95rem;
+  margin-bottom: 32px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
-.hero-why li::before { content: "✦ "; color: var(--gold); }
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+@media (max-width: 768px) {
+  .why-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .why-grid { grid-template-columns: 1fr; }
+}
+.why-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  padding: 24px 20px;
+  text-align: center;
+  transition: transform 0.3s, border-color 0.3s;
+}
+.why-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+}
+.why-icon {
+  font-size: 2rem;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 0 8px rgba(212,175,55,0.4));
+}
+.why-card h4 {
+  font-family: 'Cinzel', serif;
+  color: #fff;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+.why-card p {
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  margin: 0;
+}
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(30px); }
@@ -1386,7 +1427,7 @@ body {
 [dir="rtl"] .pack-tag { right: auto; left: 14px; }
 [dir="rtl"] .hamburger { left: auto; right: 16px; }
 [dir="rtl"] .hero-why { text-align: right; }
-[dir="rtl"] .hero-why li::before { content: " ✦"; float: right; margin-left: 6px; }
+[dir="rtl"] .why-card { text-align: right; }
 /* === VIRAL SHARE BUTTONS === */
 .viral-btn {
   width: 44px; height: 44px; border-radius: 50%; border: none; cursor: pointer;
@@ -1561,13 +1602,13 @@ es: {
   stat1v: '10,000+', stat1l: 'Lecturas', stat2v: '4.9 ★', stat2l: 'Valoración',
   stat3v: '25+', stat3l: 'Idiomas', stat4v: '36', stat4l: 'Servicios',
   whyTitle: '¿Por qué Astro Connect?',
-  why1: '10,000+ lecturas realizadas con precisión de última generación',
-  why2: '8 tradiciones astrológicas milenarias en una sola plataforma',
-  why3: 'Disponible en 25+ idiomas con soporte completo',
-  why4: 'Tecnología avanzada de análisis astrológico personalizado',
-  why5: '12 packs exclusivos con hasta 40% de ahorro',
-  why6: 'Tradiciones únicas: Cabalística, Védica, China, Celestial',
-  why7: 'Human Design, I Ching y Astrología Angélica integrados',
+  whySub: 'Precision astronomica real. Tradiciones milenarias. Resultados que transforman.',
+  why1t: 'Calculos de Alta Precision', why1d: 'Utilizamos efemerides astronomicas Swiss Ephemeris para calcular la posicion exacta de cada planeta al segundo de tu nacimiento. No son estimaciones: son datos cientificos reales.',
+  why2t: '8 Tradiciones Ancestrales', why2d: 'Occidental, Vedica, Cabalistica, China, Celestial, Karmica, Human Design e I Ching. Cada una con siglos de conocimiento interpretativo.',
+  why3t: 'Lecturas 100% Unicas', why3d: 'Cada lectura se calcula individualmente con tus datos exactos de nacimiento. No existen dos lecturas iguales — la tuya es irrepetible.',
+  why4t: 'Transitos Planetarios Reales', why4d: 'Tus lecturas incorporan las posiciones planetarias del momento actual. No horoscopos genericos: analisis basados en el cielo real de hoy.',
+  why5t: '10,000+ Lecturas Entregadas', why5d: 'Mas de diez mil personas ya han descubierto su mapa cosmico con nosotros. Valoracion media de 4.9 estrellas.',
+  why6t: '25 Idiomas Nativos', why6d: 'Tu lectura se genera en tu idioma de forma nativa, no es una traduccion automatica. Precision linguistica en cada palabra.',
   tradTitle: '8 Tradiciones Astrológicas', tradSub: 'Cada tradición ofrece una perspectiva única sobre tu destino',
   services: 'servicios', from: 'desde',
   packTitle: '12 Packs Combinados', packSub: 'Ahorra combinando lecturas de múltiples tradiciones',
@@ -1655,13 +1696,13 @@ en: {
   stat1v: '10,000+', stat1l: 'Readings', stat2v: '4.9 ★', stat2l: 'Rating',
   stat3v: '25+', stat3l: 'Languages', stat4v: '36', stat4l: 'Services',
   whyTitle: 'Why Astro Connect?',
-  why1: '10,000+ readings delivered with cutting-edge precision',
-  why2: '8 ancient astrological traditions integrated in one platform',
-  why3: 'Available in 25+ languages with full support',
-  why4: 'Advanced personalized astrological analysis technology',
-  why5: '12 exclusive packs with up to 40% savings',
-  why6: 'Unique traditions: Kabbalistic, Vedic, Chinese, Celestial',
-  why7: 'Human Design, I Ching and Angelic Astrology integrated',
+  whySub: 'Real astronomical precision. Ancient traditions. Life-changing results.',
+  why1t: 'High-Precision Calculations', why1d: 'We use Swiss Ephemeris astronomical tables to calculate the exact position of every planet at the second of your birth. Not estimates — real scientific data.',
+  why2t: '8 Ancient Traditions', why2d: 'Western, Vedic, Kabbalistic, Chinese, Celestial, Karmic, Human Design and I Ching. Each one backed by centuries of interpretive knowledge.',
+  why3t: '100% Unique Readings', why3d: 'Every reading is individually calculated using your exact birth data. No two readings are alike — yours is one of a kind.',
+  why4t: 'Real Planetary Transits', why4d: 'Your readings incorporate current planetary positions in real time. Not generic horoscopes — analysis based on today\'s actual sky.',
+  why5t: '10,000+ Readings Delivered', why5d: 'Over ten thousand people have already discovered their cosmic map with us. Average rating of 4.9 stars.',
+  why6t: '25 Native Languages', why6d: 'Your reading is generated natively in your language, not machine-translated. Linguistic precision in every word.',
   tradTitle: '8 Astrological Traditions', tradSub: 'Each tradition offers a unique perspective on your destiny',
   services: 'services', from: 'from',
   packTitle: '12 Combined Packs', packSub: 'Save by combining readings from multiple traditions',
@@ -1749,13 +1790,13 @@ bg: {
   stat1v: '10,000+', stat1l: 'Четения', stat2v: '4.9 ★', stat2l: 'Оценка',
   stat3v: '25+', stat3l: 'Езика', stat4v: '36', stat4l: 'Услуги',
   whyTitle: 'Защо Astro Connect?',
-  why1: '8 астрологични традиции, интегрирани в една платформа',
-  why2: 'ИИ от последно поколение за ултра-персонализирани четения',
-  why3: 'Достъпна на 25 езика с пълна поддръжка',
-  why4: 'Професионални четения от €22',
-  why5: '12 комбинирани пакета с до 40% отстъпка',
-  why6: 'Включва уникални традиции: Кабалистична, Ведическа, Китайска',
-  why7: 'Human Design и I Ching интегрирани',
+  whySub: 'Реална астрономическа точност. Хилядолетни традиции. Резултати, които трансформират.',
+  why1t: 'Изчисления с Висока Точност', why1d: 'Използваме астрономически таблици Swiss Ephemeris за изчисляване на точната позиция на всяка планета в секундата на раждането ти. Не са приблизителни — реални научни данни.',
+  why2t: '8 Древни Традиции', why2d: 'Западна, Ведическа, Кабалистична, Китайска, Небесна, Кармична, Human Design и I Ching. Всяка с векове интерпретативни познания.',
+  why3t: '100% Уникални Четения', why3d: 'Всяко четене се изчислява индивидуално с точните ти данни за раждане. Няма две еднакви — твоето е неповторимо.',
+  why4t: 'Реални Планетарни Транзити', why4d: 'Четенията ти включват текущите планетарни позиции в реално време. Не генерични хороскопи — анализ базиран на реалното небе днес.',
+  why5t: '10,000+ Доставени Четения', why5d: 'Над десет хиляди души вече са открили космическата си карта с нас. Средна оценка 4.9 звезди.',
+  why6t: '25 Родни Езика', why6d: 'Четенето ти се генерира на родния ти език, не е машинен превод. Езикова точност във всяка дума.',
   tradTitle: '8 Астрологични Традиции', tradSub: 'Всяка традиция предлага уникална перспектива за твоята съдба',
   services: 'услуги', from: 'от',
   packTitle: '12 Комбинирани Пакета', packSub: 'Спести, като комбинираш четения от множество традиции',
@@ -1809,13 +1850,13 @@ fr: {
   stat1v: '10,000+', stat1l: 'Lectures', stat2v: '4.9 ★', stat2l: 'Évaluation',
   stat3v: '25+', stat3l: 'Langues', stat4v: '36', stat4l: 'Services',
   whyTitle: 'Pourquoi Astro Connect ?',
-  why1: '8 traditions astrologiques intégrées en une seule plateforme',
-  why2: 'IA de pointe pour des lectures ultra-personnalisées',
-  why3: 'Disponible en 25 langues avec support complet',
-  why4: 'Lectures professionnelles à partir de 22€',
-  why5: '12 packs combinés avec jusqu\'à 40% d\'économie',
-  why6: 'Inclut des traditions uniques : Kabbalistique, Védique, Chinoise',
-  why7: 'Human Design et I Ching intégrés',
+  whySub: 'Precision astronomique reelle. Traditions ancestrales. Resultats transformateurs.',
+  why1t: 'Calculs de Haute Precision', why1d: 'Nous utilisons les tables astronomiques Swiss Ephemeris pour calculer la position exacte de chaque planete a la seconde de votre naissance. Pas des estimations — des donnees scientifiques reelles.',
+  why2t: '8 Traditions Ancestrales', why2d: 'Occidentale, Vedique, Kabbalistique, Chinoise, Celeste, Karmique, Human Design et I Ching. Chacune soutenue par des siecles de savoir interpretatif.',
+  why3t: 'Lectures 100% Uniques', why3d: 'Chaque lecture est calculee individuellement avec vos donnees exactes de naissance. Aucune n\'est identique — la votre est unique.',
+  why4t: 'Transits Planetaires Reels', why4d: 'Vos lectures integrent les positions planetaires actuelles en temps reel. Pas des horoscopes generiques — une analyse basee sur le ciel reel d\'aujourd\'hui.',
+  why5t: '10,000+ Lectures Livrees', why5d: 'Plus de dix mille personnes ont deja decouvert leur carte cosmique avec nous. Note moyenne de 4.9 etoiles.',
+  why6t: '25 Langues Natives', why6d: 'Votre lecture est generee nativement dans votre langue, pas traduite automatiquement. Precision linguistique dans chaque mot.',
   tradTitle: '8 Traditions Astrologiques', tradSub: 'Chaque tradition offre une perspective unique sur votre destin',
   services: 'services', from: 'à partir de',
   packTitle: '12 Packs Combinés', packSub: 'Économisez en combinant des lectures de multiples traditions',
@@ -1867,13 +1908,13 @@ de: {
   stat1v: '10,000+', stat1l: 'Deutungen', stat2v: '4.9 ★', stat2l: 'Bewertung',
   stat3v: '25+', stat3l: 'Sprachen', stat4v: '36', stat4l: 'Dienste',
   whyTitle: 'Warum Astro Connect?',
-  why1: '8 astrologische Traditionen in einer Plattform integriert',
-  why2: 'Modernste KI für ultra-personalisierte Deutungen',
-  why3: 'Verfügbar in 25 Sprachen mit vollem Support',
-  why4: 'Professionelle Deutungen ab 22€',
-  why5: '12 kombinierte Pakete mit bis zu 40% Ersparnis',
-  why6: 'Enthält einzigartige Traditionen: Kabbalistische, Vedische, Chinesische',
-  why7: 'Human Design und I Ching integriert',
+  whySub: 'Echte astronomische Prazision. Jahrtausendealte Traditionen. Lebensverandernde Ergebnisse.',
+  why1t: 'Hochprazise Berechnungen', why1d: 'Wir verwenden die astronomischen Swiss Ephemeris Tabellen, um die exakte Position jedes Planeten in der Sekunde deiner Geburt zu berechnen. Keine Schatzungen — echte wissenschaftliche Daten.',
+  why2t: '8 Uralte Traditionen', why2d: 'Westlich, Vedisch, Kabbalistisch, Chinesisch, Himmlisch, Karmisch, Human Design und I Ching. Jede gestutzt durch Jahrhunderte interpretativen Wissens.',
+  why3t: '100% Einzigartige Deutungen', why3d: 'Jede Deutung wird individuell mit deinen exakten Geburtsdaten berechnet. Keine zwei sind gleich — deine ist einzigartig.',
+  why4t: 'Echte Planetentransite', why4d: 'Deine Deutungen berucksichtigen aktuelle Planetenpositionen in Echtzeit. Keine generischen Horoskope — Analyse basierend auf dem tatsachlichen Himmel von heute.',
+  why5t: '10.000+ Deutungen Geliefert', why5d: 'Uber zehntausend Menschen haben ihre kosmische Karte bereits mit uns entdeckt. Durchschnittsbewertung von 4,9 Sternen.',
+  why6t: '25 Muttersprachliche Sprachen', why6d: 'Deine Deutung wird muttersprachlich in deiner Sprache erstellt, nicht maschinell ubersetzt. Sprachliche Prazision in jedem Wort.',
   tradTitle: '8 Astrologische Traditionen', tradSub: 'Jede Tradition bietet eine einzigartige Perspektive auf dein Schicksal',
   services: 'Dienste', from: 'ab',
   packTitle: '12 Kombinierte Pakete', packSub: 'Spare durch Kombination von Deutungen aus mehreren Traditionen',
@@ -1925,13 +1966,13 @@ it: {
   stat1v: '10,000+', stat1l: 'Letture', stat2v: '4.9 ★', stat2l: 'Valutazione',
   stat3v: '25+', stat3l: 'Lingue', stat4v: '36', stat4l: 'Servizi',
   whyTitle: 'Perché Astro Connect?',
-  why1: '8 tradizioni astrologiche integrate in un\'unica piattaforma',
-  why2: 'IA all\'avanguardia per letture ultra-personalizzate',
-  why3: 'Disponibile in 25 lingue con supporto completo',
-  why4: 'Letture professionali a partire da 22€',
-  why5: '12 pack combinati con fino al 40% di risparmio',
-  why6: 'Include tradizioni uniche: Cabalistica, Vedica, Cinese',
-  why7: 'Human Design e I Ching integrati',
+  whySub: 'Precisione astronomica reale. Tradizioni millenarie. Risultati che trasformano.',
+  why1t: 'Calcoli di Alta Precisione', why1d: 'Utilizziamo le tavole astronomiche Swiss Ephemeris per calcolare la posizione esatta di ogni pianeta al secondo della tua nascita. Non stime — dati scientifici reali.',
+  why2t: '8 Tradizioni Ancestrali', why2d: 'Occidentale, Vedica, Cabalistica, Cinese, Celeste, Karmica, Human Design e I Ching. Ognuna supportata da secoli di conoscenza interpretativa.',
+  why3t: 'Letture 100% Uniche', why3d: 'Ogni lettura viene calcolata individualmente con i tuoi dati di nascita esatti. Non ne esistono due uguali — la tua e irripetibile.',
+  why4t: 'Transiti Planetari Reali', why4d: 'Le tue letture incorporano le posizioni planetarie attuali in tempo reale. Non oroscopi generici — analisi basata sul cielo reale di oggi.',
+  why5t: '10.000+ Letture Consegnate', why5d: 'Oltre diecimila persone hanno gia scoperto la loro mappa cosmica con noi. Valutazione media di 4,9 stelle.',
+  why6t: '25 Lingue Native', why6d: 'La tua lettura viene generata nativamente nella tua lingua, non tradotta automaticamente. Precisione linguistica in ogni parola.',
   tradTitle: '8 Tradizioni Astrologiche', tradSub: 'Ogni tradizione offre una prospettiva unica sul tuo destino',
   services: 'servizi', from: 'da',
   packTitle: '12 Pack Combinati', packSub: 'Risparmia combinando letture da molteplici tradizioni',
@@ -1983,13 +2024,13 @@ pt: {
   stat1v: '10,000+', stat1l: 'Leituras', stat2v: '4.9 ★', stat2l: 'Avaliação',
   stat3v: '25+', stat3l: 'Idiomas', stat4v: '36', stat4l: 'Serviços',
   whyTitle: 'Por que Astro Connect?',
-  why1: '8 tradições astrológicas integradas em uma única plataforma',
-  why2: 'IA de última geração para leituras ultra-personalizadas',
-  why3: 'Disponível em 25 idiomas com suporte completo',
-  why4: 'Leituras profissionais a partir de €22',
-  why5: '12 packs combinados com até 40% de economia',
-  why6: 'Inclui tradições únicas: Cabalística, Védica, Chinesa',
-  why7: 'Human Design e I Ching integrados',
+  whySub: 'Precisao astronomica real. Tradicoes milenares. Resultados transformadores.',
+  why1t: 'Calculos de Alta Precisao', why1d: 'Utilizamos as tabelas astronomicas Swiss Ephemeris para calcular a posicao exata de cada planeta no segundo do seu nascimento. Nao sao estimativas — dados cientificos reais.',
+  why2t: '8 Tradicoes Ancestrais', why2d: 'Ocidental, Vedica, Cabalistica, Chinesa, Celestial, Carmica, Human Design e I Ching. Cada uma com seculos de conhecimento interpretativo.',
+  why3t: 'Leituras 100% Unicas', why3d: 'Cada leitura e calculada individualmente com seus dados exatos de nascimento. Nao existem duas iguais — a sua e unica.',
+  why4t: 'Transitos Planetarios Reais', why4d: 'Suas leituras incorporam as posicoes planetarias atuais em tempo real. Nao horoscopos genericos — analise baseada no ceu real de hoje.',
+  why5t: '10.000+ Leituras Entregues', why5d: 'Mais de dez mil pessoas ja descobriram seu mapa cosmico conosco. Avaliacao media de 4,9 estrelas.',
+  why6t: '25 Idiomas Nativos', why6d: 'Sua leitura e gerada nativamente no seu idioma, nao e traducao automatica. Precisao linguistica em cada palavra.',
   tradTitle: '8 Tradições Astrológicas', tradSub: 'Cada tradição oferece uma perspectiva única sobre seu destino',
   services: 'serviços', from: 'a partir de',
   packTitle: '12 Packs Combinados', packSub: 'Economize combinando leituras de múltiplas tradições',
@@ -2041,13 +2082,13 @@ ru: {
   stat1v: '10,000+', stat1l: 'Чтений', stat2v: '4.9 ★', stat2l: 'Оценка',
   stat3v: '25+', stat3l: 'Языков', stat4v: '36', stat4l: 'Услуг',
   whyTitle: 'Почему Astro Connect?',
-  why1: '8 астрологических традиций в одной платформе',
-  why2: 'ИИ последнего поколения для ультра-персонализированных чтений',
-  why3: 'Доступно на 25 языках с полной поддержкой',
-  why4: 'Профессиональные чтения от €22',
-  why5: '12 комбинированных пакетов с экономией до 40%',
-  why6: 'Уникальные традиции: Каббалистическая, Ведическая, Китайская',
-  why7: 'Human Design и I Ching интегрированы',
+  whySub: 'Реальная астрономическая точность. Древние традиции. Результаты, меняющие жизнь.',
+  why1t: 'Высокоточные Расчеты', why1d: 'Мы используем астрономические таблицы Swiss Ephemeris для расчета точного положения каждой планеты в секунду вашего рождения. Не оценки — реальные научные данные.',
+  why2t: '8 Древних Традиций', why2d: 'Западная, Ведическая, Каббалистическая, Китайская, Небесная, Кармическая, Human Design и I Ching. Каждая с вековыми знаниями.',
+  why3t: '100% Уникальные Чтения', why3d: 'Каждое чтение рассчитывается индивидуально по вашим точным данным рождения. Нет двух одинаковых — ваше неповторимо.',
+  why4t: 'Реальные Планетарные Транзиты', why4d: 'Ваши чтения включают текущие позиции планет в реальном времени. Не общие гороскопы — анализ на основе реального неба сегодня.',
+  why5t: '10 000+ Доставленных Чтений', why5d: 'Более десяти тысяч человек уже открыли свою космическую карту с нами. Средний рейтинг 4,9 звезд.',
+  why6t: '25 Родных Языков', why6d: 'Ваше чтение генерируется на вашем родном языке, а не машинным переводом. Лингвистическая точность в каждом слове.',
   tradTitle: '8 Астрологических Традиций', tradSub: 'Каждая традиция предлагает уникальный взгляд на вашу судьбу',
   services: 'услуг', from: 'от',
   packTitle: '12 Комбинированных Пакетов', packSub: 'Экономьте, комбинируя чтения из нескольких традиций',
@@ -2099,10 +2140,13 @@ zh: {
   stat1v: '10,000+', stat1l: '解读', stat2v: '4.9 ★', stat2l: '评分',
   stat3v: '25+', stat3l: '语言', stat4v: '36', stat4l: '服务',
   whyTitle: '为什么选择Astro Connect？',
-  why1: '8大占星传统整合于一个平台', why2: '最先进的AI提供超个性化解读',
-  why3: '支持25+种语言', why4: '专业解读起价€22',
-  why5: '12个组合套餐最高节省40%', why6: '包含独特传统：卡巴拉、吠陀、中国',
-  why7: '集成Human Design和易经',
+  whySub: '真实天文精度。千年传统。改变人生的结果。',
+  why1t: '高精度计算', why1d: '我们使用Swiss Ephemeris天文星历表计算你出生那一秒每颗行星的精确位置。不是估算——是真实的科学数据。',
+  why2t: '8大古老传统', why2d: '西方、吠陀、卡巴拉、中国、天使、业力、人类设计和易经。每一种都有数百年的解读知识。',
+  why3t: '100%独一无二的解读', why3d: '每次解读都根据你的精确出生数据单独计算。没有两份相同——你的是独一无二的。',
+  why4t: '真实行星过境', why4d: '你的解读包含实时的当前行星位置。不是通用星座运势——基于今天真实天空的分析。',
+  why5t: '10,000+解读已交付', why5d: '超过一万人已经与我们一起发现了他们的宇宙地图。平均评分4.9星。',
+  why6t: '25种原生语言', why6d: '你的解读以你的语言原生生成，不是机器翻译。每个词都精准。',
   tradTitle: '8大占星传统', tradSub: '每个传统都为你的命运提供独特视角',
   services: '项服务', from: '起价',
   packTitle: '12个组合套餐', packSub: '组合多传统解读，享受优惠',
@@ -2154,10 +2198,13 @@ ja: {
   stat1v: '10,000+', stat1l: 'リーディング', stat2v: '4.9 ★', stat2l: '評価',
   stat3v: '25+', stat3l: '言語', stat4v: '36', stat4l: 'サービス',
   whyTitle: 'なぜAstro Connect？',
-  why1: '8つの占星術の伝統を1つのプラットフォームに統合', why2: '超パーソナライズされたリーディングのための最先端AI',
-  why3: '25+言語で完全サポート', why4: 'プロのリーディングが€22から',
-  why5: '最大40%割引の12コンボパック', why6: 'カバラ、ヴェーダ、中国の独自の伝統を含む',
-  why7: 'ヒューマンデザインと易経を統合',
+  whySub: '本物の天文学的精度。古代の伝統。人生を変える結果。',
+  why1t: '高精度計算', why1d: 'Swiss Ephemeris天文暦表を使用して、あなたの誕生の瞬間の各惑星の正確な位置を計算します。推定ではなく、実際の科学データです。',
+  why2t: '8つの古代伝統', why2d: '西洋、ヴェーダ、カバラ、中国、天使、カルマ、ヒューマンデザイン、易経。それぞれ何世紀もの解釈知識に裏打ちされています。',
+  why3t: '100%ユニークなリーディング', why3d: 'すべてのリーディングはあなたの正確な出生データで個別に計算されます。同じものは二つとありません。',
+  why4t: 'リアルな惑星トランジット', why4d: 'リーディングはリアルタイムの惑星位置を反映。一般的な星占いではなく、今日の実際の空に基づく分析。',
+  why5t: '10,000+リーディング提供', why5d: '1万人以上がすでに私たちと宇宙の地図を発見しています。平均評価4.9星。',
+  why6t: '25のネイティブ言語', why6d: 'リーディングはあなたの言語でネイティブに生成されます。機械翻訳ではありません。すべての言葉に言語的精度。',
   tradTitle: '8つの占星術の伝統', tradSub: 'それぞれの伝統があなたの運命にユニークな視点を提供',
   services: 'サービス', from: '〜から',
   packTitle: '12コンボパック', packSub: '複数の伝統のリーディングを組み合わせてお得に',
@@ -2209,10 +2256,13 @@ ko: {
   stat1v: '10,000+', stat1l: '리딩', stat2v: '4.9 ★', stat2l: '평점',
   stat3v: '25+', stat3l: '언어', stat4v: '36', stat4l: '서비스',
   whyTitle: '왜 Astro Connect인가?',
-  why1: '8개 점성술 전통을 하나의 플랫폼에 통합', why2: '초개인화 리딩을 위한 최첨단 AI',
-  why3: '25+개 언어 완전 지원', why4: '€22부터 전문 리딩',
-  why5: '최대 40% 할인 12개 콤보 팩', why6: '카발라, 베다, 중국 등 독특한 전통 포함',
-  why7: '휴먼 디자인과 역경 통합',
+  whySub: '실제 천문학적 정밀도. 고대 전통. 인생을 바꾸는 결과.',
+  why1t: '고정밀 계산', why1d: 'Swiss Ephemeris 천문력표를 사용하여 출생 순간 모든 행성의 정확한 위치를 계산합니다. 추정이 아닌 실제 과학 데이터.',
+  why2t: '8가지 고대 전통', why2d: '서양, 베다, 카발라, 중국, 천사, 카르마, 휴먼 디자인, 주역. 각각 수세기의 해석 지식으로 뒷받침.',
+  why3t: '100% 고유한 리딩', why3d: '모든 리딩은 정확한 출생 데이터로 개별 계산됩니다. 두 개의 동일한 리딩은 없습니다.',
+  why4t: '실제 행성 트랜짓', why4d: '리딩에 실시간 행성 위치가 반영됩니다. 일반 별자리 운세가 아닌 오늘의 실제 하늘 기반 분석.',
+  why5t: '10,000+ 리딩 제공', why5d: '만 명 이상이 이미 우리와 함께 우주 지도를 발견했습니다. 평균 평점 4.9성.',
+  why6t: '25개 네이티브 언어', why6d: '리딩은 기계 번역이 아닌 당신의 언어로 네이티브 생성됩니다. 모든 단어에 언어적 정밀도.',
   tradTitle: '8개 점성술 전통', tradSub: '각 전통은 당신의 운명에 대한 독특한 관점을 제공합니다',
   services: '서비스', from: '부터',
   packTitle: '12개 콤보 팩', packSub: '여러 전통의 리딩을 결합하여 절약하세요',
@@ -2264,10 +2314,13 @@ ar: {
   stat1v: '10,000+', stat1l: 'قراءة', stat2v: '4.9 ★', stat2l: 'تقييم',
   stat3v: '25+', stat3l: 'لغة', stat4v: '36', stat4l: 'خدمة',
   whyTitle: 'لماذا Astro Connect؟',
-  why1: '8 تقاليد فلكية مدمجة في منصة واحدة', why2: 'ذكاء اصطناعي متطور لقراءات مخصصة للغاية',
-  why3: 'متاح بـ 25+ لغة مع دعم كامل', why4: 'قراءات احترافية من €22',
-  why5: '12 باقة مجمعة بتوفير يصل إلى 40%', why6: 'يشمل تقاليد فريدة: القبالة والفيدية والصينية',
-  why7: 'تصميم بشري وكتاب التغييرات مدمجان',
+  whySub: 'دقة فلكية حقيقية. تقاليد عريقة. نتائج تغير الحياة.',
+  why1t: 'حسابات عالية الدقة', why1d: 'نستخدم جداول Swiss Ephemeris الفلكية لحساب الموقع الدقيق لكل كوكب في لحظة ولادتك. ليست تقديرات — بيانات علمية حقيقية.',
+  why2t: '8 تقاليد قديمة', why2d: 'غربي، فيدي، قبالي، صيني، سماوي، كارمي، التصميم البشري والإي تشينغ. كل منها مدعوم بقرون من المعرفة التفسيرية.',
+  why3t: 'قراءات فريدة 100%', why3d: 'كل قراءة تحسب فرديا ببيانات ولادتك الدقيقة. لا توجد قراءتان متشابهتان — قراءتك فريدة من نوعها.',
+  why4t: 'عبور كوكبي حقيقي', why4d: 'قراءاتك تتضمن مواقع الكواكب الحالية في الوقت الفعلي. ليست أبراج عامة — تحليل مبني على السماء الحقيقية اليوم.',
+  why5t: '10,000+ قراءة مقدمة', why5d: 'أكثر من عشرة آلاف شخص اكتشفوا خريطتهم الكونية معنا. تقييم متوسط 4.9 نجوم.',
+  why6t: '25 لغة أصلية', why6d: 'قراءتك تولد بلغتك الأصلية، وليست ترجمة آلية. دقة لغوية في كل كلمة.',
   tradTitle: '8 تقاليد فلكية', tradSub: 'كل تقليد يقدم منظوراً فريداً لمصيرك',
   services: 'خدمات', from: 'من',
   packTitle: '12 باقة مجمعة', packSub: 'وفر بدمج قراءات من تقاليد متعددة',
@@ -2319,10 +2372,13 @@ hi: {
   stat1v: '10,000+', stat1l: 'रीडिंग', stat2v: '4.9 ★', stat2l: 'रेटिंग',
   stat3v: '25+', stat3l: 'भाषाएं', stat4v: '36', stat4l: 'सेवाएं',
   whyTitle: 'Astro Connect क्यों?',
-  why1: '8 ज्योतिष परंपराएं एक मंच पर', why2: 'अत्यधिक व्यक्तिगत रीडिंग के लिए अत्याधुनिक AI',
-  why3: '25+ भाषाओं में पूर्ण समर्थन', why4: '€22 से पेशेवर रीडिंग',
-  why5: '40% तक की बचत वाले 12 कॉम्बो पैक', why6: 'अनूठी परंपराएं: कबालिस्टिक, वैदिक, चीनी',
-  why7: 'ह्यूमन डिज़ाइन और आई चिंग एकीकृत',
+  whySub: 'वास्तविक खगोलीय सटीकता। प्राचीन परंपराएं। जीवन बदलने वाले परिणाम।',
+  why1t: 'उच्च सटीकता गणना', why1d: 'हम आपके जन्म के क्षण में हर ग्रह की सटीक स्थिति की गणना के लिए Swiss Ephemeris खगोलीय तालिकाओं का उपयोग करते हैं। अनुमान नहीं — वास्तविक वैज्ञानिक डेटा।',
+  why2t: '8 प्राचीन परंपराएं', why2d: 'पश्चिमी, वैदिक, कबालिस्ट, चीनी, दिव्य, कार्मिक, ह्यूमन डिज़ाइन और आई चिंग। प्रत्येक सदियों के व्याख्यात्मक ज्ञान से समर्थित।',
+  why3t: '100% अद्वितीय रीडिंग', why3d: 'हर रीडिंग आपके सटीक जन्म डेटा से व्यक्तिगत रूप से गणना की जाती है। कोई दो समान नहीं हैं।',
+  why4t: 'वास्तविक ग्रहीय गोचर', why4d: 'आपकी रीडिंग में वास्तविक समय की ग्रहीय स्थितियां शामिल हैं। सामान्य राशिफल नहीं — आज के वास्तविक आकाश पर आधारित विश्लेषण।',
+  why5t: '10,000+ रीडिंग वितरित', why5d: 'दस हजार से अधिक लोगों ने हमारे साथ अपना ब्रह्मांडीय नक्शा खोजा है। औसत रेटिंग 4.9 स्टार।',
+  why6t: '25 मूल भाषाएं', why6d: 'आपकी रीडिंग आपकी भाषा में मूल रूप से उत्पन्न होती है, मशीनी अनुवाद नहीं। हर शब्द में भाषाई सटीकता।',
   tradTitle: '8 ज्योतिष परंपराएं', tradSub: 'प्रत्येक परंपरा आपकी नियति पर अनूठा दृष्टिकोण प्रदान करती है',
   services: 'सेवाएं', from: 'से',
   packTitle: '12 कॉम्बो पैक', packSub: 'कई परंपराओं की रीडिंग मिलाकर बचत करें',
@@ -2374,10 +2430,13 @@ tr: {
   stat1v: '10,000+', stat1l: 'Okuma', stat2v: '4.9 ★', stat2l: 'Değerlendirme',
   stat3v: '25+', stat3l: 'Dil', stat4v: '36', stat4l: 'Hizmet',
   whyTitle: 'Neden Astro Connect?',
-  why1: '8 astroloji geleneği tek bir platformda', why2: 'Kişiselleştirilmiş okumalar için en son AI',
-  why3: '25+ dilde tam destek', why4: '€22\'dan profesyonel okumalar',
-  why5: '%40\'a kadar tasarruflu 12 kombine paket', why6: 'Kabalistik, Vedik, Çin gibi benzersiz gelenekler',
-  why7: 'Human Design ve I Ching entegre',
+  whySub: 'Gercek astronomik hassasiyet. Kadim gelenekler. Hayat degistiren sonuclar.',
+  why1t: 'Yuksek Hassasiyetli Hesaplamalar', why1d: 'Dogumunuzun aninda her gezegenin kesin konumunu hesaplamak icin Swiss Ephemeris astronomik tablolarini kullaniyoruz. Tahmin degil — gercek bilimsel veriler.',
+  why2t: '8 Kadim Gelenek', why2d: 'Bati, Vedik, Kabalistik, Cin, Goksel, Karmik, Human Design ve I Ching. Her biri yuzyillik yorumsal bilgiyle desteklenmis.',
+  why3t: '%100 Benzersiz Okumalar', why3d: 'Her okuma, kesin dogum verilerinizle bireysel olarak hesaplanir. Hicbir ikisi ayni degildir — sizinki essizdir.',
+  why4t: 'Gercek Gezegen Transitleri', why4d: 'Okumalariniz gercek zamanli gezegen konumlarini icerir. Genel burclara degil — bugunun gercek gogune dayali analiz.',
+  why5t: '10.000+ Okuma Teslim Edildi', why5d: 'On binden fazla kisi kozmik haritasini bizimle kesfetti. Ortalama 4,9 yildiz degerlendirme.',
+  why6t: '25 Ana Dil', why6d: 'Okumaniz dilinizde dogal olarak olusturulur, makine cevirisi degildir. Her kelimede dilsel hassasiyet.',
   tradTitle: '8 Astroloji Geleneği', tradSub: 'Her gelenek kaderinize benzersiz bir bakış açısı sunar',
   services: 'hizmet', from: 'başlayan',
   packTitle: '12 Kombine Paket', packSub: 'Birden fazla gelenekten okumaları birleştirerek tasarruf edin',
@@ -2429,10 +2488,13 @@ nl: {
   stat1v: '10,000+', stat1l: 'Lezingen', stat2v: '4.9 ★', stat2l: 'Beoordeling',
   stat3v: '25+', stat3l: 'Talen', stat4v: '36', stat4l: 'Diensten',
   whyTitle: 'Waarom Astro Connect?',
-  why1: '8 astrologische tradities in één platform', why2: 'Geavanceerde AI voor ultra-gepersonaliseerde lezingen',
-  why3: 'Beschikbaar in 25+ talen met volledige ondersteuning', why4: 'Professionele lezingen vanaf €22',
-  why5: '12 gecombineerde pakketten met tot 40% korting', why6: 'Inclusief unieke tradities: Kabbalistisch, Vedisch, Chinees',
-  why7: 'Human Design en I Ching geïntegreerd',
+  whySub: 'Echte astronomische precisie. Eeuwenoude tradities. Levensveranderende resultaten.',
+  why1t: 'Uiterst Precieze Berekeningen', why1d: 'We gebruiken Swiss Ephemeris astronomische tabellen om de exacte positie van elke planeet op de seconde van je geboorte te berekenen. Geen schattingen — echte wetenschappelijke data.',
+  why2t: '8 Oude Tradities', why2d: 'Westers, Vedisch, Kabbalistisch, Chinees, Hemels, Karmisch, Human Design en I Ching. Elk ondersteund door eeuwen aan interpretatieve kennis.',
+  why3t: '100% Unieke Lezingen', why3d: 'Elke lezing wordt individueel berekend met je exacte geboortegegevens. Geen twee zijn hetzelfde — de jouwe is uniek.',
+  why4t: 'Echte Planetaire Transits', why4d: 'Je lezingen bevatten actuele planetaire posities in real-time. Geen generieke horoscopen — analyse gebaseerd op de echte hemel van vandaag.',
+  why5t: '10.000+ Lezingen Geleverd', why5d: 'Meer dan tienduizend mensen hebben hun kosmische kaart al met ons ontdekt. Gemiddelde beoordeling van 4,9 sterren.',
+  why6t: '25 Moedertalen', why6d: 'Je lezing wordt in je eigen taal gegenereerd, niet machinaal vertaald. Taalkundige precisie in elk woord.',
   tradTitle: '8 Astrologische Tradities', tradSub: 'Elke traditie biedt een uniek perspectief op jouw bestemming',
   services: 'diensten', from: 'vanaf',
   packTitle: '12 Gecombineerde Pakketten', packSub: 'Bespaar door lezingen uit meerdere tradities te combineren',
@@ -2484,10 +2546,13 @@ sv: {
   stat1v: '10,000+', stat1l: 'Tolkningar', stat2v: '4.9 ★', stat2l: 'Betyg',
   stat3v: '25+', stat3l: 'Språk', stat4v: '36', stat4l: 'Tjänster',
   whyTitle: 'Varför Astro Connect?',
-  why1: '8 astrologiska traditioner i en plattform', why2: 'Banbrytande AI för ultra-personliga tolkningar',
-  why3: 'Tillgänglig på 25+ språk', why4: 'Professionella tolkningar från €22',
-  why5: '12 kombipaket med upp till 40% rabatt', why6: 'Unika traditioner: Kabbalistisk, Vedisk, Kinesisk',
-  why7: 'Human Design och I Ching integrerade',
+  whySub: 'Verklig astronomisk precision. Urgamla traditioner. Livsforandrande resultat.',
+  why1t: 'Hogprecisionsberakningar', why1d: 'Vi anvander Swiss Ephemeris astronomiska tabeller for att berakna den exakta positionen for varje planet vid din fodelsesekund. Inte uppskattningar — verkliga vetenskapliga data.',
+  why2t: '8 Urgamla Traditioner', why2d: 'Vasterlandsk, Vedisk, Kabbalistisk, Kinesisk, Himmelsk, Karmisk, Human Design och I Ching. Var och en med arhundraden av tolkningskunskap.',
+  why3t: '100% Unika Lasningar', why3d: 'Varje lasning beraknas individuellt med dina exakta fodelseuppgifter. Inga tva ar likadana — din ar unik.',
+  why4t: 'Verkliga Planetara Transiter', why4d: 'Dina lasningar inkluderar aktuella planetpositioner i realtid. Inte generiska horoskop — analys baserad pa dagens verkliga himmel.',
+  why5t: '10 000+ Lasningar Levererade', why5d: 'Over tiotusen personer har redan upptackt sin kosmiska karta med oss. Genomsnittligt betyg 4,9 stjarnor.',
+  why6t: '25 Inhemska Sprak', why6d: 'Din lasning genereras pa ditt modersmal, inte maskinoversatt. Spraklig precision i varje ord.',
   tradTitle: '8 Astrologiska Traditioner', tradSub: 'Varje tradition erbjuder ett unikt perspektiv på ditt öde',
   services: 'tjänster', from: 'från',
   packTitle: '12 Kombipaket', packSub: 'Spara genom att kombinera tolkningar från flera traditioner',
@@ -2538,10 +2603,13 @@ pl: {
   stat1v: '10,000+', stat1l: 'Odczytów', stat2v: '4.9 ★', stat2l: 'Ocena',
   stat3v: '25+', stat3l: 'Języków', stat4v: '36', stat4l: 'Usług',
   whyTitle: 'Dlaczego Astro Connect?',
-  why1: '8 tradycji astrologicznych na jednej platformie', why2: 'Najnowocześniejsza AI do ultra-spersonalizowanych odczytów',
-  why3: 'Dostępna w 25+ językach z pełnym wsparciem', why4: 'Profesjonalne odczyty od €22',
-  why5: '12 pakietów combo z oszczędnością do 40%', why6: 'Unikalne tradycje: Kabalistyczna, Wedyjska, Chińska',
-  why7: 'Human Design i I Ching zintegrowane',
+  whySub: 'Rzeczywista precyzja astronomiczna. Pradawne tradycje. Wyniki zmieniajace zycie.',
+  why1t: 'Obliczenia Wysokiej Precyzji', why1d: 'Uzywamy tabel astronomicznych Swiss Ephemeris do obliczania dokladnej pozycji kazdej planety w sekundzie twoich narodzin. Nie szacunki — prawdziwe dane naukowe.',
+  why2t: '8 Pradawnych Tradycji', why2d: 'Zachodnia, Wedyjska, Kabalistyczna, Chinska, Niebieska, Karmiczna, Human Design i I Ching. Kazda wsparta wiekami wiedzy interpretacyjnej.',
+  why3t: '100% Unikalne Odczyty', why3d: 'Kazdy odczyt jest obliczany indywidualnie na podstawie twoich dokladnych danych urodzenia. Zadne dwa nie sa takie same.',
+  why4t: 'Prawdziwe Tranzyty Planetarne', why4d: 'Twoje odczyty uwzgledniaja aktualne pozycje planet w czasie rzeczywistym. Nie ogolne horoskopy — analiza oparta na dzisiejszym prawdziwym niebie.',
+  why5t: '10 000+ Dostarczonych Odczytow', why5d: 'Ponad dziesiec tysiecy osob odkrylo juz swoja kosmiczna mape z nami. Srednia ocena 4,9 gwiazdek.',
+  why6t: '25 Jezykow Ojczystych', why6d: 'Twoj odczyt jest generowany natywnie w twoim jezyku, nie jest tlumaczony maszynowo. Precyzja jezykowa w kazdym slowie.',
   tradTitle: '8 Tradycji Astrologicznych', tradSub: 'Każda tradycja oferuje unikalną perspektywę na twoje przeznaczenie',
   services: 'usług', from: 'od',
   packTitle: '12 Pakietów Combo', packSub: 'Oszczędzaj łącząc odczyty z wielu tradycji',
@@ -2590,10 +2658,13 @@ ro: {
   heroBtn1: '✦ Explorează Catalogul', heroBtn2: 'Vezi Tradițiile',
   stat1v: '10,000+', stat1l: 'Lecturi', stat2v: '4.9 ★', stat2l: 'Evaluare', stat3v: '25+', stat3l: 'Limbi', stat4v: '36', stat4l: 'Servicii',
   whyTitle: 'De ce Astro Connect?',
-  why1: '8 tradiții astrologice integrate într-o singură platformă', why2: 'AI de ultimă generație pentru lecturi ultra-personalizate',
-  why3: 'Disponibil în 25+ limbi', why4: 'Lecturi profesionale de la €22',
-  why5: '12 pachete combo cu economii de până la 40%', why6: 'Include tradiții unice: Cabalistică, Vedică, Chineză',
-  why7: 'Human Design și I Ching integrate',
+  whySub: 'Precizie astronomica reala. Traditii milenare. Rezultate care transforma.',
+  why1t: 'Calcule de Inalta Precizie', why1d: 'Folosim tabelele astronomice Swiss Ephemeris pentru a calcula pozitia exacta a fiecarei planete in secunda nasterii tale. Nu estimari — date stiintifice reale.',
+  why2t: '8 Traditii Ancestrale', why2d: 'Occidentala, Vedica, Cabalistica, Chineza, Celesta, Karmica, Human Design si I Ching. Fiecare sustinuta de secole de cunoastere interpretativa.',
+  why3t: 'Lecturi 100% Unice', why3d: 'Fiecare lectura este calculata individual cu datele tale exacte de nastere. Nu exista doua la fel — a ta este unica.',
+  why4t: 'Tranzite Planetare Reale', why4d: 'Lecturile tale includ pozitiile planetare actuale in timp real. Nu horoscoape generice — analiza bazata pe cerul real de astazi.',
+  why5t: '10.000+ Lecturi Livrate', why5d: 'Peste zece mii de persoane si-au descoperit deja harta cosmica cu noi. Evaluare medie de 4,9 stele.',
+  why6t: '25 Limbi Native', why6d: 'Lectura ta este generata nativ in limba ta, nu este tradusa automat. Precizie lingvistica in fiecare cuvant.',
   tradTitle: '8 Tradiții Astrologice', tradSub: 'Fiecare tradiție oferă o perspectivă unică asupra destinului tău',
   services: 'servicii', from: 'de la', packTitle: '12 Pachete Combinate', packSub: 'Economisește combinând lecturi din mai multe tradiții', save: 'Economisește',
   stepsTitle: 'Cum Funcționează?',
@@ -2629,10 +2700,13 @@ el: {
   heroBtn1: '✦ Εξερεύνηση Καταλόγου', heroBtn2: 'Δες τις Παραδόσεις',
   stat1v: '10,000+', stat1l: 'Αναγνώσεις', stat2v: '4.9 ★', stat2l: 'Αξιολόγηση', stat3v: '25+', stat3l: 'Γλώσσες', stat4v: '36', stat4l: 'Υπηρεσίες',
   whyTitle: 'Γιατί Astro Connect;',
-  why1: '8 αστρολογικές παραδόσεις σε μία πλατφόρμα', why2: 'AI αιχμής για εξατομικευμένες αναγνώσεις',
-  why3: 'Διαθέσιμο σε 25+ γλώσσες', why4: 'Επαγγελματικές αναγνώσεις από €22',
-  why5: '12 πακέτα combo με έκπτωση έως 40%', why6: 'Μοναδικές παραδόσεις: Καμπαλιστική, Βεδική, Κινεζική',
-  why7: 'Human Design και I Ching ενσωματωμένα',
+  whySub: 'Πραγματικη αστρονομικη ακριβεια. Αρχαιες παραδοσεις. Αποτελεσματα που αλλαζουν τη ζωη.',
+  why1t: 'Υψηλης Ακριβειας Υπολογισμοι', why1d: 'Χρησιμοποιουμε τους αστρονομικους πινακες Swiss Ephemeris για τον υπολογισμο της ακριβους θεσης καθε πλανητη τη στιγμη της γεννησης σας. Οχι εκτιμησεις — πραγματικα επιστημονικα δεδομενα.',
+  why2t: '8 Αρχαιες Παραδοσεις', why2d: 'Δυτικη, Βεδικη, Καμπαλιστικη, Κινεζικη, Ουρανια, Καρμικη, Human Design και I Ching. Καθεμια με αιωνες ερμηνευτικης γνωσης.',
+  why3t: '100% Μοναδικες Αναγνωσεις', why3d: 'Καθε αναγνωση υπολογιζεται ατομικα με τα ακριβη στοιχεια γεννησης σας. Καμια δεν ειναι ιδια — η δικη σας ειναι μοναδικη.',
+  why4t: 'Πραγματικα Πλανητικα Τρανζιτ', why4d: 'Οι αναγνωσεις σας ενσωματωνουν τις τρεχουσες πλανητικες θεσεις σε πραγματικο χρονο. Οχι γενικα ωροσκοπια — αναλυση βασισμενη στον πραγματικο ουρανο.',
+  why5t: '10.000+ Αναγνωσεις', why5d: 'Πανω απο δεκα χιλιαδες ατομα εχουν ανακαλυψει τον κοσμικο τους χαρτη μαζι μας. Μεση βαθμολογια 4,9 αστερια.',
+  why6t: '25 Γλωσσες', why6d: 'Η αναγνωση σας δημιουργειται εγγενως στη γλωσσα σας, χωρις μηχανικη μεταφραση. Γλωσσικη ακριβεια σε καθε λεξη.',
   tradTitle: '8 Αστρολογικές Παραδόσεις', tradSub: 'Κάθε παράδοση προσφέρει μοναδική οπτική στη μοίρα σου',
   services: 'υπηρεσίες', from: 'από', packTitle: '12 Πακέτα Combo', packSub: 'Εξοικονόμησε συνδυάζοντας αναγνώσεις', save: 'Εξοικονόμησε',
   stepsTitle: 'Πώς Λειτουργεί;',
@@ -2668,9 +2742,13 @@ th: {
   heroBtn1: '✦ สำรวจแคตตาล็อก', heroBtn2: 'ดูประเพณี',
   stat1v: '10,000+', stat1l: 'การอ่าน', stat2v: '4.9 ★', stat2l: 'คะแนน', stat3v: '25+', stat3l: 'ภาษา', stat4v: '36', stat4l: 'บริการ',
   whyTitle: 'ทำไมต้อง Astro Connect?',
-  why1: '8 ประเพณีโหราศาสตร์ในแพลตฟอร์มเดียว', why2: 'AI ล้ำสมัยสำหรับการอ่านเฉพาะบุคคล',
-  why3: 'มีใน 25+ ภาษา', why4: 'การอ่านมืออาชีพเริ่มต้น €22', why5: '12 แพ็คคอมโบประหยัดสูงสุด 40%',
-  why6: 'รวมประเพณีพิเศษ: คาบาลา เวทิก จีน', why7: 'Human Design และ I Ching รวมอยู่',
+  whySub: 'ความแม่นยำทางดาราศาสตร์จริง ประเพณีโบราณ ผลลัพธ์ที่เปลี่ยนชีวิต',
+  why1t: 'การคำนวณความแม่นยำสูง', why1d: 'เราใช้ตาราง Swiss Ephemeris เพื่อคำนวณตำแหน่งที่แน่นอนของทุกดาวเคราะห์ในวินาทีที่คุณเกิด ไม่ใช่การประมาณ — ข้อมูลวิทยาศาสตร์จริง',
+  why2t: '8 ประเพณีโบราณ', why2d: 'ตะวันตก เวทิค คับบาลาห์ จีน สวรรค์ กรรม Human Design และ I Ching แต่ละอย่างมีความรู้การตีความหลายศตวรรษ',
+  why3t: 'การอ่านที่ไม่ซ้ำใคร 100%', why3d: 'ทุกการอ่านถูกคำนวณเป็นรายบุคคลด้วยข้อมูลเกิดที่แน่นอนของคุณ ไม่มีสองอันที่เหมือนกัน',
+  why4t: 'ทรานซิตดาวเคราะห์จริง', why4d: 'การอ่านของคุณรวมตำแหน่งดาวเคราะห์ปัจจุบันแบบเรียลไทม์ ไม่ใช่ดวงทั่วไป — วิเคราะห์จากท้องฟ้าจริงวันนี้',
+  why5t: '10,000+ การอ่านที่ส่งมอบ', why5d: 'กว่าหมื่นคนได้ค้นพบแผนที่จักรวาลของพวกเขากับเราแล้ว คะแนนเฉลี่ย 4.9 ดาว',
+  why6t: '25 ภาษาพื้นเมือง', why6d: 'การอ่านของคุณถูกสร้างขึ้นในภาษาของคุณ ไม่ใช่แปลด้วยเครื่อง ความแม่นยำทางภาษาในทุกคำ',
   tradTitle: '8 ประเพณีโหราศาสตร์', tradSub: 'แต่ละประเพณีมอบมุมมองที่ไม่เหมือนใครต่อโชคชะตาของคุณ',
   services: 'บริการ', from: 'เริ่มต้น', packTitle: '12 แพ็คคอมโบ', packSub: 'ประหยัดโดยรวมการอ่านจากหลายประเพณี', save: 'ประหยัด',
   stepsTitle: 'ทำงานอย่างไร?',
@@ -2704,10 +2782,13 @@ vi: {
   heroBtn1: '✦ Khám Phá Danh Mục', heroBtn2: 'Xem Truyền Thống',
   stat1v: '10,000+', stat1l: 'Bản đọc', stat2v: '4.9 ★', stat2l: 'Đánh giá', stat3v: '25+', stat3l: 'Ngôn ngữ', stat4v: '36', stat4l: 'Dịch vụ',
   whyTitle: 'Tại sao Astro Connect?',
-  why1: '8 truyền thống chiêm tinh trong một nền tảng', why2: 'AI tiên tiến cho bản đọc cá nhân hóa',
-  why3: 'Có sẵn bằng 25+ ngôn ngữ', why4: 'Bản đọc chuyên nghiệp từ €22',
-  why5: '12 gói combo tiết kiệm đến 40%', why6: 'Bao gồm Kabbalah, Vệ Đà, Trung Quốc',
-  why7: 'Tích hợp Human Design và Kinh Dịch',
+  whySub: 'Do chinh xac thien van hoc thuc. Truyen thong co dai. Ket qua thay doi cuoc song.',
+  why1t: 'Tinh Toan Do Chinh Xac Cao', why1d: 'Chung toi su dung bang thien van Swiss Ephemeris de tinh toan vi tri chinh xac cua moi hanh tinh vao giay phut ban sinh ra. Khong phai uoc tinh — du lieu khoa hoc thuc.',
+  why2t: '8 Truyen Thong Co Dai', why2d: 'Phuong Tay, Veda, Kabbala, Trung Quoc, Thien Than, Nghiep, Human Design va Kinh Dich. Moi truyen thong co hang the ky kien thuc giai thich.',
+  why3t: 'Bai Doc 100% Doc Nhat', why3d: 'Moi bai doc duoc tinh toan rieng le voi du lieu sinh chinh xac cua ban. Khong co hai bai giong nhau.',
+  why4t: 'Qua Canh Hanh Tinh Thuc', why4d: 'Bai doc cua ban bao gom vi tri hanh tinh hien tai theo thoi gian thuc. Khong phai tu vi chung chung — phan tich dua tren bau troi thuc ngay hom nay.',
+  why5t: '10.000+ Bai Doc Da Giao', why5d: 'Hon muoi nghin nguoi da kham pha ban do vu tru cua ho voi chung toi. Danh gia trung binh 4,9 sao.',
+  why6t: '25 Ngon Ngu Ban Dia', why6d: 'Bai doc cua ban duoc tao ra bang ngon ngu cua ban, khong phai dich may. Do chinh xac ngon ngu trong moi tu.',
   tradTitle: '8 Truyền Thống Chiêm Tinh', tradSub: 'Mỗi truyền thống mang đến góc nhìn độc đáo về vận mệnh',
   services: 'dịch vụ', from: 'từ', packTitle: '12 Gói Combo', packSub: 'Tiết kiệm khi kết hợp bản đọc từ nhiều truyền thống', save: 'Tiết kiệm',
   stepsTitle: 'Hoạt Động Như Thế Nào?',
@@ -2741,10 +2822,13 @@ id: {
   heroBtn1: '✦ Jelajahi Katalog', heroBtn2: 'Lihat Tradisi',
   stat1v: '10,000+', stat1l: 'Pembacaan', stat2v: '4.9 ★', stat2l: 'Penilaian', stat3v: '25+', stat3l: 'Bahasa', stat4v: '36', stat4l: 'Layanan',
   whyTitle: 'Mengapa Astro Connect?',
-  why1: '8 tradisi astrologi dalam satu platform', why2: 'AI mutakhir untuk pembacaan ultra-personal',
-  why3: 'Tersedia dalam 25+ bahasa', why4: 'Pembacaan profesional mulai €22',
-  why5: '12 paket combo hemat hingga 40%', why6: 'Termasuk Kabbalah, Veda, Tiongkok',
-  why7: 'Human Design dan I Ching terintegrasi',
+  whySub: 'Presisi astronomi nyata. Tradisi kuno. Hasil yang mengubah hidup.',
+  why1t: 'Perhitungan Presisi Tinggi', why1d: 'Kami menggunakan tabel astronomi Swiss Ephemeris untuk menghitung posisi tepat setiap planet pada detik kelahiran Anda. Bukan perkiraan — data ilmiah nyata.',
+  why2t: '8 Tradisi Kuno', why2d: 'Barat, Veda, Kabalistik, Tiongkok, Surgawi, Karmik, Human Design dan I Ching. Masing-masing didukung berabad-abad pengetahuan interpretatif.',
+  why3t: '100% Pembacaan Unik', why3d: 'Setiap pembacaan dihitung secara individual dengan data kelahiran tepat Anda. Tidak ada dua yang sama — milik Anda unik.',
+  why4t: 'Transit Planet Nyata', why4d: 'Pembacaan Anda mencakup posisi planet saat ini secara real-time. Bukan horoskop umum — analisis berdasarkan langit nyata hari ini.',
+  why5t: '10.000+ Pembacaan Terkirim', why5d: 'Lebih dari sepuluh ribu orang telah menemukan peta kosmis mereka bersama kami. Rating rata-rata 4,9 bintang.',
+  why6t: '25 Bahasa Asli', why6d: 'Pembacaan Anda dihasilkan secara asli dalam bahasa Anda, bukan terjemahan mesin. Presisi linguistik di setiap kata.',
   tradTitle: '8 Tradisi Astrologi', tradSub: 'Setiap tradisi menawarkan perspektif unik tentang takdir Anda',
   services: 'layanan', from: 'mulai', packTitle: '12 Paket Combo', packSub: 'Hemat dengan menggabungkan pembacaan dari berbagai tradisi', save: 'Hemat',
   stepsTitle: 'Bagaimana Cara Kerjanya?',
@@ -2778,10 +2862,13 @@ he: {
   heroBtn1: '✦ גלה את הקטלוג', heroBtn2: 'צפה במסורות',
   stat1v: '10,000+', stat1l: 'קריאות', stat2v: '4.9 ★', stat2l: 'דירוג', stat3v: '25+', stat3l: 'שפות', stat4v: '36', stat4l: 'שירותים',
   whyTitle: 'למה Astro Connect?',
-  why1: '8 מסורות אסטרולוגיות בפלטפורמה אחת', why2: 'AI מתקדם לקריאות מותאמות אישית',
-  why3: 'זמין ב-25+ שפות', why4: 'קריאות מקצועיות מ-€22',
-  why5: '12 חבילות קומבו עם חיסכון של עד 40%', why6: 'כולל מסורות ייחודיות: קבלה, ודית, סינית',
-  why7: 'Human Design ו-I Ching משולבים',
+  whySub: 'דיוק אסטרונומי אמיתי. מסורות עתיקות. תוצאות שמשנות חיים.',
+  why1t: 'חישובים בדיוק גבוה', why1d: 'אנו משתמשים בטבלאות האסטרונומיות של Swiss Ephemeris לחישוב המיקום המדויק של כל כוכב לכת ברגע לידתך. לא הערכות — נתונים מדעיים אמיתיים.',
+  why2t: '8 מסורות עתיקות', why2d: 'מערבית, וודית, קבלית, סינית, שמימית, קרמית, עיצוב אנושי ואי צ\'ינג. כל אחת נתמכת במאות שנות ידע פרשני.',
+  why3t: 'קריאות ייחודיות 100%', why3d: 'כל קריאה מחושבת באופן אישי עם נתוני הלידה המדויקים שלך. אין שתיים זהות — שלך היא יחידה במינה.',
+  why4t: 'מעברי כוכבי לכת אמיתיים', why4d: 'הקריאות שלך כוללות מיקומי כוכבי לכת נוכחיים בזמן אמת. לא הורוסקופים כלליים — ניתוח מבוסס על השמיים האמיתיים של היום.',
+  why5t: '10,000+ קריאות נמסרו', why5d: 'יותר מעשרת אלפים אנשים כבר גילו את המפה הקוסמית שלהם איתנו. דירוג ממוצע 4.9 כוכבים.',
+  why6t: '25 שפות מקוריות', why6d: 'הקריאה שלך נוצרת באופן מקורי בשפה שלך, לא תרגום מכונה. דיוק לשוני בכל מילה.',
   tradTitle: '8 מסורות אסטרולוגיות', tradSub: 'כל מסורת מציעה פרספקטיבה ייחודית על גורלך',
   services: 'שירותים', from: 'החל מ', packTitle: '12 חבילות קומבו', packSub: 'חסוך בשילוב קריאות ממסורות מרובות', save: 'חסוך',
   stepsTitle: 'איך זה עובד?',
@@ -2816,10 +2903,13 @@ uk: {
   heroBtn1: '✦ Відкрити Каталог', heroBtn2: 'Дивитися Традиції',
   stat1v: '10,000+', stat1l: 'Читань', stat2v: '4.9 ★', stat2l: 'Оцінка', stat3v: '25+', stat3l: 'Мов', stat4v: '36', stat4l: 'Послуг',
   whyTitle: 'Чому Astro Connect?',
-  why1: '8 астрологічних традицій в одній платформі', why2: 'ШІ для ультра-персоналізованих читань',
-  why3: 'Доступна 25+ мовами', why4: 'Професійні читання від €22',
-  why5: '12 комбо-пакетів з економією до 40%', why6: 'Унікальні традиції: Каббалістична, Ведична, Китайська',
-  why7: 'Human Design та I Ching інтегровані',
+  whySub: 'Реальна астрономiчна точнiсть. Давнi традицiї. Результати, що змiнюють життя.',
+  why1t: 'Високоточнi Обчислення', why1d: 'Ми використовуємо астрономiчнi таблицi Swiss Ephemeris для обчислення точного положення кожної планети в секунду вашого народження. Не оцiнки — реальнi науковi данi.',
+  why2t: '8 Давнiх Традицiй', why2d: 'Захiдна, Ведична, Каббалiстична, Китайська, Небесна, Кармiчна, Human Design та I Ching. Кожна з вiковими знаннями.',
+  why3t: '100% Унiкальнi Читання', why3d: 'Кожне читання розраховується iндивiдуально за вашими точними даними народження. Немає двох однакових — ваше неповторне.',
+  why4t: 'Реальнi Планетарнi Транзити', why4d: 'Вашi читання включають поточнi позицiї планет у реальному часi. Не загальнi гороскопи — аналiз на основi реального неба сьогоднi.',
+  why5t: '10 000+ Доставлених Читань', why5d: 'Понад десять тисяч людей вже вiдкрили свою космiчну карту з нами. Середнiй рейтинг 4,9 зiрок.',
+  why6t: '25 Рiдних Мов', why6d: 'Ваше читання генерується рiдною мовою, а не машинним перекладом. Лiнгвiстична точнiсть у кожному словi.',
   tradTitle: '8 Астрологічних Традицій', tradSub: 'Кожна традиція пропонує унікальний погляд на вашу долю',
   services: 'послуг', from: 'від', packTitle: '12 Комбо-Пакетів', packSub: 'Заощаджуйте, поєднуючи читання з різних традицій', save: 'Заощадьте',
   stepsTitle: 'Як Це Працює?',
@@ -2854,10 +2944,13 @@ cs: {
   heroBtn1: '✦ Prozkoumat Katalog', heroBtn2: 'Zobrazit Tradice',
   stat1v: '10,000+', stat1l: 'Čtení', stat2v: '4.9 ★', stat2l: 'Hodnocení', stat3v: '25+', stat3l: 'Jazyků', stat4v: '36', stat4l: 'Služeb',
   whyTitle: 'Proč Astro Connect?',
-  why1: '8 astrologických tradic v jedné platformě', why2: 'Nejmodernější AI pro ultra-personalizovaná čtení',
-  why3: 'Dostupné ve 25+ jazycích', why4: 'Profesionální čtení od €22',
-  why5: '12 combo balíčků s úsporou až 40%', why6: 'Unikátní tradice: Kabalistická, Védská, Čínská',
-  why7: 'Human Design a I Ching integrovány',
+  whySub: 'Skutecna astronomicka presnost. Pradavne tradice. Vysledky menici zivot.',
+  why1t: 'Vysoce Presne Vypocty', why1d: 'Pouzivame astronomicke tabulky Swiss Ephemeris k vypoctu presne polohy kazde planety v sekunde vaseho narozeni. Nejsou to odhady — skutecna vedecka data.',
+  why2t: '8 Pradavnych Tradic', why2d: 'Zapadni, Vedska, Kabalisticka, Cinska, Nebeska, Karmicka, Human Design a I Ching. Kazda podlozena stalety interpretacnich znalosti.',
+  why3t: '100% Jedinecna Cteni', why3d: 'Kazde cteni je vypocteno individualne s vasimi presnymi udaji o narozeni. Zadna dve nejsou stejna — vase je jedinecne.',
+  why4t: 'Skutecne Planetarni Tranzity', why4d: 'Vase cteni zahrnuji aktualni polohy planet v realnem case. Ne genericke horoskopy — analyza zalozena na dnesnim skutecnem nebi.',
+  why5t: '10 000+ Dorucenych Cteni', why5d: 'Vice nez deset tisic lidi jiz s nami objevilo svou kosmickou mapu. Prumerne hodnoceni 4,9 hvezdicek.',
+  why6t: '25 Rodnich Jazyku', why6d: 'Vase cteni je generovano v vasem rodnem jazyce, neni to strojovy preklad. Jazykova presnost v kazdem slove.',
   tradTitle: '8 Astrologických Tradic', tradSub: 'Každá tradice nabízí jedinečný pohled na váš osud',
   services: 'služeb', from: 'od', packTitle: '12 Combo Balíčků', packSub: 'Ušetřete kombinací čtení z více tradic', save: 'Ušetřete',
   stepsTitle: 'Jak To Funguje?',
@@ -4165,15 +4258,39 @@ function renderHero() {
     <div class="hero-flags">🇪🇸🇬🇧🇧🇬🇫🇷🇩🇪🇮🇹🇵🇹🇷🇺🇨🇳🇯🇵🇰🇷🇸🇦🇮🇳🇹🇷🇳🇱🇸🇪🇵🇱🇷🇴🇬🇷🇹🇭🇻🇳🇮🇩🇮🇱🇺🇦🇨🇿</div>
     <div class="hero-why reveal">
       <h3>${t('whyTitle')}</h3>
-      <ul>
-        <li>${t('why1')}</li>
-        <li>${t('why2')}</li>
-        <li>${t('why3')}</li>
-        <li>${t('why4')}</li>
-        <li>${t('why5')}</li>
-        <li>${t('why6')}</li>
-        <li>${t('why7')}</li>
-      </ul>
+      <p class="why-subtitle">${t('whySub')}</p>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">&#9790;</div>
+          <h4>${t('why1t')}</h4>
+          <p>${t('why1d')}</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">&#9788;</div>
+          <h4>${t('why2t')}</h4>
+          <p>${t('why2d')}</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">&#9883;</div>
+          <h4>${t('why3t')}</h4>
+          <p>${t('why3d')}</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">&#9978;</div>
+          <h4>${t('why4t')}</h4>
+          <p>${t('why4d')}</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">&#9733;</div>
+          <h4>${t('why5t')}</h4>
+          <p>${t('why5d')}</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">&#127760;</div>
+          <h4>${t('why6t')}</h4>
+          <p>${t('why6d')}</p>
+        </div>
+      </div>
     </div>
   `;
 }
