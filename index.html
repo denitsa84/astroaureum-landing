@@ -463,23 +463,12 @@ body {
   filter: drop-shadow(0 0 25px rgba(255,215,0,0.6));
   animation: eyeFloat 6s ease-in-out infinite, cosmicSpin 120s linear infinite;
 }
-.cosmic-eye-container svg { width: 100%; height: 100%; filter: drop-shadow(0 0 30px rgba(212,168,67,0.3)) drop-shadow(0 0 60px rgba(123,79,191,0.15)); }
-.cosmic-eye-container .eye-iris { transform-origin: 250px 250px; animation: irisPulse 4s ease-in-out infinite; }
-.cosmic-eye-container .eye-pupil { transform-origin: 250px 250px; animation: pupilPulse 3s ease-in-out infinite; }
-.cosmic-eye-container .eye-star { transform-origin: 250px 250px; animation: starSpin 8s linear infinite; }
-.cosmic-eye-container .eye-lashes-up { animation: lashesBreath 5s ease-in-out infinite; transform-origin: 250px 250px; }
-.cosmic-eye-container .eye-lashes-dn { animation: lashesBreath 5s ease-in-out infinite reverse; transform-origin: 250px 250px; }
-.cosmic-eye-container .eye-moons { animation: moonGlow 3s ease-in-out infinite alternate; }
+.cosmic-eye-container img { width: 100%; height: 100%; object-fit: contain; border-radius: 50%; }
 .cosmic-eye-ring { position: absolute; inset: -15px; border: 1px solid rgba(212,168,67,0.12); border-radius: 50%; animation: ringSpin 20s linear infinite; }
 .cosmic-eye-ring::after { content: '✦'; position: absolute; top: -5px; left: 50%; transform: translateX(-50%); color: var(--gold); font-size: 10px; opacity: 0.6; }
 .cosmic-eye-ring2 { position: absolute; inset: -30px; border: 1px dashed rgba(123,79,191,0.1); border-radius: 50%; animation: ringSpin 30s linear infinite reverse; }
 @keyframes eyeFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
 @keyframes cosmicSpin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-@keyframes irisPulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.06); opacity: 0.9; } }
-@keyframes pupilPulse { 0%, 100% { transform: scale(1); } 40% { transform: scale(0.92); } 60% { transform: scale(1.05); } }
-@keyframes starSpin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-@keyframes lashesBreath { 0%, 100% { opacity: 0.5; transform: scaleY(1); } 50% { opacity: 0.7; transform: scaleY(1.08); } }
-@keyframes moonGlow { 0% { opacity: 0.6; } 100% { opacity: 0.9; } }
 @keyframes ringSpin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 .hero-badge {
   display: inline-flex;
@@ -4302,69 +4291,7 @@ function renderHero() {
     <div class="cosmic-eye-container">
       <div class="cosmic-eye-ring"></div>
       <div class="cosmic-eye-ring2"></div>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
-        <defs>
-          <linearGradient id="eyeG" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#F7D96E"/><stop offset="50%" stop-color="#D4A843"/><stop offset="100%" stop-color="#916E2B"/></linearGradient>
-          <linearGradient id="eyeV" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#C9AAFF"/><stop offset="100%" stop-color="#6B3FA0"/></linearGradient>
-          <linearGradient id="eyeGUp" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" stop-color="#D4A843" stop-opacity="0"/><stop offset="100%" stop-color="#F7D96E"/></linearGradient>
-          <linearGradient id="eyeGDn" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#D4A843" stop-opacity="0"/><stop offset="100%" stop-color="#F7D96E"/></linearGradient>
-          <radialGradient id="eyeIrisG" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#FFF8E0"/><stop offset="20%" stop-color="#F7D96E"/><stop offset="55%" stop-color="#D4A843"/><stop offset="80%" stop-color="#7B4FBF"/><stop offset="100%" stop-color="#3A1F6E"/></radialGradient>
-          <radialGradient id="eyeAura" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#D4A843" stop-opacity="0.18"/><stop offset="40%" stop-color="#7B4FBF" stop-opacity="0.07"/><stop offset="100%" stop-color="transparent" stop-opacity="0"/></radialGradient>
-          <radialGradient id="eyePupilG" cx="45%" cy="42%" r="55%"><stop offset="0%" stop-color="#1a1040"/><stop offset="100%" stop-color="#08071A"/></radialGradient>
-          <filter id="egl"><feGaussianBlur stdDeviation="3.5" result="b"/><feComposite in="SourceGraphic" in2="b" operator="over"/></filter>
-          <filter id="egl2"><feGaussianBlur stdDeviation="8"/></filter>
-          <filter id="egl3"><feGaussianBlur stdDeviation="2" result="b"/><feComposite in="SourceGraphic" in2="b" operator="over"/></filter>
-        </defs>
-        <ellipse cx="250" cy="250" rx="248" ry="240" fill="url(#eyeAura)"/>
-        <g class="eye-lashes-up" opacity="0.5" filter="url(#egl3)">
-          <line x1="250" y1="95" x2="250" y2="28" stroke="url(#eyeGUp)" stroke-width="2"/>
-          <line x1="195" y1="115" x2="175" y2="42" stroke="url(#eyeGUp)" stroke-width="1.5"/>
-          <line x1="305" y1="115" x2="325" y2="42" stroke="url(#eyeGUp)" stroke-width="1.5"/>
-          <line x1="148" y1="148" x2="110" y2="72" stroke="url(#eyeGUp)" stroke-width="1.2"/>
-          <line x1="352" y1="148" x2="390" y2="72" stroke="url(#eyeGUp)" stroke-width="1.2"/>
-          <line x1="110" y1="190" x2="58" y2="115" stroke="url(#eyeGUp)" stroke-width="0.9" opacity="0.6"/>
-          <line x1="390" y1="190" x2="442" y2="115" stroke="url(#eyeGUp)" stroke-width="0.9" opacity="0.6"/>
-        </g>
-        <g class="eye-lashes-dn" opacity="0.5" filter="url(#egl3)">
-          <line x1="250" y1="405" x2="250" y2="462" stroke="url(#eyeGDn)" stroke-width="2"/>
-          <line x1="195" y1="385" x2="175" y2="448" stroke="url(#eyeGDn)" stroke-width="1.5"/>
-          <line x1="305" y1="385" x2="325" y2="448" stroke="url(#eyeGDn)" stroke-width="1.5"/>
-          <line x1="148" y1="352" x2="110" y2="418" stroke="url(#eyeGDn)" stroke-width="1.2"/>
-          <line x1="352" y1="352" x2="390" y2="418" stroke="url(#eyeGDn)" stroke-width="1.2"/>
-          <line x1="110" y1="310" x2="58" y2="378" stroke="url(#eyeGDn)" stroke-width="0.9" opacity="0.6"/>
-          <line x1="390" y1="310" x2="442" y2="378" stroke="url(#eyeGDn)" stroke-width="0.9" opacity="0.6"/>
-        </g>
-        <g class="eye-moons">
-          <g filter="url(#egl3)" opacity="0.75"><path d="M40,200 Q18,250 40,300 Q55,265 55,250 Q55,235 40,200Z" fill="url(#eyeV)"/><circle cx="38" cy="195" r="3.5" fill="#C9AAFF" opacity="0.7"/></g>
-          <g filter="url(#egl3)" opacity="0.75"><path d="M460,200 Q482,250 460,300 Q445,265 445,250 Q445,235 460,200Z" fill="url(#eyeV)"/><circle cx="462" cy="195" r="3.5" fill="#C9AAFF" opacity="0.7"/></g>
-        </g>
-        <path d="M55,250 Q155,115 250,95 Q345,115 445,250 Q345,385 250,405 Q155,385 55,250Z" stroke="#D4A843" stroke-width="6" fill="none" opacity="0.08" filter="url(#egl2)"/>
-        <path d="M55,250 Q155,115 250,95 Q345,115 445,250 Q345,385 250,405 Q155,385 55,250Z" stroke="url(#eyeG)" stroke-width="2.5" fill="rgba(212,168,67,0.03)" filter="url(#egl)"/>
-        <path d="M85,250 Q170,140 250,125 Q330,140 415,250 Q330,360 250,375 Q170,360 85,250Z" stroke="url(#eyeG)" stroke-width="0.8" fill="none" opacity="0.2"/>
-        <g class="eye-iris">
-          <circle cx="250" cy="250" r="78" stroke="#D4A843" stroke-width="5" fill="none" opacity="0.06" filter="url(#egl2)"/>
-          <circle cx="250" cy="250" r="75" stroke="url(#eyeG)" stroke-width="2" fill="none" filter="url(#egl)"/>
-          <circle cx="250" cy="250" r="73" fill="url(#eyeIrisG)" opacity="0.3"/>
-          <g stroke="#D4A843" stroke-width="0.5" opacity="0.2">
-            <line x1="250" y1="177" x2="250" y2="205"/><line x1="250" y1="295" x2="250" y2="323"/>
-            <line x1="177" y1="250" x2="205" y2="250"/><line x1="295" y1="250" x2="323" y2="250"/>
-            <line x1="198" y1="198" x2="218" y2="218"/><line x1="282" y1="282" x2="302" y2="302"/>
-            <line x1="302" y1="198" x2="282" y2="218"/><line x1="198" y1="302" x2="218" y2="282"/>
-          </g>
-          <circle cx="250" cy="250" r="50" stroke="url(#eyeG)" stroke-width="1" fill="none" opacity="0.35"/>
-        </g>
-        <g class="eye-pupil">
-          <circle cx="250" cy="250" r="32" fill="url(#eyePupilG)" filter="url(#egl)"/>
-          <circle cx="250" cy="250" r="32" stroke="#7B4FBF" stroke-width="1.5" fill="none" opacity="0.2"/>
-        </g>
-        <g class="eye-star" filter="url(#egl3)">
-          <path d="M250,225 L253,244 L270,250 L253,256 L250,275 L247,256 L230,250 L247,244Z" fill="url(#eyeG)" opacity="0.55"/>
-          <path d="M250,235 L252,247 L263,250 L252,253 L250,265 L248,253 L237,250 L248,247Z" fill="#F7D96E" opacity="0.3" transform="rotate(45,250,250)"/>
-        </g>
-        <circle cx="238" cy="238" r="8" fill="white" opacity="0.22"/>
-        <circle cx="236" cy="236" r="4" fill="white" opacity="0.5"/>
-        <circle cx="265" cy="258" r="3.5" fill="#F7D96E" opacity="0.25"/>
-      </svg>
+      <img src="logo.png" alt="Astro Connect" style="width:100%;height:100%;object-fit:contain;border-radius:50%;">
     </div>
     <div class="hero-badge"><span class="pulse-dot"></span> ${t('badge')}</div>
     <h1 class="hero-title">${t('heroHook')}</h1>
