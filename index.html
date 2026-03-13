@@ -3371,6 +3371,20 @@ cfd
   <div id="sidebar-overlay" class="sidebar-overlay"></div>
   <button id="hamburger" class="hamburger">☰</button>
 
+  <!-- PROMO BANNER - First visit special offer -->
+  <div id="promo-banner" style="display:none;background:linear-gradient(90deg,#7B4FBF,#D4A843);padding:10px 20px;text-align:center;position:fixed;top:0;left:0;right:0;z-index:9997;font-size:.9rem;">
+    <span style="color:#fff;font-weight:600;">&#x1F31F; Primera visita: Tu Mini Lectura + Mapa Energetico <strong>100% GRATIS</strong> &#x1F31F;</span>
+    <button onclick="document.querySelector('.btn-lead').click();document.getElementById('promo-banner').style.display='none';sessionStorage.setItem('promo_closed','1');" style="background:#fff;color:#7B4FBF;border:none;padding:4px 14px;border-radius:6px;font-weight:700;cursor:pointer;margin-left:12px;font-size:.85rem;">Reclamar Ahora</button>
+    <button onclick="document.getElementById('promo-banner').style.display='none';sessionStorage.setItem('promo_closed','1');" style="background:none;border:none;color:rgba(255,255,255,.7);cursor:pointer;margin-left:8px;font-size:1.1rem;">&times;</button>
+  </div>
+  <script>
+    // Show promo banner only for first-time visitors
+    if (!sessionStorage.getItem('promo_closed') && !localStorage.getItem('returning_visitor')) {
+      setTimeout(function(){ document.getElementById('promo-banner').style.display = 'block'; }, 3000);
+      localStorage.setItem('returning_visitor', '1');
+    }
+  </script>
+
   <main class="main-content">
     <section id="hero" class="hero"></section>
     <section id="tradiciones"></section>
@@ -3390,6 +3404,39 @@ cfd
     <section id="faq"></section>
     <!-- Author Profile -->
     <section id="author-profile"></section>
+
+    <!-- VIRAL CONTENT HUB - ORION Mission: Drive shares & traffic -->
+    <section id="viral-hub" style="padding:60px 20px;text-align:center;max-width:900px;margin:0 auto;">
+      <h2 style="font-family:'Cinzel',serif;color:#D4A843;font-size:2rem;margin-bottom:12px;">
+        &#x2728; Contenido Gratuito &#x2728;
+      </h2>
+      <p style="color:#c9b8e8;font-size:1.1rem;margin-bottom:40px;">
+        Descubre los secretos del cosmos — gratis. Comparte con tus amigos.
+      </p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;">
+        <!-- Quiz Viral -->
+        <a href="quiz-lunar.html" style="text-decoration:none;display:block;background:linear-gradient(145deg,rgba(123,79,191,.15),rgba(212,168,67,.1));border:1px solid rgba(212,168,67,.3);border-radius:16px;padding:32px 24px;transition:transform .3s,box-shadow .3s;">
+          <div style="font-size:3rem;margin-bottom:12px;">&#x1F319;</div>
+          <h3 style="font-family:'Cinzel',serif;color:#D4A843;font-size:1.3rem;margin-bottom:8px;">Descubre tu Signo Lunar</h3>
+          <p style="color:#c9b8e8;font-size:.95rem;line-height:1.5;">Quiz interactivo de 5 preguntas. Descubre que revela la Luna sobre tu personalidad.</p>
+          <span style="display:inline-block;margin-top:16px;background:linear-gradient(135deg,#D4A843,#F7D96E);color:#0d0b1a;padding:8px 20px;border-radius:8px;font-weight:700;font-size:.9rem;">Hacer el Quiz &#x2192;</span>
+        </a>
+        <!-- Horoscopo Diario -->
+        <a href="horoscopo-diario.html" style="text-decoration:none;display:block;background:linear-gradient(145deg,rgba(123,79,191,.15),rgba(212,168,67,.1));border:1px solid rgba(212,168,67,.3);border-radius:16px;padding:32px 24px;transition:transform .3s,box-shadow .3s;">
+          <div style="font-size:3rem;margin-bottom:12px;">&#x2B50;</div>
+          <h3 style="font-family:'Cinzel',serif;color:#D4A843;font-size:1.3rem;margin-bottom:8px;">Horoscopo del Dia</h3>
+          <p style="color:#c9b8e8;font-size:.95rem;line-height:1.5;">Tu horoscopo diario para los 12 signos. Amor, dinero, salud y numero de la suerte.</p>
+          <span style="display:inline-block;margin-top:16px;background:linear-gradient(135deg,#D4A843,#F7D96E);color:#0d0b1a;padding:8px 20px;border-radius:8px;font-weight:700;font-size:.9rem;">Ver mi Horoscopo &#x2192;</span>
+        </a>
+        <!-- Compartir Frase -->
+        <div onclick="shareCosmicQuote()" style="cursor:pointer;background:linear-gradient(145deg,rgba(123,79,191,.15),rgba(212,168,67,.1));border:1px solid rgba(212,168,67,.3);border-radius:16px;padding:32px 24px;transition:transform .3s,box-shadow .3s;">
+          <div style="font-size:3rem;margin-bottom:12px;">&#x1F4AB;</div>
+          <h3 style="font-family:'Cinzel',serif;color:#D4A843;font-size:1.3rem;margin-bottom:8px;">Frase Cosmica del Dia</h3>
+          <p id="cosmic-quote" style="color:#c9b8e8;font-size:.95rem;line-height:1.5;font-style:italic;"></p>
+          <span style="display:inline-block;margin-top:16px;background:linear-gradient(135deg,#7B4FBF,#D4A843);color:#fff;padding:8px 20px;border-radius:8px;font-weight:700;font-size:.9rem;">Compartir &#x1F4E4;</span>
+        </div>
+      </div>
+    </section>
 
     <section id="cta-section" class="cta-section"></section>
     <footer id="footer" class="footer"></footer>
@@ -6853,6 +6900,51 @@ ${readingRequest.languageInstruction.substring(0, 500)}...
       if (typeof posthog !== 'undefined') posthog.capture('viral_share', { platform: platform });
       if (typeof gtag !== 'undefined') gtag('event', 'share', { method: platform, content_type: 'page' });
     }
+
+    // === COSMIC QUOTES - Shareable daily quotes ===
+    var cosmicQuotes = [
+      "El universo no comete errores. Tu naciste exactamente cuando debias nacer.",
+      "Las estrellas no te dicen que hacer. Te muestran quien eres.",
+      "Tu carta natal es el mapa. Tu libre albedrio es el vehiculo.",
+      "Cada transito planetario es una invitacion a crecer.",
+      "La Luna revela lo que el Sol no puede ver: tu verdadero yo interior.",
+      "No eres solo tu signo solar. Eres un universo entero.",
+      "Los planetas no controlan tu destino. Iluminan tu camino.",
+      "Saturno no castiga. Ensena. Y sus lecciones son las mas valiosas.",
+      "Tu nodo norte es la brujula de tu alma. Siguelo sin miedo.",
+      "Mercurio retrogrado no es un castigo. Es una pausa para reflexionar.",
+      "Venus te muestra como amas. Marte te muestra como luchas por ese amor.",
+      "Jupiter expande todo lo que toca. Asegurate de que toque tus suenos.",
+      "Pluton destruye lo viejo para que nazca lo extraordinario.",
+      "Tu ascendente es la mascara que el mundo ve. Tu Luna es quien realmente eres.",
+      "Las casas astrologicas son los escenarios de tu vida. Tu decides como actuar en cada uno.",
+      "Neptuno susurra: 'Suena mas grande de lo que crees posible.'",
+      "Urano llega sin avisar para liberarte de lo que ya no sirve.",
+      "La sinastria revela por que ciertas almas se reconocen al instante.",
+      "Tu revolucion solar es tu cumpleanos cosmico. Un nuevo capitulo cada ano.",
+      "El cosmos conspira a tu favor. Solo necesitas escuchar.",
+      "Cada eclipse es un portal. Que dejas atras? Que abrazas?",
+      "Las estrellas fijas son las guardianas silenciosas de tu destino.",
+      "Tu carta natal no es tu prision. Es tu superpoder.",
+      "La astrologia no predice el futuro. Te ayuda a crearlo.",
+      "Eres polvo de estrellas con proposito. Nunca lo olvides."
+    ];
+    var todayQuoteIdx = Math.floor((new Date().getTime() / 86400000)) % cosmicQuotes.length;
+    var quoteEl = document.getElementById('cosmic-quote');
+    if (quoteEl) quoteEl.textContent = '"' + cosmicQuotes[todayQuoteIdx] + '"';
+
+    function shareCosmicQuote() {
+      var quote = cosmicQuotes[todayQuoteIdx];
+      var shareText = quote + '\n\n✨ Astro Aureum — Tu Guia Cosmica\nhttps://astroaureum.com';
+      if (navigator.share) {
+        navigator.share({ title: 'Frase Cosmica del Dia', text: shareText, url: 'https://astroaureum.com' }).catch(function(){});
+      } else {
+        window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(shareText), '_blank');
+      }
+      if (typeof posthog !== 'undefined') posthog.capture('cosmic_quote_shared', { quote_index: todayQuoteIdx });
+      if (typeof gtag !== 'undefined') gtag('event', 'share', { method: 'cosmic_quote', content_type: 'quote' });
+    }
+    window.shareCosmicQuote = shareCosmicQuote;
 
     // === INIT ===
     function init() {

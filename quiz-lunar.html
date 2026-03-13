@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Descubre tu Signo Lunar | Astro Aureum</title>
+  <meta name="description" content="Quiz interactivo: Descubre tu Signo Lunar en 5 preguntas. Conoce que revela la Luna sobre tu personalidad.">
+  <meta property="og:title" content="Descubre tu Signo Lunar | Astro Aureum">
+  <meta property="og:description" content="Quiz interactivo de 5 preguntas. Descubre que revela la Luna sobre tu personalidad.">
+  <meta property="og:image" content="https://astroaureum.com/og-image.jpg">
+  <meta property="og:url" content="https://astroaureum.com/quiz-lunar.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://astroaureum.com/og-image.jpg">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google Ads -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17991329624"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','AW-17991329624');</script>
+  <!-- PostHog -->
+  <script>!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageviewId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);posthog.init('phc_ATLBRaiNlfge5Ph0oGyy320CnPl66Q2Xgc7lRX0uoU3',{api_host:'https://eu.i.posthog.com',person_profiles:'identified_only'});</script>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{background:#06050E;color:#fff;font-family:'Inter',sans-serif;min-height:100vh;overflow-x:hidden}
+    .container{max-width:640px;margin:0 auto;padding:20px}
+    .brand{text-align:center;padding:24px 0 16px}
+    .brand h1{font-family:'Cinzel',serif;color:#D4A843;font-size:1.4rem;letter-spacing:2px}
+    .brand a{color:#c9b8e8;text-decoration:none;font-size:.85rem}
+    .progress-bar{height:4px;background:rgba(212,168,67,.15);border-radius:4px;margin:0 0 32px;overflow:hidden}
+    .progress-fill{height:100%;background:linear-gradient(90deg,#D4A843,#F7D96E);border-radius:4px;transition:width .5s ease}
+    .quiz-header{text-align:center;margin-bottom:32px}
+    .quiz-header .moon{font-size:4rem;margin-bottom:12px;animation:float 3s ease-in-out infinite}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+    .quiz-header h2{font-family:'Cinzel',serif;color:#D4A843;font-size:1.8rem;margin-bottom:8px}
+    .quiz-header p{color:#c9b8e8;font-size:1rem;line-height:1.5}
+    .question{display:none;animation:fadeIn .5s ease}
+    .question.active{display:block}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .question h3{font-family:'Cinzel',serif;color:#fff;font-size:1.2rem;margin-bottom:20px;text-align:center}
+    .question .qnum{color:#D4A843;font-size:.85rem;text-align:center;margin-bottom:8px}
+    .options{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .option{background:linear-gradient(145deg,rgba(123,79,191,.1),rgba(212,168,67,.05));border:1px solid rgba(212,168,67,.2);border-radius:14px;padding:20px 16px;cursor:pointer;text-align:center;transition:all .3s}
+    .option:hover{border-color:#D4A843;transform:scale(1.03);box-shadow:0 4px 20px rgba(212,168,67,.2)}
+    .option.selected{border-color:#D4A843;background:rgba(212,168,67,.15)}
+    .option .emoji{font-size:2rem;margin-bottom:8px;display:block}
+    .option .label{color:#fff;font-weight:600;font-size:.95rem}
+    .option .desc{color:#c9b8e8;font-size:.8rem;margin-top:4px}
+    .result{display:none;text-align:center;animation:fadeIn .8s ease}
+    .result.active{display:block}
+    .result-card{background:linear-gradient(145deg,#1a1333,#0d0b1a);border:2px solid #D4A843;border-radius:20px;padding:40px 28px;margin-bottom:24px}
+    .result-card .sign-emoji{font-size:4rem;margin-bottom:12px}
+    .result-card h2{font-family:'Cinzel',serif;color:#D4A843;font-size:1.8rem;margin-bottom:4px}
+    .result-card .sign-name{color:#F7D96E;font-size:1.1rem;margin-bottom:16px}
+    .result-card p{color:#c9b8e8;font-size:1rem;line-height:1.6}
+    .result-card .traits{display:flex;justify-content:center;gap:12px;margin-top:16px;flex-wrap:wrap}
+    .result-card .trait{background:rgba(212,168,67,.12);border:1px solid rgba(212,168,67,.3);border-radius:20px;padding:6px 14px;color:#F7D96E;font-size:.85rem}
+    .share-section{margin:24px 0}
+    .share-section h3{color:#fff;font-size:1rem;margin-bottom:12px}
+    .share-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+    .share-btn{padding:10px 18px;border:none;border-radius:10px;color:#fff;font-weight:600;cursor:pointer;font-size:.9rem;transition:transform .2s;display:flex;align-items:center;gap:6px}
+    .share-btn:hover{transform:scale(1.05)}
+    .cta-box{background:linear-gradient(135deg,rgba(123,79,191,.2),rgba(212,168,67,.15));border:1px solid #D4A843;border-radius:16px;padding:28px;margin-top:24px}
+    .cta-box h3{font-family:'Cinzel',serif;color:#D4A843;font-size:1.2rem;margin-bottom:8px}
+    .cta-box p{color:#c9b8e8;font-size:.95rem;margin-bottom:16px}
+    .cta-btn{display:inline-block;background:linear-gradient(135deg,#D4A843,#F7D96E);color:#0d0b1a;padding:14px 32px;border-radius:12px;font-weight:700;font-size:1rem;text-decoration:none;transition:transform .2s}
+    .cta-btn:hover{transform:scale(1.05)}
+    .start-btn{display:block;width:100%;background:linear-gradient(135deg,#D4A843,#F7D96E);color:#0d0b1a;border:none;padding:16px;border-radius:12px;font-size:1.1rem;font-weight:700;cursor:pointer;margin-top:24px;transition:transform .2s}
+    .start-btn:hover{transform:scale(1.03)}
+    @media(max-width:480px){.options{grid-template-columns:1fr}.container{padding:16px}.quiz-header h2{font-size:1.5rem}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="brand">
+      <h1>ASTRO AUREUM</h1>
+      <a href="https://astroaureum.com">astroaureum.com</a>
+    </div>
+
+    <div class="progress-bar"><div class="progress-fill" id="progress" style="width:0%"></div></div>
+
+    <!-- INTRO -->
+    <div id="intro" class="quiz-header">
+      <div class="moon">&#x1F319;</div>
+      <h2>Descubre tu Signo Lunar</h2>
+      <p>Tu signo lunar revela tu mundo emocional, tus instintos y tu verdadero yo interior. Responde 5 preguntas y descubre que Luna habita en ti.</p>
+      <button class="start-btn" onclick="startQuiz()">Comenzar el Quiz &#x2728;</button>
+    </div>
+
+    <!-- QUESTIONS -->
+    <div id="q1" class="question">
+      <div class="qnum">Pregunta 1 de 5</div>
+      <h3>Cuando necesitas recargar energia, prefieres...</h3>
+      <div class="options">
+        <div class="option" onclick="answer(1,'fire')"><span class="emoji">&#x1F525;</span><span class="label">Salir de aventura</span><span class="desc">Actividad fisica, naturaleza</span></div>
+        <div class="option" onclick="answer(1,'earth')"><span class="emoji">&#x1F33F;</span><span class="label">Estar en casa</span><span class="desc">Comodidad, cocinar, jardin</span></div>
+        <div class="option" onclick="answer(1,'air')"><span class="emoji">&#x1F4DA;</span><span class="label">Leer o aprender algo</span><span class="desc">Mente activa, ideas nuevas</span></div>
+        <div class="option" onclick="answer(1,'water')"><span class="emoji">&#x1F30A;</span><span class="label">Tiempo a solas en silencio</span><span class="desc">Musica suave, meditacion</span></div>
+      </div>
+    </div>
+
+    <div id="q2" class="question">
+      <div class="qnum">Pregunta 2 de 5</div>
+      <h3>En una discusion, tu reaccion natural es...</h3>
+      <div class="options">
+        <div class="option" onclick="answer(2,'fire')"><span class="emoji">&#x26A1;</span><span class="label">Responder de inmediato</span><span class="desc">Impulsivo, directo, honesto</span></div>
+        <div class="option" onclick="answer(2,'earth')"><span class="emoji">&#x1F9CA;</span><span class="label">Mantener la calma</span><span class="desc">Paciente, practico, firme</span></div>
+        <div class="option" onclick="answer(2,'air')"><span class="emoji">&#x1F4AC;</span><span class="label">Analizar ambos lados</span><span class="desc">Racional, diplomatico</span></div>
+        <div class="option" onclick="answer(2,'water')"><span class="emoji">&#x1F4A7;</span><span class="label">Sentirte herido/a</span><span class="desc">Emocional, sensible, profundo</span></div>
+      </div>
+    </div>
+
+    <div id="q3" class="question">
+      <div class="qnum">Pregunta 3 de 5</div>
+      <h3>En el amor, lo que mas valoras es...</h3>
+      <div class="options">
+        <div class="option" onclick="answer(3,'fire')"><span class="emoji">&#x1F49D;</span><span class="label">Pasion y emocion</span><span class="desc">Intensidad, chispa, sorpresas</span></div>
+        <div class="option" onclick="answer(3,'earth')"><span class="emoji">&#x1F3E0;</span><span class="label">Estabilidad y lealtad</span><span class="desc">Compromiso, seguridad</span></div>
+        <div class="option" onclick="answer(3,'air')"><span class="emoji">&#x1F4AD;</span><span class="label">Conexion intelectual</span><span class="desc">Conversaciones profundas</span></div>
+        <div class="option" onclick="answer(3,'water')"><span class="emoji">&#x1F496;</span><span class="label">Conexion emocional profunda</span><span class="desc">Intimidad, vulnerabilidad</span></div>
+      </div>
+    </div>
+
+    <div id="q4" class="question">
+      <div class="qnum">Pregunta 4 de 5</div>
+      <h3>Tu mayor miedo secreto es...</h3>
+      <div class="options">
+        <div class="option" onclick="answer(4,'fire')"><span class="emoji">&#x1F517;</span><span class="label">Perder mi libertad</span><span class="desc">Sentirme atrapado/a</span></div>
+        <div class="option" onclick="answer(4,'earth')"><span class="emoji">&#x1F4B8;</span><span class="label">La inestabilidad</span><span class="desc">No tener control o seguridad</span></div>
+        <div class="option" onclick="answer(4,'air')"><span class="emoji">&#x1F910;</span><span class="label">No ser comprendido/a</span><span class="desc">Que ignoren mis ideas</span></div>
+        <div class="option" onclick="answer(4,'water')"><span class="emoji">&#x1F494;</span><span class="label">El rechazo emocional</span><span class="desc">Ser abandonado/a</span></div>
+      </div>
+    </div>
+
+    <div id="q5" class="question">
+      <div class="qnum">Pregunta 5 de 5</div>
+      <h3>Si pudieras tener un superpoder, seria...</h3>
+      <div class="options">
+        <div class="option" onclick="answer(5,'fire')"><span class="emoji">&#x1F4A5;</span><span class="label">Super fuerza</span><span class="desc">Poder, accion, valentia</span></div>
+        <div class="option" onclick="answer(5,'earth')"><span class="emoji">&#x23F3;</span><span class="label">Detener el tiempo</span><span class="desc">Control, paciencia, calma</span></div>
+        <div class="option" onclick="answer(5,'air')"><span class="emoji">&#x1F9E0;</span><span class="label">Telepatia</span><span class="desc">Leer mentes, comunicacion</span></div>
+        <div class="option" onclick="answer(5,'water')"><span class="emoji">&#x1F52E;</span><span class="label">Ver el futuro</span><span class="desc">Intuicion, premoniciones</span></div>
+      </div>
+    </div>
+
+    <!-- RESULT -->
+    <div id="result" class="result">
+      <div class="result-card">
+        <div class="sign-emoji" id="r-emoji"></div>
+        <h2>Tu Signo Lunar es</h2>
+        <div class="sign-name" id="r-sign"></div>
+        <p id="r-desc"></p>
+        <div class="traits" id="r-traits"></div>
+      </div>
+      <div class="share-section">
+        <h3>Comparte tu resultado</h3>
+        <div class="share-btns">
+          <button class="share-btn" style="background:#25D366" onclick="shareResult('whatsapp')">&#x1F4AC; WhatsApp</button>
+          <button class="share-btn" style="background:#1877F2" onclick="shareResult('facebook')">&#x1F30D; Facebook</button>
+          <button class="share-btn" style="background:#000" onclick="shareResult('twitter')">&#x2716; X</button>
+          <button class="share-btn" style="background:#0088cc" onclick="shareResult('telegram')">&#x2708; Telegram</button>
+          <button class="share-btn" style="background:linear-gradient(135deg,#D4A843,#7B4FBF)" onclick="shareResult('copy')">&#x1F4CB; Copiar</button>
+        </div>
+      </div>
+      <div class="cta-box">
+        <h3>&#x2728; Quieres saber mas?</h3>
+        <p>Tu signo lunar es solo el comienzo. Tu Carta Natal completa revela tu destino, amor, carrera y mucho mas.</p>
+        <a href="https://astroaureum.com" class="cta-btn">Obtener mi Carta Natal - &euro;139</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var scores = { fire: 0, earth: 0, air: 0, water: 0 };
+    var currentQ = 0;
+    var resultSign = '';
+
+    var moonSigns = {
+      fire: [
+        { name: 'Luna en Aries', emoji: '\u2648', desc: 'Tu Luna arde con pasion e impulso. Eres valiente, espontaneo/a y no temes actuar. Tus emociones son intensas pero rapidas: sientes con fuerza y avanzas sin mirar atras.', traits: ['Valiente', 'Impulsivo/a', 'Lider natural', 'Apasionado/a'] },
+        { name: 'Luna en Leo', emoji: '\u264C', desc: 'Tu Luna brilla con carisma y generosidad. Necesitas ser visto/a y apreciado/a. Tu corazon es enorme y tu creatividad no tiene limites. Amas con todo el fuego de tu ser.', traits: ['Creativo/a', 'Generoso/a', 'Carismatico/a', 'Leal'] },
+        { name: 'Luna en Sagitario', emoji: '\u2650', desc: 'Tu Luna es una aventurera incansable. Necesitas libertad, viajes y filosofia. Tus emociones se alimentan de nuevas experiencias y horizontes por descubrir.', traits: ['Aventurero/a', 'Optimista', 'Filosofo/a', 'Libre'] }
+      ],
+      earth: [
+        { name: 'Luna en Tauro', emoji: '\u2649', desc: 'Tu Luna busca estabilidad, belleza y placer. Eres leal, sensual y profundamente conectado/a con la naturaleza. Tus emociones son constantes y tu amor incondicional.', traits: ['Estable', 'Sensual', 'Leal', 'Paciente'] },
+        { name: 'Luna en Virgo', emoji: '\u264D', desc: 'Tu Luna analiza y perfecciona. Cuidas a los demas con actos de servicio. Tus emociones son discretas pero profundas, y tu intuicion practica es tu mayor don.', traits: ['Detallista', 'Servicial', 'Analitico/a', 'Humilde'] },
+        { name: 'Luna en Capricornio', emoji: '\u2651', desc: 'Tu Luna es ambiciosa y resiliente. Tus emociones son profundas pero las expresas con acciones, no palabras. Construyes imperios emocionales con paciencia y determinacion.', traits: ['Ambicioso/a', 'Resiliente', 'Disciplinado/a', 'Maduro/a'] }
+      ],
+      air: [
+        { name: 'Luna en Geminis', emoji: '\u264A', desc: 'Tu Luna es curiosa e inquieta. Procesas emociones a traves de la comunicacion. Eres versatil, ingenioso/a y necesitas estimulacion mental constante para sentirte vivo/a.', traits: ['Comunicativo/a', 'Curioso/a', 'Versatil', 'Ingenioso/a'] },
+        { name: 'Luna en Libra', emoji: '\u264E', desc: 'Tu Luna busca armonia y belleza en todo. Eres diplomatico/a, romantico/a y necesitas relaciones equilibradas. Tu mundo emocional florece cuando hay paz a tu alrededor.', traits: ['Armonioso/a', 'Romantico/a', 'Diplomatico/a', 'Estetico/a'] },
+        { name: 'Luna en Acuario', emoji: '\u2652', desc: 'Tu Luna es unica y visionaria. Sientes diferente al resto y eso es tu mayor fortaleza. Tus emociones se conectan con causas grandes y la humanidad entera.', traits: ['Original', 'Humanitario/a', 'Independiente', 'Visionario/a'] }
+      ],
+      water: [
+        { name: 'Luna en Cancer', emoji: '\u264B', desc: 'Tu Luna esta en casa. Eres profundamente emocional, protector/a y nutrido/a por el hogar y la familia. Tu intuicion es tu superpoder y tu empatia no tiene limites.', traits: ['Protector/a', 'Intuitivo/a', 'Empatico/a', 'Familiar'] },
+        { name: 'Luna en Escorpio', emoji: '\u264F', desc: 'Tu Luna es la mas intensa del zodiaco. Sientes todo con una profundidad que otros no comprenden. Tu poder de transformacion es magico: renaces de cada crisis mas fuerte.', traits: ['Intenso/a', 'Magnetico/a', 'Transformador/a', 'Misterioso/a'] },
+        { name: 'Luna en Piscis', emoji: '\u2653', desc: 'Tu Luna es pura magia y compasion. Eres un/a sonador/a nato/a con una conexion espiritual profunda. Tu mundo interior es un oceano de creatividad y amor universal.', traits: ['Sonador/a', 'Compasivo/a', 'Espiritual', 'Artistico/a'] }
+      ]
+    };
+
+    function startQuiz() {
+      document.getElementById('intro').style.display = 'none';
+      currentQ = 1;
+      document.getElementById('q1').classList.add('active');
+      document.getElementById('progress').style.width = '10%';
+      if (typeof posthog !== 'undefined') posthog.capture('quiz_started');
+      if (typeof gtag !== 'undefined') gtag('event', 'quiz_start', { event_category: 'engagement' });
+    }
+
+    function answer(q, element) {
+      scores[element]++;
+      var opts = document.querySelectorAll('#q' + q + ' .option');
+      opts.forEach(function(o) { o.classList.remove('selected'); });
+      event.currentTarget.classList.add('selected');
+
+      setTimeout(function() {
+        document.getElementById('q' + q).classList.remove('active');
+        if (q < 5) {
+          currentQ = q + 1;
+          document.getElementById('q' + (q + 1)).classList.add('active');
+          document.getElementById('progress').style.width = (q * 20) + '%';
+        } else {
+          showResult();
+        }
+      }, 400);
+    }
+
+    function showResult() {
+      document.getElementById('progress').style.width = '100%';
+      var maxEl = Object.keys(scores).reduce(function(a, b) { return scores[a] > scores[b] ? a : b; });
+      var signs = moonSigns[maxEl];
+      var seed = new Date().getDate() + scores[maxEl];
+      var sign = signs[seed % signs.length];
+
+      resultSign = sign.name;
+      document.getElementById('r-emoji').textContent = sign.emoji;
+      document.getElementById('r-sign').textContent = sign.name;
+      document.getElementById('r-desc').textContent = sign.desc;
+
+      var traitsEl = document.getElementById('r-traits');
+      traitsEl.innerHTML = '';
+      sign.traits.forEach(function(t) {
+        var span = document.createElement('span');
+        span.className = 'trait';
+        span.textContent = t;
+        traitsEl.appendChild(span);
+      });
+
+      document.getElementById('result').classList.add('active');
+      if (typeof posthog !== 'undefined') posthog.capture('quiz_completed', { moon_sign: sign.name, element: maxEl });
+      if (typeof gtag !== 'undefined') gtag('event', 'quiz_complete', { event_category: 'engagement', event_label: sign.name });
+    }
+
+    function shareResult(platform) {
+      var text = 'Mi Signo Lunar es ' + resultSign + ' \u2728\n\nDescubre el tuyo:';
+      var url = 'https://astroaureum.com/quiz-lunar.html';
+      var encoded = encodeURIComponent(text + '\n' + url);
+      switch (platform) {
+        case 'whatsapp': window.open('https://api.whatsapp.com/send?text=' + encoded, '_blank'); break;
+        case 'facebook': window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url), '_blank'); break;
+        case 'twitter': window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(url), '_blank'); break;
+        case 'telegram': window.open('https://t.me/share/url?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(text), '_blank'); break;
+        case 'copy':
+          navigator.clipboard.writeText(text + '\n' + url).then(function() { alert('Copiado!'); });
+          break;
+      }
+      if (typeof posthog !== 'undefined') posthog.capture('quiz_shared', { platform: platform, sign: resultSign });
+    }
+  </script>
+</body>
+</html>
