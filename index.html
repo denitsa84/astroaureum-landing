@@ -3110,73 +3110,47 @@ function toggleCat(el) {
 // === RENDER HERO ===
 function renderHero() {
   const hero = document.getElementById('hero');
+  hero.style.background = '#0a0a14';
+  hero.style.position = 'relative';
   hero.innerHTML = `
-    <div class="cosmic-eye-container">
-      <div class="cosmic-eye-ring"></div>
-      <div class="cosmic-eye-ring2"></div>
-      <img src="logo.png" alt="Astro Aureum" style="width:100%;height:100%;object-fit:contain;border-radius:50%;">
-    </div>
-    <div class="hero-badge"><span class="pulse-dot"></span> ${t('badge')}</div>
-    <h1 class="hero-title">${t('heroHook')}</h1>
-    <p class="hero-hook-sub">${t('heroHookSub')}</p>
-    <div class="hero-mega-cta hero-mega-cta--big">
-      <div class="cta-row">
-        <input type="date" class="cta-input" id="hero-birth-date" max="${new Date().toISOString().split('T')[0]}" min="1920-01-01" placeholder="${t('ctaPlaceholder') || 'Tu fecha de nacimiento'}">
-        <button class="cta-btn cta-btn--hero" onclick="heroRevealDestiny()">${t('ctaBtnBig') || 'Generar mi analisis ahora'}</button>
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 40%, rgba(201,168,76,0.06) 0%, transparent 70%), radial-gradient(ellipse 50% 60% at 30% 70%, rgba(122,106,154,0.05) 0%, transparent 70%);pointer-events:none;"></div>
+
+    <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center;padding:100px 24px 64px;max-width:720px;margin:0 auto;">
+
+      <!-- Símbolo -->
+      <div style="font-size:48px;color:#c9a84c;margin-bottom:28px;animation:heroSymbolFade 1.2s ease both;filter:drop-shadow(0 0 20px rgba(201,168,76,0.3));">✦</div>
+
+      <!-- Headline -->
+      <h1 style="font-family:'Cinzel',Georgia,serif;font-size:clamp(28px,5vw,48px);font-weight:700;color:#ede8f5;line-height:1.2;margin-bottom:20px;letter-spacing:0.02em;">
+        ${t('heroHook') || 'Las estrellas no mienten. Nosotros tampoco.'}
+      </h1>
+
+      <!-- Subtítulo -->
+      <p style="font-family:'Philosopher',Georgia,serif;font-style:italic;font-size:clamp(15px,2.2vw,18px);color:#a09ab8;max-width:580px;line-height:1.7;margin-bottom:36px;">
+        ${t('heroHookSub') || 'Lecturas astrológicas personalizadas en 9 tradiciones milenarias. Entrega instantánea a tu email. Con garantía total de devolución.'}
+      </p>
+
+      <!-- CTAs -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:16px;margin-bottom:32px;width:100%;">
+        <button onclick="openProductModal('chat-10')" style="background:linear-gradient(135deg,#c9a84c,#e8c060);color:#0a0a14;font-family:'Cinzel',Georgia,serif;font-size:clamp(13px,1.8vw,16px);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;padding:16px 40px;border:none;border-radius:12px;cursor:pointer;transition:all 0.3s;box-shadow:0 4px 20px rgba(201,168,76,0.25);" onmouseover="this.style.boxShadow='0 8px 36px rgba(201,168,76,0.45)';this.style.transform='translateY(-2px)'" onmouseout="this.style.boxShadow='0 4px 20px rgba(201,168,76,0.25)';this.style.transform='translateY(0)'">${t('heroBtn1') || 'Comenzar mi lectura ✦'}</button>
+        <a href="#tradiciones" style="color:#c9a84c;font-family:'Philosopher',Georgia,serif;font-size:14px;text-decoration:none;opacity:0.7;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">${t('heroCTASecondary') || 'Ver todas las lecturas ↓'}</a>
       </div>
-      <p class="cta-free">${t('ctaFree') || '✦ 100% gratis · Sin tarjeta · Resultado inmediato'}</p>
-    </div>
-    <div class="hero-btns">
-      <button class="btn-gold" onclick="openProductModal('chat-10')">${t('heroBtn1')}</button>
-      <a href="#catalog" class="btn-lead" style="text-decoration:none;">${t('heroCTASecondary') || 'Ver todas las lecturas ↓'}</a>
-    </div>
-    <p class="hero-sub-small">${t('heroSub')}</p>
-    <div class="hero-stats">
-      <div><span class="stat-value">${t('stat1v')}</span><span class="stat-label">${t('stat1l')}</span></div>
-      <div><span class="stat-value">${t('stat2v')}</span><span class="stat-label">${t('stat2l')}</span></div>
-      <div><span class="stat-value">${t('stat3v')}</span><span class="stat-label">${t('stat3l')}</span></div>
-      <div><span class="stat-value">${t('stat4v')}</span><span class="stat-label">${t('stat4l')}</span></div>
-    </div>
-    <div class="hero-flags">🇪🇸🇬🇧🇧🇬🇫🇷🇩🇪🇮🇹🇵🇹🇷🇺🇨🇳🇯🇵🇰🇷🇸🇦🇮🇳🇹🇷🇳🇱🇸🇪🇵🇱🇷🇴🇬🇷🇹🇭🇻🇳🇮🇩🇮🇱🇺🇦🇨🇿</div>
-    <div style="margin-top:16px;display:flex;align-items:center;justify-content:center;gap:12px;font-size:0.7rem;color:var(--text-dim);flex-wrap:wrap;">
-      <span>🔒 Pago 100% seguro</span><span>·</span><span>⚡ Entrega instantánea a tu email</span><span>·</span><span>✦ Garantía de devolución total</span>
-    </div>
-    <div class="hero-why reveal">
-      <h3>${t('whyTitle')}</h3>
-      <p class="why-subtitle">${t('whySub')}</p>
-      <div class="why-grid">
-        <div class="why-card">
-          <div class="why-icon">&#9790;</div>
-          <h4>${t('why1t')}</h4>
-          <p>${t('why1d')}</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">&#9788;</div>
-          <h4>${t('why2t')}</h4>
-          <p>${t('why2d')}</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">&#9883;</div>
-          <h4>${t('why3t')}</h4>
-          <p>${t('why3d')}</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">&#9978;</div>
-          <h4>${t('why4t')}</h4>
-          <p>${t('why4d')}</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">&#9733;</div>
-          <h4>${t('why5t')}</h4>
-          <p>${t('why5d')}</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">&#127760;</div>
-          <h4>${t('why6t')}</h4>
-          <p>${t('why6d')}</p>
-        </div>
+
+      <!-- Trust badges -->
+      <div style="display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;font-size:12px;color:#6b6280;letter-spacing:0.03em;">
+        <span>🔒 Pago seguro</span><span style="opacity:0.4">·</span><span>⚡ Entrega instantánea</span><span style="opacity:0.4">·</span><span>✦ Garantía total</span>
       </div>
     </div>
+
+    <!-- Línea separadora dorada -->
+    <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,0.3) 30%,rgba(201,168,76,0.3) 70%,transparent);"></div>
+
+    <style>
+      @keyframes heroSymbolFade {
+        from { opacity: 0; transform: translateY(-16px) scale(0.8); }
+        to { opacity: 1; transform: translateY(0) scale(1); }
+      }
+    </style>
   `;
 }
 
