@@ -1720,6 +1720,7 @@ body {
     <section id="humandesign"></section>
     <section id="packs"></section>
     <section id="academy"></section>
+    <section id="sinastria-banner"></section>
     <section id="como-funciona"></section>
     <section id="testimonios"></section>
     <section id="horoscopo-diario"></section>
@@ -3806,6 +3807,30 @@ function renderAboutSection() {
     </div>`;
 }
 
+// === RENDER SINASTRIA BANNER ===
+function renderSinastriaBanner() {
+  const sec = document.getElementById('sinastria-banner');
+  if (!sec) return;
+  sec.innerHTML = `
+    <div class="section" style="padding:48px 20px;">
+      <a href="/sinastria" style="display:block;max-width:700px;margin:0 auto;text-decoration:none;background:linear-gradient(135deg,rgba(212,168,67,0.06),rgba(123,79,191,0.08));border:2px solid rgba(212,168,67,0.25);border-radius:20px;padding:36px 28px;text-align:center;transition:all 0.3s;position:relative;overflow:hidden;" onmouseover="this.style.borderColor='rgba(212,168,67,0.45)';this.style.boxShadow='0 8px 40px rgba(212,168,67,0.12)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.25)';this.style.boxShadow='none'">
+        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(212,168,67,0.08),transparent 60%);pointer-events:none;"></div>
+        <div style="position:relative;z-index:1;">
+          <span style="display:inline-block;background:rgba(212,168,67,0.12);border:1px solid rgba(212,168,67,0.25);border-radius:30px;padding:4px 16px;font-size:0.65rem;font-weight:600;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px;">✦ NUEVO · Oferta especial</span>
+          <h2 style="font-family:'Cinzel',serif;font-size:1.6rem;color:var(--gold);margin-bottom:8px;">Sinastría de Almas</h2>
+          <p style="font-size:0.9rem;color:var(--text-dim);margin-bottom:6px;line-height:1.6;">Descubre la compatibilidad astrológica de tu pareja — Libro PDF + Lectura completa</p>
+          <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin:16px 0;">
+            <span style="font-size:0.85rem;color:var(--text-muted);text-decoration:line-through;">120 €</span>
+            <span style="font-family:'Cinzel',serif;font-size:1.8rem;font-weight:700;color:var(--gold);">47 €</span>
+            <span style="background:rgba(212,168,67,0.15);color:var(--gold);padding:3px 10px;border-radius:8px;font-size:0.7rem;font-weight:600;">-61%</span>
+          </div>
+          <div style="display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#06050E;padding:12px 32px;border-radius:10px;font-family:'Cinzel',serif;font-weight:700;font-size:0.85rem;letter-spacing:0.05em;">Descubrir la oferta ✦</div>
+          <p style="font-size:0.7rem;color:var(--text-muted);margin-top:12px;">⚡ Entrega instantánea · 🔒 Garantía total · 📖 Libro incluido</p>
+        </div>
+      </a>
+    </div>`;
+}
+
 function renderFooter() {
   const ft = document.getElementById('footer');
   ft.innerHTML = `
@@ -4557,6 +4582,7 @@ function renderAll() {
   renderDailyHoroscope();
   renderFAQ();
   renderAuthor();
+  renderSinastriaBanner();
   renderCTA();
   renderFooter();
   // Re-init scroll reveal after re-render
