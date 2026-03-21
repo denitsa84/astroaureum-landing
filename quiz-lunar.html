@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, viewport-fit=cover">
   <title>Descubre tu Signo Lunar | Astro Aureum</title>
   <meta name="description" content="Quiz interactivo: Descubre tu Signo Lunar en 5 preguntas. Conoce que revela la Luna sobre tu personalidad.">
   <meta property="og:title" content="Descubre tu Signo Lunar | Astro Aureum">
@@ -64,6 +64,16 @@
     .cta-box p{color:#c9b8e8;font-size:.95rem;margin-bottom:16px}
     .cta-btn{display:inline-block;background:linear-gradient(135deg,#D4A843,#F7D96E);color:#0d0b1a;padding:14px 32px;border-radius:12px;font-weight:700;font-size:1rem;text-decoration:none;transition:transform .2s}
     .cta-btn:hover{transform:scale(1.05)}
+    .lead-capture{background:linear-gradient(145deg,#1a1333,#0d0b1a);border:1px solid rgba(212,168,67,.3);border-radius:16px;padding:28px;margin:24px 0;text-align:center}
+    .lead-capture h3{font-family:'Cinzel',serif;color:#D4A843;font-size:1.1rem;margin-bottom:8px}
+    .lead-capture p{color:#c9b8e8;font-size:.9rem;margin-bottom:16px;line-height:1.5}
+    .lead-capture input{width:100%;padding:14px 16px;background:rgba(255,255,255,.05);border:1px solid rgba(212,168,67,.2);border-radius:10px;color:#fff;font-size:.95rem;outline:none;box-sizing:border-box;margin-bottom:8px;font-family:inherit}
+    .lead-capture input:focus{border-color:#D4A843}
+    .lead-capture .lead-submit{width:100%;padding:14px;background:linear-gradient(135deg,#D4A843,#F7D96E);color:#0d0b1a;border:none;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;transition:transform .2s;font-family:inherit}
+    .lead-capture .lead-submit:hover{transform:scale(1.03)}
+    .lead-capture .lead-submit:disabled{opacity:.6;cursor:not-allowed;transform:none}
+    .lead-capture .lead-success{color:#D4A843;font-size:.9rem;margin-top:8px;display:none}
+    .lead-capture .lead-privacy{color:#6B5B8D;font-size:.75rem;margin-top:8px}
     .start-btn{display:block;width:100%;background:linear-gradient(135deg,#D4A843,#F7D96E);color:#0d0b1a;border:none;padding:16px;border-radius:12px;font-size:1.1rem;font-weight:700;cursor:pointer;margin-top:24px;transition:transform .2s}
     .start-btn:hover{transform:scale(1.03)}
     @media(max-width:480px){.options{grid-template-columns:1fr}.container{padding:16px}.quiz-header h2{font-size:1.5rem}}
@@ -151,6 +161,18 @@
         <p id="r-desc"></p>
         <div class="traits" id="r-traits"></div>
       </div>
+      <div class="lead-capture" id="lead-capture">
+        <h3>&#x2728; Recibe tu lectura lunar completa GRATIS</h3>
+        <p>Descubre como tu signo lunar afecta tus emociones, relaciones y decisiones. Te envio un analisis personalizado a tu email.</p>
+        <form id="quiz-lead-form" onsubmit="submitQuizLead(event)">
+          <input type="text" id="ql-name" placeholder="Tu nombre" required>
+          <input type="email" id="ql-email" placeholder="tu@email.com" required>
+          <button type="submit" class="lead-submit" id="ql-submit">&#x2728; Enviarme mi lectura lunar</button>
+        </form>
+        <div class="lead-success" id="ql-success">&#x2714; Enviado! Revisa tu email en unos minutos.</div>
+        <div class="lead-privacy">No spam. Solo astrologia. Puedes cancelar en cualquier momento.</div>
+      </div>
+
       <div class="share-section">
         <h3>Comparte tu resultado</h3>
         <div class="share-btns">
@@ -248,6 +270,33 @@
       document.getElementById('result').classList.add('active');
       if (typeof posthog !== 'undefined') posthog.capture('quiz_completed', { moon_sign: sign.name, element: maxEl });
       if (typeof gtag !== 'undefined') gtag('event', 'quiz_complete', { event_category: 'engagement', event_label: sign.name });
+    }
+
+    function submitQuizLead(e) {
+      e.preventDefault();
+      var btn = document.getElementById('ql-submit');
+      var name = document.getElementById('ql-name').value.trim();
+      var email = document.getElementById('ql-email').value.trim();
+      if (!name || !email) return;
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+      fetch('/api/quiz-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: name, email: email, moonSign: resultSign, source: 'quiz-lunar' })
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(d) {
+        document.getElementById('quiz-lead-form').style.display = 'none';
+        document.getElementById('ql-success').style.display = 'block';
+        if (typeof posthog !== 'undefined') posthog.capture('quiz_lead_captured', { email: email, moon_sign: resultSign });
+        if (typeof gtag !== 'undefined') gtag('event', 'generate_lead', { event_category: 'quiz', event_label: resultSign });
+      })
+      .catch(function(err) {
+        btn.disabled = false;
+        btn.textContent = '\u2728 Enviarme mi lectura lunar';
+        alert('Error al enviar. Intentalo de nuevo.');
+      });
     }
 
     function shareResult(platform) {

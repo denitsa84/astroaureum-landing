@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin — Aureum Books | Astro Aureum</title>
+<style>
+/* ===== LOGIN GATE ===== */
+#login-gate{position:fixed;inset:0;z-index:99999;background:#06050E;display:flex;align-items:center;justify-content:center}
+#login-gate.hidden{display:none}
+.login-box{background:rgba(18,16,36,0.95);border:1px solid rgba(212,168,67,0.15);border-radius:16px;padding:40px;max-width:360px;width:90%;text-align:center}
+.login-box h2{color:#D4A843;font-size:1.2rem;margin-bottom:8px}
+.login-box p{color:#8E84A6;font-size:0.85rem;margin-bottom:20px}
+.login-box input{width:100%;padding:14px;background:rgba(255,255,255,0.05);border:1px solid rgba(212,168,67,0.15);border-radius:10px;color:#EDE8F5;font-size:1.1rem;text-align:center;letter-spacing:2px;outline:none;font-family:inherit}
+.login-box input:focus{border-color:#D4A843}
+.login-error{color:#ef5350;font-size:0.8rem;margin-top:10px;display:none}
+#main-content{display:none}
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#06050E;--card:rgba(18,16,36,0.85);--gold:#D4A843;--gold2:#F0CC6B;--purple:#7B4FBF;--purple2:#9B6FDF;--text:#EDE8F5;--dim:#8E84A6;--muted:#6B6280;--border:rgba(212,168,67,0.12);--rose:#ECA0B8;--green:#50C878}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',sans-serif;line-height:1.6;padding:20px;max-width:1200px;margin:0 auto}
+
+h1{font-size:1.8rem;color:var(--gold);margin-bottom:4px}
+.sub{color:var(--dim);font-size:0.85rem;margin-bottom:24px}
+.stats{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:32px}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 24px;text-align:center;min-width:140px}
+.stat-n{font-size:1.8rem;color:var(--gold);font-weight:700}
+.stat-l{font-size:0.7rem;color:var(--dim);text-transform:uppercase;letter-spacing:1px}
+
+/* Tabs */
+.tabs{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap}
+.tab{padding:10px 24px;background:var(--card);border:1px solid var(--border);border-radius:10px;color:var(--dim);cursor:pointer;font-size:0.85rem;transition:all 0.2s}
+.tab:hover{border-color:var(--gold);color:var(--text)}
+.tab.active{background:rgba(212,168,67,0.12);border-color:var(--gold);color:var(--gold)}
+.tab-content{display:none}
+.tab-content.active{display:block}
+
+/* Book sections */
+.book-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+.book-title{font-size:1.3rem;color:var(--gold)}
+.book-meta{display:flex;gap:16px;font-size:0.8rem;color:var(--dim)}
+.badge{padding:3px 10px;border-radius:12px;font-size:0.65rem;font-weight:600;text-transform:uppercase;letter-spacing:1px}
+.badge-ok{background:rgba(80,200,120,0.12);color:var(--green);border:1px solid rgba(80,200,120,0.2)}
+.badge-pending{background:rgba(255,152,0,0.12);color:#ffcc80;border:1px solid rgba(255,152,0,0.2)}
+
+/* Chapter list */
+.chapter-list{display:flex;flex-direction:column;gap:8px;margin-bottom:32px}
+.chapter-item{display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--card);border:1px solid var(--border);border-radius:10px;cursor:pointer;transition:all 0.2s}
+.chapter-item:hover{border-color:var(--gold);background:rgba(212,168,67,0.05)}
+.chapter-item.open{border-color:var(--purple);background:rgba(123,79,191,0.08)}
+.ch-num{width:36px;height:36px;border-radius:8px;background:rgba(212,168,67,0.1);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0}
+.ch-info{flex:1;min-width:0}
+.ch-name{font-size:0.9rem;color:var(--text)}
+.ch-words{font-size:0.7rem;color:var(--dim)}
+.ch-status{font-size:0.7rem}
+.ch-arrow{color:var(--dim);transition:transform 0.2s}
+.chapter-item.open .ch-arrow{transform:rotate(90deg)}
+
+/* Chapter content viewer */
+.ch-content{display:none;padding:20px;background:rgba(10,8,24,0.9);border:1px solid var(--border);border-radius:0 0 12px 12px;margin-top:-9px;margin-bottom:8px;font-size:0.88rem;line-height:1.8;color:var(--text);white-space:pre-wrap;max-height:500px;overflow-y:auto}
+.ch-content.open{display:block}
+.ch-content h1,.ch-content h2,.ch-content h3,.ch-content h4{color:var(--gold);margin:16px 0 8px}
+.ch-content strong{color:var(--gold2)}
+.ch-content::-webkit-scrollbar{width:4px}
+.ch-content::-webkit-scrollbar-thumb{background:rgba(212,168,67,0.3);border-radius:2px}
+
+/* Products section */
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;margin-bottom:32px}
+.product-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;transition:all 0.2s}
+.product-card:hover{border-color:var(--gold)}
+.pc-top{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.pc-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+.pc-title{font-size:1rem;color:var(--text);font-weight:600}
+.pc-cat{font-size:0.7rem;color:var(--purple2);text-transform:uppercase;letter-spacing:1px}
+.pc-desc{font-size:0.82rem;color:var(--dim);margin-bottom:12px}
+.pc-formats{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.pc-fmt{padding:3px 10px;border-radius:10px;font-size:0.65rem;font-weight:600;text-transform:uppercase}
+.pc-fmt-pdf{background:rgba(244,67,54,0.1);color:#ef9a9a}
+.pc-fmt-kindle{background:rgba(255,152,0,0.1);color:#ffcc80}
+.pc-fmt-print{background:rgba(33,150,243,0.1);color:#90caf9}
+.pc-fmt-hard{background:rgba(212,168,67,0.1);color:var(--gold2)}
+.pc-fmt-audio{background:rgba(156,39,176,0.1);color:#ce93d8}
+.pc-bottom{display:flex;align-items:center;justify-content:space-between}
+.pc-price{font-size:1.3rem;color:var(--gold);font-weight:700}
+.pc-old{font-size:0.85rem;color:var(--muted);text-decoration:line-through;margin-right:8px}
+.pc-link{padding:8px 18px;background:rgba(212,168,67,0.1);border:1px solid var(--gold);color:var(--gold);border-radius:8px;font-size:0.75rem;cursor:pointer;text-decoration:none;transition:all 0.2s}
+.pc-link:hover{background:var(--gold);color:var(--bg)}
+
+/* Quick links */
+.quick-links{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px}
+.ql{display:flex;align-items:center;gap:8px;padding:12px 20px;background:var(--card);border:1px solid var(--border);border-radius:10px;color:var(--text);text-decoration:none;font-size:0.85rem;transition:all 0.2s}
+.ql:hover{border-color:var(--gold);color:var(--gold)}
+.ql-icon{font-size:1.2rem}
+
+@media(max-width:600px){body{padding:12px}.stats{gap:8px}.stat-card{min-width:100px;padding:12px 16px}.product-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- LOGIN GATE -->
+<div id="login-gate">
+  <div class="login-box">
+    <h2>Admin Aureum Books</h2>
+    <p>Introduce tu codigo de acceso</p>
+    <input type="password" id="login-code" placeholder="codigo" maxlength="10" autofocus>
+    <div class="login-error" id="login-error">Codigo incorrecto</div>
+  </div>
+</div>
+
+<div id="main-content">
+<h1>Admin — Aureum Books</h1>
+<p class="sub">Panel de gestion de libros de astrologia · Astro Aureum</p>
+
+<!-- Stats -->
+<div class="stats">
+  <div class="stat-card"><div class="stat-n">2</div><div class="stat-l">Libros</div></div>
+  <div class="stat-card"><div class="stat-n">44,602</div><div class="stat-l">Palabras</div></div>
+  <div class="stat-card"><div class="stat-n">~255</div><div class="stat-l">Paginas</div></div>
+  <div class="stat-card"><div class="stat-n">29</div><div class="stat-l">Archivos</div></div>
+  <div class="stat-card"><div class="stat-n">12</div><div class="stat-l">Signos</div></div>
+  <div class="stat-card"><div class="stat-n">5</div><div class="stat-l">Formatos</div></div>
+</div>
+
+<!-- Quick Links -->
+<div class="quick-links">
+  <a href="/aureum-books.html" class="ql"><span class="ql-icon">📖</span> Aureum Books (Tienda)</a>
+  <a href="/" class="ql"><span class="ql-icon">✦</span> AstroAureum.com</a>
+  <a href="/sinastria" class="ql"><span class="ql-icon">♡</span> Sinastria de Almas</a>
+  <a href="/admin" class="ql"><span class="ql-icon">⚙</span> Admin Principal</a>
+</div>
+
+<!-- Tabs -->
+<div class="tabs">
+  <div class="tab active" onclick="showTab('vol1')">Vol. I — El Camino del Yo</div>
+  <div class="tab" onclick="showTab('vol2')">Vol. II — El Camino del Otro</div>
+  <div class="tab" onclick="showTab('products')">Productos Astro</div>
+  <div class="tab" onclick="showTab('pricing')">Precios y Formatos</div>
+</div>
+
+<!-- Vol 1 -->
+<div class="tab-content active" id="tab-vol1">
+  <div class="book-header">
+    <div>
+      <div class="book-title">Los 12 Signos del Zodiaco — Vol. I: El Camino del Yo</div>
+      <div class="book-meta">
+        <span>Aries · Tauro · Geminis · Cancer · Leo · Virgo</span>
+        <span>~20,580 palabras</span>
+        <span>~120 paginas</span>
+      </div>
+    </div>
+    <span class="badge badge-ok">Completo</span>
+  </div>
+  <div class="chapter-list" id="chapters-v1"></div>
+</div>
+
+<!-- Vol 2 -->
+<div class="tab-content" id="tab-vol2">
+  <div class="book-header">
+    <div>
+      <div class="book-title">Los 12 Signos del Zodiaco — Vol. II: El Camino del Otro</div>
+      <div class="book-meta">
+        <span>Libra · Escorpio · Sagitario · Capricornio · Acuario · Piscis</span>
+        <span>~23,131 palabras</span>
+        <span>~135 paginas</span>
+      </div>
+    </div>
+    <span class="badge badge-ok">Completo</span>
+  </div>
+  <div class="chapter-list" id="chapters-v2"></div>
+</div>
+
+<!-- Products -->
+<div class="tab-content" id="tab-products">
+  <h2 style="color:var(--gold);font-size:1.2rem;margin-bottom:16px">Productos en AstroAureum.com</h2>
+  <div class="product-grid">
+
+    <!-- Chat Astral -->
+    <div class="product-card" style="border-color:rgba(212,168,67,0.3)">
+      <div class="pc-top">
+        <div class="pc-icon" style="background:linear-gradient(135deg,rgba(212,168,67,0.15),rgba(212,168,67,0.05))">💬</div>
+        <div>
+          <div class="pc-title">Chat Astral — 10 Preguntas</div>
+          <div class="pc-cat">Mas Popular · Empieza Aqui</div>
+        </div>
+      </div>
+      <div class="pc-desc">10 preguntas astrologicas personalizadas con tu carta natal real. La forma mas facil de empezar con la astrologia.</div>
+      <div class="pc-formats">
+        <span class="pc-fmt pc-fmt-pdf">PDF por Email</span>
+      </div>
+      <div class="pc-bottom">
+        <div class="pc-price">€14.99</div>
+        <a href="https://astroaureum.com" class="pc-link">Ver en AstroAureum</a>
+      </div>
+    </div>
+
+    <!-- Sinastria de Almas -->
+    <div class="product-card" style="border-color:rgba(236,160,184,0.3)">
+      <div class="pc-top">
+        <div class="pc-icon" style="background:linear-gradient(135deg,rgba(236,160,184,0.15),rgba(107,47,168,0.08))">♡</div>
+        <div>
+          <div class="pc-title">Sinastria de Almas</div>
+          <div class="pc-cat">Oferta Especial · Libro + Lectura</div>
+        </div>
+      </div>
+      <div class="pc-desc">Compatibilidad astrologica completa de tu pareja. Incluye Libro PDF "La Union de las Estrellas" + Lectura personalizada.</div>
+      <div class="pc-formats">
+        <span class="pc-fmt pc-fmt-pdf">PDF</span>
+        <span class="pc-fmt" style="background:rgba(236,160,184,0.1);color:var(--rose)">Libro</span>
+        <span class="pc-fmt" style="background:rgba(123,79,191,0.1);color:var(--purple2)">Lectura</span>
+      </div>
+      <div class="pc-bottom">
+        <div><span class="pc-old">€150</span><span class="pc-price">€25</span></div>
+        <a href="https://astroaureum.com/sinastria" class="pc-link">Ver Oferta</a>
+      </div>
+    </div>
+
+    <!-- Vol 1 -->
+    <div class="product-card">
+      <div class="pc-top">
+        <div class="pc-icon" style="background:linear-gradient(135deg,rgba(212,168,67,0.15),rgba(212,168,67,0.05))">♈</div>
+        <div>
+          <div class="pc-title">12 Signos del Zodiaco — Vol. I</div>
+          <div class="pc-cat">Nuevo · El Camino del Yo</div>
+        </div>
+      </div>
+      <div class="pc-desc">Aries, Tauro, Geminis, Cancer, Leo, Virgo. Personalidad, amor, trabajo, salud, compatibilidad, meditaciones y cristales.</div>
+      <div class="pc-formats">
+        <span class="pc-fmt pc-fmt-pdf">PDF</span>
+        <span class="pc-fmt pc-fmt-kindle">Kindle</span>
+        <span class="pc-fmt pc-fmt-print">Tapa Blanda</span>
+        <span class="pc-fmt pc-fmt-audio">Audio</span>
+      </div>
+      <div class="pc-bottom">
+        <div><span class="pc-old">€9.99</span><span class="pc-price">€6.99</span></div>
+        <a href="/aureum-books.html" class="pc-link">Ver en Tienda</a>
+      </div>
+    </div>
+
+    <!-- Vol 2 -->
+    <div class="product-card">
+      <div class="pc-top">
+        <div class="pc-icon" style="background:linear-gradient(135deg,rgba(123,79,191,0.15),rgba(123,79,191,0.05))">♎</div>
+        <div>
+          <div class="pc-title">12 Signos del Zodiaco — Vol. II</div>
+          <div class="pc-cat">Nuevo · El Camino del Otro</div>
+        </div>
+      </div>
+      <div class="pc-desc">Libra, Escorpio, Sagitario, Capricornio, Acuario, Piscis. El viaje donde el yo se encuentra con el universo.</div>
+      <div class="pc-formats">
+        <span class="pc-fmt pc-fmt-pdf">PDF</span>
+        <span class="pc-fmt pc-fmt-kindle">Kindle</span>
+        <span class="pc-fmt pc-fmt-print">Tapa Blanda</span>
+        <span class="pc-fmt pc-fmt-audio">Audio</span>
+      </div>
+      <div class="pc-bottom">
+        <div><span class="pc-old">€9.99</span><span class="pc-price">€6.99</span></div>
+        <a href="/aureum-books.html" class="pc-link">Ver en Tienda</a>
+      </div>
+    </div>
+
+    <!-- Carta Natal -->
+    <div class="product-card">
+      <div class="pc-top">
+        <div class="pc-icon" style="background:linear-gradient(135deg,rgba(212,168,67,0.15),rgba(123,79,191,0.08))">☉</div>
+        <div>
+          <div class="pc-title">Carta Natal Completa</div>
+          <div class="pc-cat">Occidental · Popular</div>
+        </div>
+      </div>
+      <div class="pc-desc">Analisis profundo de quien eres: Sol, Luna, Ascendente, planetas, aspectos y proposito de vida. 3,000-5,500 palabras.</div>
+      <div class="pc-formats">
+        <span class="pc-fmt pc-fmt-pdf">PDF por Email</span>
+      </div>
+      <div class="pc-bottom">
+        <div class="pc-price">€89</div>
+        <a href="https://astroaureum.com" class="pc-link">Ver en AstroAureum</a>
+      </div>
+    </div>
+
+    <!-- Pack Zodiaco -->
+    <div class="product-card" style="border-color:rgba(80,200,120,0.2)">
+      <div class="pc-top">
+        <div class="pc-icon" style="background:linear-gradient(135deg,rgba(80,200,120,0.12),rgba(212,168,67,0.08))">📦</div>
+        <div>
+          <div class="pc-title">Pack Zodiaco Completo</div>
+          <div class="pc-cat">Bundle · Vol I + Vol II</div>
+        </div>
+      </div>
+      <div class="pc-desc">Los dos volumenes juntos con descuento. Los 12 signos completos en un pack.</div>
+      <div class="pc-formats">
+        <span class="pc-fmt pc-fmt-pdf">PDF</span>
+        <span class="pc-fmt pc-fmt-kindle">Kindle</span>
+        <span class="pc-fmt pc-fmt-print">Tapa Blanda</span>
+      </div>
+      <div class="pc-bottom">
+        <div><span class="pc-old">€13.98</span><span class="pc-price">€9.99</span></div>
+        <span class="badge badge-pending">Proximamente</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Pricing -->
+<div class="tab-content" id="tab-pricing">
+  <h2 style="color:var(--gold);font-size:1.2rem;margin-bottom:16px">Precios por Formato — Volumenes del Zodiaco</h2>
+  <table style="width:100%;border-collapse:collapse;margin-bottom:24px">
+    <thead>
+      <tr style="border-bottom:1px solid var(--border)">
+        <th style="text-align:left;padding:12px;color:var(--gold);font-size:0.8rem">Formato</th>
+        <th style="text-align:center;padding:12px;color:var(--gold);font-size:0.8rem">Precio</th>
+        <th style="text-align:center;padding:12px;color:var(--gold);font-size:0.8rem">Royalty Est.</th>
+        <th style="text-align:left;padding:12px;color:var(--gold);font-size:0.8rem">Plataforma</th>
+        <th style="text-align:center;padding:12px;color:var(--gold);font-size:0.8rem">Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid rgba(255,255,255,0.03)">
+        <td style="padding:12px;font-size:0.85rem">📄 Ebook Kindle</td>
+        <td style="text-align:center;color:var(--gold);font-weight:600">$6.99</td>
+        <td style="text-align:center;color:var(--dim);font-size:0.8rem">~$4.89 (70%)</td>
+        <td style="font-size:0.8rem;color:var(--dim)">Amazon KDP</td>
+        <td style="text-align:center"><span class="badge badge-pending">Pendiente</span></td>
+      </tr>
+      <tr style="border-bottom:1px solid rgba(255,255,255,0.03)">
+        <td style="padding:12px;font-size:0.85rem">📖 PDF Digital</td>
+        <td style="text-align:center;color:var(--gold);font-weight:600">€9.99</td>
+        <td style="text-align:center;color:var(--dim);font-size:0.8rem">~€9.49 (95%)</td>
+        <td style="font-size:0.8rem;color:var(--dim)">Hotmart / Gumroad / Stripe</td>
+        <td style="text-align:center"><span class="badge badge-pending">Pendiente</span></td>
+      </tr>
+      <tr style="border-bottom:1px solid rgba(255,255,255,0.03)">
+        <td style="padding:12px;font-size:0.85rem">📚 Tapa Blanda</td>
+        <td style="text-align:center;color:var(--gold);font-weight:600">$14.99</td>
+        <td style="text-align:center;color:var(--dim);font-size:0.8rem">~$4.50 (30%)</td>
+        <td style="font-size:0.8rem;color:var(--dim)">Amazon KDP Print</td>
+        <td style="text-align:center"><span class="badge badge-pending">Pendiente</span></td>
+      </tr>
+      <tr style="border-bottom:1px solid rgba(255,255,255,0.03)">
+        <td style="padding:12px;font-size:0.85rem">📕 Tapa Dura</td>
+        <td style="text-align:center;color:var(--gold);font-weight:600">$24.99</td>
+        <td style="text-align:center;color:var(--dim);font-size:0.8rem">~$5.00 (20%)</td>
+        <td style="font-size:0.8rem;color:var(--dim)">IngramSpark / Amazon</td>
+        <td style="text-align:center"><span class="badge badge-pending">Pendiente</span></td>
+      </tr>
+      <tr>
+        <td style="padding:12px;font-size:0.85rem">🎧 Audiolibro</td>
+        <td style="text-align:center;color:var(--gold);font-weight:600">$14.99</td>
+        <td style="text-align:center;color:var(--dim);font-size:0.8rem">~$6.00 (40%)</td>
+        <td style="font-size:0.8rem;color:var(--dim)">ACX / Audible</td>
+        <td style="text-align:center"><span class="badge badge-pending">Pendiente</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 style="color:var(--gold);font-size:1.2rem;margin-bottom:16px">Ingresos Estimados (Mensual)</h2>
+  <table style="width:100%;border-collapse:collapse">
+    <thead>
+      <tr style="border-bottom:1px solid var(--border)">
+        <th style="text-align:left;padding:12px;color:var(--gold);font-size:0.8rem">Escenario</th>
+        <th style="text-align:center;padding:12px;color:var(--gold);font-size:0.8rem">Ventas/mes</th>
+        <th style="text-align:center;padding:12px;color:var(--gold);font-size:0.8rem">Ingreso</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid rgba(255,255,255,0.03)">
+        <td style="padding:12px;font-size:0.85rem">Conservador</td>
+        <td style="text-align:center;color:var(--dim)">100</td>
+        <td style="text-align:center;color:var(--green);font-weight:600">~$609/mes</td>
+      </tr>
+      <tr style="border-bottom:1px solid rgba(255,255,255,0.03)">
+        <td style="padding:12px;font-size:0.85rem">Optimista</td>
+        <td style="text-align:center;color:var(--dim)">500</td>
+        <td style="text-align:center;color:var(--green);font-weight:600">~$3,045/mes</td>
+      </tr>
+      <tr>
+        <td style="padding:12px;font-size:0.85rem">Con Vol I + Vol II</td>
+        <td style="text-align:center;color:var(--dim)">500</td>
+        <td style="text-align:center;color:var(--green);font-weight:600">~$6,090/mes</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</div><!-- /main-content -->
+
+<script>
+// ===== LOGIN =====
+const ADMIN_CODE = 'astro-admin-1984';
+const loginInput = document.getElementById('login-code');
+const loginGate = document.getElementById('login-gate');
+const mainContent = document.getElementById('main-content');
+const loginError = document.getElementById('login-error');
+
+// Check if already logged in this session
+if (sessionStorage.getItem('aureum-admin') === 'ok') {
+  loginGate.classList.add('hidden');
+  mainContent.style.display = 'block';
+}
+
+loginInput.addEventListener('keydown', function(e) {
+  loginError.style.display = 'none';
+  if (e.key === 'Enter') {
+    if (this.value === ADMIN_CODE) {
+      sessionStorage.setItem('aureum-admin', 'ok');
+      loginGate.style.transition = 'opacity 0.3s';
+      loginGate.style.opacity = '0';
+      setTimeout(() => {
+        loginGate.classList.add('hidden');
+        mainContent.style.display = 'block';
+      }, 300);
+    } else {
+      loginError.style.display = 'block';
+      this.value = '';
+      this.style.borderColor = '#ef5350';
+      setTimeout(() => { this.style.borderColor = 'rgba(212,168,67,0.15)'; }, 1000);
+    }
+  }
+});
+
+// Tab switching
+function showTab(id){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// Chapter data
+const vol1=[
+  {num:'P',name:'Portada',file:'00-portada.md',words:41},
+  {num:'L',name:'Informacion Legal',file:'01-legal.md',words:163},
+  {num:'I',name:'Indice',file:'02-indice.md',words:554},
+  {num:'PR',name:'Prologo — Por que los astros importan',file:'03-prologo.md',words:454},
+  {num:'IN',name:'Introduccion — Como usar este libro',file:'04-introduccion.md',words:782},
+  {num:'1',name:'ARIES — El Guerrero del Zodiaco',file:'05-capitulo-01-aries.md',words:2546},
+  {num:'2',name:'TAURO — El Guardian de la Tierra',file:'06-capitulo-02-tauro.md',words:2484},
+  {num:'3',name:'GEMINIS — El Mensajero Cosmico',file:'07-capitulo-03-geminis.md',words:3245},
+  {num:'4',name:'CANCER — El Guardian de las Emociones',file:'08-capitulo-04-cancer.md',words:2582},
+  {num:'5',name:'LEO — El Rey del Zodiaco',file:'09-capitulo-05-leo.md',words:3217},
+  {num:'6',name:'VIRGO — El Alquimista del Orden',file:'10-capitulo-06-virgo.md',words:3384},
+  {num:'EP',name:'Epilogo — El viaje apenas comienza',file:'11-epilogo.md',words:340},
+  {num:'AU',name:'Sobre la Autora',file:'12-sobre-autora.md',words:150},
+  {num:'AA',name:'Descubre mas en Astro Aureum',file:'13-descubre-mas.md',words:219},
+  {num:'V2',name:'Continua con el Volumen II',file:'14-volumen-2.md',words:201},
+  {num:'CT',name:'Contraportada',file:'15-contraportada.md',words:218},
+];
+const vol2=[
+  {num:'P',name:'Portada',file:'00-portada.md',words:41},
+  {num:'L',name:'Informacion Legal',file:'01-legal.md',words:166},
+  {num:'I',name:'Indice',file:'02-indice.md',words:535},
+  {num:'PR',name:'Prologo — Donde el yo se encuentra con el mundo',file:'03-prologo.md',words:350},
+  {num:'7',name:'LIBRA — El Arquitecto del Equilibrio',file:'04-capitulo-07-libra.md',words:3285},
+  {num:'8',name:'ESCORPIO — El Alquimista de la Transformacion',file:'05-capitulo-08-escorpio.md',words:3483},
+  {num:'9',name:'SAGITARIO — El Explorador del Significado',file:'06-capitulo-09-sagitario.md',words:3450},
+  {num:'10',name:'CAPRICORNIO — El Constructor del Legado',file:'07-capitulo-10-capricornio.md',words:3525},
+  {num:'11',name:'ACUARIO — El Visionario del Futuro',file:'08-capitulo-11-acuario.md',words:3651},
+  {num:'12',name:'PISCIS — El Mistico del Zodiaco',file:'09-capitulo-12-piscis.md',words:3929},
+  {num:'EP',name:'Epilogo — El circulo se cierra',file:'10-epilogo.md',words:362},
+  {num:'AU',name:'Sobre la Autora',file:'11-sobre-autora.md',words:150},
+  {num:'CT',name:'Contraportada',file:'12-contraportada.md',words:204},
+];
+
+function renderChapters(chapters, containerId, basePath) {
+  const container = document.getElementById(containerId);
+  chapters.forEach((ch, i) => {
+    const item = document.createElement('div');
+    item.className = 'chapter-item';
+    item.innerHTML = `
+      <div class="ch-num">${ch.num}</div>
+      <div class="ch-info">
+        <div class="ch-name">${ch.name}</div>
+        <div class="ch-words">${ch.words.toLocaleString()} palabras</div>
+      </div>
+      <div class="ch-status"><span class="badge badge-ok">OK</span></div>
+      <div class="ch-arrow">▸</div>
+    `;
+    const content = document.createElement('div');
+    content.className = 'ch-content';
+    content.id = 'content-' + containerId + '-' + i;
+    content.textContent = 'Cargando...';
+
+    item.onclick = () => {
+      const isOpen = item.classList.contains('open');
+      // Close all
+      container.querySelectorAll('.chapter-item').forEach(ci=>ci.classList.remove('open'));
+      container.querySelectorAll('.ch-content').forEach(cc=>cc.classList.remove('open'));
+      if (!isOpen) {
+        item.classList.add('open');
+        content.classList.add('open');
+        // Load content via fetch
+        if (content.textContent === 'Cargando...') {
+          fetch(basePath + ch.file)
+            .then(r => r.ok ? r.text() : 'Error al cargar el archivo. Abre el archivo directamente en: ' + basePath + ch.file)
+            .then(text => { content.textContent = text; })
+            .catch(() => { content.textContent = 'No se pudo cargar. Ruta: ' + basePath + ch.file; });
+        }
+      }
+    };
+
+    container.appendChild(item);
+    container.appendChild(content);
+  });
+}
+
+const bookBase = '/libros/';
+// Try loading from local paths - adjust if needed
+renderChapters(vol1, 'chapters-v1', bookBase + 'signos-zodiacales-vol1/manuscrito/');
+renderChapters(vol2, 'chapters-v2', bookBase + 'signos-zodiacales-vol2/manuscrito/');
+</script>
+</body>
+</html>

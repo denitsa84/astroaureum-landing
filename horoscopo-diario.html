@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, viewport-fit=cover">
   <title>Horoscopo del Dia | Astro Aureum</title>
   <meta name="description" content="Tu horoscopo diario gratis para los 12 signos. Amor, dinero, salud y numero de la suerte.">
   <meta property="og:title" content="Horoscopo del Dia | Astro Aureum">
@@ -56,6 +56,16 @@
     .share-btn{padding:8px 16px;border:none;border-radius:8px;color:#fff;font-weight:600;cursor:pointer;font-size:.85rem;transition:transform .2s}
     .share-btn:hover{transform:scale(1.05)}
     .cta-box{background:linear-gradient(135deg,rgba(123,79,191,.2),rgba(212,168,67,.15));border:1px solid #D4A843;border-radius:16px;padding:28px;text-align:center;margin-top:24px}
+    .horo-lead{background:linear-gradient(145deg,#1a1333,#0d0b1a);border:1px solid rgba(212,168,67,.3);border-radius:16px;padding:28px;margin:24px 0;text-align:center}
+    .horo-lead h3{font-family:'Cinzel',serif;color:#D4A843;font-size:1.1rem;margin-bottom:8px}
+    .horo-lead p{color:#c9b8e8;font-size:.9rem;margin-bottom:16px;line-height:1.5}
+    .horo-lead input{width:100%;padding:14px 16px;background:rgba(255,255,255,.05);border:1px solid rgba(212,168,67,.2);border-radius:10px;color:#fff;font-size:.95rem;outline:none;box-sizing:border-box;margin-bottom:8px;font-family:inherit}
+    .horo-lead input:focus{border-color:#D4A843}
+    .horo-lead .hl-submit{width:100%;padding:14px;background:linear-gradient(135deg,#D4A843,#F7D96E);color:#0d0b1a;border:none;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;transition:transform .2s;font-family:inherit}
+    .horo-lead .hl-submit:hover{transform:scale(1.03)}
+    .horo-lead .hl-submit:disabled{opacity:.6;cursor:not-allowed;transform:none}
+    .horo-lead .hl-success{color:#D4A843;font-size:.9rem;margin-top:8px;display:none}
+    .horo-lead .hl-privacy{color:#6B5B8D;font-size:.75rem;margin-top:8px}
     .cta-box h3{font-family:'Cinzel',serif;color:#D4A843;font-size:1.2rem;margin-bottom:8px}
     .cta-box p{color:#c9b8e8;font-size:.95rem;margin-bottom:16px}
     .cta-btn{display:inline-block;background:linear-gradient(135deg,#D4A843,#F7D96E);color:#0d0b1a;padding:14px 32px;border-radius:12px;font-weight:700;text-decoration:none;transition:transform .2s}
@@ -262,6 +272,16 @@
         '<button class="share-btn" style="background:#1877F2" onclick="shareHoroscope(\'facebook\')">Facebook</button>' +
         '<button class="share-btn" style="background:#000" onclick="shareHoroscope(\'twitter\')">X</button>' +
         '<button class="share-btn" style="background:#0088cc" onclick="shareHoroscope(\'telegram\')">Telegram</button>' +
+        '</div>' +
+        '<div class="horo-lead" id="horo-lead">' +
+        '<h3>\u2728 Recibe tu horoscopo diario por email</h3>' +
+        '<p>Cada manana en tu bandeja: predicciones de amor, dinero y salud para ' + sign.name + '. Gratis.</p>' +
+        '<form onsubmit="submitHoroLead(event)">' +
+        '<input type="email" id="hl-email" placeholder="tu@email.com" required>' +
+        '<button type="submit" class="hl-submit" id="hl-submit">\u2728 Suscribirme gratis</button>' +
+        '</form>' +
+        '<div class="hl-success" id="hl-success">\u2714 Suscrito! Recibiras tu horoscopo cada manana.</div>' +
+        '<div class="hl-privacy">Sin spam. Cancela cuando quieras.</div>' +
         '</div>';
 
       el.classList.add('active');
@@ -269,6 +289,32 @@
 
       if (typeof posthog !== 'undefined') posthog.capture('horoscope_viewed', { sign: sign.id });
       if (typeof gtag !== 'undefined') gtag('event', 'horoscope_view', { event_category: 'engagement', event_label: sign.id });
+    }
+
+    function submitHoroLead(e) {
+      e.preventDefault();
+      var btn = document.getElementById('hl-submit');
+      var email = document.getElementById('hl-email').value.trim();
+      if (!email || !currentSign) return;
+      btn.disabled = true;
+      btn.textContent = 'Suscribiendo...';
+      fetch('/api/quiz-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: '', email: email, moonSign: currentSign.name, source: 'horoscopo-diario' })
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(d) {
+        document.querySelector('#horo-lead form').style.display = 'none';
+        document.getElementById('hl-success').style.display = 'block';
+        if (typeof posthog !== 'undefined') posthog.capture('horoscope_lead_captured', { email: email, sign: currentSign.id });
+        if (typeof gtag !== 'undefined') gtag('event', 'generate_lead', { event_category: 'horoscope', event_label: currentSign.id });
+      })
+      .catch(function(err) {
+        btn.disabled = false;
+        btn.textContent = '\u2728 Suscribirme gratis';
+        alert('Error. Intentalo de nuevo.');
+      });
     }
 
     function shareHoroscope(platform) {

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aureum Books - Libreria Cosmica de Astrologia | AstroAureum</title>
-<meta name="description" content="Libros de astrologia premium por AstroAureum. Carta Natal, Signos, Sinastria, Transitos. PDF, tapa blanda, tapa dura y audiolibros en 25+ idiomas.">
+<meta name="description" content="Libros de astrologia premium por AstroAureum. Carta Natal, Signos, Sinastria, Transitos. PDF y audiolibros en 25+ idiomas.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9733;</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -114,8 +114,6 @@ body{font-family:'Inter',sans-serif;background:var(--void);color:var(--starW);ov
 .fmt{padding:3px 10px;border-radius:20px;font-size:8px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px}
 .f-pdf{background:rgba(244,67,54,0.08);color:#ef9a9a;border:1px solid rgba(244,67,54,0.12)}
 .f-kin{background:rgba(255,152,0,0.08);color:#ffcc80;border:1px solid rgba(255,152,0,0.12)}
-.f-pb{background:rgba(33,150,243,0.08);color:#90caf9;border:1px solid rgba(33,150,243,0.12)}
-.f-hd{background:rgba(212,168,67,0.08);color:var(--gold2);border:1px solid rgba(212,168,67,0.12)}
 .f-au{background:rgba(156,39,176,0.08);color:#ce93d8;border:1px solid rgba(156,39,176,0.12)}
 .info-langs{display:flex;gap:4px;margin-bottom:14px;flex-wrap:wrap}
 .lang{width:22px;height:15px;border-radius:3px;font-size:7px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);color:var(--starD);font-weight:500}
@@ -276,6 +274,7 @@ footer a{color:var(--gold);text-decoration:none}
     <a href="https://astroaureum.com/#contacto">Contacto</a>
   </div>
   <div class="ft-c">&copy; 2026 Aureum Books by AstroAureum. Todos los derechos reservados.</div>
+  <div style="margin-top:12px"><a href="/admin-books.html" style="color:rgba(136,136,187,0.2);text-decoration:none;font-size:9px;transition:color 0.2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(136,136,187,0.2)'">Admin</a> <a href="/factory.html" style="color:rgba(136,136,187,0.1);text-decoration:none;font-size:9px;transition:color 0.2s;margin-left:8px" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(136,136,187,0.1)'">Factory</a></div>
 </footer>
 </div>
 
@@ -305,30 +304,30 @@ setTimeout(()=>shoot(document.getElementById('s3'),100,'rgba(100,223,223,0.5)'),
 
 // BOOK DATA
 const books=[
-{t:'Guia Completa de los 12 Signos',cat:'Signos Zodiacales',d:'Descubre la personalidad profunda, compatibilidad, carrera y destino cosmico de cada signo zodiacal. Un viaje por las 12 constelaciones.',ic:'\u2648',ch:15,pg:280,pr:14.99,op:19.99,fm:['pdf','kin','pb','au'],ln:['ES','BG','EN','PT','FR','DE'],bg:'best',cl:['#D4A843','#8B6914','#5a4510'],mn:1},
-{t:'Como Leer tu Carta Natal',cat:'Carta Natal',d:'Manual paso a paso para interpretar tu carta astral con planetas, casas, aspectos y transitos.',ic:'\u2609',ch:18,pg:320,pr:24.99,fm:['pdf','kin','pb','hd','au'],ln:['ES','BG','EN','PT'],bg:'new',cl:['#7B4FBF','#4a2d7a','#2d1a4f'],mn:0},
-{t:'Sinastria: Compatibilidad Cosmica',cat:'Sinastria & Amor',d:'El secreto de la compatibilidad entre signos. Las estrellas revelan la verdad de tu relacion.',ic:'\u2665',ch:14,pg:240,pr:12.99,fm:['pdf','kin','pb','au'],ln:['ES','BG','EN'],cl:['#C2185B','#880E4F','#4A0028'],mn:1},
+{t:'Guia Completa de los 12 Signos',cat:'Signos Zodiacales',d:'Descubre la personalidad profunda, compatibilidad, carrera y destino cosmico de cada signo zodiacal. Un viaje por las 12 constelaciones.',ic:'\u2648',ch:15,pg:280,pr:14.99,op:19.99,fm:['pdf','kin','au'],ln:['ES','BG','EN','PT','FR','DE'],bg:'best',cl:['#D4A843','#8B6914','#5a4510'],mn:1},
+{t:'Como Leer tu Carta Natal',cat:'Carta Natal',d:'Manual paso a paso para interpretar tu carta astral con planetas, casas, aspectos y transitos.',ic:'\u2609',ch:18,pg:320,pr:24.99,fm:['pdf','kin','au'],ln:['ES','BG','EN','PT'],bg:'new',cl:['#7B4FBF','#4a2d7a','#2d1a4f'],mn:0},
+{t:'Sinastria: Compatibilidad Cosmica',cat:'Sinastria & Amor',d:'El secreto de la compatibilidad entre signos. Las estrellas revelan la verdad de tu relacion.',ic:'\u2665',ch:14,pg:240,pr:12.99,fm:['pdf','kin','au'],ln:['ES','BG','EN'],cl:['#C2185B','#880E4F','#4A0028'],mn:1},
 {t:'Transitos Planetarios 2026',cat:'Transitos',d:'Los movimientos planetarios del ano y como transforman la vida de cada signo zodiacal.',ic:'\u2644',ch:12,pg:200,pr:9.99,fm:['pdf','kin'],ln:['ES','BG','EN','PT','FR','DE'],bg:'new',cl:['#00838F','#004D40','#002520'],mn:0},
-{t:'Las 12 Casas Astrologicas',cat:'Casas',d:'Cada casa revela un area de tu vida. La guia definitiva para interpretarlas todas.',ic:'\u2302',ch:15,pg:260,pr:14.99,fm:['pdf','kin','pb','au'],ln:['ES','BG','EN'],cl:['#E65100','#BF360C','#6d1f07'],mn:0},
-{t:'Astrologia Lunar',cat:'Luna & Ciclos',d:'El poder de la Luna en tu vida: fases, eclipses y su influencia cosmica en cada signo.',ic:'\u263D',ch:12,pg:220,pr:12.99,fm:['pdf','kin','pb'],ln:['ES','BG','EN','PT'],cl:['#6A1B9A','#4A148C','#2A0A50'],mn:1},
+{t:'Las 12 Casas Astrologicas',cat:'Casas',d:'Cada casa revela un area de tu vida. La guia definitiva para interpretarlas todas.',ic:'\u2302',ch:15,pg:260,pr:14.99,fm:['pdf','kin','au'],ln:['ES','BG','EN'],cl:['#E65100','#BF360C','#6d1f07'],mn:0},
+{t:'Astrologia Lunar',cat:'Luna & Ciclos',d:'El poder de la Luna en tu vida: fases, eclipses y su influencia cosmica en cada signo.',ic:'\u263D',ch:12,pg:220,pr:12.99,fm:['pdf','kin'],ln:['ES','BG','EN','PT'],cl:['#6A1B9A','#4A148C','#2A0A50'],mn:1},
 {t:'Nodos Lunares y tu Destino',cat:'Karma & Destino',d:'Tu mision karmica revelada por el Nodo Norte y Nodo Sur de tu carta natal.',ic:'\u260A',ch:10,pg:180,pr:9.99,fm:['pdf','kin','au'],ln:['ES','BG','EN'],cl:['#283593','#1A237E','#0D1240'],mn:0},
-{t:'Astrologia para Principiantes',cat:'Nivel Basico',d:'Todo lo que necesitas saber para empezar tu viaje en el universo de la astrologia.',ic:'\u2B50',ch:10,pg:180,pr:7.99,op:12.99,fm:['pdf','kin','pb','au'],ln:['ES','BG','EN','PT','FR','DE'],bg:'best',cl:['#2E7D32','#1B5E20','#0D3010'],mn:1},
+{t:'Astrologia para Principiantes',cat:'Nivel Basico',d:'Todo lo que necesitas saber para empezar tu viaje en el universo de la astrologia.',ic:'\u2B50',ch:10,pg:180,pr:7.99,op:12.99,fm:['pdf','kin','au'],ln:['ES','BG','EN','PT','FR','DE'],bg:'best',cl:['#2E7D32','#1B5E20','#0D3010'],mn:1},
 {t:'Meditaciones para Cada Signo',cat:'Meditacion Zodiacal',d:'50 meditaciones guiadas personalizadas segun tu signo zodiacal y elemento cosmico.',ic:'\u2638',ch:14,pg:200,pr:14.99,fm:['pdf','kin','au'],ln:['ES','BG','EN'],cl:['#2d9c9c','#1a6b6b','#0d4040'],mn:1},
-{t:'Cristales y Piedras por Signo',cat:'Cristales & Gemas',d:'Guia completa de cristales, piedras y gemas asociados a cada signo con rituales de activacion.',ic:'\u2666',ch:14,pg:190,pr:12.99,fm:['pdf','kin','pb'],ln:['ES','BG','EN','PT'],cl:['#AD1457','#880E4F','#4A0028'],mn:0},
-{t:'Tarot y Astrologia',cat:'Tarot & Arcanos',d:'La conexion profunda entre los Arcanos del Tarot y los signos del zodiaco revelada.',ic:'\u2721',ch:16,pg:270,pr:17.99,fm:['pdf','kin','pb','au'],ln:['ES','BG','EN'],bg:'new',cl:['#8B6914','#6B4F0A','#4A3507'],mn:1},
-{t:'Planner Astrologico 2026-2027',cat:'Planner & Calendario',d:'Planifica tu vida con las estrellas. Calendario lunar, transitos y rituales mensuales.',ic:'\u2726',ch:14,pg:160,pr:19.99,fm:['pdf','pb','hd'],ln:['ES','BG','EN','PT','FR','DE'],cl:['#4a2d7a','#321d54','#1e1133'],mn:0},
-{t:'Rituales Lunares',cat:'Rituales & Magia',d:'Rituales poderosos para cada fase lunar: Luna nueva, Luna llena, eclipses y cuartos.',ic:'\u263E',ch:12,pg:200,pr:12.99,fm:['pdf','kin','pb'],ln:['ES','BG','EN'],cl:['#4A148C','#311B92','#1A0A50'],mn:1},
+{t:'Cristales y Piedras por Signo',cat:'Cristales & Gemas',d:'Guia completa de cristales, piedras y gemas asociados a cada signo con rituales de activacion.',ic:'\u2666',ch:14,pg:190,pr:12.99,fm:['pdf','kin'],ln:['ES','BG','EN','PT'],cl:['#AD1457','#880E4F','#4A0028'],mn:0},
+{t:'Tarot y Astrologia',cat:'Tarot & Arcanos',d:'La conexion profunda entre los Arcanos del Tarot y los signos del zodiaco revelada.',ic:'\u2721',ch:16,pg:270,pr:17.99,fm:['pdf','kin','au'],ln:['ES','BG','EN'],bg:'new',cl:['#8B6914','#6B4F0A','#4A3507'],mn:1},
+{t:'Planner Astrologico 2026-2027',cat:'Planner & Calendario',d:'Planifica tu vida con las estrellas. Calendario lunar, transitos y rituales mensuales.',ic:'\u2726',ch:14,pg:160,pr:19.99,fm:['pdf'],ln:['ES','BG','EN','PT','FR','DE'],cl:['#4a2d7a','#321d54','#1e1133'],mn:0},
+{t:'Rituales Lunares',cat:'Rituales & Magia',d:'Rituales poderosos para cada fase lunar: Luna nueva, Luna llena, eclipses y cuartos.',ic:'\u263E',ch:12,pg:200,pr:12.99,fm:['pdf','kin'],ln:['ES','BG','EN'],cl:['#4A148C','#311B92','#1A0A50'],mn:1},
 {t:'Revolucion Solar: Tu Ano',cat:'Revolucion Solar',d:'Interpreta tu Revolucion Solar y predice los temas principales de cada ano de vida.',ic:'\u2609',ch:10,pg:180,pr:9.99,fm:['pdf','kin'],ln:['ES','BG','EN'],cl:['#BF360C','#8B2500','#5A1800'],mn:0},
 {t:'Retrogrados Planetarios',cat:'Retrogrados',d:'Mercurio, Venus y Marte retrogrado: como te afectan y como aprovechar su energia.',ic:'\u263F',ch:10,pg:170,pr:9.99,fm:['pdf','kin','au'],ln:['ES','BG','EN','PT'],cl:['#37474F','#263238','#151D20'],mn:0},
-{t:'Enciclopedia Astrologica',cat:'Enciclopedia Completa',d:'La referencia definitiva: 500+ paginas con todo el conocimiento astrologico del universo.',ic:'\u2605',ch:30,pg:520,pr:39.99,fm:['pdf','kin','pb','hd','au'],ln:['ES','BG','EN','PT','FR','DE'],bg:'best',cl:['#5a3a8f','#3d2660','#251540'],mn:1},
-{t:'Los 12 Signos Vol. I',cat:'Fuego & Tierra',d:'Aries, Tauro, Geminis, Cancer, Leo y Virgo: personalidad, amor, trabajo y destino.',ic:'\u2648',ch:6,pg:120,pr:6.99,op:9.99,fm:['pdf','kin','pb','au'],ln:['ES','BG','EN','PT','FR','DE'],bg:'new',cl:['#D4A843','#b8912e','#8B6914'],mn:1},
-{t:'Los 12 Signos Vol. II',cat:'Aire & Agua',d:'Libra, Escorpio, Sagitario, Capricornio, Acuario y Piscis: el viaje del alma.',ic:'\u264E',ch:6,pg:135,pr:6.99,op:9.99,fm:['pdf','kin','pb','au'],ln:['ES','BG','EN','PT','FR','DE'],bg:'new',cl:['#7B4FBF','#5a3a8f','#3d2660'],mn:0},
+{t:'Enciclopedia Astrologica',cat:'Enciclopedia Completa',d:'La referencia definitiva: 500+ paginas con todo el conocimiento astrologico del universo.',ic:'\u2605',ch:30,pg:520,pr:39.99,fm:['pdf','kin','au'],ln:['ES','BG','EN','PT','FR','DE'],bg:'best',cl:['#5a3a8f','#3d2660','#251540'],mn:1},
+{t:'Los 12 Signos Vol. I',cat:'Fuego & Tierra',d:'Aries, Tauro, Geminis, Cancer, Leo y Virgo: personalidad, amor, trabajo y destino.',ic:'\u2648',ch:6,pg:120,pr:6.99,op:9.99,fm:['pdf','kin','au'],ln:['ES','BG','EN','PT','FR','DE'],bg:'new',cl:['#D4A843','#b8912e','#8B6914'],mn:1},
+{t:'Los 12 Signos Vol. II',cat:'Aire & Agua',d:'Libra, Escorpio, Sagitario, Capricornio, Acuario y Piscis: el viaje del alma.',ic:'\u264E',ch:6,pg:135,pr:6.99,op:9.99,fm:['pdf','kin','au'],ln:['ES','BG','EN','PT','FR','DE'],bg:'new',cl:['#7B4FBF','#5a3a8f','#3d2660'],mn:0},
 ];
 
-const fN={pdf:'PDF',kin:'Kindle',pb:'Tapa Blanda',hd:'Tapa Dura',au:'Audio'};
-const fC={pdf:'f-pdf',kin:'f-kin',pb:'f-pb',hd:'f-hd',au:'f-au'};
-const fI={pdf:'\u{1F4C4}',kin:'\u{1F4D6}',pb:'\u{1F4DA}',hd:'\u{1F4D5}',au:'\u{1F3A4}'};
-const fM={pdf:1,kin:1,pb:2.14,hd:3.57,au:2.14};
+const fN={pdf:'PDF',kin:'Kindle',au:'Audio'};
+const fC={pdf:'f-pdf',kin:'f-kin',au:'f-au'};
+const fI={pdf:'\u{1F4C4}',kin:'\u{1F4D6}',au:'\u{1F3A4}'};
+const fM={pdf:1,kin:1,au:2.14};
 const gr=document.getElementById('grid');
 
 function mkSVG(b,w,h){

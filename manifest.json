@@ -1,12 +1,14 @@
 {
   "name": "Astro Aureum — Tu Guía Cósmica",
   "short_name": "Astro Aureum",
-  "description": "La plataforma de astrología más completa del mundo. 8 tradiciones, 36 servicios, 13 packs.",
+  "description": "La plataforma de astrología más completa del mundo. 9 tradiciones ancestrales, 37 servicios personalizados, 13 packs con descuento. Quiz lunar y horóscopo diario gratis.",
   "start_url": "/",
+  "id": "astro-aureum-pwa",
   "display": "standalone",
   "background_color": "#06050E",
   "theme_color": "#06050E",
   "orientation": "portrait-primary",
+  "scope": "/",
   "icons": [
     {
       "src": "favicon-32.png",
@@ -31,6 +33,17 @@
       "purpose": "any maskable"
     }
   ],
-  "categories": ["lifestyle", "entertainment"],
-  "lang": "es"
+  "screenshots": [
+    {
+      "src": "og-image.jpg",
+      "sizes": "1200x630",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "Astro Aureum - Tu Guía Cósmica"
+    }
+  ],
+  "categories": ["lifestyle", "entertainment", "education"],
+  "lang": "es",
+  "dir": "ltr",
+  "prefer_related_applications": false
 }
