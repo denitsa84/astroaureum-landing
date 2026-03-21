@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aureum Books - Libros de Astrologia | AstroAureum</title>
+    <meta name="description" content="Aureum Books - Libros profesionales de astrologia. Guias de carta natal, signos zodiacales, sinastria, transitos y mas. PDF, tapa blanda, tapa dura y audiolibro.">
+    <meta property="og:title" content="Aureum Books - Libros de Astrologia Premium">
+    <meta property="og:description" content="La biblioteca astrologica mas completa. Libros que revelan los secretos del cosmos.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #06050E;
+            --bg-card: #0D0C18;
+            --gold: #D4A843;
+            --gold-light: #E8CC7A;
+            --gold-dark: #A68A3E;
+            --purple: #7B4FBF;
+            --purple-light: #9B6FDF;
+            --text: #F0E8D8;
+            --text-dim: #8A8399;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* STARS BACKGROUND */
+        body::before {
+            content: '';
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background:
+                radial-gradient(1px 1px at 10% 20%, rgba(212,168,67,0.4), transparent),
+                radial-gradient(1px 1px at 30% 60%, rgba(123,79,191,0.3), transparent),
+                radial-gradient(1px 1px at 50% 10%, rgba(212,168,67,0.3), transparent),
+                radial-gradient(1px 1px at 70% 40%, rgba(255,255,255,0.2), transparent),
+                radial-gradient(1px 1px at 90% 80%, rgba(212,168,67,0.4), transparent),
+                radial-gradient(1px 1px at 20% 90%, rgba(123,79,191,0.3), transparent),
+                radial-gradient(1px 1px at 60% 70%, rgba(255,255,255,0.15), transparent),
+                radial-gradient(1px 1px at 80% 15%, rgba(212,168,67,0.3), transparent),
+                radial-gradient(1.5px 1.5px at 15% 45%, rgba(255,255,255,0.3), transparent),
+                radial-gradient(1.5px 1.5px at 85% 55%, rgba(212,168,67,0.5), transparent);
+            pointer-events: none; z-index: 0;
+        }
+
+        /* NAVBAR */
+        .nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            background: rgba(6,5,14,0.95); backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212,168,67,0.1);
+            padding: 0 2rem; display: flex; align-items: center;
+            justify-content: space-between; height: 70px;
+        }
+        .nav-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem; font-weight: 800;
+            color: var(--gold); letter-spacing: 3px;
+        }
+        .nav-logo span { color: var(--text); font-weight: 400; }
+        .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+        .nav-links a {
+            color: var(--text-dim); text-decoration: none;
+            font-size: 0.85rem; transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--gold); }
+        .nav-back {
+            border: 1px solid rgba(212,168,67,0.3); padding: 0.5rem 1.2rem;
+            border-radius: 8px; color: var(--gold) !important;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh; display: flex; align-items: center;
+            justify-content: center; text-align: center;
+            padding: 120px 2rem 80px; position: relative; z-index: 1;
+            background: radial-gradient(ellipse at 50% 30%, rgba(123,79,191,0.1) 0%, transparent 50%),
+                        radial-gradient(ellipse at 50% 70%, rgba(212,168,67,0.05) 0%, transparent 50%);
+        }
+        .hero-content { max-width: 850px; }
+        .hero-zodiac {
+            font-size: 2rem; letter-spacing: 8px; margin-bottom: 1.5rem;
+            opacity: 0.5;
+        }
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 900;
+            line-height: 1.15; margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 40%, var(--purple-light) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: 1.15rem; color: var(--text-dim);
+            max-width: 580px; margin: 0 auto 2.5rem; line-height: 1.7;
+        }
+        .hero-cta {
+            display: inline-flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+        }
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--bg); padding: 1rem 2.5rem; border-radius: 12px;
+            font-weight: 700; font-size: 1rem; text-decoration: none;
+            transition: all 0.3s; border: none; cursor: pointer;
+            font-family: 'Cinzel', serif; letter-spacing: 1px;
+        }
+        .btn-gold:hover { box-shadow: 0 10px 30px rgba(212,168,67,0.3); transform: translateY(-2px); }
+        .btn-outline {
+            border: 1px solid rgba(212,168,67,0.4); color: var(--gold);
+            padding: 1rem 2.5rem; border-radius: 12px; font-weight: 600;
+            text-decoration: none; background: transparent; transition: all 0.3s;
+        }
+        .btn-outline:hover { background: rgba(212,168,67,0.1); }
+
+        /* SECTIONS */
+        section { padding: 80px 2rem; position: relative; z-index: 1; }
+        .section-header {
+            text-align: center; margin-bottom: 4rem;
+        }
+        .section-header h2 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700;
+            margin-bottom: 1rem; color: var(--gold);
+        }
+        .section-header p {
+            color: var(--text-dim); font-size: 1.05rem;
+            max-width: 550px; margin: 0 auto;
+        }
+
+        /* BOOKS GRID */
+        .books-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem; max-width: 1200px; margin: 0 auto;
+        }
+        .book-card {
+            background: var(--bg-card); border-radius: 20px;
+            border: 1px solid rgba(212,168,67,0.08); overflow: hidden;
+            transition: all 0.4s;
+        }
+        .book-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212,168,67,0.25);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(212,168,67,0.05);
+        }
+        .book-cover {
+            height: 300px; display: flex; align-items: center;
+            justify-content: center; text-align: center;
+            font-family: 'Cinzel', serif; font-size: 1.2rem;
+            color: var(--gold); padding: 2rem;
+            border-bottom: 1px solid rgba(212,168,67,0.08);
+        }
+        .book-body { padding: 1.5rem; }
+        .book-body h3 {
+            font-family: 'Cinzel', serif; font-size: 1.05rem;
+            margin-bottom: 0.3rem; color: var(--text);
+        }
+        .book-meta {
+            font-size: 0.8rem; color: var(--text-dim); margin-bottom: 1rem;
+        }
+        .book-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1rem; }
+        .book-tag {
+            font-size: 0.65rem; padding: 0.2rem 0.6rem;
+            border-radius: 6px; border: 1px solid rgba(212,168,67,0.2);
+            color: var(--gold); background: rgba(212,168,67,0.05);
+        }
+        .book-tag.purple {
+            border-color: rgba(123,79,191,0.3);
+            color: var(--purple-light); background: rgba(123,79,191,0.05);
+        }
+        .book-bottom {
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .book-price {
+            font-family: 'Cinzel', serif; font-size: 1.3rem;
+            font-weight: 700; color: var(--gold);
+        }
+        .book-buy-btn {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--bg); padding: 0.6rem 1.5rem; border-radius: 10px;
+            font-weight: 600; font-size: 0.85rem; text-decoration: none;
+            transition: all 0.3s; border: none; cursor: pointer;
+        }
+        .book-buy-btn:hover { box-shadow: 0 5px 15px rgba(212,168,67,0.3); }
+
+        /* BACK TO ASTROAUREUM */
+        .back-bar {
+            text-align: center; padding: 3rem 2rem;
+            background: linear-gradient(135deg, rgba(123,79,191,0.08), rgba(212,168,67,0.05));
+            border-top: 1px solid rgba(212,168,67,0.08);
+            position: relative; z-index: 1;
+        }
+        .back-bar p { color: var(--text-dim); margin-bottom: 1rem; }
+        .back-bar a {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--purple), var(--purple-light));
+            color: white; padding: 1rem 2.5rem; border-radius: 12px;
+            font-weight: 700; text-decoration: none; transition: all 0.3s;
+        }
+        .back-bar a:hover { box-shadow: 0 10px 30px rgba(123,79,191,0.3); }
+
+        /* FOOTER */
+        .footer {
+            padding: 40px 2rem 20px;
+            border-top: 1px solid rgba(212,168,67,0.08);
+            text-align: center; position: relative; z-index: 1;
+        }
+        .footer-logo {
+            font-family: 'Cinzel', serif; font-size: 1.2rem;
+            font-weight: 800; color: var(--gold); letter-spacing: 3px;
+            margin-bottom: 0.5rem;
+        }
+        .footer p { font-size: 0.8rem; color: var(--text-dim); }
+        .footer a { color: var(--gold); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            section { padding: 60px 1rem; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-content { animation: fadeIn 1s ease-out; }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav">
+    <div class="nav-logo">AUREUM <span>BOOKS</span></div>
+    <div class="nav-links">
+        <a href="#libros">Libros</a>
+        <a href="https://astroaureum.com" class="nav-back">AstroAureum.com</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-zodiac">&#9800; &#9801; &#9802; &#9803; &#9804; &#9805; &#9806; &#9807; &#9808; &#9809; &#9810; &#9811;</div>
+        <h1>Los Secretos del Cosmos en Tus Manos</h1>
+        <p>La biblioteca astrologica mas completa. Guias profesionales de carta natal, signos zodiacales, sinastria, transitos planetarios y mas. Descubre tu destino.</p>
+        <div class="hero-cta">
+            <a href="#libros" class="btn-gold">Explorar Libros</a>
+            <a href="https://astroaureum.com" class="btn-outline">Lecturas Personalizadas</a>
+        </div>
+    </div>
+</section>
+
+<!-- ASTROLOGY BOOKS -->
+<section id="libros">
+    <div class="section-header">
+        <h2>Biblioteca Astrologica</h2>
+        <p>Cada libro es una puerta a los misterios del universo</p>
+    </div>
+    <div class="books-grid" id="astroBooks">
+        <!-- Dynamically rendered -->
+    </div>
+</section>
+
+<!-- BACK TO ASTROAUREUM -->
+<div class="back-bar">
+    <p>Quieres una lectura astrologica personalizada?</p>
+    <a href="https://astroaureum.com">Descubre tu Carta Natal en AstroAureum.com</a>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-logo">AUREUM BOOKS</div>
+    <p>Una division de <a href="https://astroaureum.com">AstroAureum.com</a> | Parte del imperio <a href="#">ALZAR BOOKS</a></p>
+    <p style="margin-top: 0.5rem;">&copy; 2026 Aureum Books. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+const astroBooks = [
+    {
+        title: "Guia Completa de los 12 Signos Zodiacales",
+        desc: "Astro Aureum",
+        tags: ["PDF", "Tapa Blanda", "Audiolibro"],
+        tagsPurple: ["Signos"],
+        price: "14.99",
+        bg: "linear-gradient(135deg, #1a0533 0%, #2d1b69 50%, #0D0C18 100%)"
+    },
+    {
+        title: "Como Leer Tu Carta Natal Paso a Paso",
+        desc: "Astro Aureum",
+        tags: ["PDF", "Tapa Dura"],
+        tagsPurple: ["Carta Natal"],
+        price: "24.99",
+        bg: "linear-gradient(135deg, #0f2027 0%, #203a43 50%, #0D0C18 100%)"
+    },
+    {
+        title: "Sinastria: Compatibilidad Entre Signos",
+        desc: "Astro Aureum",
+        tags: ["PDF", "Tapa Blanda", "Audiolibro"],
+        tagsPurple: ["Sinastria"],
+        price: "14.99",
+        bg: "linear-gradient(135deg, #2d1b4e 0%, #1a0a2e 50%, #0D0C18 100%)"
+    },
+    {
+        title: "Transitos Planetarios 2026",
+        desc: "Astro Aureum",
+        tags: ["PDF", "Tapa Blanda"],
+        tagsPurple: ["Transitos"],
+        price: "12.99",
+        bg: "linear-gradient(135deg, #1b2838 0%, #0d1b2a 50%, #0D0C18 100%)"
+    },
+    {
+        title: "Meditaciones para Cada Signo Zodiacal",
+        desc: "Astro Aureum",
+        tags: ["Audiolibro", "PDF"],
+        tagsPurple: ["Meditacion"],
+        price: "14.99",
+        bg: "linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0D0C18 100%)"
+    },
+    {
+        title: "Tarot y Astrologia: La Conexion Cosmica",
+        desc: "Astro Aureum",
+        tags: ["PDF", "Tapa Dura", "Audiolibro"],
+        tagsPurple: ["Tarot"],
+        price: "29.99",
+        bg: "linear-gradient(135deg, #2b1055 0%, #d53369 30%, #0D0C18 100%)"
+    },
+    {
+        title: "Planner Astrologico 2026-2027",
+        desc: "Astro Aureum",
+        tags: ["PDF", "Tapa Blanda"],
+        tagsPurple: ["Planner"],
+        price: "19.99",
+        bg: "linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #0D0C18 100%)"
+    },
+    {
+        title: "Cristales y Piedras por Signo Zodiacal",
+        desc: "Astro Aureum",
+        tags: ["PDF", "Tapa Blanda"],
+        tagsPurple: ["Cristales"],
+        price: "12.99",
+        bg: "linear-gradient(135deg, #1d2b64 0%, #f8cdda 30%, #0D0C18 100%)"
+    },
+    {
+        title: "Rituales Lunares: Guia Practica",
+        desc: "Astro Aureum",
+        tags: ["PDF", "Tapa Blanda", "Tapa Dura", "Audiolibro"],
+        tagsPurple: ["Rituales", "Luna"],
+        price: "14.99",
+        bg: "linear-gradient(135deg, #141e30 0%, #243b55 50%, #0D0C18 100%)"
+    }
+];
+
+const grid = document.getElementById('astroBooks');
+astroBooks.forEach(book => {
+    const card = document.createElement('div');
+    card.className = 'book-card';
+    card.innerHTML = `
+        <div class="book-cover" style="background: ${book.bg}">
+            ${book.title}
+        </div>
+        <div class="book-body">
+            <h3>${book.title}</h3>
+            <div class="book-meta">${book.desc}</div>
+            <div class="book-tags">
+                ${book.tagsPurple.map(t => `<span class="book-tag purple">${t}</span>`).join('')}
+                ${book.tags.map(t => `<span class="book-tag">${t}</span>`).join('')}
+            </div>
+            <div class="book-bottom">
+                <span class="book-price">$${book.price}</span>
+                <button class="book-buy-btn" onclick="alert('Link de Stripe se configurara aqui')">Comprar</button>
+            </div>
+        </div>
+    `;
+    grid.appendChild(card);
+});
+</script>
+
+</body>
+</html>
