@@ -41,7 +41,7 @@
   <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="canonical" href="https://astroaureum.com/">
-  <!-- hreflang: SEO internacional 25 idiomas -->
+  <!-- hreflang: SEO internacional 8 idiomas -->
   <link rel="alternate" hreflang="x-default" href="https://astroaureum.com/">
   <link rel="alternate" hreflang="es" href="https://astroaureum.com/es/">
   <link rel="alternate" hreflang="es-US" href="https://astroaureum.com/es/">
@@ -163,7 +163,7 @@
         "name": "¿Puedo pedir mi lectura en otro idioma?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sí. Ofrecemos lecturas en 25 idiomas: español, inglés, búlgaro, francés, alemán, italiano, portugués, ruso, chino, japonés, coreano, árabe, hindi, turco, holandés, sueco, polaco, rumano, griego, tailandés, vietnamita, indonesio, hebreo, ucraniano y checo."
+          "text": "Sí. Ofrecemos lecturas en 8 idiomas: español, inglés, búlgaro, francés, alemán, italiano, portugués, ruso, chino, japonés, coreano, árabe, hindi, turco, holandés, sueco, polaco, rumano, griego, tailandés, vietnamita, indonesio, hebreo, ucraniano y checo."
         }
       },
       {
@@ -1780,11 +1780,10 @@ body {
 
     <section id="cta-section" class="cta-section"></section>
     <section id="aureum-books-banner" style="text-align:center;padding:40px 20px;background:linear-gradient(180deg,transparent,rgba(212,168,67,0.03),transparent);border-top:1px solid rgba(212,168,67,0.08);border-bottom:1px solid rgba(212,168,67,0.08);">
-      <div style="font-family:'Cinzel',Georgia,serif;font-size:0.7rem;letter-spacing:3px;color:rgba(212,168,67,0.5);margin-bottom:8px;">NUEVA SECCION</div>
-      <a href="/aureum-books.html" style="display:inline-flex;align-items:center;gap:12px;padding:16px 40px;border-radius:12px;background:linear-gradient(135deg,rgba(212,168,67,0.12),rgba(123,79,191,0.08));border:1px solid rgba(212,168,67,0.3);color:#D4A843;font-size:1.1rem;font-weight:700;text-decoration:none;font-family:'Cinzel',Georgia,serif;letter-spacing:1px;transition:all 0.3s;box-shadow:0 0 20px rgba(212,168,67,0.1);" onmouseover="this.style.background='linear-gradient(135deg,rgba(212,168,67,0.2),rgba(123,79,191,0.15))';this.style.boxShadow='0 0 40px rgba(212,168,67,0.2)'" onmouseout="this.style.background='linear-gradient(135deg,rgba(212,168,67,0.12),rgba(123,79,191,0.08))';this.style.boxShadow='0 0 20px rgba(212,168,67,0.1)'">
-        📖 AUREUM BOOKS — Libros de Astrologia
+      <a href="/aureum-books" style="display:inline-flex;align-items:center;gap:12px;padding:16px 40px;border-radius:12px;background:linear-gradient(135deg,rgba(212,168,67,0.12),rgba(123,79,191,0.08));border:1px solid rgba(212,168,67,0.3);color:#D4A843;font-size:1.1rem;font-weight:700;text-decoration:none;font-family:'Cinzel',Georgia,serif;letter-spacing:1px;transition:all 0.3s;box-shadow:0 0 20px rgba(212,168,67,0.1);" onmouseover="this.style.background='linear-gradient(135deg,rgba(212,168,67,0.2),rgba(123,79,191,0.15))';this.style.boxShadow='0 0 40px rgba(212,168,67,0.2)'" onmouseout="this.style.background='linear-gradient(135deg,rgba(212,168,67,0.12),rgba(123,79,191,0.08))';this.style.boxShadow='0 0 20px rgba(212,168,67,0.1)'">
+        📖 AUREUM BOOKS — Astrology Library
       </a>
-      <div style="font-size:0.75rem;color:rgba(255,255,255,0.35);margin-top:10px;">18 libros de astrologia en PDF y audiolibro</div>
+      <div id="ab-desc" style="font-size:0.75rem;color:rgba(255,255,255,0.35);margin-top:10px;">18 astrology books — PDF & audiobook</div>
     </section>
     <footer id="footer" class="footer"></footer>
   </main>
@@ -1920,6 +1919,8 @@ const PAYMENT_CONFIG = {
   // Stripe Payment Links para cada producto
   // Formato: 'product-id': 'https://buy.stripe.com/TU_LINK'
   stripeLinks: {
+    // === MINI LECTURA ===
+    'mini-lectura':  '',  // €9.90 - Mini Lectura Astral
     // === OCCIDENTAL ===
     'occ-natal':     '',  // €89 - Carta Natal Completa
     'occ-sinastria': '',  // €99 - Sinastría
@@ -2080,6 +2081,16 @@ const TRADITIONS = [
 ];
 
 const PRODUCTS = [
+  // === MINI LECTURA (PUERTA DE ENTRADA) ===
+  { id: 'mini-lectura', cat: 'occ', price: 9.90, priceLabel: '€9.90', tag: 'nuevo', formType: 'base', sidebarSymbol: '✨',
+    name: { es: 'Mini Lectura Astral', en: 'Mini Astral Reading', fr: 'Mini Lecture Astrale', de: 'Mini Astrologie-Lesung', it: 'Mini Lettura Astrale', pt: 'Mini Leitura Astral', ru: 'Мини Астро Чтение', bg: 'Мини Астро Четене', ja: 'ミニ占星術リーディング', zh: '迷你占星解读', ko: '미니 점성술 리딩', ar: 'قراءة فلكية مصغرة', hi: 'मिनी ज्योतिष पाठन', tr: 'Mini Astroloji Okuma', pl: 'Mini Odczyt Astralny', nl: 'Mini Astrale Lezing', sv: 'Mini Astrologisk Läsning', da: 'Mini Astrologisk Læsning', no: 'Mini Astrologisk Lesning', fi: 'Mini Astrologinen Lukema', el: 'Μίνι Αστρολογική Ανάγνωση', cs: 'Mini Astrální Čtení', ro: 'Mini Lectură Astrală', hu: 'Mini Asztrológiai Olvasat', hr: 'Mini Astralno Čitanje' },
+    desc: { es: 'Tu perfil astrologico en 5 paginas: signo solar, lunar, ascendente, elemento y consejo cosmico personalizado. Entrega por email en 24h.', en: 'Your astro profile in 5 pages: Sun, Moon, Rising, element and personalized cosmic advice. Email delivery in 24h.', fr: 'Votre profil astro en 5 pages: Soleil, Lune, Ascendant, element et conseil cosmique. Livraison email 24h.', de: 'Dein Astro-Profil auf 5 Seiten: Sonne, Mond, Aszendent, Element und kosmischer Rat. Email in 24h.', it: 'Il tuo profilo astro in 5 pagine: Sole, Luna, Ascendente, elemento e consiglio cosmico. Email in 24h.', pt: 'Seu perfil astro em 5 paginas: Sol, Lua, Ascendente, elemento e conselho cosmico. Email em 24h.', ru: 'Ваш астро профиль на 5 страницах: Солнце, Луна, Асцендент, стихия и космический совет. Email за 24ч.', bg: 'Твоят астро профил в 5 страници: Слънце, Луна, Асцендент, стихия и космически съвет. Имейл за 24ч.' },
+    svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="11" fill="none" stroke="#D4A843" stroke-width="0.8"/><circle cx="14" cy="14" r="7" fill="none" stroke="#D4A843" stroke-width="0.8" stroke-dasharray="3 2"/><circle cx="14" cy="14" r="3" fill="#D4A843" opacity="0.3"/><path d="M14 3 L15.5 7 L14 6 L12.5 7Z" fill="#D4A843"/><circle cx="14" cy="14" r="1.5" fill="#D4A843"/></svg>' },
+  // === CHAT ASTRAL ===
+  { id: 'chat-10', cat: 'occ', price: 14.99, priceLabel: '€14.99', tag: 'popular', formType: 'chat', sidebarSymbol: '💬',
+    name: { es: 'Chat Astral — 10 Preguntas', en: 'Astral Chat — 10 Questions' },
+    desc: { es: '10 preguntas astrológicas personalizadas con tu carta natal real. La forma más fácil de empezar.', en: '10 personalized astrological questions with your real birth chart. The easiest way to start.' },
+    svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><path d="M4 6h20a2 2 0 012 2v10a2 2 0 01-2 2H10l-4 4v-4H4a2 2 0 01-2-2V8a2 2 0 012-2z" fill="none" stroke="#D4A843" stroke-width="1"/><circle cx="10" cy="13" r="1" fill="#D4A843"/><circle cx="14" cy="13" r="1" fill="#D4A843"/><circle cx="18" cy="13" r="1" fill="#D4A843"/></svg>' },
   // === OCCIDENTAL (occ) ===
   { id: 'occ-natal', cat: 'occ', price: 89, priceLabel: '€89', tag: 'popular', formType: 'base', sidebarSymbol: '☉',
     name: { es: 'Carta Natal Completa', en: 'Complete Natal Chart' },
@@ -2324,12 +2335,12 @@ const PACKS = [
 // ═══════════════════════════════════════════════════
 const CONCERNS = [
   { id: 'all', icon: '✦',
-    label: { es: 'Ver Todos', en: 'View All' },
+    label: { es: 'Ver Todos', en: 'View All', bg: 'Виж Всички', fr: 'Voir Tout', de: 'Alle Anzeigen', it: 'Vedi Tutti', pt: 'Ver Todos', ru: 'Показать Все', zh: '查看全部', ja: 'すべて見る', ko: '모두 보기' },
     traditions: [], products: [],
     desc: { es: '', en: '' }
   },
   { id: 'relaciones', icon: '♡',
-    label: { es: 'Relaciones', en: 'Relationships' },
+    label: { es: 'Relaciones', en: 'Relationships', bg: 'Взаимоотношения', fr: 'Relations', de: 'Beziehungen', it: 'Relazioni', pt: 'Relações', ru: 'Отношения', zh: '感情', ja: '恋愛', ko: '관계' },
     traditions: ['occ','cab','ved','chi'],
     products: ['occ-sinastria','cab-compat','pareja-universal'],
     desc: {
@@ -2338,7 +2349,7 @@ const CONCERNS = [
     }
   },
   { id: 'proposito', icon: '◈',
-    label: { es: 'Propósito y Carrera', en: 'Purpose & Career' },
+    label: { es: 'Propósito y Carrera', en: 'Purpose & Career', bg: 'Цел и Кариера', fr: 'But et Carrière', de: 'Zweck & Karriere', it: 'Scopo e Carriera', pt: 'Propósito e Carreira', ru: 'Цель и Карьера', zh: '目标与事业', ja: '目的とキャリア', ko: '목적과 커리어' },
     traditions: ['occ','esp','hd','chi'],
     products: ['occ-natal','esp-business','hd-design'],
     desc: {
@@ -2347,7 +2358,7 @@ const CONCERNS = [
     }
   },
   { id: 'crisis', icon: '⚡',
-    label: { es: 'Momentos de Crisis', en: 'Crisis Moments' },
+    label: { es: 'Momentos de Crisis', en: 'Crisis Moments', bg: 'Моменти на Криза', fr: 'Moments de Crise', de: 'Krisenmomente', it: 'Momenti di Crisi', pt: 'Momentos de Crise', ru: 'Кризисные Моменты', zh: '危机时刻', ja: '危機の瞬間', ko: '위기의 순간' },
     traditions: ['occ','cab','alm','ved'],
     products: ['alm-karmica','cab-tikun','occ-saturno'],
     desc: {
@@ -2356,7 +2367,7 @@ const CONCERNS = [
     }
   },
   { id: 'crecimiento', icon: '❂',
-    label: { es: 'Crecimiento Personal', en: 'Personal Growth' },
+    label: { es: 'Crecimiento Personal', en: 'Personal Growth', bg: 'Личностно Развитие', fr: 'Croissance Personnelle', de: 'Persönliches Wachstum', it: 'Crescita Personale', pt: 'Crescimento Pessoal', ru: 'Личностный Рост', zh: '个人成长', ja: '自己成長', ko: '자기 성장' },
     traditions: ['occ','cab','ved','hd','cel'],
     products: ['mega-carta','hd-design','cel-mapa'],
     desc: {
@@ -2855,31 +2866,14 @@ var ck={bg:{checkoutTitle:'Потвърди Поръчка',checkoutNote:'Пер
 
 // === LANGUAGE CONFIG ===
 const LANGS = [
-  { code: 'es', flag: '🇪🇸', name: 'Español', dir: 'ltr' },
   { code: 'en', flag: '🇬🇧', name: 'English', dir: 'ltr' },
-  { code: 'bg', flag: '🇧🇬', name: 'Български', dir: 'ltr' },
+  { code: 'es', flag: '🇪🇸', name: 'Español', dir: 'ltr' },
   { code: 'fr', flag: '🇫🇷', name: 'Français', dir: 'ltr' },
   { code: 'de', flag: '🇩🇪', name: 'Deutsch', dir: 'ltr' },
-  { code: 'it', flag: '🇮🇹', name: 'Italiano', dir: 'ltr' },
   { code: 'pt', flag: '🇵🇹', name: 'Português', dir: 'ltr' },
+  { code: 'it', flag: '🇮🇹', name: 'Italiano', dir: 'ltr' },
   { code: 'ru', flag: '🇷🇺', name: 'Русский', dir: 'ltr' },
-  { code: 'zh', flag: '🇨🇳', name: '中文', dir: 'ltr' },
-  { code: 'ja', flag: '🇯🇵', name: '日本語', dir: 'ltr' },
-  { code: 'ko', flag: '🇰🇷', name: '한국어', dir: 'ltr' },
-  { code: 'ar', flag: '🇸🇦', name: 'العربية', dir: 'rtl' },
-  { code: 'hi', flag: '🇮🇳', name: 'हिन्दी', dir: 'ltr' },
-  { code: 'tr', flag: '🇹🇷', name: 'Türkçe', dir: 'ltr' },
-  { code: 'nl', flag: '🇳🇱', name: 'Nederlands', dir: 'ltr' },
-  { code: 'sv', flag: '🇸🇪', name: 'Svenska', dir: 'ltr' },
-  { code: 'pl', flag: '🇵🇱', name: 'Polski', dir: 'ltr' },
-  { code: 'ro', flag: '🇷🇴', name: 'Română', dir: 'ltr' },
-  { code: 'el', flag: '🇬🇷', name: 'Ελληνικά', dir: 'ltr' },
-  { code: 'th', flag: '🇹🇭', name: 'ไทย', dir: 'ltr' },
-  { code: 'vi', flag: '🇻🇳', name: 'Tiếng Việt', dir: 'ltr' },
-  { code: 'id', flag: '🇮🇩', name: 'Bahasa Indonesia', dir: 'ltr' },
-  { code: 'he', flag: '🇮🇱', name: 'עברית', dir: 'rtl' },
-  { code: 'uk', flag: '🇺🇦', name: 'Українська', dir: 'ltr' },
-  { code: 'cs', flag: '🇨🇿', name: 'Čeština', dir: 'ltr' },
+  { code: 'bg', flag: '🇧🇬', name: 'Български', dir: 'ltr' },
 ];
 
 let currentLang = 'es';
@@ -3088,10 +3082,7 @@ function renderSidebar() {
   const sb = document.getElementById('sidebar');
   let html = `
     <div class="sidebar-logo">
-      <div class="logo-eye">
-        <img src="logo.png" alt="Astro Aureum" width="48" height="48" style="border-radius:50%;">
-      </div>
-      Astro Aureum
+      ✦ Astro Aureum
     </div>
     <div class="sidebar-sub">${t('sidebarSub')}</div>
     <select class="lang-select" id="langSelect">
@@ -3136,17 +3127,17 @@ function renderSidebar() {
 
   html += `</div>
     <div style="padding:16px 20px;border-top:1px solid rgba(212,168,67,0.1);">
-      <a href="/aureum-books.html" style="display:flex;align-items:center;justify-content:center;gap:10px;padding:12px 14px;border-radius:10px;background:linear-gradient(135deg,rgba(212,168,67,0.15),rgba(123,79,191,0.12));border:1px solid rgba(212,168,67,0.35);color:#D4A843;font-size:0.9rem;font-weight:700;text-decoration:none;margin-bottom:10px;letter-spacing:0.5px;text-shadow:0 0 10px rgba(212,168,67,0.3);">
-        📖 AUREUM BOOKS — Libros de Astrología
+      <a href="/aureum-books" style="display:flex;align-items:center;justify-content:center;gap:10px;padding:12px 14px;border-radius:10px;background:linear-gradient(135deg,rgba(212,168,67,0.15),rgba(123,79,191,0.12));border:1px solid rgba(212,168,67,0.35);color:#D4A843;font-size:0.9rem;font-weight:700;text-decoration:none;margin-bottom:10px;letter-spacing:0.5px;text-shadow:0 0 10px rgba(212,168,67,0.3);">
+        <span id="sb-books">📖 AUREUM BOOKS</span>
       </a>
       <a href="/sinastria" style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;background:linear-gradient(135deg,rgba(236,160,184,0.12),rgba(107,47,168,0.08));border:1px solid rgba(236,160,184,0.25);color:#ECA0B8;font-size:0.85rem;font-weight:600;text-decoration:none;margin-bottom:10px;">
-        ♡ Sinastría de Almas + Libro · <span style="color:#EDCC60">25€</span>
+        <span id="sb-sin">♡</span> · <span style="color:#EDCC60">25€</span>
       </a>
       <a href="/horoscopo-semanal" style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;background:linear-gradient(135deg,rgba(34,197,94,0.08),rgba(212,168,67,0.06));border:1px solid rgba(34,197,94,0.2);color:#22C55E;font-size:0.85rem;font-weight:600;text-decoration:none;margin-bottom:10px;">
-        ☉ Horóscopo Semanal del Signo · <span style="color:#EDCC60">4,99€</span>
+        <span id="sb-hor">☉</span> · <span style="color:#EDCC60">4,99€</span>
       </a>
       <a href="javascript:void(0)" onclick="openLeadMagnetModal(null,'lectura-suerte')" style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;background:linear-gradient(135deg,rgba(212,168,67,0.08),rgba(123,79,191,0.08));border:1px solid rgba(212,168,67,0.15);color:#F7D96E;font-size:0.85rem;font-weight:600;text-decoration:none;">
-        ✦ Lectura de la Suerte · <span style="color:#EDCC60">4,99€</span>
+        <span id="sb-luck">✦</span> · <span style="color:#EDCC60">4,99€</span>
       </a>
     </div>
     <div class="sidebar-footer">
@@ -3198,7 +3189,7 @@ function renderHero() {
       <div><span class="stat-value">${t('stat3v')}</span><span class="stat-label">${t('stat3l')}</span></div>
       <div><span class="stat-value">${t('stat4v')}</span><span class="stat-label">${t('stat4l')}</span></div>
     </div>
-    <div class="hero-flags">🇪🇸🇬🇧🇧🇬🇫🇷🇩🇪🇮🇹🇵🇹🇷🇺🇨🇳🇯🇵🇰🇷🇸🇦🇮🇳🇹🇷🇳🇱🇸🇪🇵🇱🇷🇴🇬🇷🇹🇭🇻🇳🇮🇩🇮🇱🇺🇦🇨🇿</div>
+    <div class="hero-flags">🇬🇧🇪🇸🇫🇷🇩🇪🇵🇹🇮🇹🇷🇺🇧🇬</div>
     <div class="hero-why reveal">
       <h3>${t('whyTitle')}</h3>
       <p class="why-subtitle">${t('whySub')}</p>
@@ -3815,24 +3806,24 @@ function renderCTA() {
 }
 
 // === RENDER FOOTER ===
-// === RENDER CHAT ASTRAL FEATURED ===
+// === RENDER CHAT ASTRAL FEATURED (now shows Mini Lectura) ===
 function renderChatAstralFeatured() {
   const sec = document.getElementById('chat-astral-featured');
   if (!sec) return;
   sec.innerHTML = `
     <div class="section" style="padding:32px 20px;max-width:700px;margin:0 auto;">
       <div style="text-align:center;margin-bottom:20px;">
-        <span style="display:inline-block;background:linear-gradient(135deg,rgba(200,152,64,0.15),rgba(107,47,168,0.1));border:1px solid rgba(200,152,64,0.3);border-radius:20px;padding:4px 14px;font-size:0.65rem;font-weight:600;color:var(--gold);letter-spacing:0.08em;text-transform:uppercase;">${t('chatAstralBadge') || '⭐ Empieza aquí · Más popular'}</span>
+        <span style="display:inline-block;background:linear-gradient(135deg,rgba(100,223,223,0.15),rgba(100,223,223,0.05));border:1px solid rgba(100,223,223,0.3);border-radius:20px;padding:4px 14px;font-size:0.65rem;font-weight:600;color:#64dfdf;letter-spacing:0.08em;text-transform:uppercase;">✨ ${currentLang === 'es' ? 'Tu primer paso cosmico · Solo €9.90' : 'Your first cosmic step · Only €9.90'}</span>
       </div>
-      <div class="prod-card reveal" data-product="chat-10" style="border:2px solid rgba(200,152,64,0.35);box-shadow:0 8px 32px rgba(200,152,64,0.12);position:relative;cursor:pointer;padding:28px 24px;" onclick="openProductModal('chat-10')">
+      <div class="prod-card reveal" data-product="mini-lectura" style="border:2px solid rgba(100,223,223,0.35);box-shadow:0 8px 32px rgba(100,223,223,0.12);position:relative;cursor:pointer;padding:28px 24px;" onclick="openProductModal('mini-lectura')">
         <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px;">
-          <div style="width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,rgba(200,152,64,0.2),rgba(200,152,64,0.05));display:flex;align-items:center;justify-content:center;font-size:24px;">💬</div>
+          <div style="width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,rgba(100,223,223,0.2),rgba(100,223,223,0.05));display:flex;align-items:center;justify-content:center;font-size:24px;">✨</div>
           <div>
-            <h3 style="font-size:1.1rem;color:var(--text);margin:0;">Chat Astral — 10 Preguntas</h3>
-            <span style="font-size:0.9rem;font-weight:700;color:var(--gold);">€14.99</span>
+            <h3 style="font-size:1.1rem;color:var(--text);margin:0;">Mini Lectura Astral</h3>
+            <span style="font-size:0.9rem;font-weight:700;color:#64dfdf;">€9.90</span>
           </div>
         </div>
-        <p style="color:var(--text-dim);font-size:0.82rem;line-height:1.5;margin:0;">${t('chatAstralDesc') || '10 preguntas astrológicas respondidas con tus datos natales exactos. Tu acceso rápido a la orientación cósmica.'}</p>
+        <p style="color:var(--text-dim);font-size:0.82rem;line-height:1.5;margin:0;">${currentLang === 'es' ? 'Tu perfil astrologico en 5 paginas: signo solar, lunar, ascendente, elemento y consejo cosmico personalizado. Entrega por email en 24h.' : 'Your astro profile in 5 pages: Sun, Moon, Rising, element and personalized cosmic advice. Email delivery in 24h.'}</p>
       </div>
     </div>`;
 }
@@ -3961,23 +3952,76 @@ function renderHowItWorks() {
 function renderFeaturedProduct() {
   const sec = document.getElementById('featured-product');
   if (!sec) return;
+  const lang = currentLang || 'es';
+  const labels = {
+    es: { title: '¿Por Dónde Empezar?', sub: 'Elige tu nivel de exploración cósmica', entry: 'Tu primer paso cósmico', entryBullets: ['Perfil astral 5 páginas','Sol, Luna, Ascendente','Consejo personalizado','Email en 24h'], entryBtn: 'EMPEZAR · €9.90', starTitle: 'Carta Natal Completa', starTag: '★ MÁS POPULAR', starBullets: ['Análisis profundo 30+ págs','Todos los planetas y casas','Aspectos y tránsitos','Propósito de vida'], starBtn: 'DESCUBRIR · €89', megaTitle: 'Mega Carta Astral', megaTag: 'MEJOR VALOR', megaSave: 'Ahorras €207', megaBullets: ['4 tradiciones en una','Occidental + Cabalística','Védica + China','506€ de valor por 299€'], megaBtn: 'QUIERO TODO · €299' },
+    en: { title: 'Where to Start?', sub: 'Choose your level of cosmic exploration', entry: 'Your first cosmic step', entryBullets: ['5-page astral profile','Sun, Moon, Rising','Personalized advice','Email in 24h'], entryBtn: 'START · €9.90', starTitle: 'Complete Natal Chart', starTag: '★ MOST POPULAR', starBullets: ['Deep analysis 30+ pages','All planets and houses','Aspects and transits','Life purpose'], starBtn: 'DISCOVER · €89', megaTitle: 'Mega Astral Chart', megaTag: 'BEST VALUE', megaSave: 'Save €207', megaBullets: ['4 traditions in one','Western + Kabbalistic','Vedic + Chinese','€506 value for €299'], megaBtn: 'I WANT IT ALL · €299' }
+  };
+  const l = labels[lang] || labels['en'] || labels['es'];
   sec.innerHTML = `
-    <div class="section" style="padding:32px 20px;max-width:600px;margin:0 auto;">
-      <div style="text-align:center;margin-bottom:16px;">
-        <span style="display:inline-block;background:rgba(212,168,67,0.12);border:1px solid rgba(212,168,67,0.3);border-radius:30px;padding:5px 18px;font-size:0.65rem;font-weight:600;color:var(--gold);letter-spacing:0.08em;text-transform:uppercase;">${t('fpBadge')}</span>
+    <div class="section" style="padding:48px 20px;max-width:960px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:8px;">
+        <span style="display:inline-block;background:rgba(212,168,67,0.12);border:1px solid rgba(212,168,67,0.3);border-radius:30px;padding:5px 18px;font-size:0.65rem;font-weight:600;color:var(--gold);letter-spacing:0.08em;text-transform:uppercase;">✦ GOOD · BETTER · BEST ✦</span>
       </div>
-      <div style="background:var(--card);border:1.5px solid rgba(212,168,67,0.3);border-radius:16px;padding:28px 24px;cursor:pointer;transition:all 0.3s;box-shadow:0 4px 24px rgba(212,168,67,0.08);" onclick="openProductModal('chat-10')" onmouseover="this.style.borderColor='rgba(212,168,67,0.5)';this.style.boxShadow='0 8px 40px rgba(212,168,67,0.15)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.3)';this.style.boxShadow='0 4px 24px rgba(212,168,67,0.08)'">
-        <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px;">
-          <div style="width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,rgba(212,168,67,0.15),rgba(212,168,67,0.05));display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0;">💬</div>
-          <div style="flex:1;">
-            <h3 style="font-family:'Cinzel',Georgia,serif;font-size:1.05rem;color:var(--text);margin:0 0 4px;">${t('fpTitle')}</h3>
-            <span style="font-family:'Cinzel',Georgia,serif;font-size:1rem;font-weight:700;color:var(--gold);">€14.99</span>
+      <h2 style="font-family:'Cinzel',Georgia,serif;font-size:1.6rem;color:var(--gold);text-align:center;margin:0 0 6px;">${l.title}</h2>
+      <p style="text-align:center;color:var(--text-dim);font-size:0.85rem;margin:0 0 32px;">${l.sub}</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;align-items:stretch;">
+
+        <!-- MINI LECTURA €9.90 -->
+        <div style="background:var(--card);border:1.5px solid rgba(100,223,223,0.25);border-radius:16px;padding:24px 20px;cursor:pointer;transition:all 0.4s;position:relative;display:flex;flex-direction:column;" onclick="openProductModal('mini-lectura')" onmouseover="this.style.borderColor='rgba(100,223,223,0.5)';this.style.boxShadow='0 8px 40px rgba(100,223,223,0.12)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(100,223,223,0.25)';this.style.boxShadow='none';this.style.transform='none'">
+          <div style="text-align:center;margin-bottom:12px;">
+            <span style="display:inline-block;background:rgba(100,223,223,0.12);border:1px solid rgba(100,223,223,0.3);border-radius:20px;padding:3px 14px;font-size:0.6rem;color:#64dfdf;letter-spacing:0.08em;text-transform:uppercase;">→ ${l.entry}</span>
+          </div>
+          <div style="text-align:center;font-size:32px;margin-bottom:8px;">✨</div>
+          <h3 style="font-family:'Cinzel',Georgia,serif;font-size:1rem;color:var(--text);text-align:center;margin:0 0 4px;">Mini Lectura Astral</h3>
+          <div style="text-align:center;margin-bottom:14px;">
+            <span style="font-family:'Cinzel',Georgia,serif;font-size:1.4rem;font-weight:700;color:#64dfdf;">€9.90</span>
+          </div>
+          <ul style="list-style:none;padding:0;margin:0 0 16px;flex:1;">
+            ${l.entryBullets.map(b => `<li style="color:var(--text-dim);font-size:0.8rem;padding:4px 0;display:flex;align-items:center;gap:6px;"><span style="color:#64dfdf;font-size:0.7rem;">✦</span>${b}</li>`).join('')}
+          </ul>
+          <div style="text-align:center;margin-top:auto;">
+            <span style="display:inline-block;width:100%;background:linear-gradient(135deg,#64dfdf,#4abfbf);color:#06050E;padding:12px 20px;border-radius:8px;font-family:'Cinzel',Georgia,serif;font-weight:700;font-size:0.75rem;letter-spacing:0.06em;">${l.entryBtn}</span>
           </div>
         </div>
-        <p style="color:var(--text-dim);font-size:0.85rem;line-height:1.6;margin:0 0 16px;">${t('fpDesc')}</p>
-        <div style="text-align:center;">
-          <span style="display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#06050E;padding:10px 28px;border-radius:8px;font-family:'Cinzel',Georgia,serif;font-weight:700;font-size:0.8rem;letter-spacing:0.08em;">${t('fpBtn')}</span>
+
+        <!-- CARTA NATAL €89 - MAS POPULAR -->
+        <div style="background:var(--card);border:2px solid rgba(212,168,67,0.4);border-radius:16px;padding:24px 20px;cursor:pointer;transition:all 0.4s;position:relative;display:flex;flex-direction:column;box-shadow:0 4px 30px rgba(212,168,67,0.1);" onclick="openProductModal('occ-natal')" onmouseover="this.style.borderColor='rgba(212,168,67,0.7)';this.style.boxShadow='0 8px 50px rgba(212,168,67,0.2)';this.style.transform='translateY(-6px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.4)';this.style.boxShadow='0 4px 30px rgba(212,168,67,0.1)';this.style.transform='none'">
+          <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#06050E;padding:4px 16px;border-radius:20px;font-size:0.6rem;font-weight:700;letter-spacing:0.08em;white-space:nowrap;">${l.starTag}</div>
+          <div style="text-align:center;font-size:32px;margin:8px 0 8px;">⭐</div>
+          <h3 style="font-family:'Cinzel',Georgia,serif;font-size:1rem;color:var(--text);text-align:center;margin:0 0 4px;">${l.starTitle}</h3>
+          <div style="text-align:center;margin-bottom:14px;">
+            <span style="font-family:'Cinzel',Georgia,serif;font-size:1.4rem;font-weight:700;color:var(--gold);">€89</span>
+          </div>
+          <ul style="list-style:none;padding:0;margin:0 0 16px;flex:1;">
+            ${l.starBullets.map(b => `<li style="color:var(--text-dim);font-size:0.8rem;padding:4px 0;display:flex;align-items:center;gap:6px;"><span style="color:var(--gold);font-size:0.7rem;">✦</span>${b}</li>`).join('')}
+          </ul>
+          <div style="text-align:center;margin-top:auto;">
+            <span style="display:inline-block;width:100%;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#06050E;padding:12px 20px;border-radius:8px;font-family:'Cinzel',Georgia,serif;font-weight:700;font-size:0.75rem;letter-spacing:0.06em;">${l.starBtn}</span>
+          </div>
         </div>
+
+        <!-- MEGA CARTA €299 - MEJOR VALOR -->
+        <div style="background:var(--card);border:1.5px solid rgba(123,79,191,0.3);border-radius:16px;padding:24px 20px;cursor:pointer;transition:all 0.4s;position:relative;display:flex;flex-direction:column;" onclick="openProductModal('mega-carta')" onmouseover="this.style.borderColor='rgba(123,79,191,0.6)';this.style.boxShadow='0 8px 40px rgba(123,79,191,0.15)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(123,79,191,0.3)';this.style.boxShadow='none';this.style.transform='none'">
+          <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#7B4FBF,#9B6FDF);color:#fff;padding:4px 16px;border-radius:20px;font-size:0.6rem;font-weight:700;letter-spacing:0.08em;white-space:nowrap;">${l.megaTag}</div>
+          <div style="text-align:center;font-size:32px;margin:8px 0 8px;">👑</div>
+          <h3 style="font-family:'Cinzel',Georgia,serif;font-size:1rem;color:var(--text);text-align:center;margin:0 0 4px;">${l.megaTitle}</h3>
+          <div style="text-align:center;margin-bottom:4px;">
+            <span style="font-family:'Cinzel',Georgia,serif;font-size:1.4rem;font-weight:700;color:#9B6FDF;">€299</span>
+            <span style="font-size:0.75rem;color:var(--text-dim);text-decoration:line-through;margin-left:6px;">€506</span>
+          </div>
+          <div style="text-align:center;margin-bottom:14px;">
+            <span style="font-size:0.7rem;color:#66BB6A;font-weight:600;">${l.megaSave}</span>
+          </div>
+          <ul style="list-style:none;padding:0;margin:0 0 16px;flex:1;">
+            ${l.megaBullets.map(b => `<li style="color:var(--text-dim);font-size:0.8rem;padding:4px 0;display:flex;align-items:center;gap:6px;"><span style="color:#9B6FDF;font-size:0.7rem;">✦</span>${b}</li>`).join('')}
+          </ul>
+          <div style="text-align:center;margin-top:auto;">
+            <span style="display:inline-block;width:100%;background:linear-gradient(135deg,#7B4FBF,#9B6FDF);color:#fff;padding:12px 20px;border-radius:8px;font-family:'Cinzel',Georgia,serif;font-weight:700;font-size:0.75rem;letter-spacing:0.06em;">${l.megaBtn}</span>
+          </div>
+        </div>
+
       </div>
     </div>`;
 }
@@ -4052,7 +4096,7 @@ function renderFooter() {
     <div style="font-family:'Philosopher',Georgia,serif;font-style:italic;font-size:0.75rem;color:var(--text-dim);margin-bottom:16px;">${t('footerTagline')}</div>
     <div class="footer-links" style="margin-bottom:16px;">
       <a href="#hero" style="color:var(--text-muted);text-decoration:none;margin:0 8px;font-size:0.75rem;transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">${t('footerHome')}</a>
-      <a href="/aureum-books.html" style="color:var(--gold);text-decoration:none;margin:0 8px;font-size:0.75rem;font-weight:600;transition:color 0.2s;" onmouseover="this.style.color='#F7D96E'" onmouseout="this.style.color='var(--gold)'">📖 Aureum Books</a>
+      <a href="/aureum-books" style="color:var(--gold);text-decoration:none;margin:0 8px;font-size:0.75rem;font-weight:600;transition:color 0.2s;" onmouseover="this.style.color='#F7D96E'" onmouseout="this.style.color='var(--gold)'">📖 Aureum Books</a>
       <a href="/sinastria" style="color:var(--text-muted);text-decoration:none;margin:0 8px;font-size:0.75rem;transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">${t('footerSinastria')}</a>
       <a href="javascript:void(0)" onclick="openLegal('terms')" style="color:var(--text-muted);text-decoration:none;margin:0 8px;font-size:0.75rem;transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">${t('terms')}</a>
       <a href="javascript:void(0)" onclick="openLegal('privacy')" style="color:var(--text-muted);text-decoration:none;margin:0 8px;font-size:0.75rem;transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">${t('privacy')}</a>
@@ -4096,7 +4140,7 @@ function openLegal(type) {
       <h3>7. REFUND POLICY</h3>
       <p>If the client is not satisfied with their reading, they may contact us within 14 days of purchase. We will evaluate each case individually and seek a satisfactory solution, which may include a new reading or a partial or full refund.</p>
       <h3>8. AVAILABILITY</h3>
-      <p>The service is available 24 hours a day, 7 days a week, in 25 languages. Astro Aureum reserves the right to perform technical maintenance that may temporarily affect service availability.</p>
+      <p>The service is available 24 hours a day, 7 days a week, in 8 languages. Astro Aureum reserves the right to perform technical maintenance that may temporarily affect service availability.</p>
       <h3>9. MINIMUM AGE</h3>
       <p>The use of Astro Aureum is intended for persons over 18 years of age. Parents or legal guardians may request readings for minors under their responsibility (Baby Chart service).</p>
       <h3>10. APPLICABLE LAW</h3>
@@ -4297,6 +4341,11 @@ function renderFormFields(formType) {
 
   if (formType === 'bebe') {
     html += `<div class="modal-field"><label>${t('fParents')}</label><input type="text"></div>`;
+  }
+
+  if (formType === 'chat') {
+    html += `<div class="modal-field"><label>${t('fQuestions') || 'Tus 10 preguntas'} *</label>
+      <textarea required rows="8" placeholder="${t('fQuestionsPh') || 'Escribe tus 10 preguntas astrológicas aquí, una por línea...'}" style="width:100%;padding:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(212,168,67,0.15);border-radius:10px;color:var(--text);font-size:0.9rem;font-family:inherit;resize:vertical;"></textarea></div>`;
   }
 
   if (formType === 'business') {
@@ -4810,6 +4859,15 @@ function renderAll() {
   renderSinastriaBanner();
   renderCTA();
   renderFooter();
+  // Update sidebar translated buttons
+  var sbBooks = document.getElementById('sb-books');
+  var sbSin = document.getElementById('sb-sin');
+  var sbHor = document.getElementById('sb-hor');
+  var sbLuck = document.getElementById('sb-luck');
+  var _sb1 = t('sidebarBooks'); if (sbBooks && _sb1 && _sb1 !== 'sidebarBooks') sbBooks.textContent = _sb1;
+  var _sb2 = t('sidebarSinastria'); if (sbSin && _sb2 && _sb2 !== 'sidebarSinastria') sbSin.textContent = _sb2;
+  var _sb3 = t('sidebarHoroscopo'); if (sbHor && _sb3 && _sb3 !== 'sidebarHoroscopo') sbHor.textContent = _sb3;
+  var _sb4 = t('sidebarSuerte'); if (sbLuck && _sb4 && _sb4 !== 'sidebarSuerte') sbLuck.textContent = _sb4;
   // Re-init scroll reveal after re-render
   setTimeout(initScrollReveal, 100);
 }
@@ -5466,9 +5524,9 @@ function showFreeReading(reading, readingUrl, customerName, birthDate) {
             <div class="ladder-icon">&#10022;</div>
             <h3>${t('ladderPremTitle') || 'Tu Carta Natal Completa'}</h3>
             <p>${t('ladderPremDesc') || '36 páginas de análisis profundo. Tu mapa cósmico definitivo.'}</p>
-            <div class="ladder-price">${t('ladderPremPrice') || 'Desde €139'}</div>
+            <div class="ladder-price">${t('ladderPremPrice') || 'Desde ' + fmtPrice(calcLocalPrice(89))}</div>
             <button class="ladder-btn-prem" onclick="closeFreeReading();scrollTo('#catalog');">${t('ladderPremBtn') || 'Descubrir mi Carta Natal'}</button>
-            <p class="ladder-packs">${t('ladderPremPacks') || 'O elige un Pack desde €179 con hasta 40% de ahorro'}</p>
+            <p class="ladder-packs">${t('ladderPremPacks') || 'O elige un Pack desde ' + fmtPrice(calcLocalPrice(179)) + ' con hasta 40% de ahorro'}</p>
           </div>
         </div>
       </div>
@@ -5506,7 +5564,7 @@ function showBuyBar() {
   var bfText = document.getElementById('bf-text');
   var bfBtn = document.getElementById('bf-btn');
   if (bfText) bfText.textContent = t('buyFloatText') || '✦ Tu lectura completa te espera';
-  if (bfBtn) bfBtn.textContent = t('buyFloatBtn') || 'Ver Carta Natal — desde €139';
+  if (bfBtn) bfBtn.textContent = t('buyFloatBtn') || 'Ver Carta Natal — desde ' + fmtPrice(calcLocalPrice(89));
   requestAnimationFrame(function() { bar.classList.add('visible'); });
 }
 
