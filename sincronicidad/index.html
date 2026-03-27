@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astro Aureum - Sincronicidad Cósmica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-principal: #08011B;
+            --purpura-cosmico: #FFED8A;
+            --rosa-neon: #A0F0FF;
+            --amarillo-neon: #FFED8A;
+            --azul-electrico: #A0F0FF;
+            --naranja-atomico: #FFB3D1;
+            --texto-luz: #FFFFFF;
+            --secondary-text: #FFD6F5;
+            --glass-bg: rgba(8, 1, 27, 0.6);
+            --glass-border: rgba(160, 240, 255, 0.2);
+            --glow-blue: rgba(160, 240, 255, 0.6);
+            --glow-gold: rgba(255, 237, 138, 0.5);
+            --glow-pink: rgba(255, 214, 245, 0.4);
+            --glow-love: rgba(255, 179, 209, 0.6);
+            --glow-cream: rgba(255, 249, 234, 0.4);
+            --gradient-gold-pink: linear-gradient(135deg, #FFED8A 0%, #FFB3D1 100%);
+            --gradient-blue-aura: linear-gradient(135deg, #A0F0FF 0%, #FFD6F5 100%);
+            --fuente-titulo: 'Playfair Display', serif;
+            --fuente-cuerpo: 'Inter', sans-serif;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-principal);
+            background-image: radial-gradient(ellipse at 20% 80%, rgba(160, 240, 255, 0.06) 0%, transparent 50%),
+                              radial-gradient(ellipse at 80% 20%, rgba(255, 237, 138, 0.05) 0%, transparent 50%),
+                              radial-gradient(ellipse at 50% 50%, rgba(255, 179, 209, 0.04) 0%, transparent 60%);
+            color: var(--texto-luz);
+            font-family: var(--fuente-cuerpo);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Estilos de Partículas de Fondo */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        /* Secciones y Bloques */
+        section {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .bloque-contenido {
+            background: rgba(255, 249, 234, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 237, 138, 0.2);
+            padding: 60px 40px;
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .bloque-contenido.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Tipografía */
+        h1, h2, h3 {
+            font-family: var(--fuente-titulo);
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: #FFFFFF;
+            text-shadow: 0 0 10px rgba(160, 240, 255, 0.8);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+        }
+
+        p.subtitulo {
+            font-size: 1.4rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            font-weight: 400;
+            color: rgba(255, 179, 209, 0.9);
+        }
+
+        /* Botones con Glow */
+        .btn-astro {
+            font-family: var(--fuente-cuerpo);
+            font-weight: 600;
+            font-size: 1.2rem;
+            padding: 18px 45px;
+            border: 1px solid #FFF3AD;
+            background: transparent;
+            color: #FFFFFF;
+            border-radius: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+            color: #000;
+            position: relative;
+        }
+
+        /* Micro-interaccion: flash de energia al hacer click */
+        .btn-astro:active {
+            filter: brightness(1.5);
+            transition: all 0.05s ease;
+        }
+
+        /* Glow dinamico en hover */
+        @keyframes pulseGlow {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.15); }
+        }
+
+        .btn-astro:hover {
+            animation: pulseGlow 1.5s ease-in-out infinite;
+            transform: translateY(-2px);
+        }
+
+        /* Colores Específicos de los Picos Emocionales y sus Glows */
+
+        /* 1. PICO "DOLOR" — Azul Ice */
+        #hero .titulo { color: #A0F0FF; text-shadow: 0 0 20px var(--glow-blue); }
+        #hero .btn-astro {
+            background: transparent;
+            box-shadow: 0 0 20px var(--glow-blue);
+            color: #FFFFFF;
+            border-color: #A0F0FF;
+        }
+        #hero .btn-astro:hover {
+            background: rgba(160, 240, 255, 0.1);
+            box-shadow: 0 0 40px var(--glow-blue), 0 0 80px rgba(160, 240, 255, 0.3);
+        }
+
+        /* 2. PICO "ESPERANZA" — Oro Amarillo */
+        #solucion .titulo { color: #FFED8A; text-shadow: 0 0 20px var(--glow-gold); }
+        #solucion .btn-astro {
+            background: transparent;
+            box-shadow: 0 0 15px var(--glow-gold);
+            color: #FFFFFF;
+            border-color: #FFED8A;
+        }
+        #solucion .btn-astro:hover {
+            background: rgba(255, 237, 138, 0.1);
+            box-shadow: 0 0 30px var(--glow-gold), 0 0 60px rgba(255, 237, 138, 0.3);
+        }
+
+        /* 3. PICO "MIEDO" — Rosa Amoroso */
+        #fracaso .titulo { color: #FFB3D1; text-shadow: 0 0 25px var(--glow-love); }
+        #fracaso .btn-astro {
+            background: transparent;
+            box-shadow: 0 0 20px var(--glow-love);
+            color: #FFFFFF;
+            border-color: #FFB3D1;
+        }
+        #fracaso .btn-astro:hover {
+            background: rgba(255, 179, 209, 0.1);
+            box-shadow: 0 0 40px var(--glow-love), 0 0 80px rgba(255, 179, 209, 0.3);
+        }
+
+        /* 4. PICO "CONFIANZA" — Azul Ice */
+        #prueba-social .titulo { color: #A0F0FF; text-shadow: 0 0 20px var(--glow-blue); }
+        #prueba-social .btn-astro {
+            background: transparent;
+            box-shadow: 0 0 15px var(--glow-blue);
+            color: #FFFFFF;
+            border-color: #A0F0FF;
+        }
+        #prueba-social .btn-astro:hover {
+            background: rgba(160, 240, 255, 0.1);
+            box-shadow: 0 0 30px var(--glow-blue), 0 0 60px rgba(160, 240, 255, 0.3);
+        }
+
+        /* 5. PICO "URGENCIA" — Gradiente Oro→Rosa */
+        #cta-final .titulo { color: #FFED8A; text-shadow: 0 0 30px var(--glow-gold); }
+        #cta-final .btn-astro {
+            background: var(--gradient-gold-pink);
+            box-shadow: 0 0 25px var(--glow-gold), 0 0 25px var(--glow-love);
+            color: #08011B;
+            border-color: #FFED8A;
+        }
+        #cta-final .btn-astro:hover {
+            box-shadow: 0 0 50px var(--glow-gold), 0 0 50px var(--glow-love), 0 0 100px rgba(255, 237, 138, 0.3);
+        }
+
+        /* 6. PICO "TRANSFORMACION" — Gradiente Azul→Aura */
+        #cierre .titulo { color: #A0F0FF; text-shadow: 0 0 20px var(--glow-blue); }
+        #cierre .btn-astro {
+            background: var(--gradient-blue-aura);
+            box-shadow: 0 0 20px var(--glow-blue), 0 0 20px var(--glow-pink);
+            color: #08011B;
+            border-color: #A0F0FF;
+        }
+        #cierre .btn-astro:hover {
+            box-shadow: 0 0 40px var(--glow-blue), 0 0 40px var(--glow-gold), 0 0 40px var(--glow-love);
+        }
+
+        /* Animacion pulso para puntos de alineacion */
+        @keyframes pulsarBlue {
+            0%, 100% { box-shadow: 0 0 5px var(--glow-blue); }
+            50% { box-shadow: 0 0 20px var(--glow-blue), 0 0 40px rgba(178, 255, 255, 0.2); }
+        }
+
+        /* Sección Plan */
+        .plan-items {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .plan-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .plan-item:hover {
+            border-color: #FFED8A;
+            box-shadow: 0 0 15px var(--glow-gold);
+            transform: translateY(-3px);
+        }
+
+        .plan-numero {
+            font-family: var(--fuente-titulo);
+            font-size: 2.5rem;
+            color: var(--amarillo-neon);
+            font-weight: 800;
+        }
+
+        .plan-texto h4 {
+            font-family: var(--fuente-cuerpo);
+            font-size: 1.2rem;
+            margin: 0 0 5px 0;
+            color: var(--texto-luz);
+        }
+
+        .plan-texto p {
+            font-size: 1rem;
+            margin: 0;
+            opacity: 0.8;
+        }
+
+        /* Sección Testimonios */
+        .testimonios {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .testimonio {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            font-style: italic;
+            transition: all 0.3s ease;
+        }
+
+        .testimonio:hover {
+            border-color: #FFB3D1;
+            box-shadow: 0 0 15px var(--glow-love);
+        }
+
+        .testimonio-nombre {
+            display: block;
+            margin-top: 15px;
+            font-style: normal;
+            font-weight: 600;
+            color: var(--purpura-cosmico);
+        }
+
+        /* Sección Autoridad */
+        .autoridad {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Footer */
+        footer {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .footer-logo {
+            font-family: var(--fuente-titulo);
+            font-size: 1.8rem;
+            color: var(--texto-luz);
+            margin-bottom: 10px;
+        }
+
+        .footer-copy {
+            font-size: 0.9rem;
+            opacity: 0.6;
+        }
+
+        /* Responsividad */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            h3 { font-size: 1.5rem; }
+            p.subtitulo { font-size: 1.1rem; }
+            .bloque-contenido { padding: 40px 20px; }
+            .btn-astro { padding: 15px 35px; font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="particles-js"></div>
+
+    <!-- 1. PICO "DOLOR" (Hero) -->
+    <section id="hero">
+        <div class="bloque-contenido">
+            <h1 class="titulo">¿Sientes que hay una conexión que no puedes explicar?</h1>
+            <p class="subtitulo">Esa inquietud que sientes no es casualidad. Es el universo hablándote. Sabemos lo que es sentir que las estrellas tienen un mensaje para ti que no logras descifrar.</p>
+            <a href="#solucion" class="btn-astro">DESCUBRE TU SINCRONICIDAD</a>
+        </div>
+    </section>
+
+    <!-- 2. PICO "ESPERANZA" (Solución / Guía / Plan) -->
+    <section id="solucion">
+        <div class="bloque-contenido">
+            <h2 class="titulo">Las estrellas ya escribieron la respuesta</h2>
+            <p class="subtitulo">La sincronicidad no miente. Existe un mapa cósmico de cada conexión humana. En <strong>Astro Aureum</strong>, te ayudamos a descifrarlo.</p>
+            
+            <div class="plan-items">
+                <div class="plan-item">
+                    <div class="plan-numero">1</div>
+                    <div class="plan-texto">
+                        <h4>Ingresa vuestros datos</h4>
+                        <p>Tus fechas de nacimiento y las de la persona que ocupa tu mente.</p>
+                    </div>
+                </div>
+                <div class="plan-item">
+                    <div class="plan-numero">2</div>
+                    <div class="plan-texto">
+                        <h4>El motor cósmico calcula</h4>
+                        <p>Nuestra avanzada tecnología calcula vuestra sincronicidad real.</p>
+                    </div>
+                </div>
+                <div class="plan-item">
+                    <div class="plan-numero">3</div>
+                    <div class="plan-texto">
+                        <h4>Recibe tu lectura profunda</h4>
+                        <p>Descarga un mapa detallado de vuestra conexión y su propósito.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="#fracaso" class="btn-astro" style="margin-top: 50px;">QUIERO MI MAPA CÓSMICO</a>
+        </div>
+    </section>
+
+    <!-- 3. PICO "MIEDO" (Fracaso) -->
+    <section id="fracaso">
+        <div class="bloque-contenido">
+            <h2 class="titulo">¿Y si dejas pasar la conexión que el universo diseñó para ti?</h2>
+            <p class="subtitulo">Cada día sin claridad es un día vivido a ciegas. El destino puede cambiar en un instante, y las estrellas no esperan. Perder la conexión cósmica que el universo puso en tu camino es un riesgo que no deberías correr.</p>
+            <a href="#prueba-social" class="btn-astro">EVITA PERDER TU DESTINO</a>
+        </div>
+    </section>
+
+    <!-- 4. PICO "CONFIANZA" (Prueba Social / Autoridad) -->
+    <section id="prueba-social">
+        <div class="bloque-contenido">
+            <h2 class="titulo">10,000 almas ya descubrieron su verdad cósmica</h2>
+            <p class="subtitulo">No te pedimos fe ciega, te ofrecemos precisión ancestral. Cálculos reales con Swiss Ephemeris. 9 tradiciones astrológicas. 25 idiomas.</p>
+            
+            <div class="testimonios">
+                <div class="testimonio">
+                    "Al fin entendí por qué sentía ese tirón tan fuerte hacia él. Nuestra lectura de Astro Aureum fue reveladora."
+                    <span class="testimonio-nombre">- Elena R.</span>
+                </div>
+                <div class="testimonio">
+                    "Siempre dudaba de si esta relación tenía futuro. La precisión de los cálculos me dio la paz que necesitaba."
+                    <span class="testimonio-nombre">- Carlos M.</span>
+                </div>
+            </div>
+
+            <a href="#cta-final" class="btn-astro" style="margin-top: 50px;">ÚNETE A QUIENES YA SABEN</a>
+        </div>
+    </section>
+
+    <!-- 5. PICO "URGENCIA" (CTA Final) -->
+    <section id="cta-final">
+        <div class="bloque-contenido">
+            <h2 class="titulo">Tu carta cósmica está lista. Solo falta que la pidas.</h2>
+            <p class="subtitulo">Los tránsitos planetarios de este mes amplifican tu conexión. Mereces saber la verdad cósmica sobre tus relaciones y destino. No esperes más.</p>
+            <a href="#cierre" class="btn-astro">CALCULAR SINCRONICIDAD AHORA</a>
+        </div>
+    </section>
+
+    <!-- 6. PICO "TRANSFORMACION" (Cierre) -->
+    <section id="cierre">
+        <div class="bloque-contenido">
+            <h2 class="titulo">De la duda al conocimiento. De la confusión a la certeza cósmica.</h2>
+            <p class="subtitulo">Imagina despertar mañana sabiendo exactamente qué significa esa persona en tu vida. Vive con la claridad total sobre tu conexión cósmica.</p>
+            <a href="#hero" class="btn-astro">VOLVER A EMPEZAR</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">Astro Aureum</div>
+        <p class="footer-copy">&copy; 2026 Astro Aureum. Todos los derechos cósmicos reservados.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Configuración de Partículas
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#A0F0FF" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5, "random": true },
+                "size": { "value": 2, "random": true },
+                "line_linked": { "enable": false },
+                "move": { "enable": true, "speed": 0.5, "direction": "none", "random": true, "straight": false, "out_mode": "out" }
+            },
+            "interactivity": { "events": { "onhover": { "enable": false }, "onclick": { "enable": false } } },
+            "retina_detect": true
+        });
+
+        // Animación al Scroll
+        const bloques = document.querySelectorAll('.bloque-contenido');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.3 // El bloque se considera visible cuando el 30% está en pantalla
+        });
+
+        bloques.forEach(bloque => {
+            observer.observe(bloque);
+        });
+    </script>
+</body>
+</html>
