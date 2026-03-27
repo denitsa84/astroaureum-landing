@@ -35,7 +35,7 @@
   "stat1l": "Lecturas",
   "stat2v": "4.9 ★",
   "stat2l": "Valoración",
-  "stat3v": "25+",
+  "stat3v": "8",
   "stat3l": "Idiomas",
   "stat4v": "36",
   "stat4l": "Servicios",
@@ -338,5 +338,10 @@
   "footerTagline": "Tu Guía Cósmica · 9 Tradiciones · 37 Servicios",
   "footerHome": "Inicio",
   "footerSinastria": "Sinastría",
-  "footerDisclaimerShort": "Los análisis de Astro Aureum son generados mediante sistemas automatizados de procesamiento astrológico. Contenido con fines orientativos, espirituales y de entretenimiento personal. No sustituye asesoramiento médico, psicológico ni legal."
+  "footerDisclaimerShort": "Los análisis de Astro Aureum son generados mediante sistemas automatizados de procesamiento astrológico. Contenido con fines orientativos, espirituales y de entretenimiento personal. No sustituye asesoramiento médico, psicológico ni legal.",
+
+  "sidebarBooks": "📖 AUREUM BOOKS — Libros de Astrología",
+  "sidebarSinastria": "♡ Sinastría de Almas + Libro",
+  "sidebarHoroscopo": "☉ Horóscopo Semanal del Signo",
+  "sidebarSuerte": "✦ Lectura de la Suerte"
 }

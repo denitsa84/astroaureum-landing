@@ -41,7 +41,7 @@
   <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="canonical" href="https://astroaureum.com/">
-  <!-- hreflang: SEO internacional 8 idiomas -->
+  <!-- hreflang: SEO internacional 25 idiomas -->
   <link rel="alternate" hreflang="x-default" href="https://astroaureum.com/">
   <link rel="alternate" hreflang="es" href="https://astroaureum.com/es/">
   <link rel="alternate" hreflang="es-US" href="https://astroaureum.com/es/">
@@ -152,10 +152,10 @@
       },
       {
         "@type": "Question",
-        "name": "¿Cómo recibo mi lectura?",
+        "name": "¿En cuánto tiempo recibo mi lectura?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Tu lectura llega a tu correo electrónico al instante, en formato PDF, en cuanto confirmas el pago. No tienes que esperar — está lista en minutos."
+          "text": "Tu lectura personalizada se genera y se entrega por email en un máximo de 24 horas. Puedes leerla en pantalla o guardarla como PDF para siempre."
         }
       },
       {
@@ -163,7 +163,7 @@
         "name": "¿Puedo pedir mi lectura en otro idioma?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sí. Ofrecemos lecturas en 8 idiomas: español, inglés, búlgaro, francés, alemán, italiano, portugués, ruso, chino, japonés, coreano, árabe, hindi, turco, holandés, sueco, polaco, rumano, griego, tailandés, vietnamita, indonesio, hebreo, ucraniano y checo."
+          "text": "Sí. Ofrecemos lecturas en 25 idiomas: español, inglés, búlgaro, francés, alemán, italiano, portugués, ruso, chino, japonés, coreano, árabe, hindi, turco, holandés, sueco, polaco, rumano, griego, tailandés, vietnamita, indonesio, hebreo, ucraniano y checo."
         }
       },
       {
@@ -693,9 +693,7 @@ body {
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s;
-  white-space: normal;
-  text-align: center;
-  line-height: 1.3;
+  white-space: nowrap;
 }
 .hero-mega-cta .cta-btn:hover { transform: scale(1.04); box-shadow: 0 8px 32px rgba(212,168,67,0.35); }
 .hero-mega-cta .cta-free {
@@ -705,14 +703,10 @@ body {
   opacity: 0.7;
 }
 @media (max-width: 600px) {
-  .hero-mega-cta { padding: 24px 16px; max-width: 100%; box-sizing: border-box; }
-  .hero-mega-cta--big { padding: 24px 16px; max-width: 100%; }
+  .hero-mega-cta { padding: 24px 20px; }
   .hero-mega-cta h3 { font-size: 1.2rem; }
   .hero-mega-cta .cta-row { flex-direction: column; }
-  .hero-mega-cta .cta-btn { width: 100%; padding: 14px 12px; font-size: 0.9rem; white-space: normal; line-height: 1.3; box-sizing: border-box; }
-  .hero-mega-cta--big .cta-btn--hero { padding: 14px 12px; font-size: 0.95rem; }
-  .hero-btns { flex-direction: column; align-items: stretch; gap: 10px; }
-  .hero-btns .btn-gold, .hero-btns .btn-lead { width: 100%; box-sizing: border-box; text-align: center; white-space: normal; font-size: 0.85rem; padding: 14px 16px; }
+  .hero-mega-cta .cta-btn { width: 100%; padding: 16px; }
 }
 .hero-btns {
   display: flex;
@@ -1155,7 +1149,7 @@ body {
 /* === PACK CARDS === */
 .pack-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   gap: 24px;
 }
 .pack-card {
@@ -1621,18 +1615,6 @@ body {
   .concern-selector { flex-direction: column; align-items: stretch; }
   .concern-pill { justify-content: center; }
   .concern-reco.visible { padding: 20px; }
-  .section-title { font-size: 1.6rem; }
-  .section-sub { font-size: 0.88rem; }
-  .stat-value { font-size: 1.5rem; }
-  .hero-stats { gap: 16px; }
-  .hero-flags { font-size: 1.1rem; letter-spacing: 2px; line-height: 2; }
-  .hero-why { padding: 24px 16px; margin-top: 40px; }
-  .hero-why h3 { font-size: 1.2rem; }
-  .why-subtitle { font-size: 0.85rem; }
-  .cta-section { padding: 60px 20px; }
-  .cta-section h2 { font-size: 1.5rem; }
-  .footer { padding: 32px 16px; }
-  .step-num { font-size: 1.8rem; }
 }
 
 /* === TEST MODE === */
@@ -1714,33 +1696,6 @@ body {
   [dir="rtl"] .sidebar { transform: translateX(100%); }
   [dir="rtl"] .sidebar.open { transform: translateX(0); }
 }
-
-/* === MOBILE OVERRIDES for inline-styled sections === */
-@media (max-width: 600px) {
-  /* Sinastria banner */
-  #sinastria-banner a { padding: 24px 16px !important; }
-  .sin-banner-title { font-size: 1.2rem !important; }
-  .sin-banner-prices { flex-wrap: wrap !important; gap: 8px !important; }
-  .sin-banner-price { font-size: 1.4rem !important; }
-  /* How it works / New testimonials / About / Featured */
-  #how-it-works h2 { font-size: 1.2rem !important; }
-  #new-testimonials h2 { font-size: 1.2rem !important; }
-  #about-aureum h2 { font-size: 1.2rem !important; }
-  #about-aureum .section { padding: 40px 16px !important; }
-  #featured-product h2 { font-size: 1.2rem !important; }
-}
-@media (max-width: 480px) {
-  .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .stat-value { font-size: 1.3rem; }
-  .hero-flags { font-size: 0.9rem; letter-spacing: 1px; }
-  .hero-why .why-subtitle { font-size: 0.8rem; }
-  .cta-section h2 { font-size: 1.3rem; }
-  .cta-section { padding: 48px 16px; }
-  .footer { padding: 24px 12px; }
-  .footer-logo { font-size: 0.95rem; }
-  .sin-banner-price { font-size: 1.2rem !important; }
-  #sinastria-banner a { padding: 20px 12px !important; }
-}
   </style>
 </head>
 <body>
@@ -1754,9 +1709,6 @@ body {
 
   <main class="main-content">
     <section id="hero" class="hero"></section>
-    <section id="new-hero-section"></section>
-    <section id="how-it-works"></section>
-    <section id="featured-product"></section>
     <section id="tradiciones"></section>
     <section id="occidental"></section>
     <section id="cabalistica"></section>
@@ -1768,23 +1720,14 @@ body {
     <section id="humandesign"></section>
     <section id="packs"></section>
     <section id="academy"></section>
-    <section id="sinastria-banner"></section>
     <section id="como-funciona"></section>
     <section id="testimonios"></section>
-    <!-- horoscopo-diario section removed -->
+    <section id="horoscopo-diario"></section>
     <section id="faq"></section>
     <!-- Author Profile -->
     <section id="author-profile"></section>
-    <section id="new-testimonials"></section>
-    <section id="about-aureum"></section>
 
     <section id="cta-section" class="cta-section"></section>
-    <section id="aureum-books-banner" style="text-align:center;padding:40px 20px;background:linear-gradient(180deg,transparent,rgba(212,168,67,0.03),transparent);border-top:1px solid rgba(212,168,67,0.08);border-bottom:1px solid rgba(212,168,67,0.08);">
-      <a href="/aureum-books" style="display:inline-flex;align-items:center;gap:12px;padding:16px 40px;border-radius:12px;background:linear-gradient(135deg,rgba(212,168,67,0.12),rgba(123,79,191,0.08));border:1px solid rgba(212,168,67,0.3);color:#D4A843;font-size:1.1rem;font-weight:700;text-decoration:none;font-family:'Cinzel',Georgia,serif;letter-spacing:1px;transition:all 0.3s;box-shadow:0 0 20px rgba(212,168,67,0.1);" onmouseover="this.style.background='linear-gradient(135deg,rgba(212,168,67,0.2),rgba(123,79,191,0.15))';this.style.boxShadow='0 0 40px rgba(212,168,67,0.2)'" onmouseout="this.style.background='linear-gradient(135deg,rgba(212,168,67,0.12),rgba(123,79,191,0.08))';this.style.boxShadow='0 0 20px rgba(212,168,67,0.1)'">
-        📖 AUREUM BOOKS — Astrology Library
-      </a>
-      <div id="ab-desc" style="font-size:0.75rem;color:rgba(255,255,255,0.35);margin-top:10px;">18 astrology books — PDF & audiobook</div>
-    </section>
     <footer id="footer" class="footer"></footer>
   </main>
 
@@ -1820,7 +1763,7 @@ body {
       <div class="checkout-title" id="checkout-title">Confirmar Pedido</div>
       <div class="checkout-product" id="checkout-product"></div>
       <div class="checkout-price" id="checkout-price"></div>
-      <div class="checkout-price-note" id="checkout-note">Entrega instantánea en tu email en formato PDF</div>
+      <div class="checkout-price-note" id="checkout-note">Lectura personalizada entregada por email</div>
 
       <div class="checkout-summary" id="checkout-summary"></div>
 
@@ -1843,7 +1786,7 @@ body {
         <span class="lock">🔒</span> Pago 100% seguro · Datos encriptados SSL
       </div>
       <div class="checkout-guarantee">
-        <strong>✦ Garantía:</strong> Si no recibes tu lectura en los primeros 10 minutos tras el pago, contáctanos y te la reenviamos de inmediato — o te devolvemos el 100% del dinero. Sin preguntas.
+        <strong>✦ Garantia:</strong> Si no recibes tu lectura en 24 horas, te devolvemos el 100% de tu dinero. Sin preguntas.
       </div>
     </div>
   </div>
@@ -1920,8 +1863,8 @@ const PAYMENT_CONFIG = {
   // Formato: 'product-id': 'https://buy.stripe.com/TU_LINK'
   stripeLinks: {
     // === OCCIDENTAL ===
-    'occ-natal':     '',  // €89 - Carta Natal Completa
-    'occ-sinastria': '',  // €99 - Sinastría
+    'occ-natal':     '',  // €139 - Carta Natal Completa
+    'occ-sinastria': '',  // €155 - Sinastría
     'occ-solar':     '',  // €105 - Revolución Solar
     'occ-semanal':   '',  // €22  - Horóscopo Semanal
     'occ-saturno':   '',  // €139 - Retorno de Saturno
@@ -1933,7 +1876,7 @@ const PAYMENT_CONFIG = {
     'cab-mensual':   '',  // €35  - Horóscopo Mensual
     'cab-anual':     '',  // €139 - Predicción Anual
     'cab-luna':      '',  // €59  - Luna Nueva
-    'cab-tikun':     '',  // €139 - Tikún Familiar
+    'cab-tikun':     '',  // €245 - Tikún Familiar
 
     // === VÉDICA ===
     'ved-kundli':    '',  // €139 - Kundli Completo
@@ -1959,10 +1902,10 @@ const PAYMENT_CONFIG = {
     // === ALMA ===
     'alm-karmica':   '',  // €209 - Astrología Kármica
     'alm-espiritual':'',  // €245 - Astrología Espiritual
-    'alm-akashico':  '',  // €109 - Registros Akáshicos
+    'alm-akashico':  '',  // €175 - Registros Akáshicos
 
     // === CELESTIAL ===
-    'cel-mapa':      '',  // €149 - Mapa Celestial del Alma
+    'cel-mapa':      '',  // €279 - Mapa Celestial del Alma
     'cel-angelica':  '',  // €175 - Astrología Angélica
     'cel-estrellas': '',  // €175 - Estrellas Fijas
 
@@ -2079,88 +2022,78 @@ const TRADITIONS = [
 ];
 
 const PRODUCTS = [
-  // === MINI LECTURA ===
-  { id: 'mini-lectura', cat: 'occ', price: 9.90, priceLabel: '€9.90', tag: 'nuevo', formType: 'base', sidebarSymbol: '✨',
-    name: { es: 'Mini Lectura Astral', en: 'Mini Astral Reading' },
-    desc: { es: 'Perfil astral de 5 páginas: Sol, Luna, Ascendente, elemento dominante y consejo cósmico personalizado.', en: '5-page astral profile: Sun, Moon, Ascendant, dominant element and personalized cosmic advice.' },
-    svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><polygon points="14,2 17,10 26,10 19,16 21,25 14,20 7,25 9,16 2,10 11,10" fill="none" stroke="#D4A843" stroke-width="1"/><circle cx="14" cy="14" r="3" fill="#D4A843" opacity="0.3"/></svg>' },
-  // === CHAT ASTRAL ===
-  { id: 'chat-10', cat: 'occ', price: 14.99, priceLabel: '€14.99', tag: 'popular', formType: 'chat', sidebarSymbol: '💬',
-    name: { es: 'Chat Astral — 10 Preguntas', en: 'Astral Chat — 10 Questions' },
-    desc: { es: '10 preguntas astrológicas personalizadas con tu carta natal real. La forma más fácil de empezar.', en: '10 personalized astrological questions with your real birth chart. The easiest way to start.' },
-    svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><path d="M4 6h20a2 2 0 012 2v10a2 2 0 01-2 2H10l-4 4v-4H4a2 2 0 01-2-2V8a2 2 0 012-2z" fill="none" stroke="#D4A843" stroke-width="1"/><circle cx="10" cy="13" r="1" fill="#D4A843"/><circle cx="14" cy="13" r="1" fill="#D4A843"/><circle cx="18" cy="13" r="1" fill="#D4A843"/></svg>' },
   // === OCCIDENTAL (occ) ===
-  { id: 'occ-natal', cat: 'occ', price: 89, priceLabel: '€89', tag: 'popular', formType: 'base', sidebarSymbol: '☉',
+  { id: 'occ-natal', cat: 'occ', price: 139, priceLabel: '€139', tag: 'popular', formType: 'base', sidebarSymbol: '☉',
     name: { es: 'Carta Natal Completa', en: 'Complete Natal Chart' },
-    desc: { es: 'Análisis profundo de quién eres: Sol, Luna, Ascendente, planetas, aspectos y propósito de vida.', en: 'Deep analysis of who you are: Sun, Moon, Ascendant, planets, aspects and life purpose.' },
+    desc: { es: 'Tu mapa astral completo con planetas, casas, aspectos y tránsitos actuales.', en: 'Your complete astral map with planets, houses, aspects and current transits.' },
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="10" fill="none" stroke="#D4A843" stroke-width="1"/><circle cx="14" cy="14" r="3" fill="#D4A843" opacity="0.4"/><line x1="14" y1="4" x2="14" y2="1" stroke="#D4A843" stroke-width="1"/><line x1="14" y1="24" x2="14" y2="27" stroke="#D4A843" stroke-width="1"/></svg>' },
-  { id: 'occ-sinastria', cat: 'occ', price: 99, priceLabel: '€99', tag: 'popular', formType: 'pareja', sidebarSymbol: '♡',
+  { id: 'occ-sinastria', cat: 'occ', price: 155, priceLabel: '€155', tag: 'popular', formType: 'pareja', sidebarSymbol: '♡',
     name: { es: 'Sinastría', en: 'Synastry' },
-    desc: { es: 'Dos cartas superpuestas: qué atrae, qué complementa y qué desafía en tu relación.', en: 'Two charts overlaid: what attracts, complements and challenges your relationship.' },
+    desc: { es: 'Análisis profundo de compatibilidad entre dos cartas natales.', en: 'Deep compatibility analysis between two natal charts.' },
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><path d="M14 24 C6 18 2 12 2 8 C2 4 6 2 10 4 L14 8 L18 4 C22 2 26 4 26 8 C26 12 22 18 14 24Z" fill="none" stroke="#D4A843" stroke-width="1"/></svg>' },
   { id: 'occ-solar', cat: 'occ', price: 105, priceLabel: '€105', tag: null, formType: 'base', sidebarSymbol: '☀',
     name: { es: 'Revolución Solar', en: 'Solar Return' },
-    desc: { es: 'El mapa de tu nuevo año de vida desde tu último cumpleaños. El tema del año y sus ciclos.', en: 'The map of your new year from your last birthday. The theme and cycles of the year.' },
+    desc: { es: 'Tu año personal según el retorno del Sol a su posición natal.', en: 'Your personal year based on the Sun\'s return to its natal position.' },
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="6" fill="#D4A843" opacity="0.3"/><circle cx="14" cy="14" r="3" fill="#D4A843"/><g stroke="#D4A843" stroke-width="1"><line x1="14" y1="5" x2="14" y2="2"/><line x1="14" y1="26" x2="14" y2="23"/><line x1="5" y1="14" x2="2" y2="14"/><line x1="26" y1="14" x2="23" y2="14"/><line x1="7.6" y1="7.6" x2="5.5" y2="5.5"/><line x1="22.5" y1="22.5" x2="20.4" y2="20.4"/><line x1="7.6" y1="20.4" x2="5.5" y2="22.5"/><line x1="22.5" y1="5.5" x2="20.4" y2="7.6"/></g></svg>' },
   { id: 'occ-semanal', cat: 'occ', price: 22, priceLabel: '€22/sem', tag: null, formType: 'base', sidebarSymbol: '📅',
     name: { es: 'Horóscopo Semanal', en: 'Weekly Horoscope' },
-    desc: { es: 'Tránsitos de la semana para tu Sol, Luna y Ascendente. Orientación práctica para los próximos 7 días.', en: 'Weekly transits for your Sun, Moon and Ascendant. Practical guidance for the next 7 days.' },
+    desc: { es: 'Predicciones día a día para tu semana con tránsitos planetarios.', en: 'Day-by-day predictions for your week with planetary transits.' },
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="6" width="20" height="18" rx="2" fill="none" stroke="#D4A843" stroke-width="1"/><line x1="4" y1="11" x2="24" y2="11" stroke="#D4A843" stroke-width="1"/><line x1="9" y1="6" x2="9" y2="3" stroke="#D4A843" stroke-width="1"/><line x1="19" y1="6" x2="19" y2="3" stroke="#D4A843" stroke-width="1"/><circle cx="10" cy="17" r="1.5" fill="#D4A843" opacity="0.4"/></svg>' },
   { id: 'occ-mensual', cat: 'occ', price: 35, priceLabel: '€35/mes', tag: 'nuevo', formType: 'base', sidebarSymbol: '🗓',
     name: { es: 'Horóscopo Mensual', en: 'Monthly Horoscope' },
-    desc: { es: 'Análisis del mes completo: amor, trabajo, finanzas y salud según los tránsitos planetarios.', en: 'Full month analysis: love, work, finances and health according to planetary transits.' },
+    desc: { es: 'Predicciones completas para tu mes: amor, trabajo, salud, lunas y fechas clave.', en: 'Complete predictions for your month: love, career, health, moons and key dates.' },
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="6" width="20" height="18" rx="2" fill="none" stroke="#D4A843" stroke-width="1"/><line x1="4" y1="11" x2="24" y2="11" stroke="#D4A843" stroke-width="1"/><line x1="9" y1="6" x2="9" y2="3" stroke="#D4A843" stroke-width="1"/><line x1="19" y1="6" x2="19" y2="3" stroke="#D4A843" stroke-width="1"/><circle cx="14" cy="17" r="3" fill="none" stroke="#D4A843" stroke-width="0.8"/><path d="M14 14 L14 17 L16 17" fill="none" stroke="#D4A843" stroke-width="0.8"/></svg>' },
   { id: 'occ-saturno', cat: 'occ', price: 139, priceLabel: '€139', tag: 'nuevo', formType: 'base', sidebarSymbol: '♄',
     name: { es: 'Retorno de Saturno', en: 'Saturn Return' },
-    desc: { es: 'Para los 28-32 años o 57-62: el tránsito más importante de la vida y lo que te trae.', en: 'For ages 28-32 or 57-62: the most important life transit and what it brings you.' },
+    desc: { es: 'El ciclo de madurez más importante de tu vida (~29 años).', en: 'The most important maturity cycle of your life (~29 years).' },
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="16" r="6" fill="none" stroke="#D4A843" stroke-width="1"/><ellipse cx="14" cy="16" rx="10" ry="3" fill="none" stroke="#D4A843" stroke-width="0.8" opacity="0.5"/><line x1="14" y1="10" x2="14" y2="4" stroke="#D4A843" stroke-width="1"/><line x1="11" y1="4" x2="17" y2="4" stroke="#D4A843" stroke-width="1"/></svg>' },
-  { id: 'occ-bebe', cat: 'occ', price: 89, priceLabel: '€89', tag: 'nuevo', formType: 'bebe', sidebarSymbol: '👶',
+  { id: 'occ-bebe', cat: 'occ', price: 105, priceLabel: '€105', tag: 'nuevo', formType: 'bebe', sidebarSymbol: '👶',
     name: { es: 'Carta del Bebé', en: 'Baby Chart' },
-    desc: { es: 'La carta natal de tu bebé: carácter, talentos y necesidades emocionales en lenguaje amoroso.', en: 'Your baby\'s natal chart: character, talents and emotional needs in loving language.' },
+    desc: { es: 'Carta natal para recién nacidos con guía completa para padres.', en: 'Natal chart for newborns with complete parenting guide.' },
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="12" r="7" fill="none" stroke="#D4A843" stroke-width="1"/><path d="M8 20 Q14 28 20 20" fill="none" stroke="#D4A843" stroke-width="1"/><circle cx="11" cy="11" r="1" fill="#D4A843"/><circle cx="17" cy="11" r="1" fill="#D4A843"/><path d="M12 14 Q14 16 16 14" fill="none" stroke="#D4A843" stroke-width="0.8"/></svg>' },
 
   // === CABALÍSTICA (cab) ===
   { id: 'cab-natal', cat: 'cab', price: 139, priceLabel: '€139', tag: 'popular', formType: 'base', sidebarSymbol: '✡',
     name: { es: 'Carta Cabalística', en: 'Kabbalistic Chart' },
-    desc: { es: 'Tu Árbol de la Vida personal, tikún del alma y sendero espiritual.', en: 'Your personal Tree of Life, soul tikun and spiritual path.' },
+    desc: { es: 'Tu tikún y misión del alma según la Kabbalah y el Árbol de la Vida.', en: 'Your tikun and soul mission according to Kabbalah and the Tree of Life.' },
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><polygon points="14,3 22,18 6,18" fill="none" stroke="#7B4FBF" stroke-width="1"/><polygon points="14,25 6,10 22,10" fill="none" stroke="#7B4FBF" stroke-width="1"/></svg>' },
   { id: 'cab-compat', cat: 'cab', price: 122, priceLabel: '€122', tag: 'popular', formType: 'pareja', sidebarSymbol: '♡',
     name: { es: 'Compatibilidad Cabalística', en: 'Kabbalistic Compatibility' },
-    desc: { es: 'Dos almas desde la Kabbalah: tikún compartido y misión conjunta.', en: 'Two souls from Kabbalah: shared tikun and joint mission.' },
+    desc: { es: 'Compatibilidad cabalística profunda entre dos almas.', en: 'Deep Kabbalistic compatibility between two souls.' },
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><path d="M14 24 C6 18 2 12 2 8 C2 4 6 2 10 4 L14 8 L18 4 C22 2 26 4 26 8 C26 12 22 18 14 24Z" fill="none" stroke="#7B4FBF" stroke-width="1"/></svg>' },
   { id: 'cab-mensual', cat: 'cab', price: 35, priceLabel: '€35/mes', tag: null, formType: 'base', sidebarSymbol: '🌙',
     name: { es: 'Horóscopo Mensual', en: 'Monthly Horoscope' },
-    desc: { es: 'El mes desde el Árbol de la Vida. Sefirot activas y orientación espiritual.', en: 'The month from the Tree of Life. Active Sefirot and spiritual guidance.' },
+    desc: { es: 'Guía cabalística para el mes con letras hebreas y tránsitos.', en: 'Kabbalistic guide for the month with Hebrew letters and transits.' },
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><path d="M18 6 C10 6 5 12 5 18 C5 22 8 26 14 26 C20 26 24 20 18 14 C14 10 14 6 18 6Z" fill="none" stroke="#7B4FBF" stroke-width="1"/></svg>' },
   { id: 'cab-anual', cat: 'cab', price: 139, priceLabel: '€139', tag: null, formType: 'base', sidebarSymbol: '🔮',
     name: { es: 'Predicción Anual', en: 'Annual Prediction' },
-    desc: { es: 'Los ciclos del alma para los próximos 12 meses según la tradición cabalística.', en: 'Soul cycles for the next 12 months according to the Kabbalistic tradition.' },
+    desc: { es: 'Tu año completo según los ciclos cabalísticos y sefiróticos.', en: 'Your complete year according to Kabbalistic and Sefirotic cycles.' },
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="10" fill="none" stroke="#7B4FBF" stroke-width="1"/><circle cx="14" cy="14" r="5" fill="#7B4FBF" opacity="0.15"/><circle cx="14" cy="14" r="2" fill="#7B4FBF" opacity="0.4"/></svg>' },
   { id: 'cab-luna', cat: 'cab', price: 59, priceLabel: '€59', tag: null, formType: 'base', sidebarSymbol: '🌑',
     name: { es: 'Luna Nueva', en: 'New Moon' },
-    desc: { es: 'Intenciones y rituales personalizados para la luna nueva según tu carta natal.', en: 'Personalized intentions and rituals for the new moon based on your natal chart.' },
+    desc: { es: 'Meditación y guía para cada luna nueva cabalística.', en: 'Meditation and guide for each Kabbalistic new moon.' },
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="10" fill="none" stroke="#7B4FBF" stroke-width="1"/><circle cx="18" cy="14" r="10" fill="#06050E" stroke="none"/></svg>' },
-  { id: 'cab-tikun', cat: 'cab', price: 139, priceLabel: '€139', tag: 'premium', formType: 'tikun', sidebarSymbol: '👨‍👩‍👦',
+  { id: 'cab-tikun', cat: 'cab', price: 245, priceLabel: '€245', tag: 'premium', formType: 'tikun', sidebarSymbol: '👨‍👩‍👦',
     name: { es: 'Tikún Familiar', en: 'Family Tikun' },
-    desc: { es: 'Patrones kármicos del linaje, contratos del alma y claves de sanación familiar.', en: 'Karmic lineage patterns, soul contracts and family healing keys.' },
+    desc: { es: 'Corrección kármica del linaje familiar completo con sefirot.', en: 'Complete karmic correction of family lineage with sefirot.' },
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="6" r="3" fill="none" stroke="#7B4FBF" stroke-width="1"/><circle cx="7" cy="18" r="3" fill="none" stroke="#7B4FBF" stroke-width="1"/><circle cx="21" cy="18" r="3" fill="none" stroke="#7B4FBF" stroke-width="1"/><line x1="14" y1="9" x2="7" y2="15" stroke="#7B4FBF" stroke-width="0.8"/><line x1="14" y1="9" x2="21" y2="15" stroke="#7B4FBF" stroke-width="0.8"/></svg>' },
 
   // === VÉDICA (ved) ===
   { id: 'ved-kundli', cat: 'ved', price: 139, priceLabel: '€139', tag: 'nuevo', formType: 'base', sidebarSymbol: '☸',
     name: { es: 'Kundli Completo', en: 'Complete Kundli' },
-    desc: { es: 'Carta natal védica completa: Lagna, planetas, Nakshatras y Yoga planetarios.', en: 'Complete Vedic natal chart: Lagna, planets, Nakshatras and planetary Yogas.' },
+    desc: { es: 'Tu carta védica completa con rashi, nakshatras, dashas y yogas.', en: 'Your complete Vedic chart with rashi, nakshatras, dashas and yogas.' },
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="4" width="20" height="20" fill="none" stroke="#E07B4F" stroke-width="1"/><line x1="4" y1="4" x2="24" y2="24" stroke="#E07B4F" stroke-width="0.8"/><line x1="24" y1="4" x2="4" y2="24" stroke="#E07B4F" stroke-width="0.8"/><circle cx="14" cy="14" r="3" fill="#E07B4F" opacity="0.3"/></svg>' },
   { id: 'ved-milan', cat: 'ved', price: 122, priceLabel: '€122', tag: 'nuevo', formType: 'pareja', sidebarSymbol: '♡',
     name: { es: 'Kundli Milan', en: 'Kundli Milan' },
-    desc: { es: 'Compatibilidad védica de pareja: los 36 gunas, Mangal Dosha y análisis completo.', en: 'Vedic couple compatibility: the 36 gunas, Mangal Dosha and complete analysis.' },
+    desc: { es: 'Compatibilidad védica Ashtakoot de 36 puntos con doshas.', en: 'Vedic Ashtakoot compatibility of 36 points with doshas.' },
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><path d="M14 24 C6 18 2 12 2 8 C2 4 6 2 10 4 L14 8 L18 4 C22 2 26 4 26 8 C26 12 22 18 14 24Z" fill="none" stroke="#E07B4F" stroke-width="1"/><circle cx="14" cy="13" r="3" fill="#E07B4F" opacity="0.3"/></svg>' },
   { id: 'ved-dasha', cat: 'ved', price: 105, priceLabel: '€105', tag: null, formType: 'base', sidebarSymbol: '⏳',
     name: { es: 'Predicciones Dasha', en: 'Dasha Predictions' },
-    desc: { es: 'Tu período planetario actual y los próximos. El sistema predictivo más preciso del Jyotish.', en: 'Your current planetary period and upcoming ones. The most precise predictive system in Jyotish.' },
+    desc: { es: 'Períodos planetarios y predicciones temporales védicas detalladas.', en: 'Planetary periods and detailed Vedic temporal predictions.' },
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="10" fill="none" stroke="#E07B4F" stroke-width="1"/><line x1="14" y1="14" x2="14" y2="7" stroke="#E07B4F" stroke-width="1"/><line x1="14" y1="14" x2="20" y2="14" stroke="#E07B4F" stroke-width="0.8"/><circle cx="14" cy="14" r="1.5" fill="#E07B4F" opacity="0.4"/></svg>' },
   { id: 'ved-remedios', cat: 'ved', price: 69, priceLabel: '€69', tag: null, formType: 'spiritual', sidebarSymbol: '🙏',
     name: { es: 'Remedios Védicos', en: 'Vedic Remedies' },
-    desc: { es: 'Mantras, gemas, rituales y prácticas personalizadas según tu carta Jyotish.', en: 'Mantras, gems, rituals and personalized practices based on your Jyotish chart.' },
+    desc: { es: 'Mantras, gemas, yantras y rituales para armonizar tu carta.', en: 'Mantras, gems, yantras and rituals to harmonize your chart.' },
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><path d="M14 4 L16 10 L22 10 L17 14 L19 20 L14 16 L9 20 L11 14 L6 10 L12 10Z" fill="none" stroke="#E07B4F" stroke-width="1"/><circle cx="14" cy="24" r="2" fill="#E07B4F" opacity="0.3"/></svg>' },
   { id: 'ved-vastu', cat: 'ved', price: 89, priceLabel: '€89', tag: 'nuevo', formType: 'fengshui', sidebarSymbol: '🏛',
     name: { es: 'Vastu Shastra', en: 'Vastu Shastra' },
@@ -2168,91 +2101,91 @@ const PRODUCTS = [
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><path d="M14 3 L25 12 L22 12 L22 25 L6 25 L6 12 L3 12Z" fill="none" stroke="#E07B4F" stroke-width="1"/><line x1="14" y1="12" x2="14" y2="25" stroke="#E07B4F" stroke-width="0.6" opacity="0.4"/><line x1="6" y1="18" x2="22" y2="18" stroke="#E07B4F" stroke-width="0.6" opacity="0.4"/></svg>' },
   { id: 'ved-muhurta', cat: 'ved', price: 69, priceLabel: '€69', tag: null, formType: 'eleccional', sidebarSymbol: '📅',
     name: { es: 'Muhurta — Timing Auspicioso', en: 'Muhurta — Auspicious Timing' },
-    desc: { es: 'El momento astrológico óptimo para tu boda, negocio, cirugía o decisión importante.', en: 'The optimal astrological moment for your wedding, business, surgery or important decision.' },
+    desc: { es: 'Selección de fechas auspiciosas para eventos importantes: boda, negocio, viaje, mudanza.', en: 'Selection of auspicious dates for important events: wedding, business, travel, relocation.' },
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="6" width="20" height="18" rx="2" fill="none" stroke="#E07B4F" stroke-width="1"/><line x1="4" y1="11" x2="24" y2="11" stroke="#E07B4F" stroke-width="0.8"/><circle cx="14" cy="18" r="3" fill="#E07B4F" opacity="0.2"/><path d="M14 16 L15 18 L14 20 L13 18Z" fill="#E07B4F" opacity="0.5"/></svg>' },
 
   // === CHINA (chi) ===
   { id: 'chi-bazi', cat: 'chi', price: 139, priceLabel: '€139', tag: 'nuevo', formType: 'base', sidebarSymbol: '☯',
     name: { es: 'Ba Zi (Cuatro Pilares)', en: 'Ba Zi (Four Pillars)' },
-    desc: { es: 'Los cuatro pilares del destino: elemento dominante, ciclos de suerte y propósito.', en: 'The four pillars of destiny: dominant element, luck cycles and purpose.' },
+    desc: { es: 'Los cuatro pilares de tu destino: año, mes, día y hora con Wu Xing.', en: 'The four pillars of your destiny: year, month, day and hour with Wu Xing.' },
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="8" width="5" height="16" rx="1" fill="none" stroke="#C74038" stroke-width="0.8"/><rect x="9" y="5" width="5" height="19" rx="1" fill="none" stroke="#C74038" stroke-width="0.8"/><rect x="16" y="8" width="5" height="16" rx="1" fill="none" stroke="#C74038" stroke-width="0.8"/><rect x="23" y="6" width="5" height="18" rx="1" fill="none" stroke="#C74038" stroke-width="0.8" transform="translate(-2,0)"/></svg>' },
   { id: 'chi-compat', cat: 'chi', price: 105, priceLabel: '€105', tag: 'nuevo', formType: 'pareja', sidebarSymbol: '♡',
     name: { es: 'Compatibilidad China', en: 'Chinese Compatibility' },
-    desc: { es: 'Animales zodiacales, elementos y dinámicas de la relación según la tradición china.', en: 'Zodiac animals, elements and relationship dynamics according to Chinese tradition.' },
+    desc: { es: 'Compatibilidad de signos animales, triángulos y elementos Wu Xing.', en: 'Compatibility of animal signs, triangles and Wu Xing elements.' },
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><path d="M14 24 C6 18 2 12 2 8 C2 4 6 2 10 4 L14 8 L18 4 C22 2 26 4 26 8 C26 12 22 18 14 24Z" fill="none" stroke="#C74038" stroke-width="1"/></svg>' },
   { id: 'chi-anual', cat: 'chi', price: 105, priceLabel: '€105', tag: null, formType: 'base', sidebarSymbol: '🐉',
     name: { es: 'Predicción Año Chino', en: 'Chinese Year Prediction' },
-    desc: { es: 'Cómo te afecta el año en curso mes a mes según tu animal zodiacal.', en: 'How the current year affects you month by month based on your zodiac animal.' },
+    desc: { es: 'Tu predicción completa para el año del animal regente.', en: 'Your complete prediction for the ruling animal\'s year.' },
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="10" fill="none" stroke="#C74038" stroke-width="1"/><path d="M8 14 Q14 6 20 14 Q14 22 8 14Z" fill="#C74038" opacity="0.15"/><circle cx="14" cy="14" r="2" fill="#C74038" opacity="0.4"/></svg>' },
   { id: 'chi-fengshui', cat: 'chi', price: 89, priceLabel: '€89', tag: null, formType: 'fengshui', sidebarSymbol: '🏠',
     name: { es: 'Feng Shui Personal', en: 'Personal Feng Shui' },
-    desc: { es: 'Tu Número Kua, direcciones favorables y activaciones para tu hogar y oficina.', en: 'Your Kua Number, favorable directions and activations for your home and office.' },
+    desc: { es: 'Tu número Kua, direcciones favorables y armonización del espacio.', en: 'Your Kua number, favorable directions and space harmonization.' },
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><path d="M14 4 L24 14 L22 14 L22 24 L6 24 L6 14 L4 14Z" fill="none" stroke="#C74038" stroke-width="1"/><rect x="11" y="17" width="6" height="7" fill="none" stroke="#C74038" stroke-width="0.8"/></svg>' },
   { id: 'chi-ziwei', cat: 'chi', price: 139, priceLabel: '€139', tag: 'nuevo', formType: 'base', sidebarSymbol: '🌟',
     name: { es: 'Zi Wei Dou Shu', en: 'Zi Wei Dou Shu' },
-    desc: { es: 'El sistema imperial chino de las Estrellas Púrpuras. Palacio del destino y predicciones.', en: 'The Chinese imperial system of Purple Stars. Palace of destiny and predictions.' },
+    desc: { es: 'Astrología de la Estrella Púrpura: tu carta imperial china con 14 estrellas principales y 12 palacios de vida.', en: 'Purple Star Astrology: your Chinese imperial chart with 14 main stars and 12 life palaces.' },
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><polygon points="14,2 16,9 23,9 17.5,13.5 19.5,21 14,16.5 8.5,21 10.5,13.5 5,9 12,9" fill="none" stroke="#C74038" stroke-width="0.8"/><circle cx="14" cy="12" r="3" fill="#C74038" opacity="0.15"/><circle cx="14" cy="12" r="1" fill="#C74038" opacity="0.4"/></svg>' },
 
   // === ESPECIALIZADA (esp) ===
   { id: 'esp-business', cat: 'esp', price: 175, priceLabel: '€175', tag: 'premium', formType: 'business', sidebarSymbol: '💼',
     name: { es: 'Horóscopo Business', en: 'Business Horoscope' },
-    desc: { es: 'Tu carta natal aplicada a los negocios: vocación, liderazgo y timing para lanzamientos.', en: 'Your natal chart applied to business: vocation, leadership and timing for launches.' },
+    desc: { es: 'Tu perfil empresarial cósmico: talentos profesionales, tipo de negocio afín, timing favorable para proyectos y plan de acción estratégico. 3,000-4,000 palabras.', en: 'Your cosmic business profile: professional talents, ideal business type, favorable timing for projects and strategic action plan. 3,000-4,000 words.' },
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="10" width="18" height="14" rx="2" fill="none" stroke="#4A9B8E" stroke-width="1"/><path d="M10 10 L10 7 Q10 4 14 4 Q18 4 18 7 L18 10" fill="none" stroke="#4A9B8E" stroke-width="1"/><circle cx="14" cy="17" r="2" fill="#4A9B8E" opacity="0.4"/></svg>' },
   { id: 'esp-medicinal', cat: 'esp', price: 139, priceLabel: '€139', tag: 'premium', formType: 'medical', sidebarSymbol: '⚕',
     name: { es: 'Astrología Medicinal', en: 'Medical Astrology' },
-    desc: { es: 'Planetas rectores de tus sistemas corporales y épocas de mayor vitalidad. Solo orientativo.', en: 'Ruling planets of your body systems and periods of greatest vitality. Guidance only.' },
+    desc: { es: 'Mapa de bienestar astrológico: tendencias constitucionales, nutrición, ejercicio, hierbas, rutinas de bienestar y autocuidado según tu carta natal. 3,000-4,000 palabras.', en: 'Astrological wellness map: constitutional tendencies, nutrition, exercise, herbs, wellness routines and self-care based on your birth chart. 3,000-4,000 words.' },
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><line x1="14" y1="6" x2="14" y2="22" stroke="#4A9B8E" stroke-width="2"/><line x1="6" y1="14" x2="22" y2="14" stroke="#4A9B8E" stroke-width="2"/><circle cx="14" cy="14" r="10" fill="none" stroke="#4A9B8E" stroke-width="1" opacity="0.4"/></svg>' },
   { id: 'esp-astrocarto', cat: 'esp', price: 139, priceLabel: '€139', tag: 'nuevo', formType: 'base', sidebarSymbol: '🌍',
     name: { es: 'Astrocartografía', en: 'Astrocartography' },
-    desc: { es: 'Dónde en el mundo serías más feliz, exitoso o espiritual según tu carta natal.', en: 'Where in the world you would be happiest, most successful or spiritual based on your chart.' },
+    desc: { es: 'Tu mapa planetario mundial: las mejores ciudades para vivir, trabajar, amar y prosperar según tu carta natal.', en: 'Your world planetary map: the best cities to live, work, love and thrive according to your birth chart.' },
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="11" fill="none" stroke="#4A9B8E" stroke-width="1"/><ellipse cx="14" cy="14" rx="5" ry="11" fill="none" stroke="#4A9B8E" stroke-width="0.6" opacity="0.5"/><line x1="3" y1="10" x2="25" y2="10" stroke="#4A9B8E" stroke-width="0.6" opacity="0.4"/><line x1="3" y1="18" x2="25" y2="18" stroke="#4A9B8E" stroke-width="0.6" opacity="0.4"/><circle cx="18" cy="10" r="1.5" fill="#4A9B8E" opacity="0.5"/></svg>' },
   { id: 'esp-eleccional', cat: 'esp', price: 105, priceLabel: '€105', tag: null, formType: 'eleccional', sidebarSymbol: '📆',
     name: { es: 'Astrología Eleccional', en: 'Electional Astrology' },
-    desc: { es: 'El timing astrológico perfecto para tu acción más importante.', en: 'The perfect astrological timing for your most important action.' },
+    desc: { es: 'Fechas óptimas para tus eventos importantes: bodas, inauguraciones, contratos, lanzamientos y más.', en: 'Optimal dates for your important events: weddings, openings, contracts, launches and more.' },
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="6" width="20" height="18" rx="2" fill="none" stroke="#4A9B8E" stroke-width="1"/><line x1="4" y1="11" x2="24" y2="11" stroke="#4A9B8E" stroke-width="0.8"/><path d="M10 16 L13 19 L19 13" stroke="#4A9B8E" stroke-width="1.5" fill="none"/></svg>' },
 
   // === ALMA (alm) ===
-  { id: 'alm-karmica', cat: 'alm', price: 149, priceLabel: '€149', tag: 'exclusivo', formType: 'karmic', sidebarSymbol: '♾',
+  { id: 'alm-karmica', cat: 'alm', price: 209, priceLabel: '€209', tag: 'exclusivo', formType: 'karmic', sidebarSymbol: '♾',
     name: { es: 'Astrología Kármica', en: 'Karmic Astrology' },
-    desc: { es: 'Nodos lunares, Quirón, planetas retrógrados y patrones kármicos que se repiten en tu vida.', en: 'Lunar nodes, Chiron, retrograde planets and karmic patterns repeating in your life.' },
+    desc: { es: 'Nodos lunares, vidas pasadas, deudas kármicas y registros akáshicos.', en: 'Lunar nodes, past lives, karmic debts and akashic records.' },
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><path d="M4 14 Q4 6 10 6 Q16 6 16 14 Q16 22 22 22 Q28 22 28 14" fill="none" stroke="#9B6FDF" stroke-width="1"/><path d="M0 14 Q0 22 6 22 Q12 22 12 14 Q12 6 18 6 Q24 6 24 14" fill="none" stroke="#9B6FDF" stroke-width="1" opacity="0.4"/></svg>' },
-  { id: 'alm-espiritual', cat: 'alm', price: 169, priceLabel: '€169', tag: 'exclusivo', formType: 'spiritual', sidebarSymbol: '🙏',
+  { id: 'alm-espiritual', cat: 'alm', price: 245, priceLabel: '€245', tag: 'exclusivo', formType: 'spiritual', sidebarSymbol: '🙏',
     name: { es: 'Astrología Espiritual', en: 'Spiritual Astrology' },
-    desc: { es: 'La lectura más profunda del catálogo: 3 tradiciones integradas para tu camino espiritual.', en: 'The deepest reading in the catalog: 3 traditions integrated for your spiritual path.' },
+    desc: { es: 'Tu propósito del alma, camino dharma y evolución espiritual.', en: 'Your soul purpose, dharma path and spiritual evolution.' },
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="10" r="6" fill="none" stroke="#9B6FDF" stroke-width="1"/><path d="M9 18 Q14 26 19 18" fill="none" stroke="#9B6FDF" stroke-width="1"/><circle cx="14" cy="9" r="2" fill="#9B6FDF" opacity="0.3"/></svg>' },
-  { id: 'alm-akashico', cat: 'alm', price: 109, priceLabel: '€109', tag: 'exclusivo', formType: 'spiritual', sidebarSymbol: '📖',
+  { id: 'alm-akashico', cat: 'alm', price: 175, priceLabel: '€175', tag: 'exclusivo', formType: 'spiritual', sidebarSymbol: '📖',
     name: { es: 'Registros Akáshicos', en: 'Akashic Records' },
-    desc: { es: 'Contratos del alma, dones de vidas anteriores y misión profunda en esta encarnación.', en: 'Soul contracts, gifts from past lives and deep mission in this incarnation.' },
+    desc: { es: 'Lectura de tus registros akáshicos: memorias del alma, contratos kármicos y guía de tus maestros ascendidos.', en: 'Reading of your akashic records: soul memories, karmic contracts and guidance from your ascended masters.' },
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><path d="M5 4 L5 24 Q14 20 23 24 L23 4 Q14 8 5 4Z" fill="none" stroke="#9B6FDF" stroke-width="1"/><line x1="14" y1="6" x2="14" y2="22" stroke="#9B6FDF" stroke-width="0.6" opacity="0.4"/><circle cx="14" cy="14" r="2" fill="#9B6FDF" opacity="0.3"/></svg>' },
 
   // === CELESTIAL (cel) ===
-  { id: 'cel-mapa', cat: 'cel', price: 149, priceLabel: '€149', tag: 'popular', formType: 'base', sidebarSymbol: '✶',
+  { id: 'cel-mapa', cat: 'cel', price: 279, priceLabel: '€279', tag: 'popular', formType: 'base', sidebarSymbol: '✶',
     name: { es: 'Mapa Celestial del Alma', en: 'Celestial Soul Map' },
-    desc: { es: 'Carta natal + estrellas fijas + ángeles = tu propósito cósmico completo.', en: 'Natal chart + fixed stars + angels = your complete cosmic purpose.' },
+    desc: { es: 'Mapa celestial personalizado del cielo en tu momento exacto de nacimiento.', en: 'Personalized celestial map of the sky at your exact moment of birth.' },
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="11" fill="none" stroke="#5BA0D9" stroke-width="1"/><circle cx="8" cy="10" r="1" fill="#5BA0D9"/><circle cx="18" cy="8" r="1.5" fill="#5BA0D9" opacity="0.6"/><circle cx="20" cy="16" r="1" fill="#5BA0D9"/><circle cx="10" cy="18" r="1.2" fill="#5BA0D9" opacity="0.4"/><circle cx="15" cy="13" r="0.8" fill="#5BA0D9"/></svg>' },
   { id: 'cel-angelica', cat: 'cel', price: 175, priceLabel: '€175', tag: 'nuevo', formType: 'spiritual', sidebarSymbol: '👼',
     name: { es: 'Astrología Angélica', en: 'Angelic Astrology' },
-    desc: { es: 'Tus ángeles regentes, planetas angélicos y mensajes del reino angélico para ti.', en: 'Your ruling angels, angelic planets and messages from the angelic realm for you.' },
+    desc: { es: 'Mensajes celestiales de tus ángeles guardianes según la astrología.', en: 'Celestial messages from your guardian angels according to astrology.' },
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="12" r="4" fill="none" stroke="#5BA0D9" stroke-width="1"/><path d="M6 22 Q10 16 14 16 Q18 16 22 22" fill="none" stroke="#5BA0D9" stroke-width="1"/><path d="M6 10 Q10 4 14 6" fill="none" stroke="#5BA0D9" stroke-width="0.8" opacity="0.5"/><path d="M22 10 Q18 4 14 6" fill="none" stroke="#5BA0D9" stroke-width="0.8" opacity="0.5"/></svg>' },
   { id: 'cel-estrellas', cat: 'cel', price: 175, priceLabel: '€175', tag: null, formType: 'base', sidebarSymbol: '⭐',
     name: { es: 'Astrología de Estrellas Fijas', en: 'Fixed Stars Astrology' },
-    desc: { es: 'Las estrellas del firmamento activas en tu carta natal y los talentos que señalan.', en: 'The stars active in your natal chart and the talents they point to.' },
+    desc: { es: 'Influencia profunda de las estrellas fijas más importantes en tu carta.', en: 'Deep influence of the most important fixed stars in your chart.' },
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><polygon points="14,2 16.5,10 25,10 18,15.5 20.5,24 14,19 7.5,24 10,15.5 3,10 11.5,10" fill="none" stroke="#5BA0D9" stroke-width="1"/></svg>' },
 
   // === HELENÍSTICA (hel) ===
   { id: 'hel-natal', cat: 'hel', price: 139, priceLabel: '€139', tag: 'nuevo', formType: 'base', sidebarSymbol: '♃',
     name: { es: 'Carta Helenística', en: 'Hellenistic Chart' },
-    desc: { es: 'Astrología griega clásica: casas enteras, lotes arábigos y Crónocratas.', en: 'Classical Greek astrology: whole sign houses, Arabic lots and Chronocrators.' },
+    desc: { es: 'Tu carta natal según la tradición clásica griega: secta, lotes sagrados, dignidades, cronocáratas, estrellas fijas y el Señor de la Carta.', en: 'Your natal chart according to classical Greek tradition: sect, sacred lots, dignities, chronocrators, fixed stars and the Master of the Chart.' },
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="10" fill="none" stroke="#4A9B8E" stroke-width="1"/><path d="M8 8 L8 20 M12 8 L12 20 M6 12 L14 12 M6 16 L14 16" fill="none" stroke="#4A9B8E" stroke-width="0.8" opacity="0.7"/><circle cx="20" cy="10" r="2" fill="#4A9B8E" opacity="0.4"/></svg>' },
 
   // === HUMAN DESIGN (hd) ===
   { id: 'hd-design', cat: 'hd', price: 175, priceLabel: '€175', tag: 'nuevo', formType: 'hd', sidebarSymbol: '☰',
     name: { es: 'Human Design Completo', en: 'Complete Human Design' },
-    desc: { es: 'Tipo, Estrategia, Autoridad, Perfil y Centros. Tu guía para decisiones alineadas.', en: 'Type, Strategy, Authority, Profile and Centers. Your guide for aligned decisions.' },
+    desc: { es: 'Tu tipo, estrategia, autoridad, perfil y centros de diseño humano.', en: 'Your type, strategy, authority, profile and human design centers.' },
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="6" r="3" fill="none" stroke="#D4A843" stroke-width="1"/><rect x="10" y="11" width="8" height="5" rx="1" fill="none" stroke="#D4A843" stroke-width="1"/><circle cx="14" cy="22" r="3" fill="none" stroke="#D4A843" stroke-width="1"/><line x1="14" y1="9" x2="14" y2="11" stroke="#D4A843" stroke-width="0.8"/><line x1="14" y1="16" x2="14" y2="19" stroke="#D4A843" stroke-width="0.8"/></svg>' },
   { id: 'hd-iching', cat: 'hd', price: 105, priceLabel: '€105', tag: null, formType: 'iching', sidebarSymbol: '☷',
     name: { es: 'Lectura I Ching', en: 'I Ching Reading' },
-    desc: { es: 'Consulta al Libro de los Cambios con tu pregunta específica. 3.000 años de sabiduría.', en: 'Consult the Book of Changes with your specific question. 3,000 years of wisdom.' },
+    desc: { es: 'Consulta oracular profunda con hexagramas del I Ching.', en: 'Deep oracle consultation with I Ching hexagrams.' },
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><line x1="6" y1="7" x2="22" y2="7" stroke="#D4A843" stroke-width="1.5"/><line x1="6" y1="11" x2="13" y2="11" stroke="#D4A843" stroke-width="1.5"/><line x1="15" y1="11" x2="22" y2="11" stroke="#D4A843" stroke-width="1.5"/><line x1="6" y1="15" x2="22" y2="15" stroke="#D4A843" stroke-width="1.5"/><line x1="6" y1="19" x2="13" y2="19" stroke="#D4A843" stroke-width="1.5"/><line x1="15" y1="19" x2="22" y2="19" stroke="#D4A843" stroke-width="1.5"/><line x1="6" y1="23" x2="22" y2="23" stroke="#D4A843" stroke-width="1.5"/></svg>' },
   { id: 'hd-bodygraph', cat: 'hd', price: 139, priceLabel: '€139', tag: 'nuevo', formType: 'hd', sidebarSymbol: '🧬',
     name: { es: 'Bodygraph Detallado', en: 'Detailed Bodygraph' },
@@ -2261,7 +2194,7 @@ const PRODUCTS = [
 ];
 
 const PACKS = [
-  { id: 'mega-carta', price: 299, origPrice: 506, savings: 207, tag: 'bestseller', formType: 'base',
+  { id: 'mega-carta', price: 335, origPrice: 556, savings: 221, tag: 'bestseller', formType: 'base',
     name: { es: 'Mega Carta Astral', en: 'Mega Astral Chart' },
     desc: { es: '4 cartas natales de 4 tradiciones diferentes en una lectura épica.', en: '4 natal charts from 4 different traditions in one epic reading.' },
     includes: ['occ-natal','cab-natal','ved-kundli','chi-bazi'],
@@ -2271,12 +2204,12 @@ const PACKS = [
     desc: { es: '3 cartas natales de 3 tradiciones para una visión completa de tu destino.', en: '3 natal charts from 3 traditions for a complete vision of your destiny.' },
     includes: ['cab-natal','ved-kundli','chi-bazi'],
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="8" r="5" fill="none" stroke="#D4A843" stroke-width="0.8"/><circle cx="8" cy="20" r="5" fill="none" stroke="#D4A843" stroke-width="0.8"/><circle cx="20" cy="20" r="5" fill="none" stroke="#D4A843" stroke-width="0.8"/></svg>' },
-  { id: 'pareja-universal', price: 269, origPrice: 448, savings: 179, tag: 'parejas', formType: 'pareja',
+  { id: 'pareja-universal', price: 299, origPrice: 504, savings: 205, tag: 'parejas', formType: 'pareja',
     name: { es: 'Pareja Universal', en: 'Universal Couple' },
     desc: { es: '4 análisis de compatibilidad desde 4 tradiciones astrológicas.', en: '4 compatibility analyses from 4 astrological traditions.' },
     includes: ['occ-sinastria','cab-compat','ved-milan','chi-compat'],
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><path d="M14 22 C8 18 4 13 4 10 C4 7 7 5 10 7 L14 10 L18 7 C21 5 24 7 24 10 C24 13 20 18 14 22Z" fill="#D4A843" opacity="0.2" stroke="#D4A843" stroke-width="0.8"/></svg>' },
-  { id: 'bebe-cosmico', price: 219, origPrice: 367, savings: 148, tag: 'padres', formType: 'bebe',
+  { id: 'bebe-cosmico', price: 229, origPrice: 383, savings: 154, tag: 'padres', formType: 'bebe',
     name: { es: 'Bebé Cósmico', en: 'Cosmic Baby' },
     desc: { es: '3 lecturas natales para tu bebé desde 3 tradiciones diferentes.', en: '3 natal readings for your baby from 3 different traditions.' },
     includes: ['occ-bebe','ved-kundli','chi-bazi'],
@@ -2286,7 +2219,7 @@ const PACKS = [
     desc: { es: '4 predicciones anuales desde 4 tradiciones para un año perfecto.', en: '4 annual predictions from 4 traditions for a perfect year.' },
     includes: ['occ-solar','cab-anual','ved-dasha','chi-anual'],
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="11" fill="none" stroke="#D4A843" stroke-width="0.8"/><line x1="14" y1="3" x2="14" y2="7" stroke="#D4A843" stroke-width="0.8"/><line x1="14" y1="21" x2="14" y2="25" stroke="#D4A843" stroke-width="0.8"/><line x1="3" y1="14" x2="7" y2="14" stroke="#D4A843" stroke-width="0.8"/><line x1="21" y1="14" x2="25" y2="14" stroke="#D4A843" stroke-width="0.8"/><circle cx="14" cy="14" r="2" fill="#D4A843" opacity="0.3"/></svg>' },
-  { id: 'emprendedor-cosmico', price: 239, origPrice: 403, savings: 164, tag: 'negocios', formType: 'business',
+  { id: 'emprendedor-cosmico', price: 269, origPrice: 453, savings: 184, tag: 'negocios', formType: 'business',
     name: { es: 'Emprendedor Cósmico', en: 'Cosmic Entrepreneur' },
     desc: { es: 'Triple visión cósmica para emprendedores: business, occidental y cabalística.', en: 'Triple cosmic vision for entrepreneurs: business, Western and Kabbalistic.' },
     includes: ['esp-business','occ-natal','cab-natal'],
@@ -2296,22 +2229,22 @@ const PACKS = [
     desc: { es: 'Astrología medicinal + remedios védicos + Feng Shui para bienestar integral.', en: 'Medical astrology + Vedic remedies + Feng Shui for total wellness.' },
     includes: ['esp-medicinal','ved-remedios','chi-fengshui'],
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><line x1="14" y1="5" x2="14" y2="23" stroke="#D4A843" stroke-width="1.5"/><line x1="5" y1="14" x2="23" y2="14" stroke="#D4A843" stroke-width="1.5"/><circle cx="14" cy="14" r="10" fill="none" stroke="#D4A843" stroke-width="0.8" opacity="0.3"/></svg>' },
-  { id: 'celestial-completo', price: 299, origPrice: 499, savings: 200, tag: 'exclusivo', formType: 'base',
+  { id: 'celestial-completo', price: 379, origPrice: 629, savings: 250, tag: 'exclusivo', formType: 'base',
     name: { es: 'Celestial Completo', en: 'Complete Celestial' },
     desc: { es: 'Mapa celestial + astrología angélica + estrellas fijas: el cielo completo.', en: 'Celestial map + angelic astrology + fixed stars: the complete sky.' },
     includes: ['cel-mapa','cel-angelica','cel-estrellas'],
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><polygon points="14,2 16,9 23,9 17,14 19,21 14,17 9,21 11,14 5,9 12,9" fill="none" stroke="#D4A843" stroke-width="0.8"/><circle cx="14" cy="12" r="2" fill="#D4A843" opacity="0.2"/></svg>' },
-  { id: 'alma-divina', price: 299, origPrice: 493, savings: 194, tag: 'espiritual', formType: 'karmic',
+  { id: 'alma-divina', price: 379, origPrice: 629, savings: 250, tag: 'espiritual', formType: 'karmic',
     name: { es: 'Alma Divina', en: 'Divine Soul' },
     desc: { es: 'Astrología kármica + espiritual + Human Design para evolución total del alma.', en: 'Karmic + spiritual astrology + Human Design for total soul evolution.' },
     includes: ['alm-karmica','alm-espiritual','hd-design'],
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="10" r="7" fill="none" stroke="#D4A843" stroke-width="0.8"/><path d="M8 18 Q14 28 20 18" fill="none" stroke="#D4A843" stroke-width="0.8"/><circle cx="14" cy="9" r="3" fill="#D4A843" opacity="0.15"/></svg>' },
-  { id: 'estrella-total', price: 239, origPrice: 367, savings: 128, tag: 'popular', formType: 'base',
+  { id: 'estrella-total', price: 335, origPrice: 557, savings: 222, tag: 'popular', formType: 'base',
     name: { es: 'Estrella Total', en: 'Total Star' },
     desc: { es: 'Mapa celestial del alma + astrología kármica + remedios védicos.', en: 'Celestial soul map + karmic astrology + Vedic remedies.' },
     includes: ['cel-mapa','alm-karmica','ved-remedios'],
     svg28: '<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><polygon points="14,2 16.5,10 25,10 18,15.5 20.5,24 14,19 7.5,24 10,15.5 3,10 11.5,10" fill="none" stroke="#D4A843" stroke-width="0.8"/><circle cx="14" cy="13" r="2" fill="#D4A843" opacity="0.3"/></svg>' },
-  { id: 'autoconocimiento-total', price: 299, origPrice: 483, savings: 184, tag: 'nuevo', formType: 'hd',
+  { id: 'autoconocimiento-total', price: 335, origPrice: 559, savings: 224, tag: 'nuevo', formType: 'hd',
     name: { es: 'Autoconocimiento Total', en: 'Total Self-Knowledge' },
     desc: { es: 'Human Design + carta cabalística + astrología espiritual para conocerte por completo.', en: 'Human Design + Kabbalistic chart + spiritual astrology to know yourself completely.' },
     includes: ['hd-design','cab-natal','alm-espiritual'],
@@ -2333,12 +2266,12 @@ const PACKS = [
 // ═══════════════════════════════════════════════════
 const CONCERNS = [
   { id: 'all', icon: '✦',
-    label: { es: 'Ver Todos', en: 'View All', bg: 'Виж Всички', fr: 'Voir Tout', de: 'Alle Anzeigen', it: 'Vedi Tutti', pt: 'Ver Todos', ru: 'Показать Все', zh: '查看全部', ja: 'すべて見る', ko: '모두 보기' },
+    label: { es: 'Ver Todos', en: 'View All' },
     traditions: [], products: [],
     desc: { es: '', en: '' }
   },
   { id: 'relaciones', icon: '♡',
-    label: { es: 'Relaciones', en: 'Relationships', bg: 'Взаимоотношения', fr: 'Relations', de: 'Beziehungen', it: 'Relazioni', pt: 'Relações', ru: 'Отношения', zh: '感情', ja: '恋愛', ko: '관계' },
+    label: { es: 'Relaciones', en: 'Relationships' },
     traditions: ['occ','cab','ved','chi'],
     products: ['occ-sinastria','cab-compat','pareja-universal'],
     desc: {
@@ -2347,7 +2280,7 @@ const CONCERNS = [
     }
   },
   { id: 'proposito', icon: '◈',
-    label: { es: 'Propósito y Carrera', en: 'Purpose & Career', bg: 'Цел и Кариера', fr: 'But et Carrière', de: 'Zweck & Karriere', it: 'Scopo e Carriera', pt: 'Propósito e Carreira', ru: 'Цель и Карьера', zh: '目标与事业', ja: '目的とキャリア', ko: '목적과 커리어' },
+    label: { es: 'Propósito y Carrera', en: 'Purpose & Career' },
     traditions: ['occ','esp','hd','chi'],
     products: ['occ-natal','esp-business','hd-design'],
     desc: {
@@ -2356,7 +2289,7 @@ const CONCERNS = [
     }
   },
   { id: 'crisis', icon: '⚡',
-    label: { es: 'Momentos de Crisis', en: 'Crisis Moments', bg: 'Моменти на Криза', fr: 'Moments de Crise', de: 'Krisenmomente', it: 'Momenti di Crisi', pt: 'Momentos de Crise', ru: 'Кризисные Моменты', zh: '危机时刻', ja: '危機の瞬間', ko: '위기의 순간' },
+    label: { es: 'Momentos de Crisis', en: 'Crisis Moments' },
     traditions: ['occ','cab','alm','ved'],
     products: ['alm-karmica','cab-tikun','occ-saturno'],
     desc: {
@@ -2365,7 +2298,7 @@ const CONCERNS = [
     }
   },
   { id: 'crecimiento', icon: '❂',
-    label: { es: 'Crecimiento Personal', en: 'Personal Growth', bg: 'Личностно Развитие', fr: 'Croissance Personnelle', de: 'Persönliches Wachstum', it: 'Crescita Personale', pt: 'Crescimento Pessoal', ru: 'Личностный Рост', zh: '个人成长', ja: '自己成長', ko: '자기 성장' },
+    label: { es: 'Crecimiento Personal', en: 'Personal Growth' },
     traditions: ['occ','cab','ved','hd','cel'],
     products: ['mega-carta','hd-design','cel-mapa'],
     desc: {
@@ -2864,14 +2797,31 @@ var ck={bg:{checkoutTitle:'Потвърди Поръчка',checkoutNote:'Пер
 
 // === LANGUAGE CONFIG ===
 const LANGS = [
-  { code: 'en', flag: '🇬🇧', name: 'English', dir: 'ltr' },
   { code: 'es', flag: '🇪🇸', name: 'Español', dir: 'ltr' },
+  { code: 'en', flag: '🇬🇧', name: 'English', dir: 'ltr' },
+  { code: 'bg', flag: '🇧🇬', name: 'Български', dir: 'ltr' },
   { code: 'fr', flag: '🇫🇷', name: 'Français', dir: 'ltr' },
   { code: 'de', flag: '🇩🇪', name: 'Deutsch', dir: 'ltr' },
-  { code: 'pt', flag: '🇵🇹', name: 'Português', dir: 'ltr' },
   { code: 'it', flag: '🇮🇹', name: 'Italiano', dir: 'ltr' },
+  { code: 'pt', flag: '🇵🇹', name: 'Português', dir: 'ltr' },
   { code: 'ru', flag: '🇷🇺', name: 'Русский', dir: 'ltr' },
-  { code: 'bg', flag: '🇧🇬', name: 'Български', dir: 'ltr' },
+  { code: 'zh', flag: '🇨🇳', name: '中文', dir: 'ltr' },
+  { code: 'ja', flag: '🇯🇵', name: '日本語', dir: 'ltr' },
+  { code: 'ko', flag: '🇰🇷', name: '한국어', dir: 'ltr' },
+  { code: 'ar', flag: '🇸🇦', name: 'العربية', dir: 'rtl' },
+  { code: 'hi', flag: '🇮🇳', name: 'हिन्दी', dir: 'ltr' },
+  { code: 'tr', flag: '🇹🇷', name: 'Türkçe', dir: 'ltr' },
+  { code: 'nl', flag: '🇳🇱', name: 'Nederlands', dir: 'ltr' },
+  { code: 'sv', flag: '🇸🇪', name: 'Svenska', dir: 'ltr' },
+  { code: 'pl', flag: '🇵🇱', name: 'Polski', dir: 'ltr' },
+  { code: 'ro', flag: '🇷🇴', name: 'Română', dir: 'ltr' },
+  { code: 'el', flag: '🇬🇷', name: 'Ελληνικά', dir: 'ltr' },
+  { code: 'th', flag: '🇹🇭', name: 'ไทย', dir: 'ltr' },
+  { code: 'vi', flag: '🇻🇳', name: 'Tiếng Việt', dir: 'ltr' },
+  { code: 'id', flag: '🇮🇩', name: 'Bahasa Indonesia', dir: 'ltr' },
+  { code: 'he', flag: '🇮🇱', name: 'עברית', dir: 'rtl' },
+  { code: 'uk', flag: '🇺🇦', name: 'Українська', dir: 'ltr' },
+  { code: 'cs', flag: '🇨🇿', name: 'Čeština', dir: 'ltr' },
 ];
 
 let currentLang = 'es';
@@ -3080,7 +3030,10 @@ function renderSidebar() {
   const sb = document.getElementById('sidebar');
   let html = `
     <div class="sidebar-logo">
-      ✦ Astro Aureum
+      <div class="logo-eye">
+        <img src="logo.png" alt="Astro Aureum" width="48" height="48" style="border-radius:50%;">
+      </div>
+      Astro Aureum
     </div>
     <div class="sidebar-sub">${t('sidebarSub')}</div>
     <select class="lang-select" id="langSelect">
@@ -3125,17 +3078,8 @@ function renderSidebar() {
 
   html += `</div>
     <div style="padding:16px 20px;border-top:1px solid rgba(212,168,67,0.1);">
-      <a href="/aureum-books" style="display:flex;align-items:center;justify-content:center;gap:10px;padding:12px 14px;border-radius:10px;background:linear-gradient(135deg,rgba(212,168,67,0.15),rgba(123,79,191,0.12));border:1px solid rgba(212,168,67,0.35);color:#D4A843;font-size:0.9rem;font-weight:700;text-decoration:none;margin-bottom:10px;letter-spacing:0.5px;text-shadow:0 0 10px rgba(212,168,67,0.3);">
-        <span id="sb-books">📖 AUREUM BOOKS</span>
-      </a>
-      <a href="/sinastria" style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;background:linear-gradient(135deg,rgba(236,160,184,0.12),rgba(107,47,168,0.08));border:1px solid rgba(236,160,184,0.25);color:#ECA0B8;font-size:0.85rem;font-weight:600;text-decoration:none;margin-bottom:10px;">
-        <span id="sb-sin">♡</span> · <span style="color:#EDCC60">25€</span>
-      </a>
-      <a href="/horoscopo-semanal" style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;background:linear-gradient(135deg,rgba(34,197,94,0.08),rgba(212,168,67,0.06));border:1px solid rgba(34,197,94,0.2);color:#22C55E;font-size:0.85rem;font-weight:600;text-decoration:none;margin-bottom:10px;">
-        <span id="sb-hor">☉</span> · <span style="color:#EDCC60">4,99€</span>
-      </a>
-      <a href="javascript:void(0)" onclick="openLeadMagnetModal(null,'lectura-suerte')" style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;background:linear-gradient(135deg,rgba(212,168,67,0.08),rgba(123,79,191,0.08));border:1px solid rgba(212,168,67,0.15);color:#F7D96E;font-size:0.85rem;font-weight:600;text-decoration:none;">
-        <span id="sb-luck">✦</span> · <span style="color:#EDCC60">4,99€</span>
+      <a href="#horoscopo-diario" onclick="closeMobileSidebar()" style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;background:linear-gradient(135deg,rgba(212,168,67,0.08),rgba(123,79,191,0.08));border:1px solid rgba(212,168,67,0.15);color:#F7D96E;font-size:0.85rem;font-weight:600;text-decoration:none;">
+        ✦ ${t('dailyTitle') || 'Horoscopo diario gratuito'}
       </a>
     </div>
     <div class="sidebar-footer">
@@ -3175,10 +3119,11 @@ function renderHero() {
         <input type="date" class="cta-input" id="hero-birth-date" max="${new Date().toISOString().split('T')[0]}" min="1920-01-01" placeholder="${t('ctaPlaceholder') || 'Tu fecha de nacimiento'}">
         <button class="cta-btn cta-btn--hero" onclick="heroRevealDestiny()">${t('ctaBtnBig') || 'Generar mi analisis ahora'}</button>
       </div>
-      <p class="cta-free">${t('ctaFree') || '✦ 4,99€ · Resultado por email · Personalizado para ti'}</p>
+      <p class="cta-free">${t('ctaFree') || '✦ 100% gratis · Sin tarjeta · Resultado inmediato'}</p>
     </div>
     <div class="hero-btns">
-      <button class="btn-gold" onclick="openLeadMagnetModal(null,'lectura-suerte')">${t('heroBtn1')}</button>
+      <button class="btn-gold" onclick="openProductModal('mega-carta')">${t('heroBtn1')}</button>
+      <button class="btn-lead" onclick="openLeadMagnetModal(null,'mapa-energetico-30')">${t('heroLeadFree') || '✦ Mi Mapa Energético GRATIS'}</button>
     </div>
     <p class="hero-sub-small">${t('heroSub')}</p>
     <div class="hero-stats">
@@ -3187,7 +3132,7 @@ function renderHero() {
       <div><span class="stat-value">${t('stat3v')}</span><span class="stat-label">${t('stat3l')}</span></div>
       <div><span class="stat-value">${t('stat4v')}</span><span class="stat-label">${t('stat4l')}</span></div>
     </div>
-    <div class="hero-flags">🇬🇧🇪🇸🇫🇷🇩🇪🇵🇹🇮🇹🇷🇺🇧🇬</div>
+    <div class="hero-flags">🇪🇸🇬🇧🇧🇬🇫🇷🇩🇪🇮🇹🇵🇹🇷🇺🇨🇳🇯🇵🇰🇷🇸🇦🇮🇳🇹🇷🇳🇱🇸🇪🇵🇱🇷🇴🇬🇷🇹🇭🇻🇳🇮🇩🇮🇱🇺🇦🇨🇿</div>
     <div class="hero-why reveal">
       <h3>${t('whyTitle')}</h3>
       <p class="why-subtitle">${t('whySub')}</p>
@@ -3695,7 +3640,7 @@ function submitDailySubscribe(e) {
   var fd = new FormData(form);
 
   btn.disabled = true;
-  btn.textContent = t('leadLoading30') || 'Redirigiendo al pago seguro...';
+  btn.textContent = t('leadLoading30') || 'Calculando tu mapa energético de 30 días...';
 
   fetch('/api/subscribe-horoscope', {
     method: 'POST',
@@ -3797,281 +3742,25 @@ function renderCTA() {
         <input type="date" class="cta-input" id="cta-birth-date" max="${new Date().toISOString().split('T')[0]}" min="1920-01-01" placeholder="${t('ctaPlaceholder') || 'Tu fecha de nacimiento'}">
         <button class="cta-btn cta-btn--hero" onclick="ctaRevealDestiny()">${t('ctaBtnBig') || 'Revelar mi mapa natal ahora'}</button>
       </div>
-      <p class="cta-free">${t('ctaFree') || '✦ 4,99€ · Resultado por email · Personalizado para ti'}</p>
+      <p class="cta-free">${t('ctaFree') || '✦ 100% gratis · Sin tarjeta · Resultado inmediato'}</p>
     </div>
-    <button class="btn-gold" style="margin-top:16px;opacity:0.8;font-size:0.85rem;" onclick="openLeadMagnetModal(null,'lectura-suerte')">${t('ctaBtn')}</button>
+    <button class="btn-gold" style="margin-top:16px;opacity:0.8;font-size:0.85rem;" onclick="openProductModal('mega-carta')">${t('ctaBtn')}</button>
   `;
 }
 
 // === RENDER FOOTER ===
-// === RENDER CHAT ASTRAL FEATURED ===
-function renderChatAstralFeatured() {
-  const sec = document.getElementById('chat-astral-featured');
-  if (!sec) return;
-  sec.innerHTML = `
-    <div class="section" style="padding:32px 20px;max-width:700px;margin:0 auto;">
-      <div style="text-align:center;margin-bottom:20px;">
-        <span style="display:inline-block;background:linear-gradient(135deg,rgba(200,152,64,0.15),rgba(107,47,168,0.1));border:1px solid rgba(200,152,64,0.3);border-radius:20px;padding:4px 14px;font-size:0.65rem;font-weight:600;color:var(--gold);letter-spacing:0.08em;text-transform:uppercase;">${t('chatAstralBadge') || '⭐ Empieza aquí · Más popular'}</span>
-      </div>
-      <div class="prod-card reveal" data-product="chat-10" style="border:2px solid rgba(200,152,64,0.35);box-shadow:0 8px 32px rgba(200,152,64,0.12);position:relative;cursor:pointer;padding:28px 24px;" onclick="openProductModal('chat-10')">
-        <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px;">
-          <div style="width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,rgba(200,152,64,0.2),rgba(200,152,64,0.05));display:flex;align-items:center;justify-content:center;font-size:24px;">💬</div>
-          <div>
-            <h3 style="font-size:1.1rem;color:var(--text);margin:0;">Chat Astral — 10 Preguntas</h3>
-            <span style="font-size:0.9rem;font-weight:700;color:var(--gold);">€14.99</span>
-          </div>
-        </div>
-        <p style="color:var(--text-dim);font-size:0.82rem;line-height:1.5;margin:0;">${t('chatAstralDesc') || '10 preguntas astrológicas respondidas con tus datos natales exactos. Tu acceso rápido a la orientación cósmica.'}</p>
-      </div>
-    </div>`;
-}
-
-// === RENDER ABOUT SECTION ===
-function renderAboutSection() {
-  const sec = document.getElementById('about-section');
-  if (!sec) return;
-  sec.innerHTML = `
-    <div class="section" style="padding:48px 20px;max-width:700px;margin:0 auto;">
-      <h2 style="text-align:center;font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--gold);margin-bottom:32px;">${t('aboutTitle') || '¿Por qué Astro Aureum?'}</h2>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
-        <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;">
-          <div style="font-size:24px;margin-bottom:8px;">🌍</div>
-          <h3 style="font-size:0.9rem;color:var(--text);margin-bottom:6px;">${t('about1t')}</h3>
-          <p style="font-size:0.78rem;color:var(--text-dim);line-height:1.5;">${t('about1d')}</p>
-        </div>
-        <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;">
-          <div style="font-size:24px;margin-bottom:8px;">⚡</div>
-          <h3 style="font-size:0.9rem;color:var(--text);margin-bottom:6px;">${t('about2t')}</h3>
-          <p style="font-size:0.78rem;color:var(--text-dim);line-height:1.5;">${t('about2d')}</p>
-        </div>
-        <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;">
-          <div style="font-size:24px;margin-bottom:8px;">🔒</div>
-          <h3 style="font-size:0.9rem;color:var(--text);margin-bottom:6px;">${t('about3t')}</h3>
-          <p style="font-size:0.78rem;color:var(--text-dim);line-height:1.5;">${t('about3d')}</p>
-        </div>
-        <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;">
-          <div style="font-size:24px;margin-bottom:8px;">✦</div>
-          <h3 style="font-size:0.9rem;color:var(--text);margin-bottom:6px;">${t('about4t')}</h3>
-          <p style="font-size:0.78rem;color:var(--text-dim);line-height:1.5;">${t('about4d')}</p>
-        </div>
-      </div>
-    </div>`;
-}
-
-// === RENDER NEW HERO SECTION ===
-function renderNewHero() {
-  const sec = document.getElementById('new-hero-section');
-  if (!sec) return;
-  sec.innerHTML = `
-    <style>
-      .nhero{min-height:88vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 24px 72px;position:relative;overflow:hidden}
-      .nhero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(212,168,67,0.10) 0%,transparent 55%),radial-gradient(ellipse at 20% 80%,rgba(123,79,191,0.10) 0%,transparent 50%);pointer-events:none}
-      @keyframes nhSymbolPulse{0%,100%{opacity:0.7;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}
-      @keyframes nhFadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-      @keyframes nhStarFloat{0%,100%{transform:translateY(0);opacity:0.12}50%{transform:translateY(-10px);opacity:0.25}}
-      .nh-star{position:absolute;color:rgba(212,168,67,0.12);pointer-events:none;font-size:10px;animation:nhStarFloat 7s ease-in-out infinite}
-      .nh-star:nth-child(1){top:15%;right:10%;animation-delay:0s;font-size:8px}
-      .nh-star:nth-child(2){top:70%;left:8%;animation-delay:2s;font-size:12px}
-      .nh-star:nth-child(3){top:35%;right:6%;animation-delay:4s;font-size:7px}
-      .nh-star:nth-child(4){top:25%;left:15%;animation-delay:1s;font-size:9px}
-      .nh-symbol{font-size:52px;color:var(--gold);display:block;margin-bottom:28px;animation:nhSymbolPulse 4s ease-in-out infinite,nhFadeIn 0.8s ease both;position:relative;z-index:1}
-      .nh-headline{font-family:'Cinzel',Georgia,serif;font-size:clamp(28px,5.5vw,58px);font-weight:700;color:var(--text);line-height:1.15;margin:0 0 20px;letter-spacing:0.04em;position:relative;z-index:1;animation:nhFadeIn 0.9s ease 0.1s both}
-      .nh-headline .nh-gold{color:var(--gold);display:block}
-      .nh-divider{display:flex;align-items:center;gap:16px;justify-content:center;margin:0 0 24px;animation:nhFadeIn 1s ease 0.2s both;position:relative;z-index:1}
-      .nh-divider::before,.nh-divider::after{content:'';width:60px;height:1px;background:linear-gradient(90deg,transparent,rgba(212,168,67,0.5))}
-      .nh-divider::after{background:linear-gradient(90deg,rgba(212,168,67,0.5),transparent)}
-      .nh-subtitle{font-family:'Philosopher',Georgia,serif;font-size:clamp(16px,2.2vw,20px);color:var(--text-dim);max-width:560px;line-height:1.75;margin:0 0 44px;font-style:italic;position:relative;z-index:1;animation:nhFadeIn 1s ease 0.3s both}
-      .nh-buttons{display:flex;flex-direction:column;align-items:center;gap:14px;margin-bottom:44px;position:relative;z-index:1;animation:nhFadeIn 1s ease 0.4s both}
-      .nh-btn-primary{background:linear-gradient(135deg,var(--gold) 0%,var(--gold-light) 50%,var(--gold) 100%);background-size:200% auto;color:#06050E;font-family:'Cinzel',Georgia,serif;font-weight:700;font-size:14px;letter-spacing:0.15em;padding:16px 44px;border:none;border-radius:8px;cursor:pointer;text-transform:uppercase;transition:all 0.3s;text-decoration:none;display:inline-block}
-      .nh-btn-primary:hover{background-position:right center;transform:translateY(-3px);box-shadow:0 10px 32px rgba(212,168,67,0.35)}
-      .nh-btn-secondary{font-family:'Philosopher',Georgia,serif;font-size:15px;color:var(--text-dim);text-decoration:none;cursor:pointer;background:none;border:none;padding:0;transition:color 0.2s}
-      .nh-btn-secondary:hover{color:var(--gold)}
-      .nh-trust{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1;animation:nhFadeIn 1s ease 0.5s both}
-      .nh-trust-item{display:flex;align-items:center;gap:7px;font-family:'Philosopher',Georgia,serif;font-size:13px;color:var(--text-muted)}
-      .nh-separator{width:100%;height:1px;background:linear-gradient(90deg,transparent 0%,rgba(212,168,67,0.25) 50%,transparent 100%);margin-top:72px;position:relative;z-index:1}
-      @media(max-width:768px){.nh-trust{gap:14px}.nh-trust-item{font-size:12px}.nh-btn-primary{padding:14px 32px;font-size:13px}}
-      @media(max-width:600px){.nhero{padding:70px 16px 48px}.nh-symbol{font-size:36px;margin-bottom:20px}.nh-headline{margin-bottom:14px}.nh-subtitle{font-size:clamp(14px,3.5vw,17px);margin-bottom:32px;max-width:90%}.nh-trust{flex-direction:column;align-items:center;gap:8px}}
-      @media(max-width:480px){.nhero{padding:60px 14px 40px;min-height:auto}.nh-symbol{font-size:30px;margin-bottom:16px}.nh-divider::before,.nh-divider::after{width:40px}}
-    </style>
-    <div class="nhero">
-      <span class="nh-star" aria-hidden="true">✦</span>
-      <span class="nh-star" aria-hidden="true">✦</span>
-      <span class="nh-star" aria-hidden="true">✦</span>
-      <span class="nh-star" aria-hidden="true">✦</span>
-      <span class="nh-symbol" aria-hidden="true">✦</span>
-      <h2 class="nh-headline">${t('nhHeadline1')}<span class="nh-gold">${t('nhHeadline2')}</span>${t('nhHeadline3')}</h2>
-      <div class="nh-divider" aria-hidden="true"><span style="font-size:13px;color:var(--gold);opacity:0.6;letter-spacing:8px">✦ ✦ ✦</span></div>
-      <p class="nh-subtitle">${t('nhSubtitle')}</p>
-      <div class="nh-buttons">
-        <a href="#tradiciones" class="nh-btn-primary">${t('nhBtnPrimary')}</a>
-        <button class="nh-btn-secondary" onclick="document.getElementById('tradiciones').scrollIntoView({behavior:'smooth'})">${t('nhBtnSecondary')}</button>
-      </div>
-      <div class="nh-trust">
-        <span class="nh-trust-item"><span>🔒</span> ${t('nhTrust1')}</span>
-        <span class="nh-trust-item"><span>⚡</span> ${t('nhTrust2')}</span>
-        <span class="nh-trust-item"><span>✦</span> ${t('nhTrust3')}</span>
-      </div>
-      <div class="nh-separator"></div>
-    </div>`;
-}
-
-// === RENDER HOW IT WORKS ===
-function renderHowItWorks() {
-  const sec = document.getElementById('how-it-works');
-  if (!sec) return;
-  sec.innerHTML = `
-    <div class="section" style="padding:56px 20px;max-width:800px;margin:0 auto;">
-      <div style="text-align:center;margin-bottom:12px;font-size:0.65rem;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;">${t('hiwLabel')}</div>
-      <h2 style="font-family:'Cinzel',Georgia,serif;font-size:1.6rem;color:var(--gold);text-align:center;margin-bottom:36px;">${t('hiwTitle')}</h2>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
-        <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px 20px;text-align:center;">
-          <div style="font-size:28px;color:var(--gold);margin-bottom:6px;">✦</div>
-          <div style="font-family:'Cinzel',Georgia,serif;font-size:0.7rem;color:var(--gold);letter-spacing:0.1em;margin-bottom:10px;">${t('hiwStep1')}</div>
-          <h3 style="font-family:'Cinzel',Georgia,serif;font-size:1rem;color:var(--text);margin-bottom:8px;">${t('hiwStep1t')}</h3>
-          <p style="font-size:0.82rem;color:var(--text-dim);line-height:1.6;">${t('hiwStep1d')}</p>
-        </div>
-        <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px 20px;text-align:center;">
-          <div style="font-size:28px;color:var(--gold);margin-bottom:6px;">☽</div>
-          <div style="font-family:'Cinzel',Georgia,serif;font-size:0.7rem;color:var(--gold);letter-spacing:0.1em;margin-bottom:10px;">${t('hiwStep2')}</div>
-          <h3 style="font-family:'Cinzel',Georgia,serif;font-size:1rem;color:var(--text);margin-bottom:8px;">${t('hiwStep2t')}</h3>
-          <p style="font-size:0.82rem;color:var(--text-dim);line-height:1.6;">${t('hiwStep2d')}</p>
-        </div>
-        <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px 20px;text-align:center;">
-          <div style="font-size:28px;color:var(--gold);margin-bottom:6px;">⚡</div>
-          <div style="font-family:'Cinzel',Georgia,serif;font-size:0.7rem;color:var(--gold);letter-spacing:0.1em;margin-bottom:10px;">${t('hiwStep3')}</div>
-          <h3 style="font-family:'Cinzel',Georgia,serif;font-size:1rem;color:var(--text);margin-bottom:8px;">${t('hiwStep3t')}</h3>
-          <p style="font-size:0.82rem;color:var(--text-dim);line-height:1.6;">${t('hiwStep3d')}</p>
-        </div>
-      </div>
-    </div>`;
-}
-
-// === RENDER FEATURED PRODUCT ===
-function renderFeaturedProduct() {
-  const sec = document.getElementById('featured-product');
-  if (!sec) return;
-  const miniPrice = localPrice({price:9.90});
-  const natalPrice = localPrice({price:89});
-  const megaPrice = localPrice({price:299});
-  sec.innerHTML = `
-    <div class="section" style="padding:32px 20px;max-width:900px;margin:0 auto;">
-      <div style="text-align:center;margin-bottom:20px;">
-        <span style="display:inline-block;background:rgba(212,168,67,0.12);border:1px solid rgba(212,168,67,0.3);border-radius:30px;padding:5px 18px;font-size:0.65rem;font-weight:600;color:var(--gold);letter-spacing:0.08em;text-transform:uppercase;">${t('fpBadge')}</span>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;">
-        <div style="background:var(--card);border:1.5px solid rgba(212,168,67,0.15);border-radius:16px;padding:24px 20px;cursor:pointer;transition:all 0.3s;text-align:center;" onclick="openProductModal('mini-lectura')" onmouseover="this.style.borderColor='rgba(212,168,67,0.4)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.15)'">
-          <div style="font-size:32px;margin-bottom:8px;">✨</div>
-          <div style="font-size:0.6rem;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">${t('fpEntry') || 'Entrada'}</div>
-          <h3 style="font-family:'Cinzel',Georgia,serif;font-size:0.95rem;color:var(--text);margin:0 0 6px;">${t('fpMiniTitle') || 'Mini Lectura Astral'}</h3>
-          <div style="font-family:'Cinzel',Georgia,serif;font-size:1.2rem;font-weight:700;color:var(--gold);margin-bottom:10px;">${miniPrice}</div>
-          <p style="color:var(--text-dim);font-size:0.75rem;line-height:1.5;margin:0 0 14px;">${t('fpMiniDesc') || 'Sol, Luna, Ascendente y consejo cósmico. 5 páginas.'}</p>
-          <span style="display:inline-block;background:rgba(212,168,67,0.15);color:var(--gold);padding:8px 20px;border-radius:8px;font-size:0.75rem;font-weight:600;">${t('fpBtn') || 'Probar ahora'} ✦</span>
-        </div>
-        <div style="background:var(--card);border:2px solid rgba(212,168,67,0.4);border-radius:16px;padding:24px 20px;cursor:pointer;transition:all 0.3s;text-align:center;box-shadow:0 4px 24px rgba(212,168,67,0.12);position:relative;" onclick="openProductModal('occ-natal')" onmouseover="this.style.borderColor='rgba(212,168,67,0.6)';this.style.boxShadow='0 8px 40px rgba(212,168,67,0.2)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.4)';this.style.boxShadow='0 4px 24px rgba(212,168,67,0.12)'">
-          <div style="position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--gold);color:#06050E;padding:3px 14px;border-radius:12px;font-size:0.6rem;font-weight:700;letter-spacing:0.08em;">⭐ ${t('tagPopular') || 'POPULAR'}</div>
-          <div style="font-size:32px;margin-bottom:8px;">☉</div>
-          <div style="font-size:0.6rem;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">${t('fpPopular') || 'Más popular'}</div>
-          <h3 style="font-family:'Cinzel',Georgia,serif;font-size:0.95rem;color:var(--text);margin:0 0 6px;">${t('fpNatalTitle') || 'Carta Natal Completa'}</h3>
-          <div style="font-family:'Cinzel',Georgia,serif;font-size:1.2rem;font-weight:700;color:var(--gold);margin-bottom:10px;">${natalPrice}</div>
-          <p style="color:var(--text-dim);font-size:0.75rem;line-height:1.5;margin:0 0 14px;">${t('fpNatalDesc') || 'Análisis completo: planetas, casas, aspectos y propósito de vida.'}</p>
-          <span style="display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#06050E;padding:8px 20px;border-radius:8px;font-size:0.75rem;font-weight:700;">${t('fpBtn') || 'Probar ahora'} ✦</span>
-        </div>
-        <div style="background:var(--card);border:1.5px solid rgba(123,79,191,0.3);border-radius:16px;padding:24px 20px;cursor:pointer;transition:all 0.3s;text-align:center;" onclick="openProductModal('pack-mega')" onmouseover="this.style.borderColor='rgba(123,79,191,0.5)'" onmouseout="this.style.borderColor='rgba(123,79,191,0.3)'">
-          <div style="font-size:32px;margin-bottom:8px;">👑</div>
-          <div style="font-size:0.6rem;color:var(--purple);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">${t('fpPremium') || 'Premium'}</div>
-          <h3 style="font-family:'Cinzel',Georgia,serif;font-size:0.95rem;color:var(--text);margin:0 0 6px;">${t('fpMegaTitle') || 'Mega Carta Astral'}</h3>
-          <div style="font-family:'Cinzel',Georgia,serif;font-size:1.2rem;font-weight:700;color:var(--purple);margin-bottom:10px;">${megaPrice}</div>
-          <p style="color:var(--text-dim);font-size:0.75rem;line-height:1.5;margin:0 0 14px;">${t('fpMegaDesc') || '4 cartas natales de 4 tradiciones en una lectura épica.'}</p>
-          <span style="display:inline-block;background:rgba(123,79,191,0.15);color:var(--purple);padding:8px 20px;border-radius:8px;font-size:0.75rem;font-weight:600;">${t('fpBtn') || 'Probar ahora'} ✦</span>
-        </div>
-      </div>
-    </div>`;
-}
-
-// === RENDER NEW TESTIMONIALS ===
-function renderNewTestimonials() {
-  const sec = document.getElementById('new-testimonials');
-  if (!sec) return;
-  const testimonials = [
-    { text: t('nt1text'), name: t('nt1name'), sign: t('nt1sign'), country: t('nt1country') },
-    { text: t('nt2text'), name: t('nt2name'), sign: t('nt2sign'), country: t('nt2country') },
-    { text: t('nt3text'), name: t('nt3name'), sign: t('nt3sign'), country: t('nt3country') },
-    { text: t('nt4text'), name: t('nt4name'), sign: t('nt4sign'), country: t('nt4country') }
-  ];
-  sec.innerHTML = `
-    <div class="section" style="padding:56px 20px;max-width:800px;margin:0 auto;">
-      <div style="text-align:center;margin-bottom:12px;font-size:0.65rem;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;">${t('ntLabel')}</div>
-      <h2 style="font-family:'Cinzel',Georgia,serif;font-size:1.5rem;color:var(--gold);text-align:center;margin-bottom:36px;">${t('ntTitle')}</h2>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;">
-        ${testimonials.map(ti => `
-          <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px 20px;position:relative;overflow:hidden;">
-            <div style="position:absolute;top:8px;right:16px;font-family:'Cinzel',Georgia,serif;font-size:64px;color:var(--gold);opacity:0.08;line-height:1;">❝</div>
-            <p style="font-family:'Philosopher',Georgia,serif;font-style:italic;font-size:0.88rem;color:var(--text-dim);line-height:1.7;margin-bottom:16px;position:relative;z-index:1;">"${ti.text}"</p>
-            <div style="font-family:'Cinzel',Georgia,serif;font-size:0.8rem;color:var(--gold);margin-bottom:4px;">— ${ti.name}</div>
-            <div style="font-size:0.72rem;color:var(--text-muted);">${ti.sign} · ${ti.country}</div>
-          </div>`).join('')}
-      </div>
-    </div>`;
-}
-
-// === RENDER ABOUT AUREUM ===
-function renderAboutAureum() {
-  const sec = document.getElementById('about-aureum');
-  if (!sec) return;
-  sec.innerHTML = `
-    <div class="section" style="padding:56px 20px;max-width:640px;margin:0 auto;text-align:center;">
-      <div style="font-size:36px;color:var(--gold);margin-bottom:16px;filter:drop-shadow(0 0 12px rgba(212,168,67,0.3));">✦</div>
-      <h2 style="font-family:'Cinzel',Georgia,serif;font-size:1.6rem;color:var(--gold);margin-bottom:6px;">Astro Aureum</h2>
-      <p style="font-family:'Philosopher',Georgia,serif;font-style:italic;font-size:0.9rem;color:var(--text-dim);margin-bottom:24px;">${t('aboutTagline')}</p>
-      <p style="font-size:0.9rem;color:var(--text-dim);line-height:1.8;">${t('aboutDesc')}</p>
-    </div>`;
-}
-
-// === RENDER SINASTRIA BANNER ===
-function renderSinastriaBanner() {
-  const sec = document.getElementById('sinastria-banner');
-  if (!sec) return;
-  sec.innerHTML = `
-    <div class="section" style="padding:48px 20px;">
-      <a href="/sinastria" style="display:block;max-width:700px;margin:0 auto;text-decoration:none;background:linear-gradient(135deg,rgba(212,168,67,0.06),rgba(123,79,191,0.08));border:2px solid rgba(212,168,67,0.25);border-radius:20px;padding:36px 28px;text-align:center;transition:all 0.3s;position:relative;overflow:hidden;" onmouseover="this.style.borderColor='rgba(212,168,67,0.45)';this.style.boxShadow='0 8px 40px rgba(212,168,67,0.12)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.25)';this.style.boxShadow='none'">
-        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(212,168,67,0.08),transparent 60%);pointer-events:none;"></div>
-        <div style="position:relative;z-index:1;">
-          <span style="display:inline-block;background:rgba(212,168,67,0.12);border:1px solid rgba(212,168,67,0.25);border-radius:30px;padding:4px 16px;font-size:0.65rem;font-weight:600;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px;">${t('sinBadge')}</span>
-          <h2 class="sin-banner-title" style="font-family:'Cinzel',serif;font-size:1.6rem;color:var(--gold);margin-bottom:8px;">${t('sinTitle')}</h2>
-          <p style="font-size:0.9rem;color:var(--text-dim);margin-bottom:6px;line-height:1.6;">${t('sinDesc')}</p>
-          <div class="sin-banner-prices" style="display:flex;align-items:center;justify-content:center;gap:12px;margin:16px 0;">
-            <span style="font-size:0.85rem;color:var(--text-muted);text-decoration:line-through;">150 €</span>
-            <span class="sin-banner-price" style="font-family:'Cinzel',serif;font-size:1.8rem;font-weight:700;color:var(--gold);">25 €</span>
-            <span style="background:rgba(212,168,67,0.15);color:var(--gold);padding:3px 10px;border-radius:8px;font-size:0.7rem;font-weight:600;">-83%</span>
-          </div>
-          <div style="display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#06050E;padding:12px 32px;border-radius:10px;font-family:'Cinzel',serif;font-weight:700;font-size:0.85rem;letter-spacing:0.05em;">${t('sinBtn')}</div>
-          <p style="font-size:0.7rem;color:var(--text-muted);margin-top:12px;">${t('sinTrust')}</p>
-        </div>
-      </a>
-    </div>`;
-}
-
 function renderFooter() {
   const ft = document.getElementById('footer');
   ft.innerHTML = `
-    <div class="footer-logo" style="font-family:'Cinzel',Georgia,serif;font-size:1.4rem;color:var(--gold);">✦ ASTRO AUREUM</div>
-    <div style="font-family:'Philosopher',Georgia,serif;font-style:italic;font-size:0.75rem;color:var(--text-dim);margin-bottom:16px;">${t('footerTagline')}</div>
-    <div class="footer-links" style="margin-bottom:16px;">
-      <a href="#hero" style="color:var(--text-muted);text-decoration:none;margin:0 8px;font-size:0.75rem;transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">${t('footerHome')}</a>
-      <a href="/aureum-books" style="color:var(--gold);text-decoration:none;margin:0 8px;font-size:0.75rem;font-weight:600;transition:color 0.2s;" onmouseover="this.style.color='#F7D96E'" onmouseout="this.style.color='var(--gold)'">📖 Aureum Books</a>
-      <a href="/sinastria" style="color:var(--text-muted);text-decoration:none;margin:0 8px;font-size:0.75rem;transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">${t('footerSinastria')}</a>
-      <a href="javascript:void(0)" onclick="openLegal('terms')" style="color:var(--text-muted);text-decoration:none;margin:0 8px;font-size:0.75rem;transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">${t('terms')}</a>
-      <a href="javascript:void(0)" onclick="openLegal('privacy')" style="color:var(--text-muted);text-decoration:none;margin:0 8px;font-size:0.75rem;transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">${t('privacy')}</a>
-      <a href="mailto:contacto@astroaureum.com" style="color:var(--text-muted);text-decoration:none;margin:0 8px;font-size:0.75rem;transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">${t('contact')}</a>
+    <div class="footer-logo">✦ Astro Aureum</div>
+    <div class="footer-disclaimer">${t('footerDisclaimer')}</div>
+    <div class="footer-links">
+      <a href="javascript:void(0)" onclick="openLegal('privacy')">${t('privacy')}</a>
+      <a href="javascript:void(0)" onclick="openLegal('terms')">${t('terms')}</a>
+      <a href="mailto:support@astroconnect.co">${t('contact')}</a>
     </div>
-    <div style="max-width:560px;margin:0 auto 16px;font-size:0.6rem;color:#4A3D6B;line-height:1.6;">
-      ${t('footerDisclaimerShort')}
-    </div>
-    <div class="footer-copy" style="font-size:0.65rem;color:var(--text-muted);">© 2026 Astro Aureum · www.astroaureum.com</div>
-    <div style="margin-top:12px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
-      <a href="/admin" style="color:#6B5B8D;text-decoration:none;font-size:0.75rem;padding:6px 16px;border:1px solid rgba(107,91,141,0.3);border-radius:8px;">✦ Admin</a>
-      <a href="/admin-books.html" style="color:#6B5B8D;text-decoration:none;font-size:0.75rem;padding:6px 16px;border:1px solid rgba(107,91,141,0.3);border-radius:8px;">📖 Admin Libros</a>
-    </div>
+    <div class="footer-copy">${t('copyright')}</div>
+    <div style="margin-top:12px;"><a href="/admin" style="color:#6B5B8D;text-decoration:none;font-size:0.75rem;padding:6px 16px;border:1px solid rgba(107,91,141,0.3);border-radius:8px;">✦ Admin</a></div>
   `;
 }
 
@@ -4102,7 +3791,7 @@ function openLegal(type) {
       <h3>7. REFUND POLICY</h3>
       <p>If the client is not satisfied with their reading, they may contact us within 14 days of purchase. We will evaluate each case individually and seek a satisfactory solution, which may include a new reading or a partial or full refund.</p>
       <h3>8. AVAILABILITY</h3>
-      <p>The service is available 24 hours a day, 7 days a week, in 8 languages. Astro Aureum reserves the right to perform technical maintenance that may temporarily affect service availability.</p>
+      <p>The service is available 24 hours a day, 7 days a week, in 25 languages. Astro Aureum reserves the right to perform technical maintenance that may temporarily affect service availability.</p>
       <h3>9. MINIMUM AGE</h3>
       <p>The use of Astro Aureum is intended for persons over 18 years of age. Parents or legal guardians may request readings for minors under their responsibility (Baby Chart service).</p>
       <h3>10. APPLICABLE LAW</h3>
@@ -4303,11 +3992,6 @@ function renderFormFields(formType) {
 
   if (formType === 'bebe') {
     html += `<div class="modal-field"><label>${t('fParents')}</label><input type="text"></div>`;
-  }
-
-  if (formType === 'chat') {
-    html += `<div class="modal-field"><label>${t('fQuestions') || 'Tus 10 preguntas'} *</label>
-      <textarea required rows="8" placeholder="${t('fQuestionsPh') || 'Escribe tus 10 preguntas astrológicas aquí, una por línea...'}" style="width:100%;padding:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(212,168,67,0.15);border-radius:10px;color:var(--text);font-size:0.9rem;font-family:inherit;resize:vertical;"></textarea></div>`;
   }
 
   if (formType === 'business') {
@@ -4517,7 +4201,7 @@ function openCheckout(readingRequest, product) {
   document.getElementById('checkout-title').textContent = t('checkoutTitle') || 'Confirmar Pedido';
   document.getElementById('checkout-product').textContent = productName;
   document.getElementById('checkout-price').textContent = price;
-  document.getElementById('checkout-note').textContent = t('checkoutNote') || 'Entrega instantánea en tu email en formato PDF';
+  document.getElementById('checkout-note').textContent = t('checkoutNote') || 'Lectura personalizada entregada por email en 24h';
 
   // Order summary
   let summaryHtml = '';
@@ -4562,7 +4246,7 @@ function openCheckout(readingRequest, product) {
 
   // Guarantee text
   const guarantee = overlay.querySelector('.checkout-guarantee');
-  if (guarantee) guarantee.innerHTML = `<strong>✦ ${t('checkoutGuaranteeTitle') || 'Garantía'}:</strong> ${t('checkoutGuarantee') || 'Si no recibes tu lectura en los primeros 10 minutos tras el pago, contáctanos y te la reenviamos de inmediato — o te devolvemos el 100% del dinero. Sin preguntas.'}`;
+  if (guarantee) guarantee.innerHTML = `<strong>✦ ${t('checkoutGuaranteeTitle') || 'Garantia'}:</strong> ${t('checkoutGuarantee') || 'Si no recibes tu lectura en 24 horas, te devolvemos el 100% de tu dinero. Sin preguntas.'}`;
 
   // Show checkout on top of everything (z-index 550 > modal 500)
   document.getElementById('modal-overlay').classList.remove('open');
@@ -4804,32 +4488,17 @@ function detectLanguage() {
 function renderAll() {
   renderSidebar();
   renderHero();
-  renderNewHero();
-  renderHowItWorks();
-  renderFeaturedProduct();
   renderTraditions();
   renderProducts();
   renderPacks();
   renderAcademy();
   renderSteps();
   renderTestimonials();
-  // renderDailyHoroscope(); — removed
+  renderDailyHoroscope();
   renderFAQ();
   renderAuthor();
-  renderNewTestimonials();
-  renderAboutAureum();
-  renderSinastriaBanner();
   renderCTA();
   renderFooter();
-  // Update sidebar translated buttons
-  var sbBooks = document.getElementById('sb-books');
-  var sbSin = document.getElementById('sb-sin');
-  var sbHor = document.getElementById('sb-hor');
-  var sbLuck = document.getElementById('sb-luck');
-  var _sb1 = t('sidebarBooks'); if (sbBooks && _sb1 && _sb1 !== 'sidebarBooks') sbBooks.textContent = _sb1;
-  var _sb2 = t('sidebarSinastria'); if (sbSin && _sb2 && _sb2 !== 'sidebarSinastria') sbSin.textContent = _sb2;
-  var _sb3 = t('sidebarHoroscopo'); if (sbHor && _sb3 && _sb3 !== 'sidebarHoroscopo') sbHor.textContent = _sb3;
-  var _sb4 = t('sidebarSuerte'); if (sbLuck && _sb4 && _sb4 !== 'sidebarSuerte') sbLuck.textContent = _sb4;
   // Re-init scroll reveal after re-render
   setTimeout(initScrollReveal, 100);
 }
@@ -4997,17 +4666,8 @@ function ctaRevealDestiny() {
 
 // === LEAD MAGNET ===
 function openLeadMagnetModal(preBirthDate, forceType) {
-  var leadType = forceType || 'mapa-energetico-30';
-  var modalTitle, modalSub, submitText;
-  if (forceType === 'lectura-suerte') {
-    modalTitle = t('luckTitle') || 'Tu Lectura de la Suerte';
-    modalSub = t('luckSub') || 'Descubre qué te depara la suerte en el amor, el dinero y la salud';
-    submitText = t('luckSubmit') || 'Obtener mi Lectura de la Suerte · 4,99€';
-  } else {
-    modalTitle = t('leadTitle30') || 'Tu Mapa del Alma';
-    modalSub = t('leadSub30') || 'Descubre tu propósito, tus patrones y tu camino de vida con tu carta natal personalizada';
-    submitText = t('leadSubmit30') || 'Obtener mi Mapa del Alma · 4,99€';
-  }
+  var leadType = 'mapa-energetico-30';
+  var modalTitle = t('leadTitle30') || 'Tu Mapa Energético de los Próximos 30 Días';
 
   var overlay = document.getElementById('lead-modal-overlay');
   if (!overlay) {
@@ -5023,7 +4683,7 @@ function openLeadMagnetModal(preBirthDate, forceType) {
       <button class="lead-close" onclick="closeLeadModal()">&times;</button>
       <div style="text-align:center;font-size:2.5rem;margin-bottom:12px;">✦</div>
       <h2>${modalTitle}</h2>
-      <p class="lead-sub">${modalSub}</p>
+      <p class="lead-sub">${t('leadSub30') || 'Descubre qué días son de poder, cuáles evitar y cómo aprovechar tu energía este mes'}</p>
       <form id="lead-form" onsubmit="submitLeadMagnet(event)">
         <input type="hidden" name="leadType" value="${leadType}">
         <label>${t('fName') || 'Nombre completo'}</label>
@@ -5038,7 +4698,7 @@ function openLeadMagnetModal(preBirthDate, forceType) {
         <input type="text" name="birthCountry" placeholder="${t('fCountry') || 'Pais de nacimiento'}">
         <label>${t('fEmailOpt') || 'Email'} <span style="color:#6B5B8D;font-size:0.8rem">(${t('fOptional') || 'opcional'})</span></label>
         <input type="email" name="email" placeholder="${t('fEmailOptPlaceholder') || 'Si quieres recibir tu lectura por email'}">
-        <button type="submit" class="lead-submit" id="lead-submit-btn">${submitText}</button>
+        <button type="submit" class="lead-submit" id="lead-submit-btn">${t('leadSubmit30') || 'Ver mi Mapa Energético GRATIS'}</button>
       </form>
     </div>`;
   requestAnimationFrame(function() {
@@ -5062,21 +4722,20 @@ function submitLeadMagnet(e) {
   var fd = new FormData(form);
 
   btn.disabled = true;
-  btn.textContent = t('leadLoading30') || 'Redirigiendo al pago seguro...';
+  btn.textContent = t('leadLoading30') || 'Calculando tu mapa energético de 30 días...';
 
   var body = {
-    productId: 'mapa-alma',
+    email: fd.get('email') || '',
     customerName: fd.get('customerName'),
-    customerEmail: fd.get('email') || 'cliente@astroaureum.com',
     birthDate: fd.get('birthDate'),
     birthTime: fd.get('birthTime') || '',
     birthCity: fd.get('birthCity') || '',
     birthCountry: fd.get('birthCountry') || '',
+    leadType: fd.get('leadType'),
     language: currentLang || 'es',
-    serviceTier: 'basic',
   };
 
-  fetch('/api/order', {
+  fetch('/api/lead-magnet', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body),
@@ -5092,22 +4751,23 @@ function submitLeadMagnet(e) {
   .then(function(data) {
     if (data.error) {
       btn.disabled = false;
-      btn.textContent = t('leadSubmit30') || 'Ver mi Mapa del Alma · 4,99€';
+      btn.textContent = t('leadSubmit') || 'Obtener mi lectura GRATIS';
       alert(data.error);
       return;
     }
-    if (data.url) {
-      window.location.href = data.url;
-    } else {
+    if (!data.reading) {
       btn.disabled = false;
-      btn.textContent = t('leadSubmit30') || 'Ver mi Mapa del Alma · 4,99€';
-      alert('Error al crear la sesion de pago. Intenta de nuevo.');
+      btn.textContent = t('leadSubmit') || 'Obtener mi lectura GRATIS';
+      alert('No se recibio la lectura. Intenta de nuevo.');
+      return;
     }
+    closeLeadModal();
+    showFreeReading(data.reading, data.readingUrl, body.customerName, body.birthDate);
   })
   .catch(function(err) {
-    console.error('Order error:', err);
+    console.error('Lead magnet error:', err);
     btn.disabled = false;
-    btn.textContent = t('leadSubmit30') || 'Ver mi Mapa del Alma · 4,99€';
+    btn.textContent = t('leadSubmit') || 'Obtener mi lectura GRATIS';
     alert('Error de conexion. Verifica tu internet e intenta de nuevo.');
   });
 }
@@ -5486,9 +5146,9 @@ function showFreeReading(reading, readingUrl, customerName, birthDate) {
             <div class="ladder-icon">&#10022;</div>
             <h3>${t('ladderPremTitle') || 'Tu Carta Natal Completa'}</h3>
             <p>${t('ladderPremDesc') || '36 páginas de análisis profundo. Tu mapa cósmico definitivo.'}</p>
-            <div class="ladder-price">${t('ladderPremPrice') || 'Desde ' + fmtPrice(calcLocalPrice(89))}</div>
+            <div class="ladder-price">${t('ladderPremPrice') || 'Desde €139'}</div>
             <button class="ladder-btn-prem" onclick="closeFreeReading();scrollTo('#catalog');">${t('ladderPremBtn') || 'Descubrir mi Carta Natal'}</button>
-            <p class="ladder-packs">${t('ladderPremPacks') || 'O elige un Pack desde ' + fmtPrice(calcLocalPrice(179)) + ' con hasta 40% de ahorro'}</p>
+            <p class="ladder-packs">${t('ladderPremPacks') || 'O elige un Pack desde €179 con hasta 40% de ahorro'}</p>
           </div>
         </div>
       </div>
@@ -5526,7 +5186,7 @@ function showBuyBar() {
   var bfText = document.getElementById('bf-text');
   var bfBtn = document.getElementById('bf-btn');
   if (bfText) bfText.textContent = t('buyFloatText') || '✦ Tu lectura completa te espera';
-  if (bfBtn) bfBtn.textContent = t('buyFloatBtn') || 'Ver Carta Natal — desde ' + fmtPrice(calcLocalPrice(89));
+  if (bfBtn) bfBtn.textContent = t('buyFloatBtn') || 'Ver Carta Natal — desde €139';
   requestAnimationFrame(function() { bar.classList.add('visible'); });
 }
 
@@ -5551,7 +5211,7 @@ function initViralBar() {
   // Actualizar textos segun idioma
   var vfText = document.getElementById('vf-text');
   var vfLabel = document.getElementById('vf-share-label');
-  if (vfText) vfText.textContent = t('viralFloatText') || 'Conoce tu destino cosmico · 4,99€';
+  if (vfText) vfText.textContent = t('viralFloatText') || 'Conoce tu destino cosmico gratis';
   if (vfLabel) vfLabel.textContent = t('viralFloatShare') || 'Compartir';
   // Mostrar despues de 8 segundos de scroll
   var shown = false;
@@ -5562,7 +5222,7 @@ function initViralBar() {
 }
 
 function viralFloatShare(platform) {
-  var shareText = t('viralFloatText') || 'Conoce tu destino cosmico · 4,99€';
+  var shareText = t('viralFloatText') || 'Conoce tu destino cosmico gratis';
   var shareUrl = 'https://astroaureum.com/' + currentLang + '/';
   if (platform === 'whatsapp') {
     window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(shareText + '\n' + shareUrl), '_blank');

@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aureum Books - Libreria Cosmica de Astrologia | AstroAureum</title>
+<meta name="description" content="Libros de astrologia premium por AstroAureum. Carta Natal, Signos, Sinastria, Transitos. PDF y audiolibros en 25+ idiomas.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9733;</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--void:#050410;--deep:#0a0820;--cosmos:#0e0d25;--nebula:#14123a;
+--gold:#D4A843;--gold2:#f0d078;--gold3:#ffeaa7;
+--purple:#7B4FBF;--purple2:#9B6FDF;
+--starW:#e8e8ff;--starD:#8888bb;--cyan:#64dfdf;--rose:#ff6b9d;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--void);color:var(--starW);overflow-x:hidden}
+
+#stars{position:fixed;inset:0;z-index:0;pointer-events:none}
+.neb{position:fixed;border-radius:50%;filter:blur(130px);pointer-events:none;z-index:1;mix-blend-mode:screen}
+.n1{width:700px;height:700px;background:radial-gradient(circle,rgba(123,79,191,0.07),transparent 70%);top:-200px;right:-250px;animation:nd 35s ease-in-out infinite}
+.n2{width:600px;height:600px;background:radial-gradient(circle,rgba(212,168,67,0.05),transparent 70%);bottom:-200px;left:-200px;animation:nd 28s 4s ease-in-out infinite reverse}
+.n3{width:500px;height:500px;background:radial-gradient(circle,rgba(100,223,223,0.04),transparent 70%);top:35%;left:25%;animation:nd 22s 8s ease-in-out infinite}
+.n4{width:400px;height:400px;background:radial-gradient(circle,rgba(255,107,157,0.03),transparent 70%);top:60%;right:10%;animation:nd 30s 12s ease-in-out infinite reverse}
+@keyframes nd{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-25px) scale(1.05)}66%{transform:translate(-25px,20px) scale(0.96)}}
+
+.particles{position:fixed;inset:0;z-index:2;pointer-events:none;overflow:hidden}
+.particle{position:absolute;border-radius:50%;animation:pF linear infinite}
+@keyframes pF{0%{transform:translateY(100vh) rotate(0deg);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-10vh) rotate(720deg);opacity:0}}
+
+.ss{position:fixed;height:1px;z-index:2;pointer-events:none;opacity:0}
+
+.main{position:relative;z-index:10}
+
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 20px;position:relative}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:250px;background:linear-gradient(transparent,var(--void));pointer-events:none}
+
+.mandala{width:300px;height:300px;position:relative;margin-bottom:30px}
+.mandala-ring{position:absolute;border-radius:50%;border:1px solid;animation:sp linear infinite}
+.mr1{inset:0;border-color:rgba(212,168,67,0.25);animation-duration:80s}
+.mr2{inset:20px;border-color:rgba(123,79,191,0.2);animation-duration:60s;animation-direction:reverse}
+.mr3{inset:45px;border-color:rgba(100,223,223,0.15);animation-duration:45s}
+.mr4{inset:65px;border-color:rgba(212,168,67,0.12);animation-duration:35s;animation-direction:reverse}
+@keyframes sp{to{transform:rotate(360deg)}}
+.mandala-core{position:absolute;inset:85px;border-radius:50%;background:radial-gradient(circle,rgba(212,168,67,0.08),transparent);display:flex;align-items:center;justify-content:center;flex-direction:column}
+.mandala-core .brand{font-family:'Cinzel',serif;font-size:14px;color:var(--gold);letter-spacing:4px;text-shadow:0 0 20px rgba(212,168,67,0.3)}
+.mandala-core .sub{font-family:'Cormorant Garamond',serif;font-size:10px;color:var(--starD);letter-spacing:2px;margin-top:3px}
+.zsym{position:absolute;width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--gold);text-shadow:0 0 8px rgba(212,168,67,0.4);transition:all 0.3s}
+.zsym:hover{transform:translate(-50%,-50%) scale(1.5)!important;text-shadow:0 0 20px var(--gold)}
+
+.hero h1{font-family:'Cinzel',serif;font-size:clamp(38px,8vw,80px);line-height:1;margin-bottom:10px}
+.h-au{background:linear-gradient(135deg,var(--gold),var(--gold2),var(--gold3),var(--gold));background-size:200% 200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:gs 4s ease infinite}
+@keyframes gs{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.h-bk{color:var(--starW);text-shadow:0 0 60px rgba(232,232,255,0.08)}
+.hero-tag{font-family:'Cormorant Garamond',serif;font-size:clamp(14px,2vw,20px);color:var(--gold);letter-spacing:6px;text-transform:uppercase;margin-bottom:20px;opacity:0.7}
+.hero-desc{font-family:'Cormorant Garamond',serif;font-size:clamp(15px,2.2vw,21px);color:var(--starD);max-width:560px;line-height:1.7;margin-bottom:30px;font-style:italic}
+
+.stats{display:flex;gap:30px;margin-bottom:30px;flex-wrap:wrap;justify-content:center}
+.stat{text-align:center;padding:15px 20px;position:relative}
+.stat::after{content:'';position:absolute;right:-15px;top:20%;height:60%;width:1px;background:linear-gradient(transparent,rgba(212,168,67,0.2),transparent)}
+.stat:last-child::after{display:none}
+.stat-n{font-family:'Cinzel',serif;font-size:30px;color:var(--gold);text-shadow:0 0 25px rgba(212,168,67,0.25)}
+.stat-l{font-size:9px;color:var(--starD);text-transform:uppercase;letter-spacing:3px;margin-top:4px}
+
+.btn{display:inline-flex;align-items:center;gap:8px;padding:15px 38px;border:1px solid var(--gold);background:transparent;color:var(--gold);font-family:'Cinzel',serif;font-size:13px;letter-spacing:3px;border-radius:50px;cursor:pointer;text-decoration:none;transition:all 0.4s;position:relative;overflow:hidden}
+.btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(212,168,67,0.08),transparent);opacity:0;transition:opacity 0.3s}
+.btn:hover::before{opacity:1}
+.btn:hover{box-shadow:0 0 35px rgba(212,168,67,0.15);transform:translateY(-2px)}
+.btn-g{background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--void);font-weight:700;border:none}
+.btn-g:hover{box-shadow:0 5px 30px rgba(212,168,67,0.4)}
+
+.sec-head{text-align:center;padding:60px 20px 30px}
+.sec-orn{display:flex;align-items:center;justify-content:center;gap:15px;margin-bottom:12px}
+.sec-line{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.sec-line:last-child{background:linear-gradient(90deg,var(--gold),transparent)}
+.sec-dia{width:8px;height:8px;background:var(--gold);transform:rotate(45deg);box-shadow:0 0 10px rgba(212,168,67,0.3)}
+.sec-t{font-family:'Cinzel',serif;font-size:clamp(22px,4vw,38px);background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:2px}
+.sec-s{font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--starD);font-style:italic;margin-top:6px}
+
+.grid{max-width:1300px;margin:0 auto;padding:0 20px 60px;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:28px}
+@media(max-width:700px){.grid{grid-template-columns:1fr;max-width:420px}}
+
+.card{background:linear-gradient(165deg,rgba(14,13,37,0.95),rgba(10,8,32,0.98));border:1px solid rgba(212,168,67,0.06);border-radius:22px;overflow:hidden;transition:all 0.6s cubic-bezier(0.16,1,0.3,1);position:relative;cursor:pointer}
+.card::before{content:'';position:absolute;inset:0;border-radius:22px;padding:1px;background:linear-gradient(135deg,transparent 40%,rgba(212,168,67,0.15),rgba(123,79,191,0.1),transparent 60%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity 0.5s}
+.card:hover{transform:translateY(-10px);box-shadow:0 25px 60px rgba(0,0,0,0.6),0 0 50px rgba(212,168,67,0.06)}
+.card:hover::before{opacity:1}
+
+.cover{height:320px;position:relative;perspective:1000px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.cover-glow{position:absolute;width:200px;height:200px;border-radius:50%;filter:blur(60px);opacity:0.3;transition:opacity 0.5s}
+.card:hover .cover-glow{opacity:0.5}
+
+.book{width:170px;height:240px;position:relative;transform-style:preserve-3d;transform:rotateY(-18deg) rotateX(4deg);transition:transform 0.7s cubic-bezier(0.16,1,0.3,1)}
+.card:hover .book{transform:rotateY(-28deg) rotateX(6deg) translateY(-5px)}
+.book-front{position:absolute;width:100%;height:100%;border-radius:3px 12px 12px 3px;backface-visibility:hidden;box-shadow:6px 6px 25px rgba(0,0,0,0.6);overflow:hidden}
+.book-spine{position:absolute;left:-16px;width:16px;height:100%;transform:rotateY(-90deg);border-radius:3px 0 0 3px}
+.book-top{position:absolute;top:-8px;left:0;width:100%;height:8px;transform:rotateX(90deg);transform-origin:bottom}
+.book-shadow{position:absolute;bottom:-18px;left:5%;width:90%;height:25px;background:radial-gradient(ellipse,rgba(0,0,0,0.5),transparent);filter:blur(8px);transform:rotateX(80deg)}
+
+.cv-content{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px;text-align:center;z-index:2}
+.cv-icon{font-size:48px;margin-bottom:8px;filter:drop-shadow(0 2px 8px rgba(0,0,0,0.5))}
+.cv-title{font-family:'Cinzel',serif;font-size:12px;color:#fff;line-height:1.4;font-weight:700;text-shadow:0 1px 4px rgba(0,0,0,0.6);max-width:130px}
+.cv-author{font-size:8px;color:rgba(255,255,255,0.7);margin-top:auto;padding-top:8px;letter-spacing:2px;text-transform:uppercase}
+.cv-brand{font-family:'Cinzel',serif;font-size:7px;color:rgba(255,255,255,0.5);margin-top:2px;letter-spacing:1px}
+
+.info{padding:0 20px 22px}
+.info-cat{font-size:9px;color:var(--purple2);text-transform:uppercase;letter-spacing:2.5px;margin-bottom:6px;font-weight:600}
+.info-title{font-family:'Cinzel',serif;font-size:17px;color:var(--starW);line-height:1.35;margin-bottom:6px}
+.info-desc{font-size:11.5px;color:var(--starD);line-height:1.6;margin-bottom:12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.info-meta{display:flex;gap:14px;margin-bottom:10px;flex-wrap:wrap}
+.mi{font-size:10px;color:var(--starD);display:flex;align-items:center;gap:3px}
+.info-fmts{display:flex;gap:5px;margin-bottom:10px;flex-wrap:wrap}
+.fmt{padding:3px 10px;border-radius:20px;font-size:8px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px}
+.f-pdf{background:rgba(244,67,54,0.08);color:#ef9a9a;border:1px solid rgba(244,67,54,0.12)}
+.f-kin{background:rgba(255,152,0,0.08);color:#ffcc80;border:1px solid rgba(255,152,0,0.12)}
+.f-au{background:rgba(156,39,176,0.08);color:#ce93d8;border:1px solid rgba(156,39,176,0.12)}
+.info-langs{display:flex;gap:4px;margin-bottom:14px;flex-wrap:wrap}
+.lang{width:22px;height:15px;border-radius:3px;font-size:7px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);color:var(--starD);font-weight:500}
+.pr-row{display:flex;align-items:center;justify-content:space-between}
+.price{font-family:'Cinzel',serif;font-size:22px;color:var(--gold);text-shadow:0 0 15px rgba(212,168,67,0.2)}
+.price-old{font-size:13px;color:var(--starD);text-decoration:line-through;margin-right:6px}
+.btn-sm{padding:9px 20px;border:1px solid var(--gold);background:linear-gradient(135deg,rgba(212,168,67,0.08),transparent);color:var(--gold);font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;border-radius:22px;cursor:pointer;transition:all 0.3s}
+.btn-sm:hover{background:var(--gold);color:var(--void);box-shadow:0 0 20px rgba(212,168,67,0.3)}
+
+.badge{position:absolute;top:14px;right:14px;padding:4px 14px;border-radius:20px;font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;z-index:5;backdrop-filter:blur(8px)}
+.b-best{background:linear-gradient(135deg,rgba(212,168,67,0.9),rgba(240,208,120,0.9));color:var(--void)}
+.b-new{background:linear-gradient(135deg,rgba(123,79,191,0.85),rgba(155,111,223,0.85));color:#fff}
+
+.modal-ov{position:fixed;inset:0;z-index:9999;background:rgba(5,4,16,0.93);backdrop-filter:blur(15px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.4s}
+.modal-ov.open{opacity:1;pointer-events:all}
+.modal{background:linear-gradient(165deg,var(--cosmos),var(--deep));border:1px solid rgba(212,168,67,0.12);border-radius:24px;max-width:550px;width:94%;max-height:90vh;overflow-y:auto;position:relative;animation:mI 0.4s cubic-bezier(0.16,1,0.3,1)}
+@keyframes mI{from{opacity:0;transform:scale(0.92) translateY(30px)}}
+.modal::-webkit-scrollbar{width:4px}
+.modal::-webkit-scrollbar-thumb{background:rgba(212,168,67,0.2);border-radius:2px}
+.modal-x{position:sticky;top:0;right:0;float:right;background:rgba(5,4,16,0.8);border:none;color:var(--starD);font-size:24px;cursor:pointer;z-index:5;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:10px;backdrop-filter:blur(8px);transition:all 0.2s}
+.modal-x:hover{color:var(--gold);background:rgba(212,168,67,0.1)}
+.modal-cover{height:250px;display:flex;align-items:center;justify-content:center;perspective:900px;position:relative;overflow:hidden;margin-top:-50px}
+.modal-cover::after{content:'';position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(transparent,var(--cosmos))}
+.modal-body{padding:0 30px 30px}
+.mb-badge{display:inline-block;padding:4px 14px;border-radius:18px;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px}
+.mb-cat{font-size:10px;color:var(--purple2);text-transform:uppercase;letter-spacing:2.5px;margin-bottom:8px;font-weight:600}
+.mb-title{font-family:'Cinzel',serif;font-size:24px;color:var(--starW);line-height:1.3;margin-bottom:10px}
+.mb-desc{font-size:13px;color:var(--starD);line-height:1.75;margin-bottom:20px}
+.mb-meta{display:flex;gap:18px;margin-bottom:18px;flex-wrap:wrap}
+.mb-m{font-size:11px;color:var(--starD);display:flex;align-items:center;gap:5px}
+.mb-fmts{margin-bottom:18px}
+.mb-fmts-h{font-size:10px;color:var(--starD);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px}
+.mb-fmt{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:rgba(255,255,255,0.015);border:1px solid rgba(255,255,255,0.04);border-radius:12px;margin-bottom:5px;transition:all 0.2s}
+.mb-fmt:hover{border-color:rgba(212,168,67,0.15);background:rgba(212,168,67,0.03)}
+.mb-fmt-n{font-size:13px;color:var(--starW)}
+.mb-fmt-p{font-family:'Cinzel',serif;font-size:15px;color:var(--gold)}
+.mb-langs{margin-bottom:20px}
+.mb-langs-h{font-size:10px;color:var(--starD);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px}
+.mb-pills{display:flex;gap:6px;flex-wrap:wrap}
+.mb-pill{padding:5px 12px;border-radius:14px;font-size:10px;background:rgba(123,79,191,0.06);border:1px solid rgba(123,79,191,0.12);color:var(--starD);font-weight:500}
+.mb-pr-row{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.mb-old{font-size:18px;color:var(--starD);text-decoration:line-through}
+.mb-price{font-family:'Cinzel',serif;font-size:36px;color:var(--gold);text-shadow:0 0 25px rgba(212,168,67,0.2)}
+.mb-save{padding:5px 12px;border-radius:14px;font-size:10px;font-weight:700;background:rgba(80,200,120,0.1);color:#50C878;border:1px solid rgba(80,200,120,0.15)}
+.mb-buy{width:100%;padding:16px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--void);font-family:'Cinzel',serif;font-size:13px;font-weight:700;letter-spacing:2px;border:none;border-radius:14px;cursor:pointer;transition:all 0.3s;margin-bottom:8px}
+.mb-buy:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(212,168,67,0.35)}
+.mb-prev{width:100%;padding:14px;background:transparent;border:1px solid rgba(212,168,67,0.15);color:var(--gold);font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;border-radius:14px;cursor:pointer;transition:all 0.3s}
+.mb-prev:hover{background:rgba(212,168,67,0.06)}
+.mb-author{text-align:center;margin-top:18px;padding-top:16px;border-top:1px solid rgba(212,168,67,0.06)}
+.mb-author-n{font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--gold);font-style:italic}
+.mb-author-b{font-size:10px;color:var(--starD);margin-top:3px}
+
+.prev{max-width:950px;margin:0 auto 60px;padding:0 20px}
+.prev-card{background:linear-gradient(165deg,var(--cosmos),var(--deep));border:1px solid rgba(212,168,67,0.08);border-radius:22px;padding:35px;text-align:center;position:relative;overflow:hidden}
+.prev-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(212,168,67,0.04),transparent 60%);pointer-events:none}
+.prev-t{font-family:'Cinzel',serif;color:var(--gold);font-size:20px;margin-bottom:8px;position:relative}
+.prev-s{color:var(--starD);font-size:13px;margin-bottom:20px;position:relative}
+.prev-pills{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:20px;position:relative}
+.prev-p{padding:8px 20px;border:1px solid rgba(212,168,67,0.12);border-radius:25px;background:transparent;color:var(--starD);cursor:pointer;font-size:12px;transition:all 0.3s}
+.prev-p:hover,.prev-p.on{background:var(--gold);color:var(--void);border-color:var(--gold)}
+
+.cta{max-width:800px;margin:0 auto 60px;padding:0 20px}
+.cta-card{background:linear-gradient(135deg,rgba(123,79,191,0.06),rgba(212,168,67,0.03));border:1px solid rgba(123,79,191,0.12);border-radius:24px;padding:45px;text-align:center;position:relative;overflow:hidden}
+.cta-card::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(from 0deg,transparent,rgba(212,168,67,0.02),transparent,rgba(123,79,191,0.02),transparent);animation:sp 25s linear infinite}
+.cta-t{font-family:'Cinzel',serif;font-size:clamp(20px,3.5vw,32px);color:var(--gold);margin-bottom:10px;position:relative;z-index:2}
+.cta-s{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--starD);margin-bottom:18px;font-style:italic;position:relative;z-index:2}
+.cta-price{font-family:'Cinzel',serif;font-size:40px;color:var(--gold);margin-bottom:20px;text-shadow:0 0 30px rgba(212,168,67,0.25);position:relative;z-index:2}
+
+footer{border-top:1px solid rgba(212,168,67,0.05);padding:30px 20px;text-align:center;position:relative;z-index:10}
+footer a{color:var(--gold);text-decoration:none}
+.ft-b{font-family:'Cinzel',serif;font-size:18px;color:var(--gold);margin-bottom:8px;letter-spacing:3px}
+.ft-l{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:10px;font-size:12px}
+.ft-l a{color:var(--starD);transition:color 0.3s}
+.ft-l a:hover{color:var(--gold)}
+.ft-c{font-size:10px;color:rgba(136,136,187,0.35)}
+
+.rv{opacity:0;transform:translateY(30px);transition:all 0.8s cubic-bezier(0.16,1,0.3,1)}
+.rv.vis{opacity:1;transform:translateY(0)}
+
+@media(max-width:600px){
+.hero{min-height:92vh;padding:30px 15px}.mandala{width:220px;height:220px}
+.cover{height:280px}.book{width:145px;height:205px}
+.modal{width:97%}.modal-body{padding:0 20px 24px}.mb-title{font-size:20px}.mb-price{font-size:28px}
+}
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+<div class="neb n1"></div><div class="neb n2"></div><div class="neb n3"></div><div class="neb n4"></div>
+<div class="particles" id="particles"></div>
+<div class="ss" id="s1"></div><div class="ss" id="s2"></div><div class="ss" id="s3"></div>
+
+<div style="position:fixed;top:12px;right:12px;z-index:1000;">
+  <select id="abLang" onchange="changeLang(this.value)" style="background:rgba(10,8,32,0.9);color:#D4A843;border:1px solid rgba(212,168,67,0.3);border-radius:8px;padding:6px 12px;font-size:13px;cursor:pointer;backdrop-filter:blur(10px);">
+    <option value="en">&#x1F1EC;&#x1F1E7; English</option>
+    <option value="es">&#x1F1EA;&#x1F1F8; Espa&#241;ol</option>
+    <option value="fr">&#x1F1EB;&#x1F1F7; Fran&#231;ais</option>
+    <option value="de">&#x1F1E9;&#x1F1EA; Deutsch</option>
+    <option value="pt">&#x1F1F5;&#x1F1F9; Portugu&#234;s</option>
+    <option value="it">&#x1F1EE;&#x1F1F9; Italiano</option>
+    <option value="ru">&#x1F1F7;&#x1F1FA; &#1056;&#1091;&#1089;&#1089;&#1082;&#1080;&#1081;</option>
+    <option value="bg">&#x1F1E7;&#x1F1EC; &#1041;&#1098;&#1083;&#1075;&#1072;&#1088;&#1089;&#1082;&#1080;</option>
+  </select>
+</div>
+
+<div class="main">
+<section class="hero">
+  <div class="mandala" id="mandala">
+    <div class="mandala-ring mr1"></div><div class="mandala-ring mr2"></div><div class="mandala-ring mr3"></div><div class="mandala-ring mr4"></div>
+    <div class="mandala-core"><span class="brand">AUREUM</span><span class="sub">BOOKS</span></div>
+  </div>
+  <div class="hero-tag" data-t="heroTag">Biblioteca Cosmica</div>
+  <h1><span class="h-au">Aureum</span> <span class="h-bk">Books</span></h1>
+  <p class="hero-desc" data-t="heroDesc">Libros de astrologia que iluminan tu camino cosmico. Escritos por expertos, traducidos a 25+ idiomas, en todos los formatos.</p>
+  <div class="stats">
+    <div class="stat"><div class="stat-n" id="cnt">18</div><div class="stat-l" data-t="statBooks">Libros</div></div>
+    <div class="stat"><div class="stat-n">25+</div><div class="stat-l" data-t="statLangs">Idiomas</div></div>
+    <div class="stat"><div class="stat-n">5</div><div class="stat-l" data-t="statFormats">Formatos</div></div>
+    <div class="stat"><div class="stat-n">12</div><div class="stat-l" data-t="statSigns">Signos</div></div>
+  </div>
+  <div style="display:flex;gap:15px;flex-wrap:wrap;justify-content:center">
+    <a href="#cat" class="btn btn-g" data-t="exploreCat">EXPLORAR CATALOGO</a>
+    <a href="#prev" class="btn" data-t="readFree">LEER GRATIS</a>
+  </div>
+</section>
+
+<div class="sec-head" id="cat">
+  <div class="sec-orn"><div class="sec-line"></div><div class="sec-dia"></div><div class="sec-line"></div></div>
+  <div class="sec-t" data-t="catTitle">Catalogo Cosmico</div>
+  <div class="sec-s" data-t="catSub">Libros que desvelan los secretos del universo</div>
+</div>
+<div class="grid" id="grid"></div>
+
+<div class="prev rv" id="prev">
+  <div class="prev-card">
+    <div class="prev-t" data-t="prevTitle">Lee y Escucha Antes de Comprar</div>
+    <div class="prev-s" data-t="prevSub">Elige tu idioma y prueba el primer capitulo gratis</div>
+    <div class="prev-pills">
+      <button class="prev-p on" data-lang="es">ES</button><button class="prev-p" data-lang="bg">BG</button><button class="prev-p" data-lang="en">EN</button>
+      <button class="prev-p" data-lang="pt">PT</button><button class="prev-p" data-lang="fr">FR</button><button class="prev-p" data-lang="de">DE</button>
+      <button class="prev-p" data-lang="it">IT</button><button class="prev-p" data-lang="ru">RU</button>
+    </div>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a href="#" class="btn" data-t="prevRead">&#128214; Leer Capitulo 1</a>
+      <a href="#" class="btn" data-t="prevListen">&#127908; Escuchar 5 Min</a>
+    </div>
+  </div>
+</div>
+
+<div class="cta rv">
+  <div class="cta-card">
+    <div class="cta-t" data-t="ctaTitle">Tu Carta Natal Personalizada</div>
+    <div class="cta-s" data-t="ctaDesc">Descubre los secretos que las estrellas escribieron para ti</div>
+    <div class="cta-price">&euro;89</div>
+    <a href="https://astroaureum.com/#carta-natal" class="btn btn-g" data-t="ctaBtn">SOLICITAR MI CARTA NATAL</a>
+  </div>
+</div>
+
+<div class="modal-ov" id="mOv" onclick="if(event.target===this)closeM()">
+  <div class="modal" id="mBox">
+    <button class="modal-x" onclick="closeM()">&times;</button>
+    <div class="modal-cover" id="mCov"></div>
+    <div class="modal-body" id="mBod"></div>
+  </div>
+</div>
+
+<footer>
+  <div class="ft-b">AUREUM BOOKS</div>
+  <div class="ft-l">
+    <a href="https://astroaureum.com">AstroAureum.com</a>
+    <a href="#cat" data-t="catalog">Catalogo</a><a href="#prev">Preview</a>
+    <a href="https://astroaureum.com/#contacto" data-t="contact">Contacto</a>
+  </div>
+  <div class="ft-c" data-t="footer">&copy; 2026 Aureum Books by AstroAureum. Todos los derechos reservados.</div>
+  <div style="margin-top:12px"><a href="/admin-books.html" style="color:rgba(136,136,187,0.2);text-decoration:none;font-size:9px;transition:color 0.2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(136,136,187,0.2)'">Admin</a> <a href="/factory.html" style="color:rgba(136,136,187,0.1);text-decoration:none;font-size:9px;transition:color 0.2s;margin-left:8px" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(136,136,187,0.1)'">Factory</a></div>
+</footer>
+</div>
+
+<script>
+// STARFIELD
+const cv=document.getElementById('stars'),cx=cv.getContext('2d');let SS=[],W,H;
+function initS(){W=cv.width=innerWidth;H=cv.height=innerHeight;SS=[];for(let i=0;i<700;i++)SS.push({x:(Math.random()-.5)*W*3,y:(Math.random()-.5)*H*3,z:Math.random()*2000+200,r:Math.random()*2+.3,t:Math.random()*6.28,sp:Math.random()*.5+.2})}
+function drawS(){cx.clearRect(0,0,W,H);const t=Date.now()*.0002;for(let s of SS){s.z-=s.sp;if(s.z<1){s.z=2000;s.x=(Math.random()-.5)*W*3;s.y=(Math.random()-.5)*H*3}const px=(s.x/s.z)*600+W/2,py=(s.y/s.z)*600+H/2,sz=(1-s.z/2000)*s.r*2.5,a=(1-s.z/2000)*(.4+.6*Math.sin(t*2+s.t));if(px<-5||px>W+5||py<-5||py>H+5)continue;cx.beginPath();cx.arc(px,py,Math.max(sz,.2),0,6.28);const h=s.r>1.5?'42,90%,75%':s.r>1?'230,60%,75%':'0,0%,85%';cx.fillStyle=`hsla(${h},${a})`;cx.fill();if(sz>1.8){cx.beginPath();cx.arc(px,py,sz*4,0,6.28);cx.fillStyle=`hsla(42,80%,70%,${a*.06})`;cx.fill()}}requestAnimationFrame(drawS)}
+addEventListener('resize',initS);initS();drawS();
+
+// PARTICLES
+const pB=document.getElementById('particles');
+for(let i=0;i<20;i++){const p=document.createElement('div');p.className='particle';const sz=Math.random()*3+1;p.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*100}%;background:${Math.random()>.5?'rgba(212,168,67,0.3)':'rgba(123,79,191,0.25)'};animation-duration:${Math.random()*20+15}s;animation-delay:${Math.random()*20}s`;pB.appendChild(p)}
+
+// ZODIAC MANDALA
+const zs=['\u2648','\u2649','\u264A','\u264B','\u264C','\u264D','\u264E','\u264F','\u2650','\u2651','\u2652','\u2653'];
+const md=document.getElementById('mandala');
+zs.forEach((s,i)=>{const e=document.createElement('div');e.className='zsym';e.textContent=s;const a=(i/12)*Math.PI*2-Math.PI/2,r=48;e.style.left=(50+r*Math.cos(a))+'%';e.style.top=(50+r*Math.sin(a))+'%';e.style.transform='translate(-50%,-50%)';md.appendChild(e)});
+
+// SHOOTING STARS
+function shoot(el,w,clr){const y=Math.random()*50,x=Math.random()*50,a=20+Math.random()*25;el.style.cssText=`position:fixed;height:1px;z-index:2;pointer-events:none;width:${w}px;background:linear-gradient(90deg,${clr},transparent);top:${y}%;left:${x}%;transform:rotate(${a}deg);opacity:1;transition:transform .9s linear,left .9s linear,opacity .3s .6s`;
+setTimeout(()=>{el.style.left=(parseFloat(el.style.left)+35)+'%'},20);
+setTimeout(()=>{el.style.transition='none';el.style.opacity='0';setTimeout(()=>shoot(el,w,clr),4000+Math.random()*10000)},1000)}
+setTimeout(()=>shoot(document.getElementById('s1'),120,'rgba(212,168,67,0.7)'),2000);
+setTimeout(()=>shoot(document.getElementById('s2'),90,'rgba(123,79,191,0.6)'),5000);
+setTimeout(()=>shoot(document.getElementById('s3'),100,'rgba(100,223,223,0.5)'),8000);
+
+// TRANSLATIONS
+const T={
+  es:{
+    heroTag:'Biblioteca Cosmica',
+    heroDesc:'Libros de astrologia que iluminan tu camino cosmico. Escritos por expertos, traducidos a 25+ idiomas, en todos los formatos.',
+    statBooks:'Libros',statLangs:'Idiomas',statFormats:'Formatos',statSigns:'Signos',
+    exploreCat:'EXPLORAR CATALOGO',readFree:'LEER GRATIS',
+    catTitle:'Catalogo Cosmico',catSub:'Libros que desvelan los secretos del universo',
+    prevTitle:'Lee y Escucha Antes de Comprar',prevSub:'Elige tu idioma y prueba el primer capitulo gratis',
+    prevRead:'\u{1F4D6} Leer Capitulo 1',prevListen:'\u{1F3A4} Escuchar 5 Min',
+    ctaTitle:'Tu Carta Natal Personalizada',ctaDesc:'Descubre los secretos que las estrellas escribieron para ti',ctaBtn:'SOLICITAR MI CARTA NATAL',
+    footer:'\u00A9 2026 Aureum Books by AstroAureum. Todos los derechos reservados.',
+    catalog:'Catalogo',contact:'Contacto',
+    viewBook:'VER LIBRO',buyNow:'COMPRAR AHORA',readChFree:'LEER CAPITULO 1 GRATIS',
+    formatsAvail:'Formatos disponibles',languages:'Idiomas',
+    chapters:'cap',pages:'pag',
+    bestseller:'\u2605 Bestseller',new:'\u2728 Nuevo'
+  },
+  en:{
+    heroTag:'Cosmic Library',
+    heroDesc:'Astrology books that illuminate your cosmic path. Written by experts, translated into 25+ languages, in every format.',
+    statBooks:'Books',statLangs:'Languages',statFormats:'Formats',statSigns:'Signs',
+    exploreCat:'EXPLORE CATALOG',readFree:'READ FREE',
+    catTitle:'Cosmic Catalog',catSub:'Books that unveil the secrets of the universe',
+    prevTitle:'Read and Listen Before You Buy',prevSub:'Choose your language and try the first chapter free',
+    prevRead:'\u{1F4D6} Read Chapter 1',prevListen:'\u{1F3A4} Listen 5 Min',
+    ctaTitle:'Your Personalized Natal Chart',ctaDesc:'Discover the secrets the stars wrote for you',ctaBtn:'REQUEST MY NATAL CHART',
+    footer:'\u00A9 2026 Aureum Books by AstroAureum. All rights reserved.',
+    catalog:'Catalog',contact:'Contact',
+    viewBook:'VIEW BOOK',buyNow:'BUY NOW',readChFree:'READ CHAPTER 1 FREE',
+    formatsAvail:'Available formats',languages:'Languages',
+    chapters:'ch',pages:'pg',
+    bestseller:'\u2605 Bestseller',new:'\u2728 New'
+  },
+  fr:{
+    heroTag:'Biblioth\u00e8que Cosmique',
+    heroDesc:'Des livres d\'astrologie qui illuminent votre chemin cosmique. Ecrits par des experts, traduits en 25+ langues, dans tous les formats.',
+    statBooks:'Livres',statLangs:'Langues',statFormats:'Formats',statSigns:'Signes',
+    exploreCat:'EXPLORER LE CATALOGUE',readFree:'LIRE GRATUITEMENT',
+    catTitle:'Catalogue Cosmique',catSub:'Des livres qui devoilent les secrets de l\'univers',
+    prevTitle:'Lisez et Ecoutez Avant d\'Acheter',prevSub:'Choisissez votre langue et essayez le premier chapitre gratuitement',
+    prevRead:'\u{1F4D6} Lire le Chapitre 1',prevListen:'\u{1F3A4} Ecouter 5 Min',
+    ctaTitle:'Votre Th\u00e8me Natal Personnalis\u00e9',ctaDesc:'D\u00e9couvrez les secrets que les \u00e9toiles ont \u00e9crits pour vous',ctaBtn:'DEMANDER MON TH\u00c8ME NATAL',
+    footer:'\u00A9 2026 Aureum Books by AstroAureum. Tous droits r\u00e9serv\u00e9s.',
+    catalog:'Catalogue',contact:'Contact',
+    viewBook:'VOIR LE LIVRE',buyNow:'ACHETER MAINTENANT',readChFree:'LIRE LE CHAPITRE 1 GRATUIT',
+    formatsAvail:'Formats disponibles',languages:'Langues',
+    chapters:'chap',pages:'pg',
+    bestseller:'\u2605 Best-seller',new:'\u2728 Nouveau'
+  },
+  de:{
+    heroTag:'Kosmische Bibliothek',
+    heroDesc:'Astrologieb\u00fccher, die Ihren kosmischen Weg erhellen. Von Experten geschrieben, in 25+ Sprachen \u00fcbersetzt, in allen Formaten.',
+    statBooks:'B\u00fccher',statLangs:'Sprachen',statFormats:'Formate',statSigns:'Zeichen',
+    exploreCat:'KATALOG ENTDECKEN',readFree:'KOSTENLOS LESEN',
+    catTitle:'Kosmischer Katalog',catSub:'B\u00fccher, die die Geheimnisse des Universums enth\u00fcllen',
+    prevTitle:'Lesen und H\u00f6ren vor dem Kauf',prevSub:'W\u00e4hlen Sie Ihre Sprache und testen Sie das erste Kapitel kostenlos',
+    prevRead:'\u{1F4D6} Kapitel 1 Lesen',prevListen:'\u{1F3A4} 5 Min H\u00f6ren',
+    ctaTitle:'Ihr Pers\u00f6nliches Geburtshoroskop',ctaDesc:'Entdecken Sie die Geheimnisse, die die Sterne f\u00fcr Sie geschrieben haben',ctaBtn:'MEIN HOROSKOP ANFORDERN',
+    footer:'\u00A9 2026 Aureum Books by AstroAureum. Alle Rechte vorbehalten.',
+    catalog:'Katalog',contact:'Kontakt',
+    viewBook:'BUCH ANSEHEN',buyNow:'JETZT KAUFEN',readChFree:'KAPITEL 1 KOSTENLOS LESEN',
+    formatsAvail:'Verf\u00fcgbare Formate',languages:'Sprachen',
+    chapters:'Kap',pages:'S.',
+    bestseller:'\u2605 Bestseller',new:'\u2728 Neu'
+  },
+  pt:{
+    heroTag:'Biblioteca C\u00f3smica',
+    heroDesc:'Livros de astrologia que iluminam o seu caminho c\u00f3smico. Escritos por especialistas, traduzidos em 25+ idiomas, em todos os formatos.',
+    statBooks:'Livros',statLangs:'Idiomas',statFormats:'Formatos',statSigns:'Signos',
+    exploreCat:'EXPLORAR CAT\u00c1LOGO',readFree:'LER GR\u00c1TIS',
+    catTitle:'Cat\u00e1logo C\u00f3smico',catSub:'Livros que revelam os segredos do universo',
+    prevTitle:'Leia e Ou\u00e7a Antes de Comprar',prevSub:'Escolha o seu idioma e experimente o primeiro cap\u00edtulo gr\u00e1tis',
+    prevRead:'\u{1F4D6} Ler Cap\u00edtulo 1',prevListen:'\u{1F3A4} Ouvir 5 Min',
+    ctaTitle:'A Sua Carta Natal Personalizada',ctaDesc:'Descubra os segredos que as estrelas escreveram para si',ctaBtn:'SOLICITAR A MINHA CARTA NATAL',
+    footer:'\u00A9 2026 Aureum Books by AstroAureum. Todos os direitos reservados.',
+    catalog:'Cat\u00e1logo',contact:'Contacto',
+    viewBook:'VER LIVRO',buyNow:'COMPRAR AGORA',readChFree:'LER CAP\u00cdTULO 1 GR\u00c1TIS',
+    formatsAvail:'Formatos dispon\u00edveis',languages:'Idiomas',
+    chapters:'cap',pages:'p\u00e1g',
+    bestseller:'\u2605 Bestseller',new:'\u2728 Novo'
+  },
+  it:{
+    heroTag:'Biblioteca Cosmica',
+    heroDesc:'Libri di astrologia che illuminano il tuo cammino cosmico. Scritti da esperti, tradotti in 25+ lingue, in tutti i formati.',
+    statBooks:'Libri',statLangs:'Lingue',statFormats:'Formati',statSigns:'Segni',
+    exploreCat:'ESPLORA IL CATALOGO',readFree:'LEGGI GRATIS',
+    catTitle:'Catalogo Cosmico',catSub:'Libri che svelano i segreti dell\'universo',
+    prevTitle:'Leggi e Ascolta Prima di Acquistare',prevSub:'Scegli la tua lingua e prova il primo capitolo gratis',
+    prevRead:'\u{1F4D6} Leggi il Capitolo 1',prevListen:'\u{1F3A4} Ascolta 5 Min',
+    ctaTitle:'Il Tuo Tema Natale Personalizzato',ctaDesc:'Scopri i segreti che le stelle hanno scritto per te',ctaBtn:'RICHIEDI IL MIO TEMA NATALE',
+    footer:'\u00A9 2026 Aureum Books by AstroAureum. Tutti i diritti riservati.',
+    catalog:'Catalogo',contact:'Contatto',
+    viewBook:'VEDI LIBRO',buyNow:'ACQUISTA ORA',readChFree:'LEGGI IL CAPITOLO 1 GRATIS',
+    formatsAvail:'Formati disponibili',languages:'Lingue',
+    chapters:'cap',pages:'pag',
+    bestseller:'\u2605 Bestseller',new:'\u2728 Nuovo'
+  },
+  ru:{
+    heroTag:'\u041a\u043e\u0441\u043c\u0438\u0447\u0435\u0441\u043a\u0430\u044f \u0411\u0438\u0431\u043b\u0438\u043e\u0442\u0435\u043a\u0430',
+    heroDesc:'\u041a\u043d\u0438\u0433\u0438 \u043f\u043e \u0430\u0441\u0442\u0440\u043e\u043b\u043e\u0433\u0438\u0438, \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u043e\u0441\u0432\u0435\u0449\u0430\u044e\u0442 \u0432\u0430\u0448 \u043a\u043e\u0441\u043c\u0438\u0447\u0435\u0441\u043a\u0438\u0439 \u043f\u0443\u0442\u044c. \u041d\u0430\u043f\u0438\u0441\u0430\u043d\u044b \u044d\u043a\u0441\u043f\u0435\u0440\u0442\u0430\u043c\u0438, \u043f\u0435\u0440\u0435\u0432\u0435\u0434\u0435\u043d\u044b \u043d\u0430 25+ \u044f\u0437\u044b\u043a\u043e\u0432, \u0432\u043e \u0432\u0441\u0435\u0445 \u0444\u043e\u0440\u043c\u0430\u0442\u0430\u0445.',
+    statBooks:'\u041a\u043d\u0438\u0433',statLangs:'\u042f\u0437\u044b\u043a\u043e\u0432',statFormats:'\u0424\u043e\u0440\u043c\u0430\u0442\u043e\u0432',statSigns:'\u0417\u043d\u0430\u043a\u043e\u0432',
+    exploreCat:'\u041a\u0410\u0422\u0410\u041b\u041e\u0413',readFree:'\u0427\u0418\u0422\u0410\u0422\u042c \u0411\u0415\u0421\u041f\u041b\u0410\u0422\u041d\u041e',
+    catTitle:'\u041a\u043e\u0441\u043c\u0438\u0447\u0435\u0441\u043a\u0438\u0439 \u041a\u0430\u0442\u0430\u043b\u043e\u0433',catSub:'\u041a\u043d\u0438\u0433\u0438, \u0440\u0430\u0441\u043a\u0440\u044b\u0432\u0430\u044e\u0449\u0438\u0435 \u0442\u0430\u0439\u043d\u044b \u0432\u0441\u0435\u043b\u0435\u043d\u043d\u043e\u0439',
+    prevTitle:'\u0427\u0438\u0442\u0430\u0439\u0442\u0435 \u0438 \u0421\u043b\u0443\u0448\u0430\u0439\u0442\u0435 \u041f\u0435\u0440\u0435\u0434 \u041f\u043e\u043a\u0443\u043f\u043a\u043e\u0439',prevSub:'\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u044f\u0437\u044b\u043a \u0438 \u043f\u043e\u043f\u0440\u043e\u0431\u0443\u0439\u0442\u0435 \u043f\u0435\u0440\u0432\u0443\u044e \u0433\u043b\u0430\u0432\u0443 \u0431\u0435\u0441\u043f\u043b\u0430\u0442\u043d\u043e',
+    prevRead:'\u{1F4D6} \u0427\u0438\u0442\u0430\u0442\u044c \u0413\u043b\u0430\u0432\u0443 1',prevListen:'\u{1F3A4} \u0421\u043b\u0443\u0448\u0430\u0442\u044c 5 \u041c\u0438\u043d',
+    ctaTitle:'\u0412\u0430\u0448 \u041f\u0435\u0440\u0441\u043e\u043d\u0430\u043b\u044c\u043d\u044b\u0439 \u041d\u0430\u0442\u0430\u043b\u044c\u043d\u044b\u0439 \u0413\u043e\u0440\u043e\u0441\u043a\u043e\u043f',ctaDesc:'\u041e\u0442\u043a\u0440\u043e\u0439\u0442\u0435 \u0442\u0430\u0439\u043d\u044b, \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u0437\u0432\u0435\u0437\u0434\u044b \u043d\u0430\u043f\u0438\u0441\u0430\u043b\u0438 \u0434\u043b\u044f \u0432\u0430\u0441',ctaBtn:'\u0417\u0410\u041f\u0420\u041e\u0421\u0418\u0422\u042c \u041c\u041e\u0419 \u0413\u041e\u0420\u041e\u0421\u041a\u041e\u041f',
+    footer:'\u00A9 2026 Aureum Books by AstroAureum. \u0412\u0441\u0435 \u043f\u0440\u0430\u0432\u0430 \u0437\u0430\u0449\u0438\u0449\u0435\u043d\u044b.',
+    catalog:'\u041a\u0430\u0442\u0430\u043b\u043e\u0433',contact:'\u041a\u043e\u043d\u0442\u0430\u043a\u0442',
+    viewBook:'\u0421\u041c\u041e\u0422\u0420\u0415\u0422\u042c',buyNow:'\u041a\u0423\u041f\u0418\u0422\u042c \u0421\u0415\u0419\u0427\u0410\u0421',readChFree:'\u0427\u0418\u0422\u0410\u0422\u042c \u0413\u041b\u0410\u0412\u0423 1 \u0411\u0415\u0421\u041f\u041b\u0410\u0422\u041d\u041e',
+    formatsAvail:'\u0414\u043e\u0441\u0442\u0443\u043f\u043d\u044b\u0435 \u0444\u043e\u0440\u043c\u0430\u0442\u044b',languages:'\u042f\u0437\u044b\u043a\u0438',
+    chapters:'\u0433\u043b',pages:'\u0441\u0442\u0440',
+    bestseller:'\u2605 \u0411\u0435\u0441\u0442\u0441\u0435\u043b\u043b\u0435\u0440',new:'\u2728 \u041d\u043e\u0432\u044b\u0439'
+  },
+  bg:{
+    heroTag:'\u041a\u043e\u0441\u043c\u0438\u0447\u0435\u0441\u043a\u0430 \u0411\u0438\u0431\u043b\u0438\u043e\u0442\u0435\u043a\u0430',
+    heroDesc:'\u041a\u043d\u0438\u0433\u0438 \u043f\u043e \u0430\u0441\u0442\u0440\u043e\u043b\u043e\u0433\u0438\u044f, \u043a\u043e\u0438\u0442\u043e \u043e\u0441\u0432\u0435\u0442\u044f\u0432\u0430\u0442 \u043a\u043e\u0441\u043c\u0438\u0447\u0435\u0441\u043a\u0438\u044f \u0432\u0438 \u043f\u044a\u0442. \u041d\u0430\u043f\u0438\u0441\u0430\u043d\u0438 \u043e\u0442 \u0435\u043a\u0441\u043f\u0435\u0440\u0442\u0438, \u043f\u0440\u0435\u0432\u0435\u0434\u0435\u043d\u0438 \u043d\u0430 25+ \u0435\u0437\u0438\u043a\u0430, \u0432\u044a\u0432 \u0432\u0441\u0438\u0447\u043a\u0438 \u0444\u043e\u0440\u043c\u0430\u0442\u0438.',
+    statBooks:'\u041a\u043d\u0438\u0433\u0438',statLangs:'\u0415\u0437\u0438\u043a\u0430',statFormats:'\u0424\u043e\u0440\u043c\u0430\u0442\u0438',statSigns:'\u0417\u043d\u0430\u043a\u0430',
+    exploreCat:'\u041a\u0410\u0422\u0410\u041b\u041e\u0413',readFree:'\u0427\u0415\u0422\u0415\u0422\u0415 \u0411\u0415\u0417\u041f\u041b\u0410\u0422\u041d\u041e',
+    catTitle:'\u041a\u043e\u0441\u043c\u0438\u0447\u0435\u0441\u043a\u0438 \u041a\u0430\u0442\u0430\u043b\u043e\u0433',catSub:'\u041a\u043d\u0438\u0433\u0438, \u043a\u043e\u0438\u0442\u043e \u0440\u0430\u0437\u043a\u0440\u0438\u0432\u0430\u0442 \u0442\u0430\u0439\u043d\u0438\u0442\u0435 \u043d\u0430 \u0432\u0441\u0435\u043b\u0435\u043d\u0430\u0442\u0430',
+    prevTitle:'\u0427\u0435\u0442\u0435\u0442\u0435 \u0438 \u0421\u043b\u0443\u0448\u0430\u0439\u0442\u0435 \u041f\u0440\u0435\u0434\u0438 \u041f\u043e\u043a\u0443\u043f\u043a\u0430',prevSub:'\u0418\u0437\u0431\u0435\u0440\u0435\u0442\u0435 \u0435\u0437\u0438\u043a \u0438 \u043e\u043f\u0438\u0442\u0430\u0439\u0442\u0435 \u043f\u044a\u0440\u0432\u0430\u0442\u0430 \u0433\u043b\u0430\u0432\u0430 \u0431\u0435\u0437\u043f\u043b\u0430\u0442\u043d\u043e',
+    prevRead:'\u{1F4D6} \u0427\u0435\u0442\u0435\u0442\u0435 \u0413\u043b\u0430\u0432\u0430 1',prevListen:'\u{1F3A4} \u0421\u043b\u0443\u0448\u0430\u0439\u0442\u0435 5 \u041c\u0438\u043d',
+    ctaTitle:'\u0412\u0430\u0448\u0430\u0442\u0430 \u041f\u0435\u0440\u0441\u043e\u043d\u0430\u043b\u043d\u0430 \u041d\u0430\u0442\u0430\u043b\u043d\u0430 \u041a\u0430\u0440\u0442\u0430',ctaDesc:'\u041e\u0442\u043a\u0440\u0438\u0439\u0442\u0435 \u0442\u0430\u0439\u043d\u0438\u0442\u0435, \u043a\u043e\u0438\u0442\u043e \u0437\u0432\u0435\u0437\u0434\u0438\u0442\u0435 \u043d\u0430\u043f\u0438\u0441\u0430\u0445\u0430 \u0437\u0430 \u0432\u0430\u0441',ctaBtn:'\u041f\u041e\u0418\u0421\u041a\u0410\u0419\u0422\u0415 \u041a\u0410\u0420\u0422\u0410\u0422\u0410 \u0421\u0418',
+    footer:'\u00A9 2026 Aureum Books by AstroAureum. \u0412\u0441\u0438\u0447\u043a\u0438 \u043f\u0440\u0430\u0432\u0430 \u0437\u0430\u043f\u0430\u0437\u0435\u043d\u0438.',
+    catalog:'\u041a\u0430\u0442\u0430\u043b\u043e\u0433',contact:'\u041a\u043e\u043d\u0442\u0430\u043a\u0442',
+    viewBook:'\u0412\u0418\u0416 \u041a\u041d\u0418\u0413\u0410',buyNow:'\u041a\u0423\u041f\u0418 \u0421\u0415\u0413\u0410',readChFree:'\u0427\u0415\u0422\u0415\u0422\u0415 \u0413\u041b\u0410\u0412\u0410 1 \u0411\u0415\u0417\u041f\u041b\u0410\u0422\u041d\u041e',
+    formatsAvail:'\u041d\u0430\u043b\u0438\u0447\u043d\u0438 \u0444\u043e\u0440\u043c\u0430\u0442\u0438',languages:'\u0415\u0437\u0438\u0446\u0438',
+    chapters:'\u0433\u043b',pages:'\u0441\u0442\u0440',
+    bestseller:'\u2605 \u0411\u0435\u0441\u0442\u0441\u0435\u043b\u044a\u0440',new:'\u2728 \u041d\u043e\u0432\u043e'
+  }
+};
+
+let curLang='es';
+
+function t(key){return (T[curLang]&&T[curLang][key])||T.es[key]||key}
+
+// BOOK DATA
+const books=[
+{t:{es:'Guia Completa de los 12 Signos',en:'Complete Guide to the 12 Signs',fr:'Guide Complet des 12 Signes',de:'Vollst\u00e4ndiger Leitfaden der 12 Zeichen',pt:'Guia Completo dos 12 Signos',it:'Guida Completa dei 12 Segni',ru:'\u041f\u043e\u043b\u043d\u043e\u0435 \u0420\u0443\u043a\u043e\u0432\u043e\u0434\u0441\u0442\u0432\u043e \u043f\u043e 12 \u0417\u043d\u0430\u043a\u0430\u043c',bg:'\u041f\u044a\u043b\u043d\u043e \u0420\u044a\u043a\u043e\u0432\u043e\u0434\u0441\u0442\u0432\u043e \u0437\u0430 12-\u0442\u0435 \u0417\u043d\u0430\u043a\u0430'},cat:'Signos Zodiacales',d:{es:'Descubre la personalidad profunda, compatibilidad, carrera y destino cosmico de cada signo zodiacal. Un viaje por las 12 constelaciones.',en:'Discover the deep personality, compatibility, career and cosmic destiny of each zodiac sign. A journey through the 12 constellations.',fr:'D\u00e9couvrez la personnalit\u00e9 profonde, la compatibilit\u00e9, la carri\u00e8re et le destin cosmique de chaque signe. Un voyage \u00e0 travers les 12 constellations.',de:'Entdecken Sie die tiefe Pers\u00f6nlichkeit, Kompatibilit\u00e4t, Karriere und kosmisches Schicksal jedes Sternzeichens. Eine Reise durch die 12 Sternbilder.',pt:'Descubra a personalidade profunda, compatibilidade, carreira e destino c\u00f3smico de cada signo. Uma viagem pelas 12 constela\u00e7\u00f5es.',it:'Scopri la personalit\u00e0 profonda, la compatibilit\u00e0, la carriera e il destino cosmico di ogni segno. Un viaggio attraverso le 12 costellazioni.',ru:'\u041e\u0442\u043a\u0440\u043e\u0439\u0442\u0435 \u0433\u043b\u0443\u0431\u043e\u043a\u0443\u044e \u043b\u0438\u0447\u043d\u043e\u0441\u0442\u044c, \u0441\u043e\u0432\u043c\u0435\u0441\u0442\u0438\u043c\u043e\u0441\u0442\u044c, \u043a\u0430\u0440\u044c\u0435\u0440\u0443 \u0438 \u043a\u043e\u0441\u043c\u0438\u0447\u0435\u0441\u043a\u0443\u044e \u0441\u0443\u0434\u044c\u0431\u0443 \u043a\u0430\u0436\u0434\u043e\u0433\u043e \u0437\u043d\u0430\u043a\u0430 \u0437\u043e\u0434\u0438\u0430\u043a\u0430.',bg:'\u041e\u0442\u043a\u0440\u0438\u0439\u0442\u0435 \u0434\u044a\u043b\u0431\u043e\u043a\u0430\u0442\u0430 \u043b\u0438\u0447\u043d\u043e\u0441\u0442, \u0441\u044a\u0432\u043c\u0435\u0441\u0442\u0438\u043c\u043e\u0441\u0442, \u043a\u0430\u0440\u0438\u0435\u0440\u0430 \u0438 \u043a\u043e\u0441\u043c\u0438\u0447\u0435\u0441\u043a\u0430 \u0441\u044a\u0434\u0431\u0430 \u043d\u0430 \u0432\u0441\u0435\u043a\u0438 \u0437\u043d\u0430\u043a.'},ic:'\u2648',ch:15,pg:280,pr:14.99,op:19.99,fm:['pdf','kin','au'],ln:['ES','BG','EN','PT','FR','DE'],bg:'best',cl:['#D4A843','#8B6914','#5a4510'],mn:1},
+{t:{es:'Como Leer tu Carta Natal',en:'How to Read Your Natal Chart',fr:'Comment Lire Votre Th\u00e8me Natal',de:'Wie Sie Ihr Geburtshoroskop Lesen',pt:'Como Ler a Sua Carta Natal',it:'Come Leggere il Tuo Tema Natale',ru:'\u041a\u0430\u043a \u0427\u0438\u0442\u0430\u0442\u044c \u0412\u0430\u0448\u0443 \u041d\u0430\u0442\u0430\u043b\u044c\u043d\u0443\u044e \u041a\u0430\u0440\u0442\u0443',bg:'\u041a\u0430\u043a \u0434\u0430 \u0427\u0435\u0442\u0435\u0442\u0435 \u041d\u0430\u0442\u0430\u043b\u043d\u0430\u0442\u0430 \u0441\u0438 \u041a\u0430\u0440\u0442\u0430'},cat:'Carta Natal',d:{es:'Manual paso a paso para interpretar tu carta astral con planetas, casas, aspectos y transitos.',en:'Step-by-step manual to interpret your astral chart with planets, houses, aspects and transits.',fr:'Manuel \u00e9tape par \u00e9tape pour interpr\u00e9ter votre th\u00e8me astral avec plan\u00e8tes, maisons, aspects et transits.',de:'Schritt-f\u00fcr-Schritt-Anleitung zur Interpretation Ihres Horoskops mit Planeten, H\u00e4usern, Aspekten und Transiten.',pt:'Manual passo a passo para interpretar a sua carta astral com planetas, casas, aspetos e tr\u00e2nsitos.',it:'Manuale passo dopo passo per interpretare il tuo tema natale con pianeti, case, aspetti e transiti.',ru:'\u041f\u043e\u0448\u0430\u0433\u043e\u0432\u043e\u0435 \u0440\u0443\u043a\u043e\u0432\u043e\u0434\u0441\u0442\u0432\u043e \u043f\u043e \u0438\u043d\u0442\u0435\u0440\u043f\u0440\u0435\u0442\u0430\u0446\u0438\u0438 \u0432\u0430\u0448\u0435\u0439 \u043d\u0430\u0442\u0430\u043b\u044c\u043d\u043e\u0439 \u043a\u0430\u0440\u0442\u044b.',bg:'\u041d\u0430\u0440\u044a\u0447\u043d\u0438\u043a \u0441\u0442\u044a\u043f\u043a\u0430 \u043f\u043e \u0441\u0442\u044a\u043f\u043a\u0430 \u0437\u0430 \u0438\u043d\u0442\u0435\u0440\u043f\u0440\u0435\u0442\u0438\u0440\u0430\u043d\u0435 \u043d\u0430 \u0432\u0430\u0448\u0430\u0442\u0430 \u043d\u0430\u0442\u0430\u043b\u043d\u0430 \u043a\u0430\u0440\u0442\u0430.'},ic:'\u2609',ch:18,pg:320,pr:24.99,fm:['pdf','kin','au'],ln:['ES','BG','EN','PT'],bg:'new',cl:['#7B4FBF','#4a2d7a','#2d1a4f'],mn:0},
+{t:{es:'Sinastria: Compatibilidad Cosmica',en:'Synastry: Cosmic Compatibility',fr:'Synastrie: Compatibilit\u00e9 Cosmique',de:'Synastrie: Kosmische Kompatibilit\u00e4t',pt:'Sinastria: Compatibilidade C\u00f3smica',it:'Sinastria: Compatibilit\u00e0 Cosmica',ru:'\u0421\u0438\u043d\u0430\u0441\u0442\u0440\u0438\u044f: \u041a\u043e\u0441\u043c\u0438\u0447\u0435\u0441\u043a\u0430\u044f \u0421\u043e\u0432\u043c\u0435\u0441\u0442\u0438\u043c\u043e\u0441\u0442\u044c',bg:'\u0421\u0438\u043d\u0430\u0441\u0442\u0440\u0438\u044f: \u041a\u043e\u0441\u043c\u0438\u0447\u0435\u0441\u043a\u0430 \u0421\u044a\u0432\u043c\u0435\u0441\u0442\u0438\u043c\u043e\u0441\u0442'},cat:'Sinastria & Amor',d:{es:'El secreto de la compatibilidad entre signos. Las estrellas revelan la verdad de tu relacion.',en:'The secret of compatibility between signs. The stars reveal the truth of your relationship.',fr:'Le secret de la compatibilit\u00e9 entre les signes. Les \u00e9toiles r\u00e9v\u00e8lent la v\u00e9rit\u00e9 de votre relation.',de:'Das Geheimnis der Kompatibilit\u00e4t zwischen den Zeichen. Die Sterne enth\u00fcllen die Wahrheit Ihrer Beziehung.',pt:'O segredo da compatibilidade entre signos. As estrelas revelam a verdade da sua rela\u00e7\u00e3o.',it:'Il segreto della compatibilit\u00e0 tra i segni. Le stelle rivelano la verit\u00e0 della tua relazione.',ru:'\u0421\u0435\u043a\u0440\u0435\u0442 \u0441\u043e\u0432\u043c\u0435\u0441\u0442\u0438\u043c\u043e\u0441\u0442\u0438 \u043c\u0435\u0436\u0434\u0443 \u0437\u043d\u0430\u043a\u0430\u043c\u0438. \u0417\u0432\u0435\u0437\u0434\u044b \u0440\u0430\u0441\u043a\u0440\u044b\u0432\u0430\u044e\u0442 \u043f\u0440\u0430\u0432\u0434\u0443 \u0432\u0430\u0448\u0438\u0445 \u043e\u0442\u043d\u043e\u0448\u0435\u043d\u0438\u0439.',bg:'\u0422\u0430\u0439\u043d\u0430\u0442\u0430 \u043d\u0430 \u0441\u044a\u0432\u043c\u0435\u0441\u0442\u0438\u043c\u043e\u0441\u0442\u0442\u0430 \u043c\u0435\u0436\u0434\u0443 \u0437\u043d\u0430\u0446\u0438\u0442\u0435. \u0417\u0432\u0435\u0437\u0434\u0438\u0442\u0435 \u0440\u0430\u0437\u043a\u0440\u0438\u0432\u0430\u0442 \u0438\u0441\u0442\u0438\u043d\u0430\u0442\u0430 \u0437\u0430 \u0432\u0440\u044a\u0437\u043a\u0430\u0442\u0430 \u0432\u0438.'},ic:'\u2665',ch:14,pg:240,pr:12.99,fm:['pdf','kin','au'],ln:['ES','BG','EN'],cl:['#C2185B','#880E4F','#4A0028'],mn:1},
+{t:{es:'Transitos Planetarios 2026',en:'Planetary Transits 2026',fr:'Transits Plan\u00e9taires 2026',de:'Planet\u00e4re Transite 2026',pt:'Tr\u00e2nsitos Planet\u00e1rios 2026',it:'Transiti Planetari 2026',ru:'\u041f\u043b\u0430\u043d\u0435\u0442\u0430\u0440\u043d\u044b\u0435 \u0422\u0440\u0430\u043d\u0437\u0438\u0442\u044b 2026',bg:'\u041f\u043b\u0430\u043d\u0435\u0442\u0430\u0440\u043d\u0438 \u0422\u0440\u0430\u043d\u0437\u0438\u0442\u0438 2026'},cat:'Transitos',d:{es:'Los movimientos planetarios del ano y como transforman la vida de cada signo zodiacal.',en:'The planetary movements of the year and how they transform the life of each zodiac sign.',fr:'Les mouvements plan\u00e9taires de l\'ann\u00e9e et comment ils transforment la vie de chaque signe.',de:'Die Planetenbewegungen des Jahres und wie sie das Leben jedes Sternzeichens ver\u00e4ndern.',pt:'Os movimentos planet\u00e1rios do ano e como transformam a vida de cada signo.',it:'I movimenti planetari dell\'anno e come trasformano la vita di ogni segno.',ru:'\u041f\u043b\u0430\u043d\u0435\u0442\u0430\u0440\u043d\u044b\u0435 \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u044f \u0433\u043e\u0434\u0430 \u0438 \u043a\u0430\u043a \u043e\u043d\u0438 \u043c\u0435\u043d\u044f\u044e\u0442 \u0436\u0438\u0437\u043d\u044c \u043a\u0430\u0436\u0434\u043e\u0433\u043e \u0437\u043d\u0430\u043a\u0430.',bg:'\u041f\u043b\u0430\u043d\u0435\u0442\u0430\u0440\u043d\u0438\u0442\u0435 \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u044f \u043d\u0430 \u0433\u043e\u0434\u0438\u043d\u0430\u0442\u0430 \u0438 \u043a\u0430\u043a \u043f\u0440\u043e\u043c\u0435\u043d\u044f\u0442 \u0436\u0438\u0432\u043e\u0442\u0430 \u043d\u0430 \u0432\u0441\u0435\u043a\u0438 \u0437\u043d\u0430\u043a.'},ic:'\u2644',ch:12,pg:200,pr:9.99,fm:['pdf','kin'],ln:['ES','BG','EN','PT','FR','DE'],bg:'new',cl:['#00838F','#004D40','#002520'],mn:0},
+{t:{es:'Las 12 Casas Astrologicas',en:'The 12 Astrological Houses',fr:'Les 12 Maisons Astrologiques',de:'Die 12 Astrologischen H\u00e4user',pt:'As 12 Casas Astrol\u00f3gicas',it:'Le 12 Case Astrologiche',ru:'12 \u0410\u0441\u0442\u0440\u043e\u043b\u043e\u0433\u0438\u0447\u0435\u0441\u043a\u0438\u0445 \u0414\u043e\u043c\u043e\u0432',bg:'12-\u0442\u0435 \u0410\u0441\u0442\u0440\u043e\u043b\u043e\u0433\u0438\u0447\u0435\u0441\u043a\u0438 \u0414\u043e\u043c\u0430'},cat:'Casas',d:{es:'Cada casa revela un area de tu vida. La guia definitiva para interpretarlas todas.',en:'Each house reveals an area of your life. The definitive guide to interpreting them all.',fr:'Chaque maison r\u00e9v\u00e8le un domaine de votre vie. Le guide d\u00e9finitif pour les interpr\u00e9ter toutes.',de:'Jedes Haus enth\u00fcllt einen Bereich Ihres Lebens. Der ultimative Leitfaden zur Interpretation.',pt:'Cada casa revela uma \u00e1rea da sua vida. O guia definitivo para interpret\u00e1-las todas.',it:'Ogni casa rivela un\'area della tua vita. La guida definitiva per interpretarle tutte.',ru:'\u041a\u0430\u0436\u0434\u044b\u0439 \u0434\u043e\u043c \u0440\u0430\u0441\u043a\u0440\u044b\u0432\u0430\u0435\u0442 \u043e\u0431\u043b\u0430\u0441\u0442\u044c \u0432\u0430\u0448\u0435\u0439 \u0436\u0438\u0437\u043d\u0438. \u041f\u043e\u043b\u043d\u043e\u0435 \u0440\u0443\u043a\u043e\u0432\u043e\u0434\u0441\u0442\u0432\u043e \u043f\u043e \u0438\u0445 \u0438\u043d\u0442\u0435\u0440\u043f\u0440\u0435\u0442\u0430\u0446\u0438\u0438.',bg:'\u0412\u0441\u0435\u043a\u0438 \u0434\u043e\u043c \u0440\u0430\u0437\u043a\u0440\u0438\u0432\u0430 \u043e\u0431\u043b\u0430\u0441\u0442 \u043e\u0442 \u0436\u0438\u0432\u043e\u0442\u0430 \u0432\u0438. \u041f\u044a\u043b\u043d\u043e\u0442\u043e \u0440\u044a\u043a\u043e\u0432\u043e\u0434\u0441\u0442\u0432\u043e \u0437\u0430 \u0442\u044f\u0445\u043d\u0430\u0442\u0430 \u0438\u043d\u0442\u0435\u0440\u043f\u0440\u0435\u0442\u0430\u0446\u0438\u044f.'},ic:'\u2302',ch:15,pg:260,pr:14.99,fm:['pdf','kin','au'],ln:['ES','BG','EN'],cl:['#E65100','#BF360C','#6d1f07'],mn:0},
+{t:{es:'Astrologia Lunar',en:'Lunar Astrology',fr:'Astrologie Lunaire',de:'Mond-Astrologie',pt:'Astrologia Lunar',it:'Astrologia Lunare',ru:'\u041b\u0443\u043d\u043d\u0430\u044f \u0410\u0441\u0442\u0440\u043e\u043b\u043e\u0433\u0438\u044f',bg:'\u041b\u0443\u043d\u043d\u0430 \u0410\u0441\u0442\u0440\u043e\u043b\u043e\u0433\u0438\u044f'},cat:'Luna & Ciclos',d:{es:'El poder de la Luna en tu vida: fases, eclipses y su influencia cosmica en cada signo.',en:'The power of the Moon in your life: phases, eclipses and its cosmic influence on each sign.',fr:'Le pouvoir de la Lune dans votre vie: phases, \u00e9clipses et son influence cosmique sur chaque signe.',de:'Die Macht des Mondes in Ihrem Leben: Phasen, Finsternisse und sein kosmischer Einfluss auf jedes Zeichen.',pt:'O poder da Lua na sua vida: fases, eclipses e a sua influ\u00eancia c\u00f3smica em cada signo.',it:'Il potere della Luna nella tua vita: fasi, eclissi e la sua influenza cosmica su ogni segno.',ru:'\u0421\u0438\u043b\u0430 \u041b\u0443\u043d\u044b \u0432 \u0432\u0430\u0448\u0435\u0439 \u0436\u0438\u0437\u043d\u0438: \u0444\u0430\u0437\u044b, \u0437\u0430\u0442\u043c\u0435\u043d\u0438\u044f \u0438 \u0435\u0451 \u043a\u043e\u0441\u043c\u0438\u0447\u0435\u0441\u043a\u043e\u0435 \u0432\u043b\u0438\u044f\u043d\u0438\u0435.',bg:'\u0421\u0438\u043b\u0430\u0442\u0430 \u043d\u0430 \u041b\u0443\u043d\u0430\u0442\u0430 \u0432 \u0436\u0438\u0432\u043e\u0442\u0430 \u0432\u0438: \u0444\u0430\u0437\u0438, \u0437\u0430\u0442\u044a\u043c\u043d\u0435\u043d\u0438\u044f \u0438 \u043a\u043e\u0441\u043c\u0438\u0447\u0435\u0441\u043a\u043e\u0442\u043e \u0439 \u0432\u043b\u0438\u044f\u043d\u0438\u0435.'},ic:'\u263D',ch:12,pg:220,pr:12.99,fm:['pdf','kin'],ln:['ES','BG','EN','PT'],cl:['#6A1B9A','#4A148C','#2A0A50'],mn:1},
+{t:{es:'Nodos Lunares y tu Destino',en:'Lunar Nodes and Your Destiny',fr:'Noeuds Lunaires et Votre Destin',de:'Mondknoten und Ihr Schicksal',pt:'N\u00f3dulos Lunares e o Seu Destino',it:'Nodi Lunari e il Tuo Destino',ru:'\u041b\u0443\u043d\u043d\u044b\u0435 \u0423\u0437\u043b\u044b \u0438 \u0412\u0430\u0448\u0430 \u0421\u0443\u0434\u044c\u0431\u0430',bg:'\u041b\u0443\u043d\u043d\u0438 \u0412\u044a\u0437\u043b\u0438 \u0438 \u0412\u0430\u0448\u0430\u0442\u0430 \u0421\u044a\u0434\u0431\u0430'},cat:'Karma & Destino',d:{es:'Tu mision karmica revelada por el Nodo Norte y Nodo Sur de tu carta natal.',en:'Your karmic mission revealed by the North Node and South Node of your natal chart.',fr:'Votre mission karmique r\u00e9v\u00e9l\u00e9e par le Noeud Nord et le Noeud Sud de votre th\u00e8me natal.',de:'Ihre karmische Mission, enth\u00fcllt durch den Nordknoten und S\u00fcdknoten Ihres Geburtshoroskops.',pt:'A sua miss\u00e3o c\u00e1rmica revelada pelo N\u00f3dulo Norte e N\u00f3dulo Sul da sua carta natal.',it:'La tua missione karmica rivelata dal Nodo Nord e Nodo Sud del tuo tema natale.',ru:'\u0412\u0430\u0448\u0430 \u043a\u0430\u0440\u043c\u0438\u0447\u0435\u0441\u043a\u0430\u044f \u043c\u0438\u0441\u0441\u0438\u044f, \u0440\u0430\u0441\u043a\u0440\u044b\u0442\u0430\u044f \u0421\u0435\u0432\u0435\u0440\u043d\u044b\u043c \u0438 \u042e\u0436\u043d\u044b\u043c \u0423\u0437\u043b\u0430\u043c\u0438 \u0432\u0430\u0448\u0435\u0439 \u043a\u0430\u0440\u0442\u044b.',bg:'\u0412\u0430\u0448\u0430\u0442\u0430 \u043a\u0430\u0440\u043c\u0438\u0447\u043d\u0430 \u043c\u0438\u0441\u0438\u044f, \u0440\u0430\u0437\u043a\u0440\u0438\u0442\u0430 \u043e\u0442 \u0421\u0435\u0432\u0435\u0440\u043d\u0438\u044f \u0438 \u042e\u0436\u043d\u0438\u044f \u0412\u044a\u0437\u0435\u043b \u043d\u0430 \u043a\u0430\u0440\u0442\u0430\u0442\u0430 \u0432\u0438.'},ic:'\u260A',ch:10,pg:180,pr:9.99,fm:['pdf','kin','au'],ln:['ES','BG','EN'],cl:['#283593','#1A237E','#0D1240'],mn:0},
+{t:{es:'Astrologia para Principiantes',en:'Astrology for Beginners',fr:'Astrologie pour D\u00e9butants',de:'Astrologie f\u00fcr Anf\u00e4nger',pt:'Astrologia para Iniciantes',it:'Astrologia per Principianti',ru:'\u0410\u0441\u0442\u0440\u043e\u043b\u043e\u0433\u0438\u044f \u0434\u043b\u044f \u041d\u0430\u0447\u0438\u043d\u0430\u044e\u0449\u0438\u0445',bg:'\u0410\u0441\u0442\u0440\u043e\u043b\u043e\u0433\u0438\u044f \u0437\u0430 \u041d\u0430\u0447\u0438\u043d\u0430\u0435\u0449\u0438'},cat:'Nivel Basico',d:{es:'Todo lo que necesitas saber para empezar tu viaje en el universo de la astrologia.',en:'Everything you need to know to begin your journey in the universe of astrology.',fr:'Tout ce que vous devez savoir pour commencer votre voyage dans l\'univers de l\'astrologie.',de:'Alles, was Sie wissen m\u00fcssen, um Ihre Reise ins Universum der Astrologie zu beginnen.',pt:'Tudo o que precisa saber para come\u00e7ar a sua viagem no universo da astrologia.',it:'Tutto ci\u00f2 che devi sapere per iniziare il tuo viaggio nell\'universo dell\'astrologia.',ru:'\u0412\u0441\u0451, \u0447\u0442\u043e \u043d\u0443\u0436\u043d\u043e \u0437\u043d\u0430\u0442\u044c, \u0447\u0442\u043e\u0431\u044b \u043d\u0430\u0447\u0430\u0442\u044c \u043f\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0438\u0435 \u0432 \u043c\u0438\u0440 \u0430\u0441\u0442\u0440\u043e\u043b\u043e\u0433\u0438\u0438.',bg:'\u0412\u0441\u0438\u0447\u043a\u043e, \u043a\u043e\u0435\u0442\u043e \u0442\u0440\u044f\u0431\u0432\u0430 \u0434\u0430 \u0437\u043d\u0430\u0435\u0442\u0435, \u0437\u0430 \u0434\u0430 \u0437\u0430\u043f\u043e\u0447\u043d\u0435\u0442\u0435 \u043f\u044a\u0442\u0443\u0432\u0430\u043d\u0435\u0442\u043e \u0441\u0438 \u0432 \u0430\u0441\u0442\u0440\u043e\u043b\u043e\u0433\u0438\u044f\u0442\u0430.'},ic:'\u2B50',ch:10,pg:180,pr:7.99,op:12.99,fm:['pdf','kin','au'],ln:['ES','BG','EN','PT','FR','DE'],bg:'best',cl:['#2E7D32','#1B5E20','#0D3010'],mn:1},
+{t:{es:'Meditaciones para Cada Signo',en:'Meditations for Each Sign',fr:'M\u00e9ditations pour Chaque Signe',de:'Meditationen f\u00fcr Jedes Zeichen',pt:'Medita\u00e7\u00f5es para Cada Signo',it:'Meditazioni per Ogni Segno',ru:'\u041c\u0435\u0434\u0438\u0442\u0430\u0446\u0438\u0438 \u0434\u043b\u044f \u041a\u0430\u0436\u0434\u043e\u0433\u043e \u0417\u043d\u0430\u043a\u0430',bg:'\u041c\u0435\u0434\u0438\u0442\u0430\u0446\u0438\u0438 \u0437\u0430 \u0412\u0441\u0435\u043a\u0438 \u0417\u043d\u0430\u043a'},cat:'Meditacion Zodiacal',d:{es:'50 meditaciones guiadas personalizadas segun tu signo zodiacal y elemento cosmico.',en:'50 guided meditations personalized according to your zodiac sign and cosmic element.',fr:'50 m\u00e9ditations guid\u00e9es personnalis\u00e9es selon votre signe et \u00e9l\u00e9ment cosmique.',de:'50 gef\u00fchrte Meditationen, personalisiert nach Ihrem Sternzeichen und kosmischem Element.',pt:'50 medita\u00e7\u00f5es guiadas personalizadas de acordo com o seu signo e elemento c\u00f3smico.',it:'50 meditazioni guidate personalizzate in base al tuo segno e elemento cosmico.',ru:'50 \u043c\u0435\u0434\u0438\u0442\u0430\u0446\u0438\u0439 \u043f\u043e \u0432\u0430\u0448\u0435\u043c\u0443 \u0437\u043d\u0430\u043a\u0443 \u0437\u043e\u0434\u0438\u0430\u043a\u0430 \u0438 \u043a\u043e\u0441\u043c\u0438\u0447\u0435\u0441\u043a\u043e\u043c\u0443 \u044d\u043b\u0435\u043c\u0435\u043d\u0442\u0443.',bg:'50 \u043c\u0435\u0434\u0438\u0442\u0430\u0446\u0438\u0438 \u0441\u043f\u043e\u0440\u0435\u0434 \u0432\u0430\u0448\u0438\u044f \u0437\u043e\u0434\u0438\u0430\u043a\u0430\u043b\u0435\u043d \u0437\u043d\u0430\u043a \u0438 \u043a\u043e\u0441\u043c\u0438\u0447\u0435\u0441\u043a\u0438 \u0435\u043b\u0435\u043c\u0435\u043d\u0442.'},ic:'\u2638',ch:14,pg:200,pr:14.99,fm:['pdf','kin','au'],ln:['ES','BG','EN'],cl:['#2d9c9c','#1a6b6b','#0d4040'],mn:1},
+{t:{es:'Cristales y Piedras por Signo',en:'Crystals and Stones by Sign',fr:'Cristaux et Pierres par Signe',de:'Kristalle und Steine nach Zeichen',pt:'Cristais e Pedras por Signo',it:'Cristalli e Pietre per Segno',ru:'\u041a\u0440\u0438\u0441\u0442\u0430\u043b\u043b\u044b \u0438 \u041a\u0430\u043c\u043d\u0438 \u043f\u043e \u0417\u043d\u0430\u043a\u0430\u043c',bg:'\u041a\u0440\u0438\u0441\u0442\u0430\u043b\u0438 \u0438 \u041a\u0430\u043c\u044a\u043d\u0438 \u043f\u043e \u0417\u043d\u0430\u043a'},cat:'Cristales & Gemas',d:{es:'Guia completa de cristales, piedras y gemas asociados a cada signo con rituales de activacion.',en:'Complete guide to crystals, stones and gems associated with each sign with activation rituals.',fr:'Guide complet des cristaux, pierres et gemmes associ\u00e9s \u00e0 chaque signe avec rituels d\'activation.',de:'Vollst\u00e4ndiger Leitfaden zu Kristallen, Steinen und Edelsteinen f\u00fcr jedes Zeichen mit Aktivierungsritualen.',pt:'Guia completo de cristais, pedras e gemas associados a cada signo com rituais de ativa\u00e7\u00e3o.',it:'Guida completa a cristalli, pietre e gemme associati a ogni segno con rituali di attivazione.',ru:'\u041f\u043e\u043b\u043d\u043e\u0435 \u0440\u0443\u043a\u043e\u0432\u043e\u0434\u0441\u0442\u0432\u043e \u043f\u043e \u043a\u0440\u0438\u0441\u0442\u0430\u043b\u043b\u0430\u043c \u0438 \u043a\u0430\u043c\u043d\u044f\u043c \u0434\u043b\u044f \u043a\u0430\u0436\u0434\u043e\u0433\u043e \u0437\u043d\u0430\u043a\u0430 \u0441 \u0440\u0438\u0442\u0443\u0430\u043b\u0430\u043c\u0438 \u0430\u043a\u0442\u0438\u0432\u0430\u0446\u0438\u0438.',bg:'\u041f\u044a\u043b\u043d\u043e \u0440\u044a\u043a\u043e\u0432\u043e\u0434\u0441\u0442\u0432\u043e \u0437\u0430 \u043a\u0440\u0438\u0441\u0442\u0430\u043b\u0438, \u043a\u0430\u043c\u044a\u043d\u0438 \u0438 \u0441\u043a\u044a\u043f\u043e\u0446\u0435\u043d\u043d\u0438 \u043a\u0430\u043c\u044a\u043d\u0438 \u0437\u0430 \u0432\u0441\u0435\u043a\u0438 \u0437\u043d\u0430\u043a.'},ic:'\u2666',ch:14,pg:190,pr:12.99,fm:['pdf','kin'],ln:['ES','BG','EN','PT'],cl:['#AD1457','#880E4F','#4A0028'],mn:0},
+{t:{es:'Tarot y Astrologia',en:'Tarot and Astrology',fr:'Tarot et Astrologie',de:'Tarot und Astrologie',pt:'Tarot e Astrologia',it:'Tarocchi e Astrologia',ru:'\u0422\u0430\u0440\u043e \u0438 \u0410\u0441\u0442\u0440\u043e\u043b\u043e\u0433\u0438\u044f',bg:'\u0422\u0430\u0440\u043e \u0438 \u0410\u0441\u0442\u0440\u043e\u043b\u043e\u0433\u0438\u044f'},cat:'Tarot & Arcanos',d:{es:'La conexion profunda entre los Arcanos del Tarot y los signos del zodiaco revelada.',en:'The deep connection between the Tarot Arcana and the zodiac signs revealed.',fr:'La connexion profonde entre les Arcanes du Tarot et les signes du zodiaque r\u00e9v\u00e9l\u00e9e.',de:'Die tiefe Verbindung zwischen den Tarot-Arkana und den Tierkreiszeichen enth\u00fcllt.',pt:'A conex\u00e3o profunda entre os Arcanos do Tarot e os signos do zod\u00edaco revelada.',it:'La connessione profonda tra gli Arcani dei Tarocchi e i segni zodiacali rivelata.',ru:'\u0413\u043b\u0443\u0431\u043e\u043a\u0430\u044f \u0441\u0432\u044f\u0437\u044c \u043c\u0435\u0436\u0434\u0443 \u0410\u0440\u043a\u0430\u043d\u0430\u043c\u0438 \u0422\u0430\u0440\u043e \u0438 \u0437\u043d\u0430\u043a\u0430\u043c\u0438 \u0437\u043e\u0434\u0438\u0430\u043a\u0430 \u0440\u0430\u0441\u043a\u0440\u044b\u0442\u0430.',bg:'\u0414\u044a\u043b\u0431\u043e\u043a\u0430\u0442\u0430 \u0432\u0440\u044a\u0437\u043a\u0430 \u043c\u0435\u0436\u0434\u0443 \u0410\u0440\u043a\u0430\u043d\u0438\u0442\u0435 \u043d\u0430 \u0422\u0430\u0440\u043e\u0442\u043e \u0438 \u0437\u043d\u0430\u0446\u0438\u0442\u0435 \u043d\u0430 \u0437\u043e\u0434\u0438\u0430\u043a\u0430 \u0440\u0430\u0437\u043a\u0440\u0438\u0442\u0430.'},ic:'\u2721',ch:16,pg:270,pr:17.99,fm:['pdf','kin','au'],ln:['ES','BG','EN'],bg:'new',cl:['#8B6914','#6B4F0A','#4A3507'],mn:1},
+{t:{es:'Planner Astrologico 2026-2027',en:'Astrological Planner 2026-2027',fr:'Planificateur Astrologique 2026-2027',de:'Astrologischer Planer 2026-2027',pt:'Planner Astrol\u00f3gico 2026-2027',it:'Planner Astrologico 2026-2027',ru:'\u0410\u0441\u0442\u0440\u043e\u043b\u043e\u0433\u0438\u0447\u0435\u0441\u043a\u0438\u0439 \u041f\u043b\u0430\u043d\u0435\u0440 2026-2027',bg:'\u0410\u0441\u0442\u0440\u043e\u043b\u043e\u0433\u0438\u0447\u0435\u0441\u043a\u0438 \u041f\u043b\u0430\u043d\u0435\u0440 2026-2027'},cat:'Planner & Calendario',d:{es:'Planifica tu vida con las estrellas. Calendario lunar, transitos y rituales mensuales.',en:'Plan your life with the stars. Lunar calendar, transits and monthly rituals.',fr:'Planifiez votre vie avec les \u00e9toiles. Calendrier lunaire, transits et rituels mensuels.',de:'Planen Sie Ihr Leben mit den Sternen. Mondkalender, Transite und monatliche Rituale.',pt:'Planifique a sua vida com as estrelas. Calend\u00e1rio lunar, tr\u00e2nsitos e rituais mensais.',it:'Pianifica la tua vita con le stelle. Calendario lunare, transiti e rituali mensili.',ru:'\u041f\u043b\u0430\u043d\u0438\u0440\u0443\u0439\u0442\u0435 \u0436\u0438\u0437\u043d\u044c \u0441\u043e \u0437\u0432\u0435\u0437\u0434\u0430\u043c\u0438. \u041b\u0443\u043d\u043d\u044b\u0439 \u043a\u0430\u043b\u0435\u043d\u0434\u0430\u0440\u044c, \u0442\u0440\u0430\u043d\u0437\u0438\u0442\u044b \u0438 \u0435\u0436\u0435\u043c\u0435\u0441\u044f\u0447\u043d\u044b\u0435 \u0440\u0438\u0442\u0443\u0430\u043b\u044b.',bg:'\u041f\u043b\u0430\u043d\u0438\u0440\u0430\u0439\u0442\u0435 \u0436\u0438\u0432\u043e\u0442\u0430 \u0441\u0438 \u0441\u044a\u0441 \u0437\u0432\u0435\u0437\u0434\u0438\u0442\u0435. \u041b\u0443\u043d\u0435\u043d \u043a\u0430\u043b\u0435\u043d\u0434\u0430\u0440, \u0442\u0440\u0430\u043d\u0437\u0438\u0442\u0438 \u0438 \u043c\u0435\u0441\u0435\u0447\u043d\u0438 \u0440\u0438\u0442\u0443\u0430\u043b\u0438.'},ic:'\u2726',ch:14,pg:160,pr:19.99,fm:['pdf'],ln:['ES','BG','EN','PT','FR','DE'],cl:['#4a2d7a','#321d54','#1e1133'],mn:0},
+{t:{es:'Rituales Lunares',en:'Lunar Rituals',fr:'Rituels Lunaires',de:'Mondrituale',pt:'Rituais Lunares',it:'Rituali Lunari',ru:'\u041b\u0443\u043d\u043d\u044b\u0435 \u0420\u0438\u0442\u0443\u0430\u043b\u044b',bg:'\u041b\u0443\u043d\u043d\u0438 \u0420\u0438\u0442\u0443\u0430\u043b\u0438'},cat:'Rituales & Magia',d:{es:'Rituales poderosos para cada fase lunar: Luna nueva, Luna llena, eclipses y cuartos.',en:'Powerful rituals for each lunar phase: New Moon, Full Moon, eclipses and quarters.',fr:'Rituels puissants pour chaque phase lunaire: Nouvelle Lune, Pleine Lune, \u00e9clipses et quartiers.',de:'M\u00e4chtige Rituale f\u00fcr jede Mondphase: Neumond, Vollmond, Finsternisse und Viertel.',pt:'Rituais poderosos para cada fase lunar: Lua nova, Lua cheia, eclipses e quartos.',it:'Rituali potenti per ogni fase lunare: Luna nuova, Luna piena, eclissi e quarti.',ru:'\u041c\u043e\u0449\u043d\u044b\u0435 \u0440\u0438\u0442\u0443\u0430\u043b\u044b \u0434\u043b\u044f \u043a\u0430\u0436\u0434\u043e\u0439 \u043b\u0443\u043d\u043d\u043e\u0439 \u0444\u0430\u0437\u044b: \u041d\u043e\u0432\u043e\u043b\u0443\u043d\u0438\u0435, \u041f\u043e\u043b\u043d\u043e\u043b\u0443\u043d\u0438\u0435, \u0437\u0430\u0442\u043c\u0435\u043d\u0438\u044f.',bg:'\u041c\u043e\u0449\u043d\u0438 \u0440\u0438\u0442\u0443\u0430\u043b\u0438 \u0437\u0430 \u0432\u0441\u044f\u043a\u0430 \u043b\u0443\u043d\u043d\u0430 \u0444\u0430\u0437\u0430: \u041d\u043e\u0432\u043e\u043b\u0443\u043d\u0438\u0435, \u041f\u044a\u043b\u043d\u043e\u043b\u0443\u043d\u0438\u0435, \u0437\u0430\u0442\u044a\u043c\u043d\u0435\u043d\u0438\u044f.'},ic:'\u263E',ch:12,pg:200,pr:12.99,fm:['pdf','kin'],ln:['ES','BG','EN'],cl:['#4A148C','#311B92','#1A0A50'],mn:1},
+{t:{es:'Revolucion Solar: Tu Ano',en:'Solar Revolution: Your Year',fr:'R\u00e9volution Solaire: Votre Ann\u00e9e',de:'Solarrevolution: Ihr Jahr',pt:'Revolu\u00e7\u00e3o Solar: O Seu Ano',it:'Rivoluzione Solare: Il Tuo Anno',ru:'\u0421\u043e\u043b\u043d\u0435\u0447\u043d\u0430\u044f \u0420\u0435\u0432\u043e\u043b\u044e\u0446\u0438\u044f: \u0412\u0430\u0448 \u0413\u043e\u0434',bg:'\u0421\u043b\u044a\u043d\u0447\u0435\u0432\u0430 \u0420\u0435\u0432\u043e\u043b\u044e\u0446\u0438\u044f: \u0412\u0430\u0448\u0430\u0442\u0430 \u0413\u043e\u0434\u0438\u043d\u0430'},cat:'Revolucion Solar',d:{es:'Interpreta tu Revolucion Solar y predice los temas principales de cada ano de vida.',en:'Interpret your Solar Revolution and predict the main themes of each year of life.',fr:'Interpr\u00e9tez votre R\u00e9volution Solaire et pr\u00e9disez les th\u00e8mes principaux de chaque ann\u00e9e de vie.',de:'Interpretieren Sie Ihre Solarrevolution und sagen Sie die Hauptthemen jedes Lebensjahres voraus.',pt:'Interprete a sua Revolu\u00e7\u00e3o Solar e preveja os temas principais de cada ano de vida.',it:'Interpreta la tua Rivoluzione Solare e predici i temi principali di ogni anno di vita.',ru:'\u0418\u043d\u0442\u0435\u0440\u043f\u0440\u0435\u0442\u0438\u0440\u0443\u0439\u0442\u0435 \u0441\u043e\u043b\u043d\u0435\u0447\u043d\u0443\u044e \u0440\u0435\u0432\u043e\u043b\u044e\u0446\u0438\u044e \u0438 \u043f\u0440\u0435\u0434\u0441\u043a\u0430\u0436\u0438\u0442\u0435 \u0433\u043b\u0430\u0432\u043d\u044b\u0435 \u0442\u0435\u043c\u044b \u043a\u0430\u0436\u0434\u043e\u0433\u043e \u0433\u043e\u0434\u0430.',bg:'\u0418\u043d\u0442\u0435\u0440\u043f\u0440\u0435\u0442\u0438\u0440\u0430\u0439\u0442\u0435 \u0441\u043b\u044a\u043d\u0447\u0435\u0432\u0430\u0442\u0430 \u0440\u0435\u0432\u043e\u043b\u044e\u0446\u0438\u044f \u0438 \u043f\u0440\u0435\u0434\u0441\u043a\u0430\u0436\u0435\u0442\u0435 \u0433\u043b\u0430\u0432\u043d\u0438\u0442\u0435 \u0442\u0435\u043c\u0438 \u043d\u0430 \u0432\u0441\u044f\u043a\u0430 \u0433\u043e\u0434\u0438\u043d\u0430.'},ic:'\u2609',ch:10,pg:180,pr:9.99,fm:['pdf','kin'],ln:['ES','BG','EN'],cl:['#BF360C','#8B2500','#5A1800'],mn:0},
+{t:{es:'Retrogrados Planetarios',en:'Planetary Retrogrades',fr:'R\u00e9trogrades Plan\u00e9taires',de:'Planet\u00e4re R\u00fccklaufe',pt:'Retr\u00f3grados Planet\u00e1rios',it:'Retrogradi Planetari',ru:'\u0420\u0435\u0442\u0440\u043e\u0433\u0440\u0430\u0434\u043d\u044b\u0435 \u041f\u043b\u0430\u043d\u0435\u0442\u044b',bg:'\u0420\u0435\u0442\u0440\u043e\u0433\u0440\u0430\u0434\u043d\u0438 \u041f\u043b\u0430\u043d\u0435\u0442\u0438'},cat:'Retrogrados',d:{es:'Mercurio, Venus y Marte retrogrado: como te afectan y como aprovechar su energia.',en:'Mercury, Venus and Mars retrograde: how they affect you and how to harness their energy.',fr:'Mercure, V\u00e9nus et Mars r\u00e9trograde: comment ils vous affectent et comment exploiter leur \u00e9nergie.',de:'Merkur, Venus und Mars r\u00fckl\u00e4ufig: wie sie Sie beeinflussen und wie Sie ihre Energie nutzen.',pt:'Merc\u00fario, V\u00e9nus e Marte retr\u00f3grado: como o afetam e como aproveitar a sua energia.',it:'Mercurio, Venere e Marte retrogrado: come ti influenzano e come sfruttare la loro energia.',ru:'\u0420\u0435\u0442\u0440\u043e\u0433\u0440\u0430\u0434\u043d\u044b\u0435 \u041c\u0435\u0440\u043a\u0443\u0440\u0438\u0439, \u0412\u0435\u043d\u0435\u0440\u0430 \u0438 \u041c\u0430\u0440\u0441: \u043a\u0430\u043a \u043e\u043d\u0438 \u0432\u043b\u0438\u044f\u044e\u0442 \u0438 \u043a\u0430\u043a \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u044c \u0438\u0445 \u044d\u043d\u0435\u0440\u0433\u0438\u044e.',bg:'\u0420\u0435\u0442\u0440\u043e\u0433\u0440\u0430\u0434\u043d\u0438 \u041c\u0435\u0440\u043a\u0443\u0440\u0438\u0439, \u0412\u0435\u043d\u0435\u0440\u0430 \u0438 \u041c\u0430\u0440\u0441: \u043a\u0430\u043a \u0432\u0438 \u0432\u043b\u0438\u044f\u044f\u0442 \u0438 \u043a\u0430\u043a \u0434\u0430 \u0438\u0437\u043f\u043e\u043b\u0437\u0432\u0430\u0442\u0435 \u0435\u043d\u0435\u0440\u0433\u0438\u044f\u0442\u0430 \u0438\u043c.'},ic:'\u263F',ch:10,pg:170,pr:9.99,fm:['pdf','kin','au'],ln:['ES','BG','EN','PT'],cl:['#37474F','#263238','#151D20'],mn:0},
+{t:{es:'Enciclopedia Astrologica',en:'Astrological Encyclopedia',fr:'Encyclop\u00e9die Astrologique',de:'Astrologische Enzyklop\u00e4die',pt:'Enciclop\u00e9dia Astrol\u00f3gica',it:'Enciclopedia Astrologica',ru:'\u0410\u0441\u0442\u0440\u043e\u043b\u043e\u0433\u0438\u0447\u0435\u0441\u043a\u0430\u044f \u042d\u043d\u0446\u0438\u043a\u043b\u043e\u043f\u0435\u0434\u0438\u044f',bg:'\u0410\u0441\u0442\u0440\u043e\u043b\u043e\u0433\u0438\u0447\u0435\u0441\u043a\u0430 \u0415\u043d\u0446\u0438\u043a\u043b\u043e\u043f\u0435\u0434\u0438\u044f'},cat:'Enciclopedia Completa',d:{es:'La referencia definitiva: 500+ paginas con todo el conocimiento astrologico del universo.',en:'The definitive reference: 500+ pages with all the astrological knowledge of the universe.',fr:'La r\u00e9f\u00e9rence d\u00e9finitive: 500+ pages avec toute la connaissance astrologique de l\'univers.',de:'Die ultimative Referenz: 500+ Seiten mit dem gesamten astrologischen Wissen des Universums.',pt:'A refer\u00eancia definitiva: 500+ p\u00e1ginas com todo o conhecimento astrol\u00f3gico do universo.',it:'Il riferimento definitivo: 500+ pagine con tutta la conoscenza astrologica dell\'universo.',ru:'\u041e\u043a\u043e\u043d\u0447\u0430\u0442\u0435\u043b\u044c\u043d\u044b\u0439 \u0441\u043f\u0440\u0430\u0432\u043e\u0447\u043d\u0438\u043a: 500+ \u0441\u0442\u0440\u0430\u043d\u0438\u0446 \u0441\u043e \u0432\u0441\u0435\u043c\u0438 \u0430\u0441\u0442\u0440\u043e\u043b\u043e\u0433\u0438\u0447\u0435\u0441\u043a\u0438\u043c\u0438 \u0437\u043d\u0430\u043d\u0438\u044f\u043c\u0438 \u0432\u0441\u0435\u043b\u0435\u043d\u043d\u043e\u0439.',bg:'\u041e\u043a\u043e\u043d\u0447\u0430\u0442\u0435\u043b\u043d\u0438\u044f\u0442 \u0441\u043f\u0440\u0430\u0432\u043e\u0447\u043d\u0438\u043a: 500+ \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0438 \u0441 \u0446\u044f\u043b\u043e\u0442\u043e \u0430\u0441\u0442\u0440\u043e\u043b\u043e\u0433\u0438\u0447\u0435\u0441\u043a\u043e \u043f\u043e\u0437\u043d\u0430\u043d\u0438\u0435 \u043d\u0430 \u0432\u0441\u0435\u043b\u0435\u043d\u0430\u0442\u0430.'},ic:'\u2605',ch:30,pg:520,pr:39.99,fm:['pdf','kin','au'],ln:['ES','BG','EN','PT','FR','DE'],bg:'best',cl:['#5a3a8f','#3d2660','#251540'],mn:1},
+{t:{es:'Los 12 Signos Vol. I',en:'The 12 Signs Vol. I',fr:'Les 12 Signes Vol. I',de:'Die 12 Zeichen Bd. I',pt:'Os 12 Signos Vol. I',it:'I 12 Segni Vol. I',ru:'12 \u0417\u043d\u0430\u043a\u043e\u0432 \u0422\u043e\u043c I',bg:'12-\u0442\u0435 \u0417\u043d\u0430\u043a\u0430 \u0422\u043e\u043c I'},cat:'Fuego & Tierra',d:{es:'Aries, Tauro, Geminis, Cancer, Leo y Virgo: personalidad, amor, trabajo y destino.',en:'Aries, Taurus, Gemini, Cancer, Leo and Virgo: personality, love, work and destiny.',fr:'B\u00e9lier, Taureau, G\u00e9meaux, Cancer, Lion et Vierge: personnalit\u00e9, amour, travail et destin.',de:'Widder, Stier, Zwillinge, Krebs, L\u00f6we und Jungfrau: Pers\u00f6nlichkeit, Liebe, Arbeit und Schicksal.',pt:'\u00c1ries, Touro, G\u00e9meos, Caranguejo, Le\u00e3o e Virgem: personalidade, amor, trabalho e destino.',it:'Ariete, Toro, Gemelli, Cancro, Leone e Vergine: personalit\u00e0, amore, lavoro e destino.',ru:'\u041e\u0432\u0435\u043d, \u0422\u0435\u043b\u0435\u0446, \u0411\u043b\u0438\u0437\u043d\u0435\u0446\u044b, \u0420\u0430\u043a, \u041b\u0435\u0432 \u0438 \u0414\u0435\u0432\u0430: \u043b\u0438\u0447\u043d\u043e\u0441\u0442\u044c, \u043b\u044e\u0431\u043e\u0432\u044c, \u0440\u0430\u0431\u043e\u0442\u0430 \u0438 \u0441\u0443\u0434\u044c\u0431\u0430.',bg:'\u041e\u0432\u0435\u043d, \u0422\u0435\u043b\u0435\u0446, \u0411\u043b\u0438\u0437\u043d\u0430\u0446\u0438, \u0420\u0430\u043a, \u041b\u044a\u0432 \u0438 \u0414\u0435\u0432\u0430: \u043b\u0438\u0447\u043d\u043e\u0441\u0442, \u043b\u044e\u0431\u043e\u0432, \u0440\u0430\u0431\u043e\u0442\u0430 \u0438 \u0441\u044a\u0434\u0431\u0430.'},ic:'\u2648',ch:6,pg:120,pr:6.99,op:9.99,fm:['pdf','kin','au'],ln:['ES','BG','EN','PT','FR','DE'],bg:'new',cl:['#D4A843','#b8912e','#8B6914'],mn:1},
+{t:{es:'Los 12 Signos Vol. II',en:'The 12 Signs Vol. II',fr:'Les 12 Signes Vol. II',de:'Die 12 Zeichen Bd. II',pt:'Os 12 Signos Vol. II',it:'I 12 Segni Vol. II',ru:'12 \u0417\u043d\u0430\u043a\u043e\u0432 \u0422\u043e\u043c II',bg:'12-\u0442\u0435 \u0417\u043d\u0430\u043a\u0430 \u0422\u043e\u043c II'},cat:'Aire & Agua',d:{es:'Libra, Escorpio, Sagitario, Capricornio, Acuario y Piscis: el viaje del alma.',en:'Libra, Scorpio, Sagittarius, Capricorn, Aquarius and Pisces: the journey of the soul.',fr:'Balance, Scorpion, Sagittaire, Capricorne, Verseau et Poissons: le voyage de l\'\u00e2me.',de:'Waage, Skorpion, Sch\u00fctze, Steinbock, Wassermann und Fische: die Reise der Seele.',pt:'Balan\u00e7a, Escorpi\u00e3o, Sagit\u00e1rio, Capric\u00f3rnio, Aqu\u00e1rio e Peixes: a viagem da alma.',it:'Bilancia, Scorpione, Sagittario, Capricorno, Acquario e Pesci: il viaggio dell\'anima.',ru:'\u0412\u0435\u0441\u044b, \u0421\u043a\u043e\u0440\u043f\u0438\u043e\u043d, \u0421\u0442\u0440\u0435\u043b\u0435\u0446, \u041a\u043e\u0437\u0435\u0440\u043e\u0433, \u0412\u043e\u0434\u043e\u043b\u0435\u0439 \u0438 \u0420\u044b\u0431\u044b: \u043f\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0438\u0435 \u0434\u0443\u0448\u0438.',bg:'\u0412\u0435\u0437\u043d\u0438, \u0421\u043a\u043e\u0440\u043f\u0438\u043e\u043d, \u0421\u0442\u0440\u0435\u043b\u0435\u0446, \u041a\u043e\u0437\u0438\u0440\u043e\u0433, \u0412\u043e\u0434\u043e\u043b\u0435\u0439 \u0438 \u0420\u0438\u0431\u0438: \u043f\u044a\u0442\u0443\u0432\u0430\u043d\u0435\u0442\u043e \u043d\u0430 \u0434\u0443\u0448\u0430\u0442\u0430.'},ic:'\u264E',ch:6,pg:135,pr:6.99,op:9.99,fm:['pdf','kin','au'],ln:['ES','BG','EN','PT','FR','DE'],bg:'new',cl:['#7B4FBF','#5a3a8f','#3d2660'],mn:0},
+];
+
+const fN={pdf:'PDF',kin:'Kindle',au:'Audio'};
+const fC={pdf:'f-pdf',kin:'f-kin',au:'f-au'};
+const fI={pdf:'\u{1F4C4}',kin:'\u{1F4D6}',au:'\u{1F3A4}'};
+const fM={pdf:1,kin:1,au:2.14};
+const gr=document.getElementById('grid');
+
+function bTitle(b){return b.t[curLang]||b.t.es}
+function bDesc(b){return b.d[curLang]||b.d.es}
+function badgeText(bg){if(!bg)return '';return bg==='best'?t('bestseller'):t('new')}
+
+function mkSVG(b,w,h){
+  const st=Array.from({length:30},()=>`<circle cx="${Math.random()*w}" cy="${Math.random()*h}" r="${Math.random()*1.5+.3}" fill="white" opacity="${Math.random()*.6+.15}"/>`).join('');
+  const rn=b.mn?`<circle cx="${w/2}" cy="${h*.32}" r="24" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/><circle cx="${w/2}" cy="${h*.32}" r="38" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/><circle cx="${w/2}" cy="${h*.32}" r="54" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/>`:'';
+  const mo=b.mn?`<circle cx="${w/2}" cy="${h*.32}" r="18" fill="rgba(255,255,255,0.85)" filter="url(#glow${b.cl[0].replace('#','')})"/><circle cx="${w/2+7}" cy="${h*.32-4}" r="16" fill="${b.cl[1]}"/>`:'';
+  const cn=Array.from({length:5},(_,i)=>{const x1=15+Math.random()*(w-30),y1=5+Math.random()*(h*.4);const x2=15+Math.random()*(w-30),y2=5+Math.random()*(h*.4);return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="rgba(255,255,255,0.07)" stroke-width="0.5"/><circle cx="${x1}" cy="${y1}" r="1.5" fill="rgba(255,255,255,0.2)"/>`}).join('');
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}"><defs><radialGradient id="rg${b.cl[0].replace('#','')}" cx="50%" cy="25%"><stop offset="0%" stop-color="${b.cl[0]}" stop-opacity="0.5"/><stop offset="100%" stop-color="transparent"/></radialGradient><filter id="glow${b.cl[0].replace('#','')}"><feGaussianBlur stdDeviation="3" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter><linearGradient id="ov" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(0,0,0,0.3)"/><stop offset="35%" stop-color="transparent"/><stop offset="65%" stop-color="transparent"/><stop offset="100%" stop-color="rgba(0,0,0,0.6)"/></linearGradient></defs><rect width="${w}" height="${h}" fill="${b.cl[1]}"/><rect width="${w}" height="${h}" fill="url(#rg${b.cl[0].replace('#','')})"/>${st}${cn}${rn}${mo}<rect width="${w}" height="${h}" fill="url(#ov)"/><rect x="8" y="8" width="${w-16}" height="${h-16}" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.5" rx="2"/><line x1="8" y1="8" x2="22" y2="8" stroke="${b.cl[0]}" stroke-width="1.5" opacity="0.6"/><line x1="8" y1="8" x2="8" y2="22" stroke="${b.cl[0]}" stroke-width="1.5" opacity="0.6"/><line x1="${w-8}" y1="8" x2="${w-22}" y2="8" stroke="${b.cl[0]}" stroke-width="1.5" opacity="0.6"/><line x1="${w-8}" y1="8" x2="${w-8}" y2="22" stroke="${b.cl[0]}" stroke-width="1.5" opacity="0.6"/><line x1="8" y1="${h-8}" x2="22" y2="${h-8}" stroke="${b.cl[0]}" stroke-width="1.5" opacity="0.6"/><line x1="8" y1="${h-8}" x2="8" y2="${h-22}" stroke="${b.cl[0]}" stroke-width="1.5" opacity="0.6"/><line x1="${w-8}" y1="${h-8}" x2="${w-22}" y2="${h-8}" stroke="${b.cl[0]}" stroke-width="1.5" opacity="0.6"/><line x1="${w-8}" y1="${h-8}" x2="${w-8}" y2="${h-22}" stroke="${b.cl[0]}" stroke-width="1.5" opacity="0.6"/></svg>`;
+}
+
+function renderGrid(){
+  gr.innerHTML='';
+  books.forEach((b,i)=>{
+    const c=document.createElement('div');c.className='card rv';c.style.transitionDelay=(i%6)*.08+'s';
+    const title=bTitle(b),desc=bDesc(b);
+    const svg64='data:image/svg+xml;base64,'+btoa(mkSVG(b,170,240));
+    c.innerHTML=`${b.bg?`<div class="badge b-${b.bg}">${badgeText(b.bg)}</div>`:''}<div class="cover"><div class="cover-glow" style="background:${b.cl[0]};left:calc(50% - 100px);top:calc(50% - 100px)"></div><div class="book"><div class="book-front" style="background:linear-gradient(170deg,${b.cl[0]},${b.cl[1]},${b.cl[2]})"><img src="${svg64}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:3px 12px 12px 3px" alt="${title}"><div class="cv-content"><div class="cv-icon">${b.ic}</div><div class="cv-title">${title}</div><div style="flex:1"></div><div class="cv-author">AstroAureum</div><div class="cv-brand">astroaureum.com</div></div></div><div class="book-spine" style="background:linear-gradient(180deg,${b.cl[1]},${b.cl[2]})"></div><div class="book-top" style="background:${b.cl[2]}"></div><div class="book-shadow"></div></div></div><div class="info"><div class="info-cat">${b.cat}</div><div class="info-title">${title}</div><div class="info-desc">${desc}</div><div class="info-meta"><span class="mi">\u{1F4C4} ${b.ch} ${t('chapters')}</span><span class="mi">\u{1F4D6} ${b.pg} ${t('pages')}</span>${b.fm.includes('au')?'<span class="mi">\u{1F3A4} Audio</span>':''}</div><div class="info-fmts">${b.fm.map(f=>`<span class="fmt ${fC[f]}">${fN[f]}</span>`).join('')}</div><div class="info-langs">${b.ln.map(l=>`<span class="lang">${l}</span>`).join('')}</div><div class="pr-row"><div>${b.op?`<span class="price-old">&euro;${b.op}</span>`:''}
+    <span class="price">&euro;${b.pr}</span></div><button class="btn-sm" onclick="event.stopPropagation();openM(${i})">${t('viewBook')}</button></div></div>`;
+    c.onclick=()=>openM(i);gr.appendChild(c);
+  });
+  document.getElementById('cnt').textContent=books.length;
+  // Re-observe for reveal animation
+  const obs2=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.08});
+  document.querySelectorAll('.rv').forEach(el=>obs2.observe(el));
+}
+
+function updateStaticText(){
+  document.querySelectorAll('[data-t]').forEach(el=>{
+    const key=el.getAttribute('data-t');
+    const val=t(key);
+    if(val)el.textContent=val;
+  });
+  document.documentElement.lang=curLang;
+}
+
+// MODAL
+function openM(i){
+  const b=books[i],ov=document.getElementById('mOv'),cov=document.getElementById('mCov'),bod=document.getElementById('mBod');
+  const title=bTitle(b),desc=bDesc(b);
+  const svg64='data:image/svg+xml;base64,'+btoa(mkSVG(b,150,210));
+  cov.style.background=`radial-gradient(ellipse at center,${b.cl[0]}18,transparent)`;
+  cov.innerHTML=`<div class="book" style="width:150px;height:210px;transform:rotateY(-22deg) rotateX(5deg)"><div class="book-front" style="background:linear-gradient(170deg,${b.cl[0]},${b.cl[1]},${b.cl[2]});border-radius:3px 12px 12px 3px;box-shadow:8px 8px 35px rgba(0,0,0,0.7)"><img src="${svg64}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:3px 12px 12px 3px"><div class="cv-content"><div class="cv-icon" style="font-size:44px">${b.ic}</div><div class="cv-title" style="font-size:11px">${title}</div><div style="flex:1"></div><div class="cv-author">AstroAureum</div></div></div><div class="book-spine" style="background:linear-gradient(180deg,${b.cl[1]},${b.cl[2]})"></div></div>`;
+  const sv=b.op?Math.round((1-b.pr/b.op)*100):0;
+  bod.innerHTML=`${b.bg?`<span class="mb-badge b-${b.bg}">${badgeText(b.bg)}</span>`:''}<div class="mb-cat">${b.cat}</div><div class="mb-title">${title}</div><div class="mb-desc">${desc}</div><div class="mb-meta"><span class="mb-m">\u{1F4C4} ${b.ch} ${t('chapters')}</span><span class="mb-m">\u{1F4D6} ${b.pg} ${t('pages')}</span>${b.fm.includes('au')?'<span class="mb-m">\u{1F3A4} Audio</span>':''}</div><div class="mb-fmts"><div class="mb-fmts-h">${t('formatsAvail')}</div>${b.fm.map(f=>`<div class="mb-fmt"><span class="mb-fmt-n">${fI[f]} ${fN[f]}</span><span class="mb-fmt-p">&euro;${(b.pr*fM[f]).toFixed(2)}</span></div>`).join('')}</div><div class="mb-langs"><div class="mb-langs-h">${t('languages')}</div><div class="mb-pills">${b.ln.map(l=>`<span class="mb-pill">${l}</span>`).join('')}</div></div><div class="mb-pr-row">${b.op?`<span class="mb-old">&euro;${b.op}</span>`:''}<span class="mb-price">&euro;${b.pr}</span>${sv?`<span class="mb-save">-${sv}%</span>`:''}</div><button class="mb-buy" onclick="buyBook(${i})">${t('buyNow')}</button><button class="mb-prev" onclick="openPreview(${i})">${t('readChFree')}</button><div class="mb-author"><div class="mb-author-n">Denitsa Georgieva — Shivani Devi Bramayani</div><div class="mb-author-b">Aureum Books &middot; astroaureum.com</div></div>`;
+  ov.classList.add('open');document.body.style.overflow='hidden';
+}
+function closeM(){document.getElementById('mOv').classList.remove('open');document.body.style.overflow=''}
+
+function openPreview(i){
+  const b=books[i];
+  const title=typeof b.t==='object'?(b.t[curLang]||b.t.es):b.t;
+  const previews={
+    es:'Este es un extracto gratuito del Capitulo 1. El libro completo contiene '+b.ch+' capitulos y '+b.pg+' paginas de contenido astrologico profundo y personalizado.\n\nPara acceder al libro completo, haz clic en "Comprar Ahora".',
+    en:'This is a free excerpt from Chapter 1. The complete book contains '+b.ch+' chapters and '+b.pg+' pages of deep, personalized astrological content.\n\nTo access the full book, click "Buy Now".',
+    fr:'Ceci est un extrait gratuit du Chapitre 1. Le livre complet contient '+b.ch+' chapitres et '+b.pg+' pages de contenu astrologique approfondi.\n\nPour acc\u00e9der au livre complet, cliquez sur "Acheter".',
+    de:'Dies ist ein kostenloser Auszug aus Kapitel 1. Das vollst\u00e4ndige Buch enth\u00e4lt '+b.ch+' Kapitel und '+b.pg+' Seiten astrologischen Inhalts.\n\nF\u00fcr das vollst\u00e4ndige Buch klicken Sie auf "Jetzt Kaufen".',
+    pt:'Este \u00e9 um excerto gratuito do Cap\u00edtulo 1. O livro completo cont\u00e9m '+b.ch+' cap\u00edtulos e '+b.pg+' p\u00e1ginas de conte\u00fado astrol\u00f3gico.\n\nPara aceder ao livro completo, clique em "Comprar".',
+    it:'Questo \u00e8 un estratto gratuito del Capitolo 1. Il libro completo contiene '+b.ch+' capitoli e '+b.pg+' pagine di contenuto astrologico.\n\nPer accedere al libro completo, clicca su "Acquista Ora".',
+    ru:'\u042d\u0442\u043e \u0431\u0435\u0441\u043f\u043b\u0430\u0442\u043d\u044b\u0439 \u043e\u0442\u0440\u044b\u0432\u043e\u043a \u0438\u0437 \u0413\u043b\u0430\u0432\u044b 1. \u041f\u043e\u043b\u043d\u0430\u044f \u043a\u043d\u0438\u0433\u0430 \u0441\u043e\u0434\u0435\u0440\u0436\u0438\u0442 '+b.ch+' \u0433\u043b\u0430\u0432 \u0438 '+b.pg+' \u0441\u0442\u0440\u0430\u043d\u0438\u0446.\n\n\u0414\u043b\u044f \u043f\u043e\u043b\u043d\u043e\u0439 \u043a\u043d\u0438\u0433\u0438 \u043d\u0430\u0436\u043c\u0438\u0442\u0435 "\u041a\u0443\u043f\u0438\u0442\u044c".',
+    bg:'\u0422\u043e\u0432\u0430 \u0435 \u0431\u0435\u0437\u043f\u043b\u0430\u0442\u0435\u043d \u0438\u0437\u0432\u043b\u0435\u043a \u043e\u0442 \u0413\u043b\u0430\u0432\u0430 1. \u041f\u044a\u043b\u043d\u0430\u0442\u0430 \u043a\u043d\u0438\u0433\u0430 \u0441\u044a\u0434\u044a\u0440\u0436\u0430 '+b.ch+' \u0433\u043b\u0430\u0432\u0438 \u0438 '+b.pg+' \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0438.\n\n\u0417\u0430 \u043f\u044a\u043b\u043d\u0430\u0442\u0430 \u043a\u043d\u0438\u0433\u0430 \u043d\u0430\u0442\u0438\u0441\u043d\u0435\u0442\u0435 "\u041a\u0443\u043f\u0438 \u0421\u0435\u0433\u0430".'
+  };
+  const prevText=previews[curLang]||previews.es;
+  const bod=document.getElementById('mBod');
+  const cov=document.getElementById('mCov');
+  cov.innerHTML='';
+  bod.innerHTML=`<div style="text-align:center;margin-bottom:16px;font-family:'Cinzel',serif;font-size:1.2rem;color:var(--gold);">${title}</div><div style="font-family:'Cinzel',serif;font-size:0.8rem;color:var(--gold2);text-align:center;margin-bottom:20px;letter-spacing:2px;">${t('readChFree')}</div><div style="font-size:0.95rem;line-height:1.8;color:var(--starW);white-space:pre-line;padding:20px;background:rgba(255,255,255,0.03);border-radius:12px;border:1px solid rgba(212,168,67,0.1);max-height:400px;overflow-y:auto;">${prevText}</div><div style="text-align:center;margin-top:20px;"><button class="mb-buy" onclick="buyBook(${i})">${t('buyNow')}</button></div><div style="text-align:center;margin-top:12px;"><button class="mb-prev" onclick="listenPreview()" style="font-size:0.8rem">\u{1F50A} ${t('listenFree')||'Escuchar Preview'}</button></div>`;
+  document.getElementById('mOv').classList.add('open');document.body.style.overflow='hidden';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM()});
+
+// LANGUAGE CHANGE
+function changeLang(code){
+  curLang=code;
+  localStorage.setItem('abLang',code);
+  document.getElementById('abLang').value=code;
+  updateStaticText();
+  renderGrid();
+}
+
+// DETECT LANGUAGE ON LOAD
+function detectLang(){
+  const stored=localStorage.getItem('abLang');
+  if(stored&&T[stored]){curLang=stored;return}
+  const nav=(navigator.language||navigator.userLanguage||'es').toLowerCase();
+  const code=nav.split('-')[0];
+  if(T[code]){curLang=code}else{curLang='es'}
+}
+detectLang();
+document.getElementById('abLang').value=curLang;
+updateStaticText();
+renderGrid();
+// Sync preview pills with detected language
+document.querySelectorAll('.prev-p').forEach(b=>{
+  b.classList.remove('on');
+  if(b.getAttribute('data-lang')===curLang) b.classList.add('on');
+});
+
+// REVEAL
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.08});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+
+// PREVIEW
+document.querySelectorAll('.prev-p').forEach(b=>{b.onclick=()=>{
+  document.querySelectorAll('.prev-p').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');
+  const lang=b.getAttribute('data-lang');
+  if(lang) changeLang(lang);
+}});
+
+// STRIPE PAYMENT LINKS
+const stripeLinks = {
+  vol1: 'https://buy.stripe.com/aFabIU1ehgbQ8Lg8abfjG0M',
+  vol2: 'https://buy.stripe.com/6oUcMYe13gbQ3qWgGHfjG0N',
+  pack: 'https://buy.stripe.com/5kQfZa3mp7Fk8Lg2PRfjG0O'
+};
+
+function buyBook(i) {
+  const b = books[i];
+  const id = b.id || '';
+  if (id.includes('vol1') || id.includes('camino-yo') || i === 0) {
+    window.open(stripeLinks.vol1, '_blank');
+  } else if (id.includes('vol2') || id.includes('camino-otro') || i === 1) {
+    window.open(stripeLinks.vol2, '_blank');
+  } else if (id.includes('pack') || id.includes('completo')) {
+    window.open(stripeLinks.pack, '_blank');
+  } else {
+    window.open(stripeLinks.vol1, '_blank');
+  }
+}
+
+// AUDIO PREVIEW
+let synth = window.speechSynthesis;
+let currentUtt = null;
+function listenPreview() {
+  if (currentUtt && synth.speaking) { synth.cancel(); return; }
+  const previewEl = document.querySelector('#mBod div[style*="pre-line"]');
+  if (!previewEl) return;
+  currentUtt = new SpeechSynthesisUtterance(previewEl.textContent);
+  const langMap = {es:'es-ES',en:'en-US',fr:'fr-FR',de:'de-DE',pt:'pt-BR',it:'it-IT',ru:'ru-RU',bg:'bg-BG'};
+  currentUtt.lang = langMap[curLang] || 'es-ES';
+  currentUtt.rate = 0.9;
+  synth.speak(currentUtt);
+}
+
+// PARALLAX
+addEventListener('scroll',()=>{const s=scrollY;document.querySelector('.n1').style.transform=`translate(${s*.02}px,${s*-.03}px)`;document.querySelector('.n2').style.transform=`translate(${s*-.015}px,${s*.02}px)`});
+</script>
+</body>
+</html>

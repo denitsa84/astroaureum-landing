@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Poppins:wght@300;400;600;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { display: flex; align-items: center; justify-content: center; min-height: 100vh; background: #000; }
+  .post {
+    width: 1080px; height: 1080px;
+    background: radial-gradient(ellipse at 50% 30%, rgba(123,79,191,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 70%, rgba(212,168,67,0.08) 0%, transparent 50%),
+                #06050E;
+    display: flex; flex-direction: column; align-items: center;
+    padding: 60px 80px; position: relative; overflow: hidden;
+  }
+  .post::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+      radial-gradient(1px 1px at 120px 80px, rgba(255,255,255,0.5), transparent),
+      radial-gradient(1px 1px at 400px 200px, rgba(255,255,255,0.3), transparent),
+      radial-gradient(1.5px 1.5px at 700px 120px, rgba(212,168,67,0.5), transparent),
+      radial-gradient(1px 1px at 900px 400px, rgba(255,255,255,0.4), transparent),
+      radial-gradient(1px 1px at 250px 600px, rgba(255,255,255,0.3), transparent),
+      radial-gradient(1px 1px at 800px 800px, rgba(212,168,67,0.3), transparent);
+  }
+  .badge {
+    background: linear-gradient(135deg, #7B4FBF, #A77BDB);
+    color: #fff; font-family: Poppins; font-weight: 700; font-size: 20px;
+    padding: 10px 30px; border-radius: 30px; letter-spacing: 2px;
+    text-transform: uppercase; z-index: 1; margin-bottom: 40px;
+  }
+  .title {
+    font-family: Cinzel; font-size: 56px; font-weight: 900; color: #D4A843;
+    text-align: center; z-index: 1; letter-spacing: 4px;
+    text-shadow: 0 0 30px rgba(212,168,67,0.3);
+  }
+  .divider {
+    width: 150px; height: 2px; margin: 25px 0;
+    background: linear-gradient(90deg, transparent, #D4A843, transparent);
+    z-index: 1;
+  }
+  .grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px; z-index: 1; width: 100%;
+  }
+  .trad {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(212,168,67,0.2);
+    border-radius: 16px; padding: 25px 15px; text-align: center;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+  }
+  .trad-icon { font-size: 48px; }
+  .trad-name {
+    font-family: Cinzel; font-size: 20px; color: #D4A843; font-weight: 700;
+  }
+  .trad-desc {
+    font-family: Poppins; font-size: 16px; color: #F5F0FF; opacity: 0.7;
+  }
+  .bottom {
+    position: absolute; bottom: 45px;
+    font-family: Poppins; font-size: 26px; color: #F5F0FF; z-index: 1;
+    letter-spacing: 1px;
+  }
+  .bottom span { color: #D4A843; font-weight: 600; }
+</style></head>
+<body>
+  <div class="post">
+    <div class="badge">NUESTROS SERVICIOS</div>
+    <div class="title">9 TRADICIONES<br>ANCESTRALES</div>
+    <div class="divider"></div>
+    <div class="grid">
+      <div class="trad">
+        <div class="trad-icon">&#x2609;</div>
+        <div class="trad-name">Occidental</div>
+        <div class="trad-desc">Carta Natal</div>
+      </div>
+      <div class="trad">
+        <div class="trad-icon">&#x2721;</div>
+        <div class="trad-name">Cabal&iacute;stica</div>
+        <div class="trad-desc">Tikun &amp; Destino</div>
+      </div>
+      <div class="trad">
+        <div class="trad-icon">&#x1F549;</div>
+        <div class="trad-name">V&eacute;dica</div>
+        <div class="trad-desc">Jyotish</div>
+      </div>
+      <div class="trad">
+        <div class="trad-icon">&#x262F;</div>
+        <div class="trad-name">China</div>
+        <div class="trad-desc">Ba Zi</div>
+      </div>
+      <div class="trad">
+        <div class="trad-icon">&#x2728;</div>
+        <div class="trad-name">Especializada</div>
+        <div class="trad-desc">Negocio &amp; Salud</div>
+      </div>
+      <div class="trad">
+        <div class="trad-icon">&#x1F30C;</div>
+        <div class="trad-name">Del Alma</div>
+        <div class="trad-desc">K&aacute;rmica</div>
+      </div>
+      <div class="trad">
+        <div class="trad-icon">&#x1FA90;</div>
+        <div class="trad-name">Celestial</div>
+        <div class="trad-desc">Mapa Estelar</div>
+      </div>
+      <div class="trad">
+        <div class="trad-icon">&#x1F3DB;</div>
+        <div class="trad-name">Helen&iacute;stica</div>
+        <div class="trad-desc">Cl&aacute;sica</div>
+      </div>
+      <div class="trad">
+        <div class="trad-icon">&#x1F9EC;</div>
+        <div class="trad-name">Human Design</div>
+        <div class="trad-desc">Tu Dise&ntilde;o</div>
+      </div>
+    </div>
+    <div class="bottom">&#x1F52E; <span>37 servicios</span> desde 22 EUR</div>
+  </div>
+</body></html>

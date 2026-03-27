@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080, height=1920">
+<title>NOVA - Horoscopo Aries - Astro Aureum</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-dark: #06050E;
+    --gold: #D4A843;
+    --gold-light: #F0D78C;
+    --purple: #7B4FBF;
+    --purple-light: #A77BDB;
+    --white: #F5F0FF;
+    --nebula-pink: #ff6b9d;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1080px;
+    height: 1920px;
+    background: var(--bg-dark);
+    overflow: hidden;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    color: var(--white);
+  }
+
+  /* ===== FONDO DE ESTRELLAS ===== */
+  .stars-layer {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+  }
+  .star {
+    position: absolute;
+    border-radius: 50%;
+    background: white;
+    animation: twinkle var(--dur) ease-in-out infinite alternate;
+    animation-delay: var(--delay);
+  }
+
+  @keyframes twinkle {
+    0% { opacity: 0.2; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1.2); }
+  }
+
+  /* ===== NEBULOSA ===== */
+  .nebula {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 1;
+    background:
+      radial-gradient(ellipse at 30% 20%, rgba(123,79,191,0.25) 0%, transparent 50%),
+      radial-gradient(ellipse at 70% 70%, rgba(212,168,67,0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(255,107,157,0.1) 0%, transparent 60%);
+    animation: nebulaShift 15s ease-in-out infinite alternate;
+  }
+  @keyframes nebulaShift {
+    0% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+    50% { transform: scale(1.05) rotate(1deg); opacity: 1; }
+    100% { transform: scale(1) rotate(-1deg); opacity: 0.8; }
+  }
+
+  /* ===== PARTICULAS ===== */
+  .particle {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 2;
+    animation: floatUp var(--dur) linear infinite;
+    animation-delay: var(--delay);
+  }
+  @keyframes floatUp {
+    0% { transform: translateY(1920px) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.8; }
+    100% { transform: translateY(-50px) rotate(720deg); opacity: 0; }
+  }
+
+  /* ===== ESCENAS ===== */
+  .scene {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    padding: 60px;
+    text-align: center;
+  }
+  .scene.active {
+    opacity: 1;
+  }
+
+  /* ===== ESCENA 1: HOOK ===== */
+  #scene1 .hook-emoji {
+    font-size: 120px;
+    animation: pulseEmoji 1s ease-in-out infinite alternate;
+    margin-bottom: 30px;
+  }
+  @keyframes pulseEmoji {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.15); }
+  }
+  #scene1 .hook-text {
+    font-family: 'Cinzel', serif;
+    font-size: 72px;
+    font-weight: 900;
+    color: var(--gold);
+    text-shadow: 0 0 30px rgba(212,168,67,0.5), 0 0 60px rgba(212,168,67,0.3);
+    line-height: 1.2;
+    opacity: 0;
+    transform: scale(0.5);
+    animation: hookAppear 0.8s cubic-bezier(0.68, -0.3, 0.265, 1.3) 0.5s forwards;
+  }
+  @keyframes hookAppear {
+    to { opacity: 1; transform: scale(1); }
+  }
+  #scene1 .hook-sub {
+    font-size: 42px;
+    color: var(--purple-light);
+    margin-top: 20px;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease 1.2s forwards;
+  }
+
+  /* ===== ESCENA 2: SIGNO ===== */
+  #scene2 .aries-symbol {
+    font-size: 180px;
+    color: var(--gold);
+    text-shadow: 0 0 40px rgba(212,168,67,0.6), 0 0 80px rgba(212,168,67,0.3);
+    animation: symbolGlow 2s ease-in-out infinite alternate;
+    position: relative;
+  }
+  .halo-ring {
+    position: absolute;
+    border: 2px solid rgba(212,168,67,0.3);
+    border-radius: 50%;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    animation: haloRotate var(--dur) linear infinite;
+  }
+  @keyframes haloRotate { to { transform: translate(-50%, -50%) rotate(360deg); } }
+  @keyframes symbolGlow {
+    0% { text-shadow: 0 0 20px rgba(212,168,67,0.4), 0 0 40px rgba(212,168,67,0.2); }
+    100% { text-shadow: 0 0 50px rgba(212,168,67,0.8), 0 0 100px rgba(212,168,67,0.4); }
+  }
+  #scene2 .sign-name {
+    font-family: 'Cinzel', serif;
+    font-size: 80px;
+    font-weight: 900;
+    color: var(--gold);
+    letter-spacing: 15px;
+    margin-top: 30px;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease 0.5s forwards;
+  }
+  #scene2 .sign-date {
+    font-size: 32px;
+    color: rgba(255,255,255,0.6);
+    margin-top: 10px;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease 0.8s forwards;
+  }
+  #scene2 .sign-element {
+    font-size: 28px;
+    color: var(--nebula-pink);
+    margin-top: 15px;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease 1.1s forwards;
+  }
+
+  /* ===== ESCENA 3: PREDICCION AMOR ===== */
+  .prediction-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(212,168,67,0.3);
+    border-radius: 30px;
+    padding: 50px;
+    width: 90%;
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transform: translateY(50px);
+    animation: cardSlideUp 0.8s ease 0.3s forwards;
+  }
+  @keyframes cardSlideUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .prediction-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+  }
+  .prediction-label {
+    font-family: 'Cinzel', serif;
+    font-size: 42px;
+    color: var(--gold);
+    letter-spacing: 8px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+  }
+  .prediction-text {
+    font-size: 38px;
+    line-height: 1.5;
+    color: var(--white);
+    font-weight: 300;
+  }
+  .prediction-rating {
+    margin-top: 30px;
+    font-size: 50px;
+    letter-spacing: 5px;
+  }
+  .star-filled { color: var(--gold); }
+  .star-empty { color: rgba(255,255,255,0.2); }
+
+  /* ===== ESCENA 6: LUCKY ===== */
+  .lucky-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    width: 90%;
+  }
+  .lucky-item {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(123,79,191,0.3);
+    border-radius: 20px;
+    padding: 35px;
+    text-align: center;
+    opacity: 0;
+    animation: cardSlideUp 0.5s ease forwards;
+  }
+  .lucky-item:nth-child(1) { animation-delay: 0.2s; }
+  .lucky-item:nth-child(2) { animation-delay: 0.4s; }
+  .lucky-item:nth-child(3) { animation-delay: 0.6s; }
+  .lucky-item:nth-child(4) { animation-delay: 0.8s; }
+  .lucky-label {
+    font-size: 24px;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+  }
+  .lucky-value {
+    font-family: 'Cinzel', serif;
+    font-size: 36px;
+    color: var(--gold-light);
+    font-weight: 700;
+  }
+
+  /* ===== ESCENA 7: CTA ===== */
+  #scene7 .cta-glow {
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(212,168,67,0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    position: absolute;
+    animation: ctaGlow 3s ease-in-out infinite alternate;
+  }
+  @keyframes ctaGlow {
+    0% { transform: scale(0.8); opacity: 0.5; }
+    100% { transform: scale(1.2); opacity: 1; }
+  }
+  #scene7 .logo-astro {
+    font-family: 'Cinzel', serif;
+    font-size: 80px;
+    font-weight: 900;
+    color: var(--gold);
+    letter-spacing: 10px;
+    z-index: 2;
+    text-shadow: 0 0 30px rgba(212,168,67,0.5);
+    opacity: 0;
+    animation: fadeInUp 0.8s ease 0.3s forwards;
+  }
+  #scene7 .logo-aureum {
+    font-family: 'Cinzel', serif;
+    font-size: 44px;
+    color: var(--purple-light);
+    letter-spacing: 20px;
+    z-index: 2;
+    margin-top: 5px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease 0.6s forwards;
+  }
+  #scene7 .cta-text {
+    font-size: 40px;
+    font-weight: 600;
+    margin-top: 50px;
+    z-index: 2;
+    color: var(--white);
+    opacity: 0;
+    animation: fadeInUp 0.8s ease 0.9s forwards;
+  }
+  #scene7 .cta-url {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-top: 15px;
+    z-index: 2;
+    letter-spacing: 3px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease 1.2s forwards;
+    text-decoration: underline;
+    text-underline-offset: 8px;
+  }
+  #scene7 .cta-free {
+    font-size: 30px;
+    color: var(--nebula-pink);
+    margin-top: 30px;
+    z-index: 2;
+    opacity: 0;
+    animation: pulseIn 0.8s ease 1.5s forwards;
+  }
+  @keyframes pulseIn {
+    0% { opacity: 0; transform: scale(0.8); }
+    50% { transform: scale(1.1); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+
+  /* ===== PROGRESS BAR ===== */
+  .progress-bar {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0%;
+    height: 6px;
+    background: linear-gradient(90deg, var(--purple), var(--gold));
+    z-index: 100;
+    transition: width 0.1s linear;
+  }
+
+  /* ===== GLOBAL ANIMS ===== */
+  @keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  /* ===== TOP BADGE ===== */
+  .top-badge {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    background: rgba(212,168,67,0.15);
+    border: 1px solid rgba(212,168,67,0.4);
+    border-radius: 50px;
+    padding: 12px 35px;
+    font-size: 22px;
+    color: var(--gold-light);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeIn 0.5s ease 0.2s forwards;
+  }
+</style>
+</head>
+<body>
+
+<!-- ESTRELLAS -->
+<div class="stars-layer" id="starsLayer"></div>
+
+<!-- NEBULOSA -->
+<div class="nebula"></div>
+
+<!-- PARTICULAS -->
+<div id="particlesLayer"></div>
+
+<!-- BARRA DE PROGRESO -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- ===== ESCENA 1: HOOK (0-3s) ===== -->
+<div class="scene" id="scene1">
+  <div class="top-badge">13 Marzo 2026</div>
+  <div class="hook-emoji">🔥</div>
+  <div class="hook-text">¡ARIES!</div>
+  <div class="hook-sub">Esto te espera hoy...</div>
+</div>
+
+<!-- ===== ESCENA 2: SIGNO (3-6s) ===== -->
+<div class="scene" id="scene2">
+  <div class="top-badge">Horoscopo del Dia</div>
+  <div class="aries-symbol" style="position:relative;">
+    ♈
+    <div class="halo-ring" style="width:280px;height:280px;--dur:10s;"></div>
+    <div class="halo-ring" style="width:350px;height:350px;--dur:15s;"></div>
+    <div class="halo-ring" style="width:420px;height:420px;--dur:20s;"></div>
+  </div>
+  <div class="sign-name">ARIES</div>
+  <div class="sign-date">21 Marzo - 19 Abril</div>
+  <div class="sign-element">🔥 Elemento Fuego 🔥</div>
+</div>
+
+<!-- ===== ESCENA 3: AMOR (6-10s) ===== -->
+<div class="scene" id="scene3">
+  <div class="top-badge">♈ Aries - Amor</div>
+  <div class="prediction-card">
+    <div class="prediction-icon">💕</div>
+    <div class="prediction-label">Amor</div>
+    <div class="prediction-text">
+      Venus ilumina tu sector de relaciones.
+      Hoy una conversacion profunda cambiara
+      todo con esa persona especial.
+    </div>
+    <div class="prediction-rating">
+      <span class="star-filled">★★★★</span><span class="star-empty">★</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ESCENA 4: DINERO (10-14s) ===== -->
+<div class="scene" id="scene4">
+  <div class="top-badge">♈ Aries - Dinero</div>
+  <div class="prediction-card">
+    <div class="prediction-icon">💰</div>
+    <div class="prediction-label">Dinero</div>
+    <div class="prediction-text">
+      Jupiter activa tu casa de abundancia.
+      Una oportunidad financiera inesperada
+      toca tu puerta. No la dejes pasar.
+    </div>
+    <div class="prediction-rating">
+      <span class="star-filled">★★★★★</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ESCENA 5: SALUD (14-18s) ===== -->
+<div class="scene" id="scene5">
+  <div class="top-badge">♈ Aries - Salud</div>
+  <div class="prediction-card">
+    <div class="prediction-icon">✨</div>
+    <div class="prediction-label">Energia</div>
+    <div class="prediction-text">
+      Marte, tu regente, esta en su maxima
+      potencia. Tu energia hoy es IMPARABLE.
+      Aprovechala para tus metas.
+    </div>
+    <div class="prediction-rating">
+      <span class="star-filled">★★★★★</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ESCENA 6: LUCKY (18-22s) ===== -->
+<div class="scene" id="scene6">
+  <div class="top-badge">♈ Aries - Tu Suerte</div>
+  <div style="font-family:'Cinzel',serif;font-size:50px;color:var(--gold);margin-bottom:40px;letter-spacing:5px;opacity:0;animation:fadeInUp 0.5s ease 0.2s forwards;">TU SUERTE HOY</div>
+  <div class="lucky-grid">
+    <div class="lucky-item">
+      <div class="lucky-label">Numero</div>
+      <div class="lucky-value">7 - 21 - 33</div>
+    </div>
+    <div class="lucky-item">
+      <div class="lucky-label">Color</div>
+      <div class="lucky-value" style="color:#ff4444;">Rojo Fuego</div>
+    </div>
+    <div class="lucky-item">
+      <div class="lucky-label">Hora Magica</div>
+      <div class="lucky-value">15:00h</div>
+    </div>
+    <div class="lucky-item">
+      <div class="lucky-label">Signo Afin</div>
+      <div class="lucky-value">♌ Leo</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ESCENA 7: CTA (22-28s) ===== -->
+<div class="scene" id="scene7">
+  <div class="cta-glow"></div>
+  <div class="logo-astro">ASTRO</div>
+  <div class="logo-aureum">AUREUM</div>
+  <div class="cta-text">Tu carta natal completa te espera</div>
+  <div class="cta-url">astroaureum.com</div>
+  <div class="cta-free">🌟 Link en bio - Lectura GRATIS 🌟</div>
+</div>
+
+<script>
+// ===== GENERAR ESTRELLAS =====
+(function() {
+  const layer = document.getElementById('starsLayer');
+  for (let i = 0; i < 120; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    const size = Math.random() * 3 + 1;
+    star.style.cssText = `
+      width: ${size}px; height: ${size}px;
+      left: ${Math.random() * 1080}px;
+      top: ${Math.random() * 1920}px;
+      --dur: ${Math.random() * 3 + 2}s;
+      --delay: -${Math.random() * 3}s;
+      opacity: ${Math.random() * 0.5 + 0.3};
+    `;
+    layer.appendChild(star);
+  }
+})();
+
+// ===== GENERAR PARTICULAS =====
+(function() {
+  const layer = document.getElementById('particlesLayer');
+  const colors = ['#D4A843', '#7B4FBF', '#F0D78C', '#A77BDB', '#ff6b9d'];
+  for (let i = 0; i < 40; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    const size = Math.random() * 5 + 2;
+    p.style.cssText = `
+      width: ${size}px; height: ${size}px;
+      background: ${colors[Math.floor(Math.random() * colors.length)]};
+      left: ${Math.random() * 1080}px;
+      --dur: ${Math.random() * 12 + 8}s;
+      --delay: -${Math.random() * 12}s;
+      opacity: ${Math.random() * 0.6 + 0.2};
+      box-shadow: 0 0 ${size * 2}px ${colors[Math.floor(Math.random() * colors.length)]};
+    `;
+    layer.appendChild(p);
+  }
+})();
+
+// ===== TIMELINE DE ESCENAS =====
+const scenes = [
+  { id: 'scene1', start: 0,    end: 3000  },
+  { id: 'scene2', start: 3000, end: 6000  },
+  { id: 'scene3', start: 6000, end: 10000 },
+  { id: 'scene4', start: 10000, end: 14000 },
+  { id: 'scene5', start: 14000, end: 18000 },
+  { id: 'scene6', start: 18000, end: 22000 },
+  { id: 'scene7', start: 22000, end: 28000 },
+];
+
+const totalDuration = 28000;
+const progressBar = document.getElementById('progressBar');
+let startTime = null;
+
+function tick(timestamp) {
+  if (!startTime) startTime = timestamp;
+  const elapsed = timestamp - startTime;
+
+  // Progress bar
+  const progress = Math.min((elapsed / totalDuration) * 100, 100);
+  progressBar.style.width = progress + '%';
+
+  // Activar/desactivar escenas
+  scenes.forEach(scene => {
+    const el = document.getElementById(scene.id);
+    if (elapsed >= scene.start && elapsed < scene.end) {
+      if (!el.classList.contains('active')) {
+        el.classList.add('active');
+        // Re-trigger animations by cloning
+        el.querySelectorAll('[style*="animation"]').forEach(child => {
+          const clone = child.cloneNode(true);
+          child.parentNode.replaceChild(clone, child);
+        });
+      }
+    } else {
+      el.classList.remove('active');
+    }
+  });
+
+  if (elapsed < totalDuration + 500) {
+    requestAnimationFrame(tick);
+  }
+}
+
+// Iniciar automaticamente
+requestAnimationFrame(tick);
+</script>
+
+</body>
+</html>

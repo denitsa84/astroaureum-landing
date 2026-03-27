@@ -26,7 +26,7 @@ header{position:fixed;top:0;left:0;right:0;z-index:100;height:58px;background:rg
 .header-btn:hover{background:var(--rwine)}
 #hero{position:relative;min-height:100vh;background:var(--grad-hero);display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:100px 28px 80px;overflow:hidden}
 .slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;background-size:cover;background-position:center}.slide.active{opacity:1}
-.slide-overlay{position:absolute;inset:0;background:rgba(10,4,20,0.68)}
+.slide-overlay{position:absolute;inset:0;background:rgba(10,4,20,0.45)}
 .zodiac-ring{position:absolute;width:320px;height:320px;border-radius:50%;border:0.5px solid rgba(107,47,168,0.2);top:50%;left:50%;transform:translate(-50%,-50%);animation:spin 60s linear infinite}
 .zodiac-ring::before{content:'♈ ♉ ♊ ♋ ♌ ♍ ♎ ♏ ♐ ♑ ♒ ♓';position:absolute;font-size:9px;color:rgba(237,204,96,0.25);letter-spacing:18px;top:-10px;left:0;right:0;text-align:center}
 @keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
@@ -131,31 +131,58 @@ footer{background:#06020A;border-top:0.5px solid var(--dark2);padding:40px 24px 
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:translateY(0)}
 .reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}.reveal-d3{transition-delay:.3s}.reveal-d4{transition-delay:.4s}.reveal-d5{transition-delay:.5s}.reveal-d6{transition-delay:.6s}
 main{padding-bottom:62px}
+/* Precio oferta */
+.precio-oferta{text-align:center;padding:32px 20px}
+.oferta-badge{display:inline-block;background:rgba(200,152,64,0.15);border:1px solid rgba(200,152,64,0.4);color:var(--goldbr);font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:0.2em;padding:6px 20px;border-radius:20px;margin-bottom:16px}
+.precio-tachado{font-size:16px;color:var(--pmain);text-decoration:line-through;margin-bottom:8px}
+.precio-actual{font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:700;color:var(--goldbr);line-height:1;margin-bottom:8px}
+.precio-sub{font-size:14px;color:var(--pmid);margin-bottom:16px}
+.urgencia{font-size:13px;color:var(--white);background:rgba(200,152,64,0.08);border:1px solid rgba(200,152,64,0.20);border-radius:8px;padding:10px 20px;max-width:480px;margin:0 auto;font-style:italic}
+/* Incluye section */
+.incluye-section{max-width:640px;margin:0 auto 48px}
+.incluye-label{font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:0.25em;color:var(--goldbr);text-align:center;margin-bottom:24px}
+.incluye-item{display:flex;gap:16px;padding:16px;border:0.5px solid rgba(200,152,64,0.15);border-radius:12px;margin-bottom:10px;background:rgba(18,16,36,0.6);transition:border-color .2s}
+.incluye-item.featured{border-color:rgba(200,152,64,0.35);background:rgba(200,152,64,0.05)}
+.incluye-item:hover{border-color:rgba(200,152,64,0.30)}
+.incluye-icon{font-size:24px;flex-shrink:0;width:40px;text-align:center;margin-top:2px}
+.incluye-titulo{font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--white);margin-bottom:4px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.incluye-valor{font-size:12px;color:var(--goldbr);font-style:italic;white-space:nowrap}
+.incluye-desc{font-size:13px;color:var(--pmid);line-height:1.5}
+.incluye-total{display:flex;align-items:center;justify-content:center;gap:12px;padding:16px;border-top:1px solid rgba(200,152,64,0.20);margin-top:16px;font-size:15px;color:var(--pmid);flex-wrap:wrap}
+.total-tachado{text-decoration:line-through;color:var(--pmain)}
+.total-flecha{color:var(--goldbr)}
+.total-precio{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--goldbr)}
+.lang-select{background:var(--dark2);border:1px solid rgba(200,152,64,0.4);border-radius:8px;color:var(--goldbr);font-family:'Jost',sans-serif;font-size:13px;padding:8px 28px 8px 12px;outline:none;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5'%3E%3Cpath d='M0 0l4 5 4-5z' fill='%23C89840'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;min-width:120px}
 </style>
+<script src="translations.js"></script>
+<script src="translations2.js"></script>
 </head>
 <body>
 <div id="stars-bg"></div>
 
 <header>
   <a href="https://www.astroaureum.com" class="logo">Astro Aureum</a>
-  <button class="header-btn" onclick="document.getElementById('oferta-sinastria').scrollIntoView({behavior:'smooth'})">Oferta 47€ ✦</button>
+  <div style="display:flex;align-items:center;gap:8px">
+    <select class="lang-select" id="lang-select" onchange="setLang(this.value)"></select>
+    <button class="header-btn" data-t="headerBtn" onclick="document.getElementById('oferta-sinastria').scrollIntoView({behavior:'smooth'})">Oferta 25€ ✦</button>
+  </div>
 </header>
 
 <main>
 
 <!-- A) HERO -->
 <section id="hero">
-  <div class="slide active" style="background:linear-gradient(135deg,#0A0414,#3A1468,#7A2050)"><div class="slide-overlay"></div></div>
+  <div class="slide active" style="background:url('/sinastria/sinastria1.png') center/cover"><div class="slide-overlay"></div></div>
+  <div class="slide" style="background:url('/sinastria/sinastria2.png') center/cover"><div class="slide-overlay"></div></div>
+  <div class="slide" style="background:url('/sinastria/sinastria3.png') center/cover"><div class="slide-overlay"></div></div>
+  <div class="slide" style="background:linear-gradient(135deg,#0A0414,#3A1468,#7A2050)"><div class="slide-overlay"></div></div>
   <div class="slide" style="background:linear-gradient(135deg,#06020A,#0A2E5C,#3A1468)"><div class="slide-overlay"></div></div>
-  <div class="slide" style="background:linear-gradient(135deg,#0A0414,#2A0A18,#6B2FA8)"><div class="slide-overlay"></div></div>
-  <div class="slide" style="background:linear-gradient(135deg,#06020A,#1A0A30,#7A2050)"><div class="slide-overlay"></div></div>
-  <div class="slide" style="background:linear-gradient(135deg,#0A0414,#3A1468,#0A2E5C)"><div class="slide-overlay"></div></div>
   <div class="zodiac-ring"></div>
   <div class="hero-content">
-    <div class="hero-badge">✦ Sinastría de Almas · Astro Aureum</div>
-    <h1 class="hero-title">Tu amor tiene<em>un mapa en las estrellas</em></h1>
-    <p class="hero-sub">Dos cartas natales revelan la historia invisible que une dos almas.</p>
-    <a href="#oferta-sinastria" class="hero-cta">Comenzar nuestra Sinastría ✦</a>
+    <div class="hero-badge" data-t="heroBadge">✦ Sinastría de Almas · Astro Aureum</div>
+    <h1 class="hero-title"><span data-t="heroTitle1">Tu amor tiene</span><em data-t="heroTitle2">un mapa en las estrellas</em></h1>
+    <p class="hero-sub" data-t="heroSub">Dos cartas natales revelan la historia invisible que une dos almas.</p>
+    <a href="#oferta-sinastria" class="hero-cta" data-t="heroCta">Comenzar nuestra Sinastría ✦</a>
   </div>
   <div class="dots">
     <div class="dot active" onclick="goSlide(0)"></div><div class="dot" onclick="goSlide(1)"></div><div class="dot" onclick="goSlide(2)"></div><div class="dot" onclick="goSlide(3)"></div><div class="dot" onclick="goSlide(4)"></div>
@@ -165,20 +192,20 @@ main{padding-bottom:62px}
 <!-- B) FORMULARIO -->
 <section id="form-section">
   <div class="form-card reveal">
-    <div class="form-title">Descubre vuestra Sinastría</div>
-    <p class="form-sub">Introduce los datos de ambos para revelar vuestra compatibilidad cósmica</p>
-    <div class="form-group-label you">♀ &nbsp;Tus Datos</div>
-    <div class="field"><label>Nombre</label><input type="text" id="f-name1" placeholder="Tu nombre"></div>
-    <div class="field"><label>Fecha de nacimiento</label><input type="date" id="f-date1"></div>
-    <div class="field"><label>Hora de nacimiento</label><input type="time" id="f-time1"><p style="font-size:9px;color:var(--pmid);margin-top:4px">Si no la conoces, déjalo en blanco.</p></div>
-    <div class="field"><label>Ciudad de nacimiento</label><input type="text" id="f-city1" placeholder="Ciudad, País"></div>
+    <div class="form-title" data-t="formTitle">Descubre vuestra Sinastría</div>
+    <p class="form-sub" data-t="formSub">Introduce los datos de ambos para revelar vuestra compatibilidad cósmica</p>
+    <div class="form-group-label you">♀ &nbsp;<span data-t="yourData">Tus Datos</span></div>
+    <div class="field"><label data-t="name">Nombre</label><input type="text" id="f-name1" data-tp="yourName" placeholder="Tu nombre"></div>
+    <div class="field"><label data-t="birthDate">Fecha de nacimiento</label><input type="date" id="f-date1"></div>
+    <div class="field"><label data-t="birthTime">Hora de nacimiento</label><input type="time" id="f-time1"><p style="font-size:9px;color:var(--pmid);margin-top:4px" data-t="birthTimeNote">Si no la conoces, déjalo en blanco.</p></div>
+    <div class="field"><label data-t="birthCity">Ciudad de nacimiento</label><input type="text" id="f-city1" data-tp="cityPlaceholder" placeholder="Ciudad, País"></div>
     <div class="form-divider"><span>✦</span></div>
-    <div class="form-group-label partner">♂ &nbsp;Datos de tu Pareja</div>
-    <div class="field"><label>Nombre</label><input type="text" id="f-name2" placeholder="Nombre de tu pareja"></div>
-    <div class="field"><label>Fecha de nacimiento</label><input type="date" id="f-date2"></div>
-    <div class="field"><label>Hora de nacimiento</label><input type="time" id="f-time2"><p style="font-size:9px;color:var(--pmid);margin-top:4px">Si no la conoces, déjalo en blanco.</p></div>
-    <div class="field"><label>Ciudad de nacimiento</label><input type="text" id="f-city2" placeholder="Ciudad, País"></div>
-    <button class="submit-btn" onclick="document.getElementById('oferta-sinastria').scrollIntoView({behavior:'smooth'})">Revelar nuestra Sinastría ✦</button>
+    <div class="form-group-label partner">♂ &nbsp;<span data-t="partnerData">Datos de tu Pareja</span></div>
+    <div class="field"><label data-t="name">Nombre</label><input type="text" id="f-name2" data-tp="partnerName" placeholder="Nombre de tu pareja"></div>
+    <div class="field"><label data-t="birthDate">Fecha de nacimiento</label><input type="date" id="f-date2"></div>
+    <div class="field"><label data-t="birthTime">Hora de nacimiento</label><input type="time" id="f-time2"><p style="font-size:9px;color:var(--pmid);margin-top:4px" data-t="birthTimeNote">Si no la conoces, déjalo en blanco.</p></div>
+    <div class="field"><label data-t="birthCity">Ciudad de nacimiento</label><input type="text" id="f-city2" data-tp="cityPlaceholder" placeholder="Ciudad, País"></div>
+    <button class="submit-btn" data-t="revealBtn" onclick="document.getElementById('oferta-sinastria').scrollIntoView({behavior:'smooth'})">Revelar nuestra Sinastría ✦</button>
     <p class="form-legal">✦ Lectura astrológica con fines de introspección · Astro Aureum · www.astroaureum.com</p>
   </div>
 </section>
@@ -186,91 +213,121 @@ main{padding-bottom:62px}
 <!-- C) QUE ES LA SINASTRIA -->
 <section id="what-section">
   <div style="text-align:center">
-    <div class="section-badge reveal">✦ El Arte Ancestral de la Compatibilidad</div>
-    <h2 class="section-title reveal reveal-d1" style="color:var(--goldbr)">¿Qué es la Sinastría?</h2>
+    <img src="/sinastria/sinastria3.png" alt="Sinastria de Almas — conexion cosmica entre dos almas" style="width:100%;max-width:500px;border-radius:16px;margin-bottom:28px;border:0.5px solid rgba(107,47,168,0.3)">
+    <div class="section-badge reveal" data-t="whatBadge">✦ El Arte Ancestral de la Compatibilidad</div>
+    <h2 class="section-title reveal reveal-d1" style="color:var(--goldbr)" data-t="whatTitle">¿Qué es la Sinastría?</h2>
     <div class="planet-row reveal reveal-d2">
-      <div class="planet-pill"><div class="planet-circle">☽</div><div class="planet-name">Luna</div></div>
-      <div class="planet-pill"><div class="planet-circle">☿</div><div class="planet-name">Mercurio</div></div>
-      <div class="planet-pill"><div class="planet-circle">♀</div><div class="planet-name">Venus</div></div>
-      <div class="planet-pill"><div class="planet-circle">♂</div><div class="planet-name">Marte</div></div>
-      <div class="planet-pill"><div class="planet-circle">♃</div><div class="planet-name">Júpiter</div></div>
+      <div class="planet-pill"><div class="planet-circle">☽</div><div class="planet-name" data-t="moon">Luna</div></div>
+      <div class="planet-pill"><div class="planet-circle">☿</div><div class="planet-name" data-t="mercury">Mercurio</div></div>
+      <div class="planet-pill"><div class="planet-circle">♀</div><div class="planet-name" data-t="venus">Venus</div></div>
+      <div class="planet-pill"><div class="planet-circle">♂</div><div class="planet-name" data-t="mars">Marte</div></div>
+      <div class="planet-pill"><div class="planet-circle">♃</div><div class="planet-name" data-t="jupiter">Júpiter</div></div>
     </div>
-    <p class="what-text p1 reveal reveal-d3">La Sinastría superpone dos cartas natales para revelar cómo los planetas de dos personas interactúan, se atraen y se transforman mutuamente.</p>
-    <p class="what-text p2 reveal reveal-d4">Va mucho más allá de comparar signos solares. Analiza vínculos emocionales, atracción física, patrones kármicos y el propósito compartido de dos almas que se encuentran.</p>
-    <p class="what-text p3 reveal reveal-d5">La Sinastría no juzga si una relación es buena o mala. Revela su naturaleza profunda para que puedas comprenderla y nutrirla con plena consciencia.</p>
+    <p class="what-text p1 reveal reveal-d3" data-t="whatP1">La Sinastría superpone dos cartas natales para revelar cómo los planetas de dos personas interactúan, se atraen y se transforman mutuamente.</p>
+    <p class="what-text p2 reveal reveal-d4" data-t="whatP2">Va mucho más allá de comparar signos solares. Analiza vínculos emocionales, atracción física, patrones kármicos y el propósito compartido de dos almas que se encuentran.</p>
+    <p class="what-text p3 reveal reveal-d5" data-t="whatP3">La Sinastría no juzga si una relación es buena o mala. Revela su naturaleza profunda para que puedas comprenderla y nutrirla con plena consciencia.</p>
   </div>
 </section>
 
 <!-- D) 6 PILARES -->
 <section id="pillars-section">
   <div style="text-align:center;margin-bottom:28px">
-    <div class="section-badge reveal">✦ Análisis Completo</div>
-    <h2 class="section-title reveal reveal-d1" style="color:var(--rsoft)">Lo que revela tu Sinastría</h2>
+    <div class="section-badge reveal" data-t="pillarsBadge">✦ Análisis Completo</div>
+    <h2 class="section-title reveal reveal-d1" style="color:var(--rsoft)" data-t="pillarsTitle">Lo que revela tu Sinastría</h2>
   </div>
   <div class="pillars-grid">
-    <div class="pillar-card reveal reveal-d1"><span class="pillar-icon">⚡</span><div class="pillar-title">Compatibilidad Elemental</div><p class="pillar-desc">Fuego, Tierra, Aire y Agua. Descubre si vuestras energías se armonizan o se desafían.</p></div>
-    <div class="pillar-card reveal reveal-d2"><span class="pillar-icon">☽</span><div class="pillar-title">Luna · Emociones</div><p class="pillar-desc">Lo que ambos necesitan para sentirse seguros y profundamente amados.</p></div>
-    <div class="pillar-card reveal reveal-d3"><span class="pillar-icon">♀</span><div class="pillar-title">Venus · El Amor</div><p class="pillar-desc">Cómo cada uno da y recibe amor. La clave de la conexión romántica.</p></div>
-    <div class="pillar-card reveal reveal-d4"><span class="pillar-icon">♂</span><div class="pillar-title">Marte · El Deseo</div><p class="pillar-desc">La química física, la pasión y cómo gestionan juntos la energía.</p></div>
-    <div class="pillar-card reveal reveal-d5"><span class="pillar-icon">✦</span><div class="pillar-title">Vértice Kármico</div><p class="pillar-desc">El destino y el propósito oculto detrás de vuestro encuentro.</p></div>
-    <div class="pillar-card reveal reveal-d6"><span class="pillar-icon">☍</span><div class="pillar-title">Aspectos Planetarios</div><p class="pillar-desc">Los ángulos exactos que revelan la danza de vuestra energía compartida.</p></div>
+    <div class="pillar-card reveal reveal-d1"><span class="pillar-icon">⚡</span><div class="pillar-title" data-t="pillar1Title">Compatibilidad Elemental</div><p class="pillar-desc" data-t="pillar1Desc">Fuego, Tierra, Aire y Agua. Descubre si vuestras energías se armonizan o se desafían.</p></div>
+    <div class="pillar-card reveal reveal-d2"><span class="pillar-icon">☽</span><div class="pillar-title" data-t="pillar2Title">Luna · Emociones</div><p class="pillar-desc" data-t="pillar2Desc">Lo que ambos necesitan para sentirse seguros y profundamente amados.</p></div>
+    <div class="pillar-card reveal reveal-d3"><span class="pillar-icon">♀</span><div class="pillar-title" data-t="pillar3Title">Venus · El Amor</div><p class="pillar-desc" data-t="pillar3Desc">Cómo cada uno da y recibe amor. La clave de la conexión romántica.</p></div>
+    <div class="pillar-card reveal reveal-d4"><span class="pillar-icon">♂</span><div class="pillar-title" data-t="pillar4Title">Marte · El Deseo</div><p class="pillar-desc" data-t="pillar4Desc">La química física, la pasión y cómo gestionan juntos la energía.</p></div>
+    <div class="pillar-card reveal reveal-d5"><span class="pillar-icon">✦</span><div class="pillar-title" data-t="pillar5Title">Vértice Kármico</div><p class="pillar-desc" data-t="pillar5Desc">El destino y el propósito oculto detrás de vuestro encuentro.</p></div>
+    <div class="pillar-card reveal reveal-d6"><span class="pillar-icon">☍</span><div class="pillar-title" data-t="pillar6Title">Aspectos Planetarios</div><p class="pillar-desc" data-t="pillar6Desc">Los ángulos exactos que revelan la danza de vuestra energía compartida.</p></div>
   </div>
 </section>
 
 <!-- E) EMOCIONAL -->
-<section id="emotional-section">
+<section id="emotional-section" style="background:url('/sinastria/sinastria2.png') center/cover;position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;background:rgba(10,4,20,0.40)"></div>
   <div class="emotional-content">
-    <div class="section-badge reveal" style="border-color:var(--rpale)">☽ Para quienes sienten que algo falta</div>
-    <h2 class="emotional-title reveal reveal-d1">"¿Sientes que algo falta aunque todo parece bien?"</h2>
-    <p class="emotional-sub reveal reveal-d2">No estás sola. La Sinastría revela lo que las palabras no pueden explicar — la energía invisible que conecta o separa dos almas.</p>
-    <a href="#oferta-sinastria" class="cta-secondary reveal reveal-d3">Quiero entender mi relación ✦</a>
+    <div class="section-badge reveal" style="border-color:var(--rpale)" data-t="emotionalBadge">☽ Para quienes sienten que algo falta</div>
+    <h2 class="emotional-title reveal reveal-d1" data-t="emotionalTitle">"¿Sientes que algo falta aunque todo parece bien?"</h2>
+    <p class="emotional-sub reveal reveal-d2" data-t="emotionalSub">No estás sola. La Sinastría revela lo que las palabras no pueden explicar — la energía invisible que conecta o separa dos almas.</p>
+    <a href="#oferta-sinastria" class="cta-secondary reveal reveal-d3" data-t="emotionalCta">Quiero entender mi relación ✦</a>
   </div>
 </section>
 
 <!-- F) OFERTA ESPECIAL 25€ -->
 <section id="oferta-sinastria">
-  <span class="section-badge reveal" style="background:rgba(122,32,80,0.5);border-color:var(--rpale);color:var(--rsoft)">✦ Paquete Exclusivo · Precio de Lanzamiento</span>
-  <h2 class="section-title reveal reveal-d1" style="color:var(--white);margin-top:16px">Todo lo que necesitas<br><span style="color:var(--goldbr)">para entender tu amor</span></h2>
-  <p class="reveal reveal-d2" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--rpale);margin-bottom:28px">Libro PDF + App PWA + Prompts completos · Una sola inversión</p>
-  <div class="oferta-price-box reveal reveal-d2">
-    <p style="font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--rmid);margin-bottom:8px">✦ Precio exclusivo</p>
-    <p style="font-size:14px;color:var(--pmain);text-decoration:line-through;margin-bottom:4px">Valor real: 120 €</p>
-    <p style="font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:600;color:var(--goldbr);line-height:1"><span style="font-size:22px;vertical-align:top;margin-top:12px;display:inline-block;color:var(--gold)">€</span>47</p>
-    <p style="font-size:11px;color:var(--pmid);margin-top:8px">Pago único · Acceso inmediato · Sin suscripción</p>
-    <p style="font-size:10px;color:var(--rmid);margin-top:6px;font-weight:500">✦ Oferta por tiempo limitado</p>
+  <span class="section-badge reveal" style="background:rgba(122,32,80,0.5);border-color:var(--rpale);color:var(--rsoft)" data-t="ofertaBadge">✦ Paquete Exclusivo · Precio de Lanzamiento</span>
+  <h2 class="section-title reveal reveal-d1" style="color:var(--white);margin-top:16px"><span data-t="ofertaTitle1">Todo lo que necesitas</span><br><span style="color:var(--goldbr)" data-t="ofertaTitle2">para entender tu amor</span></h2>
+  <p class="reveal reveal-d2" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--rpale);margin-bottom:28px" data-t="ofertaSub">Lectura personalizada + Libro PDF + App PWA + Guia de aspectos · Una sola inversion</p>
+  <img src="/sinastria/sinastria1.png" alt="Sinastria de Almas — pergamino con cartas natales" style="width:100%;max-width:520px;border-radius:16px;margin:0 auto 28px;display:block;border:0.5px solid rgba(200,152,64,0.3)">
+  <div class="precio-oferta reveal reveal-d2">
+    <div class="oferta-badge" data-t="launchBadge">✦ OFERTA DE LANZAMIENTO ✦</div>
+    <div class="precio-tachado" data-t="realValue">Valor real: €140</div>
+    <div class="precio-actual">€25</div>
+    <div class="precio-sub" data-t="priceSub">Pago unico · Acceso inmediato · Sin suscripcion</div>
+    <div class="urgencia" data-t="urgency">Solo disponible durante el periodo de lanzamiento — cuando lleguemos a 100 ventas, vuelve a €99</div>
   </div>
-  <div class="oferta-products reveal reveal-d3">
-    <div class="oferta-prod"><div class="oferta-prod-icon">📖</div><div class="oferta-prod-title">Libro PDF</div><p class="oferta-prod-desc">La Unión de las Estrellas — 13 páginas sobre el amor cósmico</p></div>
-    <div class="oferta-prod"><div class="oferta-prod-icon">✦</div><div class="oferta-prod-title">App PWA</div><p class="oferta-prod-desc">Sinastría de Almas — Calculadora de compatibilidad astrológica</p></div>
+  <div class="incluye-section reveal reveal-d3">
+    <div class="incluye-label" data-t="includeLabel">✦ TODO LO QUE RECIBES ✦</div>
+    <div class="incluye-item featured">
+      <div class="incluye-icon">📖</div>
+      <div class="incluye-info">
+        <div class="incluye-titulo"><span data-t="include1Title">Lectura de Sinastria Personalizada</span><span class="incluye-valor" data-t="include1Value">Valor: €99</span></div>
+        <div class="incluye-desc" data-t="include1Desc">2.000+ palabras · Analisis completo de vuestra compatibilidad real · Amor · Karma · Aspectos planetarios · PDF entregado al instante</div>
+      </div>
+    </div>
+    <div class="incluye-item">
+      <div class="incluye-icon">✨</div>
+      <div class="incluye-info">
+        <div class="incluye-titulo"><span data-t="include2Title">Libro PDF — La Union de las Estrellas</span><span class="incluye-valor" data-t="include2Value">Valor: €9</span></div>
+        <div class="incluye-desc" data-t="include2Desc">13 paginas sobre el amor cosmico y la energia invisible que conecta dos almas</div>
+      </div>
+    </div>
+    <div class="incluye-item">
+      <div class="incluye-icon">✦</div>
+      <div class="incluye-info">
+        <div class="incluye-titulo"><span data-t="include3Title">App PWA — Calculadora de Compatibilidad</span><span class="incluye-valor" data-t="include3Value">Valor: €17</span></div>
+        <div class="incluye-desc" data-t="include3Desc">Calcula la sinastria basica de cualquier pareja en segundos desde tu movil</div>
+      </div>
+    </div>
+    <div class="incluye-item">
+      <div class="incluye-icon">📋</div>
+      <div class="incluye-info">
+        <div class="incluye-titulo"><span data-t="include4Title">Guia de Interpretacion de Aspectos</span><span class="incluye-valor" data-t="include4Value">Valor: €15</span></div>
+        <div class="incluye-desc" data-t="include4Desc">Aprende a leer e interpretar los aspectos planetarios de tu propia sinastria</div>
+      </div>
+    </div>
+    <div class="incluye-total">
+      <span data-t="totalLabel">Valor total real:</span>
+      <span class="total-tachado">€140</span>
+      <span class="total-flecha">→</span>
+      <span class="total-precio" data-t="totalPrice">Tu precio hoy: €25</span>
+    </div>
   </div>
-  <div class="oferta-bonus reveal reveal-d4">
-    <div class="oferta-bonus-item"><span>✦</span><span>Guía práctica: cómo interpretar tu compatibilidad</span></div>
-    <div class="oferta-bonus-item"><span>✦</span><span>Guía de interpretación de aspectos planetarios</span></div>
-    <div class="oferta-bonus-item"><span>✦</span><span>Acceso a futuras actualizaciones gratuitas</span></div>
-    <div class="oferta-bonus-item"><span>✦</span><span>Soporte por email prioritario</span></div>
-  </div>
-  <button class="oferta-buy-btn reveal reveal-d5" onclick="openCheckout()">Quiero este paquete por 47€ ✦</button>
-  <p class="oferta-guarantee reveal reveal-d6"><strong>✦ Garantía:</strong> Si no recibes tu paquete en los primeros 10 minutos tras el pago, contáctanos y te lo reenviamos de inmediato — o te devolvemos el 100% del dinero. Sin preguntas.</p>
+  <button class="oferta-buy-btn reveal reveal-d5" data-t="buyBtn" onclick="openCheckout()">Quiero este paquete por 25€ ✦</button>
+  <p class="oferta-guarantee reveal reveal-d6" data-t="guarantee"><strong>✦ Garantía:</strong> Si no recibes tu paquete en los primeros 10 minutos tras el pago, contáctanos y te lo reenviamos de inmediato — o te devolvemos el 100% del dinero. Sin preguntas.</p>
 </section>
 
 <!-- G) LIBRO LEAD MAGNET -->
 <section id="libro-gratis">
-  <span style="font-family:'Cormorant Garamond',serif;font-size:11px;color:var(--goldbr);letter-spacing:0.15em;text-transform:uppercase;display:block;margin-bottom:14px" class="reveal">✦ Regalo para ti</span>
-  <h2 class="section-title reveal reveal-d1" style="color:var(--white)">Descarga gratis tu libro</h2>
-  <p class="reveal reveal-d2" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--rpale);margin-bottom:6px">"La Unión de las Estrellas — La Energía Invisible Buscando la Conexión"</p>
-  <p class="reveal reveal-d3" style="font-size:11px;color:var(--pmid);margin-bottom:24px">13 páginas · PDF · Sobre el amor, las estrellas y la energía cósmica</p>
-  <div style="max-width:320px;margin:0 auto" class="reveal reveal-d4">
-    <input type="email" id="lead-email" class="lead-input" placeholder="tu@email.com">
-    <button class="lead-btn" onclick="submitLeadMagnet()">Quiero mi libro gratis ✦</button>
-    <p style="font-size:9px;color:var(--pdark);margin-top:10px">Al descargar aceptas recibir contenido de Astro Aureum. Puedes cancelar cuando quieras.</p>
+  <span style="font-family:'Cormorant Garamond',serif;font-size:11px;color:var(--goldbr);letter-spacing:0.15em;text-transform:uppercase;display:block;margin-bottom:14px" class="reveal" data-t="bookBadge">✦ Tambien disponible por separado</span>
+  <h2 class="section-title reveal reveal-d1" style="color:var(--white)" data-t="bookTitle">Solo el libro</h2>
+  <p class="reveal reveal-d2" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--rpale);margin-bottom:6px" data-t="bookSubtitle">"La Union de las Estrellas — La Energia Invisible Buscando la Conexion"</p>
+  <p class="reveal reveal-d3" style="font-size:11px;color:var(--pmid);margin-bottom:8px" data-t="bookDesc">13 paginas · PDF · Sobre el amor, las estrellas y la energia cosmica</p>
+  <p class="reveal reveal-d3" style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:var(--goldbr);margin-bottom:16px">€9</p>
+  <div class="reveal reveal-d4" style="max-width:320px;margin:0 auto">
+    <button class="lead-btn" data-t="bookBuyBtn" onclick="openCheckoutLibro()">Comprar solo el libro ✦</button>
+    <p style="font-size:10px;color:var(--rmid);margin-top:12px;font-style:italic" data-t="bookUpsell">O ahorra un 83% con el paquete completo por solo €25 ↑</p>
   </div>
 </section>
 
 <!-- H) TESTIMONIOS -->
 <section id="testimonials">
   <div style="text-align:center;margin-bottom:24px">
-    <div class="section-badge reveal">✦ Experiencias reales</div>
-    <h2 class="section-title reveal reveal-d1" style="color:var(--rsoft)">Lo que dicen quienes ya lo descubrieron</h2>
+    <div class="section-badge reveal" data-t="testiBadge">✦ Experiencias reales</div>
+    <h2 class="section-title reveal reveal-d1" style="color:var(--rsoft)" data-t="testiTitle">Lo que dicen quienes ya lo descubrieron</h2>
   </div>
   <div class="testi-scroll reveal">
     <div class="testi-card"><div class="testi-quote">❝</div><p class="testi-text">"Siempre supe que lo nuestro era especial. La Sinastría me explicó exactamente por qué — y cómo hacer que dure para siempre."</p><div class="testi-name">Valentina M.</div><div class="testi-sign">♏ Escorpio · Colombia</div></div>
@@ -285,7 +342,7 @@ main{padding-bottom:62px}
 <!-- I) FOOTER -->
 <footer>
   <div class="footer-logo">Astro Aureum</div>
-  <div class="footer-tag">Sinastría de Almas · Compatibilidad Astrológica</div>
+  <div class="footer-tag" data-t="footerTag">Sinastría de Almas · Compatibilidad Astrológica</div>
   <div class="social-row">
     <a class="social-icon" title="Instagram">📸</a>
     <a class="social-icon" title="TikTok">🎵</a>
@@ -293,17 +350,17 @@ main{padding-bottom:62px}
     <a class="social-icon" title="WhatsApp">💬</a>
   </div>
   <div class="footer-divider"></div>
-  <p class="footer-disclaimer">Astro Aureum es una plataforma de entretenimiento e introspección personal. Las lecturas astrológicas no sustituyen consejo médico, psicológico ni legal.</p>
-  <p class="footer-copy">© 2026 Astro Aureum · www.astroaureum.com · Todos los derechos reservados</p>
-  <a href="https://www.astroaureum.com" class="footer-back">← Volver a Astro Aureum</a>
+  <p class="footer-disclaimer" data-t="footerDisclaimer">Astro Aureum es una plataforma de entretenimiento e introspección personal. Las lecturas astrológicas no sustituyen consejo médico, psicológico ni legal.</p>
+  <p class="footer-copy" data-t="footerCopy">© 2026 Astro Aureum · www.astroaureum.com · Todos los derechos reservados</p>
+  <a href="https://www.astroaureum.com" class="footer-back" data-t="footerBack">← Volver a Astro Aureum</a>
 </footer>
 
 <!-- BOTTOM NAV -->
 <nav class="bottom-nav">
-  <a class="nav-item" href="https://www.astroaureum.com"><div class="nav-icon">☉</div><div class="nav-label">Inicio</div></a>
-  <a class="nav-item active" href="#hero"><div class="nav-icon">♡</div><div class="nav-label">Sinastría</div></a>
-  <a class="nav-item" href="#oferta-sinastria"><div class="nav-icon">✦</div><div class="nav-label">Oferta</div></a>
-  <a class="nav-item" href="#libro-gratis"><div class="nav-icon">📖</div><div class="nav-label">Libro</div></a>
+  <a class="nav-item" href="https://www.astroaureum.com"><div class="nav-icon">☉</div><div class="nav-label" data-t="navHome">Inicio</div></a>
+  <a class="nav-item active" href="#hero"><div class="nav-icon">♡</div><div class="nav-label" data-t="navSinastria">Sinastría</div></a>
+  <a class="nav-item" href="#oferta-sinastria"><div class="nav-icon">✦</div><div class="nav-label" data-t="navOferta">Oferta</div></a>
+  <a class="nav-item" href="#libro-gratis"><div class="nav-icon">📖</div><div class="nav-label" data-t="navLibro">Libro €19</div></a>
 </nav>
 
 <!-- CHECKOUT MODAL -->
@@ -312,8 +369,8 @@ main{padding-bottom:62px}
     <button class="checkout-close" onclick="closeCheckout()">&times;</button>
     <div class="checkout-title">Confirmar Pedido</div>
     <div class="checkout-product">Paquete Sinastría · Libro PDF + App PWA</div>
-    <div class="checkout-price">€47</div>
-    <div class="checkout-note">Entrega instantánea en tu email en formato PDF</div>
+    <div class="checkout-price">€25</div>
+    <div class="checkout-note">Entrega instantanea ⚡ · Recibes todo en 10 minutos</div>
     <div style="margin-bottom:16px"><input type="email" id="checkout-email" placeholder="Tu email para recibir la lectura" style="width:100%;background:var(--dark);border:0.5px solid var(--pdark);border-radius:10px;color:var(--white);font-family:'Jost',sans-serif;font-size:13px;padding:12px 14px;outline:none;text-align:center"></div>
     <button class="pay-btn pay-stripe" onclick="payWithStripe()"><span>💳</span><span>Pagar con Tarjeta</span><span class="pay-badge">Visa · MC · Amex</span></button>
     <div class="pay-divider">o</div>
@@ -329,12 +386,18 @@ let current=0;const slides=document.querySelectorAll('.slide');const dots=docume
 function goSlide(n){slides[current].classList.remove('active');dots[current].classList.remove('active');current=(n+slides.length)%slides.length;slides[current].classList.add('active');dots[current].classList.add('active')}
 const autoplay=setInterval(()=>goSlide(current+1),4500);dots.forEach((d,i)=>d.addEventListener('click',()=>{clearInterval(autoplay);goSlide(i)}));
 const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')})},{threshold:0.12});document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-function openCheckout(){document.getElementById('checkout-overlay').classList.add('open');document.body.style.overflow='hidden'}
+function openCheckout(){document.getElementById('checkout-overlay').classList.add('open');document.body.style.overflow='hidden';document.querySelector('.checkout-product').textContent='Paquete Sinastria · Lectura + Libro + App + Guia';document.querySelector('.checkout-price').textContent='€25';document.querySelector('.checkout-note').textContent='Entrega instantanea ⚡ · Recibes todo en 10 minutos';document.getElementById('checkout-overlay').dataset.product='pack'}
 function closeCheckout(){document.getElementById('checkout-overlay').classList.remove('open');document.body.style.overflow=''}
-function payWithStripe(){const btn=document.querySelector('.pay-stripe');if(btn)btn.disabled=true;fetch('/api/order',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({productId:'sinastria-pack',customerName:document.getElementById('f-name1')?.value||'',customerEmail:'',language:'es',serviceTier:'basic',sinastria:true,packName:'Paquete Sinastría · Libro PDF + App PWA',packPrice:'47.00'})}).then(r=>r.json()).then(d=>{if(d.url)window.location.href=d.url;else{alert(d.error||'Error');if(btn)btn.disabled=false}}).catch(()=>{alert('Error de conexión');if(btn)btn.disabled=false})}
-function payWithPayPal(){window.location.href='https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business='+encodeURIComponent('denitsa84.bg@gmail.com')+'&item_name='+encodeURIComponent('Paquete Sinastría · Libro PDF + App PWA - Astro Aureum')+'&amount=47.00&currency_code=EUR&no_shipping=1&return='+encodeURIComponent('https://astroaureum.com/sinastria')+'&cancel_return='+encodeURIComponent('https://astroaureum.com/sinastria')}
-function submitLeadMagnet(){const e=document.getElementById('lead-email').value;if(!e||!e.includes('@')){alert('Introduce un email válido');return}alert('¡Gracias! Revisa tu email para descargar el libro.')}
+function payWithStripe(){const isLibro=document.getElementById('checkout-overlay').dataset.product==='libro';const btn=document.querySelector('.pay-stripe');if(btn)btn.disabled=true;fetch('/api/order',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({productId:isLibro?'sinastria-libro':'sinastria-pack',customerName:document.getElementById('f-name1')?.value||'',customerEmail:document.getElementById('checkout-email')?.value||'',language:'es',serviceTier:'basic',sinastria:true,packName:isLibro?'Libro PDF — La Union de las Estrellas':'Paquete Sinastria · Lectura + Libro + App + Guia',packPrice:isLibro?'19.00':'25.00'})}).then(r=>r.json()).then(d=>{if(d.url)window.location.href=d.url;else{alert(d.error||'Error');if(btn)btn.disabled=false}}).catch(()=>{alert('Error de conexion');if(btn)btn.disabled=false})}
+function payWithPayPal(){const isLibro=document.getElementById('checkout-overlay').dataset.product==='libro';const amount=isLibro?'19.00':'25.00';const item=isLibro?'Libro PDF — La Union de las Estrellas - Astro Aureum':'Paquete Sinastria · Lectura + Libro + App + Guia - Astro Aureum';window.location.href='https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business='+encodeURIComponent('denitsa84.bg@gmail.com')+'&item_name='+encodeURIComponent(item)+'&amount='+amount+'&currency_code=EUR&no_shipping=1&return='+encodeURIComponent('https://astroaureum.com/sinastria')+'&cancel_return='+encodeURIComponent('https://astroaureum.com/sinastria')}
+function openCheckoutLibro(){document.getElementById('checkout-overlay').classList.add('open');document.body.style.overflow='hidden';document.querySelector('.checkout-product').textContent='Libro PDF — La Union de las Estrellas';document.querySelector('.checkout-price').textContent='€19';document.querySelector('.checkout-note').textContent='Entrega instantanea ⚡ · PDF en tu email en minutos';document.getElementById('checkout-overlay').dataset.product='libro'}
 if('serviceWorker' in navigator){navigator.serviceWorker.register('service-worker.js').catch(()=>{})}
+// i18n
+const LANGS={es:'Espanol',en:'English',fr:'Francais',de:'Deutsch',it:'Italiano',pt:'Portugues',ru:'Русский',zh:'中文',ja:'日本語',ko:'한국어',ar:'العربية',hi:'हिन्दी',tr:'Turkce',nl:'Nederlands',sv:'Svenska',pl:'Polski',ro:'Romana',el:'Ελληνικά',th:'ไทย',vi:'Tieng Viet',id:'Bahasa',he:'עברית',uk:'Українська',cs:'Cestina',bg:'Български'};
+const allT=Object.assign({},T,T2);
+function getLang(){const p=new URLSearchParams(location.search).get('lang');if(p&&allT[p])return p;const b=(navigator.language||'es').slice(0,2);return allT[b]?b:'es'}
+function setLang(l){const t=allT[l];if(!t)return;document.querySelectorAll('[data-t]').forEach(el=>{const k=el.getAttribute('data-t');if(t[k])el.textContent=t[k]});document.querySelectorAll('[data-tp]').forEach(el=>{const k=el.getAttribute('data-tp');if(t[k])el.placeholder=t[k]});document.getElementById('lang-select').value=l;document.documentElement.lang=l;if(l==='ar'||l==='he')document.documentElement.dir='rtl';else document.documentElement.dir='ltr';history.replaceState(null,'',l==='es'?location.pathname:location.pathname+'?lang='+l)}
+(function(){const sel=document.getElementById('lang-select');Object.keys(LANGS).forEach(k=>{const o=document.createElement('option');o.value=k;o.textContent=LANGS[k];sel.appendChild(o)});const lang=getLang();sel.value=lang;if(lang!=='es')setLang(lang)})();
 </script>
 </body>
 </html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Poppins:wght@300;400;600;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { display: flex; align-items: center; justify-content: center; min-height: 100vh; background: #000; }
+  .post {
+    width: 1080px; height: 1080px;
+    background: radial-gradient(ellipse at 30% 20%, rgba(123,79,191,0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(212,168,67,0.1) 0%, transparent 50%),
+                #06050E;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  /* Stars */
+  .post::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+      radial-gradient(1px 1px at 100px 50px, rgba(255,255,255,0.6), transparent),
+      radial-gradient(1px 1px at 300px 150px, rgba(255,255,255,0.4), transparent),
+      radial-gradient(1.5px 1.5px at 500px 80px, rgba(212,168,67,0.6), transparent),
+      radial-gradient(1px 1px at 700px 300px, rgba(255,255,255,0.5), transparent),
+      radial-gradient(1px 1px at 200px 400px, rgba(255,255,255,0.3), transparent),
+      radial-gradient(1.5px 1.5px at 800px 500px, rgba(212,168,67,0.5), transparent),
+      radial-gradient(1px 1px at 150px 700px, rgba(255,255,255,0.4), transparent),
+      radial-gradient(1px 1px at 600px 650px, rgba(255,255,255,0.3), transparent),
+      radial-gradient(1.5px 1.5px at 900px 100px, rgba(212,168,67,0.4), transparent),
+      radial-gradient(1px 1px at 450px 900px, rgba(255,255,255,0.5), transparent);
+  }
+  .badge {
+    position: absolute; top: 50px;
+    background: linear-gradient(135deg, #D4A843, #F0D78C);
+    color: #06050E; font-family: Poppins; font-weight: 700; font-size: 22px;
+    padding: 10px 30px; border-radius: 30px; letter-spacing: 2px; text-transform: uppercase;
+  }
+  .logo-img {
+    width: 200px; height: 200px; object-fit: contain; margin-bottom: 20px;
+    filter: drop-shadow(0 0 20px rgba(212,168,67,0.4));
+    z-index: 1;
+  }
+  .title {
+    font-family: Cinzel; font-size: 72px; font-weight: 900; color: #D4A843;
+    letter-spacing: 6px; text-align: center; z-index: 1;
+    text-shadow: 0 0 40px rgba(212,168,67,0.3);
+  }
+  .subtitle {
+    font-family: Cinzel; font-size: 48px; font-weight: 700; color: #A77BDB;
+    letter-spacing: 12px; text-align: center; margin-top: -5px; z-index: 1;
+  }
+  .tagline {
+    font-family: Poppins; font-size: 32px; color: #F5F0FF; margin-top: 30px;
+    letter-spacing: 3px; z-index: 1; opacity: 0.9;
+  }
+  .divider {
+    width: 200px; height: 2px; margin: 35px 0;
+    background: linear-gradient(90deg, transparent, #D4A843, transparent);
+    z-index: 1;
+  }
+  .features {
+    display: flex; flex-direction: column; gap: 18px; z-index: 1;
+  }
+  .feature {
+    font-family: Poppins; font-size: 28px; color: #F5F0FF; text-align: center;
+    opacity: 0.85;
+  }
+  .feature span { color: #D4A843; }
+  .bottom {
+    position: absolute; bottom: 50px;
+    font-family: Poppins; font-size: 24px; color: #D4A843;
+    letter-spacing: 3px; z-index: 1;
+  }
+</style></head>
+<body>
+  <div class="post">
+    <div class="badge">BIENVENIDOS</div>
+    <div class="title">ASTRO</div>
+    <div class="subtitle">AUREUM</div>
+    <div class="tagline">Tu destino escrito en las estrellas</div>
+    <div class="divider"></div>
+    <div class="features">
+      <div class="feature"><span>&#x2728;</span> Astrolog&iacute;a Profesional</div>
+      <div class="feature"><span>&#x1F52E;</span> 9 Tradiciones Ancestrales</div>
+      <div class="feature"><span>&#x1F319;</span> 37 Servicios Personalizados</div>
+      <div class="feature"><span>&#x1F31F;</span> Quiz Lunar GRATIS</div>
+    </div>
+    <div class="bottom">astroaureum.com</div>
+  </div>
+</body></html>

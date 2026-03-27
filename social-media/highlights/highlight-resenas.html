@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Poppins:wght@400;600&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { display: flex; align-items: center; justify-content: center; min-height: 100vh; background: #000; }
+  .cover {
+    width: 1080px; height: 1080px; border-radius: 50%; overflow: hidden;
+    background: radial-gradient(circle at center, #0D0B1A 0%, #06050E 100%);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    border: 3px solid rgba(212,168,67,0.4);
+    position: relative;
+  }
+  .cover::before {
+    content: ''; position: absolute; width: 900px; height: 900px;
+    border: 1px solid rgba(212,168,67,0.15); border-radius: 50%;
+  }
+  .icon { font-size: 280px; margin-bottom: 30px; filter: drop-shadow(0 0 30px rgba(212,168,67,0.5)); }
+  .label { font-family: Cinzel; font-size: 64px; color: #D4A843; letter-spacing: 4px; text-align: center; }
+</style></head>
+<body>
+  <div class="cover">
+    <div class="icon">&#x2B50;</div>
+    <div class="label">RESE&Ntilde;AS</div>
+  </div>
+</body></html>

@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astro Aureum — Tu Guía Cósmica | Mide tu Sincronicidad Astral</title>
+    <meta name="description" content="Mide el poder de la sincronicidad y complementación astrológica entre dos almas. Cálculos reales con Swiss Ephemeris. 9 tradiciones. 25 idiomas.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           ESPECIFICACION MAESTRA — ASTROAUREUM
+           Misticismo Hiper-real y Tecnológico
+           ============================================ */
+
+        :root {
+            --bg-space: #08011B;
+            --electric-blue: #A0F0FF;
+            --golden-yellow: #FFED8A;
+            --love-rose: #FFB3D1;
+            --aura-pink: #FFD6F5;
+            --cosmic-cream: #FFF9EA;
+            --pure-white: #FFFFFF;
+
+            --glow-blue: 0 0 20px rgba(160, 240, 255, 0.6);
+            --glow-gold: 0 0 20px rgba(255, 237, 138, 0.5);
+            --glow-love: 0 0 20px rgba(255, 179, 209, 0.6);
+            --glow-cream: 0 0 15px rgba(255, 249, 234, 0.4);
+
+            --gradient-gold-pink: linear-gradient(135deg, #FFED8A 0%, #FFB3D1 100%);
+            --gradient-blue-aura: linear-gradient(135deg, #A0F0FF 0%, #FFD6F5 100%);
+
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-space);
+            background-image:
+                radial-gradient(ellipse at 15% 85%, rgba(160, 240, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(ellipse at 85% 15%, rgba(255, 237, 138, 0.04) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(255, 179, 209, 0.03) 0%, transparent 60%);
+            color: var(--pure-white);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* ============================================
+           GLASS CARD — Contenedor Universal
+           ============================================ */
+        .glass-card {
+            background: rgba(255, 249, 234, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 237, 138, 0.2);
+            border-radius: 24px;
+            box-shadow: var(--glow-cream);
+            color: var(--pure-white);
+        }
+
+        /* ============================================
+           TIPOGRAFIA
+           ============================================ */
+        h1 {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.1;
+            color: var(--pure-white);
+            text-shadow: 0 0 15px rgba(160, 240, 255, 0.8);
+        }
+
+        h2 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            line-height: 1.2;
+        }
+
+        h2.sync { color: var(--electric-blue); text-shadow: 0 0 10px rgba(160, 240, 255, 0.5); }
+        h2.love { color: var(--love-rose); text-shadow: 0 0 10px rgba(255, 179, 209, 0.5); }
+        h2.gold { color: var(--golden-yellow); text-shadow: 0 0 10px rgba(255, 237, 138, 0.5); }
+
+        h3 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--golden-yellow);
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--cosmic-cream);
+            font-weight: 300;
+        }
+
+        a { color: var(--aura-pink); text-decoration: none; transition: all 0.3s; }
+        a:hover { color: var(--electric-blue); }
+
+        /* ============================================
+           BOTON CTA
+           ============================================ */
+        .btn-cta {
+            display: inline-block;
+            background: var(--gradient-gold-pink);
+            border: none;
+            color: #000;
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            padding: 18px 40px;
+            box-shadow: var(--glow-gold);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+
+        .btn-cta:hover {
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: var(--glow-love);
+            color: #000;
+        }
+
+        .btn-cta:active {
+            filter: brightness(1.3);
+            transition: all 0.05s;
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            background: transparent;
+            border: 1px solid var(--electric-blue);
+            color: var(--pure-white);
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 50px;
+            padding: 15px 35px;
+            box-shadow: var(--glow-blue);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(160, 240, 255, 0.1);
+            box-shadow: 0 0 40px rgba(160, 240, 255, 0.4);
+            color: var(--pure-white);
+        }
+
+        /* ============================================
+           NAVBAR
+           ============================================ */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(8, 1, 27, 0.8);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 237, 138, 0.1);
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--golden-yellow);
+            text-shadow: 0 0 10px rgba(255, 237, 138, 0.4);
+        }
+
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a {
+            color: var(--cosmic-cream);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        .nav-links a:hover { color: var(--electric-blue); }
+
+        /* ============================================
+           HERO — Portal de Sincronia
+           ============================================ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 20px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: url('home-assets/portal-sincronia.png') center/cover no-repeat;
+            opacity: 0.4;
+            z-index: 0;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(8,1,27,0.3) 0%, rgba(8,1,27,0.9) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(160, 240, 255, 0.1);
+            border: 1px solid rgba(160, 240, 255, 0.3);
+            border-radius: 50px;
+            padding: 8px 24px;
+            font-size: 0.85rem;
+            color: var(--electric-blue);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 { margin-bottom: 25px; }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            color: rgba(255, 179, 209, 0.9);
+        }
+
+        .hero-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+
+        .hero-stats {
+            display: flex;
+            gap: 50px;
+            justify-content: center;
+            margin-top: 60px;
+            flex-wrap: wrap;
+        }
+
+        .stat { text-align: center; }
+        .stat-num {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--golden-yellow);
+            text-shadow: 0 0 10px rgba(255, 237, 138, 0.5);
+        }
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--aura-pink);
+            margin-top: 5px;
+        }
+
+        /* ============================================
+           SECCION — Sincronicidad
+           ============================================ */
+        .section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-centered {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section-centered h2 { margin-bottom: 20px; }
+        .section-centered p { margin-bottom: 40px; }
+
+        /* ============================================
+           SECCION — Complementacion (2 columnas)
+           ============================================ */
+        .split-section {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            padding: 100px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .split-text { flex: 1; }
+        .split-text h2 { margin-bottom: 20px; }
+        .split-text p { margin-bottom: 30px; }
+
+        .split-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .split-image img {
+            max-width: 100%;
+            border-radius: 24px;
+            box-shadow: var(--glow-blue);
+            border: 1px solid rgba(160, 240, 255, 0.15);
+        }
+
+        /* ============================================
+           PLAN — 3 Pasos
+           ============================================ */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .step {
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .step:hover {
+            border-color: var(--electric-blue);
+            box-shadow: var(--glow-blue);
+            transform: translateY(-5px);
+        }
+
+        .step-num {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--gradient-gold-pink);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .step h3 {
+            margin: 15px 0 10px;
+            color: var(--electric-blue);
+        }
+
+        .step p { font-size: 0.95rem; }
+
+        /* ============================================
+           TESTIMONIOS
+           ============================================ */
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .testimonial {
+            padding: 35px;
+            transition: all 0.3s;
+        }
+
+        .testimonial:hover {
+            border-color: var(--love-rose);
+            box-shadow: var(--glow-love);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--cosmic-cream);
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            color: var(--love-rose);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .testimonial-sign {
+            color: var(--aura-pink);
+            font-size: 0.8rem;
+        }
+
+        /* ============================================
+           SECCION — Aureum Books Preview
+           ============================================ */
+        .books-preview {
+            text-align: center;
+            padding: 100px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .books-preview-image {
+            margin: 40px auto;
+            max-width: 400px;
+        }
+
+        .books-preview-image img {
+            width: 100%;
+            border-radius: 24px;
+            box-shadow: var(--glow-gold);
+            border: 1px solid rgba(255, 237, 138, 0.2);
+            transition: all 0.3s;
+        }
+
+        .books-preview-image img:hover {
+            box-shadow: 0 0 40px rgba(255, 237, 138, 0.5);
+            transform: scale(1.02);
+        }
+
+        /* ============================================
+           CTA FINAL
+           ============================================ */
+        .cta-final {
+            text-align: center;
+            padding: 120px 20px;
+            position: relative;
+        }
+
+        .cta-final h2 {
+            color: var(--pure-white);
+            text-shadow: 0 0 15px rgba(160, 240, 255, 0.6);
+            margin-bottom: 20px;
+        }
+
+        .cta-final p {
+            color: rgba(255, 179, 209, 0.9);
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        footer {
+            padding: 50px 40px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 237, 138, 0.1);
+            background: rgba(8, 1, 27, 0.8);
+        }
+
+        .footer-logo {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--golden-yellow);
+            text-shadow: 0 0 10px rgba(255, 237, 138, 0.3);
+            margin-bottom: 15px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: var(--aura-pink);
+            font-size: 0.9rem;
+        }
+
+        .footer-copy {
+            color: rgba(255, 249, 234, 0.4);
+            font-size: 0.8rem;
+        }
+
+        /* ============================================
+           ANIMACIONES
+           ============================================ */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 768px) {
+            nav { padding: 15px 20px; }
+            .nav-links { display: none; }
+            .hero { padding: 100px 20px 60px; }
+            .hero-stats { gap: 30px; }
+            .split-section { flex-direction: column; padding: 60px 20px; gap: 40px; }
+            .steps { grid-template-columns: 1fr; }
+            .testimonials { grid-template-columns: 1fr; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="nav-logo">✦ Astro Aureum</div>
+        <div class="nav-links">
+            <a href="#sincronia">Sincronicidad</a>
+            <a href="#como-funciona">Cómo Funciona</a>
+            <a href="#testimonios">Testimonios</a>
+            <a href="aureum-books.html">Aureum Books</a>
+        </div>
+    </nav>
+
+    <!-- HERO — El Portal de Sincronía -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content fade-up">
+            <div class="hero-badge">✦ Sincronicidad Cósmica</div>
+            <h1>Mide el Poder de tu<br>Conexión Astral</h1>
+            <p>Las estrellas no mienten. Descubre la sincronicidad y complementación astrológica entre dos almas con precisión científica.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn-cta">MEDIR MI SINCRONICIDAD</a>
+                <a href="#como-funciona" class="btn-secondary">Cómo Funciona</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-num">10K+</div>
+                    <div class="stat-label">Lecturas Realizadas</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">9</div>
+                    <div class="stat-label">Tradiciones Astrológicas</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">25+</div>
+                    <div class="stat-label">Idiomas</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">97%</div>
+                    <div class="stat-label">Precisión Cósmica</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCION — ¿Qué es la Sincronicidad? -->
+    <section id="sincronia" class="section section-centered">
+        <div class="fade-up">
+            <h2 class="sync">¿Sientes una Conexión que No Puedes Explicar?</h2>
+            <p>Esa inquietud que sientes no es casualidad. Es el universo hablándote. La sincronicidad astrológica es la medida real de la conexión cósmica entre dos personas — calculada con Swiss Ephemeris y 9 tradiciones ancestrales.</p>
+            <a href="#" class="btn-cta">DESCUBRE TU VERDAD CÓSMICA</a>
+        </div>
+    </section>
+
+    <!-- SECCION — Complementación Astrológica (Split) -->
+    <section class="split-section">
+        <div class="split-text fade-up">
+            <h2 class="love">El Abrazo Celestial</h2>
+            <p>La complementación astrológica va más allá de la compatibilidad de signos. Analizamos aspectos planetarios, casas superpuestas, nodos lunares y la sinastría completa para revelar el propósito cósmico de vuestra conexión.</p>
+            <p>Cada relación tiene un mapa escrito en las estrellas. Nosotros lo desciframos.</p>
+            <a href="#" class="btn-secondary">EXPLORAR COMPLEMENTACIÓN</a>
+        </div>
+        <div class="split-image fade-up">
+            <img src="home-assets/abrazo-celestial.png" alt="Complementación Astrológica — El Abrazo Celestial">
+        </div>
+    </section>
+
+    <!-- SECCION — Cómo Funciona (3 Pasos) -->
+    <section id="como-funciona" class="section section-centered">
+        <div class="fade-up">
+            <h2 class="gold">Tu Mapa Cósmico en 3 Pasos</h2>
+            <p>Precision ancestral combinada con tecnología de vanguardia.</p>
+        </div>
+        <div class="steps">
+            <div class="glass-card step fade-up">
+                <div class="step-num">1</div>
+                <h3>Ingresa los Datos</h3>
+                <p>Tu fecha de nacimiento y la de la persona que ocupa tu mente. El cosmos hará el resto.</p>
+            </div>
+            <div class="glass-card step fade-up">
+                <div class="step-num">2</div>
+                <h3>El Motor Cósmico Calcula</h3>
+                <p>Swiss Ephemeris + IA Premium analizan la sinastría, aspectos planetarios y compatibilidad real.</p>
+            </div>
+            <div class="glass-card step fade-up">
+                <div class="step-num">3</div>
+                <h3>Recibe tu Lectura</h3>
+                <p>Un mapa detallado de vuestra conexión cósmica. Más de 5,000 palabras de sabiduría ancestral.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCION — Testimonios -->
+    <section id="testimonios" class="section section-centered">
+        <div class="fade-up">
+            <h2 class="love">Lo que Dicen las Almas que Ya Saben</h2>
+        </div>
+        <div class="testimonials">
+            <div class="glass-card testimonial fade-up">
+                <div class="testimonial-text">"Al fin entendí por qué sentía ese tirón tan fuerte hacia él. Nuestra lectura de sincronicidad fue reveladora. Cada palabra resonó con lo que mi corazón ya sabía."</div>
+                <div class="testimonial-author">— Elena R.</div>
+                <div class="testimonial-sign">♏ Escorpio · Madrid</div>
+            </div>
+            <div class="glass-card testimonial fade-up">
+                <div class="testimonial-text">"Siempre dudaba de si esta relación tenía futuro. La precisión de los cálculos me dio la paz que necesitaba. Ahora sé que el universo nos puso en el mismo camino."</div>
+                <div class="testimonial-author">— Carlos M.</div>
+                <div class="testimonial-sign">♌ Leo · Buenos Aires</div>
+            </div>
+            <div class="glass-card testimonial fade-up">
+                <div class="testimonial-text">"He probado muchos tests de compatibilidad, pero ninguno con este nivel de profundidad. Swiss Ephemeris + IA es otra liga. Me voló la cabeza."</div>
+                <div class="testimonial-author">— Sofia T.</div>
+                <div class="testimonial-sign">♓ Piscis · Barcelona</div>
+            </div>
+            <div class="glass-card testimonial fade-up">
+                <div class="testimonial-text">"La lectura de complementación nos ayudó a entender nuestras diferencias como fortalezas cósmicas. Llevamos 8 meses juntos y cada día tiene más sentido."</div>
+                <div class="testimonial-author">— Marco & Lucia</div>
+                <div class="testimonial-sign">♈♎ Aries & Libra · Roma</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCION — Aureum Books Preview -->
+    <section class="books-preview">
+        <div class="fade-up">
+            <h2 class="gold">Aureum Books</h2>
+            <p>Sabiduría cósmica escrita para iluminar tu camino. 18 libros de astrología en 25+ idiomas, todos los formatos.</p>
+            <div class="books-preview-image">
+                <img src="home-assets/codice-estelar.png" alt="Aureum Books — El Códice Estelar">
+            </div>
+            <a href="aureum-books.html" class="btn-cta">EXPLORAR AUREUM BOOKS</a>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-final">
+        <div class="fade-up">
+            <h2>Tu Carta Cósmica Está Lista.<br>Solo Falta que la Pidas.</h2>
+            <p>Los tránsitos planetarios de este mes amplifican tu conexión. No esperes más.</p>
+            <a href="#" class="btn-cta">MEDIR MI SINCRONICIDAD AHORA</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logo">✦ Astro Aureum</div>
+        <div class="footer-links">
+            <a href="#">Sincronicidad</a>
+            <a href="#">Complementación</a>
+            <a href="aureum-books.html">Aureum Books</a>
+            <a href="#">Contacto</a>
+        </div>
+        <p class="footer-copy">© 2026 Astro Aureum — Tu Guía Cósmica. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- PARTICLES -->
+    <canvas id="stars" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none;"></canvas>
+
+    <script>
+        // ============================================
+        // ESTRELLAS ANIMADAS (Canvas)
+        // ============================================
+        const canvas = document.getElementById('stars');
+        const ctx = canvas.getContext('2d');
+        let stars = [];
+
+        function initStars() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            stars = [];
+            for (let i = 0; i < 150; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    r: Math.random() * 1.5 + 0.5,
+                    alpha: Math.random() * 0.8 + 0.2,
+                    speed: Math.random() * 0.3 + 0.1,
+                    color: ['#A0F0FF', '#FFED8A', '#FFD6F5', '#FFB3D1'][Math.floor(Math.random() * 4)]
+                });
+            }
+        }
+
+        function drawStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            stars.forEach(s => {
+                ctx.beginPath();
+                ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+                ctx.fillStyle = s.color;
+                ctx.globalAlpha = s.alpha + Math.sin(Date.now() * 0.001 * s.speed) * 0.3;
+                ctx.fill();
+            });
+            requestAnimationFrame(drawStars);
+        }
+
+        initStars();
+        drawStars();
+        window.addEventListener('resize', initStars);
+
+        // ============================================
+        // SCROLL ANIMATIONS (Fade Up)
+        // ============================================
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
