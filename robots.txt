@@ -1,4 +1,10 @@
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /api/
+Disallow: /social-media/
 
 Sitemap: https://astroaureum.com/sitemap.xml
+
+# Astro Aureum - astroaureum.com
+# Lecturas astrologicas personalizadas
