@@ -383,7 +383,7 @@
         <div class="bloque-contenido">
             <h1 class="titulo" data-t="heroH1">¿Esa persona piensa en ti tanto como tu en ella?</h1>
             <p class="subtitulo" data-t="heroP">Dejas de adivinar. En 10 minutos sabes exactamente que hay entre ustedes. Sin tarot, sin adivinas — con la precision real de las estrellas y la ciencia astronomica.</p>
-            <a href="#solucion" class="btn-astro" data-t="heroBtn">QUIERO SABER LA VERDAD — €19</a>
+            <a href="#cta-final" class="btn-astro" data-t="heroBtn">QUIERO SABER LA VERDAD — €19</a>
         </div>
     </section>
 
@@ -417,7 +417,7 @@
                 </div>
             </div>
             
-            <a href="#fracaso" class="btn-astro" data-t="solBtn" style="margin-top: 50px;">QUIERO MI MAPA CÓSMICO</a>
+            <a href="#cta-final" class="btn-astro" data-t="solBtn" style="margin-top: 50px;">QUIERO MI MAPA CÓSMICO</a>
         </div>
     </section>
 
@@ -426,7 +426,7 @@
         <div class="bloque-contenido">
             <h2 class="titulo" data-t="fracH2">¿Y si sigues dudando y pierdes a esa persona para siempre?</h2>
             <p class="subtitulo" data-t="fracP">Cada día sin claridad es un día vivido a ciegas. El destino puede cambiar en un instante, y las estrellas no esperan. Perder la conexión cósmica que el universo puso en tu camino es un riesgo que no deberías correr.</p>
-            <a href="#prueba-social" class="btn-astro" data-t="fracBtn">EVITA PERDER TU DESTINO</a>
+            <a href="#cta-final" class="btn-astro" data-t="fracBtn">EVITA PERDER TU DESTINO</a>
         </div>
     </section>
 
@@ -447,25 +447,49 @@
                 </div>
             </div>
 
-            <a href="#cta-final" class="btn-astro" data-t="proofBtn" style="margin-top: 50px;">ÚNETE A QUIENES YA SABEN</a>
+            <a href="#cta-final" class="btn-astro" data-t="proofBtn" style="margin-top: 50px;">COMPRAR MI LECTURA · €19</a>
         </div>
     </section>
 
-    <!-- 5. PICO "URGENCIA" (CTA Final) -->
+    <!-- 5. FORMULARIO DE COMPRA -->
     <section id="cta-final">
-        <div class="bloque-contenido">
-            <h2 class="titulo" data-t="ctaH2">Tu lectura esta lista. Solo €19. Recibes todo en 10 minutos.</h2>
-            <p class="subtitulo" data-t="ctaP">Los tránsitos planetarios de este mes amplifican tu conexión. Mereces saber la verdad cósmica sobre tus relaciones y destino. No esperes más.</p>
-            <a href="#cierre" class="btn-astro" data-t="ctaBtn">CALCULAR SINCRONICIDAD AHORA</a>
+        <div class="bloque-contenido" style="max-width:500px;">
+            <h2 class="titulo" style="font-size:2rem;color:#FFED8A;text-shadow:0 0 30px var(--glow-gold);" data-t="ctaH2">Tu Lectura de Sincronicidad</h2>
+            <p class="subtitulo" style="font-size:1.1rem;margin-bottom:20px;" data-t="ctaP">Analisis completo de la conexion cosmica entre dos almas. Calculado con Swiss Ephemeris y 9 tradiciones astrologicas.</p>
+            <div style="font-family:var(--fuente-titulo);font-size:3rem;color:#FFED8A;font-weight:800;margin-bottom:5px;">€19</div>
+            <p style="font-size:0.9rem;opacity:0.6;margin-bottom:30px;">Pago unico · Entrega inmediata por email</p>
+
+            <div style="text-align:left;margin-bottom:20px;font-size:0.95rem;line-height:2;">
+                <div>✦ % de sincronicidad astral</div>
+                <div>✦ Aspectos planetarios compartidos</div>
+                <div>✦ Momentos cosmicos clave</div>
+                <div>✦ ~3,000 palabras personalizadas</div>
+                <div>✦ Entrega inmediata por email</div>
+            </div>
+
+            <div style="text-align:left;">
+                <label style="display:block;font-size:0.8rem;color:#A0F0FF;letter-spacing:0.06em;margin-bottom:5px;">♀ Tus datos</label>
+                <input type="text" id="s-name" placeholder="Tu nombre" style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(160,240,255,0.2);border-radius:10px;color:#fff;font-family:var(--fuente-cuerpo);font-size:0.95rem;padding:12px 14px;outline:none;margin-bottom:10px;">
+                <input type="email" id="s-email" placeholder="Tu email" style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(160,240,255,0.2);border-radius:10px;color:#fff;font-family:var(--fuente-cuerpo);font-size:0.95rem;padding:12px 14px;outline:none;margin-bottom:10px;">
+                <label style="display:block;font-size:0.75rem;color:rgba(255,179,209,0.8);margin-bottom:5px;">Tu fecha de nacimiento</label>
+                <input type="date" id="s-date1" style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(160,240,255,0.2);border-radius:10px;color:#fff;font-family:var(--fuente-cuerpo);font-size:0.95rem;padding:12px 14px;outline:none;margin-bottom:20px;">
+
+                <label style="display:block;font-size:0.8rem;color:#FFB3D1;letter-spacing:0.06em;margin-bottom:5px;">♂ Datos de la otra persona</label>
+                <label style="display:block;font-size:0.75rem;color:rgba(255,179,209,0.8);margin-bottom:5px;">Fecha de nacimiento de la otra persona</label>
+                <input type="date" id="s-date2" style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(160,240,255,0.2);border-radius:10px;color:#fff;font-family:var(--fuente-cuerpo);font-size:0.95rem;padding:12px 14px;outline:none;margin-bottom:25px;">
+            </div>
+
+            <button onclick="comprarSincronicidad()" id="btn-comprar" style="width:100%;background:var(--gradient-gold-pink);color:#08011B;font-family:var(--fuente-cuerpo);font-weight:700;font-size:1.1rem;padding:16px;border:none;border-radius:50px;cursor:pointer;box-shadow:0 0 25px var(--glow-gold),0 0 25px var(--glow-love);transition:all 0.3s;" data-t="ctaBtn">COMPRAR LECTURA · €19</button>
+            <p style="font-size:0.75rem;opacity:0.5;margin-top:12px;text-align:center;">Pago seguro con Stripe · Garantia de entrega</p>
         </div>
     </section>
 
     <!-- 6. PICO "TRANSFORMACION" (Cierre) -->
     <section id="cierre">
         <div class="bloque-contenido">
-            <h2 class="titulo" data-t="closeH2">Deja de adivinar. Empieza a saber.</h2>
-            <p class="subtitulo" data-t="closeP">Imagina despertar mañana sabiendo exactamente qué significa esa persona en tu vida. Vive con la claridad total sobre tu conexión cósmica.</p>
-            <a href="#hero" class="btn-astro" data-t="closeBtn">VOLVER A EMPEZAR</a>
+            <h2 class="titulo" data-t="closeH2">Tu carta cosmica esta lista. Solo falta que la pidas.</h2>
+            <p class="subtitulo" data-t="closeP">Los transitos planetarios de este mes amplifican tu conexion. No esperes mas.</p>
+            <a href="#cta-final" class="btn-astro" data-t="closeBtn">CALCULAR SINCRONICIDAD AHORA</a>
         </div>
     </section>
 
@@ -508,6 +532,42 @@
         bloques.forEach(bloque => {
             observer.observe(bloque);
         });
+    // Comprar Sincronicidad
+    function comprarSincronicidad() {
+        var name = document.getElementById('s-name').value.trim();
+        var email = document.getElementById('s-email').value.trim();
+        var date1 = document.getElementById('s-date1').value;
+        var date2 = document.getElementById('s-date2').value;
+
+        if (!name) { alert('Por favor ingresa tu nombre'); return; }
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { alert('Por favor ingresa un email valido'); return; }
+        if (!date1) { alert('Por favor ingresa tu fecha de nacimiento'); return; }
+        if (!date2) { alert('Por favor ingresa la fecha de nacimiento de la otra persona'); return; }
+
+        var btn = document.getElementById('btn-comprar');
+        btn.disabled = true;
+        btn.textContent = 'Procesando...';
+
+        fetch('https://astroaureum.com/api/order', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                productId: 'occ-sinastria',
+                customerName: name,
+                customerEmail: email,
+                birthDate: date1,
+                partnerBirthDate: date2,
+                language: document.documentElement.lang || 'es',
+                serviceTier: 'basic'
+            })
+        })
+        .then(function(r) { return r.json(); })
+        .then(function(d) {
+            if (d.url) { window.location.href = d.url; }
+            else { alert(d.error || 'Error al procesar. Intentalo de nuevo.'); btn.disabled = false; btn.textContent = 'COMPRAR LECTURA · €19'; }
+        })
+        .catch(function() { alert('Error de conexion. Intentalo de nuevo.'); btn.disabled = false; btn.textContent = 'COMPRAR LECTURA · €19'; });
+    }
     </script>
 
     <!-- Language Selector -->
