@@ -452,46 +452,28 @@
     </section>
 
     <!-- 5. FORMULARIO DE COMPRA -->
-    <section id="cta-final">
-        <div class="bloque-contenido" style="max-width:500px;">
-            <h2 class="titulo" style="font-size:2rem;color:#FFED8A;text-shadow:0 0 30px var(--glow-gold);" data-t="ctaH2">Tu Lectura de Sincronicidad</h2>
-            <p class="subtitulo" style="font-size:1.1rem;margin-bottom:20px;" data-t="ctaP">Analisis completo de la conexion cosmica entre dos almas. Calculado con Swiss Ephemeris y 9 tradiciones astrologicas.</p>
-            <div style="font-family:var(--fuente-titulo);font-size:3rem;color:#FFED8A;font-weight:800;margin-bottom:5px;">€9.90</div>
-            <p style="font-size:0.9rem;opacity:0.6;margin-bottom:30px;">Pago unico · Entrega inmediata por email</p>
+    <section id="cta-final" style="background:#08011B;">
+        <div style="background:rgba(26,10,48,0.88);backdrop-filter:blur(24px);border:0.5px solid rgba(160,240,255,0.2);border-radius:22px;padding:28px 22px;max-width:440px;margin:0 auto;">
+            <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#FFB3D1;text-align:center;margin-bottom:6px;">Descubre vuestra Sincronicidad</div>
+            <p style="font-size:11px;color:rgba(160,240,255,0.6);text-align:center;margin-bottom:22px;">Introduce los datos de ambos para revelar vuestra conexion cosmica</p>
 
-            <div style="text-align:left;margin-bottom:20px;font-size:0.95rem;line-height:2;">
-                <div>✦ % de sincronicidad astral</div>
-                <div>✦ Aspectos planetarios compartidos</div>
-                <div>✦ Momentos cosmicos clave</div>
-                <div>✦ ~3,000 palabras personalizadas</div>
-                <div>✦ Entrega inmediata por email</div>
-            </div>
+            <div style="font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#FFB3D1;margin-bottom:12px;">♀ &nbsp;Tus Datos</div>
+            <div style="margin-bottom:12px;"><label style="display:block;font-size:10px;color:#FFB3D1;letter-spacing:0.06em;margin-bottom:5px;">Nombre</label><input type="text" id="s-name" placeholder="Tu nombre" style="width:100%;background:rgba(26,10,48,0.9);border:0.5px solid rgba(107,47,168,0.4);border-radius:10px;color:#fff;font-family:inherit;font-size:13px;font-weight:300;padding:12px 14px;outline:none;"></div>
+            <div style="margin-bottom:12px;"><label style="display:block;font-size:10px;color:#FFB3D1;letter-spacing:0.06em;margin-bottom:5px;">Email</label><input type="email" id="s-email" placeholder="Tu email" style="width:100%;background:rgba(26,10,48,0.9);border:0.5px solid rgba(107,47,168,0.4);border-radius:10px;color:#fff;font-family:inherit;font-size:13px;font-weight:300;padding:12px 14px;outline:none;"></div>
+            <div style="margin-bottom:12px;"><label style="display:block;font-size:10px;color:#FFB3D1;letter-spacing:0.06em;margin-bottom:5px;">Fecha de nacimiento</label><input type="date" id="s-date1" style="width:100%;background:rgba(26,10,48,0.9);border:0.5px solid rgba(107,47,168,0.4);border-radius:10px;color:#fff;font-family:inherit;font-size:13px;font-weight:300;padding:12px 14px;outline:none;"></div>
+            <div style="margin-bottom:12px;"><label style="display:block;font-size:10px;color:#FFB3D1;letter-spacing:0.06em;margin-bottom:5px;">Hora de nacimiento</label><input type="time" id="s-time1" style="width:100%;background:rgba(26,10,48,0.9);border:0.5px solid rgba(107,47,168,0.4);border-radius:10px;color:#fff;font-family:inherit;font-size:13px;font-weight:300;padding:12px 14px;outline:none;"><p style="font-size:9px;color:rgba(160,240,255,0.4);margin-top:4px;">Si no la conoces, dejalo en blanco.</p></div>
+            <div style="margin-bottom:12px;"><label style="display:block;font-size:10px;color:#FFB3D1;letter-spacing:0.06em;margin-bottom:5px;">Ciudad de nacimiento</label><input type="text" id="s-city1" placeholder="Ciudad, Pais" style="width:100%;background:rgba(26,10,48,0.9);border:0.5px solid rgba(107,47,168,0.4);border-radius:10px;color:#fff;font-family:inherit;font-size:13px;font-weight:300;padding:12px 14px;outline:none;"></div>
 
-            <div style="text-align:left;">
-                <label style="display:block;font-size:0.8rem;color:#A0F0FF;letter-spacing:0.06em;margin-bottom:8px;">✦ Tus datos</label>
-                <input type="text" id="s-name" placeholder="Tu nombre" style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(160,240,255,0.2);border-radius:10px;color:#fff;font-family:var(--fuente-cuerpo);font-size:0.95rem;padding:12px 14px;outline:none;margin-bottom:10px;">
-                <input type="email" id="s-email" placeholder="Tu email" style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(160,240,255,0.2);border-radius:10px;color:#fff;font-family:var(--fuente-cuerpo);font-size:0.95rem;padding:12px 14px;outline:none;margin-bottom:10px;">
-                <label style="display:block;font-size:0.75rem;color:rgba(255,179,209,0.8);margin-bottom:5px;">Tu fecha de nacimiento</label>
-                <input type="date" id="s-date1" style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(160,240,255,0.2);border-radius:10px;color:#fff;font-family:var(--fuente-cuerpo);font-size:0.95rem;padding:12px 14px;outline:none;margin-bottom:10px;">
-                <label style="display:block;font-size:0.75rem;color:rgba(255,179,209,0.8);margin-bottom:5px;">Hora de nacimiento (opcional)</label>
-                <input type="time" id="s-time1" style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(160,240,255,0.2);border-radius:10px;color:#fff;font-family:var(--fuente-cuerpo);font-size:0.95rem;padding:12px 14px;outline:none;margin-bottom:10px;">
-                <label style="display:block;font-size:0.75rem;color:rgba(255,179,209,0.8);margin-bottom:5px;">Ciudad y pais de nacimiento</label>
-                <input type="text" id="s-city1" placeholder="Ciudad, Pais" style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(160,240,255,0.2);border-radius:10px;color:#fff;font-family:var(--fuente-cuerpo);font-size:0.95rem;padding:12px 14px;outline:none;margin-bottom:20px;">
+            <div style="display:flex;align-items:center;gap:10px;margin:18px 0;"><div style="flex:1;height:0.5px;background:rgba(107,47,168,0.4);"></div><span style="color:#FFED8A;font-size:12px;">✦</span><div style="flex:1;height:0.5px;background:rgba(107,47,168,0.4);"></div></div>
 
-                <div style="border-top:1px solid rgba(160,240,255,0.1);margin:10px 0 15px;"></div>
+            <div style="font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#A0F0FF;margin-bottom:12px;">♂ &nbsp;Datos de la otra persona</div>
+            <div style="margin-bottom:12px;"><label style="display:block;font-size:10px;color:#A0F0FF;letter-spacing:0.06em;margin-bottom:5px;">Nombre</label><input type="text" id="s-name2" placeholder="Nombre de la otra persona" style="width:100%;background:rgba(26,10,48,0.9);border:0.5px solid rgba(107,47,168,0.4);border-radius:10px;color:#fff;font-family:inherit;font-size:13px;font-weight:300;padding:12px 14px;outline:none;"></div>
+            <div style="margin-bottom:12px;"><label style="display:block;font-size:10px;color:#A0F0FF;letter-spacing:0.06em;margin-bottom:5px;">Fecha de nacimiento</label><input type="date" id="s-date2" style="width:100%;background:rgba(26,10,48,0.9);border:0.5px solid rgba(107,47,168,0.4);border-radius:10px;color:#fff;font-family:inherit;font-size:13px;font-weight:300;padding:12px 14px;outline:none;"></div>
+            <div style="margin-bottom:12px;"><label style="display:block;font-size:10px;color:#A0F0FF;letter-spacing:0.06em;margin-bottom:5px;">Hora de nacimiento</label><input type="time" id="s-time2" style="width:100%;background:rgba(26,10,48,0.9);border:0.5px solid rgba(107,47,168,0.4);border-radius:10px;color:#fff;font-family:inherit;font-size:13px;font-weight:300;padding:12px 14px;outline:none;"><p style="font-size:9px;color:rgba(160,240,255,0.4);margin-top:4px;">Si no la conoces, dejalo en blanco.</p></div>
+            <div style="margin-bottom:12px;"><label style="display:block;font-size:10px;color:#A0F0FF;letter-spacing:0.06em;margin-bottom:5px;">Ciudad de nacimiento</label><input type="text" id="s-city2" placeholder="Ciudad, Pais" style="width:100%;background:rgba(26,10,48,0.9);border:0.5px solid rgba(107,47,168,0.4);border-radius:10px;color:#fff;font-family:inherit;font-size:13px;font-weight:300;padding:12px 14px;outline:none;"></div>
 
-                <label style="display:block;font-size:0.8rem;color:#FFB3D1;letter-spacing:0.06em;margin-bottom:8px;">✦ Datos de la otra persona</label>
-                <input type="text" id="s-name2" placeholder="Nombre de la otra persona" style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,179,209,0.2);border-radius:10px;color:#fff;font-family:var(--fuente-cuerpo);font-size:0.95rem;padding:12px 14px;outline:none;margin-bottom:10px;">
-                <label style="display:block;font-size:0.75rem;color:rgba(255,179,209,0.8);margin-bottom:5px;">Fecha de nacimiento</label>
-                <input type="date" id="s-date2" style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,179,209,0.2);border-radius:10px;color:#fff;font-family:var(--fuente-cuerpo);font-size:0.95rem;padding:12px 14px;outline:none;margin-bottom:10px;">
-                <label style="display:block;font-size:0.75rem;color:rgba(255,179,209,0.8);margin-bottom:5px;">Hora de nacimiento (opcional)</label>
-                <input type="time" id="s-time2" style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,179,209,0.2);border-radius:10px;color:#fff;font-family:var(--fuente-cuerpo);font-size:0.95rem;padding:12px 14px;outline:none;margin-bottom:10px;">
-                <label style="display:block;font-size:0.75rem;color:rgba(255,179,209,0.8);margin-bottom:5px;">Ciudad y pais de nacimiento</label>
-                <input type="text" id="s-city2" placeholder="Ciudad, Pais" style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,179,209,0.2);border-radius:10px;color:#fff;font-family:var(--fuente-cuerpo);font-size:0.95rem;padding:12px 14px;outline:none;margin-bottom:25px;">
-            </div>
-
-            <button onclick="comprarSincronicidad()" id="btn-comprar" style="width:100%;background:var(--gradient-gold-pink);color:#08011B;font-family:var(--fuente-cuerpo);font-weight:700;font-size:1.1rem;padding:16px;border:none;border-radius:50px;cursor:pointer;box-shadow:0 0 25px var(--glow-gold),0 0 25px var(--glow-love);transition:all 0.3s;" data-t="ctaBtn">COMPRAR LECTURA · €9.90</button>
-            <p style="font-size:0.75rem;opacity:0.5;margin-top:12px;text-align:center;">Pago seguro con Stripe · Garantia de entrega</p>
+            <button onclick="comprarSincronicidad()" id="btn-comprar" style="width:100%;margin-top:20px;background:linear-gradient(90deg,#C89840,#EDCC60);color:#08011B;font-family:inherit;font-size:11px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;padding:15px;border-radius:30px;border:none;cursor:pointer;box-shadow:0 4px 24px rgba(200,152,64,0.3);transition:all 0.25s;">Comprar Sincronicidad · €9.90 ✦</button>
+            <p style="text-align:center;font-size:9px;color:rgba(107,47,168,0.6);margin-top:12px;">✦ Pago seguro con Stripe · Garantia de entrega · astroaureum.com</p>
         </div>
     </section>
 
@@ -585,9 +567,9 @@
         .then(function(r) { return r.json(); })
         .then(function(d) {
             if (d.url) { window.location.href = d.url; }
-            else { alert(d.error || 'Error al procesar. Intentalo de nuevo.'); btn.disabled = false; btn.textContent = 'COMPRAR LECTURA · €9.90'; }
+            else { alert(d.error || 'Error al procesar. Intentalo de nuevo.'); btn.disabled = false; btn.textContent = 'Comprar Sincronicidad · €9.90 ✦'; }
         })
-        .catch(function() { alert('Error de conexion. Intentalo de nuevo.'); btn.disabled = false; btn.textContent = 'COMPRAR LECTURA · €9.90'; });
+        .catch(function() { alert('Error de conexion. Intentalo de nuevo.'); btn.disabled = false; btn.textContent = 'Comprar Sincronicidad · €9.90 ✦'; });
     }
     </script>
 
