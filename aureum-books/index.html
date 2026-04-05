@@ -280,6 +280,39 @@ footer a{color:var(--gold);text-decoration:none}
   </div>
 </div>
 
+<!-- Biblioteca Completa Bundle -->
+<section style="padding:60px 20px;position:relative;z-index:10">
+<div style="max-width:800px;margin:0 auto;background:linear-gradient(135deg,rgba(123,79,191,0.15),rgba(212,168,67,0.1));border:1px solid rgba(212,168,67,0.25);border-radius:24px;padding:40px 30px;text-align:center;box-shadow:0 0 80px rgba(123,79,191,0.1)">
+<div style="display:inline-block;padding:6px 16px;background:linear-gradient(90deg,#C89840,#D4A843);border-radius:20px;font-size:11px;font-weight:600;color:#050410;letter-spacing:0.1em;margin-bottom:16px">AHORRA &euro;130+</div>
+<h2 style="font-family:'Cinzel',serif;font-size:clamp(24px,5vw,36px);color:#D4A843;margin-bottom:8px">La Biblioteca Astro Aureum Completa</h2>
+<p style="color:#8888bb;font-size:15px;margin-bottom:24px">16 libros &middot; 25+ idiomas &middot; PDF digital</p>
+<div style="display:flex;align-items:baseline;justify-content:center;gap:12px;margin-bottom:24px">
+<span style="text-decoration:line-through;color:#8888bb;font-size:16px">&euro;177</span>
+<span style="font-family:'Cinzel',serif;font-size:42px;color:#f0d078;font-weight:700">&euro;49.99</span>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;text-align:left;margin-bottom:28px">
+<div style="display:flex;align-items:center;gap:8px;color:#e8e8ff;font-size:13px"><span style="color:#D4A843">&#10022;</span> Guia de los 12 Signos</div>
+<div style="display:flex;align-items:center;gap:8px;color:#e8e8ff;font-size:13px"><span style="color:#D4A843">&#10022;</span> Como Leer tu Carta Natal</div>
+<div style="display:flex;align-items:center;gap:8px;color:#e8e8ff;font-size:13px"><span style="color:#D4A843">&#10022;</span> Sinastria Cosmica</div>
+<div style="display:flex;align-items:center;gap:8px;color:#e8e8ff;font-size:13px"><span style="color:#D4A843">&#10022;</span> Transitos 2026</div>
+<div style="display:flex;align-items:center;gap:8px;color:#e8e8ff;font-size:13px"><span style="color:#D4A843">&#10022;</span> Las 12 Casas</div>
+<div style="display:flex;align-items:center;gap:8px;color:#e8e8ff;font-size:13px"><span style="color:#D4A843">&#10022;</span> Astrologia Lunar</div>
+<div style="display:flex;align-items:center;gap:8px;color:#e8e8ff;font-size:13px"><span style="color:#D4A843">&#10022;</span> Nodos Lunares y Karma</div>
+<div style="display:flex;align-items:center;gap:8px;color:#e8e8ff;font-size:13px"><span style="color:#D4A843">&#10022;</span> Para Principiantes</div>
+<div style="display:flex;align-items:center;gap:8px;color:#e8e8ff;font-size:13px"><span style="color:#D4A843">&#10022;</span> Meditaciones Zodiacales</div>
+<div style="display:flex;align-items:center;gap:8px;color:#e8e8ff;font-size:13px"><span style="color:#D4A843">&#10022;</span> Cristales y Piedras</div>
+<div style="display:flex;align-items:center;gap:8px;color:#e8e8ff;font-size:13px"><span style="color:#D4A843">&#10022;</span> Tarot y Astrologia</div>
+<div style="display:flex;align-items:center;gap:8px;color:#e8e8ff;font-size:13px"><span style="color:#D4A843">&#10022;</span> Planner 2026-2027</div>
+<div style="display:flex;align-items:center;gap:8px;color:#e8e8ff;font-size:13px"><span style="color:#D4A843">&#10022;</span> Rituales Lunares</div>
+<div style="display:flex;align-items:center;gap:8px;color:#e8e8ff;font-size:13px"><span style="color:#D4A843">&#10022;</span> Revolucion Solar</div>
+<div style="display:flex;align-items:center;gap:8px;color:#e8e8ff;font-size:13px"><span style="color:#D4A843">&#10022;</span> Guia de Retrogrados</div>
+<div style="display:flex;align-items:center;gap:8px;color:#e8e8ff;font-size:13px"><span style="color:#D4A843">&#10022;</span> Signos Vol. 2: Relaciones</div>
+</div>
+<button onclick="buyBundle()" style="padding:18px 50px;background:linear-gradient(90deg,#7B4FBF,#D4A843);color:#fff;font-family:'Cinzel',serif;font-size:15px;font-weight:700;border:none;border-radius:30px;cursor:pointer;letter-spacing:0.08em;box-shadow:0 4px 30px rgba(123,79,191,0.3)">QUIERO LA BIBLIOTECA COMPLETA</button>
+<p style="color:#8888bb;font-size:11px;margin-top:12px">&#10022; Acceso inmediato a los 16 libros &middot; Pago seguro</p>
+</div>
+</section>
+
 <footer>
   <div class="ft-b">AUREUM BOOKS</div>
   <div class="ft-l">
@@ -500,6 +533,9 @@ function renderGrid(){
     const svg64='data:image/svg+xml;base64,'+btoa(mkSVG(b,170,240));
     c.innerHTML=`${b.bg?`<div class="badge b-${b.bg}">${badgeText(b.bg)}</div>`:''}<div class="cover"><div class="cover-glow" style="background:${b.cl[0]};left:calc(50% - 100px);top:calc(50% - 100px)"></div><div class="book"><div class="book-front" style="background:linear-gradient(170deg,${b.cl[0]},${b.cl[1]},${b.cl[2]})"><img src="${svg64}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:3px 12px 12px 3px" alt="${title}"><div class="cv-content"><div class="cv-icon">${b.ic}</div><div class="cv-title">${title}</div><div style="flex:1"></div><div class="cv-author">AstroAureum</div><div class="cv-brand">astroaureum.com</div></div></div><div class="book-spine" style="background:linear-gradient(180deg,${b.cl[1]},${b.cl[2]})"></div><div class="book-top" style="background:${b.cl[2]}"></div><div class="book-shadow"></div></div></div><div class="info"><div class="info-cat">${b.cat}</div><div class="info-title">${title}</div><div class="info-desc">${desc}</div><div class="info-meta"><span class="mi">\u{1F4C4} ${b.ch} ${t('chapters')}</span><span class="mi">\u{1F4D6} ${b.pg} ${t('pages')}</span>${b.fm.includes('au')?'<span class="mi">\u{1F3A4} Audio</span>':''}</div><div class="info-fmts">${b.fm.map(f=>`<span class="fmt ${fC[f]}">${fN[f]}</span>`).join('')}</div><div class="info-langs">${b.ln.map(l=>`<span class="lang">${l}</span>`).join('')}</div><div class="pr-row"><div>${b.op?`<span class="price-old">&euro;${b.op}</span>`:''}
     <span class="price">&euro;${b.pr}</span></div><button class="btn-sm" onclick="event.stopPropagation();openM(${i})">${t('viewBook')}</button></div></div>`;
+    // Upsell link
+    var slug=bookSlugs[i];var ups=bookUpsells[slug];
+    if(ups){var uDiv=document.createElement('div');uDiv.style.cssText='margin:0 20px 16px;padding:10px;background:rgba(212,168,67,0.06);border:1px solid rgba(212,168,67,0.12);border-radius:10px;text-align:center';uDiv.innerHTML='<p style="font-size:10px;color:#8888bb;margin-bottom:4px">Lectura personalizada?</p><a href="'+ups.url+'" style="font-size:12px;color:#D4A843;text-decoration:none;font-weight:600" onclick="event.stopPropagation()">'+ups.name+' \u2014 '+ups.price+' \u2192</a>';c.appendChild(uDiv);}
     c.onclick=()=>openM(i);gr.appendChild(c);
   });
   document.getElementById('cnt').textContent=books.length;
@@ -591,26 +627,75 @@ document.querySelectorAll('.prev-p').forEach(b=>{b.onclick=()=>{
   if(lang) changeLang(lang);
 }});
 
-// STRIPE PAYMENT LINKS
-const stripeLinks = {
-  vol1: 'https://buy.stripe.com/aFabIU1ehgbQ8Lg8abfjG0M',
-  vol2: 'https://buy.stripe.com/6oUcMYe13gbQ3qWgGHfjG0N',
-  pack: 'https://buy.stripe.com/5kQfZa3mp7Fk8Lg2PRfjG0O'
+// Book IDs mapping (index to slug)
+var bookSlugs = ['signos-vol1','carta-natal','sinastria','transitos-2026','casas-astrologicas','astrologia-lunar','nodos-lunares','principiantes','meditaciones','cristales','tarot-astrologia','planner-2026','rituales-lunares','revolucion-solar','retrogrados','signos-vol2'];
+var currentBookIdx = -1;
+
+// Book upsells mapping
+var bookUpsells = {
+  'signos-vol1': {name:'Carta Natal Completa', url:'/sincronicidad/', price:'\u20AC89'},
+  'carta-natal': {name:'Carta Natal Completa', url:'/sincronicidad/', price:'\u20AC89'},
+  'sinastria': {name:'Sinastria de Almas', url:'/sincronicidad/', price:'\u20AC9.90'},
+  'casas-astrologicas': {name:'Carta Natal Completa', url:'/sincronicidad/', price:'\u20AC89'},
+  'astrologia-lunar': {name:'Luna Nueva Cabalistica', url:'/sincronicidad/', price:'\u20AC59'},
+  'nodos-lunares': {name:'Astrologia Karmica', url:'/lecturas.html#alm-karmica', price:'\u20AC149'},
+  'cristales': {name:'Remedios Vedicos', url:'/lecturas.html#ved-remedios', price:'\u20AC69'},
+  'tarot-astrologia': {name:'Lectura I Ching', url:'/lecturas.html#hd-iching', price:'\u20AC105'},
+  'rituales-lunares': {name:'Luna Nueva Cabalistica', url:'/sincronicidad/', price:'\u20AC59'},
+  'revolucion-solar': {name:'Revolucion Solar', url:'/lecturas.html#occ-solar', price:'\u20AC105'},
+  'retrogrados': {name:'Transitos Personalizados', url:'/lecturas.html#ved-dasha', price:'\u20AC105'},
 };
 
 function buyBook(i) {
-  const b = books[i];
-  const id = b.id || '';
-  if (id.includes('vol1') || id.includes('camino-yo') || i === 0) {
-    window.open(stripeLinks.vol1, '_blank');
-  } else if (id.includes('vol2') || id.includes('camino-otro') || i === 1) {
-    window.open(stripeLinks.vol2, '_blank');
-  } else if (id.includes('pack') || id.includes('completo')) {
-    window.open(stripeLinks.pack, '_blank');
-  } else {
-    window.open(stripeLinks.vol1, '_blank');
-  }
+  currentBookIdx = i;
+  var b = books[i];
+  document.getElementById('bk-title').textContent = b.t[curLang] || b.t.es;
+  document.getElementById('bk-price').textContent = '\u20AC' + b.pr.toFixed(2);
+  document.getElementById('bk-email').value = '';
+  document.getElementById('bk-btn').disabled = false;
+  document.getElementById('bk-btn').textContent = 'COMPRAR AHORA';
+  var m = document.getElementById('bk-checkout');
+  m.style.display = 'flex';
 }
+
+function buyBundle() {
+  currentBookIdx = -1;
+  document.getElementById('bk-title').textContent = 'Biblioteca Astro Aureum Completa';
+  document.getElementById('bk-price').textContent = '\u20AC49.99';
+  document.getElementById('bk-email').value = '';
+  document.getElementById('bk-btn').disabled = false;
+  document.getElementById('bk-btn').textContent = 'COMPRAR AHORA';
+  document.getElementById('bk-checkout').style.display = 'flex';
+}
+
+function closeBkModal() {
+  document.getElementById('bk-checkout').style.display = 'none';
+}
+
+function processBkCheckout() {
+  var email = document.getElementById('bk-email').value.trim();
+  if (!email || !email.includes('@')) { alert('Por favor introduce un email valido'); return; }
+  var slug = currentBookIdx === -1 ? 'biblioteca-completa' : (bookSlugs[currentBookIdx] || 'signos-vol1');
+  var btn = document.getElementById('bk-btn');
+  btn.disabled = true;
+  btn.textContent = 'Procesando...';
+  fetch('https://astroaureum.com/api/book/checkout', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({ bookId: slug, email: email, language: curLang || 'es' })
+  })
+  .then(function(r){ return r.json() })
+  .then(function(d){
+    if (d.url) { window.location.href = d.url; }
+    else { alert(d.error || 'Error'); btn.disabled = false; btn.textContent = 'COMPRAR AHORA'; }
+  })
+  .catch(function(){ alert('Error de conexion'); btn.disabled = false; btn.textContent = 'COMPRAR AHORA'; });
+}
+
+// Close modal on overlay click
+document.getElementById('bk-checkout').addEventListener('click', function(e) {
+  if (e.target === this) closeBkModal();
+});
 
 // AUDIO PREVIEW
 let synth = window.speechSynthesis;
@@ -629,5 +714,20 @@ function listenPreview() {
 // PARALLAX
 addEventListener('scroll',()=>{const s=scrollY;document.querySelector('.n1').style.transform=`translate(${s*.02}px,${s*-.03}px)`;document.querySelector('.n2').style.transform=`translate(${s*-.015}px,${s*.02}px)`});
 </script>
+<!-- Book Checkout Modal -->
+<div id="bk-checkout" style="display:none;position:fixed;inset:0;z-index:99999;background:rgba(5,4,16,0.92);backdrop-filter:blur(12px);align-items:center;justify-content:center">
+<div style="background:#0e0d25;border:1px solid rgba(212,168,67,0.2);border-radius:20px;padding:32px;max-width:420px;width:90%;position:relative;box-shadow:0 0 60px rgba(212,168,67,0.1)">
+<button onclick="closeBkModal()" style="position:absolute;top:12px;right:16px;background:none;border:none;color:#8888bb;font-size:24px;cursor:pointer">&times;</button>
+<h3 id="bk-title" style="font-family:'Cinzel',serif;color:#D4A843;font-size:18px;text-align:center;margin-bottom:4px"></h3>
+<p style="text-align:center;color:#8888bb;font-size:12px;margin-bottom:20px">PDF Digital &middot; Aureum Books</p>
+<p id="bk-price" style="text-align:center;font-size:28px;font-weight:bold;color:#f0d078;margin-bottom:20px"></p>
+<div style="margin-bottom:16px">
+<label style="display:block;font-size:11px;color:#D4A843;margin-bottom:6px;letter-spacing:0.05em">Tu email para recibir el libro</label>
+<input type="email" id="bk-email" placeholder="tu@email.com" style="width:100%;padding:14px;background:rgba(20,18,58,0.8);border:1px solid rgba(212,168,67,0.2);border-radius:10px;color:#e8e8ff;font-family:inherit;font-size:14px;outline:none">
+</div>
+<button id="bk-btn" onclick="processBkCheckout()" style="width:100%;padding:16px;background:linear-gradient(90deg,#C89840,#D4A843);color:#050410;font-family:'Cinzel',serif;font-size:14px;font-weight:700;border:none;border-radius:30px;cursor:pointer;letter-spacing:0.08em">COMPRAR AHORA</button>
+<p style="text-align:center;font-size:10px;color:#8888bb;margin-top:12px">&#10022; Pago seguro con Stripe &middot; Descarga inmediata</p>
+</div>
+</div>
 </body>
 </html>
