@@ -1373,6 +1373,134 @@
   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
+<!-- ====== EXIT-INTENT POPUP — Indice de Sincronicidad ====== -->
+<style>
+#aa-exit-overlay{display:none;position:fixed;inset:0;z-index:99999;background:rgba(8,1,27,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);align-items:center;justify-content:center;opacity:0;transition:opacity .4s ease}
+#aa-exit-overlay.aa-show{display:flex;opacity:1}
+#aa-exit-card{position:relative;max-width:480px;width:92%;background:rgba(20,10,50,0.75);border:1px solid rgba(255,237,138,0.25);border-radius:20px;padding:40px 32px 28px;box-shadow:0 0 60px rgba(255,237,138,0.08),0 0 120px rgba(160,240,255,0.04);animation:aa-cardIn .5s ease both}
+@keyframes aa-cardIn{from{opacity:0;transform:translateY(30px) scale(0.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+#aa-exit-close{position:absolute;top:14px;right:18px;background:none;border:none;color:rgba(255,255,255,0.5);font-size:28px;cursor:pointer;transition:color .2s;line-height:1}
+#aa-exit-close:hover{color:#FFED8A}
+#aa-exit-card h2{font-family:'Playfair Display',serif;font-size:1.55rem;color:#FFED8A;text-align:center;margin:0 0 8px;line-height:1.3}
+#aa-exit-card .aa-sub{font-family:'Inter',sans-serif;font-size:.92rem;color:rgba(255,255,255,0.7);text-align:center;margin:0 0 24px}
+#aa-exit-card input[type="email"],#aa-exit-card input[type="date"]{width:100%;box-sizing:border-box;padding:12px 14px;margin-bottom:12px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,237,138,0.15);border-radius:10px;color:#fff;font-family:'Inter',sans-serif;font-size:.9rem;outline:none;transition:border-color .2s}
+#aa-exit-card input:focus{border-color:rgba(255,237,138,0.5)}
+#aa-exit-card input::placeholder{color:rgba(255,255,255,0.35)}
+#aa-exit-card label.aa-date-label{display:block;font-family:'Inter',sans-serif;font-size:.8rem;color:rgba(255,255,255,0.5);margin-bottom:4px}
+#aa-exit-card .aa-gdpr{display:flex;align-items:flex-start;gap:8px;margin:8px 0 18px}
+#aa-exit-card .aa-gdpr input[type="checkbox"]{margin-top:3px;accent-color:#FFED8A;flex-shrink:0}
+#aa-exit-card .aa-gdpr span{font-family:'Inter',sans-serif;font-size:.73rem;color:rgba(255,255,255,0.45);line-height:1.4}
+#aa-exit-cta{width:100%;padding:14px;border:none;border-radius:12px;background:linear-gradient(135deg,#FFED8A 0%,#ffd54f 50%,#FFB3D1 100%);color:#08011B;font-family:'Inter',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.03em;cursor:pointer;transition:transform .2s,box-shadow .2s}
+#aa-exit-cta:hover{transform:translateY(-2px);box-shadow:0 6px 30px rgba(255,237,138,0.35)}
+#aa-exit-cta:disabled{opacity:.6;cursor:not-allowed;transform:none}
+#aa-exit-footer{text-align:center;margin-top:18px;font-family:'Inter',sans-serif;font-size:.7rem;color:rgba(255,255,255,0.3)}
+/* Result state */
+#aa-exit-result{display:none;text-align:center}
+#aa-exit-result .aa-pct{font-family:'Playfair Display',serif;font-size:3.8rem;font-weight:700;background:linear-gradient(135deg,#FFED8A,#FFB3D1,#A0F0FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 30px rgba(255,237,138,0.5));margin:10px 0 16px}
+#aa-exit-result .aa-interp{font-family:'Inter',sans-serif;font-size:.88rem;color:rgba(255,255,255,0.75);line-height:1.6;margin-bottom:22px}
+#aa-exit-result .aa-interp p{margin:4px 0}
+#aa-exit-result .aa-result-cta{display:inline-block;padding:14px 32px;border-radius:12px;background:linear-gradient(135deg,#FFED8A,#ffd54f,#FFB3D1);color:#08011B;font-family:'Inter',sans-serif;font-weight:700;font-size:.95rem;text-decoration:none;transition:transform .2s,box-shadow .2s}
+#aa-exit-result .aa-result-cta:hover{transform:translateY(-2px);box-shadow:0 6px 30px rgba(255,237,138,0.35)}
+</style>
+
+<div id="aa-exit-overlay">
+  <div id="aa-exit-card">
+    <button id="aa-exit-close" aria-label="Cerrar">&times;</button>
+
+    <!-- Form -->
+    <form id="aa-exit-form" autocomplete="off">
+      <h2 data-t="exit_title">¿Cuánta Sincronicidad hay entre ustedes?</h2>
+      <p class="aa-sub" data-t="exit_subtitle">Descúbrelo gratis en 10 segundos. Solo necesitamos dos fechas.</p>
+      <input type="email" name="email" placeholder="Tu email" required data-t-placeholder="exit_email_ph">
+      <label class="aa-date-label" data-t="exit_date1_label">Tu fecha de nacimiento</label>
+      <input type="date" name="birthDate1" required>
+      <label class="aa-date-label" data-t="exit_date2_label">Fecha de la otra persona</label>
+      <input type="date" name="birthDate2" required>
+      <div class="aa-gdpr">
+        <input type="checkbox" id="aa-gdpr-check" required>
+        <span data-t="exit_gdpr">Acepto recibir mi resultado y comunicaciones de Astro Aureum. Puedo darme de baja en cualquier momento.</span>
+      </div>
+      <button type="submit" id="aa-exit-cta" data-t="exit_cta">CALCULAR MI SINCRONICIDAD GRATIS ✦</button>
+    </form>
+
+    <!-- Result (hidden until success) -->
+    <div id="aa-exit-result">
+      <h2 data-t="exit_result_title">Tu Índice de Sincronicidad</h2>
+      <div class="aa-pct" id="aa-exit-pct"></div>
+      <div class="aa-interp" id="aa-exit-interp"></div>
+      <a href="/sincronicidad/" class="aa-result-cta" data-t="exit_result_cta">QUIERO LA LECTURA COMPLETA — €9.90</a>
+    </div>
+
+    <div id="aa-exit-footer" data-t="exit_footer">✦ Tus datos están seguros · No compartimos tu información · astroaureum.com</div>
+  </div>
+</div>
+
+<script>
+(function(){
+  if(localStorage.getItem('aaLeadDone')) return;
+  var shown=false;
+  var overlay=document.getElementById('aa-exit-overlay');
+
+  function showPopup(){
+    if(shown||sessionStorage.getItem('aaExitShown')||localStorage.getItem('aaLeadDone')) return;
+    shown=true;
+    sessionStorage.setItem('aaExitShown','1');
+    overlay.classList.add('aa-show');
+  }
+
+  // Exit intent — mouse leaves top
+  document.addEventListener('mouseout',function(e){
+    if(e.clientY<5 && e.relatedTarget==null) showPopup();
+  });
+
+  // Fallback: 45 seconds
+  setTimeout(showPopup,45000);
+
+  // Close
+  document.getElementById('aa-exit-close').addEventListener('click',function(){
+    overlay.classList.remove('aa-show');
+  });
+  overlay.addEventListener('click',function(e){
+    if(e.target===overlay) overlay.classList.remove('aa-show');
+  });
+
+  // Submit
+  document.getElementById('aa-exit-form').addEventListener('submit',function(e){
+    e.preventDefault();
+    var btn=document.getElementById('aa-exit-cta');
+    var origText=btn.textContent;
+    btn.disabled=true;
+    btn.textContent='Calculando...';
+
+    var fd=new FormData(this);
+    fetch('https://astroaureum.com/api/lead-sync',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        email:fd.get('email'),
+        birthDate1:fd.get('birthDate1'),
+        birthDate2:fd.get('birthDate2')
+      })
+    }).then(function(r){return r.json()}).then(function(data){
+      localStorage.setItem('aaLeadDone','1');
+      document.getElementById('aa-exit-form').style.display='none';
+      document.getElementById('aa-exit-pct').textContent=data.percentage+'%';
+      var interp=document.getElementById('aa-exit-interp');
+      interp.innerHTML='';
+      (data.interpretation||[]).forEach(function(line){
+        var p=document.createElement('p');p.textContent=line;interp.appendChild(p);
+      });
+      document.getElementById('aa-exit-result').style.display='block';
+    }).catch(function(){
+      alert('Ha ocurrido un error. Inténtalo de nuevo.');
+      btn.disabled=false;
+      btn.textContent=origText;
+    });
+  });
+})();
+</script>
+<!-- ====== END EXIT-INTENT POPUP ====== -->
+
 <script src="/home-i18n.js"></script>
 </body>
 </html>
