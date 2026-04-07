@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<!-- Google Analytics GA4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0PZTB2PF7T"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0PZTB2PF7T');</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aureum Books - Libreria Cosmica de Astrologia | AstroAureum</title>
@@ -500,7 +497,7 @@ function renderGrid(){
   books.forEach((b,i)=>{
     const c=document.createElement('div');c.className='card rv';c.style.transitionDelay=(i%6)*.08+'s';
     const title=bTitle(b),desc=bDesc(b);
-    const mockImg=mockups[i]?'book-mockups/'+mockups[i]+'.png':'';
+    const mockImg=mockups[i]?'/book-mockups/'+mockups[i]+'.png':'';
     c.innerHTML=`${b.bg?`<div class="badge b-${b.bg}">${badgeText(b.bg)}</div>`:''}<div class="cover"><div class="cover-glow" style="background:${b.cl[0]};left:calc(50% - 100px);top:calc(50% - 100px)"></div>${mockImg?`<img src="${mockImg}" alt="${title}" style="width:auto;height:85%;object-fit:contain;filter:drop-shadow(0 8px 25px rgba(0,0,0,0.6));transition:transform 0.7s cubic-bezier(0.16,1,0.3,1);position:relative;z-index:2" onmouseover="this.style.transform='scale(1.05) rotateY(-5deg)'" onmouseout="this.style.transform=''">`:`<div class="book"><div class="book-front" style="background:linear-gradient(170deg,${b.cl[0]},${b.cl[1]},${b.cl[2]})"><div class="cv-content"><div class="cv-icon">${b.ic}</div><div class="cv-title">${title}</div><div style="flex:1"></div><div class="cv-author">AstroAureum</div><div class="cv-brand">astroaureum.com</div></div></div><div class="book-spine" style="background:linear-gradient(180deg,${b.cl[1]},${b.cl[2]})"></div><div class="book-top" style="background:${b.cl[2]}"></div><div class="book-shadow"></div></div>`}</div><div class="info"><div class="info-cat">${b.cat}</div><div class="info-title">${title}</div><div class="info-desc">${desc}</div><div class="info-meta"><span class="mi">\u{1F4C4} ${b.ch} ${t('chapters')}</span><span class="mi">\u{1F4D6} ${b.pg} ${t('pages')}</span>${b.fm.includes('au')?'<span class="mi">\u{1F3A4} Audio</span>':''}</div><div class="info-fmts">${b.fm.map(f=>`<span class="fmt ${fC[f]}">${fN[f]}</span>`).join('')}</div><div class="info-langs">${b.ln.map(l=>`<span class="lang">${l}</span>`).join('')}</div><div class="pr-row"><div>${b.op?`<span class="price-old">&euro;${b.op}</span>`:''}
     <span class="price">&euro;${b.pr}</span></div><button class="btn-sm" onclick="event.stopPropagation();openM(${i})">${t('viewBook')}</button></div></div>`;
     c.onclick=()=>openM(i);gr.appendChild(c);
@@ -524,7 +521,7 @@ function updateStaticText(){
 function openM(i){
   const b=books[i],ov=document.getElementById('mOv'),cov=document.getElementById('mCov'),bod=document.getElementById('mBod');
   const title=bTitle(b),desc=bDesc(b);
-  const mockImg2=mockups[i]?'book-mockups/'+mockups[i]+'.png':'';
+  const mockImg2=mockups[i]?'/book-mockups/'+mockups[i]+'.png':'';
   cov.style.background=`radial-gradient(ellipse at center,${b.cl[0]}18,transparent)`;
   cov.innerHTML=mockImg2?`<img src="${mockImg2}" alt="${title}" style="height:85%;width:auto;object-fit:contain;filter:drop-shadow(0 10px 35px rgba(0,0,0,0.7));animation:mI 0.4s cubic-bezier(0.16,1,0.3,1)">`:`<div class="book" style="width:150px;height:210px;transform:rotateY(-22deg) rotateX(5deg)"><div class="book-front" style="background:linear-gradient(170deg,${b.cl[0]},${b.cl[1]},${b.cl[2]});border-radius:3px 12px 12px 3px;box-shadow:8px 8px 35px rgba(0,0,0,0.7)"><div class="cv-content"><div class="cv-icon" style="font-size:44px">${b.ic}</div><div class="cv-title" style="font-size:11px">${title}</div><div style="flex:1"></div><div class="cv-author">AstroAureum</div></div></div><div class="book-spine" style="background:linear-gradient(180deg,${b.cl[1]},${b.cl[2]})"></div></div>`;
   const sv=b.op?Math.round((1-b.pr/b.op)*100):0;
