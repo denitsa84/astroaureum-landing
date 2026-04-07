@@ -34,8 +34,11 @@ body{font-family:'Inter',sans-serif;background:var(--void);color:var(--starW);ov
 
 .main{position:relative;z-index:10}
 
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 20px;position:relative}
-.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:250px;background:linear-gradient(transparent,var(--void));pointer-events:none}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 20px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url('/assets/hero-libro-cosmico.png') center center/cover no-repeat;opacity:0.55;z-index:0;animation:floatBook 8s ease-in-out infinite}
+@keyframes floatBook{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-15px) scale(1.02)}}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:250px;background:linear-gradient(transparent,var(--void));pointer-events:none;z-index:1}
+.hero > *{position:relative;z-index:2}
 
 .mandala{width:300px;height:300px;position:relative;margin-bottom:30px}
 .mandala-ring{position:absolute;border-radius:50%;border:1px solid;animation:sp linear infinite}
@@ -252,8 +255,9 @@ footer a{color:var(--gold);text-decoration:none}
     <div class="prev-t" data-t="prevTitle">Lee y Escucha Antes de Comprar</div>
     <div class="prev-s" data-t="prevSub">Elige tu idioma y prueba el primer capitulo gratis</div>
     <div class="prev-pills">
-      <button class="prev-p on">Espanol</button><button class="prev-p">Bulgaro</button><button class="prev-p">English</button>
-      <button class="prev-p">Portugues</button><button class="prev-p">Francais</button><button class="prev-p">Deutsch</button>
+      <button class="prev-p on" data-lang="es">ES</button><button class="prev-p" data-lang="bg">BG</button><button class="prev-p" data-lang="en">EN</button>
+      <button class="prev-p" data-lang="pt">PT</button><button class="prev-p" data-lang="fr">FR</button><button class="prev-p" data-lang="de">DE</button>
+      <button class="prev-p" data-lang="it">IT</button><button class="prev-p" data-lang="ru">RU</button>
     </div>
     <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
       <a href="#" class="btn" data-t="prevRead">&#128214; Leer Capitulo 1</a>
@@ -452,7 +456,6 @@ let curLang='es';
 function t(key){return (T[curLang]&&T[curLang][key])||T.es[key]||key}
 
 // BOOK DATA
-const mockups=['guia-12-signos','carta-natal','sinastria','transitos-2026','casas-astrologicas','astrologia-lunar','nodos-lunares','principiantes','meditaciones','cristales','tarot-astrologia','planner-2026','rituales-lunares','revolucion-solar','retrogrados','enciclopedia','signos-vol1','signos-vol2'];
 const books=[
 {t:{es:'Guia Completa de los 12 Signos',en:'Complete Guide to the 12 Signs',fr:'Guide Complet des 12 Signes',de:'Vollst\u00e4ndiger Leitfaden der 12 Zeichen',pt:'Guia Completo dos 12 Signos',it:'Guida Completa dei 12 Segni',ru:'\u041f\u043e\u043b\u043d\u043e\u0435 \u0420\u0443\u043a\u043e\u0432\u043e\u0434\u0441\u0442\u0432\u043e \u043f\u043e 12 \u0417\u043d\u0430\u043a\u0430\u043c',bg:'\u041f\u044a\u043b\u043d\u043e \u0420\u044a\u043a\u043e\u0432\u043e\u0434\u0441\u0442\u0432\u043e \u0437\u0430 12-\u0442\u0435 \u0417\u043d\u0430\u043a\u0430'},cat:'Signos Zodiacales',d:{es:'Descubre la personalidad profunda, compatibilidad, carrera y destino cosmico de cada signo zodiacal. Un viaje por las 12 constelaciones.',en:'Discover the deep personality, compatibility, career and cosmic destiny of each zodiac sign. A journey through the 12 constellations.',fr:'D\u00e9couvrez la personnalit\u00e9 profonde, la compatibilit\u00e9, la carri\u00e8re et le destin cosmique de chaque signe. Un voyage \u00e0 travers les 12 constellations.',de:'Entdecken Sie die tiefe Pers\u00f6nlichkeit, Kompatibilit\u00e4t, Karriere und kosmisches Schicksal jedes Sternzeichens. Eine Reise durch die 12 Sternbilder.',pt:'Descubra a personalidade profunda, compatibilidade, carreira e destino c\u00f3smico de cada signo. Uma viagem pelas 12 constela\u00e7\u00f5es.',it:'Scopri la personalit\u00e0 profonda, la compatibilit\u00e0, la carriera e il destino cosmico di ogni segno. Un viaggio attraverso le 12 costellazioni.',ru:'\u041e\u0442\u043a\u0440\u043e\u0439\u0442\u0435 \u0433\u043b\u0443\u0431\u043e\u043a\u0443\u044e \u043b\u0438\u0447\u043d\u043e\u0441\u0442\u044c, \u0441\u043e\u0432\u043c\u0435\u0441\u0442\u0438\u043c\u043e\u0441\u0442\u044c, \u043a\u0430\u0440\u044c\u0435\u0440\u0443 \u0438 \u043a\u043e\u0441\u043c\u0438\u0447\u0435\u0441\u043a\u0443\u044e \u0441\u0443\u0434\u044c\u0431\u0443 \u043a\u0430\u0436\u0434\u043e\u0433\u043e \u0437\u043d\u0430\u043a\u0430 \u0437\u043e\u0434\u0438\u0430\u043a\u0430.',bg:'\u041e\u0442\u043a\u0440\u0438\u0439\u0442\u0435 \u0434\u044a\u043b\u0431\u043e\u043a\u0430\u0442\u0430 \u043b\u0438\u0447\u043d\u043e\u0441\u0442, \u0441\u044a\u0432\u043c\u0435\u0441\u0442\u0438\u043c\u043e\u0441\u0442, \u043a\u0430\u0440\u0438\u0435\u0440\u0430 \u0438 \u043a\u043e\u0441\u043c\u0438\u0447\u0435\u0441\u043a\u0430 \u0441\u044a\u0434\u0431\u0430 \u043d\u0430 \u0432\u0441\u0435\u043a\u0438 \u0437\u043d\u0430\u043a.'},ic:'\u2648',ch:15,pg:280,pr:14.99,op:19.99,fm:['pdf','kin','au'],ln:['ES','BG','EN','PT','FR','DE'],bg:'best',cl:['#D4A843','#8B6914','#5a4510'],mn:1},
 {t:{es:'Como Leer tu Carta Natal',en:'How to Read Your Natal Chart',fr:'Comment Lire Votre Th\u00e8me Natal',de:'Wie Sie Ihr Geburtshoroskop Lesen',pt:'Como Ler a Sua Carta Natal',it:'Come Leggere il Tuo Tema Natale',ru:'\u041a\u0430\u043a \u0427\u0438\u0442\u0430\u0442\u044c \u0412\u0430\u0448\u0443 \u041d\u0430\u0442\u0430\u043b\u044c\u043d\u0443\u044e \u041a\u0430\u0440\u0442\u0443',bg:'\u041a\u0430\u043a \u0434\u0430 \u0427\u0435\u0442\u0435\u0442\u0435 \u041d\u0430\u0442\u0430\u043b\u043d\u0430\u0442\u0430 \u0441\u0438 \u041a\u0430\u0440\u0442\u0430'},cat:'Carta Natal',d:{es:'Manual paso a paso para interpretar tu carta astral con planetas, casas, aspectos y transitos.',en:'Step-by-step manual to interpret your astral chart with planets, houses, aspects and transits.',fr:'Manuel \u00e9tape par \u00e9tape pour interpr\u00e9ter votre th\u00e8me astral avec plan\u00e8tes, maisons, aspects et transits.',de:'Schritt-f\u00fcr-Schritt-Anleitung zur Interpretation Ihres Horoskops mit Planeten, H\u00e4usern, Aspekten und Transiten.',pt:'Manual passo a passo para interpretar a sua carta astral com planetas, casas, aspetos e tr\u00e2nsitos.',it:'Manuale passo dopo passo per interpretare il tuo tema natale con pianeti, case, aspetti e transiti.',ru:'\u041f\u043e\u0448\u0430\u0433\u043e\u0432\u043e\u0435 \u0440\u0443\u043a\u043e\u0432\u043e\u0434\u0441\u0442\u0432\u043e \u043f\u043e \u0438\u043d\u0442\u0435\u0440\u043f\u0440\u0435\u0442\u0430\u0446\u0438\u0438 \u0432\u0430\u0448\u0435\u0439 \u043d\u0430\u0442\u0430\u043b\u044c\u043d\u043e\u0439 \u043a\u0430\u0440\u0442\u044b.',bg:'\u041d\u0430\u0440\u044a\u0447\u043d\u0438\u043a \u0441\u0442\u044a\u043f\u043a\u0430 \u043f\u043e \u0441\u0442\u044a\u043f\u043a\u0430 \u0437\u0430 \u0438\u043d\u0442\u0435\u0440\u043f\u0440\u0435\u0442\u0438\u0440\u0430\u043d\u0435 \u043d\u0430 \u0432\u0430\u0448\u0430\u0442\u0430 \u043d\u0430\u0442\u0430\u043b\u043d\u0430 \u043a\u0430\u0440\u0442\u0430.'},ic:'\u2609',ch:18,pg:320,pr:24.99,fm:['pdf','kin','au'],ln:['ES','BG','EN','PT'],bg:'new',cl:['#7B4FBF','#4a2d7a','#2d1a4f'],mn:0},
@@ -497,8 +500,8 @@ function renderGrid(){
   books.forEach((b,i)=>{
     const c=document.createElement('div');c.className='card rv';c.style.transitionDelay=(i%6)*.08+'s';
     const title=bTitle(b),desc=bDesc(b);
-    const mockImg=mockups[i]?'/book-mockups/'+mockups[i]+'.png':'';
-    c.innerHTML=`${b.bg?`<div class="badge b-${b.bg}">${badgeText(b.bg)}</div>`:''}<div class="cover"><div class="cover-glow" style="background:${b.cl[0]};left:calc(50% - 100px);top:calc(50% - 100px)"></div>${mockImg?`<img src="${mockImg}" alt="${title}" style="width:auto;height:85%;object-fit:contain;filter:drop-shadow(0 8px 25px rgba(0,0,0,0.6));transition:transform 0.7s cubic-bezier(0.16,1,0.3,1);position:relative;z-index:2" onmouseover="this.style.transform='scale(1.05) rotateY(-5deg)'" onmouseout="this.style.transform=''">`:`<div class="book"><div class="book-front" style="background:linear-gradient(170deg,${b.cl[0]},${b.cl[1]},${b.cl[2]})"><div class="cv-content"><div class="cv-icon">${b.ic}</div><div class="cv-title">${title}</div><div style="flex:1"></div><div class="cv-author">AstroAureum</div><div class="cv-brand">astroaureum.com</div></div></div><div class="book-spine" style="background:linear-gradient(180deg,${b.cl[1]},${b.cl[2]})"></div><div class="book-top" style="background:${b.cl[2]}"></div><div class="book-shadow"></div></div>`}</div><div class="info"><div class="info-cat">${b.cat}</div><div class="info-title">${title}</div><div class="info-desc">${desc}</div><div class="info-meta"><span class="mi">\u{1F4C4} ${b.ch} ${t('chapters')}</span><span class="mi">\u{1F4D6} ${b.pg} ${t('pages')}</span>${b.fm.includes('au')?'<span class="mi">\u{1F3A4} Audio</span>':''}</div><div class="info-fmts">${b.fm.map(f=>`<span class="fmt ${fC[f]}">${fN[f]}</span>`).join('')}</div><div class="info-langs">${b.ln.map(l=>`<span class="lang">${l}</span>`).join('')}</div><div class="pr-row"><div>${b.op?`<span class="price-old">&euro;${b.op}</span>`:''}
+    const svg64='data:image/svg+xml;base64,'+btoa(mkSVG(b,170,240));
+    c.innerHTML=`${b.bg?`<div class="badge b-${b.bg}">${badgeText(b.bg)}</div>`:''}<div class="cover"><div class="cover-glow" style="background:${b.cl[0]};left:calc(50% - 100px);top:calc(50% - 100px)"></div><div class="book"><div class="book-front" style="background:linear-gradient(170deg,${b.cl[0]},${b.cl[1]},${b.cl[2]})"><img src="${svg64}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:3px 12px 12px 3px" alt="${title}"><div class="cv-content"><div class="cv-icon">${b.ic}</div><div class="cv-title">${title}</div><div style="flex:1"></div><div class="cv-author">AstroAureum</div><div class="cv-brand">astroaureum.com</div></div></div><div class="book-spine" style="background:linear-gradient(180deg,${b.cl[1]},${b.cl[2]})"></div><div class="book-top" style="background:${b.cl[2]}"></div><div class="book-shadow"></div></div></div><div class="info"><div class="info-cat">${b.cat}</div><div class="info-title">${title}</div><div class="info-desc">${desc}</div><div class="info-meta"><span class="mi">\u{1F4C4} ${b.ch} ${t('chapters')}</span><span class="mi">\u{1F4D6} ${b.pg} ${t('pages')}</span>${b.fm.includes('au')?'<span class="mi">\u{1F3A4} Audio</span>':''}</div><div class="info-fmts">${b.fm.map(f=>`<span class="fmt ${fC[f]}">${fN[f]}</span>`).join('')}</div><div class="info-langs">${b.ln.map(l=>`<span class="lang">${l}</span>`).join('')}</div><div class="pr-row"><div>${b.op?`<span class="price-old">&euro;${b.op}</span>`:''}
     <span class="price">&euro;${b.pr}</span></div><button class="btn-sm" onclick="event.stopPropagation();openM(${i})">${t('viewBook')}</button></div></div>`;
     c.onclick=()=>openM(i);gr.appendChild(c);
   });
@@ -521,11 +524,11 @@ function updateStaticText(){
 function openM(i){
   const b=books[i],ov=document.getElementById('mOv'),cov=document.getElementById('mCov'),bod=document.getElementById('mBod');
   const title=bTitle(b),desc=bDesc(b);
-  const mockImg2=mockups[i]?'/book-mockups/'+mockups[i]+'.png':'';
+  const svg64='data:image/svg+xml;base64,'+btoa(mkSVG(b,150,210));
   cov.style.background=`radial-gradient(ellipse at center,${b.cl[0]}18,transparent)`;
-  cov.innerHTML=mockImg2?`<img src="${mockImg2}" alt="${title}" style="height:85%;width:auto;object-fit:contain;filter:drop-shadow(0 10px 35px rgba(0,0,0,0.7));animation:mI 0.4s cubic-bezier(0.16,1,0.3,1)">`:`<div class="book" style="width:150px;height:210px;transform:rotateY(-22deg) rotateX(5deg)"><div class="book-front" style="background:linear-gradient(170deg,${b.cl[0]},${b.cl[1]},${b.cl[2]});border-radius:3px 12px 12px 3px;box-shadow:8px 8px 35px rgba(0,0,0,0.7)"><div class="cv-content"><div class="cv-icon" style="font-size:44px">${b.ic}</div><div class="cv-title" style="font-size:11px">${title}</div><div style="flex:1"></div><div class="cv-author">AstroAureum</div></div></div><div class="book-spine" style="background:linear-gradient(180deg,${b.cl[1]},${b.cl[2]})"></div></div>`;
+  cov.innerHTML=`<div class="book" style="width:150px;height:210px;transform:rotateY(-22deg) rotateX(5deg)"><div class="book-front" style="background:linear-gradient(170deg,${b.cl[0]},${b.cl[1]},${b.cl[2]});border-radius:3px 12px 12px 3px;box-shadow:8px 8px 35px rgba(0,0,0,0.7)"><img src="${svg64}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:3px 12px 12px 3px"><div class="cv-content"><div class="cv-icon" style="font-size:44px">${b.ic}</div><div class="cv-title" style="font-size:11px">${title}</div><div style="flex:1"></div><div class="cv-author">AstroAureum</div></div></div><div class="book-spine" style="background:linear-gradient(180deg,${b.cl[1]},${b.cl[2]})"></div></div>`;
   const sv=b.op?Math.round((1-b.pr/b.op)*100):0;
-  bod.innerHTML=`${b.bg?`<span class="mb-badge b-${b.bg}">${badgeText(b.bg)}</span>`:''}<div class="mb-cat">${b.cat}</div><div class="mb-title">${title}</div><div class="mb-desc">${desc}</div><div class="mb-meta"><span class="mb-m">\u{1F4C4} ${b.ch} ${t('chapters')}</span><span class="mb-m">\u{1F4D6} ${b.pg} ${t('pages')}</span>${b.fm.includes('au')?'<span class="mb-m">\u{1F3A4} Audio</span>':''}</div><div class="mb-fmts"><div class="mb-fmts-h">${t('formatsAvail')}</div>${b.fm.map(f=>`<div class="mb-fmt"><span class="mb-fmt-n">${fI[f]} ${fN[f]}</span><span class="mb-fmt-p">&euro;${(b.pr*fM[f]).toFixed(2)}</span></div>`).join('')}</div><div class="mb-langs"><div class="mb-langs-h">${t('languages')}</div><div class="mb-pills">${b.ln.map(l=>`<span class="mb-pill">${l}</span>`).join('')}</div></div><div class="mb-pr-row">${b.op?`<span class="mb-old">&euro;${b.op}</span>`:''}<span class="mb-price">&euro;${b.pr}</span>${sv?`<span class="mb-save">-${sv}%</span>`:''}</div><button class="mb-buy" onclick="window.open('https://astroaureum.com/#contacto','_blank')">${t('buyNow')}</button><button class="mb-prev" onclick="openPreview(${i})">${t('readChFree')}</button><div class="mb-author"><div class="mb-author-n">Denitsa Georgieva — Shivani Devi Bramayani</div><div class="mb-author-b">Aureum Books &middot; astroaureum.com</div></div>`;
+  bod.innerHTML=`${b.bg?`<span class="mb-badge b-${b.bg}">${badgeText(b.bg)}</span>`:''}<div class="mb-cat">${b.cat}</div><div class="mb-title">${title}</div><div class="mb-desc">${desc}</div><div class="mb-meta"><span class="mb-m">\u{1F4C4} ${b.ch} ${t('chapters')}</span><span class="mb-m">\u{1F4D6} ${b.pg} ${t('pages')}</span>${b.fm.includes('au')?'<span class="mb-m">\u{1F3A4} Audio</span>':''}</div><div class="mb-fmts"><div class="mb-fmts-h">${t('formatsAvail')}</div>${b.fm.map(f=>`<div class="mb-fmt"><span class="mb-fmt-n">${fI[f]} ${fN[f]}</span><span class="mb-fmt-p">&euro;${(b.pr*fM[f]).toFixed(2)}</span></div>`).join('')}</div><div class="mb-langs"><div class="mb-langs-h">${t('languages')}</div><div class="mb-pills">${b.ln.map(l=>`<span class="mb-pill">${l}</span>`).join('')}</div></div><div class="mb-pr-row">${b.op?`<span class="mb-old">&euro;${b.op}</span>`:''}<span class="mb-price">&euro;${b.pr}</span>${sv?`<span class="mb-save">-${sv}%</span>`:''}</div><button class="mb-buy" onclick="buyBook(${i})">${t('buyNow')}</button><button class="mb-prev" onclick="openPreview(${i})">${t('readChFree')}</button><div class="mb-author"><div class="mb-author-n">Denitsa Georgieva — Shivani Devi Bramayani</div><div class="mb-author-b">Aureum Books &middot; astroaureum.com</div></div>`;
   ov.classList.add('open');document.body.style.overflow='hidden';
 }
 function closeM(){document.getElementById('mOv').classList.remove('open');document.body.style.overflow=''}
@@ -547,7 +550,7 @@ function openPreview(i){
   const bod=document.getElementById('mBod');
   const cov=document.getElementById('mCov');
   cov.innerHTML='';
-  bod.innerHTML=`<div style="text-align:center;margin-bottom:16px;font-family:'Cinzel',serif;font-size:1.2rem;color:var(--gold);">${title}</div><div style="font-family:'Cinzel',serif;font-size:0.8rem;color:var(--gold2);text-align:center;margin-bottom:20px;letter-spacing:2px;">${t('readChFree')}</div><div style="font-size:0.95rem;line-height:1.8;color:var(--starW);white-space:pre-line;padding:20px;background:rgba(255,255,255,0.03);border-radius:12px;border:1px solid rgba(212,168,67,0.1);max-height:400px;overflow-y:auto;">${prevText}</div><div style="text-align:center;margin-top:20px;"><button class="mb-buy" onclick="window.open('https://astroaureum.com/#contacto','_blank')">${t('buyNow')}</button></div>`;
+  bod.innerHTML=`<div style="text-align:center;margin-bottom:16px;font-family:'Cinzel',serif;font-size:1.2rem;color:var(--gold);">${title}</div><div style="font-family:'Cinzel',serif;font-size:0.8rem;color:var(--gold2);text-align:center;margin-bottom:20px;letter-spacing:2px;">${t('readChFree')}</div><div style="font-size:0.95rem;line-height:1.8;color:var(--starW);white-space:pre-line;padding:20px;background:rgba(255,255,255,0.03);border-radius:12px;border:1px solid rgba(212,168,67,0.1);max-height:400px;overflow-y:auto;">${prevText}</div><div style="text-align:center;margin-top:20px;"><button class="mb-buy" onclick="buyBook(${i})">${t('buyNow')}</button></div><div style="text-align:center;margin-top:12px;"><button class="mb-prev" onclick="listenPreview()" style="font-size:0.8rem">\u{1F50A} ${t('listenFree')||'Escuchar Preview'}</button></div>`;
   document.getElementById('mOv').classList.add('open');document.body.style.overflow='hidden';
 }
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM()});
@@ -573,13 +576,58 @@ detectLang();
 document.getElementById('abLang').value=curLang;
 updateStaticText();
 renderGrid();
+// Sync preview pills with detected language
+document.querySelectorAll('.prev-p').forEach(b=>{
+  b.classList.remove('on');
+  if(b.getAttribute('data-lang')===curLang) b.classList.add('on');
+});
 
 // REVEAL
 const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.08});
 document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
 
 // PREVIEW
-document.querySelectorAll('.prev-p').forEach(b=>{b.onclick=()=>{document.querySelectorAll('.prev-p').forEach(x=>x.classList.remove('on'));b.classList.add('on')}});
+document.querySelectorAll('.prev-p').forEach(b=>{b.onclick=()=>{
+  document.querySelectorAll('.prev-p').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');
+  const lang=b.getAttribute('data-lang');
+  if(lang) changeLang(lang);
+}});
+
+// STRIPE PAYMENT LINKS
+const stripeLinks = {
+  vol1: 'https://buy.stripe.com/aFabIU1ehgbQ8Lg8abfjG0M',
+  vol2: 'https://buy.stripe.com/6oUcMYe13gbQ3qWgGHfjG0N',
+  pack: 'https://buy.stripe.com/5kQfZa3mp7Fk8Lg2PRfjG0O'
+};
+
+function buyBook(i) {
+  const b = books[i];
+  const id = b.id || '';
+  if (id.includes('vol1') || id.includes('camino-yo') || i === 0) {
+    window.open(stripeLinks.vol1, '_blank');
+  } else if (id.includes('vol2') || id.includes('camino-otro') || i === 1) {
+    window.open(stripeLinks.vol2, '_blank');
+  } else if (id.includes('pack') || id.includes('completo')) {
+    window.open(stripeLinks.pack, '_blank');
+  } else {
+    window.open(stripeLinks.vol1, '_blank');
+  }
+}
+
+// AUDIO PREVIEW
+let synth = window.speechSynthesis;
+let currentUtt = null;
+function listenPreview() {
+  if (currentUtt && synth.speaking) { synth.cancel(); return; }
+  const previewEl = document.querySelector('#mBod div[style*="pre-line"]');
+  if (!previewEl) return;
+  currentUtt = new SpeechSynthesisUtterance(previewEl.textContent);
+  const langMap = {es:'es-ES',en:'en-US',fr:'fr-FR',de:'de-DE',pt:'pt-BR',it:'it-IT',ru:'ru-RU',bg:'bg-BG'};
+  currentUtt.lang = langMap[curLang] || 'es-ES';
+  currentUtt.rate = 0.9;
+  synth.speak(currentUtt);
+}
 
 // PARALLAX
 addEventListener('scroll',()=>{const s=scrollY;document.querySelector('.n1').style.transform=`translate(${s*.02}px,${s*-.03}px)`;document.querySelector('.n2').style.transform=`translate(${s*-.015}px,${s*.02}px)`});
