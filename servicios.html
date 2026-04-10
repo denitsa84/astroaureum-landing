@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargando... · Astro Aureum</title>
+    <meta name="robots" content="index, follow">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Google Analytics GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0PZTB2PF7T"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0PZTB2PF7T');
+    </script>
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --dark:#0A0414;--dark2:#1A0A30;--dark3:#2A0A18;--pdark:#3A1468;--pmain:#6B2FA8;--pmid:#9B5FD8;--plight:#CBAAEE;--rwine:#7A2050;--rmid:#D47090;--rpale:#ECA0B8;--rsoft:#F5C8D8;--rvery:#FDE8F0;--blue:#5AAAE8;--bluedark:#0A2E5C;--gold:#C89840;--goldbr:#EDCC60;--golddark:#8A6200;--white:#FAFAF8;--grad-hero:linear-gradient(160deg,#0A0414 0%,#1A0A30 55%,#2A0A18 100%);--grad-btn:linear-gradient(90deg,#C89840,#EDCC60);
+            --trad-occidental: #4A90D9;
+            --trad-cabalistica: #9B59B6;
+            --trad-vedica: #E67E22;
+            --trad-china: #E74C3C;
+            --trad-especializada: #27AE60;
+            --trad-alma: #F39C12;
+            --trad-celestial: #8E44AD;
+            --trad-helenistica: #16A085;
+            --trad-humandesign: #2ECC71;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Jost', sans-serif;
+            font-weight: 300;
+            background: var(--dark);
+            color: var(--white);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; }
+
+        a { color: var(--rpale); text-decoration: none; }
+        a:hover { color: var(--rmid); }
+
+        /* STARS BACKGROUND */
+        #stars-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: hidden; }
+        .star { position: absolute; border-radius: 50%; animation: twinkle var(--dur,3s) ease-in-out infinite var(--del,0s); }
+        @keyframes twinkle { 0%,100%{opacity:var(--a,.4)} 50%{opacity:.05} }
+
+        /* FIXED HEADER */
+        header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+            height: 58px;
+            background: rgba(10,4,20,0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 0.5px solid var(--pdark);
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 20px;
+        }
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px; font-weight: 600;
+            background: linear-gradient(90deg, var(--pmid), var(--rpale), var(--goldbr));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            letter-spacing: 0.04em; text-decoration: none;
+        }
+        .header-nav {
+            display: flex; gap: 12px; align-items: center;
+        }
+        .header-btn {
+            background: var(--pmain); color: var(--rsoft); border: none;
+            font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 500;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            padding: 8px 16px; border-radius: 30px; cursor: pointer; transition: all .25s;
+        }
+        .header-btn:hover { background: var(--rwine); }
+        .header-btn-outline {
+            background: transparent; color: var(--pmid); border: 0.5px solid var(--pmain);
+            font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 500;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            padding: 8px 16px; border-radius: 30px; cursor: pointer; transition: all .25s;
+        }
+        .header-btn-outline:hover { border-color: var(--goldbr); color: var(--goldbr); }
+
+        /* PRODUCT HERO */
+        .product-hero {
+            position: relative; z-index: 1;
+            padding: 100px 1.5rem 3rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-flex; align-items: center; gap: 6px;
+            color: var(--pmid);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            transition: color 0.3s;
+        }
+        .back-link:hover { color: var(--rpale); }
+        .back-link svg { width: 16px; height: 16px; }
+
+        .tradition-badge {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 0.3rem 1rem;
+            border-radius: 2rem;
+            color: #fff;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-title {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .product-words {
+            font-size: 0.95rem;
+            color: var(--pmid);
+            margin-bottom: 1.5rem;
+        }
+
+        .product-desc {
+            font-size: 1.1rem;
+            color: var(--rpale);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            max-width: 700px;
+        }
+
+        /* BULLETS */
+        .product-bullets {
+            list-style: none;
+            margin-bottom: 2.5rem;
+        }
+        .product-bullets li {
+            font-size: 1.05rem;
+            color: var(--white);
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+        .product-bullets li::before {
+            content: "\2726";
+            color: var(--goldbr);
+            position: absolute;
+            left: 0;
+            font-size: 1.1rem;
+        }
+
+        /* PRICE + CTA */
+        .price-section {
+            background: rgba(26,10,48,0.7);
+            border: 0.5px solid var(--pmain);
+            border-radius: 18px;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+
+        .price-label {
+            font-size: 0.9rem;
+            color: var(--pmid);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--goldbr);
+            margin-bottom: 0.5rem;
+        }
+
+        .price-note {
+            font-size: 0.85rem;
+            color: var(--pmid);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: var(--grad-btn);
+            color: var(--dark);
+            font-weight: 600;
+            font-family: 'Jost', sans-serif;
+            font-size: 13px;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.25s;
+            box-shadow: 0 4px 24px rgba(200,152,64,0.3);
+        }
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(200,152,64,0.5);
+            color: var(--dark);
+        }
+
+        /* DIVIDER */
+        .section-divider {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--goldbr), transparent);
+            margin: 0 auto 2rem;
+        }
+
+        /* CROSS-SELL */
+        .cross-sell {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1.5rem 3rem;
+            position: relative; z-index: 1;
+        }
+
+        .cross-sell h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--white);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .cross-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        @media (min-width: 640px) { .cross-grid { grid-template-columns: repeat(3, 1fr); } }
+
+        .cross-card {
+            background: rgba(26,10,48,0.88);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 0.5px solid var(--pmain);
+            border-radius: 18px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        .cross-card:hover {
+            border-color: var(--rmid);
+            transform: translateY(-3px);
+        }
+
+        .cross-badge {
+            display: inline-block;
+            font-size: 0.68rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.2rem 0.6rem;
+            border-radius: 1rem;
+            color: #fff;
+            margin-bottom: 0.75rem;
+            align-self: flex-start;
+        }
+
+        .cross-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.4rem;
+        }
+
+        .cross-price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--goldbr);
+            margin-bottom: 0.75rem;
+        }
+
+        .cross-link {
+            display: block;
+            text-align: center;
+            padding: 0.6rem 1.2rem;
+            border: 0.5px solid var(--goldbr);
+            color: var(--goldbr);
+            font-weight: 500;
+            font-family: 'Jost', sans-serif;
+            font-size: 10px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            border-radius: 30px;
+            transition: all 0.25s;
+            margin-top: auto;
+        }
+        .cross-link:hover {
+            background: var(--grad-btn);
+            color: var(--dark);
+            border-color: transparent;
+        }
+
+        /* LOADING STATE */
+        .loading {
+            text-align: center;
+            padding: 200px 1.5rem;
+            color: var(--pmid);
+            font-size: 1.1rem;
+        }
+
+        .loading-spinner {
+            width: 40px; height: 40px;
+            border: 2px solid var(--pdark);
+            border-top-color: var(--goldbr);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1.5rem;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* ERROR */
+        .error-state {
+            text-align: center;
+            padding: 200px 1.5rem;
+        }
+        .error-state h2 {
+            font-size: 2rem;
+            color: var(--goldbr);
+            margin-bottom: 1rem;
+        }
+        .error-state p {
+            color: var(--pmid);
+            margin-bottom: 2rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #06020A;
+            text-align: center;
+            padding: 40px 1.5rem 32px;
+            border-top: 0.5px solid var(--dark2);
+            margin-top: 3rem;
+            position: relative; z-index: 1;
+        }
+        .footer-logo {
+            width: 48px; height: 48px; border-radius: 50%;
+            filter: drop-shadow(0 0 8px rgba(255,215,0,0.3));
+            margin-bottom: 0.75rem;
+        }
+        footer h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px; font-weight: 600;
+            background: linear-gradient(90deg, var(--pmid), var(--blue), var(--goldbr), var(--rpale));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            margin-bottom: 1rem;
+        }
+        .footer-links {
+            display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+        .footer-links a { color: var(--pmid); font-size: 0.9rem; }
+        .footer-links a:hover { color: var(--rpale); }
+        .footer-copy {
+            font-size: 9px;
+            color: var(--pmain);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+<!-- STARS BACKGROUND -->
+<div id="stars-bg"></div>
+
+<!-- FIXED HEADER -->
+<header>
+    <a href="/" class="logo">Astro Aureum</a>
+    <div class="header-nav">
+        <a href="/lecturas.html" class="header-btn-outline">Lecturas</a>
+        <a href="/" class="header-btn">Inicio</a>
+    </div>
+</header>
+
+<!-- MAIN CONTENT (rendered by JS) -->
+<main id="product-content">
+    <div class="loading">
+        <div class="loading-spinner"></div>
+        Cargando lectura...
+    </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <a href="/"><img src="/logo.png" alt="Astro Aureum" class="footer-logo"></a>
+    <h4>Astro Aureum</h4>
+    <nav class="footer-links">
+        <a href="/">Inicio</a>
+        <a href="/lecturas.html">Lecturas</a>
+        <a href="/aureum-books.html">Aureum Books</a>
+    </nav>
+    <p class="footer-copy">&copy; 2026 Astro Aureum. Todos los derechos reservados.<br>Las lecturas astrologicas son de naturaleza interpretativa y no sustituyen el consejo profesional medico, legal o financiero.</p>
+</footer>
+
+<script>
+/* Twinkling stars */
+(function(){var bg=document.getElementById('stars-bg');var c=['#EDCC60','#ECA0B8','#CBAAEE','#FAFAF8'];for(var i=0;i<120;i++){var s=document.createElement('div');s.className='star';var z=Math.random()*2.5+0.5;s.style.cssText='width:'+z+'px;height:'+z+'px;left:'+Math.random()*100+'%;top:'+Math.random()*100+'%;background:'+c[Math.floor(Math.random()*c.length)]+';--dur:'+(2+Math.random()*5)+'s;--del:-'+(Math.random()*5)+'s;--a:'+(0.2+Math.random()*0.6)+';';bg.appendChild(s)}})();
+
+/* Product page logic */
+(function() {
+    var params = new URLSearchParams(window.location.search);
+    var slug = params.get('slug');
+    var content = document.getElementById('product-content');
+
+    if (!slug) {
+        showError();
+        return;
+    }
+
+    fetch('/data/services.json')
+        .then(function(r) { return r.json(); })
+        .then(function(services) {
+            var product = services.find(function(s) { return s.slug === slug; });
+            if (!product) {
+                showError();
+                return;
+            }
+
+            // Update page title and meta
+            document.title = product.titulo + ' · Astro Aureum';
+
+            // Get related products (same tradition, excluding current)
+            var related = services.filter(function(s) {
+                return s.tradition === product.tradition && s.id !== product.id;
+            }).slice(0, 3);
+
+            // If fewer than 3 related, fill from other traditions
+            if (related.length < 3) {
+                var others = services.filter(function(s) {
+                    return s.tradition !== product.tradition && s.id !== product.id;
+                });
+                // Shuffle and pick
+                others.sort(function() { return 0.5 - Math.random(); });
+                while (related.length < 3 && others.length > 0) {
+                    related.push(others.shift());
+                }
+            }
+
+            var ctaLink = product.stripe_link || 'https://astroaureum.com/#contacto';
+
+            // Build bullets HTML
+            var bulletsHTML = product.bullets.map(function(b) {
+                return '<li>' + escapeHtml(b) + '</li>';
+            }).join('');
+
+            // Build related cards
+            var relatedHTML = related.map(function(r) {
+                return '<a href="/servicios.html?slug=' + r.slug + '" class="cross-card">' +
+                    '<span class="cross-badge" style="background:' + r.badge_color + '">' + escapeHtml(r.tradition) + '</span>' +
+                    '<h3>' + escapeHtml(r.titulo) + '</h3>' +
+                    '<div class="cross-price">&euro;' + r.precio + '</div>' +
+                    '<span class="cross-link">Ver Lectura</span>' +
+                '</a>';
+            }).join('');
+
+            content.innerHTML =
+                '<div class="product-hero">' +
+                    '<a href="/lecturas.html" class="back-link">' +
+                        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>' +
+                        'Volver a Lecturas' +
+                    '</a>' +
+                    '<span class="tradition-badge" style="background:' + product.badge_color + '">' + escapeHtml(product.tradition) + '</span>' +
+                    '<h1 class="product-title">' + escapeHtml(product.titulo) + '</h1>' +
+                    '<div class="product-words">' + escapeHtml(product.palabras) + '</div>' +
+                    '<p class="product-desc">' + escapeHtml(product.descripcion) + '</p>' +
+                    '<ul class="product-bullets">' + bulletsHTML + '</ul>' +
+                    '<div class="price-section">' +
+                        '<div class="price-label">Precio</div>' +
+                        '<div class="price-value">&euro;' + product.precio + '</div>' +
+                        '<div class="price-note">Lectura personalizada con Swiss Ephemeris</div>' +
+                        '<a href="' + ctaLink + '" class="cta-btn">Solicitar Lectura</a>' +
+                    '</div>' +
+                '</div>' +
+                (related.length > 0 ?
+                    '<div class="cross-sell">' +
+                        '<div class="section-divider"></div>' +
+                        '<h2>Tambien te puede interesar</h2>' +
+                        '<div class="cross-grid">' + relatedHTML + '</div>' +
+                    '</div>'
+                : '');
+
+            // GA4 event
+            if (typeof gtag === 'function') {
+                gtag('event', 'view_item', {
+                    item_id: product.id,
+                    item_name: product.titulo,
+                    item_category: product.tradition,
+                    price: product.precio,
+                    currency: 'EUR'
+                });
+            }
+        })
+        .catch(function() {
+            showError();
+        });
+
+    function showError() {
+        content.innerHTML =
+            '<div class="error-state">' +
+                '<h2>Lectura no encontrada</h2>' +
+                '<p>La lectura que buscas no existe o ha sido movida.</p>' +
+                '<a href="/lecturas.html" class="cta-btn">Ver Todas las Lecturas</a>' +
+            '</div>';
+    }
+
+    function escapeHtml(text) {
+        var d = document.createElement('div');
+        d.textContent = text;
+        return d.innerHTML;
+    }
+})();
+</script>
+
+</body>
+</html>
