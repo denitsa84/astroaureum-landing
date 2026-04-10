@@ -3,343 +3,1451 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aureum Books - Libreria Cosmica de Astrologia | AstroAureum</title>
+<title>Aureum Books - Biblioteca Cosmica de Astrologia | Astro Aureum</title>
 <meta name="description" content="Libros de astrologia premium por AstroAureum. Carta Natal, Signos, Sinastria, Transitos. PDF, tapa blanda, tapa dura y audiolibros en 25+ idiomas.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9733;</text></svg>">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0PZTB2PF7T"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-0PZTB2PF7T');</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
---void:#050410;--deep:#0a0820;--cosmos:#0e0d25;--nebula:#14123a;
---gold:#D4A843;--gold2:#f0d078;--gold3:#ffeaa7;
---purple:#7B4FBF;--purple2:#9B6FDF;
---starW:#e8e8ff;--starD:#8888bb;--cyan:#64dfdf;--rose:#ff6b9d;
+/* ============================================
+   AUREUM BOOKS — Matching index.html Design
+   ============================================ */
+:root {
+    --bg-space: #08011B;
+    --electric-blue: #A0F0FF;
+    --golden-yellow: #FFED8A;
+    --love-rose: #FFB3D1;
+    --aura-pink: #FFD6F5;
+    --cosmic-cream: #FFF9EA;
+    --pure-white: #FFFFFF;
+
+    --glow-blue: 0 0 20px rgba(160, 240, 255, 0.6);
+    --glow-gold: 0 0 20px rgba(255, 237, 138, 0.5);
+    --glow-love: 0 0 20px rgba(255, 179, 209, 0.6);
+    --glow-cream: 0 0 15px rgba(255, 249, 234, 0.4);
+
+    --gradient-gold-pink: linear-gradient(135deg, #FFED8A 0%, #FFB3D1 100%);
+    --gradient-blue-aura: linear-gradient(135deg, #A0F0FF 0%, #FFD6F5 100%);
+
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
 }
-html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--void);color:var(--starW);overflow-x:hidden}
 
-#stars{position:fixed;inset:0;z-index:0;pointer-events:none}
-.neb{position:fixed;border-radius:50%;filter:blur(130px);pointer-events:none;z-index:1;mix-blend-mode:screen}
-.n1{width:700px;height:700px;background:radial-gradient(circle,rgba(123,79,191,0.07),transparent 70%);top:-200px;right:-250px;animation:nd 35s ease-in-out infinite}
-.n2{width:600px;height:600px;background:radial-gradient(circle,rgba(212,168,67,0.05),transparent 70%);bottom:-200px;left:-200px;animation:nd 28s 4s ease-in-out infinite reverse}
-.n3{width:500px;height:500px;background:radial-gradient(circle,rgba(100,223,223,0.04),transparent 70%);top:35%;left:25%;animation:nd 22s 8s ease-in-out infinite}
-.n4{width:400px;height:400px;background:radial-gradient(circle,rgba(255,107,157,0.03),transparent 70%);top:60%;right:10%;animation:nd 30s 12s ease-in-out infinite reverse}
-@keyframes nd{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-25px) scale(1.05)}66%{transform:translate(-25px,20px) scale(0.96)}}
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-.particles{position:fixed;inset:0;z-index:2;pointer-events:none;overflow:hidden}
-.particle{position:absolute;border-radius:50%;animation:pF linear infinite}
-@keyframes pF{0%{transform:translateY(100vh) rotate(0deg);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-10vh) rotate(720deg);opacity:0}}
+body {
+    background-color: var(--bg-space);
+    background-image:
+        radial-gradient(ellipse at 15% 85%, rgba(160, 240, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(ellipse at 85% 15%, rgba(255, 237, 138, 0.04) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(255, 179, 209, 0.03) 0%, transparent 60%);
+    color: var(--pure-white);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
 
-.ss{position:fixed;height:1px;z-index:2;pointer-events:none;opacity:0}
+/* ============================================
+   NAVBAR — Same as index.html
+   ============================================ */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(8, 1, 27, 0.8);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 237, 138, 0.1);
+}
 
-.main{position:relative;z-index:10}
+.nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--golden-yellow);
+    text-shadow: 0 0 10px rgba(255, 237, 138, 0.4);
+    text-decoration: none;
+}
 
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 20px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:url('/assets/hero-libro-cosmico.png') center center/cover no-repeat;opacity:0.55;z-index:0;animation:floatBook 8s ease-in-out infinite}
-@keyframes floatBook{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-15px) scale(1.02)}}
-.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:250px;background:linear-gradient(transparent,var(--void));pointer-events:none;z-index:1}
-.hero > *{position:relative;z-index:2}
+.nav-links { display: flex; gap: 30px; }
+.nav-links a {
+    color: var(--cosmic-cream);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+.nav-links a:hover { color: var(--electric-blue); }
 
-.mandala{width:300px;height:300px;position:relative;margin-bottom:30px}
-.mandala-ring{position:absolute;border-radius:50%;border:1px solid;animation:sp linear infinite}
-.mr1{inset:0;border-color:rgba(212,168,67,0.25);animation-duration:80s}
-.mr2{inset:20px;border-color:rgba(123,79,191,0.2);animation-duration:60s;animation-direction:reverse}
-.mr3{inset:45px;border-color:rgba(100,223,223,0.15);animation-duration:45s}
-.mr4{inset:65px;border-color:rgba(212,168,67,0.12);animation-duration:35s;animation-direction:reverse}
-@keyframes sp{to{transform:rotate(360deg)}}
-.mandala-core{position:absolute;inset:85px;border-radius:50%;background:radial-gradient(circle,rgba(212,168,67,0.08),transparent);display:flex;align-items:center;justify-content:center;flex-direction:column}
-.mandala-core .brand{font-family:'Cinzel',serif;font-size:14px;color:var(--gold);letter-spacing:4px;text-shadow:0 0 20px rgba(212,168,67,0.3)}
-.mandala-core .sub{font-family:'Cormorant Garamond',serif;font-size:10px;color:var(--starD);letter-spacing:2px;margin-top:3px}
-.zsym{position:absolute;width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--gold);text-shadow:0 0 8px rgba(212,168,67,0.4);transition:all 0.3s}
-.zsym:hover{transform:translate(-50%,-50%) scale(1.5)!important;text-shadow:0 0 20px var(--gold)}
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+h1 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1.1;
+    color: var(--pure-white);
+    text-shadow: 0 0 15px rgba(160, 240, 255, 0.8);
+}
 
-.hero h1{font-family:'Cinzel',serif;font-size:clamp(38px,8vw,80px);line-height:1;margin-bottom:10px}
-.h-au{background:linear-gradient(135deg,var(--gold),var(--gold2),var(--gold3),var(--gold));background-size:200% 200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:gs 4s ease infinite}
-@keyframes gs{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
-.h-bk{color:var(--starW);text-shadow:0 0 60px rgba(232,232,255,0.08)}
-.hero-tag{font-family:'Cormorant Garamond',serif;font-size:clamp(14px,2vw,20px);color:var(--gold);letter-spacing:6px;text-transform:uppercase;margin-bottom:20px;opacity:0.7}
-.hero-desc{font-family:'Cormorant Garamond',serif;font-size:clamp(15px,2.2vw,21px);color:var(--starD);max-width:560px;line-height:1.7;margin-bottom:30px;font-style:italic}
+h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    line-height: 1.2;
+}
 
-.stats{display:flex;gap:30px;margin-bottom:30px;flex-wrap:wrap;justify-content:center}
-.stat{text-align:center;padding:15px 20px;position:relative}
-.stat::after{content:'';position:absolute;right:-15px;top:20%;height:60%;width:1px;background:linear-gradient(transparent,rgba(212,168,67,0.2),transparent)}
-.stat:last-child::after{display:none}
-.stat-n{font-family:'Cinzel',serif;font-size:30px;color:var(--gold);text-shadow:0 0 25px rgba(212,168,67,0.25)}
-.stat-l{font-size:9px;color:var(--starD);text-transform:uppercase;letter-spacing:3px;margin-top:4px}
+h2.gold { color: var(--golden-yellow); text-shadow: 0 0 10px rgba(255, 237, 138, 0.5); }
+h2.love { color: var(--love-rose); text-shadow: 0 0 10px rgba(255, 179, 209, 0.5); }
 
-.btn{display:inline-flex;align-items:center;gap:8px;padding:15px 38px;border:1px solid var(--gold);background:transparent;color:var(--gold);font-family:'Cinzel',serif;font-size:13px;letter-spacing:3px;border-radius:50px;cursor:pointer;text-decoration:none;transition:all 0.4s;position:relative;overflow:hidden}
-.btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(212,168,67,0.08),transparent);opacity:0;transition:opacity 0.3s}
-.btn:hover::before{opacity:1}
-.btn:hover{box-shadow:0 0 35px rgba(212,168,67,0.15);transform:translateY(-2px)}
-.btn-g{background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--void);font-weight:700;border:none}
-.btn-g:hover{box-shadow:0 5px 30px rgba(212,168,67,0.4)}
+h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--golden-yellow);
+}
 
-.sec-head{text-align:center;padding:60px 20px 30px}
-.sec-orn{display:flex;align-items:center;justify-content:center;gap:15px;margin-bottom:12px}
-.sec-line{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
-.sec-line:last-child{background:linear-gradient(90deg,var(--gold),transparent)}
-.sec-dia{width:8px;height:8px;background:var(--gold);transform:rotate(45deg);box-shadow:0 0 10px rgba(212,168,67,0.3)}
-.sec-t{font-family:'Cinzel',serif;font-size:clamp(22px,4vw,38px);background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:2px}
-.sec-s{font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--starD);font-style:italic;margin-top:6px}
+p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--cosmic-cream);
+    font-weight: 300;
+}
 
-.grid{max-width:1300px;margin:0 auto;padding:0 20px 60px;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:28px}
-@media(max-width:700px){.grid{grid-template-columns:1fr;max-width:420px}}
+a { color: var(--aura-pink); text-decoration: none; transition: all 0.3s; }
+a:hover { color: var(--electric-blue); }
 
-.card{background:linear-gradient(165deg,rgba(14,13,37,0.95),rgba(10,8,32,0.98));border:1px solid rgba(212,168,67,0.06);border-radius:22px;overflow:hidden;transition:all 0.6s cubic-bezier(0.16,1,0.3,1);position:relative;cursor:pointer}
-.card::before{content:'';position:absolute;inset:0;border-radius:22px;padding:1px;background:linear-gradient(135deg,transparent 40%,rgba(212,168,67,0.15),rgba(123,79,191,0.1),transparent 60%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity 0.5s}
-.card:hover{transform:translateY(-10px);box-shadow:0 25px 60px rgba(0,0,0,0.6),0 0 50px rgba(212,168,67,0.06)}
-.card:hover::before{opacity:1}
+/* ============================================
+   GLASS CARD
+   ============================================ */
+.glass-card {
+    background: rgba(255, 249, 234, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(160, 240, 255, 0.1);
+    border-radius: 24px;
+    box-shadow: var(--glow-cream);
+    color: var(--pure-white);
+}
 
-.cover{height:320px;position:relative;perspective:1000px;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.cover-glow{position:absolute;width:200px;height:200px;border-radius:50%;filter:blur(60px);opacity:0.3;transition:opacity 0.5s}
-.card:hover .cover-glow{opacity:0.5}
+/* ============================================
+   BUTTONS — Same as index.html
+   ============================================ */
+.btn-cta {
+    display: inline-block;
+    background: var(--gradient-gold-pink);
+    border: none;
+    color: #000;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    padding: 18px 40px;
+    box-shadow: var(--glow-gold);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
 
-.book{width:170px;height:240px;position:relative;transform-style:preserve-3d;transform:rotateY(-18deg) rotateX(4deg);transition:transform 0.7s cubic-bezier(0.16,1,0.3,1)}
-.card:hover .book{transform:rotateY(-28deg) rotateX(6deg) translateY(-5px)}
-.book-front{position:absolute;width:100%;height:100%;border-radius:3px 12px 12px 3px;backface-visibility:hidden;box-shadow:6px 6px 25px rgba(0,0,0,0.6);overflow:hidden}
-.book-spine{position:absolute;left:-16px;width:16px;height:100%;transform:rotateY(-90deg);border-radius:3px 0 0 3px}
-.book-top{position:absolute;top:-8px;left:0;width:100%;height:8px;transform:rotateX(90deg);transform-origin:bottom}
-.book-shadow{position:absolute;bottom:-18px;left:5%;width:90%;height:25px;background:radial-gradient(ellipse,rgba(0,0,0,0.5),transparent);filter:blur(8px);transform:rotateX(80deg)}
+.btn-cta:hover {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: var(--glow-love);
+    color: #000;
+}
 
-.cv-content{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px;text-align:center;z-index:2}
-.cv-icon{font-size:48px;margin-bottom:8px;filter:drop-shadow(0 2px 8px rgba(0,0,0,0.5))}
-.cv-title{font-family:'Cinzel',serif;font-size:12px;color:#fff;line-height:1.4;font-weight:700;text-shadow:0 1px 4px rgba(0,0,0,0.6);max-width:130px}
-.cv-author{font-size:8px;color:rgba(255,255,255,0.7);margin-top:auto;padding-top:8px;letter-spacing:2px;text-transform:uppercase}
-.cv-brand{font-family:'Cinzel',serif;font-size:7px;color:rgba(255,255,255,0.5);margin-top:2px;letter-spacing:1px}
+.btn-secondary {
+    display: inline-block;
+    background: transparent;
+    border: 1px solid var(--electric-blue);
+    color: var(--pure-white);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 50px;
+    padding: 15px 35px;
+    box-shadow: var(--glow-blue);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+}
 
-.info{padding:0 20px 22px}
-.info-cat{font-size:9px;color:var(--purple2);text-transform:uppercase;letter-spacing:2.5px;margin-bottom:6px;font-weight:600}
-.info-title{font-family:'Cinzel',serif;font-size:17px;color:var(--starW);line-height:1.35;margin-bottom:6px}
-.info-desc{font-size:11.5px;color:var(--starD);line-height:1.6;margin-bottom:12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.info-meta{display:flex;gap:14px;margin-bottom:10px;flex-wrap:wrap}
-.mi{font-size:10px;color:var(--starD);display:flex;align-items:center;gap:3px}
-.info-fmts{display:flex;gap:5px;margin-bottom:10px;flex-wrap:wrap}
-.fmt{padding:3px 10px;border-radius:20px;font-size:8px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px}
-.f-pdf{background:rgba(244,67,54,0.08);color:#ef9a9a;border:1px solid rgba(244,67,54,0.12)}
-.f-kin{background:rgba(255,152,0,0.08);color:#ffcc80;border:1px solid rgba(255,152,0,0.12)}
-.f-pb{background:rgba(33,150,243,0.08);color:#90caf9;border:1px solid rgba(33,150,243,0.12)}
-.f-hd{background:rgba(212,168,67,0.08);color:var(--gold2);border:1px solid rgba(212,168,67,0.12)}
-.f-au{background:rgba(156,39,176,0.08);color:#ce93d8;border:1px solid rgba(156,39,176,0.12)}
-.info-langs{display:flex;gap:4px;margin-bottom:14px;flex-wrap:wrap}
-.lang{width:22px;height:15px;border-radius:3px;font-size:7px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);color:var(--starD);font-weight:500}
-.pr-row{display:flex;align-items:center;justify-content:space-between}
-.price{font-family:'Cinzel',serif;font-size:22px;color:var(--gold);text-shadow:0 0 15px rgba(212,168,67,0.2)}
-.price-old{font-size:13px;color:var(--starD);text-decoration:line-through;margin-right:6px}
-.btn-sm{padding:9px 20px;border:1px solid var(--gold);background:linear-gradient(135deg,rgba(212,168,67,0.08),transparent);color:var(--gold);font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;border-radius:22px;cursor:pointer;transition:all 0.3s}
-.btn-sm:hover{background:var(--gold);color:var(--void);box-shadow:0 0 20px rgba(212,168,67,0.3)}
+.btn-secondary:hover {
+    background: rgba(160, 240, 255, 0.1);
+    box-shadow: 0 0 40px rgba(160, 240, 255, 0.4);
+    color: var(--pure-white);
+}
 
-.badge{position:absolute;top:14px;right:14px;padding:4px 14px;border-radius:20px;font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;z-index:5;backdrop-filter:blur(8px)}
-.b-best{background:linear-gradient(135deg,rgba(212,168,67,0.9),rgba(240,208,120,0.9));color:var(--void)}
-.b-new{background:linear-gradient(135deg,rgba(123,79,191,0.85),rgba(155,111,223,0.85));color:#fff}
+/* ============================================
+   HERO — Aureum Books
+   ============================================ */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 20px 80px;
+    position: relative;
+    overflow: hidden;
+}
 
-.modal-ov{position:fixed;inset:0;z-index:9999;background:rgba(5,4,16,0.93);backdrop-filter:blur(15px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.4s}
-.modal-ov.open{opacity:1;pointer-events:all}
-.modal{background:linear-gradient(165deg,var(--cosmos),var(--deep));border:1px solid rgba(212,168,67,0.12);border-radius:24px;max-width:550px;width:94%;max-height:90vh;overflow-y:auto;position:relative;animation:mI 0.4s cubic-bezier(0.16,1,0.3,1)}
-@keyframes mI{from{opacity:0;transform:scale(0.92) translateY(30px)}}
-.modal::-webkit-scrollbar{width:4px}
-.modal::-webkit-scrollbar-thumb{background:rgba(212,168,67,0.2);border-radius:2px}
-.modal-x{position:sticky;top:0;right:0;float:right;background:rgba(5,4,16,0.8);border:none;color:var(--starD);font-size:24px;cursor:pointer;z-index:5;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:10px;backdrop-filter:blur(8px);transition:all 0.2s}
-.modal-x:hover{color:var(--gold);background:rgba(212,168,67,0.1)}
-.modal-cover{height:250px;display:flex;align-items:center;justify-content:center;perspective:900px;position:relative;overflow:hidden;margin-top:-50px}
-.modal-cover::after{content:'';position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(transparent,var(--cosmos))}
-.modal-body{padding:0 30px 30px}
-.mb-badge{display:inline-block;padding:4px 14px;border-radius:18px;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px}
-.mb-cat{font-size:10px;color:var(--purple2);text-transform:uppercase;letter-spacing:2.5px;margin-bottom:8px;font-weight:600}
-.mb-title{font-family:'Cinzel',serif;font-size:24px;color:var(--starW);line-height:1.3;margin-bottom:10px}
-.mb-desc{font-size:13px;color:var(--starD);line-height:1.75;margin-bottom:20px}
-.mb-meta{display:flex;gap:18px;margin-bottom:18px;flex-wrap:wrap}
-.mb-m{font-size:11px;color:var(--starD);display:flex;align-items:center;gap:5px}
-.mb-fmts{margin-bottom:18px}
-.mb-fmts-h{font-size:10px;color:var(--starD);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px}
-.mb-fmt{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:rgba(255,255,255,0.015);border:1px solid rgba(255,255,255,0.04);border-radius:12px;margin-bottom:5px;transition:all 0.2s}
-.mb-fmt:hover{border-color:rgba(212,168,67,0.15);background:rgba(212,168,67,0.03)}
-.mb-fmt-n{font-size:13px;color:var(--starW)}
-.mb-fmt-p{font-family:'Cinzel',serif;font-size:15px;color:var(--gold)}
-.mb-langs{margin-bottom:20px}
-.mb-langs-h{font-size:10px;color:var(--starD);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px}
-.mb-pills{display:flex;gap:6px;flex-wrap:wrap}
-.mb-pill{padding:5px 12px;border-radius:14px;font-size:10px;background:rgba(123,79,191,0.06);border:1px solid rgba(123,79,191,0.12);color:var(--starD);font-weight:500}
-.mb-pr-row{display:flex;align-items:center;gap:14px;margin-bottom:20px}
-.mb-old{font-size:18px;color:var(--starD);text-decoration:line-through}
-.mb-price{font-family:'Cinzel',serif;font-size:36px;color:var(--gold);text-shadow:0 0 25px rgba(212,168,67,0.2)}
-.mb-save{padding:5px 12px;border-radius:14px;font-size:10px;font-weight:700;background:rgba(80,200,120,0.1);color:#50C878;border:1px solid rgba(80,200,120,0.15)}
-.mb-buy{width:100%;padding:16px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--void);font-family:'Cinzel',serif;font-size:13px;font-weight:700;letter-spacing:2px;border:none;border-radius:14px;cursor:pointer;transition:all 0.3s;margin-bottom:8px}
-.mb-buy:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(212,168,67,0.35)}
-.mb-prev{width:100%;padding:14px;background:transparent;border:1px solid rgba(212,168,67,0.15);color:var(--gold);font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;border-radius:14px;cursor:pointer;transition:all 0.3s}
-.mb-prev:hover{background:rgba(212,168,67,0.06)}
-.mb-author{text-align:center;margin-top:18px;padding-top:16px;border-top:1px solid rgba(212,168,67,0.06)}
-.mb-author-n{font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--gold);font-style:italic}
-.mb-author-b{font-size:10px;color:var(--starD);margin-top:3px}
+.hero-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: url('/assets/hero-libro-cosmico.png') center/cover no-repeat;
+    opacity: 0.4;
+    z-index: 0;
+}
 
-.prev{max-width:950px;margin:0 auto 60px;padding:0 20px}
-.prev-card{background:linear-gradient(165deg,var(--cosmos),var(--deep));border:1px solid rgba(212,168,67,0.08);border-radius:22px;padding:35px;text-align:center;position:relative;overflow:hidden}
-.prev-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(212,168,67,0.04),transparent 60%);pointer-events:none}
-.prev-t{font-family:'Cinzel',serif;color:var(--gold);font-size:20px;margin-bottom:8px;position:relative}
-.prev-s{color:var(--starD);font-size:13px;margin-bottom:20px;position:relative}
-.prev-pills{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:20px;position:relative}
-.prev-p{padding:8px 20px;border:1px solid rgba(212,168,67,0.12);border-radius:25px;background:transparent;color:var(--starD);cursor:pointer;font-size:12px;transition:all 0.3s}
-.prev-p:hover,.prev-p.on{background:var(--gold);color:var(--void);border-color:var(--gold)}
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(180deg, rgba(8,1,27,0.3) 0%, rgba(8,1,27,0.9) 100%);
+    z-index: 1;
+}
 
-.cta{max-width:800px;margin:0 auto 60px;padding:0 20px}
-.cta-card{background:linear-gradient(135deg,rgba(123,79,191,0.06),rgba(212,168,67,0.03));border:1px solid rgba(123,79,191,0.12);border-radius:24px;padding:45px;text-align:center;position:relative;overflow:hidden}
-.cta-card::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(from 0deg,transparent,rgba(212,168,67,0.02),transparent,rgba(123,79,191,0.02),transparent);animation:sp 25s linear infinite}
-.cta-t{font-family:'Cinzel',serif;font-size:clamp(20px,3.5vw,32px);color:var(--gold);margin-bottom:10px;position:relative;z-index:2}
-.cta-s{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--starD);margin-bottom:18px;font-style:italic;position:relative;z-index:2}
-.cta-price{font-family:'Cinzel',serif;font-size:40px;color:var(--gold);margin-bottom:20px;text-shadow:0 0 30px rgba(212,168,67,0.25);position:relative;z-index:2}
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
 
-footer{border-top:1px solid rgba(212,168,67,0.05);padding:30px 20px;text-align:center;position:relative;z-index:10}
-footer a{color:var(--gold);text-decoration:none}
-.ft-b{font-family:'Cinzel',serif;font-size:18px;color:var(--gold);margin-bottom:8px;letter-spacing:3px}
-.ft-l{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:10px;font-size:12px}
-.ft-l a{color:var(--starD);transition:color 0.3s}
-.ft-l a:hover{color:var(--gold)}
-.ft-c{font-size:10px;color:rgba(136,136,187,0.35)}
+.hero-badge {
+    display: inline-block;
+    background: rgba(160, 240, 255, 0.1);
+    border: 1px solid rgba(160, 240, 255, 0.3);
+    border-radius: 50px;
+    padding: 8px 24px;
+    font-size: 0.85rem;
+    color: var(--electric-blue);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
 
-.rv{opacity:0;transform:translateY(30px);transition:all 0.8s cubic-bezier(0.16,1,0.3,1)}
-.rv.vis{opacity:1;transform:translateY(0)}
+.hero h1 {
+    margin-bottom: 25px;
+    background: var(--gradient-gold-pink);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+}
 
-@media(max-width:600px){
-.hero{min-height:92vh;padding:30px 15px}.mandala{width:220px;height:220px}
-.cover{height:280px}.book{width:145px;height:205px}
-.modal{width:97%}.modal-body{padding:0 20px 24px}.mb-title{font-size:20px}.mb-price{font-size:28px}
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+    color: rgba(255, 179, 209, 0.9);
+}
+
+.hero-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+
+.hero-stats {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    margin-top: 60px;
+    flex-wrap: wrap;
+}
+
+.stat { text-align: center; }
+.stat-num {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--golden-yellow);
+    text-shadow: 0 0 10px rgba(255, 237, 138, 0.5);
+}
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--aura-pink);
+    margin-top: 5px;
+}
+
+/* ============================================
+   SECTION HEADERS
+   ============================================ */
+.section-head {
+    text-align: center;
+    padding: 100px 20px 40px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.section-head h2 { margin-bottom: 15px; }
+.section-head p { margin-bottom: 0; }
+
+/* ============================================
+   BOOK GRID
+   ============================================ */
+.grid {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+/* ============================================
+   BOOK CARDS — Glassmorphism
+   ============================================ */
+.card {
+    background: rgba(255, 249, 234, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(160, 240, 255, 0.1);
+    border-radius: 24px;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    cursor: pointer;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 237, 138, 0.05) 0%, transparent 60%);
+    animation: pulseGlow 4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: var(--golden-yellow);
+    box-shadow: 0 0 40px rgba(255, 237, 138, 0.2), 0 0 80px rgba(255, 237, 138, 0.08);
+}
+
+/* Book cover area */
+.cover {
+    height: 320px;
+    position: relative;
+    perspective: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.cover-glow {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.3;
+    transition: opacity 0.5s;
+}
+
+.card:hover .cover-glow { opacity: 0.5; }
+
+/* 3D Book */
+.book {
+    width: 170px;
+    height: 240px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateY(-18deg) rotateX(4deg);
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card:hover .book { transform: rotateY(-28deg) rotateX(6deg) translateY(-5px); }
+
+.book-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 3px 12px 12px 3px;
+    backface-visibility: hidden;
+    box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+}
+
+.book-spine {
+    position: absolute;
+    left: -16px;
+    width: 16px;
+    height: 100%;
+    transform: rotateY(-90deg);
+    border-radius: 3px 0 0 3px;
+}
+
+.book-top {
+    position: absolute;
+    top: -8px;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    transform: rotateX(90deg);
+    transform-origin: bottom;
+}
+
+.book-shadow {
+    position: absolute;
+    bottom: -18px;
+    left: 5%;
+    width: 90%;
+    height: 25px;
+    background: radial-gradient(ellipse, rgba(0, 0, 0, 0.5), transparent);
+    filter: blur(8px);
+    transform: rotateX(80deg);
+}
+
+/* Book cover content */
+.cv-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    text-align: center;
+    z-index: 2;
+}
+
+.cv-icon {
+    font-size: 48px;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+}
+
+.cv-title {
+    font-family: var(--font-display);
+    font-size: 12px;
+    color: #fff;
+    line-height: 1.4;
+    font-weight: 700;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+    max-width: 130px;
+}
+
+.cv-author {
+    font-size: 8px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: auto;
+    padding-top: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.cv-brand {
+    font-family: var(--font-display);
+    font-size: 7px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 2px;
+    letter-spacing: 1px;
+}
+
+/* Book info */
+.info { padding: 0 22px 24px; }
+
+.info-cat {
+    font-size: 0.7rem;
+    color: var(--electric-blue);
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.info-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--pure-white);
+    line-height: 1.35;
+    margin-bottom: 8px;
+}
+
+.info-desc {
+    font-size: 0.8rem;
+    color: var(--cosmic-cream);
+    line-height: 1.6;
+    margin-bottom: 14px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    opacity: 0.8;
+}
+
+.info-meta {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.mi {
+    font-size: 0.7rem;
+    color: var(--aura-pink);
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.info-fmts {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.fmt {
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.f-pdf { background: rgba(255, 237, 138, 0.08); color: var(--golden-yellow); border: 1px solid rgba(255, 237, 138, 0.15); }
+.f-kin { background: rgba(160, 240, 255, 0.08); color: var(--electric-blue); border: 1px solid rgba(160, 240, 255, 0.15); }
+.f-pb { background: rgba(255, 179, 209, 0.08); color: var(--love-rose); border: 1px solid rgba(255, 179, 209, 0.15); }
+.f-hd { background: rgba(255, 214, 245, 0.08); color: var(--aura-pink); border: 1px solid rgba(255, 214, 245, 0.15); }
+.f-au { background: rgba(255, 249, 234, 0.08); color: var(--cosmic-cream); border: 1px solid rgba(255, 249, 234, 0.15); }
+
+.info-langs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+}
+
+.lang {
+    width: 22px;
+    height: 15px;
+    border-radius: 3px;
+    font-size: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(160, 240, 255, 0.05);
+    border: 1px solid rgba(160, 240, 255, 0.1);
+    color: var(--cosmic-cream);
+    font-weight: 500;
+}
+
+.pr-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.price {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--golden-yellow);
+    text-shadow: 0 0 15px rgba(255, 237, 138, 0.3);
+}
+
+.price-old {
+    font-size: 0.85rem;
+    color: var(--aura-pink);
+    text-decoration: line-through;
+    margin-right: 6px;
+    opacity: 0.7;
+}
+
+.btn-sm {
+    padding: 9px 20px;
+    border: 1px solid var(--golden-yellow);
+    background: rgba(255, 237, 138, 0.08);
+    color: var(--golden-yellow);
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+}
+
+.btn-sm:hover {
+    background: var(--gradient-gold-pink);
+    color: #000;
+    box-shadow: var(--glow-gold);
+}
+
+/* Badges */
+.badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    padding: 5px 16px;
+    border-radius: 50px;
+    font-size: 0.55rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    z-index: 5;
+    backdrop-filter: blur(8px);
+}
+
+.b-best {
+    background: var(--gradient-gold-pink);
+    color: #000;
+}
+
+.b-new {
+    background: var(--gradient-blue-aura);
+    color: #000;
+}
+
+/* ============================================
+   PREVIEW SECTION
+   ============================================ */
+.prev {
+    max-width: 950px;
+    margin: 0 auto 60px;
+    padding: 0 20px;
+}
+
+.prev-card {
+    background: rgba(255, 249, 234, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 237, 138, 0.15);
+    border-radius: 24px;
+    padding: 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.prev-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(255, 237, 138, 0.04), transparent 60%);
+    pointer-events: none;
+}
+
+.prev-t {
+    font-family: var(--font-display);
+    color: var(--golden-yellow);
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.prev-s {
+    color: var(--cosmic-cream);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    position: relative;
+    opacity: 0.8;
+}
+
+.prev-pills {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.prev-p {
+    padding: 8px 20px;
+    border: 1px solid rgba(160, 240, 255, 0.2);
+    border-radius: 50px;
+    background: transparent;
+    color: var(--cosmic-cream);
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-family: var(--font-body);
+    transition: all 0.3s;
+}
+
+.prev-p:hover, .prev-p.on {
+    background: var(--gradient-gold-pink);
+    color: #000;
+    border-color: var(--golden-yellow);
+    font-weight: 600;
+}
+
+/* ============================================
+   BUNDLE SECTION
+   ============================================ */
+.bundle-section {
+    padding: 60px 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.bundle-card {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(255, 179, 209, 0.04);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 237, 138, 0.25);
+    border-radius: 28px;
+    padding: 50px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.bundle-card::before {
+    content: '';
+    position: absolute;
+    top: -80%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 237, 138, 0.06) 0%, transparent 50%);
+    animation: pulseGlow 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.bundle-card::after {
+    content: '';
+    position: absolute;
+    top: -1px; left: -1px; right: -1px; bottom: -1px;
+    border-radius: 28px;
+    background: linear-gradient(135deg, rgba(255, 237, 138, 0.3), rgba(255, 179, 209, 0.3), rgba(160, 240, 255, 0.2));
+    z-index: -1;
+    filter: blur(15px);
+    opacity: 0.3;
+    animation: pulseGlow 4s ease-in-out infinite alternate;
+}
+
+.bundle-badge {
+    display: inline-block;
+    background: var(--gradient-gold-pink);
+    color: #000;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 8px 24px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    box-shadow: var(--glow-gold);
+    position: relative;
+    z-index: 2;
+}
+
+.bundle-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    color: var(--golden-yellow);
+    text-shadow: 0 0 10px rgba(255, 237, 138, 0.5);
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 2;
+}
+
+.bundle-sub {
+    color: var(--aura-pink);
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 2;
+}
+
+.bundle-prices {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 2;
+}
+
+.bundle-old {
+    text-decoration: line-through;
+    color: var(--aura-pink);
+    font-size: 1rem;
+    opacity: 0.7;
+}
+
+.bundle-price {
+    font-family: var(--font-display);
+    font-size: 3.2rem;
+    font-weight: 800;
+    color: var(--golden-yellow);
+    text-shadow: 0 0 30px rgba(255, 237, 138, 0.6), 0 0 60px rgba(255, 237, 138, 0.3);
+}
+
+.bundle-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 8px;
+    text-align: left;
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 2;
+}
+
+.bundle-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--cosmic-cream);
+    font-size: 0.85rem;
+}
+
+.bundle-item span {
+    color: var(--golden-yellow);
+}
+
+.bundle-note {
+    color: var(--aura-pink);
+    font-size: 0.7rem;
+    margin-top: 12px;
+    position: relative;
+    z-index: 2;
+    opacity: 0.7;
+}
+
+/* ============================================
+   CTA SECTION
+   ============================================ */
+.cta-section {
+    max-width: 800px;
+    margin: 0 auto 60px;
+    padding: 0 20px;
+}
+
+.cta-card {
+    background: rgba(255, 249, 234, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(160, 240, 255, 0.15);
+    border-radius: 24px;
+    padding: 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(160, 240, 255, 0.04), transparent 60%);
+    animation: pulseGlow 5s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.cta-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 3.5vw, 2rem);
+    color: var(--golden-yellow);
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.cta-sub {
+    color: var(--aura-pink);
+    font-size: 1.1rem;
+    margin-bottom: 18px;
+    font-style: italic;
+    position: relative;
+    z-index: 2;
+}
+
+.cta-price {
+    font-family: var(--font-display);
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--golden-yellow);
+    margin-bottom: 20px;
+    text-shadow: 0 0 30px rgba(255, 237, 138, 0.4);
+    position: relative;
+    z-index: 2;
+}
+
+/* ============================================
+   MODAL
+   ============================================ */
+.modal-ov {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(8, 1, 27, 0.9);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s;
+}
+
+.modal-ov.open { opacity: 1; pointer-events: all; }
+
+.modal {
+    background: rgba(8, 1, 27, 0.95);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 237, 138, 0.15);
+    border-radius: 24px;
+    max-width: 550px;
+    width: 94%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: modalIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalIn { from { opacity: 0; transform: scale(0.92) translateY(30px); } }
+
+.modal::-webkit-scrollbar { width: 4px; }
+.modal::-webkit-scrollbar-thumb { background: rgba(255, 237, 138, 0.2); border-radius: 2px; }
+
+.modal-x {
+    position: sticky;
+    top: 0;
+    right: 0;
+    float: right;
+    background: rgba(8, 1, 27, 0.8);
+    border: 1px solid rgba(255, 237, 138, 0.1);
+    color: var(--cosmic-cream);
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 5;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    backdrop-filter: blur(8px);
+    transition: all 0.2s;
+}
+
+.modal-x:hover { color: var(--golden-yellow); background: rgba(255, 237, 138, 0.1); }
+
+.modal-cover {
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 900px;
+    position: relative;
+    overflow: hidden;
+    margin-top: -50px;
+}
+
+.modal-cover::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(transparent, rgba(8, 1, 27, 0.95));
+}
+
+.modal-body { padding: 0 30px 30px; }
+
+.mb-badge {
+    display: inline-block;
+    padding: 5px 16px;
+    border-radius: 50px;
+    font-size: 0.55rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+
+.mb-cat {
+    font-size: 0.65rem;
+    color: var(--electric-blue);
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.mb-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--pure-white);
+    line-height: 1.3;
+    margin-bottom: 10px;
+}
+
+.mb-desc {
+    font-size: 0.85rem;
+    color: var(--cosmic-cream);
+    line-height: 1.75;
+    margin-bottom: 20px;
+    opacity: 0.85;
+}
+
+.mb-meta {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+
+.mb-m {
+    font-size: 0.7rem;
+    color: var(--aura-pink);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.mb-fmts { margin-bottom: 18px; }
+
+.mb-fmts-h {
+    font-size: 0.65rem;
+    color: var(--aura-pink);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+
+.mb-fmt {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: rgba(255, 249, 234, 0.02);
+    border: 1px solid rgba(255, 237, 138, 0.06);
+    border-radius: 12px;
+    margin-bottom: 5px;
+    transition: all 0.2s;
+}
+
+.mb-fmt:hover {
+    border-color: rgba(255, 237, 138, 0.2);
+    background: rgba(255, 237, 138, 0.03);
+}
+
+.mb-fmt-n { font-size: 0.85rem; color: var(--cosmic-cream); }
+.mb-fmt-p { font-family: var(--font-display); font-size: 0.95rem; color: var(--golden-yellow); }
+
+.mb-langs { margin-bottom: 20px; }
+
+.mb-langs-h {
+    font-size: 0.65rem;
+    color: var(--aura-pink);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+
+.mb-pills { display: flex; gap: 6px; flex-wrap: wrap; }
+
+.mb-pill {
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 0.65rem;
+    background: rgba(160, 240, 255, 0.06);
+    border: 1px solid rgba(160, 240, 255, 0.12);
+    color: var(--cosmic-cream);
+    font-weight: 500;
+}
+
+.mb-pr-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.mb-old { font-size: 1.1rem; color: var(--aura-pink); text-decoration: line-through; opacity: 0.7; }
+.mb-price { font-family: var(--font-display); font-size: 2.2rem; color: var(--golden-yellow); text-shadow: 0 0 25px rgba(255, 237, 138, 0.3); }
+
+.mb-save {
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    background: rgba(80, 200, 120, 0.1);
+    color: #50C878;
+    border: 1px solid rgba(80, 200, 120, 0.15);
+}
+
+.mb-buy {
+    width: 100%;
+    padding: 16px;
+    background: var(--gradient-gold-pink);
+    color: #000;
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-bottom: 8px;
+    box-shadow: var(--glow-gold);
+}
+
+.mb-buy:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(255, 237, 138, 0.35);
+}
+
+.mb-prev {
+    width: 100%;
+    padding: 14px;
+    background: transparent;
+    border: 1px solid rgba(160, 240, 255, 0.2);
+    color: var(--electric-blue);
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.mb-prev:hover { background: rgba(160, 240, 255, 0.06); }
+
+.mb-author {
+    text-align: center;
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 237, 138, 0.08);
+}
+
+.mb-author-n {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    color: var(--golden-yellow);
+    font-style: italic;
+}
+
+.mb-author-b {
+    font-size: 0.65rem;
+    color: var(--aura-pink);
+    margin-top: 3px;
+}
+
+/* ============================================
+   FOOTER — Same as index.html
+   ============================================ */
+footer {
+    padding: 50px 40px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 237, 138, 0.1);
+    background: rgba(8, 1, 27, 0.8);
+}
+
+.footer-logo {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--golden-yellow);
+    text-shadow: 0 0 10px rgba(255, 237, 138, 0.3);
+    margin-bottom: 15px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: var(--aura-pink);
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.footer-links a:hover { color: var(--electric-blue); }
+
+.footer-copy {
+    color: rgba(255, 249, 234, 0.4);
+    font-size: 0.8rem;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+.fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes pulseGlow {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+    nav { padding: 15px 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 100px 20px 60px; }
+    .hero-stats { gap: 30px; }
+    .hero-buttons { flex-direction: column; align-items: center; }
+    .grid { grid-template-columns: 1fr; max-width: 420px; }
+    .cover { height: 280px; }
+    .book { width: 145px; height: 205px; }
+    .bundle-card { padding: 35px 20px; }
+    .bundle-price { font-size: 2.5rem; }
+    .modal { width: 97%; }
+    .modal-body { padding: 0 20px 24px; }
+    .mb-title { font-size: 1.25rem; }
+    .mb-price { font-size: 1.8rem; }
 }
 </style>
 </head>
 <body>
-<canvas id="stars"></canvas>
-<div class="neb n1"></div><div class="neb n2"></div><div class="neb n3"></div><div class="neb n4"></div>
-<div class="particles" id="particles"></div>
-<div class="ss" id="s1"></div><div class="ss" id="s2"></div><div class="ss" id="s3"></div>
 
-<div class="main">
+<!-- STARS CANVAS -->
+<canvas id="stars" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none;"></canvas>
+
+<!-- NAVBAR — Same as index.html -->
+<nav>
+    <a href="/" class="nav-logo">&#10022; Astro Aureum</a>
+    <div class="nav-links">
+        <a href="/#sincronia">Sincronicidad</a>
+        <a href="/#como-funciona">Como Funciona</a>
+        <a href="/#precios">Precios</a>
+        <a href="/#testimonios">Testimonios</a>
+        <a href="/lecturas.html">9 Tradiciones</a>
+        <a href="/aureum-books.html" style="color:var(--golden-yellow)">Aureum Books</a>
+    </div>
+</nav>
+
+<!-- HERO -->
 <section class="hero">
-  <div class="mandala" id="mandala">
-    <div class="mandala-ring mr1"></div><div class="mandala-ring mr2"></div><div class="mandala-ring mr3"></div><div class="mandala-ring mr4"></div>
-    <div class="mandala-core"><span class="brand">AUREUM</span><span class="sub">BOOKS</span></div>
-  </div>
-  <div class="hero-tag">Biblioteca Cosmica</div>
-  <h1><span class="h-au">Aureum</span> <span class="h-bk">Books</span></h1>
-  <p class="hero-desc">Libros de astrologia que iluminan tu camino cosmico. Escritos por expertos, traducidos a 25+ idiomas, en todos los formatos.</p>
-  <div class="stats">
-    <div class="stat"><div class="stat-n" id="cnt">18</div><div class="stat-l">Libros</div></div>
-    <div class="stat"><div class="stat-n">25+</div><div class="stat-l">Idiomas</div></div>
-    <div class="stat"><div class="stat-n">5</div><div class="stat-l">Formatos</div></div>
-    <div class="stat"><div class="stat-n">12</div><div class="stat-l">Signos</div></div>
-  </div>
-  <div style="display:flex;gap:15px;flex-wrap:wrap;justify-content:center">
-    <a href="#cat" class="btn btn-g">EXPLORAR CATALOGO</a>
-    <a href="#prev" class="btn">LEER GRATIS</a>
-  </div>
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content fade-up">
+        <div class="hero-badge">&#10022; Biblioteca Cosmica</div>
+        <h1>Aureum Books</h1>
+        <p>Libros de astrologia que iluminan tu camino cosmico. Escritos por expertos, traducidos a 25+ idiomas, en todos los formatos.</p>
+        <div class="hero-buttons">
+            <a href="#cat" class="btn-cta">EXPLORAR CATALOGO</a>
+            <a href="#prev" class="btn-secondary">LEER GRATIS</a>
+        </div>
+        <div class="hero-stats">
+            <div class="stat">
+                <div class="stat-num" id="cnt">18</div>
+                <div class="stat-label">Libros</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">25+</div>
+                <div class="stat-label">Idiomas</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">5</div>
+                <div class="stat-label">Formatos</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">12</div>
+                <div class="stat-label">Signos</div>
+            </div>
+        </div>
+    </div>
 </section>
 
-<div class="sec-head" id="cat">
-  <div class="sec-orn"><div class="sec-line"></div><div class="sec-dia"></div><div class="sec-line"></div></div>
-  <div class="sec-t">Catalogo Cosmico</div>
-  <div class="sec-s">Libros que desvelan los secretos del universo</div>
+<!-- CATALOG HEADER -->
+<div class="section-head fade-up" id="cat">
+    <h2 class="gold">Catalogo Cosmico</h2>
+    <p>Libros que desvelan los secretos del universo</p>
 </div>
+
+<!-- BOOK GRID -->
 <div class="grid" id="grid"></div>
 
-<div class="prev rv" id="prev">
-  <div class="prev-card">
-    <div class="prev-t">Lee y Escucha Antes de Comprar</div>
-    <div class="prev-s">Elige tu idioma y prueba el primer capitulo gratis</div>
-    <div class="prev-pills">
-      <button class="prev-p on">Espanol</button><button class="prev-p">Bulgaro</button><button class="prev-p">English</button>
-      <button class="prev-p">Portugues</button><button class="prev-p">Francais</button><button class="prev-p">Deutsch</button>
+<!-- PREVIEW SECTION -->
+<div class="prev fade-up" id="prev">
+    <div class="prev-card">
+        <div class="prev-t">Lee y Escucha Antes de Comprar</div>
+        <div class="prev-s">Elige tu idioma y prueba el primer capitulo gratis</div>
+        <div class="prev-pills">
+            <button class="prev-p on">Espanol</button><button class="prev-p">Bulgaro</button><button class="prev-p">English</button>
+            <button class="prev-p">Portugues</button><button class="prev-p">Francais</button><button class="prev-p">Deutsch</button>
+        </div>
+        <div style="display:flex;gap:15px;justify-content:center;flex-wrap:wrap">
+            <a href="#" class="btn-secondary">&#128214; Leer Capitulo 1</a>
+            <a href="#" class="btn-secondary">&#127908; Escuchar 5 Min</a>
+        </div>
     </div>
-    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-      <a href="#" class="btn">&#128214; Leer Capitulo 1</a>
-      <a href="#" class="btn">&#127908; Escuchar 5 Min</a>
-    </div>
-  </div>
 </div>
 
-<div class="cta rv">
-  <div class="cta-card">
-    <div class="cta-t">Tu Carta Natal Personalizada</div>
-    <div class="cta-s">Descubre los secretos que las estrellas escribieron para ti</div>
-    <div class="cta-price">&euro;139</div>
-    <a href="https://astroaureum.com/#carta-natal" class="btn btn-g">SOLICITAR MI CARTA NATAL</a>
-  </div>
+<!-- CTA — Carta Natal -->
+<div class="cta-section fade-up">
+    <div class="cta-card">
+        <div class="cta-title">Tu Carta Natal Personalizada</div>
+        <div class="cta-sub">Descubre los secretos que las estrellas escribieron para ti</div>
+        <div class="cta-price">&euro;139</div>
+        <a href="https://astroaureum.com/#carta-natal" class="btn-cta">SOLICITAR MI CARTA NATAL</a>
+    </div>
 </div>
 
+<!-- MODAL -->
 <div class="modal-ov" id="mOv" onclick="if(event.target===this)closeM()">
-  <div class="modal" id="mBox">
-    <button class="modal-x" onclick="closeM()">&times;</button>
-    <div class="modal-cover" id="mCov"></div>
-    <div class="modal-body" id="mBod"></div>
-  </div>
+    <div class="modal" id="mBox">
+        <button class="modal-x" onclick="closeM()">&times;</button>
+        <div class="modal-cover" id="mCov"></div>
+        <div class="modal-body" id="mBod"></div>
+    </div>
 </div>
 
-<!-- Biblioteca Completa Bundle -->
-<section style="padding:60px 20px;position:relative;z-index:10">
-<div style="max-width:800px;margin:0 auto;background:linear-gradient(135deg,rgba(123,79,191,0.15),rgba(212,168,67,0.1));border:1px solid rgba(212,168,67,0.25);border-radius:24px;padding:40px 30px;text-align:center;box-shadow:0 0 80px rgba(123,79,191,0.1)">
-<div style="display:inline-block;padding:6px 16px;background:linear-gradient(90deg,#C89840,#D4A843);border-radius:20px;font-size:11px;font-weight:600;color:#050410;letter-spacing:0.1em;margin-bottom:16px">AHORRA &euro;130+</div>
-<h2 style="font-family:'Cinzel',serif;font-size:clamp(24px,5vw,36px);color:#D4A843;margin-bottom:8px">La Biblioteca Astro Aureum Completa</h2>
-<p style="color:#8888bb;font-size:15px;margin-bottom:24px">16 libros &middot; 25+ idiomas &middot; PDF digital</p>
-<div style="display:flex;align-items:baseline;justify-content:center;gap:12px;margin-bottom:24px">
-<span style="text-decoration:line-through;color:#8888bb;font-size:16px">&euro;177</span>
-<span style="font-family:'Cinzel',serif;font-size:42px;color:#f0d078;font-weight:700">&euro;49.99</span>
-</div>
-<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;text-align:left;margin-bottom:28px">
-<div style="display:flex;align-items:center;gap:8px;color:#e8e8ff;font-size:13px"><span style="color:#D4A843">&#10022;</span> Guia de los 12 Signos</div>
-<div style="display:flex;align-items:center;gap:8px;color:#e8e8ff;font-size:13px"><span style="color:#D4A843">&#10022;</span> Como Leer tu Carta Natal</div>
-<div style="display:flex;align-items:center;gap:8px;color:#e8e8ff;font-size:13px"><span style="color:#D4A843">&#10022;</span> Sinastria Cosmica</div>
-<div style="display:flex;align-items:center;gap:8px;color:#e8e8ff;font-size:13px"><span style="color:#D4A843">&#10022;</span> Transitos 2026</div>
-<div style="display:flex;align-items:center;gap:8px;color:#e8e8ff;font-size:13px"><span style="color:#D4A843">&#10022;</span> Las 12 Casas</div>
-<div style="display:flex;align-items:center;gap:8px;color:#e8e8ff;font-size:13px"><span style="color:#D4A843">&#10022;</span> Astrologia Lunar</div>
-<div style="display:flex;align-items:center;gap:8px;color:#e8e8ff;font-size:13px"><span style="color:#D4A843">&#10022;</span> Nodos Lunares y Karma</div>
-<div style="display:flex;align-items:center;gap:8px;color:#e8e8ff;font-size:13px"><span style="color:#D4A843">&#10022;</span> Para Principiantes</div>
-<div style="display:flex;align-items:center;gap:8px;color:#e8e8ff;font-size:13px"><span style="color:#D4A843">&#10022;</span> Meditaciones Zodiacales</div>
-<div style="display:flex;align-items:center;gap:8px;color:#e8e8ff;font-size:13px"><span style="color:#D4A843">&#10022;</span> Cristales y Piedras</div>
-<div style="display:flex;align-items:center;gap:8px;color:#e8e8ff;font-size:13px"><span style="color:#D4A843">&#10022;</span> Tarot y Astrologia</div>
-<div style="display:flex;align-items:center;gap:8px;color:#e8e8ff;font-size:13px"><span style="color:#D4A843">&#10022;</span> Planner 2026-2027</div>
-<div style="display:flex;align-items:center;gap:8px;color:#e8e8ff;font-size:13px"><span style="color:#D4A843">&#10022;</span> Rituales Lunares</div>
-<div style="display:flex;align-items:center;gap:8px;color:#e8e8ff;font-size:13px"><span style="color:#D4A843">&#10022;</span> Revolucion Solar</div>
-<div style="display:flex;align-items:center;gap:8px;color:#e8e8ff;font-size:13px"><span style="color:#D4A843">&#10022;</span> Guia de Retrogrados</div>
-<div style="display:flex;align-items:center;gap:8px;color:#e8e8ff;font-size:13px"><span style="color:#D4A843">&#10022;</span> Signos Vol. 2: Relaciones</div>
-</div>
-<a href="https://astroaureum.com/#contacto" style="display:inline-block;padding:18px 50px;background:linear-gradient(90deg,#7B4FBF,#D4A843);color:#fff;font-family:'Cinzel',serif;font-size:15px;font-weight:700;border:none;border-radius:30px;cursor:pointer;letter-spacing:0.08em;box-shadow:0 4px 30px rgba(123,79,191,0.3);text-decoration:none">QUIERO LA BIBLIOTECA COMPLETA</a>
-<p style="color:#8888bb;font-size:11px;margin-top:12px">&#10022; Acceso inmediato a los 16 libros &middot; Pago seguro</p>
-</div>
+<!-- BUNDLE — Biblioteca Completa -->
+<section class="bundle-section fade-up">
+    <div class="bundle-card">
+        <div class="bundle-badge">AHORRA &euro;130+</div>
+        <h2 class="bundle-title">La Biblioteca Astro Aureum Completa</h2>
+        <p class="bundle-sub">16 libros &middot; 25+ idiomas &middot; PDF digital</p>
+        <div class="bundle-prices">
+            <span class="bundle-old">&euro;177</span>
+            <span class="bundle-price">&euro;49.99</span>
+        </div>
+        <div class="bundle-list">
+            <div class="bundle-item"><span>&#10022;</span> Guia de los 12 Signos</div>
+            <div class="bundle-item"><span>&#10022;</span> Como Leer tu Carta Natal</div>
+            <div class="bundle-item"><span>&#10022;</span> Sinastria Cosmica</div>
+            <div class="bundle-item"><span>&#10022;</span> Transitos 2026</div>
+            <div class="bundle-item"><span>&#10022;</span> Las 12 Casas</div>
+            <div class="bundle-item"><span>&#10022;</span> Astrologia Lunar</div>
+            <div class="bundle-item"><span>&#10022;</span> Nodos Lunares y Karma</div>
+            <div class="bundle-item"><span>&#10022;</span> Para Principiantes</div>
+            <div class="bundle-item"><span>&#10022;</span> Meditaciones Zodiacales</div>
+            <div class="bundle-item"><span>&#10022;</span> Cristales y Piedras</div>
+            <div class="bundle-item"><span>&#10022;</span> Tarot y Astrologia</div>
+            <div class="bundle-item"><span>&#10022;</span> Planner 2026-2027</div>
+            <div class="bundle-item"><span>&#10022;</span> Rituales Lunares</div>
+            <div class="bundle-item"><span>&#10022;</span> Revolucion Solar</div>
+            <div class="bundle-item"><span>&#10022;</span> Guia de Retrogrados</div>
+            <div class="bundle-item"><span>&#10022;</span> Signos Vol. 2: Relaciones</div>
+        </div>
+        <a href="https://astroaureum.com/#contacto" class="btn-cta" style="position:relative;z-index:2">QUIERO LA BIBLIOTECA COMPLETA</a>
+        <p class="bundle-note">&#10022; Acceso inmediato a los 16 libros &middot; Pago seguro</p>
+    </div>
 </section>
 
+<!-- FOOTER — Same as index.html -->
 <footer>
-  <div class="ft-b">AUREUM BOOKS</div>
-  <div class="ft-l">
-    <a href="https://astroaureum.com">AstroAureum.com</a>
-    <a href="#cat">Catalogo</a><a href="#prev">Preview</a>
-    <a href="https://astroaureum.com/#contacto">Contacto</a>
-  </div>
-  <div class="ft-c">&copy; 2026 Aureum Books by AstroAureum. Todos los derechos reservados.</div>
+    <div class="footer-logo">&#10022; Astro Aureum</div>
+    <div class="footer-links">
+        <a href="https://astroaureum.com">AstroAureum.com</a>
+        <a href="#cat">Catalogo</a>
+        <a href="#prev">Preview</a>
+        <a href="https://astroaureum.com/#contacto">Contacto</a>
+        <a href="/politica-privacidad.html">Privacidad</a>
+        <a href="/politica-cookies.html">Cookies</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 Aureum Books by Astro Aureum. Todos los derechos reservados.</p>
 </footer>
-</div>
 
 <script>
-// STARFIELD
-const cv=document.getElementById('stars'),cx=cv.getContext('2d');let SS=[],W,H;
-function initS(){W=cv.width=innerWidth;H=cv.height=innerHeight;SS=[];for(let i=0;i<700;i++)SS.push({x:(Math.random()-.5)*W*3,y:(Math.random()-.5)*H*3,z:Math.random()*2000+200,r:Math.random()*2+.3,t:Math.random()*6.28,sp:Math.random()*.5+.2})}
-function drawS(){cx.clearRect(0,0,W,H);const t=Date.now()*.0002;for(let s of SS){s.z-=s.sp;if(s.z<1){s.z=2000;s.x=(Math.random()-.5)*W*3;s.y=(Math.random()-.5)*H*3}const px=(s.x/s.z)*600+W/2,py=(s.y/s.z)*600+H/2,sz=(1-s.z/2000)*s.r*2.5,a=(1-s.z/2000)*(.4+.6*Math.sin(t*2+s.t));if(px<-5||px>W+5||py<-5||py>H+5)continue;cx.beginPath();cx.arc(px,py,Math.max(sz,.2),0,6.28);const h=s.r>1.5?'42,90%,75%':s.r>1?'230,60%,75%':'0,0%,85%';cx.fillStyle=`hsla(${h},${a})`;cx.fill();if(sz>1.8){cx.beginPath();cx.arc(px,py,sz*4,0,6.28);cx.fillStyle=`hsla(42,80%,70%,${a*.06})`;cx.fill()}}requestAnimationFrame(drawS)}
-addEventListener('resize',initS);initS();drawS();
+// ============================================
+// STARS CANVAS — Same as index.html
+// ============================================
+const canvas = document.getElementById('stars');
+const ctx = canvas.getContext('2d');
+let stars = [];
 
-// PARTICLES
-const pB=document.getElementById('particles');
-for(let i=0;i<20;i++){const p=document.createElement('div');p.className='particle';const sz=Math.random()*3+1;p.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*100}%;background:${Math.random()>.5?'rgba(212,168,67,0.3)':'rgba(123,79,191,0.25)'};animation-duration:${Math.random()*20+15}s;animation-delay:${Math.random()*20}s`;pB.appendChild(p)}
+function initStars() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    stars = [];
+    for (let i = 0; i < 150; i++) {
+        stars.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            r: Math.random() * 1.5 + 0.5,
+            alpha: Math.random() * 0.8 + 0.2,
+            speed: Math.random() * 0.3 + 0.1,
+            color: ['#A0F0FF', '#FFED8A', '#FFD6F5', '#FFB3D1'][Math.floor(Math.random() * 4)]
+        });
+    }
+}
 
-// ZODIAC MANDALA
-const zs=['\u2648','\u2649','\u264A','\u264B','\u264C','\u264D','\u264E','\u264F','\u2650','\u2651','\u2652','\u2653'];
-const md=document.getElementById('mandala');
-zs.forEach((s,i)=>{const e=document.createElement('div');e.className='zsym';e.textContent=s;const a=(i/12)*Math.PI*2-Math.PI/2,r=48;e.style.left=(50+r*Math.cos(a))+'%';e.style.top=(50+r*Math.sin(a))+'%';e.style.transform='translate(-50%,-50%)';md.appendChild(e)});
+function drawStars() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    stars.forEach(s => {
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fillStyle = s.color;
+        ctx.globalAlpha = s.alpha + Math.sin(Date.now() * 0.001 * s.speed) * 0.3;
+        ctx.fill();
+    });
+    requestAnimationFrame(drawStars);
+}
 
-// SHOOTING STARS
-function shoot(el,w,clr){const y=Math.random()*50,x=Math.random()*50,a=20+Math.random()*25;el.style.cssText=`position:fixed;height:1px;z-index:2;pointer-events:none;width:${w}px;background:linear-gradient(90deg,${clr},transparent);top:${y}%;left:${x}%;transform:rotate(${a}deg);opacity:1;transition:transform .9s linear,left .9s linear,opacity .3s .6s`;
-setTimeout(()=>{el.style.left=(parseFloat(el.style.left)+35)+'%'},20);
-setTimeout(()=>{el.style.transition='none';el.style.opacity='0';setTimeout(()=>shoot(el,w,clr),4000+Math.random()*10000)},1000)}
-setTimeout(()=>shoot(document.getElementById('s1'),120,'rgba(212,168,67,0.7)'),2000);
-setTimeout(()=>shoot(document.getElementById('s2'),90,'rgba(123,79,191,0.6)'),5000);
-setTimeout(()=>shoot(document.getElementById('s3'),100,'rgba(100,223,223,0.5)'),8000);
+initStars();
+drawStars();
+window.addEventListener('resize', initStars);
 
-// BOOK DATA
+// ============================================
+// SCROLL ANIMATIONS (Fade Up)
+// ============================================
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// ============================================
+// PREVIEW LANGUAGE PILLS
+// ============================================
+document.querySelectorAll('.prev-p').forEach(b => {
+    b.onclick = () => {
+        document.querySelectorAll('.prev-p').forEach(x => x.classList.remove('on'));
+        b.classList.add('on');
+    };
+});
+
+// ============================================
+// BOOK DATA — All 18 books preserved
+// ============================================
 const books=[
 {t:'Guia Completa de los 12 Signos',cat:'Signos Zodiacales',d:'Descubre la personalidad profunda, compatibilidad, carrera y destino cosmico de cada signo zodiacal. Un viaje por las 12 constelaciones.',ic:'\u2648',ch:15,pg:280,pr:14.99,op:19.99,fm:['pdf','kin','pb','au'],ln:['ES','BG','EN','PT','FR','DE'],bg:'best',cl:['#D4A843','#8B6914','#5a4510'],mn:1},
 {t:'Como Leer tu Carta Natal',cat:'Carta Natal',d:'Manual paso a paso para interpretar tu carta astral con planetas, casas, aspectos y transitos.',ic:'\u2609',ch:18,pg:320,pr:24.99,fm:['pdf','kin','pb','hd','au'],ln:['ES','BG','EN','PT'],bg:'new',cl:['#7B4FBF','#4a2d7a','#2d1a4f'],mn:0},
@@ -367,6 +1475,9 @@ const fI={pdf:'\u{1F4C4}',kin:'\u{1F4D6}',pb:'\u{1F4DA}',hd:'\u{1F4D5}',au:'\u{1
 const fM={pdf:1,kin:1,pb:2.14,hd:3.57,au:2.14};
 const gr=document.getElementById('grid');
 
+// ============================================
+// SVG BOOK COVER GENERATION — Preserved
+// ============================================
 function mkSVG(b,w,h){
   const st=Array.from({length:30},()=>`<circle cx="${Math.random()*w}" cy="${Math.random()*h}" r="${Math.random()*1.5+.3}" fill="white" opacity="${Math.random()*.6+.15}"/>`).join('');
   const rn=b.mn?`<circle cx="${w/2}" cy="${h*.32}" r="24" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/><circle cx="${w/2}" cy="${h*.32}" r="38" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/><circle cx="${w/2}" cy="${h*.32}" r="54" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/>`:'';
@@ -375,37 +1486,34 @@ function mkSVG(b,w,h){
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}"><defs><radialGradient id="rg${b.cl[0].replace('#','')}" cx="50%" cy="25%"><stop offset="0%" stop-color="${b.cl[0]}" stop-opacity="0.5"/><stop offset="100%" stop-color="transparent"/></radialGradient><filter id="glow${b.cl[0].replace('#','')}"><feGaussianBlur stdDeviation="3" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter><linearGradient id="ov" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(0,0,0,0.3)"/><stop offset="35%" stop-color="transparent"/><stop offset="65%" stop-color="transparent"/><stop offset="100%" stop-color="rgba(0,0,0,0.6)"/></linearGradient></defs><rect width="${w}" height="${h}" fill="${b.cl[1]}"/><rect width="${w}" height="${h}" fill="url(#rg${b.cl[0].replace('#','')})"/>${st}${cn}${rn}${mo}<rect width="${w}" height="${h}" fill="url(#ov)"/><rect x="8" y="8" width="${w-16}" height="${h-16}" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.5" rx="2"/><line x1="8" y1="8" x2="22" y2="8" stroke="${b.cl[0]}" stroke-width="1.5" opacity="0.6"/><line x1="8" y1="8" x2="8" y2="22" stroke="${b.cl[0]}" stroke-width="1.5" opacity="0.6"/><line x1="${w-8}" y1="8" x2="${w-22}" y2="8" stroke="${b.cl[0]}" stroke-width="1.5" opacity="0.6"/><line x1="${w-8}" y1="8" x2="${w-8}" y2="22" stroke="${b.cl[0]}" stroke-width="1.5" opacity="0.6"/><line x1="8" y1="${h-8}" x2="22" y2="${h-8}" stroke="${b.cl[0]}" stroke-width="1.5" opacity="0.6"/><line x1="8" y1="${h-8}" x2="8" y2="${h-22}" stroke="${b.cl[0]}" stroke-width="1.5" opacity="0.6"/><line x1="${w-8}" y1="${h-8}" x2="${w-22}" y2="${h-8}" stroke="${b.cl[0]}" stroke-width="1.5" opacity="0.6"/><line x1="${w-8}" y1="${h-8}" x2="${w-8}" y2="${h-22}" stroke="${b.cl[0]}" stroke-width="1.5" opacity="0.6"/></svg>`;
 }
 
+// ============================================
+// RENDER BOOK CARDS
+// ============================================
 books.forEach((b,i)=>{
-  const c=document.createElement('div');c.className='card rv';c.style.transitionDelay=(i%6)*.08+'s';
+  const c=document.createElement('div');c.className='card fade-up';c.style.transitionDelay=(i%6)*.08+'s';
   const svg64='data:image/svg+xml;base64,'+btoa(mkSVG(b,170,240));
   c.innerHTML=`${b.bg?`<div class="badge b-${b.bg}">${b.bg==='best'?'\u2605 Bestseller':'\u2728 Nuevo'}</div>`:''}<div class="cover"><div class="cover-glow" style="background:${b.cl[0]};left:calc(50% - 100px);top:calc(50% - 100px)"></div><div class="book"><div class="book-front" style="background:linear-gradient(170deg,${b.cl[0]},${b.cl[1]},${b.cl[2]})"><img src="${svg64}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:3px 12px 12px 3px" alt="${b.t}"><div class="cv-content"><div class="cv-icon">${b.ic}</div><div class="cv-title">${b.t}</div><div style="flex:1"></div><div class="cv-author">AstroAureum</div><div class="cv-brand">astroaureum.com</div></div></div><div class="book-spine" style="background:linear-gradient(180deg,${b.cl[1]},${b.cl[2]})"></div><div class="book-top" style="background:${b.cl[2]}"></div><div class="book-shadow"></div></div></div><div class="info"><div class="info-cat">${b.cat}</div><div class="info-title">${b.t}</div><div class="info-desc">${b.d}</div><div class="info-meta"><span class="mi">\u{1F4C4} ${b.ch} cap</span><span class="mi">\u{1F4D6} ${b.pg} pag</span>${b.fm.includes('au')?'<span class="mi">\u{1F3A4} Audio</span>':''}</div><div class="info-fmts">${b.fm.map(f=>`<span class="fmt ${fC[f]}">${fN[f]}</span>`).join('')}</div><div class="info-langs">${b.ln.map(l=>`<span class="lang">${l}</span>`).join('')}</div><div class="pr-row"><div>${b.op?`<span class="price-old">&euro;${b.op}</span>`:''}
   <span class="price">&euro;${b.pr}</span></div><button class="btn-sm" onclick="event.stopPropagation();openM(${i})">VER LIBRO</button></div></div>`;
   c.onclick=()=>openM(i);gr.appendChild(c);
+  observer.observe(c);
 });
 document.getElementById('cnt').textContent=books.length;
 
-// MODAL
+// ============================================
+// MODAL — Preserved functionality
+// ============================================
 function openM(i){
   const b=books[i],ov=document.getElementById('mOv'),cov=document.getElementById('mCov'),bod=document.getElementById('mBod');
   const svg64='data:image/svg+xml;base64,'+btoa(mkSVG(b,150,210));
   cov.style.background=`radial-gradient(ellipse at center,${b.cl[0]}18,transparent)`;
   cov.innerHTML=`<div class="book" style="width:150px;height:210px;transform:rotateY(-22deg) rotateX(5deg)"><div class="book-front" style="background:linear-gradient(170deg,${b.cl[0]},${b.cl[1]},${b.cl[2]});border-radius:3px 12px 12px 3px;box-shadow:8px 8px 35px rgba(0,0,0,0.7)"><img src="${svg64}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:3px 12px 12px 3px"><div class="cv-content"><div class="cv-icon" style="font-size:44px">${b.ic}</div><div class="cv-title" style="font-size:11px">${b.t}</div><div style="flex:1"></div><div class="cv-author">AstroAureum</div></div></div><div class="book-spine" style="background:linear-gradient(180deg,${b.cl[1]},${b.cl[2]})"></div></div>`;
   const sv=b.op?Math.round((1-b.pr/b.op)*100):0;
-  bod.innerHTML=`${b.bg?`<span class="mb-badge b-${b.bg}">${b.bg==='best'?'\u2605 Bestseller':'\u2728 Nuevo'}</span>`:''}<div class="mb-cat">${b.cat}</div><div class="mb-title">${b.t}</div><div class="mb-desc">${b.d}</div><div class="mb-meta"><span class="mb-m">\u{1F4C4} ${b.ch} capitulos</span><span class="mb-m">\u{1F4D6} ${b.pg} paginas</span>${b.fm.includes('au')?'<span class="mb-m">\u{1F3A4} Audiolibro</span>':''}</div><div class="mb-fmts"><div class="mb-fmts-h">Formatos disponibles</div>${b.fm.map(f=>`<div class="mb-fmt"><span class="mb-fmt-n">${fI[f]} ${fN[f]}</span><span class="mb-fmt-p">&euro;${(b.pr*fM[f]).toFixed(2)}</span></div>`).join('')}</div><div class="mb-langs"><div class="mb-langs-h">Idiomas</div><div class="mb-pills">${b.ln.map(l=>`<span class="mb-pill">${l}</span>`).join('')}</div></div><div class="mb-pr-row">${b.op?`<span class="mb-old">&euro;${b.op}</span>`:''}<span class="mb-price">&euro;${b.pr}</span>${sv?`<span class="mb-save">-${sv}%</span>`:''}</div><button class="mb-buy" onclick="window.open('https://astroaureum.com/#contacto','_blank')">COMPRAR AHORA</button><button class="mb-prev" onclick="alert('Proximamente: Preview del capitulo 1')">LEER CAPITULO 1 GRATIS</button><div class="mb-author"><div class="mb-author-n">Denitsa Georgieva — Shivani Devi Bramayani</div><div class="mb-author-b">Aureum Books &middot; astroaureum.com</div></div>`;
+  bod.innerHTML=`${b.bg?`<span class="mb-badge b-${b.bg}">${b.bg==='best'?'\u2605 Bestseller':'\u2728 Nuevo'}</span>`:''}<div class="mb-cat">${b.cat}</div><div class="mb-title">${b.t}</div><div class="mb-desc">${b.d}</div><div class="mb-meta"><span class="mb-m">\u{1F4C4} ${b.ch} capitulos</span><span class="mb-m">\u{1F4D6} ${b.pg} paginas</span>${b.fm.includes('au')?'<span class="mb-m">\u{1F3A4} Audiolibro</span>':''}</div><div class="mb-fmts"><div class="mb-fmts-h">Formatos disponibles</div>${b.fm.map(f=>`<div class="mb-fmt"><span class="mb-fmt-n">${fI[f]} ${fN[f]}</span><span class="mb-fmt-p">&euro;${(b.pr*fM[f]).toFixed(2)}</span></div>`).join('')}</div><div class="mb-langs"><div class="mb-langs-h">Idiomas</div><div class="mb-pills">${b.ln.map(l=>`<span class="mb-pill">${l}</span>`).join('')}</div></div><div class="mb-pr-row">${b.op?`<span class="mb-old">&euro;${b.op}</span>`:''}<span class="mb-price">&euro;${b.pr}</span>${sv?`<span class="mb-save">-${sv}%</span>`:''}</div><button class="mb-buy" onclick="window.open('https://astroaureum.com/#contacto','_blank')">COMPRAR AHORA</button><button class="mb-prev" onclick="alert('Proximamente: Preview del capitulo 1')">LEER CAPITULO 1 GRATIS</button><div class="mb-author"><div class="mb-author-n">Denitsa Georgieva &mdash; Shivani Devi Bramayani</div><div class="mb-author-b">Aureum Books &middot; astroaureum.com</div></div>`;
   ov.classList.add('open');document.body.style.overflow='hidden';
 }
+
 function closeM(){document.getElementById('mOv').classList.remove('open');document.body.style.overflow=''}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM()});
-
-// REVEAL
-const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.08});
-document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
-
-// PREVIEW
-document.querySelectorAll('.prev-p').forEach(b=>{b.onclick=()=>{document.querySelectorAll('.prev-p').forEach(x=>x.classList.remove('on'));b.classList.add('on')}});
-
-// PARALLAX
-addEventListener('scroll',()=>{const s=scrollY;document.querySelector('.n1').style.transform=`translate(${s*.02}px,${s*-.03}px)`;document.querySelector('.n2').style.transform=`translate(${s*-.015}px,${s*.02}px)`});
 </script>
 </body>
 </html>
