@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog de Astrologia | Astro Aureum</title>
+<meta name="description" content="Blog de astrologia premium. Transitos planetarios, guias de carta natal, sinastria, nodos lunares y mas. Sabiduria cosmica por Astro Aureum.">
+<meta property="og:title" content="Blog de Astrologia | Astro Aureum">
+<meta property="og:description" content="Sabiduria cosmica: transitos, carta natal, sinastria y mas.">
+<meta property="og:image" content="https://astroaureum.com/logo.png">
+<meta property="og:locale" content="es_ES">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0PZTB2PF7T"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-0PZTB2PF7T');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg-space:#08011B;--electric-blue:#A0F0FF;--golden-yellow:#FFED8A;--love-rose:#FFB3D1;--aura-pink:#FFD6F5;--cosmic-cream:#FFF9EA;--pure-white:#FFFFFF;--glow-blue:0 0 20px rgba(160,240,255,0.6);--glow-gold:0 0 20px rgba(255,237,138,0.5);--glow-love:0 0 20px rgba(255,179,209,0.6);--glow-cream:0 0 15px rgba(255,249,234,0.4);--gradient-gold-pink:linear-gradient(135deg,#FFED8A 0%,#FFB3D1 100%);--gradient-blue-aura:linear-gradient(135deg,#A0F0FF 0%,#FFD6F5 100%);--font-display:'Playfair Display',serif;--font-body:'Inter',sans-serif}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{background-color:var(--bg-space);background-image:radial-gradient(ellipse at 15% 85%,rgba(160,240,255,0.05) 0%,transparent 50%),radial-gradient(ellipse at 85% 15%,rgba(255,237,138,0.04) 0%,transparent 50%),radial-gradient(ellipse at 50% 50%,rgba(255,179,209,0.03) 0%,transparent 60%);color:var(--pure-white);font-family:var(--font-body);overflow-x:hidden;scroll-behavior:smooth}
+h1{font-family:var(--font-display);font-weight:800;font-size:clamp(2.5rem,6vw,4.5rem);line-height:1.1;color:var(--pure-white);text-shadow:0 0 15px rgba(160,240,255,0.8)}
+h2{font-family:var(--font-display);font-weight:700;font-size:clamp(1.5rem,3.5vw,2.2rem);line-height:1.2}
+h3{font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--golden-yellow);margin:24px 0 10px}
+p{font-size:1.05rem;line-height:1.8;color:var(--cosmic-cream);font-weight:300;margin-bottom:16px}
+a{color:var(--aura-pink);text-decoration:none;transition:all 0.3s}a:hover{color:var(--electric-blue)}
+nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(8,1,27,0.8);backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);border-bottom:1px solid rgba(255,237,138,0.1)}
+.nav-logo{font-family:var(--font-display);font-size:1.5rem;font-weight:800;color:var(--golden-yellow);text-shadow:0 0 10px rgba(255,237,138,0.4);text-decoration:none}
+.nav-links{display:flex;gap:30px;align-items:center}.nav-links a{color:var(--cosmic-cream);font-size:0.9rem;font-weight:500;letter-spacing:0.5px}.nav-links a:hover{color:var(--electric-blue)}.nav-links a.nav-active{color:var(--golden-yellow);text-shadow:0 0 8px rgba(255,237,138,0.3)}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:5px;z-index:1001}.hamburger span{display:block;width:24px;height:2px;background:var(--golden-yellow);transition:all 0.3s}.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}.hamburger.open span:nth-child(2){opacity:0}.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mobile-overlay{display:none;position:fixed;inset:0;background:rgba(8,1,27,0.95);backdrop-filter:blur(25px);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:28px}.mobile-overlay.open{display:flex}.mobile-overlay a{color:var(--cosmic-cream);font-family:var(--font-display);font-size:1.3rem;font-weight:700}.mobile-overlay a:hover{color:var(--golden-yellow)}
+.hero{min-height:60vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:140px 20px 60px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;background:url('home-assets/codice-estelar.png') center/cover no-repeat;opacity:0.5;z-index:0}
+.hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(180deg,rgba(8,1,27,0.2) 0%,rgba(8,1,27,0.85) 100%);z-index:1}
+.hero-content{position:relative;z-index:3;max-width:700px}
+.hero-badge{display:inline-block;background:rgba(160,240,255,0.1);border:1px solid rgba(160,240,255,0.3);border-radius:50px;padding:8px 24px;font-size:0.85rem;color:var(--golden-yellow);letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;font-weight:600}
+.hero h1{margin-bottom:15px;color:var(--golden-yellow)}
+.hero p{font-size:1.2rem;color:rgba(255,179,209,0.9)}
+.blog-grid{max-width:900px;margin:0 auto;padding:2rem 1.5rem 4rem}
+.blog-card{background:rgba(255,249,234,0.03);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(160,240,255,0.1);border-radius:24px;overflow:hidden;margin-bottom:3rem;transition:all 0.4s ease}
+.blog-card:hover{border-color:var(--golden-yellow);box-shadow:0 0 40px rgba(255,237,138,0.15)}
+.blog-img{position:relative;height:350px;overflow:hidden}.blog-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s}.blog-card:hover .blog-img img{transform:scale(1.05)}
+.blog-cat{position:absolute;top:16px;left:16px;padding:6px 18px;border-radius:50px;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#000;backdrop-filter:blur(8px)}
+.blog-body{padding:2rem 2.5rem 2.5rem}
+.blog-date{font-size:0.8rem;color:var(--aura-pink);margin-bottom:8px;font-weight:500;letter-spacing:1px}
+.blog-title{color:var(--pure-white);margin-bottom:1.5rem;text-shadow:none}
+.blog-content h3{font-size:1.2rem}.blog-content h4{font-family:var(--font-display);font-size:1.1rem;color:var(--electric-blue);margin:20px 0 8px}.blog-content p{font-size:1rem;line-height:1.8;margin-bottom:14px}.blog-content strong{color:var(--golden-yellow)}
+.blog-cta{text-align:center;margin:2rem 0 1.5rem}
+.btn-cta{display:inline-block;background:var(--gradient-gold-pink);border:none;color:#000;font-family:var(--font-body);font-weight:700;font-size:1rem;border-radius:50px;padding:16px 36px;box-shadow:var(--glow-gold);transition:all 0.3s ease;cursor:pointer;text-transform:uppercase;letter-spacing:1px;text-decoration:none}.btn-cta:hover{transform:scale(1.05) translateY(-2px);box-shadow:var(--glow-love);color:#000}
+.blog-author{display:flex;align-items:center;gap:14px;padding-top:1.5rem;border-top:1px solid rgba(255,237,138,0.1)}
+.author-img{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,237,138,0.3)}
+.author-name{font-family:var(--font-display);font-size:0.95rem;color:var(--golden-yellow)}
+.author-role{font-size:0.8rem;color:var(--aura-pink)}
+footer{padding:50px 40px;text-align:center;border-top:1px solid rgba(255,237,138,0.1);background:rgba(8,1,27,0.8);position:relative;z-index:1}
+.footer-logo{font-family:var(--font-display);font-size:1.8rem;font-weight:800;color:var(--golden-yellow);text-shadow:0 0 10px rgba(255,237,138,0.3);margin-bottom:15px}
+.footer-links{display:flex;gap:30px;justify-content:center;margin-bottom:20px;flex-wrap:wrap}.footer-links a{color:var(--aura-pink);font-size:0.9rem}.footer-links a:hover{color:var(--electric-blue)}
+.footer-copy{color:rgba(255,249,234,0.4);font-size:0.8rem}
+.fade-up{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease,transform 0.8s ease}.fade-up.visible{opacity:1;transform:translateY(0)}
+@media(max-width:768px){nav{padding:15px 20px}.nav-links{display:none}.hamburger{display:flex}.hero{padding:110px 20px 40px;min-height:50vh}.blog-img{height:220px}.blog-body{padding:1.5rem}.blog-grid{padding:1rem}}
+</style>
+</head>
+<body>
+<canvas id="stars" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none;"></canvas>
+<nav>
+    <a href="https://astroaureum.com" class="nav-logo">&#10022; Astro Aureum</a>
+    <div class="nav-links">
+        <a href="https://astroaureum.com">Inicio</a>
+        <a href="https://astroaureum.com/lecturas.html">9 Tradiciones</a>
+        <a href="https://astroaureum.com/aureum-books.html">Aureum Books</a>
+        <a href="/" class="nav-active">Blog</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-overlay" id="mobileMenu">
+    <a href="https://astroaureum.com">Inicio</a>
+    <a href="https://astroaureum.com/lecturas.html">9 Tradiciones</a>
+    <a href="https://astroaureum.com/aureum-books.html">Aureum Books</a>
+    <a href="/" class="nav-active">Blog</a>
+</div>
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content fade-up">
+        <div class="hero-badge">&#10022; Sabiduria Cosmica</div>
+        <h1>Blog de Astrologia</h1>
+        <p>Transitos planetarios, guias cosmicas y sabiduria ancestral para iluminar tu camino.</p>
+    </div>
+</section>
+<div class="blog-grid">
+
+    <article class="blog-card fade-up" id="que-es-carta-natal">
+        <div class="blog-img">
+            <img src="home-assets/portal-sincronia.png" alt="Que es la Carta Natal: Tu Mapa Cosmico Personal" loading="lazy">
+            <span class="blog-cat" style="background:#A0F0FF">Guia</span>
+        </div>
+        <div class="blog-body">
+            <div class="blog-date">13 Abril 2026</div>
+            <h2 class="blog-title">Que es la Carta Natal: Tu Mapa Cosmico Personal</h2>
+            <div class="blog-content">
+            <p><strong>Desvelando el Misterio Estelar: Un Viaje a Través de tu Carta Natal</strong></p>
+            <p>En el vasto e inescrutable cosmos, donde las estrellas bailan al son de melodías inaudibles, existe una herramienta ancestral capaz de iluminar el laberinto de tu ser: la carta natal. Más que un simple mapa celeste, es un retrato cósmico individualizado, una huella dactilar estelar que revela los arquetipos y las energías que te moldean desde el momento de tu nacimiento.</p>
+            <h3>¿Qué es la Carta Natal? Un Instante Congelado en el Tiempo Cósmico</h3>
+            <p>Imagina el instante preciso en que tomaste tu primer aliento. En ese exacto momento, el universo entero se configuró de una manera única e irrepetible. La carta natal es una representación gráfica de esa configuración planetaria, un esquema celeste que captura la posición del Sol, la Luna y los planetas en relación con el horizonte y el meridiano del lugar donde naciste. Es, en esencia, una instantánea del cielo en el instante de tu nacimiento.</p>
+            <p>Esta carta no es una simple curiosidad astronómica, sino un complejo sistema simbólico que los astrólogos descifran para obtener información valiosa sobre tu personalidad, tus talentos, tus desafíos y tu propósito de vida. Es un plano intrincado que revela las corrientes subyacentes que influyen en tu camino.</p>
+            <h3>Más Allá de la Predicción: Propósito y Potencial Revelados</h3>
+            <p>Muchos asocian la astrología con la predicción del futuro, pero la carta natal trasciende la mera adivinación. Su verdadera utilidad reside en el autoconocimiento. Actúa como un espejo que refleja tus fortalezas y debilidades inherentes, permitiéndote tomar decisiones más conscientes y alineadas con tu verdadera esencia.</p>
+            <p>¿Para qué sirve, entonces, la carta natal? Sirve para:</p>
+            <p>*   <strong>Comprender tu personalidad:</strong> Revela tus características dominantes, tus motivaciones profundas y tus patrones de comportamiento. *   <strong>Identificar tus talentos y habilidades:</strong> Destaca tus dones naturales y las áreas donde tienes mayor potencial de éxito. *   <strong>Afrontar tus desafíos:</strong> Señala las áreas de conflicto y las lecciones que necesitas aprender para crecer y evolucionar. *   <strong>Descubrir tu propósito de vida:</strong> Te guía hacia tu vocación y te ayuda a comprender tu lugar en el mundo. *   <strong>Mejorar tus relaciones:</strong> Ofrece información valiosa sobre cómo te relacionas con los demás y cómo puedes crear relaciones más armoniosas.</p>
+            <h3>Planetas, Casas y Aspectos: Los Ingredientes de tu Destino</h3>
+            <p>La carta natal se compone de varios elementos clave, cada uno con su propia simbología y significado:</p>
+            <p>*   <strong>Planetas:</strong> Representan diferentes áreas de tu vida y energías arquetípicas. El Sol representa tu identidad central, la Luna tus emociones, Mercurio tu intelecto, Venus tu amor y valores, Marte tu acción y ambición, Júpiter tu expansión y oportunidades, Saturno tus límites y responsabilidades, Urano tu originalidad y rebeldía, Neptuno tu espiritualidad e idealismo, y Plutón tu transformación y poder.</p>
+            <p>*   <strong>Casas:</strong> Son las divisiones del círculo astrológico que representan diferentes áreas de la vida, como la familia, el trabajo, las relaciones, las finanzas, la salud, etc. El Ascendente (la cúspide de la primera casa) es especialmente importante, ya que representa tu personalidad exterior y la forma en que te presentas al mundo.</p>
+            <p>*   <strong>Aspectos:</strong> Son las relaciones angulares entre los planetas, que indican cómo interactúan entre sí. Los aspectos armónicos (como trígonos y sextiles) suelen indicar facilidad y fluidez, mientras que los aspectos desafiantes (como cuadraturas y oposiciones) pueden indicar tensión y conflicto, pero también pueden ser catalizadores de crecimiento.</p>
+            <h3>Descifra tu Propio Código Estelar: ¿Por qué Deberías Tener una Carta Natal?</h3>
+            <p>En un mundo cada vez más caótico y desconectado, la carta natal ofrece una brújula interna, una guía personal que te permite navegar con mayor confianza y autenticidad. Al comprender tus propias energías y potenciales, puedes tomar decisiones más informadas, vivir una vida más significativa y conectar con tu verdadero propósito.</p>
+            <p>Todos, sin excepción, deberían tener una carta natal para:</p>
+            <p>* <strong>Conocerte:</strong>  Para desentrañar las capas de tu personalidad y comprender las razones detrás de tus acciones. * <strong>Empoderarte:</strong>  Para tomar el control de tu vida y convertirte en el arquitecto de tu propio destino. * <strong>Transformarte:</strong> Para superar tus limitaciones y alcanzar tu máximo potencial.</p>
+            <p>La carta natal no es una sentencia, sino una herramienta de autoconocimiento. Es un mapa estelar que te invita a explorar el vasto territorio de tu ser, a descifrar tu propio código cósmico y a vivir una vida más plena y auténtica. En la quietud de la contemplación astrológica, quizás encuentres las respuestas que has estado buscando, grabadas en el firmamento desde el día en que naciste. </p>
+            </div>
+            <div class="blog-cta">
+                <a href="https://astroaureum.com" class="btn-cta">DESCUBRE TU LECTURA</a>
+            </div>
+            <div class="blog-author">
+                <img src="assets/shivani.jpg" alt="Shivani" class="author-img">
+                <div>
+                    <div class="author-name">Shivani Devi Bramayani</div>
+                    <div class="author-role">Astrologa &middot; Astro Aureum</div>
+                </div>
+            </div>
+        </div>
+    </article>
+    <article class="blog-card fade-up" id="luna-llena-escorpio-abril-2026">
+        <div class="blog-img">
+            <img src="home-assets/abrazo-celestial.png" alt="Luna Llena en Escorpio Abril 2026: Transformacion Profunda" loading="lazy">
+            <span class="blog-cat" style="background:#FFB3D1">Transitos</span>
+        </div>
+        <div class="blog-body">
+            <div class="blog-date">10 Abril 2026</div>
+            <h2 class="blog-title">Luna Llena en Escorpio Abril 2026: Transformacion Profunda</h2>
+            <div class="blog-content">
+            <p><strong>Un Encuentro Profundo: La Luna Llena en Escorpio de Abril 2026</strong></p>
+            <p>Abril de 2026 nos invita a sumergirnos en las profundidades de nuestra alma con la llegada de la Luna Llena en Escorpio. Este evento celeste, bañado en misterio y magnetismo, representa un portal hacia la transformación personal y la liberación emocional. Escorpio, signo de agua fijo, rige la intensidad, la pasión, la muerte y el renacimiento, por lo que esta Luna Llena tocará áreas esenciales de nuestra existencia. Prepárense para una experiencia catártica, una oportunidad de sanar viejas heridas y abrazar una versión más auténtica de nosotros mismos.</p>
+            <h3>La Energía Escorpiana: Intensidad y Transformación</h3>
+            <p>La Luna Llena en Escorpio no es una energía sutil. Es un torrente de emociones crudas que resurgen a la superficie, obligándonos a confrontar lo que hemos estado evitando. Esta lunación trae consigo una poderosa capacidad de introspección, permitiéndonos desenterrar secretos enterrados, miedos ocultos y patrones de comportamiento destructivos.</p>
+            <p>El eje Tauro-Escorpio, donde se sitúa esta Luna Llena, enfrenta la estabilidad y la posesión materialista (Tauro) con la profundidad emocional y la necesidad de compartir (Escorpio). Nos invita a cuestionar aquello a lo que nos aferramos por seguridad, y a liberar lo que ya no nos sirve en nuestro viaje evolutivo. La clave está en encontrar el equilibrio entre la seguridad y la vulnerabilidad, entre la posesión y el desapego.</p>
+            <h3>El Impacto Elemental: Una Danza Cósmica</h3>
+            <p>La influencia de esta Luna Llena se manifiesta de forma particular en cada uno de los elementos astrológicos:</p>
+            <p>*   <strong>Fuego (Aries, Leo, Sagitario):</strong> La pasión propia del fuego se intensifica, pero cuidado con la reactividad. Esta Luna Llena les pide canalizar esa energía en proyectos profundos, alejándose de la impulsividad. Es tiempo de evaluar compromisos y pasiones verdaderas, dejando ir aquello que ya no enciende su llama.</p>
+            <p>*   <strong>Tierra (Tauro, Virgo, Capricornio):</strong> La seguridad y la estabilidad de la tierra se ven desafiadas. Esta Luna Llena les invita a soltar el control y a abrazar la vulnerabilidad, permitiendo que las emociones fluyan. Es un buen momento para reevaluar sus finanzas y posesiones, liberándose de todo aquello que les ancla al pasado.</p>
+            <p>*   <strong>Aire (Géminis, Libra, Acuario):</strong> La mente analítica del aire se ve confrontada con la intensidad emocional. Esta Luna Llena les pide conectar con su intuición y a dejar de lado el análisis excesivo. Es tiempo de comunicar sus sentimientos de forma honesta y abierta, buscando conexiones significativas.</p>
+            <p>*   <strong>Agua (Cáncer, Escorpio, Piscis):</strong> La profundidad emocional del agua se intensifica enormemente. Esta Luna Llena les pide establecer límites saludables y a sanar viejas heridas emocionales. Es un momento propicio para la introspección y el auto-cuidado, sumergiéndose en prácticas que nutran su alma.</p>
+            <h3>Rituales para la Transformación: Rindiéndose a la Corriente</h3>
+            <p>Para aprovechar al máximo la energía de esta Luna Llena en Escorpio, considera los siguientes rituales:</p>
+            <p>*   <strong>Escritura Terapéutica:</strong> Dedica tiempo a escribir sobre tus miedos, secretos y emociones reprimidas. Quema el papel como un acto simbólico de liberación. *   <strong>Meditación Profunda:</strong> Sumérgete en la meditación para conectar con tu intuición y escuchar la sabiduría de tu alma. *   <strong>Baños de Limpieza:</strong> Utiliza sales marinas y aceites esenciales como el sándalo o el incienso para limpiar tu aura y liberarte de energías negativas. *   <strong>Regalos a la Tierra:</strong> Ofrece flores, cristales o piedras a la tierra como un acto de gratitud y respeto. *   <strong>Visualizacion Creativa:</strong> Imagina la vida de tus sueños en detalles vívidos. Siente la sensación de ya vivirla.</p>
+            <h3>Áreas de Vida Transformadas: Un Nuevo Amanecer</h3>
+            <p>La Luna Llena en Escorpio de abril de 2026 promete cambios significativos en las siguientes áreas de vida:</p>
+            <p>*   <strong>Relaciones Íntimas:</strong> Se profundiza la conexión con las personas cercanas, o se rompen lazos que ya no sirven. Prepárense para conversaciones honestas y transformadoras. *   <strong>Finanzas y Posesiones:</strong> Se reevalúa la relación con el dinero y los bienes materiales, buscando un equilibrio entre la seguridad y la libertad. *   <strong>Salud Emocional:</strong> Se liberan viejas heridas y patrones de comportamiento destructivos, permitiendo el renacimiento emocional. *   <strong>Poder Personal:</strong> Se descubre la propia fuerza interior y la capacidad de transformar la vida de acuerdo a los propios deseos.</p>
+            <p>En resumen, la Luna Llena en Escorpio de abril de 2026 es un catalizador de transformación profunda. A través de la introspección, la honestidad y el desapego, podemos abrazar nuestra autenticidad y crear una vida más plena y significativa. Permítanse sentir, sanar y renacer bajo la luz intensa de esta lunación poderosa. Es hora de abrazar la sombra para encontrar la luz. </p>
+            </div>
+            <div class="blog-cta">
+                <a href="https://astroaureum.com" class="btn-cta">DESCUBRE TU LECTURA</a>
+            </div>
+            <div class="blog-author">
+                <img src="assets/shivani.jpg" alt="Shivani" class="author-img">
+                <div>
+                    <div class="author-name">Shivani Devi Bramayani</div>
+                    <div class="author-role">Astrologa &middot; Astro Aureum</div>
+                </div>
+            </div>
+        </div>
+    </article>
+    <article class="blog-card fade-up" id="sinastria-compatibilidad">
+        <div class="blog-img">
+            <img src="home-assets/codice-estelar.png" alt="Sinastria: El Secreto de la Compatibilidad Cosmica" loading="lazy">
+            <span class="blog-cat" style="background:#FFD6F5">Amor</span>
+        </div>
+        <div class="blog-body">
+            <div class="blog-date">7 Abril 2026</div>
+            <h2 class="blog-title">Sinastria: El Secreto de la Compatibilidad Cosmica</h2>
+            <div class="blog-content">
+            <h3>La Danza Cósmica del Amor: Sinastría y la Promesa de la Compatibilidad Astrológica</h3>
+            <p>En el tapiz celestial, donde los planetas tejen sus influencias, reside una herramienta fascinante para comprender la dinámica intrincada de las relaciones humanas: la sinastría. Más allá de la mera atracción inicial y de los clichés románticos, la sinastría ofrece una visión profunda de cómo dos individuos interactúan, se complementan y se desafían mutuamente a nivel astrológico. Es un arte y una ciencia que desvela las corrientes invisibles que fluyen entre dos almas, revelando el potencial de armonía, crecimiento y, en ocasiones, conflicto.</p>
+            <h3>Desentrañando la Sinastría: Un Viaje a la Interacción Planetaria</h3>
+            <p>La sinastría, derivada del griego "syn" (juntos) y "astron" (estrella), es esencialmente un análisis comparativo de dos cartas natales. No se trata simplemente de determinar si dos signos solares son compatibles, sino de examinar la intrincada red de aspectos y posiciones planetarias para comprender cómo la energía de una persona resuena con la de la otra.</p>
+            <p>El proceso comienza con la superposición de la carta natal de una persona sobre la de la otra. Cada planeta, casa y aspecto en la carta natal de una persona se examina en relación con la carta de la otra. De esta superposición, emergen patrones que revelan cómo los individuos se influyen mutuamente y cómo se experimenta la relación a diferentes niveles. Se buscan conexiones significativas entre los planetas personales (Sol, Luna, Mercurio, Venus, Marte) y los planetas sociales (Júpiter y Saturno), así como con los planetas transpersonales (Urano, Neptuno y Plutón).</p>
+            <h3>Aspectos Clave: La Música Celestial del Amor</h3>
+            <p>Dentro de la sinastría, ciertos aspectos planetarios resultan particularmente reveladores, actuando como acordes distintivos en la sinfonía de la relación.</p>
+            <p>*   <strong>Sol-Luna:</strong> Esta conexión es fundamental para la compatibilidad emocional y el sentido de seguridad dentro de la relación. Un Sol en conjunción, trígono o sextil a la Luna de la otra persona sugiere una profunda comprensión y apoyo mutuo. El Sol proporciona vitalidad y propósito, mientras que la Luna nutre y reconforta. Un aspecto desafiante, como una cuadratura u oposición, puede indicar luchas de poder o una dificultad para satisfacer las necesidades emocionales del otro.</p>
+            <p>*   <strong>Venus-Marte:</strong> Este aspecto es crucial para la atracción romántica y sexual. Venus, el planeta del amor y la belleza, en un aspecto favorable con Marte, el planeta de la pasión y la acción, sugiere una atracción magnética y una química evidente. Esta combinación alimenta la chispa romántica y la vitalidad sexual de la relación. Aspectos tensos pueden generar frustración sexual o desacuerdos sobre la expresión del afecto.</p>
+            <p>Además de estos aspectos clave, las conjunciones a los ángulos de la carta natal (Ascendente, Descendente, Medio Cielo, Fondo del Cielo) son particularmente significativas, ya que impactan profundamente la percepción que cada persona tiene del otro y la dinámica general de la relación. Las casas donde caen los planetas de la otra persona también revelan en qué áreas de la vida se experimenta más la influencia de esa persona.</p>
+            <h3>La Revelación de la Relación: Un Mapa para el Crecimiento</h3>
+            <p>La sinastría no es una sentencia de muerte ni un certificado de matrimonio. No predice el futuro con certeza, sino que ofrece una comprensión profunda de las dinámicas y potenciales de una relación. Revela:</p>
+            <p>*   <strong>Puntos Fuertes:</strong> Identifica las áreas donde la relación es naturalmente armoniosa, donde los individuos se complementan y se apoyan mutuamente. *   <strong>Desafíos:</strong> Señala las áreas de fricción potencial, donde pueden surgir malentendidos y conflictos. La sinastría no significa que una relación está destinada al fracaso si hay aspectos desafiantes; más bien, indica las áreas donde se requiere mayor conciencia, comunicación y esfuerzo para superar los obstáculos. *   <strong>Potencial de Crecimiento:</strong> Revela cómo la relación puede catalizar el crecimiento personal y espiritual de cada individuo. Las influencias de la otra persona pueden desafiar las creencias arraigadas, ampliar la perspectiva y estimular el desarrollo personal.</p>
+            <p>En última instancia, la sinastría es una herramienta poderosa para la auto-conciencia y la comprensión interpersonal. Ofrece un marco para navegar las complejidades del amor y de la conexión humana con mayor intuición, compasión y claridad. A través de la danza cósmica de las cartas natales, podemos descubrir la profunda sinfonía que se despliega cuando dos almas se encuentran en el tapiz infinito del universo. </p>
+            </div>
+            <div class="blog-cta">
+                <a href="https://astroaureum.com" class="btn-cta">DESCUBRE TU LECTURA</a>
+            </div>
+            <div class="blog-author">
+                <img src="assets/shivani.jpg" alt="Shivani" class="author-img">
+                <div>
+                    <div class="author-name">Shivani Devi Bramayani</div>
+                    <div class="author-role">Astrologa &middot; Astro Aureum</div>
+                </div>
+            </div>
+        </div>
+    </article>
+    <article class="blog-card fade-up" id="mercurio-retrogrado">
+        <div class="blog-img">
+            <img src="sinastria/sinastria3.png" alt="Mercurio Retrogrado: Guia Completa para Sobrevivir y Prosperar" loading="lazy">
+            <span class="blog-cat" style="background:#FFB3D1">Transitos</span>
+        </div>
+        <div class="blog-body">
+            <div class="blog-date">4 Abril 2026</div>
+            <h2 class="blog-title">Mercurio Retrogrado: Guia Completa para Sobrevivir y Prosperar</h2>
+            <div class="blog-content">
+            <p><strong>Mercurio Retrogrado: Más Allá de los Mitos, hacia la Estrategia Consciente</strong></p>
+            <p>Mercurio retrogrado ha trascendido la esfera de la astrología puramente especulativa para convertirse en un fenómeno cultural reconocido, aunque a menudo malinterpretado. Es crucial comprender que no se trata de una "parada" física del planeta, sino de una ilusión óptica. Desde nuestra perspectiva terrestre, parece que Mercurio invierte su movimiento en el cielo, debido a las diferentes velocidades orbitales entre la Tierra y Mercurio. Esta percepción altera nuestra experiencia en áreas específicas de la vida, invitándonos a la introspección y al ajuste fino en lugar de al caos inminente.</p>
+            <h3>El Impacto Tripartito: Comunicación, Tecnología, y Viajes</h3>
+            <p>Mercurio rige primordialmente la comunicación, la tecnología y los viajes. Durante el período retrogrado, estas áreas pueden experimentar desafíos particulares.</p>
+            <p>*   <strong>Comunicación:</strong> La claridad puede verse comprometida, dando lugar a malentendidos, interpretaciones erróneas y una mayor probabilidad de errores verbales o escritos. Correos electrónicos se extravían, conversaciones se vuelven confusas, y la negociación puede estancarse.</p>
+            <p>*   <strong>Tecnología:</strong> Los dispositivos electrónicos, las plataformas online y el software son más susceptibles a presentar fallos. Los datos pueden corromperse, las conexiones a internet se vuelven erráticas, y las actualizaciones automáticas pueden interrumpir el flujo de trabajo.</p>
+            <p>*   <strong>Viajes:</strong> Retrasos en vuelos, problemas con el transporte público, errores en las reservas, y pérdida de equipaje son escenarios más probables. La planificación logística se vuelve más delicada y susceptible a imprevistos.</p>
+            <h3>Consejos Prácticos para Navegar la Retrogradación</h3>
+            <p>Contrariamente a la creencia popular, no debemos paralizarnos durante Mercurio retrogrado. En cambio, podemos adoptar estrategias proactivas para mitigar sus efectos y canalizar su energía de manera positiva.</p>
+            <p>1.  <strong>Revisión y Refinamiento:</strong> Este es un momento ideal para revisar documentos, proyectos, planes y relaciones. Identifica áreas que necesitan mejoras, clarifica ambigüedades y consolida bases sólidas.</p>
+            <p>2.  <strong>Comunicación Consciente:</strong> Piensa antes de hablar o escribir. Revisa cuidadosamente los correos electrónicos antes de enviarlos. Solicita confirmación de la comprensión para evitar malentendidos.</p>
+            <p>3.  <strong>Respaldo y Seguridad:</strong> Realiza copias de seguridad de tus datos electrónicos más importantes. Verifica el estado de tus dispositivos y considera la posibilidad de adquirir un seguro para viajes o equipos electrónicos.</p>
+            <p>4.  <strong>Flexibilidad y Adaptabilidad:</strong> Anticipa retrasos y cambios inesperados. Adopta una actitud flexible y adaptable ante los contratiempos. Ten un plan B y mantén la calma ante las circunstancias imprevistas.</p>
+            <p>5.  <strong>Evita Nuevos Comienzos:</strong> Aunque la presión social a veces exige lanzamiento de nuevos proyectos o tomar decisiones importantes, se recomienda postergarlos hasta que Mercurio vuelva a su curso directo. Si es inevitable, dedícale un cuidado extremo al detalle.</p>
+            <h3>Aprovechando la Energía Retrograda</h3>
+            <p>Mercurio retrogrado no es intrínsecamente negativo. Ofrece una oportunidad valiosa para la introspección, la reflexión y la reconexión con asuntos inconclusos.</p>
+            <p>*   <strong>Retomar proyectos pendientes:</strong> Este es el momento perfecto para desempolvar ideas abandonadas, terminar tareas inconclusas y dar nueva vida a proyectos pausados.</p>
+            <p>*   <strong>Reconectarse con el pasado:</strong> Entra en contacto con viejos amigos, revisita lugares significativos y revive recuerdos importantes. Este periodo tiende a facilitar la resolución de asuntos pendientes en el plano emocional.</p>
+            <p>*   <strong>Reflexionar sobre decisiones pasadas:</strong> Analiza tus decisiones anteriores, aprendiendo de los errores y reforzando los aciertos.</p>
+            <p>En esencia, Mercurio retrogrado no es un período para temer, sino para entender y aprovechar. Si abordas esta fase con conciencia, preparación y flexibilidad, puedes evitar frustraciones innecesarias y transformar este desafío en una oportunidad de crecimiento personal y profesional. La clave radica en adoptar una postura reflexiva, priorizar la claridad y actuar con diligencia. </p>
+            </div>
+            <div class="blog-cta">
+                <a href="https://astroaureum.com" class="btn-cta">DESCUBRE TU LECTURA</a>
+            </div>
+            <div class="blog-author">
+                <img src="assets/shivani.jpg" alt="Shivani" class="author-img">
+                <div>
+                    <div class="author-name">Shivani Devi Bramayani</div>
+                    <div class="author-role">Astrologa &middot; Astro Aureum</div>
+                </div>
+            </div>
+        </div>
+    </article>
+    <article class="blog-card fade-up" id="nodos-lunares-destino">
+        <div class="blog-img">
+            <img src="sinastria/sinastria1.png" alt="Nodos Lunares: Tu Destino Karmico Revelado" loading="lazy">
+            <span class="blog-cat" style="background:#FFED8A">Karma</span>
+        </div>
+        <div class="blog-body">
+            <div class="blog-date">1 Abril 2026</div>
+            <h2 class="blog-title">Nodos Lunares: Tu Destino Karmico Revelado</h2>
+            <div class="blog-content">
+            <h3>Los Nodos Lunares: Un Viaje Cósmico Entre Destino y Legado</h3>
+            <p>En el laberinto de la astrología, donde las estrellas narran historias de potencial y propósitos, los Nodos Lunares se erigen como faroles, iluminando el sendero entre nuestro pasado y nuestro destino. No son planetas, ni asteroides, sino puntos energéticos calculados a partir de la relación entre la órbita de la Luna y la eclíptica (el camino aparente del Sol a través del cielo). Comprendiendo estos nodos, podemos descifrar una narrativa profunda y personal sobre nuestra evolución del alma.</p>
+            <h3>El Nodo Norte: La Brújula del Destino</h3>
+            <p>El Nodo Norte, también conocido como la Cabeza del Dragón, señala la dirección de nuestro crecimiento, nuestro propósito en esta vida. No representa un destino predeterminado e inalterable, sino una invitación a trascender limitaciones y abrazar experiencias que nos impulsen hacia una mayor realización. Es un terreno desconocido, un territorio fértil donde la incomodidad puede ser la semilla de una profunda transformación.</p>
+            <p>El Nodo Norte nos desafía a expandir nuestra zona de confort, a desarrollar habilidades y cualidades que yacen latentes. Es el llamado a aventurarnos hacia lo inexplorado, confiando en nuestra intuición e instinto. Se asocia con la evolución, el aprendizaje y la superación de patrones arraigados. No se trata de descartar por completo lo familiar, sino de integrar nuevas perspectivas y enfoques que nos permitan cumplir con el propósito al que hemos sido convocados.</p>
+            <p>Cuando nos alineamos con la energía del Nodo Norte, experimentamos una sensación de propósito y vitalidad. Encontramos significado en nuestras experiencias y conectamos con un flujo de abundancia y oportunidades. Es un acto de valentía, una decisión consciente de liberarnos de creencias limitantes y embarcarnos en la aventura de convertirnos en la mejor versión de nosotros mismos.</p>
+            <h3>El Nodo Sur: El Legado del Pasado</h3>
+            <p>El Nodo Sur, la Cola del Dragón, representa las habilidades, talentos y patrones de comportamiento que hemos acumulado a lo largo de vidas pasadas. Es un lugar de comodidad y familiaridad, donde nos sentimos seguros y competentes. Sin embargo, también puede ser un pozo de estancamiento si permitimos que defina por completo nuestra identidad y nos impida explorar nuevas posibilidades.</p>
+            <p>El Nodo Sur alberga tanto dones como debilidades. Conocemos intuitivamente su territorio, lo cual puede ser una valiosa herramienta en algunas situaciones. No obstante, la complacencia y la resistencia al cambio pueden sabotear nuestro crecimiento personal. Tendemos a repetir viejos patrones, a apegarnos a creencias limitantes y a evitar la incomodidad del crecimiento.</p>
+            <p>Si caemos en la trampa del Nodo Sur, podemos experimentar una sensación de vacío y falta de propósito. Nos sentimos atrapados en un ciclo repetitivo, incapaces de avanzar hacia un futuro más prometedor. La clave reside en reconocer el valor de nuestras experiencias pasadas, pero al mismo tiempo estar dispuestos a trascenderlas y a abrazar la energía del Nodo Norte.</p>
+            <h3>Descifrando el Código: Encontrando los Nodos en tu Carta Natal</h3>
+            <p>Localizar los Nodos Lunares en tu carta natal es el primer paso para comprender su significado individual. Busca los símbolos de “Nodo Norte” (un símbolo que se asemeja a un auricular hacia arriba) y “Nodo Sur” (el mismo auricular, pero hacia abajo). Los Nodos siempre se encuentran en signos opuestos.</p>
+            <p>Una vez que hayas identificado los signos zodiacales y las casas astrológicas donde residen tus Nodos, puedes comenzar a interpretar su significado. Por ejemplo, un Nodo Norte en Géminis sugiere un llamado a desarrollar habilidades comunicativas, mientras que un Nodo Sur en Sagitario podría indicar una tendencia a aferrarse a creencias rígidas. El Nodo Norte en la casa décima indica un llamado a la realización profesional, posiblemente con un componente público, mientras que el Nodo Sur en la casa cuarta podría denotar apegos excesivos al hogar y a la familia.</p>
+            <h3>El Significado Profundo: Integración y Equilibrio</h3>
+            <p>Los Nodos Lunares no son entidades opuestas que deben ser combatidas, sino fuerzas complementarias que deben ser integradas. El desafío reside en encontrar un equilibrio entre el pasado y el futuro, entre la comodidad y el crecimiento. Al honrar nuestras raíces y abrazar el cambio, podemos desbloquear nuestro potencial y abrazar una vida llena de propósito y significado.</p>
+            <p>Comprender nuestros Nodos Lunares nos invita a una profunda reflexión sobre nuestras vidas. Nos revela los patrones que necesitamos trascender y los talentos que debemos cultivar. Es una herramienta poderosa para el autodescubrimiento y la transformación personal, una llave maestra para desentrañar el misterio de nuestra alma y caminar con intención hacia nuestro destino. Es un viaje continuo, un ballet cósmico entre el legado y el destino, impulsado por la eterna búsqueda de la plenitud. </p>
+            </div>
+            <div class="blog-cta">
+                <a href="https://astroaureum.com" class="btn-cta">DESCUBRE TU LECTURA</a>
+            </div>
+            <div class="blog-author">
+                <img src="assets/shivani.jpg" alt="Shivani" class="author-img">
+                <div>
+                    <div class="author-name">Shivani Devi Bramayani</div>
+                    <div class="author-role">Astrologa &middot; Astro Aureum</div>
+                </div>
+            </div>
+        </div>
+    </article>
+    <article class="blog-card fade-up" id="12-casas-astrologicas">
+        <div class="blog-img">
+            <img src="assets/bg-lecturas.png" alt="Las 12 Casas Astrologicas: Mapa de tu Vida" loading="lazy">
+            <span class="blog-cat" style="background:#A0F0FF">Guia</span>
+        </div>
+        <div class="blog-body">
+            <div class="blog-date">28 Marzo 2026</div>
+            <h2 class="blog-title">Las 12 Casas Astrologicas: Mapa de tu Vida</h2>
+            <div class="blog-content">
+            <p>Aquí tienes un artículo de blog sobre las 12 casas astrológicas, con un tono educativo, elegante y premium:</p>
+            <p><strong>Descifrando el tapiz cósmico: una guía de las 12 casas astrológicas</strong></p>
+            <p>La astrología, en su esencia, es un lenguaje de símbolos. Más allá de tu signo solar, una rica red de influencias celestiales da forma a tu experiencia vital. El núcleo de esta red son las 12 casas astrológicas. Estas casas, surgidas de la antigua astrología helenística, representan segmentos específicos de tu existencia, actuando como escenarios cósmicos donde se desarrolla el drama de tu vida. Comprender las casas es fundamental para una interpretación astrológica profunda y enriquecedora.</p>
+            <h3>I. La piedra angular: Las casas y su significado</h3>
+            <p>Imagina que tu carta natal es un plano dividido en 12 secciones. Cada sección, o casa, corresponde a un dominio particular de la vida. El Ascendente, o signo ascendente, marca el comienzo de la primera casa y sirve como punto de referencia. A partir de ahí, las casas se suceden en sentido contrario a las agujas del reloj.</p>
+            <p>He aquí una descripción concisa de cada casa:</p>
+            <p>*   <strong>Primera casa: El yo (Ascendente).</strong> Representa tu personalidad, tu apariencia, tu primera impresión y cómo te proyectas al mundo. *   <strong>Segunda casa: Recursos y valores.</strong> Gobierna tus posesiones materiales, tus finanzas, tu autoestima y tu sentido del valor propio. *   <strong>Tercera casa: Comunicación y aprendizaje.</strong> Abarca la comunicación, el pensamiento, los hermanos, los viajes cortos, la educación primaria y el entorno inmediato. *   <strong>Cuarta casa: Hogar y familia (IC).</strong> Simboliza tus raíces, tu hogar, tu familia, tu crianza y tu base emocional. *   <strong>Quinta casa: Creatividad y romance.</strong> Rige el romance, el amor, los hijos, la creatividad, la autoexpresión, los pasatiempos y la diversión. *   <strong>Sexta casa: Salud y rutina.</strong> Representa tu salud, tu rutina diaria, tu trabajo, tus empleados y tu servicio a los demás. *   <strong>Séptima casa: Asociación (Descendente).</strong> Abarca las relaciones de pareja, las asociaciones comerciales, los contratos y las relaciones con los demás. *   <strong>Octava casa: Transformación y recursos compartidos.</strong> Gobierna la transformación, la intimidad, el sexo, la muerte, los impuestos, las herencias y los recursos compartidos. *   <strong>Novena casa: Filosofía y expansión.</strong> Simboliza la filosofía, la religión, los viajes largos, la educación superior, las creencias y la búsqueda de la verdad. *   <strong>Décima casa: Carrera y estatus (MC).</strong> Representa tu carrera, tu reputación, tu imagen pública, tus logros y tu papel en la sociedad. *   <strong>Undécima casa: Comunidad y esperanzas</strong>. Rige las amistades, los grupos, las comunidades, los ideales, las esperanzas y los deseos. *   <strong>Duodécima casa: Subconsciente y clausura</strong>. Abarca tu subconsciente, tus secretos, tus sueños, tu aislamiento, tus hospitales y tu karma.</p>
+            <h3>II. ¿Por qué son importantes las casas?</h3>
+            <p>Las casas proporcionan contexto a las posiciones planetarias en tu carta natal. Un planeta en un determinado signo expresa su energía a través de la lente de la casa en la que se encuentra. Por ejemplo, Marte en Aries es un indicativo de energía y asertividad, pero si se encuentra en la décima casa (carrera), esa energía puede enfocarse en el éxito profesional y el liderazgo. Si ese Marte estuviera en la quinta casa (creatividad), la energía podría enfocarse en proyectos creativos y deportes.</p>
+            <p>Comprender las casas puede ayudarte a:</p>
+            <p>*   <strong>Identificar las áreas de la vida en las que es probable que experimentes crecimiento y retos.</strong> *   <strong>Comprender la forma en que las energías planetarias se manifiestan en tu vida.</strong> *   <strong>Profundizar en la autoconciencia y obtener información sobre tus motivaciones y comportamientos.</strong></p>
+            <h3>III. Interpretación de las casas: Un enfoque estratificado</h3>
+            <p>La interpretación de las casas implica considerar varios factores:</p>
+            <p>*   <strong>Planetas en la casa:</strong> El planeta o planetas ubicados en una casa influirán fuertemente en el área de la vida que representa esa casa. La naturaleza del planeta (por ejemplo, Marte es enérgico, Venus es armonioso) y su signo zodiacal determinarán cómo se expresa esa influencia. *   <strong>El signo de la cúspide de la casa:</strong> El signo en la cúspide (o punto de partida) de una casa matiza la influencia. Influye en cómo se aborda la energía asociada a esa casa. *   <strong>El gobernante de la casa:</strong> El planeta que rige el signo en la cúspide de la casa es el gobernante de esa casa. La ubicación de este gobernante en otra casa proporciona información adicional sobre las conexiones y entrelazados entre las diferentes áreas de tu vida. *   <strong>Aspectos con otros planetas o puntos:</strong> Los aspectos (ángulos) formados por el planeta o planetas dentro de una casa con otros planetas de la carta proporcionaran más capas profundas.</p>
+            <p>Por ejemplo, si Júpiter, el planeta de la expansión y la abundancia, se encuentra en la segunda casa (finanzas) en el signo de Tauro, esto podría indicar una capacidad natural para generar riqueza y disfrutar de la buena vida. Sin embargo, si Saturno, el planeta de la restricción y la responsabilidad, también está en la segunda casa, podría haber retos relacionados con las finanzas, o una necesidad de disciplina en el gasto. El signo en la cúspide indica el enfoque con el que uno se enfrentará a la energía de los planetas en esa casa.</p>
+            <h3>IV. Un viaje continuo de descubrimiento</h3>
+            <p>Dominar las 12 casas es un viaje continuo de descubrimiento. A medida que profundices en la astrología, descubrirás capas más profundas de significado. Recuerda que tu carta natal es una hoja de ruta de tu alma, y que las casas ofrecen valiosas perspectivas sobre el curso de tu viaje. Con paciencia y práctica, puedes descifrar el tapiz cósmico de tu vida y descubrir tu verdadero potencial. </p>
+            </div>
+            <div class="blog-cta">
+                <a href="https://astroaureum.com" class="btn-cta">DESCUBRE TU LECTURA</a>
+            </div>
+            <div class="blog-author">
+                <img src="assets/shivani.jpg" alt="Shivani" class="author-img">
+                <div>
+                    <div class="author-name">Shivani Devi Bramayani</div>
+                    <div class="author-role">Astrologa &middot; Astro Aureum</div>
+                </div>
+            </div>
+        </div>
+    </article>
+</div>
+<footer>
+    <div class="footer-logo">&#10022; Astro Aureum</div>
+    <div class="footer-links">
+        <a href="https://astroaureum.com">AstroAureum.com</a>
+        <a href="https://astroaureum.com/lecturas.html">9 Tradiciones</a>
+        <a href="https://astroaureum.com/aureum-books.html">Aureum Books</a>
+        <a href="/">Blog</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 Astro Aureum &mdash; Tu Guia Cosmica. Todos los derechos reservados.</p>
+</footer>
+<script>
+var c=document.getElementById('stars'),x=c.getContext('2d'),s=[];
+function I(){c.width=innerWidth;c.height=innerHeight;s=[];for(var i=0;i<150;i++)s.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.5+.5,a:Math.random()*.8+.2,sp:Math.random()*.3+.1,cl:['#A0F0FF','#FFED8A','#FFD6F5','#FFB3D1'][Math.floor(Math.random()*4)]})}
+function D(){x.clearRect(0,0,c.width,c.height);s.forEach(function(p){x.beginPath();x.arc(p.x,p.y,p.r,0,Math.PI*2);x.fillStyle=p.cl;x.globalAlpha=p.a+Math.sin(Date.now()*.001*p.sp)*.3;x.fill()});requestAnimationFrame(D)}
+I();D();addEventListener('resize',I);
+var ob=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting)en.target.classList.add('visible')})},{threshold:0.1});
+document.querySelectorAll('.fade-up').forEach(function(el){ob.observe(el)});
+var hb=document.getElementById('hamburger'),mm=document.getElementById('mobileMenu');
+hb.addEventListener('click',function(){hb.classList.toggle('open');mm.classList.toggle('open');document.body.style.overflow=mm.classList.contains('open')?'hidden':''});
+mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){hb.classList.remove('open');mm.classList.remove('open');document.body.style.overflow=''}});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){hb.classList.remove('open');mm.classList.remove('open');document.body.style.overflow=''}});
+</script>
+</body>
+</html>
