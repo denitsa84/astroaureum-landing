@@ -181,99 +181,151 @@ var PLANET_MEANINGS=['Tu esencia','Tus emociones','Tu comunicacion','Tu amor','T
 
 function drawChart(sunIdx,moonIdx,yr,mo,dy){
 var svg=document.getElementById('chart-wheel');
-var cx=250,cy=250,R=220,R2=185,R3=155,R4=60;
+var cx=250,cy=250;
+var R0=245,R1=220,R2=195,R3=170,R4=100,R5=55;
 var ns='http://www.w3.org/2000/svg';
 svg.innerHTML='';
 
-// Background circle
-var bg=document.createElementNS(ns,'circle');bg.setAttribute('cx',cx);bg.setAttribute('cy',cy);bg.setAttribute('r',R);bg.setAttribute('fill','rgba(8,1,27,0.9)');bg.setAttribute('stroke','rgba(255,237,138,0.2)');bg.setAttribute('stroke-width','1');svg.appendChild(bg);
+// Helper to create SVG elements
+function el(tag,attrs){var e=document.createElementNS(ns,tag);for(var k in attrs)e.setAttribute(k,attrs[k]);return e}
+function addText(x,y,text,fill,size,family){var t=el('text',{x:x,y:y,'text-anchor':'middle','dominant-baseline':'central',fill:fill,'font-size':size,'font-family':family||'Inter,sans-serif'});t.textContent=text;svg.appendChild(t);return t}
 
-// Outer zodiac ring - 12 segments
-for(var i=0;i<12;i++){
-var a1=(i*30-90)*Math.PI/180;
-var a2=((i+1)*30-90)*Math.PI/180;
-var mid=((i*30+15)-90)*Math.PI/180;
-// Segment arc
-var path=document.createElementNS(ns,'path');
-var x1=cx+R*Math.cos(a1),y1=cy+R*Math.sin(a1);
-var x2=cx+R*Math.cos(a2),y2=cy+R*Math.sin(a2);
-var x3=cx+R2*Math.cos(a2),y3=cy+R2*Math.sin(a2);
-var x4=cx+R2*Math.cos(a1),y4=cy+R2*Math.sin(a1);
-path.setAttribute('d','M'+x1+' '+y1+' A'+R+' '+R+' 0 0 1 '+x2+' '+y2+' L'+x3+' '+y3+' A'+R2+' '+R2+' 0 0 0 '+x4+' '+y4+' Z');
-path.setAttribute('fill',SIGN_COLORS[i]);path.setAttribute('fill-opacity','0.15');
-path.setAttribute('stroke','rgba(255,237,138,0.3)');path.setAttribute('stroke-width','0.5');
-svg.appendChild(path);
-// Sign glyph
-var tx=cx+(R-18)*Math.cos(mid),ty=cy+(R-18)*Math.sin(mid);
-var txt=document.createElementNS(ns,'text');txt.setAttribute('x',tx);txt.setAttribute('y',ty);
-txt.setAttribute('text-anchor','middle');txt.setAttribute('dominant-baseline','central');
-txt.setAttribute('fill',SIGN_COLORS[i]);txt.setAttribute('font-size','16');txt.setAttribute('opacity','0.9');
-txt.textContent=SIGNS[i].s;svg.appendChild(txt);
+// Defs for gradients and filters
+var defs=el('defs',{});
+// Outer glow filter
+var glow=el('filter',{id:'glow',x:'-50%',y:'-50%',width:'200%',height:'200%'});
+var gb=el('feGaussianBlur',{stdDeviation:'3',result:'blur'});glow.appendChild(gb);
+var fm=el('feMerge',{});var n1=el('feMergeNode',{in:'blur'});var n2=el('feMergeNode',{in:'SourceGraphic'});fm.appendChild(n1);fm.appendChild(n2);glow.appendChild(fm);defs.appendChild(glow);
+// Planet glow
+var pglow=el('filter',{id:'pglow',x:'-100%',y:'-100%',width:'300%',height:'300%'});
+var pgb=el('feGaussianBlur',{stdDeviation:'4',result:'blur'});pglow.appendChild(pgb);
+var pfm=el('feMerge',{});pfm.appendChild(el('feMergeNode',{in:'blur'}));pfm.appendChild(el('feMergeNode',{in:'SourceGraphic'}));pglow.appendChild(pfm);defs.appendChild(pglow);
+// Radial gradient for background
+var rg=el('radialGradient',{id:'bgGrad',cx:'50%',cy:'50%',r:'50%'});
+rg.appendChild(el('stop',{offset:'0%','stop-color':'#1a0a3e','stop-opacity':'0.4'}));
+rg.appendChild(el('stop',{offset:'100%','stop-color':'#08011B','stop-opacity':'0.95'}));
+defs.appendChild(rg);
+svg.appendChild(defs);
+
+// Background with gradient
+svg.appendChild(el('circle',{cx:cx,cy:cy,r:R0,fill:'url(#bgGrad)',stroke:'rgba(255,237,138,0.08)','stroke-width':'1'}));
+
+// Outer decorative ring (degree marks)
+for(var i=0;i<360;i+=5){
+var a=(i-90)*Math.PI/180;
+var len=i%30===0?12:i%10===0?8:4;
+var ox=cx+R0*Math.cos(a),oy=cy+R0*Math.sin(a);
+var ix=cx+(R0-len)*Math.cos(a),iy=cy+(R0-len)*Math.sin(a);
+svg.appendChild(el('line',{x1:ox,y1:oy,x2:ix,y2:iy,stroke:i%30===0?'rgba(255,237,138,0.5)':'rgba(255,237,138,0.15)','stroke-width':i%30===0?'1.5':'0.5'}));
 }
 
-// Inner house ring
-var houseCircle=document.createElementNS(ns,'circle');houseCircle.setAttribute('cx',cx);houseCircle.setAttribute('cy',cy);houseCircle.setAttribute('r',R3);houseCircle.setAttribute('fill','none');houseCircle.setAttribute('stroke','rgba(160,240,255,0.15)');houseCircle.setAttribute('stroke-width','0.5');svg.appendChild(houseCircle);
+// Zodiac ring (outer colored band)
+var elemGrads=[
+['#FF4444','#FF7744'],['#44AA44','#66CC66'],['#4488FF','#66BBFF'],['#22AACC','#44DDEE'],
+['#FF4444','#FF7744'],['#44AA44','#66CC66'],['#4488FF','#66BBFF'],['#22AACC','#44DDEE'],
+['#FF4444','#FF7744'],['#44AA44','#66CC66'],['#4488FF','#66BBFF'],['#22AACC','#44DDEE']
+];
+for(var i=0;i<12;i++){
+var a1=(i*30-90)*Math.PI/180,a2=((i+1)*30-90)*Math.PI/180;
+var mid=((i*30+15)-90)*Math.PI/180;
+// Colored segment
+var p=el('path',{});
+var ox1=cx+R1*Math.cos(a1),oy1=cy+R1*Math.sin(a1);
+var ox2=cx+R1*Math.cos(a2),oy2=cy+R1*Math.sin(a2);
+var ix1=cx+R2*Math.cos(a1),iy1=cy+R2*Math.sin(a1);
+var ix2=cx+R2*Math.cos(a2),iy2=cy+R2*Math.sin(a2);
+p.setAttribute('d','M'+ox1+' '+oy1+' A'+R1+' '+R1+' 0 0 1 '+ox2+' '+oy2+' L'+ix2+' '+iy2+' A'+R2+' '+R2+' 0 0 0 '+ix1+' '+iy1+' Z');
+p.setAttribute('fill',elemGrads[i][0]);p.setAttribute('fill-opacity','0.2');
+p.setAttribute('stroke','rgba(255,237,138,0.25)');p.setAttribute('stroke-width','0.8');
+svg.appendChild(p);
+// Sign glyph with glow
+var gx=cx+((R1+R2)/2)*Math.cos(mid),gy=cy+((R1+R2)/2)*Math.sin(mid);
+var gt=addText(gx,gy,SIGNS[i].s,elemGrads[i][1],'15','serif');
+gt.setAttribute('filter','url(#glow)');gt.setAttribute('font-weight','bold');
+}
 
-// House lines and numbers
+// Inner ring border
+svg.appendChild(el('circle',{cx:cx,cy:cy,r:R2,fill:'none',stroke:'rgba(255,237,138,0.2)','stroke-width':'1'}));
+
+// House ring
+svg.appendChild(el('circle',{cx:cx,cy:cy,r:R3,fill:'none',stroke:'rgba(160,240,255,0.1)','stroke-width':'0.5'}));
+svg.appendChild(el('circle',{cx:cx,cy:cy,r:R4,fill:'none',stroke:'rgba(160,240,255,0.08)','stroke-width':'0.5'}));
+
+// House cusp lines (thicker at angles 1,4,7,10)
 for(var i=0;i<12;i++){
 var a=(i*30-90)*Math.PI/180;
-var lx1=cx+R2*Math.cos(a),ly1=cy+R2*Math.sin(a);
-var lx2=cx+R4*Math.cos(a),ly2=cy+R4*Math.sin(a);
-var line=document.createElementNS(ns,'line');line.setAttribute('x1',lx1);line.setAttribute('y1',ly1);line.setAttribute('x2',lx2);line.setAttribute('y2',ly2);
-line.setAttribute('stroke','rgba(160,240,255,0.12)');line.setAttribute('stroke-width','0.5');svg.appendChild(line);
+var isAngle=(i===0||i===3||i===6||i===9);
+svg.appendChild(el('line',{
+x1:cx+R2*Math.cos(a),y1:cy+R2*Math.sin(a),
+x2:cx+R5*Math.cos(a),y2:cy+R5*Math.sin(a),
+stroke:isAngle?'rgba(255,237,138,0.35)':'rgba(160,240,255,0.08)',
+'stroke-width':isAngle?'1.5':'0.5'
+}));
 // House number
-var mid2=((i*30+15)-90)*Math.PI/180;
-var hx=cx+((R3+R4)/2)*Math.cos(mid2),hy=cy+((R3+R4)/2)*Math.sin(mid2);
-var ht=document.createElementNS(ns,'text');ht.setAttribute('x',hx);ht.setAttribute('y',hy);
-ht.setAttribute('text-anchor','middle');ht.setAttribute('dominant-baseline','central');
-ht.setAttribute('fill','rgba(160,240,255,0.3)');ht.setAttribute('font-size','11');ht.setAttribute('font-family','Inter,sans-serif');
-ht.textContent=(i+1);svg.appendChild(ht);
+var hm=((i*30+15)-90)*Math.PI/180;
+var hr=(R3+R4)/2;
+addText(cx+hr*Math.cos(hm),cy+hr*Math.sin(hm),(i+1).toString(),isAngle?'rgba(255,237,138,0.5)':'rgba(160,240,255,0.2)','10');
 }
 
-// Center circle
-var center=document.createElementNS(ns,'circle');center.setAttribute('cx',cx);center.setAttribute('cy',cy);center.setAttribute('r',R4);center.setAttribute('fill','rgba(8,1,27,0.95)');center.setAttribute('stroke','rgba(255,237,138,0.2)');center.setAttribute('stroke-width','0.5');svg.appendChild(center);
+// ASC/DSC/MC/IC labels
+var labels=[{a:0,t:'ASC'},{a:180,t:'DSC'},{a:270,t:'MC'},{a:90,t:'IC'}];
+labels.forEach(function(lb){
+var la=(lb.a-90)*Math.PI/180;
+var lx=cx+(R2+10)*Math.cos(la),ly=cy+(R2+10)*Math.sin(la);
+var lt=addText(lx,ly,lb.t,'#FFED8A','9','Inter,sans-serif');
+lt.setAttribute('font-weight','700');lt.setAttribute('letter-spacing','1');
+});
 
-// Planet positions (simulated based on birth data)
+// Center circle with gradient
+svg.appendChild(el('circle',{cx:cx,cy:cy,r:R5,fill:'rgba(8,1,27,0.9)',stroke:'rgba(255,237,138,0.15)','stroke-width':'1'}));
+
+// Planet positions
 var seed=yr*1000+mo*100+dy;
 var planetPositions=[];
-planetPositions.push(sunIdx*30+dy); // Sol
-planetPositions.push(moonIdx*30+(dy*2)%30); // Luna
-for(var i=2;i<10;i++){
-planetPositions.push(((seed*7+i*137)%360));
-}
+planetPositions.push(sunIdx*30+dy);
+planetPositions.push(moonIdx*30+(dy*2)%30);
+for(var i=2;i<10;i++){planetPositions.push(((seed*7+i*137)%360))}
 
-// Draw planets on wheel
+// Aspect lines (inside center area)
+var ASPECT_TYPES=[
+{name:'Conjunction',angle:0,orb:8,color:'rgba(255,237,138,0.4)',dash:''},
+{name:'Trine',angle:120,orb:8,color:'rgba(64,181,246,0.3)',dash:''},
+{name:'Square',angle:90,orb:8,color:'rgba(255,107,74,0.25)',dash:'4,3'},
+{name:'Opposition',angle:180,orb:8,color:'rgba(255,179,209,0.3)',dash:'6,3'},
+{name:'Sextile',angle:60,orb:6,color:'rgba(139,195,74,0.2)',dash:'2,3'}
+];
+for(var i=0;i<10;i++){for(var j=i+1;j<10;j++){
+var diff=Math.abs(planetPositions[i]-planetPositions[j])%360;
+if(diff>180)diff=360-diff;
+ASPECT_TYPES.forEach(function(asp){
+if(Math.abs(diff-asp.angle)<=asp.orb){
+var ai=(planetPositions[i]-90)*Math.PI/180,aj=(planetPositions[j]-90)*Math.PI/180;
+var attrs={x1:cx+(R5-5)*Math.cos(ai),y1:cy+(R5-5)*Math.sin(ai),x2:cx+(R5-5)*Math.cos(aj),y2:cy+(R5-5)*Math.sin(aj),stroke:asp.color,'stroke-width':'1'};
+if(asp.dash)attrs['stroke-dasharray']=asp.dash;
+svg.appendChild(el('line',attrs));
+}
+});
+}}
+
+// Draw planets with professional look
 var planetR=(R2+R3)/2;
+var PLANET_COLORS=['#FFED8A','#A0F0FF','#B388FF','#FF80AB','#FF6E40','#FFD54F','#78909C','#00E5FF','#448AFF','#CE93D8'];
 for(var i=0;i<10;i++){
 var angle=(planetPositions[i]-90)*Math.PI/180;
 var px=cx+planetR*Math.cos(angle),py=cy+planetR*Math.sin(angle);
-// Planet circle
-var pc=document.createElementNS(ns,'circle');pc.setAttribute('cx',px);pc.setAttribute('cy',py);pc.setAttribute('r','12');
-pc.setAttribute('fill','rgba(8,1,27,0.8)');pc.setAttribute('stroke',i===0?'#FFED8A':i===1?'#A0F0FF':'#FFB3D1');pc.setAttribute('stroke-width','1.5');svg.appendChild(pc);
+// Planet bg circle with glow
+svg.appendChild(el('circle',{cx:px,cy:py,r:'14',fill:'rgba(8,1,27,0.85)',stroke:PLANET_COLORS[i],'stroke-width':'2',filter:'url(#pglow)'}));
 // Planet glyph
-var pt=document.createElementNS(ns,'text');pt.setAttribute('x',px);pt.setAttribute('y',py);
-pt.setAttribute('text-anchor','middle');pt.setAttribute('dominant-baseline','central');
-pt.setAttribute('fill',i===0?'#FFED8A':i===1?'#A0F0FF':'#FFD6F5');pt.setAttribute('font-size','13');
-pt.textContent=PLANET_GLYPHS[i];svg.appendChild(pt);
+var pt=addText(px,py,PLANET_GLYPHS[i],PLANET_COLORS[i],'14','serif');
+pt.setAttribute('font-weight','bold');
+// Degree tick on outer ring
+var degAngle=(planetPositions[i]-90)*Math.PI/180;
+svg.appendChild(el('line',{x1:cx+R2*Math.cos(degAngle),y1:cy+R2*Math.sin(degAngle),x2:cx+(R2+8)*Math.cos(degAngle),y2:cy+(R2+8)*Math.sin(degAngle),stroke:PLANET_COLORS[i],'stroke-width':'2'}));
 }
 
-// Aspect lines (simulated)
-var aspectColors=['rgba(255,237,138,0.2)','rgba(160,240,255,0.15)','rgba(255,179,209,0.15)'];
-for(var i=0;i<4;i++){
-var a=planetPositions[i],b=planetPositions[(i+3)%10];
-var diff=Math.abs(a-b)%360;if(diff>180)diff=360-diff;
-if(diff>100&&diff<140){// Trine
-var ax=(a-90)*Math.PI/180,bx=(b-90)*Math.PI/180;
-var al=document.createElementNS(ns,'line');
-al.setAttribute('x1',cx+R4*Math.cos(ax));al.setAttribute('y1',cy+R4*Math.sin(ax));
-al.setAttribute('x2',cx+R4*Math.cos(bx));al.setAttribute('y2',cy+R4*Math.sin(bx));
-al.setAttribute('stroke',aspectColors[i%3]);al.setAttribute('stroke-width','1');al.setAttribute('stroke-dasharray','4,4');svg.appendChild(al);
-}
-}
-
-// Center text
-var ct=document.createElementNS(ns,'text');ct.setAttribute('x',cx);ct.setAttribute('y',cy-8);ct.setAttribute('text-anchor','middle');ct.setAttribute('fill','#FFED8A');ct.setAttribute('font-size','10');ct.setAttribute('font-family','Playfair Display,serif');ct.textContent='ASTRO';svg.appendChild(ct);
-var ct2=document.createElementNS(ns,'text');ct2.setAttribute('x',cx);ct2.setAttribute('y',cy+8);ct2.setAttribute('text-anchor','middle');ct2.setAttribute('fill','#FFED8A');ct2.setAttribute('font-size','10');ct2.setAttribute('font-family','Playfair Display,serif');ct2.textContent='AUREUM';svg.appendChild(ct2);
+// Center logo
+addText(cx,cy-10,'\u2726','rgba(255,237,138,0.6)','18','serif');
+addText(cx,cy+10,'AUREUM','rgba(255,237,138,0.4)','8','Playfair Display,serif');
 
 // Fill planet table
 var tbody=document.getElementById('planet-table');tbody.innerHTML='';
