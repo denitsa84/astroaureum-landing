@@ -58,8 +58,14 @@ footer{padding:50px 40px;text-align:center;border-top:1px solid rgba(255,237,138
 .fade-up{opacity:1;transform:translateY(0);transition:opacity 0.8s ease,transform 0.8s ease}
 @media(max-width:768px){nav{padding:15px 20px}.nav-links{display:none}.hamburger{display:flex}.hero{padding:110px 20px 40px;min-height:50vh}.blog-img{height:220px}.blog-body{padding:1.5rem}.blog-grid{padding:1rem}}
 </style>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Astro Aureum">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="/mobile-app.css">
 </head>
 <body>
+<div class="splash-screen" id="splash"><div class="splash-logo">Astro Aureum</div><div class="splash-tagline">Tu Guia Cosmica</div></div>
 <canvas id="stars" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none;"></canvas>
 <nav>
     <a href="https://astroaureum.com" class="nav-logo">&#10022; Astro Aureum</a>
@@ -851,5 +857,13 @@ hb.addEventListener('click',function(){hb.classList.toggle('open');mm.classList.
 mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){hb.classList.remove('open');mm.classList.remove('open');document.body.style.overflow=''})});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){hb.classList.remove('open');mm.classList.remove('open');document.body.style.overflow=''}});
 </script>
+<nav class="bottom-nav" aria-label="Navegacion principal"><div class="bottom-nav-inner">
+<a href="/"><span class="bottom-nav-icon">&#9737;</span><span class="bottom-nav-label">Inicio</span></a>
+<a href="/carta-natal-gratis.html"><span class="bottom-nav-icon">&#9788;</span><span class="bottom-nav-label">Carta</span></a>
+<a href="/horoscopo-diario.html"><span class="bottom-nav-icon">&#9733;</span><span class="bottom-nav-label">Horoscopo</span></a>
+<a href="/lecturas.html"><span class="bottom-nav-icon">&#9830;</span><span class="bottom-nav-label">Lecturas</span></a>
+<a href="/precios-premium.html"><span class="bottom-nav-icon">&#10022;</span><span class="bottom-nav-label">Premium</span></a>
+</div></nav>
+<script>setTimeout(function(){var s=document.getElementById('splash');if(s)s.classList.add('hidden')},1200);</script>
 </body>
 </html>
