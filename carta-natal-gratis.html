@@ -432,6 +432,16 @@ const sign=getSunSign(m,d);
 if(window.gtag)gtag('event','calculate_chart',{sign:sign.name});
 if(window.posthog)posthog.capture('chart_calculated',{sign:sign.name,has_time:!document.getElementById('noTime').checked});
 
+// Send lead to API
+fetch('https://astro-connect.vercel.app/api/quiz-lead',{
+  method:'POST',
+  headers:{'Content-Type':'application/json'},
+  body:JSON.stringify({name:name,email:email,moonSign:sign.name,source:'carta-natal-gratis'})
+}).catch(function(){});
+
+// Save to localStorage
+localStorage.setItem('aa_lead',JSON.stringify({name:name,email:email,sign:sign.name,date:new Date().toISOString()}));
+
 // Show results
 document.getElementById('results').style.display='block';
 document.getElementById('formCard').style.display='none';
