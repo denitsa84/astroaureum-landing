@@ -16,7 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ============================================
-   AUREUM BOOKS — Matching index.html Design
+   AUREUM BOOKS — Matching astroaureum.com
    ============================================ */
 :root {
     --bg-space: #08011B;
@@ -58,7 +58,7 @@ body {
 }
 
 /* ============================================
-   NAVBAR — Same as index.html
+   NAVBAR — Matching astroaureum.com
    ============================================ */
 nav {
     position: fixed;
@@ -85,7 +85,7 @@ nav {
     text-decoration: none;
 }
 
-.nav-links { display: flex; gap: 30px; }
+.nav-links { display: flex; gap: 30px; align-items: center; }
 .nav-links a {
     color: var(--cosmic-cream);
     font-size: 0.9rem;
@@ -95,6 +95,96 @@ nav {
     transition: all 0.3s;
 }
 .nav-links a:hover { color: var(--electric-blue); }
+.nav-links a.nav-active { color: var(--golden-yellow); text-shadow: 0 0 8px rgba(255, 237, 138, 0.3); }
+
+/* ============================================
+   HAMBURGER MENU
+   ============================================ */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    z-index: 1002;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--golden-yellow);
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: center;
+}
+
+.hamburger.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+.mobile-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: rgba(8, 1, 27, 0.95);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.mobile-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.mobile-overlay a {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--cosmic-cream);
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+.mobile-overlay.open a {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.mobile-overlay a:nth-child(1) { transition-delay: 0.05s; }
+.mobile-overlay a:nth-child(2) { transition-delay: 0.1s; }
+.mobile-overlay a:nth-child(3) { transition-delay: 0.15s; }
+.mobile-overlay a:nth-child(4) { transition-delay: 0.2s; }
+.mobile-overlay a:nth-child(5) { transition-delay: 0.25s; }
+.mobile-overlay a:nth-child(6) { transition-delay: 0.3s; }
+
+.mobile-overlay a:hover { color: var(--electric-blue); }
+.mobile-overlay a.nav-active { color: var(--golden-yellow); text-shadow: 0 0 10px rgba(255, 237, 138, 0.4); }
 
 /* ============================================
    TYPOGRAPHY
@@ -149,7 +239,7 @@ a:hover { color: var(--electric-blue); }
 }
 
 /* ============================================
-   BUTTONS — Same as index.html
+   BUTTONS — Matching astroaureum.com
    ============================================ */
 .btn-cta {
     display: inline-block;
@@ -173,6 +263,11 @@ a:hover { color: var(--electric-blue); }
     transform: scale(1.05) translateY(-2px);
     box-shadow: var(--glow-love);
     color: #000;
+}
+
+.btn-cta:active {
+    filter: brightness(1.3);
+    transition: all 0.05s;
 }
 
 .btn-secondary {
@@ -315,7 +410,7 @@ a:hover { color: var(--electric-blue); }
 }
 
 /* ============================================
-   BOOK CARDS — Glassmorphism
+   BOOK CARDS — Glassmorphism + Pulse Glow
    ============================================ */
 .card {
     background: rgba(255, 249, 234, 0.03);
@@ -1164,7 +1259,7 @@ a:hover { color: var(--electric-blue); }
 }
 
 /* ============================================
-   FOOTER — Same as index.html
+   FOOTER — Matching astroaureum.com
    ============================================ */
 footer {
     padding: 50px 40px;
@@ -1228,6 +1323,7 @@ footer {
 @media (max-width: 768px) {
     nav { padding: 15px 20px; }
     .nav-links { display: none; }
+    .hamburger { display: flex; }
     .hero { padding: 100px 20px 60px; }
     .hero-stats { gap: 30px; }
     .hero-buttons { flex-direction: column; align-items: center; }
@@ -1240,6 +1336,10 @@ footer {
     .modal-body { padding: 0 20px 24px; }
     .mb-title { font-size: 1.25rem; }
     .mb-price { font-size: 1.8rem; }
+    .cta-card { padding: 35px 20px; }
+    .prev-card { padding: 30px 20px; }
+    .footer-links { gap: 20px; }
+    footer { padding: 40px 20px; }
 }
 </style>
 </head>
@@ -1248,7 +1348,17 @@ footer {
 <!-- STARS CANVAS -->
 <canvas id="stars" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none;"></canvas>
 
-<!-- NAVBAR — Same as index.html -->
+<!-- MOBILE OVERLAY -->
+<div class="mobile-overlay" id="mobileOverlay">
+    <a href="/#sincronia">Sincronicidad</a>
+    <a href="/#como-funciona">Como Funciona</a>
+    <a href="/#precios">Precios</a>
+    <a href="/#testimonios">Testimonios</a>
+    <a href="/lecturas.html">9 Tradiciones</a>
+    <a href="/aureum-books.html" class="nav-active">Aureum Books</a>
+</div>
+
+<!-- NAVBAR — Matching astroaureum.com -->
 <nav>
     <a href="/" class="nav-logo">&#10022; Astro Aureum</a>
     <div class="nav-links">
@@ -1257,8 +1367,13 @@ footer {
         <a href="/#precios">Precios</a>
         <a href="/#testimonios">Testimonios</a>
         <a href="/lecturas.html">9 Tradiciones</a>
-        <a href="/aureum-books.html" style="color:var(--golden-yellow)">Aureum Books</a>
+        <a href="/aureum-books.html" class="nav-active">Aureum Books</a>
     </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 </nav>
 
 <!-- HERO -->
@@ -1371,87 +1486,123 @@ footer {
     </div>
 </section>
 
-<!-- FOOTER — Same as index.html -->
+<!-- FOOTER — Matching astroaureum.com -->
 <footer>
     <div class="footer-logo">&#10022; Astro Aureum</div>
     <div class="footer-links">
         <a href="https://astroaureum.com">AstroAureum.com</a>
         <a href="#cat">Catalogo</a>
-        <a href="#prev">Preview</a>
-        <a href="https://astroaureum.com/#contacto">Contacto</a>
+        <a href="/lecturas.html">9 Tradiciones</a>
         <a href="/politica-privacidad.html">Privacidad</a>
         <a href="/politica-cookies.html">Cookies</a>
     </div>
-    <p class="footer-copy">&copy; 2026 Aureum Books by Astro Aureum. Todos los derechos reservados.</p>
+    <p class="footer-copy">&copy; 2026 Aureum Books by Astro Aureum</p>
 </footer>
 
 <script>
 // ============================================
-// STARS CANVAS — Same as index.html
+// STARS CANVAS — 150 stars, 4 colors, twinkling
 // ============================================
-const canvas = document.getElementById('stars');
-const ctx = canvas.getContext('2d');
-let stars = [];
+(function(){
+    var canvas = document.getElementById('stars');
+    var ctx = canvas.getContext('2d');
+    var stars = [];
+    var colors = ['#A0F0FF', '#FFED8A', '#FFD6F5', '#FFB3D1'];
 
-function initStars() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    stars = [];
-    for (let i = 0; i < 150; i++) {
-        stars.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            r: Math.random() * 1.5 + 0.5,
-            alpha: Math.random() * 0.8 + 0.2,
-            speed: Math.random() * 0.3 + 0.1,
-            color: ['#A0F0FF', '#FFED8A', '#FFD6F5', '#FFB3D1'][Math.floor(Math.random() * 4)]
-        });
+    function initStars() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        stars = [];
+        for (var i = 0; i < 150; i++) {
+            stars.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                r: Math.random() * 1.5 + 0.5,
+                alpha: Math.random() * 0.8 + 0.2,
+                speed: Math.random() * 0.3 + 0.1,
+                color: colors[Math.floor(Math.random() * 4)]
+            });
+        }
     }
-}
 
-function drawStars() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    stars.forEach(s => {
-        ctx.beginPath();
-        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-        ctx.fillStyle = s.color;
-        ctx.globalAlpha = s.alpha + Math.sin(Date.now() * 0.001 * s.speed) * 0.3;
-        ctx.fill();
+    function drawStars() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (var i = 0; i < stars.length; i++) {
+            var s = stars[i];
+            ctx.beginPath();
+            ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+            ctx.fillStyle = s.color;
+            ctx.globalAlpha = s.alpha + Math.sin(Date.now() * 0.001 * s.speed) * 0.3;
+            ctx.fill();
+        }
+        requestAnimationFrame(drawStars);
+    }
+
+    initStars();
+    drawStars();
+    window.addEventListener('resize', initStars);
+})();
+
+// ============================================
+// HAMBURGER MENU
+// ============================================
+(function(){
+    var hamburger = document.getElementById('hamburger');
+    var overlay = document.getElementById('mobileOverlay');
+    var links = overlay.querySelectorAll('a');
+
+    function toggleMenu() {
+        hamburger.classList.toggle('open');
+        overlay.classList.toggle('open');
+        document.body.style.overflow = overlay.classList.contains('open') ? 'hidden' : '';
+    }
+
+    function closeMenu() {
+        hamburger.classList.remove('open');
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    hamburger.addEventListener('click', toggleMenu);
+
+    for (var i = 0; i < links.length; i++) {
+        links[i].addEventListener('click', closeMenu);
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && overlay.classList.contains('open')) {
+            closeMenu();
+        }
     });
-    requestAnimationFrame(drawStars);
-}
-
-initStars();
-drawStars();
-window.addEventListener('resize', initStars);
+})();
 
 // ============================================
-// SCROLL ANIMATIONS (Fade Up)
+// SCROLL ANIMATIONS (Fade Up) — IntersectionObserver
 // ============================================
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
         }
     });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
 
 // ============================================
 // PREVIEW LANGUAGE PILLS
 // ============================================
-document.querySelectorAll('.prev-p').forEach(b => {
-    b.onclick = () => {
-        document.querySelectorAll('.prev-p').forEach(x => x.classList.remove('on'));
+document.querySelectorAll('.prev-p').forEach(function(b) {
+    b.onclick = function() {
+        document.querySelectorAll('.prev-p').forEach(function(x) { x.classList.remove('on'); });
         b.classList.add('on');
     };
 });
 
 // ============================================
-// BOOK DATA — All 18 books preserved
+// BOOK DATA — All 18 books
 // ============================================
-const books=[
+var books=[
 {t:'Guia Completa de los 12 Signos',cat:'Signos Zodiacales',d:'Descubre la personalidad profunda, compatibilidad, carrera y destino cosmico de cada signo zodiacal. Un viaje por las 12 constelaciones.',ic:'\u2648',ch:15,pg:280,pr:14.99,op:19.99,fm:['pdf','kin','pb','au'],ln:['ES','BG','EN','PT','FR','DE'],bg:'best',cl:['#D4A843','#8B6914','#5a4510'],mn:1},
 {t:'Como Leer tu Carta Natal',cat:'Carta Natal',d:'Manual paso a paso para interpretar tu carta astral con planetas, casas, aspectos y transitos.',ic:'\u2609',ch:18,pg:320,pr:24.99,fm:['pdf','kin','pb','hd','au'],ln:['ES','BG','EN','PT'],bg:'new',cl:['#7B4FBF','#4a2d7a','#2d1a4f'],mn:0},
 {t:'Sinastria: Compatibilidad Cosmica',cat:'Sinastria & Amor',d:'El secreto de la compatibilidad entre signos. Las estrellas revelan la verdad de tu relacion.',ic:'\u2665',ch:14,pg:240,pr:12.99,fm:['pdf','kin','pb','au'],ln:['ES','BG','EN'],cl:['#C2185B','#880E4F','#4A0028'],mn:1},
@@ -1472,51 +1623,62 @@ const books=[
 {t:'Los 12 Signos Vol. II',cat:'Aire & Agua',d:'Libra, Escorpio, Sagitario, Capricornio, Acuario y Piscis: el viaje del alma.',ic:'\u264E',ch:6,pg:135,pr:6.99,op:9.99,fm:['pdf','kin','pb','au'],ln:['ES','BG','EN','PT','FR','DE'],bg:'new',cl:['#7B4FBF','#5a3a8f','#3d2660'],mn:0},
 ];
 
-const fN={pdf:'PDF',kin:'Kindle',pb:'Tapa Blanda',hd:'Tapa Dura',au:'Audio'};
-const fC={pdf:'f-pdf',kin:'f-kin',pb:'f-pb',hd:'f-hd',au:'f-au'};
-const fI={pdf:'\u{1F4C4}',kin:'\u{1F4D6}',pb:'\u{1F4DA}',hd:'\u{1F4D5}',au:'\u{1F3A4}'};
-const fM={pdf:1,kin:1,pb:2.14,hd:3.57,au:2.14};
-const gr=document.getElementById('grid');
+var fN={pdf:'PDF',kin:'Kindle',pb:'Tapa Blanda',hd:'Tapa Dura',au:'Audio'};
+var fC={pdf:'f-pdf',kin:'f-kin',pb:'f-pb',hd:'f-hd',au:'f-au'};
+var fI={pdf:'\u{1F4C4}',kin:'\u{1F4D6}',pb:'\u{1F4DA}',hd:'\u{1F4D5}',au:'\u{1F3A4}'};
+var fM={pdf:1,kin:1,pb:2.14,hd:3.57,au:2.14};
+var gr=document.getElementById('grid');
 
 // ============================================
-// SVG BOOK COVER GENERATION — Preserved
+// SVG BOOK COVER GENERATION
 // ============================================
 function mkSVG(b,w,h){
-  const st=Array.from({length:30},()=>`<circle cx="${Math.random()*w}" cy="${Math.random()*h}" r="${Math.random()*1.5+.3}" fill="white" opacity="${Math.random()*.6+.15}"/>`).join('');
-  const rn=b.mn?`<circle cx="${w/2}" cy="${h*.32}" r="24" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/><circle cx="${w/2}" cy="${h*.32}" r="38" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/><circle cx="${w/2}" cy="${h*.32}" r="54" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/>`:'';
-  const mo=b.mn?`<circle cx="${w/2}" cy="${h*.32}" r="18" fill="rgba(255,255,255,0.85)" filter="url(#glow${b.cl[0].replace('#','')})"/><circle cx="${w/2+7}" cy="${h*.32-4}" r="16" fill="${b.cl[1]}"/>`:'';
-  const cn=Array.from({length:5},(_,i)=>{const x1=15+Math.random()*(w-30),y1=5+Math.random()*(h*.4);const x2=15+Math.random()*(w-30),y2=5+Math.random()*(h*.4);return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="rgba(255,255,255,0.07)" stroke-width="0.5"/><circle cx="${x1}" cy="${y1}" r="1.5" fill="rgba(255,255,255,0.2)"/>`}).join('');
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}"><defs><radialGradient id="rg${b.cl[0].replace('#','')}" cx="50%" cy="25%"><stop offset="0%" stop-color="${b.cl[0]}" stop-opacity="0.5"/><stop offset="100%" stop-color="transparent"/></radialGradient><filter id="glow${b.cl[0].replace('#','')}"><feGaussianBlur stdDeviation="3" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter><linearGradient id="ov" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(0,0,0,0.3)"/><stop offset="35%" stop-color="transparent"/><stop offset="65%" stop-color="transparent"/><stop offset="100%" stop-color="rgba(0,0,0,0.6)"/></linearGradient></defs><rect width="${w}" height="${h}" fill="${b.cl[1]}"/><rect width="${w}" height="${h}" fill="url(#rg${b.cl[0].replace('#','')})"/>${st}${cn}${rn}${mo}<rect width="${w}" height="${h}" fill="url(#ov)"/><rect x="8" y="8" width="${w-16}" height="${h-16}" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.5" rx="2"/><line x1="8" y1="8" x2="22" y2="8" stroke="${b.cl[0]}" stroke-width="1.5" opacity="0.6"/><line x1="8" y1="8" x2="8" y2="22" stroke="${b.cl[0]}" stroke-width="1.5" opacity="0.6"/><line x1="${w-8}" y1="8" x2="${w-22}" y2="8" stroke="${b.cl[0]}" stroke-width="1.5" opacity="0.6"/><line x1="${w-8}" y1="8" x2="${w-8}" y2="22" stroke="${b.cl[0]}" stroke-width="1.5" opacity="0.6"/><line x1="8" y1="${h-8}" x2="22" y2="${h-8}" stroke="${b.cl[0]}" stroke-width="1.5" opacity="0.6"/><line x1="8" y1="${h-8}" x2="8" y2="${h-22}" stroke="${b.cl[0]}" stroke-width="1.5" opacity="0.6"/><line x1="${w-8}" y1="${h-8}" x2="${w-22}" y2="${h-8}" stroke="${b.cl[0]}" stroke-width="1.5" opacity="0.6"/><line x1="${w-8}" y1="${h-8}" x2="${w-8}" y2="${h-22}" stroke="${b.cl[0]}" stroke-width="1.5" opacity="0.6"/></svg>`;
+  var st=Array.from({length:30},function(){return '<circle cx="'+Math.random()*w+'" cy="'+Math.random()*h+'" r="'+(Math.random()*1.5+.3)+'" fill="white" opacity="'+(Math.random()*.6+.15)+'"/>';}).join('');
+  var cid=b.cl[0].replace('#','');
+  var rn=b.mn?'<circle cx="'+w/2+'" cy="'+h*.32+'" r="24" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/><circle cx="'+w/2+'" cy="'+h*.32+'" r="38" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/><circle cx="'+w/2+'" cy="'+h*.32+'" r="54" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/>':'';
+  var mo=b.mn?'<circle cx="'+w/2+'" cy="'+h*.32+'" r="18" fill="rgba(255,255,255,0.85)" filter="url(#glow'+cid+')"/><circle cx="'+(w/2+7)+'" cy="'+(h*.32-4)+'" r="16" fill="'+b.cl[1]+'"/>':'';
+  var cn=Array.from({length:5},function(){var x1=15+Math.random()*(w-30),y1=5+Math.random()*(h*.4);var x2=15+Math.random()*(w-30),y2=5+Math.random()*(h*.4);return '<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="rgba(255,255,255,0.07)" stroke-width="0.5"/><circle cx="'+x1+'" cy="'+y1+'" r="1.5" fill="rgba(255,255,255,0.2)"/>';}).join('');
+  return '<svg xmlns="http://www.w3.org/2000/svg" width="'+w+'" height="'+h+'"><defs><radialGradient id="rg'+cid+'" cx="50%" cy="25%"><stop offset="0%" stop-color="'+b.cl[0]+'" stop-opacity="0.5"/><stop offset="100%" stop-color="transparent"/></radialGradient><filter id="glow'+cid+'"><feGaussianBlur stdDeviation="3" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter><linearGradient id="ov" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(0,0,0,0.3)"/><stop offset="35%" stop-color="transparent"/><stop offset="65%" stop-color="transparent"/><stop offset="100%" stop-color="rgba(0,0,0,0.6)"/></linearGradient></defs><rect width="'+w+'" height="'+h+'" fill="'+b.cl[1]+'"/><rect width="'+w+'" height="'+h+'" fill="url(#rg'+cid+')"/>'+st+cn+rn+mo+'<rect width="'+w+'" height="'+h+'" fill="url(#ov)"/><rect x="8" y="8" width="'+(w-16)+'" height="'+(h-16)+'" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.5" rx="2"/><line x1="8" y1="8" x2="22" y2="8" stroke="'+b.cl[0]+'" stroke-width="1.5" opacity="0.6"/><line x1="8" y1="8" x2="8" y2="22" stroke="'+b.cl[0]+'" stroke-width="1.5" opacity="0.6"/><line x1="'+(w-8)+'" y1="8" x2="'+(w-22)+'" y2="8" stroke="'+b.cl[0]+'" stroke-width="1.5" opacity="0.6"/><line x1="'+(w-8)+'" y1="8" x2="'+(w-8)+'" y2="22" stroke="'+b.cl[0]+'" stroke-width="1.5" opacity="0.6"/><line x1="8" y1="'+(h-8)+'" x2="22" y2="'+(h-8)+'" stroke="'+b.cl[0]+'" stroke-width="1.5" opacity="0.6"/><line x1="8" y1="'+(h-8)+'" x2="8" y2="'+(h-22)+'" stroke="'+b.cl[0]+'" stroke-width="1.5" opacity="0.6"/><line x1="'+(w-8)+'" y1="'+(h-8)+'" x2="'+(w-22)+'" y2="'+(h-8)+'" stroke="'+b.cl[0]+'" stroke-width="1.5" opacity="0.6"/><line x1="'+(w-8)+'" y1="'+(h-8)+'" x2="'+(w-8)+'" y2="'+(h-22)+'" stroke="'+b.cl[0]+'" stroke-width="1.5" opacity="0.6"/></svg>';
 }
 
 // ============================================
 // RENDER BOOK CARDS
 // ============================================
-books.forEach((b,i)=>{
-  const c=document.createElement('div');c.className='card fade-up';c.style.transitionDelay=(i%6)*.08+'s';
-  const svg64='data:image/svg+xml;base64,'+btoa(mkSVG(b,170,240));
-  c.innerHTML=`${b.bg?`<div class="badge b-${b.bg}">${b.bg==='best'?'\u2605 Bestseller':'\u2728 Nuevo'}</div>`:''}<div class="cover"><div class="cover-glow" style="background:${b.cl[0]};left:calc(50% - 100px);top:calc(50% - 100px)"></div><div class="book"><div class="book-front" style="background:linear-gradient(170deg,${b.cl[0]},${b.cl[1]},${b.cl[2]})"><img src="${svg64}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:3px 12px 12px 3px" alt="${b.t}"><div class="cv-content"><div class="cv-icon">${b.ic}</div><div class="cv-title">${b.t}</div><div style="flex:1"></div><div class="cv-author">AstroAureum</div><div class="cv-brand">astroaureum.com</div></div></div><div class="book-spine" style="background:linear-gradient(180deg,${b.cl[1]},${b.cl[2]})"></div><div class="book-top" style="background:${b.cl[2]}"></div><div class="book-shadow"></div></div></div><div class="info"><div class="info-cat">${b.cat}</div><div class="info-title">${b.t}</div><div class="info-desc">${b.d}</div><div class="info-meta"><span class="mi">\u{1F4C4} ${b.ch} cap</span><span class="mi">\u{1F4D6} ${b.pg} pag</span>${b.fm.includes('au')?'<span class="mi">\u{1F3A4} Audio</span>':''}</div><div class="info-fmts">${b.fm.map(f=>`<span class="fmt ${fC[f]}">${fN[f]}</span>`).join('')}</div><div class="info-langs">${b.ln.map(l=>`<span class="lang">${l}</span>`).join('')}</div><div class="pr-row"><div>${b.op?`<span class="price-old">&euro;${b.op}</span>`:''}
-  <span class="price">&euro;${b.pr}</span></div><button class="btn-sm" onclick="event.stopPropagation();openM(${i})">VER LIBRO</button></div></div>`;
-  c.onclick=()=>openM(i);gr.appendChild(c);
+books.forEach(function(b,i){
+  var c=document.createElement('div');c.className='card fade-up';c.style.transitionDelay=(i%6)*.08+'s';
+  var svg64='data:image/svg+xml;base64,'+btoa(mkSVG(b,170,240));
+  c.innerHTML=(b.bg?'<div class="badge b-'+b.bg+'">'+(b.bg==='best'?'\u2605 Bestseller':'\u2728 Nuevo')+'</div>':'')+
+    '<div class="cover"><div class="cover-glow" style="background:'+b.cl[0]+';left:calc(50% - 100px);top:calc(50% - 100px)"></div><div class="book"><div class="book-front" style="background:linear-gradient(170deg,'+b.cl[0]+','+b.cl[1]+','+b.cl[2]+')"><img src="'+svg64+'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:3px 12px 12px 3px" alt="'+b.t+'"><div class="cv-content"><div class="cv-icon">'+b.ic+'</div><div class="cv-title">'+b.t+'</div><div style="flex:1"></div><div class="cv-author">AstroAureum</div><div class="cv-brand">astroaureum.com</div></div></div><div class="book-spine" style="background:linear-gradient(180deg,'+b.cl[1]+','+b.cl[2]+')"></div><div class="book-top" style="background:'+b.cl[2]+'"></div><div class="book-shadow"></div></div></div>'+
+    '<div class="info"><div class="info-cat">'+b.cat+'</div><div class="info-title">'+b.t+'</div><div class="info-desc">'+b.d+'</div><div class="info-meta"><span class="mi">\u{1F4C4} '+b.ch+' cap</span><span class="mi">\u{1F4D6} '+b.pg+' pag</span>'+(b.fm.includes('au')?'<span class="mi">\u{1F3A4} Audio</span>':'')+'</div><div class="info-fmts">'+b.fm.map(function(f){return '<span class="fmt '+fC[f]+'">'+fN[f]+'</span>';}).join('')+'</div><div class="info-langs">'+b.ln.map(function(l){return '<span class="lang">'+l+'</span>';}).join('')+'</div><div class="pr-row"><div>'+(b.op?'<span class="price-old">&euro;'+b.op+'</span>':'')+
+    '<span class="price">&euro;'+b.pr+'</span></div><button class="btn-sm" onclick="event.stopPropagation();openM('+i+')">VER LIBRO</button></div></div>';
+  c.onclick=function(){openM(i)};gr.appendChild(c);
   observer.observe(c);
 });
 document.getElementById('cnt').textContent=books.length;
 
 // ============================================
-// MODAL — Preserved functionality
+// MODAL
 // ============================================
 function openM(i){
-  const b=books[i],ov=document.getElementById('mOv'),cov=document.getElementById('mCov'),bod=document.getElementById('mBod');
-  const svg64='data:image/svg+xml;base64,'+btoa(mkSVG(b,150,210));
-  cov.style.background=`radial-gradient(ellipse at center,${b.cl[0]}18,transparent)`;
-  cov.innerHTML=`<div class="book" style="width:150px;height:210px;transform:rotateY(-22deg) rotateX(5deg)"><div class="book-front" style="background:linear-gradient(170deg,${b.cl[0]},${b.cl[1]},${b.cl[2]});border-radius:3px 12px 12px 3px;box-shadow:8px 8px 35px rgba(0,0,0,0.7)"><img src="${svg64}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:3px 12px 12px 3px"><div class="cv-content"><div class="cv-icon" style="font-size:44px">${b.ic}</div><div class="cv-title" style="font-size:11px">${b.t}</div><div style="flex:1"></div><div class="cv-author">AstroAureum</div></div></div><div class="book-spine" style="background:linear-gradient(180deg,${b.cl[1]},${b.cl[2]})"></div></div>`;
-  const sv=b.op?Math.round((1-b.pr/b.op)*100):0;
-  bod.innerHTML=`${b.bg?`<span class="mb-badge b-${b.bg}">${b.bg==='best'?'\u2605 Bestseller':'\u2728 Nuevo'}</span>`:''}<div class="mb-cat">${b.cat}</div><div class="mb-title">${b.t}</div><div class="mb-desc">${b.d}</div><div class="mb-meta"><span class="mb-m">\u{1F4C4} ${b.ch} capitulos</span><span class="mb-m">\u{1F4D6} ${b.pg} paginas</span>${b.fm.includes('au')?'<span class="mb-m">\u{1F3A4} Audiolibro</span>':''}</div><div class="mb-fmts"><div class="mb-fmts-h">Formatos disponibles</div>${b.fm.map(f=>`<div class="mb-fmt"><span class="mb-fmt-n">${fI[f]} ${fN[f]}</span><span class="mb-fmt-p">&euro;${(b.pr*fM[f]).toFixed(2)}</span></div>`).join('')}</div><div class="mb-langs"><div class="mb-langs-h">Idiomas</div><div class="mb-pills">${b.ln.map(l=>`<span class="mb-pill">${l}</span>`).join('')}</div></div><div class="mb-pr-row">${b.op?`<span class="mb-old">&euro;${b.op}</span>`:''}<span class="mb-price">&euro;${b.pr}</span>${sv?`<span class="mb-save">-${sv}%</span>`:''}</div><button class="mb-buy" onclick="window.open('https://astroaureum.com/#contacto','_blank')">COMPRAR AHORA</button><button class="mb-prev" onclick="alert('Proximamente: Preview del capitulo 1')">LEER CAPITULO 1 GRATIS</button><div class="mb-author"><div class="mb-author-n">Denitsa Georgieva &mdash; Shivani Devi Bramayani</div><div class="mb-author-b">Aureum Books &middot; astroaureum.com</div></div>`;
+  var b=books[i],ov=document.getElementById('mOv'),cov=document.getElementById('mCov'),bod=document.getElementById('mBod');
+  var svg64='data:image/svg+xml;base64,'+btoa(mkSVG(b,150,210));
+  cov.style.background='radial-gradient(ellipse at center,'+b.cl[0]+'18,transparent)';
+  cov.innerHTML='<div class="book" style="width:150px;height:210px;transform:rotateY(-22deg) rotateX(5deg)"><div class="book-front" style="background:linear-gradient(170deg,'+b.cl[0]+','+b.cl[1]+','+b.cl[2]+');border-radius:3px 12px 12px 3px;box-shadow:8px 8px 35px rgba(0,0,0,0.7)"><img src="'+svg64+'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:3px 12px 12px 3px"><div class="cv-content"><div class="cv-icon" style="font-size:44px">'+b.ic+'</div><div class="cv-title" style="font-size:11px">'+b.t+'</div><div style="flex:1"></div><div class="cv-author">AstroAureum</div></div></div><div class="book-spine" style="background:linear-gradient(180deg,'+b.cl[1]+','+b.cl[2]+')"></div></div>';
+  var sv=b.op?Math.round((1-b.pr/b.op)*100):0;
+  bod.innerHTML=(b.bg?'<span class="mb-badge b-'+b.bg+'">'+(b.bg==='best'?'\u2605 Bestseller':'\u2728 Nuevo')+'</span>':'')+
+    '<div class="mb-cat">'+b.cat+'</div><div class="mb-title">'+b.t+'</div><div class="mb-desc">'+b.d+'</div>'+
+    '<div class="mb-meta"><span class="mb-m">\u{1F4C4} '+b.ch+' capitulos</span><span class="mb-m">\u{1F4D6} '+b.pg+' paginas</span>'+(b.fm.includes('au')?'<span class="mb-m">\u{1F3A4} Audiolibro</span>':'')+'</div>'+
+    '<div class="mb-fmts"><div class="mb-fmts-h">Formatos disponibles</div>'+b.fm.map(function(f){return '<div class="mb-fmt"><span class="mb-fmt-n">'+fI[f]+' '+fN[f]+'</span><span class="mb-fmt-p">&euro;'+(b.pr*fM[f]).toFixed(2)+'</span></div>';}).join('')+'</div>'+
+    '<div class="mb-langs"><div class="mb-langs-h">Idiomas</div><div class="mb-pills">'+b.ln.map(function(l){return '<span class="mb-pill">'+l+'</span>';}).join('')+'</div></div>'+
+    '<div class="mb-pr-row">'+(b.op?'<span class="mb-old">&euro;'+b.op+'</span>':'')+'<span class="mb-price">&euro;'+b.pr+'</span>'+(sv?'<span class="mb-save">-'+sv+'%</span>':'')+'</div>'+
+    '<button class="mb-buy" onclick="window.open(\'https://astroaureum.com/#contacto\',\'_blank\')">COMPRAR AHORA</button>'+
+    '<button class="mb-prev" onclick="alert(\'Proximamente: Preview del capitulo 1\')">LEER CAPITULO 1 GRATIS</button>'+
+    '<div class="mb-author"><div class="mb-author-n">Denitsa Georgieva &mdash; Shivani Devi Bramayani</div><div class="mb-author-b">Aureum Books &middot; astroaureum.com</div></div>';
   ov.classList.add('open');document.body.style.overflow='hidden';
 }
 
-function closeM(){document.getElementById('mOv').classList.remove('open');document.body.style.overflow=''}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM()});
+function closeM(){document.getElementById('mOv').classList.remove('open');document.body.style.overflow='';}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeM();});
 </script>
 </body>
 </html>
