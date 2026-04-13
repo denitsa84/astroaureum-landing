@@ -45,5 +45,22 @@
   "categories": ["lifestyle", "entertainment", "education"],
   "lang": "es",
   "dir": "ltr",
-  "prefer_related_applications": false
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "Horoscopo del Dia",
+      "url": "/horoscopo-diario.html",
+      "icons": [{"src": "/favicon-192.png", "sizes": "192x192"}]
+    },
+    {
+      "name": "Carta Natal Gratis",
+      "url": "/carta-natal-gratis.html",
+      "icons": [{"src": "/favicon-192.png", "sizes": "192x192"}]
+    },
+    {
+      "name": "Lecturas",
+      "url": "/lecturas.html",
+      "icons": [{"src": "/favicon-192.png", "sizes": "192x192"}]
+    }
+  ]
 }

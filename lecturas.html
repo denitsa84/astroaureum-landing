@@ -61,6 +61,10 @@
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#D4A843">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <style>
         /* ============================================
@@ -920,7 +924,7 @@
 
     <!-- ========== OCCIDENTAL (7) ========== -->
 
-    <article class="card fade-up" data-id="occ-natal" data-tradition="Occidental" data-type="single" data-price="89">
+    <article class="card fade-up" id="occ-natal" data-id="occ-natal" data-tradition="Occidental" data-type="single" data-price="89">
         <span class="badge" style="background:var(--trad-occidental)">Occidental</span>
         <h3>Carta Natal Completa</h3>
         <div class="card-price">&euro;89</div>
@@ -935,7 +939,7 @@
         <div class="card-cross">Tambien te interesa: <a href="#occ-sinastria">Sinastria</a>, <a href="#cab-natal">Carta Cabalistica</a></div>
     </article>
 
-    <article class="card fade-up" data-id="occ-sinastria" data-tradition="Occidental" data-type="compatibility" data-price="99">
+    <article class="card fade-up" id="occ-sinastria" data-id="occ-sinastria" data-tradition="Occidental" data-type="compatibility" data-price="99">
         <span class="badge" style="background:var(--trad-occidental)">Occidental</span>
         <h3>Sinastria</h3>
         <div class="card-price">&euro;99</div>
@@ -950,7 +954,7 @@
         <div class="card-cross">Tambien te interesa: <a href="#occ-natal">Carta Natal Completa</a>, <a href="#cab-compat">Compatibilidad Cabalistica</a></div>
     </article>
 
-    <article class="card fade-up" data-id="occ-solar" data-tradition="Occidental" data-type="prediction" data-price="105">
+    <article class="card fade-up" id="occ-solar" data-id="occ-solar" data-tradition="Occidental" data-type="prediction" data-price="105">
         <span class="badge" style="background:var(--trad-occidental)">Occidental</span>
         <h3>Revolucion Solar</h3>
         <div class="card-price">&euro;105</div>
@@ -965,7 +969,7 @@
         <div class="card-cross">Tambien te interesa: <a href="#cab-anual">Prediccion Anual Cabalistica</a>, <a href="#chi-anual">Prediccion Ano Chino</a></div>
     </article>
 
-    <article class="card fade-up" data-id="occ-semanal" data-tradition="Occidental" data-type="prediction" data-price="12">
+    <article class="card fade-up" id="occ-semanal" data-id="occ-semanal" data-tradition="Occidental" data-type="prediction" data-price="12">
         <span class="badge" style="background:var(--trad-occidental)">Occidental</span>
         <h3>Horoscopo Semanal</h3>
         <div class="card-price">&euro;12</div>
@@ -980,7 +984,7 @@
         <div class="card-cross">Tambien te interesa: <a href="#occ-mensual">Horoscopo Mensual</a>, <a href="#cab-mensual">Horoscopo Mensual Cabalistico</a></div>
     </article>
 
-    <article class="card fade-up" data-id="occ-mensual" data-tradition="Occidental" data-type="prediction" data-price="35">
+    <article class="card fade-up" id="occ-mensual" data-id="occ-mensual" data-tradition="Occidental" data-type="prediction" data-price="35">
         <span class="badge" style="background:var(--trad-occidental)">Occidental</span>
         <h3>Horoscopo Mensual</h3>
         <div class="card-price">&euro;35</div>
@@ -995,7 +999,7 @@
         <div class="card-cross">Tambien te interesa: <a href="#occ-natal">Carta Natal Completa</a>, <a href="#cab-mensual">Horoscopo Mensual Cabalistico</a></div>
     </article>
 
-    <article class="card fade-up" data-id="occ-saturno" data-tradition="Occidental" data-type="single" data-price="139">
+    <article class="card fade-up" id="occ-saturno" data-id="occ-saturno" data-tradition="Occidental" data-type="single" data-price="139">
         <span class="badge" style="background:var(--trad-occidental)">Occidental</span>
         <h3>Retorno de Saturno</h3>
         <div class="card-price">&euro;139</div>
@@ -1010,7 +1014,7 @@
         <div class="card-cross">Tambien te interesa: <a href="#alm-karmica">Astrologia Karmica</a>, <a href="#occ-natal">Carta Natal Completa</a></div>
     </article>
 
-    <article class="card fade-up" data-id="occ-bebe" data-tradition="Occidental" data-type="single" data-price="89">
+    <article class="card fade-up" id="occ-bebe" data-id="occ-bebe" data-tradition="Occidental" data-type="single" data-price="89">
         <span class="badge" style="background:var(--trad-occidental)">Occidental</span>
         <h3>Carta del Bebe</h3>
         <div class="card-price">&euro;89</div>
@@ -1027,7 +1031,7 @@
 
     <!-- ========== CABALISTICA (6) ========== -->
 
-    <article class="card fade-up" data-id="cab-natal" data-tradition="Cabalistica" data-type="single" data-price="139">
+    <article class="card fade-up" id="cab-natal" data-id="cab-natal" data-tradition="Cabalistica" data-type="single" data-price="139">
         <span class="badge" style="background:var(--trad-cabalistica)">Cabalistica</span>
         <h3>Carta Cabalistica</h3>
         <div class="card-price">&euro;139</div>
@@ -1042,7 +1046,7 @@
         <div class="card-cross">Tambien te interesa: <a href="#occ-natal">Carta Natal Completa</a>, <a href="#alm-espiritual">Astrologia Espiritual</a></div>
     </article>
 
-    <article class="card fade-up" data-id="cab-compat" data-tradition="Cabalistica" data-type="compatibility" data-price="122">
+    <article class="card fade-up" id="cab-compat" data-id="cab-compat" data-tradition="Cabalistica" data-type="compatibility" data-price="122">
         <span class="badge" style="background:var(--trad-cabalistica)">Cabalistica</span>
         <h3>Compatibilidad Cabalistica</h3>
         <div class="card-price">&euro;122</div>
@@ -1057,7 +1061,7 @@
         <div class="card-cross">Tambien te interesa: <a href="#occ-sinastria">Sinastria</a>, <a href="#ved-milan">Kundli Milan</a></div>
     </article>
 
-    <article class="card fade-up" data-id="cab-mensual" data-tradition="Cabalistica" data-type="prediction" data-price="35">
+    <article class="card fade-up" id="cab-mensual" data-id="cab-mensual" data-tradition="Cabalistica" data-type="prediction" data-price="35">
         <span class="badge" style="background:var(--trad-cabalistica)">Cabalistica</span>
         <h3>Horoscopo Mensual Cabalistico</h3>
         <div class="card-price">&euro;35</div>
@@ -1072,7 +1076,7 @@
         <div class="card-cross">Tambien te interesa: <a href="#occ-mensual">Horoscopo Mensual</a>, <a href="#cab-anual">Prediccion Anual Cabalistica</a></div>
     </article>
 
-    <article class="card fade-up" data-id="cab-anual" data-tradition="Cabalistica" data-type="prediction" data-price="139">
+    <article class="card fade-up" id="cab-anual" data-id="cab-anual" data-tradition="Cabalistica" data-type="prediction" data-price="139">
         <span class="badge" style="background:var(--trad-cabalistica)">Cabalistica</span>
         <h3>Prediccion Anual Cabalistica</h3>
         <div class="card-price">&euro;139</div>
@@ -1087,7 +1091,7 @@
         <div class="card-cross">Tambien te interesa: <a href="#occ-solar">Revolucion Solar</a>, <a href="#chi-anual">Prediccion Ano Chino</a></div>
     </article>
 
-    <article class="card fade-up" data-id="cab-luna" data-tradition="Cabalistica" data-type="prediction" data-price="59">
+    <article class="card fade-up" id="cab-luna" data-id="cab-luna" data-tradition="Cabalistica" data-type="prediction" data-price="59">
         <span class="badge" style="background:var(--trad-cabalistica)">Cabalistica</span>
         <h3>Luna Nueva Cabalistica</h3>
         <div class="card-price">&euro;59</div>
@@ -1102,7 +1106,7 @@
         <div class="card-cross">Tambien te interesa: <a href="#cab-mensual">Horoscopo Mensual Cabalistico</a>, <a href="#cab-natal">Carta Cabalistica</a></div>
     </article>
 
-    <article class="card fade-up" data-id="cab-tikun" data-tradition="Cabalistica" data-type="single" data-price="139">
+    <article class="card fade-up" id="cab-tikun" data-id="cab-tikun" data-tradition="Cabalistica" data-type="single" data-price="139">
         <span class="badge" style="background:var(--trad-cabalistica)">Cabalistica</span>
         <h3>Tikun Familiar</h3>
         <div class="card-price">&euro;139</div>
@@ -1119,7 +1123,7 @@
 
     <!-- ========== VEDICA (6) ========== -->
 
-    <article class="card fade-up" data-id="ved-kundli" data-tradition="Vedica" data-type="single" data-price="139">
+    <article class="card fade-up" id="ved-kundli" data-id="ved-kundli" data-tradition="Vedica" data-type="single" data-price="139">
         <span class="badge" style="background:var(--trad-vedica)">Vedica</span>
         <h3>Kundli Completo</h3>
         <div class="card-price">&euro;139</div>
@@ -1134,7 +1138,7 @@
         <div class="card-cross">Tambien te interesa: <a href="#occ-natal">Carta Natal Completa</a>, <a href="#chi-bazi">Ba Zi (Cuatro Pilares)</a></div>
     </article>
 
-    <article class="card fade-up" data-id="ved-milan" data-tradition="Vedica" data-type="compatibility" data-price="122">
+    <article class="card fade-up" id="ved-milan" data-id="ved-milan" data-tradition="Vedica" data-type="compatibility" data-price="122">
         <span class="badge" style="background:var(--trad-vedica)">Vedica</span>
         <h3>Kundli Milan</h3>
         <div class="card-price">&euro;122</div>
@@ -1149,7 +1153,7 @@
         <div class="card-cross">Tambien te interesa: <a href="#occ-sinastria">Sinastria</a>, <a href="#cab-compat">Compatibilidad Cabalistica</a></div>
     </article>
 
-    <article class="card fade-up" data-id="ved-dasha" data-tradition="Vedica" data-type="prediction" data-price="105">
+    <article class="card fade-up" id="ved-dasha" data-id="ved-dasha" data-tradition="Vedica" data-type="prediction" data-price="105">
         <span class="badge" style="background:var(--trad-vedica)">Vedica</span>
         <h3>Predicciones Dasha</h3>
         <div class="card-price">&euro;105</div>
@@ -1164,7 +1168,7 @@
         <div class="card-cross">Tambien te interesa: <a href="#occ-solar">Revolucion Solar</a>, <a href="#cab-anual">Prediccion Anual Cabalistica</a></div>
     </article>
 
-    <article class="card fade-up" data-id="ved-remedios" data-tradition="Vedica" data-type="single" data-price="69">
+    <article class="card fade-up" id="ved-remedios" data-id="ved-remedios" data-tradition="Vedica" data-type="single" data-price="69">
         <span class="badge" style="background:var(--trad-vedica)">Vedica</span>
         <h3>Remedios Vedicos</h3>
         <div class="card-price">&euro;69</div>
@@ -1179,7 +1183,7 @@
         <div class="card-cross">Tambien te interesa: <a href="#ved-kundli">Kundli Completo</a>, <a href="#cab-natal">Carta Cabalistica</a></div>
     </article>
 
-    <article class="card fade-up" data-id="ved-vastu" data-tradition="Vedica" data-type="single" data-price="89">
+    <article class="card fade-up" id="ved-vastu" data-id="ved-vastu" data-tradition="Vedica" data-type="single" data-price="89">
         <span class="badge" style="background:var(--trad-vedica)">Vedica</span>
         <h3>Vastu Shastra</h3>
         <div class="card-price">&euro;89</div>
@@ -1194,7 +1198,7 @@
         <div class="card-cross">Tambien te interesa: <a href="#chi-fengshui">Feng Shui Personal</a>, <a href="#ved-kundli">Kundli Completo</a></div>
     </article>
 
-    <article class="card fade-up" data-id="ved-muhurta" data-tradition="Vedica" data-type="single" data-price="69">
+    <article class="card fade-up" id="ved-muhurta" data-id="ved-muhurta" data-tradition="Vedica" data-type="single" data-price="69">
         <span class="badge" style="background:var(--trad-vedica)">Vedica</span>
         <h3>Muhurta</h3>
         <div class="card-price">&euro;69</div>
@@ -1211,7 +1215,7 @@
 
     <!-- ========== CHINA (5) ========== -->
 
-    <article class="card fade-up" data-id="chi-bazi" data-tradition="China" data-type="single" data-price="139">
+    <article class="card fade-up" id="chi-bazi" data-id="chi-bazi" data-tradition="China" data-type="single" data-price="139">
         <span class="badge" style="background:var(--trad-china)">China</span>
         <h3>Ba Zi (Cuatro Pilares)</h3>
         <div class="card-price">&euro;139</div>
@@ -1226,7 +1230,7 @@
         <div class="card-cross">Tambien te interesa: <a href="#ved-kundli">Kundli Completo</a>, <a href="#occ-natal">Carta Natal Completa</a></div>
     </article>
 
-    <article class="card fade-up" data-id="chi-compat" data-tradition="China" data-type="compatibility" data-price="105">
+    <article class="card fade-up" id="chi-compat" data-id="chi-compat" data-tradition="China" data-type="compatibility" data-price="105">
         <span class="badge" style="background:var(--trad-china)">China</span>
         <h3>Compatibilidad China</h3>
         <div class="card-price">&euro;105</div>
@@ -1241,7 +1245,7 @@
         <div class="card-cross">Tambien te interesa: <a href="#occ-sinastria">Sinastria</a>, <a href="#ved-milan">Kundli Milan</a></div>
     </article>
 
-    <article class="card fade-up" data-id="chi-anual" data-tradition="China" data-type="prediction" data-price="105">
+    <article class="card fade-up" id="chi-anual" data-id="chi-anual" data-tradition="China" data-type="prediction" data-price="105">
         <span class="badge" style="background:var(--trad-china)">China</span>
         <h3>Prediccion Ano Chino</h3>
         <div class="card-price">&euro;105</div>
@@ -1256,7 +1260,7 @@
         <div class="card-cross">Tambien te interesa: <a href="#occ-solar">Revolucion Solar</a>, <a href="#cab-anual">Prediccion Anual Cabalistica</a></div>
     </article>
 
-    <article class="card fade-up" data-id="chi-fengshui" data-tradition="China" data-type="single" data-price="89">
+    <article class="card fade-up" id="chi-fengshui" data-id="chi-fengshui" data-tradition="China" data-type="single" data-price="89">
         <span class="badge" style="background:var(--trad-china)">China</span>
         <h3>Feng Shui Personal</h3>
         <div class="card-price">&euro;89</div>
@@ -1271,7 +1275,7 @@
         <div class="card-cross">Tambien te interesa: <a href="#ved-vastu">Vastu Shastra</a>, <a href="#chi-bazi">Ba Zi (Cuatro Pilares)</a></div>
     </article>
 
-    <article class="card fade-up" data-id="chi-ziwei" data-tradition="China" data-type="single" data-price="139">
+    <article class="card fade-up" id="chi-ziwei" data-id="chi-ziwei" data-tradition="China" data-type="single" data-price="139">
         <span class="badge" style="background:var(--trad-china)">China</span>
         <h3>Zi Wei Dou Shu</h3>
         <div class="card-price">&euro;139</div>
@@ -1288,7 +1292,7 @@
 
     <!-- ========== ESPECIALIZADA (4) ========== -->
 
-    <article class="card fade-up" data-id="esp-business" data-tradition="Especializada" data-type="single" data-price="175">
+    <article class="card fade-up" id="esp-business" data-id="esp-business" data-tradition="Especializada" data-type="single" data-price="175">
         <span class="badge" style="background:var(--trad-especializada)">Especializada</span>
         <h3>Horoscopo Business</h3>
         <div class="card-price">&euro;175</div>
@@ -1303,7 +1307,7 @@
         <div class="card-cross">Tambien te interesa: <a href="#chi-bazi">Ba Zi (Cuatro Pilares)</a>, <a href="#esp-eleccional">Astrologia Eleccional</a></div>
     </article>
 
-    <article class="card fade-up" data-id="esp-medicinal" data-tradition="Especializada" data-type="single" data-price="139">
+    <article class="card fade-up" id="esp-medicinal" data-id="esp-medicinal" data-tradition="Especializada" data-type="single" data-price="139">
         <span class="badge" style="background:var(--trad-especializada)">Especializada</span>
         <h3>Astrologia Medicinal</h3>
         <div class="card-price">&euro;139</div>
@@ -1318,7 +1322,7 @@
         <div class="card-cross">Tambien te interesa: <a href="#ved-remedios">Remedios Vedicos</a>, <a href="#occ-natal">Carta Natal Completa</a></div>
     </article>
 
-    <article class="card fade-up" data-id="esp-astrocarto" data-tradition="Especializada" data-type="single" data-price="139">
+    <article class="card fade-up" id="esp-astrocarto" data-id="esp-astrocarto" data-tradition="Especializada" data-type="single" data-price="139">
         <span class="badge" style="background:var(--trad-especializada)">Especializada</span>
         <h3>Astrocartografia</h3>
         <div class="card-price">&euro;139</div>
@@ -1333,7 +1337,7 @@
         <div class="card-cross">Tambien te interesa: <a href="#ved-vastu">Vastu Shastra</a>, <a href="#chi-fengshui">Feng Shui Personal</a></div>
     </article>
 
-    <article class="card fade-up" data-id="esp-eleccional" data-tradition="Especializada" data-type="single" data-price="105">
+    <article class="card fade-up" id="esp-eleccional" data-id="esp-eleccional" data-tradition="Especializada" data-type="single" data-price="105">
         <span class="badge" style="background:var(--trad-especializada)">Especializada</span>
         <h3>Astrologia Eleccional</h3>
         <div class="card-price">&euro;105</div>
@@ -1350,7 +1354,7 @@
 
     <!-- ========== ALMA (3) ========== -->
 
-    <article class="card fade-up" data-id="alm-karmica" data-tradition="Alma" data-type="single" data-price="149">
+    <article class="card fade-up" id="alm-karmica" data-id="alm-karmica" data-tradition="Alma" data-type="single" data-price="149">
         <span class="badge" style="background:var(--trad-alma)">Alma</span>
         <h3>Astrologia Karmica</h3>
         <div class="card-price">&euro;149</div>
@@ -1365,7 +1369,7 @@
         <div class="card-cross">Tambien te interesa: <a href="#cab-tikun">Tikun Familiar</a>, <a href="#alm-espiritual">Astrologia Espiritual</a></div>
     </article>
 
-    <article class="card fade-up" data-id="alm-espiritual" data-tradition="Alma" data-type="single" data-price="169">
+    <article class="card fade-up" id="alm-espiritual" data-id="alm-espiritual" data-tradition="Alma" data-type="single" data-price="169">
         <span class="badge" style="background:var(--trad-alma)">Alma</span>
         <h3>Astrologia Espiritual</h3>
         <div class="card-price">&euro;169</div>
@@ -1380,7 +1384,7 @@
         <div class="card-cross">Tambien te interesa: <a href="#cab-natal">Carta Cabalistica</a>, <a href="#alm-karmica">Astrologia Karmica</a></div>
     </article>
 
-    <article class="card fade-up" data-id="alm-akashico" data-tradition="Alma" data-type="single" data-price="109">
+    <article class="card fade-up" id="alm-akashico" data-id="alm-akashico" data-tradition="Alma" data-type="single" data-price="109">
         <span class="badge" style="background:var(--trad-alma)">Alma</span>
         <h3>Registros Akashicos</h3>
         <div class="card-price">&euro;109</div>
@@ -1397,7 +1401,7 @@
 
     <!-- ========== CELESTIAL (3) ========== -->
 
-    <article class="card fade-up" data-id="cel-mapa" data-tradition="Celestial" data-type="single" data-price="149">
+    <article class="card fade-up" id="cel-mapa" data-id="cel-mapa" data-tradition="Celestial" data-type="single" data-price="149">
         <span class="badge" style="background:var(--trad-celestial)">Celestial</span>
         <h3>Mapa Celestial del Alma</h3>
         <div class="card-price">&euro;149</div>
@@ -1412,7 +1416,7 @@
         <div class="card-cross">Tambien te interesa: <a href="#alm-espiritual">Astrologia Espiritual</a>, <a href="#hel-natal">Carta Helenistica</a></div>
     </article>
 
-    <article class="card fade-up" data-id="cel-angelica" data-tradition="Celestial" data-type="single" data-price="175">
+    <article class="card fade-up" id="cel-angelica" data-id="cel-angelica" data-tradition="Celestial" data-type="single" data-price="175">
         <span class="badge" style="background:var(--trad-celestial)">Celestial</span>
         <h3>Astrologia Angelica</h3>
         <div class="card-price">&euro;175</div>
@@ -1427,7 +1431,7 @@
         <div class="card-cross">Tambien te interesa: <a href="#alm-espiritual">Astrologia Espiritual</a>, <a href="#cel-estrellas">Estrellas Fijas</a></div>
     </article>
 
-    <article class="card fade-up" data-id="cel-estrellas" data-tradition="Celestial" data-type="single" data-price="175">
+    <article class="card fade-up" id="cel-estrellas" data-id="cel-estrellas" data-tradition="Celestial" data-type="single" data-price="175">
         <span class="badge" style="background:var(--trad-celestial)">Celestial</span>
         <h3>Estrellas Fijas</h3>
         <div class="card-price">&euro;175</div>
@@ -1444,7 +1448,7 @@
 
     <!-- ========== HELENISTICA (1) ========== -->
 
-    <article class="card fade-up" data-id="hel-natal" data-tradition="Helenistica" data-type="single" data-price="139">
+    <article class="card fade-up" id="hel-natal" data-id="hel-natal" data-tradition="Helenistica" data-type="single" data-price="139">
         <span class="badge" style="background:var(--trad-helenistica)">Helenistica</span>
         <h3>Carta Helenistica</h3>
         <div class="card-price">&euro;139</div>
@@ -1461,7 +1465,7 @@
 
     <!-- ========== HUMAN DESIGN (3) ========== -->
 
-    <article class="card fade-up" data-id="hd-design" data-tradition="Human Design" data-type="single" data-price="175">
+    <article class="card fade-up" id="hd-design" data-id="hd-design" data-tradition="Human Design" data-type="single" data-price="175">
         <span class="badge" style="background:var(--trad-humandesign)">Human Design</span>
         <h3>Human Design Completo</h3>
         <div class="card-price">&euro;175</div>
@@ -1476,7 +1480,7 @@
         <div class="card-cross">Tambien te interesa: <a href="#occ-natal">Carta Natal Completa</a>, <a href="#hd-bodygraph">Mapa Energetico Corporal</a></div>
     </article>
 
-    <article class="card fade-up" data-id="hd-iching" data-tradition="Human Design" data-type="single" data-price="105">
+    <article class="card fade-up" id="hd-iching" data-id="hd-iching" data-tradition="Human Design" data-type="single" data-price="105">
         <span class="badge" style="background:var(--trad-humandesign)">Human Design</span>
         <h3>Lectura I Ching</h3>
         <div class="card-price">&euro;105</div>
@@ -1491,7 +1495,7 @@
         <div class="card-cross">Tambien te interesa: <a href="#chi-bazi">Ba Zi (Cuatro Pilares)</a>, <a href="#hd-design">Human Design Completo</a></div>
     </article>
 
-    <article class="card fade-up" data-id="hd-bodygraph" data-tradition="Human Design" data-type="single" data-price="139">
+    <article class="card fade-up" id="hd-bodygraph" data-id="hd-bodygraph" data-tradition="Human Design" data-type="single" data-price="139">
         <span class="badge" style="background:var(--trad-humandesign)">Human Design</span>
         <h3>Mapa Energetico Corporal</h3>
         <div class="card-price">&euro;139</div>
@@ -1514,10 +1518,15 @@
         <div class="footer-logo-text">&#10022; Astro Aureum</div>
         <div class="footer-links">
             <a href="/">Inicio</a>
+            <a href="/carta-natal-gratis.html">Carta Natal Gratis</a>
+            <a href="/horoscopo-diario.html">Horoscopo Diario</a>
             <a href="/lecturas.html">9 Tradiciones</a>
+            <a href="/precios-premium.html">Planes Premium</a>
+            <a href="/blog/">Blog</a>
             <a href="/aureum-books.html">Aureum Books</a>
-            <a href="/politica-privacidad.html">Privacidad</a>
-            <a href="/politica-cookies.html">Cookies</a>
+            <a href="/programa-referidos.html">Programa de Referidos</a>
+            <a href="/faq.html">FAQ</a>
+            <a href="/compartir.html">Comparte tu Carta</a>
         </div>
         <p class="footer-copy">&copy; 2026 Astro Aureum &mdash; Tu Guia Cosmica. Todos los derechos reservados.<br>Las lecturas astrologicas son de naturaleza interpretativa y no sustituyen el consejo profesional medico, legal o financiero.</p>
     </footer>
@@ -1622,6 +1631,49 @@
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+
+        // ============================================
+        // ANALYTICS — Track buy button clicks
+        // ============================================
+        document.querySelectorAll('.card-buy').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var card = btn.closest('.card');
+                var productId = card ? card.dataset.id : 'unknown';
+                var tradition = card ? card.dataset.tradition : 'unknown';
+                var price = card ? card.dataset.price : '0';
+                if (typeof gtag === 'function') {
+                    gtag('event', 'click_buy', {
+                        product_id: productId,
+                        tradition: tradition,
+                        price: price,
+                        page: 'lecturas'
+                    });
+                }
+                if (typeof posthog !== 'undefined') {
+                    posthog.capture('click_buy', {
+                        product_id: productId,
+                        tradition: tradition,
+                        price: price
+                    });
+                }
+            });
+        });
+
+        // Cross-sell smooth scroll
+        document.querySelectorAll('.card-cross a').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                var href = link.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    var target = document.getElementById(href.substring(1));
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        target.style.boxShadow = '0 0 30px rgba(212, 168, 67, 0.6)';
+                        setTimeout(function() { target.style.boxShadow = ''; }, 2000);
+                    }
+                }
+            });
+        });
 
         // ============================================
         // HAMBURGER MENU

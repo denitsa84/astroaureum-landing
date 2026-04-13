@@ -15,6 +15,10 @@
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#D4A843">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17991329624"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','AW-17991329624');</script>
@@ -97,13 +101,33 @@
 
     <div class="reading" id="reading"></div>
 
-    <div class="cta-box">
-      <h3>&#x2728; Tu horoscopo completo te espera</h3>
-      <p>El horoscopo diario es solo un vistazo. Tu Carta Natal revela todo: amor, carrera, salud, destino y mucho mas.</p>
-      <a href="https://astroaureum.com" class="cta-btn">Mi Carta Natal Completa - &euro;139</a>
+    <!-- CTA: Carta Natal Gratis -->
+    <div class="cta-box" style="border-color: #A0F0FF; background: linear-gradient(135deg, rgba(160,240,255,0.1), rgba(212,168,67,0.08));">
+      <h3>&#9788; Calcula tu Carta Natal GRATIS</h3>
+      <p>Descubre tu Sol, Luna y Ascendente al instante. Calculos reales con Swiss Ephemeris.</p>
+      <a href="/carta-natal-gratis.html" class="cta-btn">Calcular Gratis Ahora</a>
     </div>
 
-    <div class="back-link"><a href="https://astroaureum.com">&larr; Volver a Astro Aureum</a></div>
+    <!-- CTA: Premium -->
+    <div class="cta-box">
+      <h3>&#x2728; Horoscopo Personalizado Diario</h3>
+      <p>El horoscopo generico es solo un vistazo. Con Premium recibes predicciones basadas en TU carta natal completa, no solo tu signo solar.</p>
+      <a href="/precios-premium.html" class="cta-btn">Ver Planes Premium</a>
+    </div>
+
+    <!-- Navigation links -->
+    <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:24px 0;">
+      <a href="/" style="color:#c9b8e8;text-decoration:none;font-size:.85rem;padding:8px 16px;border:1px solid rgba(212,168,67,0.2);border-radius:8px;">Inicio</a>
+      <a href="/carta-natal-gratis.html" style="color:#c9b8e8;text-decoration:none;font-size:.85rem;padding:8px 16px;border:1px solid rgba(212,168,67,0.2);border-radius:8px;">Carta Natal Gratis</a>
+      <a href="/lecturas.html" style="color:#c9b8e8;text-decoration:none;font-size:.85rem;padding:8px 16px;border:1px solid rgba(212,168,67,0.2);border-radius:8px;">Lecturas</a>
+      <a href="/blog/" style="color:#c9b8e8;text-decoration:none;font-size:.85rem;padding:8px 16px;border:1px solid rgba(212,168,67,0.2);border-radius:8px;">Blog</a>
+      <a href="/compartir.html" style="color:#c9b8e8;text-decoration:none;font-size:.85rem;padding:8px 16px;border:1px solid rgba(212,168,67,0.2);border-radius:8px;">Compartir</a>
+      <a href="/faq.html" style="color:#c9b8e8;text-decoration:none;font-size:.85rem;padding:8px 16px;border:1px solid rgba(212,168,67,0.2);border-radius:8px;">FAQ</a>
+    </div>
+
+    <div style="text-align:center;padding:20px 0;border-top:1px solid rgba(212,168,67,0.1);margin-top:20px;">
+      <p style="color:#6B5B8D;font-size:.75rem;">&copy; 2026 Astro Aureum &mdash; Tu Guia Cosmica</p>
+    </div>
   </div>
 
   <script>
@@ -332,6 +356,13 @@
         case 'telegram': window.open('https://t.me/share/url?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(text), '_blank'); break;
       }
       if (typeof posthog !== 'undefined') posthog.capture('horoscope_shared', { platform: platform, sign: currentSign.id });
+    }
+
+    // Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js').catch(function() {});
+      });
     }
   </script>
 </body>

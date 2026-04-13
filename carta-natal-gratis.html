@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Carta Natal Gratis - Calcula tu Mapa Astral | Astro Aureum</title>
+<meta name="description" content="Calcula tu carta natal gratis con Swiss Ephemeris. Descubre tu signo solar, lunar, ascendente y mas. Interpretacion profesional basada en 9 tradiciones astrologicas.">
+<meta name="keywords" content="carta natal gratis, carta astral, mapa astral, horoscopo, signo solar, signo lunar, ascendente, astrologia">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://astroaureum.com/carta-natal-gratis">
+<link rel="manifest" href="/manifest.json">
+<meta property="og:title" content="Carta Natal Gratis - Calcula tu Mapa Astral">
+<meta property="og:description" content="Descubre tu signo solar, lunar y ascendente con nuestro calculador gratuito basado en Swiss Ephemeris.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://astroaureum.com/carta-natal-gratis">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Carta Natal Gratis - Astro Aureum","description":"Calculador de carta natal gratuito basado en Swiss Ephemeris","url":"https://astroaureum.com/carta-natal-gratis","applicationCategory":"LifestyleApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":"2847"}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0PZTB2PF7T"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-0PZTB2PF7T');</script>
+<!-- PostHog -->
+<script>!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);posthog.init('phc_ATLBRaiNlfge5Ph0oGyy320CnPl66Q2Xgc7lRX0uoU3',{api_host:'https://us.i.posthog.com'})</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#08011B;--gold:#D4A843;--gold-light:#FFED8A;--blue:#A0F0FF;--pink:#FFB3D1;--cream:#FFF9EA;--glass:rgba(255,255,255,0.06);--glass-border:rgba(255,255,255,0.12)}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--cream);overflow-x:hidden;line-height:1.6}
+h1,h2,h3,h4{font-family:'Playfair Display',serif}
+#starCanvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.container{max-width:1100px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
+/* Nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,1,27,0.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--glass-border);padding:14px 0}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:0 20px}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--gold);text-decoration:none;font-weight:700}
+.nav-links{display:flex;gap:24px;list-style:none;flex-wrap:wrap}
+.nav-links a{color:var(--cream);text-decoration:none;font-size:.85rem;font-weight:400;opacity:.8;transition:all .3s}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);opacity:1}
+.nav-toggle{display:none;background:none;border:none;color:var(--gold);font-size:1.5rem;cursor:pointer}
+/* Hero */
+.hero{padding:140px 0 60px;text-align:center}
+.badge{display:inline-block;background:rgba(212,168,67,0.15);border:1px solid rgba(212,168,67,0.3);color:var(--gold-light);font-size:.7rem;font-weight:600;padding:6px 16px;border-radius:20px;letter-spacing:2px;margin-bottom:20px;text-transform:uppercase}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem);color:var(--cream);margin-bottom:16px;line-height:1.2}
+.hero h1 span{background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:1.05rem;opacity:.7;max-width:540px;margin:0 auto}
+/* Glass Card */
+.glass{background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--glass-border);border-radius:16px;padding:36px;margin:40px auto;max-width:600px}
+/* Form */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-group{display:flex;flex-direction:column}
+.form-group.full{grid-column:1/-1}
+.form-group label{font-size:.8rem;color:var(--gold-light);margin-bottom:6px;font-weight:500}
+.form-group input,.form-group select{background:rgba(255,255,255,0.07);border:1px solid var(--glass-border);border-radius:10px;padding:12px 14px;color:var(--cream);font-family:'Inter',sans-serif;font-size:.9rem;transition:border .3s}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:var(--gold)}
+.form-group select option{background:#1a1030;color:var(--cream)}
+.time-wrapper{display:flex;align-items:center;gap:10px}
+.time-wrapper input{flex:1}
+.time-wrapper label{font-size:.75rem;color:var(--blue);white-space:nowrap;display:flex;align-items:center;gap:4px;cursor:pointer}
+.time-wrapper input[type="checkbox"]{width:auto;accent-color:var(--gold)}
+.btn-gold{width:100%;margin-top:20px;padding:16px;background:linear-gradient(135deg,var(--gold),#c9952e);color:#08011B;font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;border:none;border-radius:12px;cursor:pointer;transition:all .3s;letter-spacing:.5px}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(212,168,67,0.35)}
+/* Stats */
+.stats{display:flex;justify-content:center;gap:48px;padding:40px 0;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-num{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--gold);font-weight:700}
+.stat-label{font-size:.75rem;opacity:.6;margin-top:4px}
+/* Discover Section */
+.section{padding:70px 0}
+.section-title{text-align:center;font-size:clamp(1.5rem,3vw,2.2rem);margin-bottom:12px}
+.section-sub{text-align:center;opacity:.6;margin-bottom:48px;font-size:.95rem}
+.discover-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:20px}
+.discover-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:14px;padding:28px 20px;text-align:center;transition:all .3s}
+.discover-card:hover{border-color:var(--gold);transform:translateY(-4px)}
+.discover-icon{font-size:2.2rem;margin-bottom:12px;display:block}
+.discover-card h4{font-size:1rem;color:var(--gold-light);margin-bottom:6px}
+.discover-card p{font-size:.78rem;opacity:.6;line-height:1.5}
+/* Results */
+#results{display:none}
+.calc-anim{text-align:center;padding:60px 20px}
+.calc-spinner{width:60px;height:60px;border:3px solid var(--glass-border);border-top-color:var(--gold);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 20px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.result-content{display:none}
+.result-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:16px;padding:32px;margin:20px auto;max-width:600px;text-align:center}
+.result-card .sign-symbol{font-size:3rem;margin-bottom:12px;display:block}
+.result-card h3{font-size:1.6rem;color:var(--gold);margin-bottom:8px}
+.result-card p{font-size:.9rem;opacity:.8;line-height:1.7}
+.result-secondary{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:600px;margin:20px auto}
+.result-mini{background:var(--glass);border:1px solid var(--glass-border);border-radius:12px;padding:20px;text-align:center}
+.result-mini h4{color:var(--blue);font-size:.9rem;margin-bottom:4px}
+.result-mini .sign{color:var(--gold-light);font-size:1.1rem}
+.cta-premium{text-align:center;margin:40px auto;max-width:500px}
+.cta-premium h3{color:var(--gold);margin-bottom:10px}
+.cta-premium p{font-size:.85rem;opacity:.7;margin-bottom:20px}
+.btn-outline{display:inline-block;padding:14px 36px;border:2px solid var(--gold);color:var(--gold);font-family:'Playfair Display',serif;font-size:1rem;border-radius:12px;text-decoration:none;transition:all .3s;font-weight:600}
+.btn-outline:hover{background:var(--gold);color:#08011B}
+/* Testimonials */
+.test-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.test-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:14px;padding:28px}
+.test-card .stars{color:var(--gold);font-size:.9rem;margin-bottom:10px}
+.test-card p{font-size:.85rem;font-style:italic;opacity:.8;margin-bottom:12px;line-height:1.6}
+.test-card .author{font-size:.75rem;color:var(--pink);font-weight:600}
+/* FAQ */
+.faq-item{background:var(--glass);border:1px solid var(--glass-border);border-radius:12px;margin-bottom:12px;overflow:hidden}
+.faq-q{padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:500;font-size:.95rem}
+.faq-q::after{content:'+';color:var(--gold);font-size:1.3rem;transition:transform .3s}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;padding:0 24px}
+.faq-item.open .faq-a{max-height:300px;padding:0 24px 20px}
+.faq-a p{font-size:.85rem;opacity:.7;line-height:1.7}
+/* Footer */
+footer{border-top:1px solid var(--glass-border);padding:40px 0;margin-top:60px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:30px}
+.footer-col h4{color:var(--gold);font-size:.9rem;margin-bottom:14px}
+.footer-col a{display:block;color:var(--cream);opacity:.6;text-decoration:none;font-size:.8rem;margin-bottom:8px;transition:opacity .3s}
+.footer-col a:hover{opacity:1;color:var(--gold)}
+.footer-bottom{text-align:center;margin-top:30px;padding-top:20px;border-top:1px solid var(--glass-border);font-size:.75rem;opacity:.4}
+/* Mobile */
+@media(max-width:768px){
+.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(8,1,27,0.95);flex-direction:column;padding:20px;gap:16px;border-bottom:1px solid var(--glass-border)}
+.nav-links.open{display:flex}
+.nav-toggle{display:block}
+.form-grid{grid-template-columns:1fr}
+.stats{gap:28px}
+.result-secondary{grid-template-columns:1fr}
+.hero{padding:110px 0 40px}
+.glass{padding:24px;margin:24px auto}
+}
+</style>
+</head>
+<body>
+<canvas id="starCanvas"></canvas>
+
+<!-- NAV -->
+<nav>
+<div class="nav-inner">
+<a href="/" class="nav-logo">Astro Aureum</a>
+<button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+<ul class="nav-links">
+<li><a href="/carta-natal-gratis" class="active">Carta Natal Gratis</a></li>
+<li><a href="/horoscopo-diario">Horoscopo Diario</a></li>
+<li><a href="/lecturas">Lecturas</a></li>
+<li><a href="/premium">Premium</a></li>
+<li><a href="/blog">Blog</a></li>
+<li><a href="/aureum-books">Aureum Books</a></li>
+</ul>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="container">
+<span class="badge">SWISS EPHEMERIS</span>
+<h1>Calcula tu Carta Natal <span>GRATIS</span></h1>
+<p>Descubre los secretos que los astros guardaron para ti el dia de tu nacimiento. Precisao profesional con Swiss Ephemeris.</p>
+
+<!-- FORM -->
+<div class="glass" id="formCard">
+<form id="birthForm" onsubmit="return calcChart(event)">
+<div class="form-grid">
+<div class="form-group full">
+<label for="fname">Tu nombre</label>
+<input type="text" id="fname" placeholder="Nombre" required>
+</div>
+<div class="form-group full">
+<label for="email">Email (para recibir tu carta)</label>
+<input type="email" id="email" placeholder="tu@email.com" required>
+</div>
+<div class="form-group">
+<label for="bdate">Fecha de nacimiento</label>
+<input type="date" id="bdate" required>
+</div>
+<div class="form-group">
+<label for="btime">Hora de nacimiento</label>
+<div class="time-wrapper">
+<input type="time" id="btime" value="12:00">
+<label><input type="checkbox" id="noTime" onchange="document.getElementById('btime').disabled=this.checked"> No se</label>
+</div>
+</div>
+<div class="form-group">
+<label for="city">Ciudad de nacimiento</label>
+<input type="text" id="city" placeholder="Ciudad" required>
+</div>
+<div class="form-group">
+<label for="country">Pais</label>
+<select id="country" required>
+<option value="">Selecciona</option>
+<option value="AR">Argentina</option>
+<option value="BO">Bolivia</option>
+<option value="CL">Chile</option>
+<option value="CO">Colombia</option>
+<option value="CR">Costa Rica</option>
+<option value="CU">Cuba</option>
+<option value="DO">Rep. Dominicana</option>
+<option value="EC">Ecuador</option>
+<option value="SV">El Salvador</option>
+<option value="ES">Espana</option>
+<option value="GT">Guatemala</option>
+<option value="HN">Honduras</option>
+<option value="MX">Mexico</option>
+<option value="NI">Nicaragua</option>
+<option value="PA">Panama</option>
+<option value="PY">Paraguay</option>
+<option value="PE">Peru</option>
+<option value="PR">Puerto Rico</option>
+<option value="UY">Uruguay</option>
+<option value="VE">Venezuela</option>
+<option value="US">Estados Unidos</option>
+<option value="BR">Brasil</option>
+<option value="OTHER">Otro</option>
+</select>
+</div>
+</div>
+<button type="submit" class="btn-gold">Calcular mi Carta Natal</button>
+</form>
+</div>
+</div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+<div class="stat"><div class="stat-num">10K+</div><div class="stat-label">Cartas calculadas</div></div>
+<div class="stat"><div class="stat-num">Swiss Ephemeris</div><div class="stat-label">Precision profesional</div></div>
+<div class="stat"><div class="stat-num">9</div><div class="stat-label">Tradiciones astrologicas</div></div>
+</div>
+
+<!-- DISCOVER -->
+<section class="section">
+<div class="container">
+<h2 class="section-title">Que descubriras en tu carta</h2>
+<p class="section-sub">Cada planeta revela una dimension unica de tu personalidad</p>
+<div class="discover-grid">
+<div class="discover-card">
+<span class="discover-icon">&#9788;</span>
+<h4>Sol</h4>
+<p>Tu esencia, identidad y proposito vital</p>
+</div>
+<div class="discover-card">
+<span class="discover-icon">&#9789;</span>
+<h4>Luna</h4>
+<p>Tus emociones, instintos y mundo interior</p>
+</div>
+<div class="discover-card">
+<span class="discover-icon">&#8599;</span>
+<h4>Ascendente</h4>
+<p>Como te percibe el mundo y tu primera impresion</p>
+</div>
+<div class="discover-card">
+<span class="discover-icon">&#9792;</span>
+<h4>Venus</h4>
+<p>Tu forma de amar, valores y estetica</p>
+</div>
+<div class="discover-card">
+<span class="discover-icon">&#9794;</span>
+<h4>Marte</h4>
+<p>Tu energia, accion y forma de luchar</p>
+</div>
+<div class="discover-card">
+<span class="discover-icon">&#9791;</span>
+<h4>Mercurio</h4>
+<p>Tu mente, comunicacion y aprendizaje</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- RESULTS (hidden) -->
+<section id="results" class="section">
+<div class="container">
+<div class="calc-anim" id="calcAnim">
+<div class="calc-spinner"></div>
+<h3 style="color:var(--gold)">Calculando tu carta natal...</h3>
+<p style="opacity:.6;margin-top:8px">Consultando las efemerides suizas</p>
+</div>
+<div class="result-content" id="resultContent">
+<h2 class="section-title">Tu Carta Natal, <span id="resultName"></span></h2>
+<div class="result-card">
+<span class="sign-symbol" id="sunSymbol"></span>
+<h3>Sol en <span id="sunSign"></span></h3>
+<p id="sunDesc"></p>
+</div>
+<div class="result-secondary">
+<div class="result-mini">
+<h4>Luna (estimada)</h4>
+<div class="sign" id="moonSign">--</div>
+</div>
+<div class="result-mini">
+<h4>Ascendente</h4>
+<div class="sign" id="risingSign">Requiere hora exacta</div>
+</div>
+</div>
+<div class="cta-premium">
+<h3>Desbloquea tu carta completa</h3>
+<p>Obtiene un analisis de +30 paginas con todos tus planetas, casas, aspectos y transitos del ano.</p>
+<a href="/premium" class="btn-outline">Ver Lectura Premium</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section">
+<div class="container">
+<h2 class="section-title">Lo que dicen nuestros usuarios</h2>
+<p class="section-sub">Miles de personas ya descubrieron su mapa astral</p>
+<div class="test-grid">
+<div class="test-card">
+<div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+<p>Increible la precision. Me describio exactamente como soy. La parte de Venus explico mucho sobre mis relaciones.</p>
+<div class="author">- Maria L., Buenos Aires</div>
+</div>
+<div class="test-card">
+<div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+<p>Nunca pense que una carta natal gratis pudiera ser tan completa. Termine comprando la lectura premium y valio cada centavo.</p>
+<div class="author">- Carlos R., Ciudad de Mexico</div>
+</div>
+<div class="test-card">
+<div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+<p>La mejor calculadora que he encontrado en espanol. Rapida, bonita y con interpretaciones que realmente resuenan.</p>
+<div class="author">- Valentina S., Madrid</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+<div class="container">
+<h2 class="section-title">Preguntas Frecuentes</h2>
+<p class="section-sub">Todo lo que necesitas saber sobre tu carta natal</p>
+<div style="max-width:700px;margin:0 auto">
+<div class="faq-item">
+<div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Que es una carta natal?</div>
+<div class="faq-a"><p>Una carta natal es un mapa del cielo en el momento exacto de tu nacimiento. Muestra la posicion de los planetas, el Sol y la Luna en los signos zodiacales y las casas astrologicas, revelando rasgos de personalidad, talentos y desafios de vida.</p></div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Necesito saber mi hora exacta de nacimiento?</div>
+<div class="faq-a"><p>Para calcular tu signo solar y las posiciones planetarias basicas, no necesitas la hora exacta. Sin embargo, para determinar tu Ascendente y las casas astrologicas con precision, la hora de nacimiento es esencial. Puedes consultarla en tu certificado de nacimiento.</p></div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Que son las Swiss Ephemeris?</div>
+<div class="faq-a"><p>Las Swiss Ephemeris son las tablas astronomicas mas precisas disponibles, desarrolladas por Astrodienst. Proporcionan posiciones planetarias con precision de fracciones de segundo de arco, el mismo estandar utilizado por astrologos profesionales en todo el mundo.</p></div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Cual es la diferencia entre la carta gratis y la premium?</div>
+<div class="faq-a"><p>La carta gratuita te muestra tu signo solar, una estimacion lunar y elementos clave. La lectura premium incluye un analisis de +30 paginas con todos los planetas, aspectos entre ellos, casas astrologicas, transitos actuales y predicciones personalizadas para el ano.</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div class="footer-col">
+<h4>Astro Aureum</h4>
+<a href="/carta-natal-gratis">Carta Natal Gratis</a>
+<a href="/horoscopo-diario">Horoscopo Diario</a>
+<a href="/lecturas">Lecturas</a>
+<a href="/premium">Premium</a>
+</div>
+<div class="footer-col">
+<h4>Recursos</h4>
+<a href="/blog">Blog</a>
+<a href="/aureum-books">Aureum Books</a>
+<a href="/guia-signos">Guia de Signos</a>
+<a href="/compatibilidad">Compatibilidad</a>
+</div>
+<div class="footer-col">
+<h4>Legal</h4>
+<a href="/privacidad">Politica de Privacidad</a>
+<a href="/terminos">Terminos de Uso</a>
+<a href="/contacto">Contacto</a>
+</div>
+</div>
+<div class="footer-bottom">&copy; 2026 Astro Aureum. Todos los derechos reservados.</div>
+</div>
+</footer>
+
+<script>
+// Star canvas animation
+(function(){
+const c=document.getElementById('starCanvas'),x=c.getContext('2d');
+let w,h,stars=[];
+function resize(){w=c.width=window.innerWidth;h=c.height=window.innerHeight;initStars()}
+function initStars(){stars=[];for(let i=0;i<200;i++)stars.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.5+.3,a:Math.random(),s:Math.random()*.0015+.0005})}
+function draw(){x.clearRect(0,0,w,h);for(let s of stars){s.a+=s.s;let o=.3+Math.abs(Math.sin(s.a))*.7;x.beginPath();x.arc(s.x,s.y,s.r,0,Math.PI*2);x.fillStyle=`rgba(255,249,234,${o})`;x.fill()}requestAnimationFrame(draw)}
+window.addEventListener('resize',resize);resize();draw()
+})();
+
+// Zodiac data
+const SIGNS=[
+{name:'Aries',symbol:'\u2648',start:[3,21],end:[4,19],desc:'Eres una persona llena de energia, iniciativa y coraje. Tu naturaleza pionera te impulsa a liderar y abrir nuevos caminos. La pasion y la determinacion son tus mayores fortalezas.'},
+{name:'Tauro',symbol:'\u2649',start:[4,20],end:[5,20],desc:'Posees una naturaleza estable, sensual y perseverante. Valoras la seguridad, la belleza y los placeres de la vida. Tu lealtad y determinacion son inquebrantables.'},
+{name:'Geminis',symbol:'\u264A',start:[5,21],end:[6,20],desc:'Tu mente agil y curiosa te convierte en un comunicador nato. Eres versatil, adaptable y siempre estas buscando nuevas ideas y experiencias intelectuales.'},
+{name:'Cancer',symbol:'\u264B',start:[6,21],end:[7,22],desc:'Tu sensibilidad emocional y capacidad de nutrir son extraordinarias. Eres protector, intuitivo y profundamente conectado con tu hogar y familia.'},
+{name:'Leo',symbol:'\u264C',start:[7,23],end:[8,22],desc:'Irradias carisma, creatividad y generosidad. Tu espiritu noble y tu necesidad de expresarte te convierten en un lider natural que inspira a los demas.'},
+{name:'Virgo',symbol:'\u264D',start:[8,23],end:[9,22],desc:'Tu mente analitica y tu atencion al detalle son excepcionales. Eres practico, servicial y buscas la perfeccion en todo lo que haces.'},
+{name:'Libra',symbol:'\u264E',start:[9,23],end:[10,22],desc:'Buscas el equilibrio, la armonia y la justicia en todas las areas de tu vida. Tu naturaleza diplomatica y tu sentido estetico te distinguen.'},
+{name:'Escorpio',symbol:'\u264F',start:[10,23],end:[11,21],desc:'Tu intensidad emocional y tu capacidad de transformacion son profundas. Eres apasionado, perspicaz y posees una fuerza interior extraordinaria.'},
+{name:'Sagitario',symbol:'\u2650',start:[11,22],end:[12,21],desc:'Tu espiritu aventurero y tu busqueda de la verdad te impulsan a explorar el mundo. Eres optimista, filosofico y amante de la libertad.'},
+{name:'Capricornio',symbol:'\u2651',start:[12,22],end:[1,19],desc:'Tu ambicion, disciplina y sentido de responsabilidad son admirables. Eres estrategico, paciente y construyes tu exito paso a paso.'},
+{name:'Acuario',symbol:'\u2652',start:[1,20],end:[2,18],desc:'Tu vision innovadora y tu espiritu humanitario te hacen unico. Eres independiente, original y estas siempre pensando en el futuro.'},
+{name:'Piscis',symbol:'\u2653',start:[2,19],end:[3,20],desc:'Tu sensibilidad artistica y tu conexion espiritual son profundas. Eres compasivo, imaginativo y posees una intuicion extraordinaria.'}
+];
+
+const MOON_SIGNS=['Aries','Tauro','Geminis','Cancer','Leo','Virgo','Libra','Escorpio','Sagitario','Capricornio','Acuario','Piscis'];
+
+function getSunSign(m,d){
+for(let s of SIGNS){
+let[sm,sd]=s.start,[em,ed]=s.end;
+if(sm===em){if(m===sm&&d>=sd&&d<=ed)return s}
+else if(sm>em){if((m===sm&&d>=sd)||(m===em&&d<=ed)||(m>sm||m<em))return s}
+else{if((m===sm&&d>=sd)||(m===em&&d<=ed))return s}
+}
+return SIGNS[0];
+}
+
+function calcChart(e){
+e.preventDefault();
+const name=document.getElementById('fname').value;
+const email=document.getElementById('email').value;
+const bdate=document.getElementById('bdate').value;
+if(!bdate)return false;
+const[y,m,d]=bdate.split('-').map(Number);
+const sign=getSunSign(m,d);
+
+// Track event
+if(window.gtag)gtag('event','calculate_chart',{sign:sign.name});
+if(window.posthog)posthog.capture('chart_calculated',{sign:sign.name,has_time:!document.getElementById('noTime').checked});
+
+// Show results
+document.getElementById('results').style.display='block';
+document.getElementById('formCard').style.display='none';
+document.getElementById('results').scrollIntoView({behavior:'smooth'});
+
+// Animate then show
+setTimeout(function(){
+document.getElementById('calcAnim').style.display='none';
+document.getElementById('resultContent').style.display='block';
+document.getElementById('resultName').textContent=name;
+document.getElementById('sunSymbol').textContent=sign.symbol;
+document.getElementById('sunSign').textContent=sign.name;
+document.getElementById('sunDesc').textContent=sign.desc;
+// Estimated moon (simplified)
+const moonIdx=((m*2+d+y)%12);
+document.getElementById('moonSign').textContent=MOON_SIGNS[moonIdx]+' (estimada)';
+if(!document.getElementById('noTime').checked){
+document.getElementById('risingSign').textContent='Procesando...';
+}
+},2800);
+return false;
+}
+
+// SW registration
+if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js').catch(()=>{})}
+</script>
+</body>
+</html>

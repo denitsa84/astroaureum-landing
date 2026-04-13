@@ -91,6 +91,70 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Carta Natal Gratis (pagina de alto trafico) -->
+  <url>
+    <loc>https://astroaureum.com/carta-natal-gratis.html</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- Lecturas - Catalogo de 37 productos -->
+  <url>
+    <loc>https://astroaureum.com/lecturas.html</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Precios Premium / Suscripcion -->
+  <url>
+    <loc>https://astroaureum.com/precios-premium.html</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Blog -->
+  <url>
+    <loc>https://astroaureum.com/blog/</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- FAQ -->
+  <url>
+    <loc>https://astroaureum.com/faq.html</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Programa de Referidos -->
+  <url>
+    <loc>https://astroaureum.com/programa-referidos.html</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Compartir Carta / Social Sharing -->
+  <url>
+    <loc>https://astroaureum.com/compartir.html</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Servicios (detalle de producto) -->
+  <url>
+    <loc>https://astroaureum.com/servicios.html</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Idiomas -->
   <url>
     <loc>https://astroaureum.com/es/</loc>

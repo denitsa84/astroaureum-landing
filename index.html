@@ -98,6 +98,11 @@
     }
     </script>
 
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#D4A843">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Astro Aureum">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -947,11 +952,11 @@
     <nav>
         <div class="nav-logo">✦ Astro Aureum</div>
         <div class="nav-links">
-            <a href="#sincronia" data-t="navSync">Sincronicidad</a>
-            <a href="#como-funciona" data-t="navHow">Cómo Funciona</a>
-            <a href="#precios" >Precios</a>
-            <a href="#testimonios" data-t="navTest">Testimonios</a>
-            <a href="/lecturas.html" >9 Tradiciones de Lecturas</a>
+            <a href="/carta-natal-gratis.html">Carta Natal Gratis</a>
+            <a href="/horoscopo-diario.html">Horoscopo Diario</a>
+            <a href="/lecturas.html">Lecturas</a>
+            <a href="/precios-premium.html">Premium</a>
+            <a href="/blog/">Blog</a>
             <a href="/aureum-books/" data-t="navBooks">Aureum Books</a>
         </div>
     </nav>
@@ -1301,14 +1306,105 @@
       </div>
     </section>
 
+    <!-- ============================================
+         SECCION — Herramientas Gratuitas
+         ============================================ -->
+    <section style="padding: 100px 20px; max-width: 1100px; margin: 0 auto; text-align: center;">
+        <h2 class="sync fade-up" style="margin-bottom: 15px;">Herramientas Gratuitas</h2>
+        <p class="fade-up" style="margin-bottom: 60px; max-width: 600px; margin-left: auto; margin-right: auto;">Descubre lo que las estrellas tienen para ti — sin costo.</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+            <a href="/carta-natal-gratis.html" class="glass-card fade-up" style="padding: 40px 30px; text-decoration: none; transition: all 0.3s; display: block;">
+                <div style="font-size: 3rem; margin-bottom: 15px;">&#9788;</div>
+                <h3 style="margin-bottom: 10px;">Carta Natal Gratis</h3>
+                <p style="font-size: 0.95rem;">Calcula tu Sol, Luna y Ascendente al instante con Swiss Ephemeris.</p>
+                <span class="btn-secondary" style="margin-top: 20px; display: inline-block; font-size: 0.85rem; padding: 10px 25px;">Calcular Ahora</span>
+            </a>
+            <a href="/horoscopo-diario.html" class="glass-card fade-up" style="padding: 40px 30px; text-decoration: none; transition: all 0.3s; display: block;">
+                <div style="font-size: 3rem; margin-bottom: 15px;">&#9733;</div>
+                <h3 style="margin-bottom: 10px;">Horoscopo Diario</h3>
+                <p style="font-size: 0.95rem;">Tu lectura diaria para los 12 signos: amor, dinero, salud y mas.</p>
+                <span class="btn-secondary" style="margin-top: 20px; display: inline-block; font-size: 0.85rem; padding: 10px 25px;">Ver Horoscopo</span>
+            </a>
+            <a href="/compartir.html" class="glass-card fade-up" style="padding: 40px 30px; text-decoration: none; transition: all 0.3s; display: block;">
+                <div style="font-size: 3rem; margin-bottom: 15px;">&#10084;</div>
+                <h3 style="margin-bottom: 10px;">Comparte tu Carta</h3>
+                <p style="font-size: 0.95rem;">Genera una imagen estelar de tu carta y compartela en redes sociales.</p>
+                <span class="btn-secondary" style="margin-top: 20px; display: inline-block; font-size: 0.85rem; padding: 10px 25px;">Compartir</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECCION — Newsletter
+         ============================================ -->
+    <section style="padding: 80px 20px; text-align: center;">
+        <div class="glass-card fade-up" style="max-width: 600px; margin: 0 auto; padding: 50px 40px;">
+            <div style="font-size: 2.5rem; margin-bottom: 15px;">&#9993;</div>
+            <h2 class="gold" style="font-size: 1.8rem; margin-bottom: 10px;">Sabiduria Cosmica en tu Email</h2>
+            <p style="margin-bottom: 25px; font-size: 0.95rem;">Recibe tu horoscopo semanal, transitos importantes y contenido exclusivo. Unete a 5,000+ buscadores cosmicos.</p>
+            <form id="newsletter-form" style="display: flex; gap: 10px; max-width: 450px; margin: 0 auto;" onsubmit="event.preventDefault(); var e=this.querySelector('input'); if(e.value){this.querySelector('button').textContent='Suscrito ✦'; this.querySelector('button').disabled=true; if(typeof gtag==='function') gtag('event','newsletter_signup',{page:'home'}); if(typeof posthog!=='undefined') posthog.capture('newsletter_signup');}">
+                <input type="email" placeholder="tu@email.com" required style="flex:1; padding: 14px 18px; border-radius: 50px; border: 1px solid rgba(255,237,138,0.3); background: rgba(255,255,255,0.05); color: #fff; font-family: var(--font-body); font-size: 0.95rem; outline: none;">
+                <button type="submit" class="btn-cta" style="padding: 14px 30px; font-size: 0.9rem; white-space: nowrap;">Suscribirme</button>
+            </form>
+            <p style="font-size: 0.75rem; opacity: 0.4; margin-top: 12px;">Sin spam. Cancela cuando quieras.</p>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECCION — Blog Preview
+         ============================================ -->
+    <section style="padding: 80px 20px; max-width: 1100px; margin: 0 auto; text-align: center;">
+        <h2 class="love fade-up" style="margin-bottom: 15px;">Blog Cosmico</h2>
+        <p class="fade-up" style="margin-bottom: 50px;">Aprende astrologia con nuestras guias y articulos.</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; text-align: left;">
+            <a href="/blog/" class="glass-card fade-up" style="padding: 30px; text-decoration: none; display: block; transition: all 0.3s;">
+                <span style="display: inline-block; background: rgba(160,240,255,0.15); color: var(--electric-blue); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; margin-bottom: 12px;">Guia</span>
+                <h3 style="font-size: 1.1rem; margin-bottom: 8px; color: var(--pure-white);">Como Leer tu Carta Natal: Guia Completa</h3>
+                <p style="font-size: 0.85rem; opacity: 0.7;">Aprende a interpretar tu Sol, Luna y Ascendente paso a paso.</p>
+            </a>
+            <a href="/blog/" class="glass-card fade-up" style="padding: 30px; text-decoration: none; display: block; transition: all 0.3s;">
+                <span style="display: inline-block; background: rgba(255,179,209,0.15); color: var(--love-rose); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; margin-bottom: 12px;">Transitos</span>
+                <h3 style="font-size: 1.1rem; margin-bottom: 8px; color: var(--pure-white);">Mercurio Retrogrado 2026: Lo que Necesitas Saber</h3>
+                <p style="font-size: 0.85rem; opacity: 0.7;">Fechas, efectos y como aprovechar esta energia a tu favor.</p>
+            </a>
+            <a href="/blog/" class="glass-card fade-up" style="padding: 30px; text-decoration: none; display: block; transition: all 0.3s;">
+                <span style="display: inline-block; background: rgba(255,237,138,0.15); color: var(--golden-yellow); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; margin-bottom: 12px;">Compatibilidad</span>
+                <h3 style="font-size: 1.1rem; margin-bottom: 8px; color: var(--pure-white);">Que es la Sinastria y Como Mejora tu Relacion</h3>
+                <p style="font-size: 0.85rem; opacity: 0.7;">Descubre que revelan las estrellas sobre tu conexion de pareja.</p>
+            </a>
+        </div>
+        <a href="/blog/" class="btn-secondary fade-up" style="margin-top: 40px; display: inline-block;">Ver Todos los Articulos</a>
+    </section>
+
+    <!-- ============================================
+         SECCION — Referidos
+         ============================================ -->
+    <section style="padding: 80px 20px; text-align: center;">
+        <div class="glass-card fade-up" style="max-width: 700px; margin: 0 auto; padding: 50px 40px; border-color: rgba(160,240,255,0.3);">
+            <div style="font-size: 2.5rem; margin-bottom: 15px;">&#127873;</div>
+            <h2 class="sync" style="font-size: 1.8rem; margin-bottom: 10px;">Gana Recompensas Compartiendo</h2>
+            <p style="margin-bottom: 25px;">Invita amigos a Astro Aureum y gana semanas Premium gratis, lecturas personalizadas y mas.</p>
+            <a href="/programa-referidos.html" class="btn-cta" style="display: inline-block;">Ver Programa de Referidos</a>
+        </div>
+    </section>
+
     <!-- FOOTER -->
     <footer>
-        <div class="footer-logo">✦ Astro Aureum</div>
-        <div class="footer-links">
-            <a href="/politica-privacidad.html">Política de Privacidad</a>
-            <a href="/politica-cookies.html">Política de Cookies</a>
+        <div class="footer-logo">&#10022; Astro Aureum</div>
+        <div class="footer-links" style="flex-wrap: wrap; justify-content: center; display: flex; gap: 15px 25px;">
+            <a href="/carta-natal-gratis.html">Carta Natal Gratis</a>
+            <a href="/horoscopo-diario.html">Horoscopo Diario</a>
+            <a href="/lecturas.html">Lecturas</a>
+            <a href="/precios-premium.html">Planes Premium</a>
+            <a href="/blog/">Blog</a>
+            <a href="/aureum-books.html">Aureum Books</a>
+            <a href="/programa-referidos.html">Referidos</a>
+            <a href="/compartir.html">Compartir</a>
+            <a href="/faq.html">FAQ</a>
+            <a href="/politica-privacidad.html">Privacidad</a>
+            <a href="/politica-cookies.html">Cookies</a>
         </div>
-        <p class="footer-copy" data-t="footCopy">© 2026 Astro Aureum — Tu Guía Cósmica. Todos los derechos reservados.</p>
+        <p class="footer-copy">&#169; 2026 Astro Aureum — Tu Guia Cosmica. Todos los derechos reservados.</p>
     </footer>
 
     <!-- PARTICLES -->
@@ -1503,5 +1599,13 @@
 
 <!-- i18n desactivado: pagina solo en español -->
 <!-- <script src="/home-i18n.js"></script> -->
+    <!-- Service Worker Registration -->
+    <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('/sw.js').catch(function() {});
+        });
+    }
+    </script>
 </body>
 </html>
