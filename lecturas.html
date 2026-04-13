@@ -549,6 +549,202 @@
         }
 
         /* ============================================
+           OFERTA MAPA DEL ALMA
+           ============================================ */
+        .soul-offer {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem;
+        }
+
+        .soul-card {
+            position: relative;
+            background: rgba(255, 237, 138, 0.04);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 237, 138, 0.3);
+            border-radius: 28px;
+            padding: 50px 40px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .soul-glow {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 237, 138, 0.08) 0%, transparent 50%);
+            animation: pulseGlow 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .soul-card::after {
+            content: '';
+            position: absolute;
+            top: -1px; left: -1px; right: -1px; bottom: -1px;
+            border-radius: 28px;
+            background: linear-gradient(135deg, rgba(255, 237, 138, 0.4), rgba(255, 179, 209, 0.3), rgba(160, 240, 255, 0.2));
+            z-index: -1;
+            filter: blur(18px);
+            opacity: 0.4;
+            animation: pulseGlow 4s ease-in-out infinite alternate;
+        }
+
+        .soul-badge {
+            display: inline-block;
+            background: var(--gradient-gold-pink);
+            color: #000;
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 8px 28px;
+            border-radius: 50px;
+            margin-bottom: 20px;
+            box-shadow: var(--glow-gold);
+            position: relative;
+            z-index: 2;
+        }
+
+        .soul-img {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+            object-fit: cover;
+            border: 2px solid rgba(255, 237, 138, 0.3);
+            box-shadow: 0 0 40px rgba(255, 237, 138, 0.4), 0 0 80px rgba(160, 240, 255, 0.2);
+            margin: 0 auto 24px;
+            position: relative;
+            z-index: 2;
+            animation: floatSoul 4s ease-in-out infinite;
+        }
+
+        @keyframes floatSoul {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .soul-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            color: var(--golden-yellow);
+            text-shadow: 0 0 20px rgba(255, 237, 138, 0.5);
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .soul-desc {
+            color: var(--cosmic-cream);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .soul-features {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 28px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .soul-features span {
+            color: var(--aura-pink);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .soul-price-row {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 14px;
+            margin-bottom: 28px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .soul-old {
+            text-decoration: line-through;
+            color: var(--aura-pink);
+            font-size: 1.2rem;
+            opacity: 0.7;
+        }
+
+        .soul-price {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--golden-yellow);
+            text-shadow: 0 0 30px rgba(255, 237, 138, 0.6), 0 0 60px rgba(255, 237, 138, 0.3);
+        }
+
+        .soul-save {
+            padding: 5px 14px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            background: rgba(80, 200, 120, 0.15);
+            color: #50C878;
+            border: 1px solid rgba(80, 200, 120, 0.2);
+        }
+
+        .soul-btn {
+            display: inline-block;
+            background: var(--gradient-gold-pink);
+            border: none;
+            color: #000;
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            padding: 20px 50px;
+            box-shadow: 0 0 30px rgba(255, 237, 138, 0.5), 0 0 60px rgba(255, 237, 138, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            text-decoration: none;
+            position: relative;
+            z-index: 2;
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+
+        .soul-btn:hover {
+            transform: scale(1.05) translateY(-3px);
+            box-shadow: 0 0 50px rgba(255, 237, 138, 0.7), 0 0 100px rgba(255, 179, 209, 0.3);
+            color: #000;
+        }
+
+        .soul-note {
+            color: var(--aura-pink);
+            font-size: 0.85rem;
+            margin-top: 18px;
+            font-style: italic;
+            position: relative;
+            z-index: 2;
+        }
+
+        @media (max-width: 768px) {
+            .soul-card { padding: 35px 20px; }
+            .soul-price { font-size: 2.8rem; }
+            .soul-btn { padding: 18px 35px; font-size: 1rem; }
+            .soul-features { gap: 10px; }
+            .soul-features span { font-size: 0.8rem; }
+        }
+
+        /* ============================================
            FOOTER
            ============================================ */
         footer {
@@ -694,6 +890,29 @@
         </div>
         <div class="results-count" id="results-count">37 lecturas</div>
     </div>
+
+    <!-- OFERTA MAPA DEL ALMA -->
+    <section class="soul-offer fade-up">
+        <div class="soul-card">
+            <div class="soul-glow"></div>
+            <div class="soul-badge">OFERTA ESPECIAL</div>
+            <img src="assets/bg-lecturas.png" alt="Mapa del Alma" class="soul-img">
+            <h2 class="soul-title">Mapa del Alma</h2>
+            <p class="soul-desc">Descubre tu mision cosmica, tus dones ocultos y el camino que las estrellas trazaron para ti. Una lectura personalizada que revela la esencia de tu alma.</p>
+            <div class="soul-features">
+                <span>&#10022; Lectura personalizada</span>
+                <span>&#10022; Resultado por email</span>
+                <span>&#10022; Entrega inmediata</span>
+            </div>
+            <div class="soul-price-row">
+                <span class="soul-old">&euro;29</span>
+                <span class="soul-price">&euro;4,99</span>
+                <span class="soul-save">-83%</span>
+            </div>
+            <a href="/servicios.html?slug=mapa-del-alma" class="soul-btn">QUIERO MI MAPA DEL ALMA</a>
+            <p class="soul-note">&#10022; 127 personas lo compraron esta semana</p>
+        </div>
+    </section>
 
     <!-- PRODUCT GRID -->
     <div class="grid-container">
