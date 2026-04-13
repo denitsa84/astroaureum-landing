@@ -1,7 +1,8 @@
 {
   "rewrites": [
-    { "source": "/:lang(es|en|bg|fr|de|it|pt|ru|zh|ja|ko|ar|hi|tr|nl|sv|pl|ro|el|th|vi|id|he|uk|cs)/", "destination": "/index.html" },
-    { "source": "/:lang(es|en|bg|fr|de|it|pt|ru|zh|ja|ko|ar|hi|tr|nl|sv|pl|ro|el|th|vi|id|he|uk|cs)", "destination": "/index.html" }
+    { "source": "/", "destination": "/sinastria/index.html" },
+    { "source": "/:lang(es|en|bg|fr|de|it|pt|ru|zh|ja|ko|ar|hi|tr|nl|sv|pl|ro|el|th|vi|id|he|uk|cs)/", "destination": "/sinastria/index.html" },
+    { "source": "/:lang(es|en|bg|fr|de|it|pt|ru|zh|ja|ko|ar|hi|tr|nl|sv|pl|ro|el|th|vi|id|he|uk|cs)", "destination": "/sinastria/index.html" }
   ],
   "headers": [
     {

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programa de Referidos | Astro Aureum</title>
+<meta name="description" content="Gana recompensas compartiendo Astro Aureum. Invita amigos y gana Premium gratis, lecturas y mas.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/manifest.json">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0PZTB2PF7T"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-0PZTB2PF7T');</script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg-space:#08011B;--electric-blue:#A0F0FF;--golden-yellow:#FFED8A;--love-rose:#FFB3D1;--aura-pink:#FFD6F5;--cosmic-cream:#FFF9EA;--pure-white:#FFFFFF;--glow-gold:0 0 20px rgba(255,237,138,0.5);--glow-love:0 0 20px rgba(255,179,209,0.6);--gradient-gold-pink:linear-gradient(135deg,#FFED8A 0%,#FFB3D1 100%);--font-display:'Playfair Display',serif;--font-body:'Inter',sans-serif}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{background-color:var(--bg-space);background-image:radial-gradient(ellipse at 15% 85%,rgba(160,240,255,0.05) 0%,transparent 50%),radial-gradient(ellipse at 85% 15%,rgba(255,237,138,0.04) 0%,transparent 50%);color:var(--pure-white);font-family:var(--font-body);overflow-x:hidden;scroll-behavior:smooth}
+h1{font-family:var(--font-display);font-weight:800;font-size:clamp(2rem,5vw,3.5rem);color:var(--golden-yellow);text-shadow:0 0 15px rgba(255,237,138,0.5)}
+h2{font-family:var(--font-display);font-weight:700;font-size:clamp(1.5rem,3.5vw,2.5rem);color:var(--golden-yellow);text-align:center;margin-bottom:30px}
+h3{font-family:var(--font-display);font-weight:700;font-size:1.2rem;color:var(--golden-yellow)}
+p{font-size:1rem;line-height:1.8;color:var(--cosmic-cream);font-weight:300}
+a{color:var(--aura-pink);text-decoration:none;transition:all 0.3s}a:hover{color:var(--electric-blue)}
+nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(8,1,27,0.8);backdrop-filter:blur(15px);border-bottom:1px solid rgba(255,237,138,0.1)}
+.nav-logo{font-family:var(--font-display);font-size:1.5rem;font-weight:800;color:var(--golden-yellow);text-decoration:none}
+.nav-links{display:flex;gap:25px}.nav-links a{color:var(--cosmic-cream);font-size:0.85rem;font-weight:500}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;z-index:1001}.hamburger span{display:block;width:24px;height:2px;background:var(--golden-yellow);transition:all 0.3s}.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}.hamburger.open span:nth-child(2){opacity:0}.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mobile-overlay{display:none;position:fixed;inset:0;background:rgba(8,1,27,0.95);backdrop-filter:blur(25px);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:25px}.mobile-overlay.open{display:flex}.mobile-overlay a{color:var(--cosmic-cream);font-family:var(--font-display);font-size:1.2rem;font-weight:700}
+.hero{min-height:70vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:130px 20px 50px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;background:url('home-assets/abrazo-celestial.png') center/cover no-repeat;opacity:1;z-index:0}
+.hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(180deg,rgba(8,1,27,0.15) 0%,rgba(8,1,27,0.7) 100%);z-index:1}
+.hero-content{position:relative;z-index:2;max-width:700px}
+.hero-badge{display:inline-block;background:rgba(160,240,255,0.1);border:1px solid rgba(160,240,255,0.3);border-radius:50px;padding:8px 24px;font-size:0.8rem;color:var(--golden-yellow);letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;font-weight:600}
+.hero p{font-size:1.1rem;color:var(--aura-pink);max-width:550px;margin:15px auto 0}
+.section{max-width:1000px;margin:0 auto;padding:40px 20px 60px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.glass-card{background:rgba(255,249,234,0.03);backdrop-filter:blur(20px);border:1px solid rgba(255,237,138,0.15);border-radius:24px;padding:30px;text-align:center;transition:all 0.3s}.glass-card:hover{border-color:var(--golden-yellow);box-shadow:0 0 25px rgba(255,237,138,0.12)}
+.btn-cta{display:inline-block;background:var(--gradient-gold-pink);border:none;color:#000;font-family:var(--font-body);font-weight:700;font-size:1rem;border-radius:50px;padding:16px 36px;box-shadow:var(--glow-gold);transition:all 0.3s;cursor:pointer;text-transform:uppercase;letter-spacing:1px;text-decoration:none}.btn-cta:hover{transform:scale(1.05) translateY(-2px);box-shadow:var(--glow-love);color:#000}
+.btn-secondary{display:inline-block;background:transparent;border:1px solid var(--electric-blue);color:var(--pure-white);font-weight:600;font-size:0.85rem;border-radius:50px;padding:10px 20px;transition:all 0.3s;text-decoration:none}.btn-secondary:hover{background:rgba(160,240,255,0.1)}
+footer{padding:50px 40px;text-align:center;border-top:1px solid rgba(255,237,138,0.1);background:rgba(8,1,27,0.8)}
+.footer-logo{font-family:var(--font-display);font-size:1.8rem;font-weight:800;color:var(--golden-yellow);margin-bottom:15px}
+.footer-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}.footer-links a{color:var(--aura-pink);font-size:0.85rem}
+.footer-copy{color:rgba(255,249,234,0.4);font-size:0.75rem}
+@media(max-width:768px){nav{padding:15px 20px}.nav-links{display:none}.hamburger{display:flex}.hero{padding:100px 20px 40px}.grid-3,.grid-2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<canvas id="stars" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none"></canvas>
+<nav>
+<a href="/" class="nav-logo">&#10022; Astro Aureum</a>
+<div class="nav-links"><a href="/carta-natal-gratis.html">Carta Natal</a><a href="/horoscopo-diario.html">Horoscopo</a><a href="/lecturas.html">Lecturas</a><a href="/sinastria-oferta.html" style="color:var(--golden-yellow)">&#10022; Oferta Sinastria</a><a href="/precios-premium.html">Premium</a><a href="/blog/">Blog</a><a href="/aureum-books.html">Aureum Books</a></div>
+<button class="hamburger" id="hb"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-overlay" id="mm"><a href="/">Inicio</a><a href="/lecturas.html">Lecturas</a><a href="/precios-premium.html">Premium</a><a href="/blog/">Blog</a></div>
+<section class="hero"><div class="hero-bg"></div><div class="hero-overlay"></div><div class="hero-content"><div class="hero-badge">&#10022; Gana Recompensas</div><h1>Gana Recompensas Compartiendo las Estrellas</h1><p>Invita a tus amigos a Astro Aureum y ambos ganan lecturas y meses Premium gratis</p></div></section>
+<section class="section"><h2>Como Funciona</h2><div class="grid-3"><div class="glass-card"><div style="font-family:var(--font-display);font-size:3rem;color:var(--golden-yellow);margin-bottom:10px">1</div><h3>Comparte tu Enlace</h3><p>Copia tu enlace unico y compartelo con amigos, familia o redes sociales.</p></div><div class="glass-card"><div style="font-family:var(--font-display);font-size:3rem;color:var(--golden-yellow);margin-bottom:10px">2</div><h3>Amigos se Registran</h3><p>Cuando alguien se registra con tu enlace, el sistema lo detecta.</p></div><div class="glass-card"><div style="font-family:var(--font-display);font-size:3rem;color:var(--golden-yellow);margin-bottom:10px">3</div><h3>Ambos Ganan</h3><p>Tu ganas Premium gratis y tu amigo recibe un descuento especial.</p></div></div></section>
+<section class="section"><h2>Niveles de Recompensa</h2><div class="grid-2"><div class="glass-card"><h3>&#10022; 1 Amigo</h3><p style="margin-top:10px">1 semana de Premium gratis</p></div><div class="glass-card"><h3>&#10022; 3 Amigos</h3><p style="margin-top:10px">1 mes de Premium gratis</p></div><div class="glass-card"><h3>&#10022; 5 Amigos</h3><p style="margin-top:10px">Lectura personalizada gratis (valor &euro;89)</p></div><div class="glass-card" style="border-color:var(--golden-yellow)"><h3>&#10022; 10 Amigos</h3><p style="margin-top:10px">3 meses Premium + lectura premium (valor &euro;175)</p></div></div></section>
+<section class="section" style="text-align:center"><h2>Tu Enlace de Referido</h2><div class="glass-card" style="max-width:500px;margin:0 auto"><input type="text" value="astroaureum.com/r/TU-CODIGO" readonly id="ref-link" style="width:100%;padding:14px;border-radius:50px;border:1px solid rgba(160,240,255,0.2);background:rgba(255,249,234,0.05);color:var(--golden-yellow);font-size:1rem;text-align:center;margin-bottom:15px;outline:none"><button class="btn-cta" style="width:100%" onclick="navigator.clipboard.writeText(document.getElementById('ref-link').value);this.textContent='COPIADO!';setTimeout(()=>this.textContent='COPIAR ENLACE',2000)">COPIAR ENLACE</button><div style="display:flex;gap:10px;justify-content:center;margin-top:15px;flex-wrap:wrap"><a href="https://wa.me/?text=Descubre+tu+carta+natal+en+astroaureum.com" target="_blank" class="btn-secondary">WhatsApp</a><a href="https://twitter.com/intent/tweet?text=Descubre+tu+carta+natal+en+astroaureum.com" target="_blank" class="btn-secondary">Twitter</a><a href="https://www.facebook.com/sharer/sharer.php?u=https://astroaureum.com" target="_blank" class="btn-secondary">Facebook</a></div></div></section>
+<section class="section" style="text-align:center"><div class="glass-card" style="max-width:600px;margin:0 auto;border-color:var(--golden-yellow)"><h2 style="margin-bottom:15px">Programa de Afiliados</h2><p>Eres influencer o creador? Gana <strong style="color:var(--golden-yellow)">20% de comision</strong> por cada venta.</p><p style="color:var(--golden-yellow);font-weight:600;margin-top:10px">20% comision &middot; Tracking &middot; Pagos mensuales</p><a href="mailto:hola@astroaureum.com?subject=Programa%20de%20Afiliados" class="btn-cta" style="margin-top:20px">APLICAR AHORA</a></div></section>
+<footer><div class="footer-logo">&#10022; Astro Aureum</div><div class="footer-links"><a href="/">Inicio</a><a href="/lecturas.html">Lecturas</a><a href="/aureum-books.html">Aureum Books</a><a href="/faq.html">FAQ</a><a href="/politica-privacidad.html">Privacidad</a></div><p class="footer-copy">&copy; 2026 Astro Aureum &mdash; Tu Guia Cosmica.</p></footer>
+<script>var c=document.getElementById('stars'),x=c.getContext('2d'),s=[];function I(){c.width=innerWidth;c.height=innerHeight;s=[];for(var i=0;i<150;i++)s.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.5+.5,a:Math.random()*.8+.2,sp:Math.random()*.3+.1,cl:['#A0F0FF','#FFED8A','#FFD6F5','#FFB3D1'][Math.floor(Math.random()*4)]})}function D(){x.clearRect(0,0,c.width,c.height);s.forEach(function(p){x.beginPath();x.arc(p.x,p.y,p.r,0,Math.PI*2);x.fillStyle=p.cl;x.globalAlpha=p.a+Math.sin(Date.now()*.001*p.sp)*.3;x.fill()});requestAnimationFrame(D)}I();D();addEventListener('resize',I);var hb=document.getElementById('hb'),mm=document.getElementById('mm');hb.addEventListener('click',function(){hb.classList.toggle('open');mm.classList.toggle('open');document.body.style.overflow=mm.classList.contains('open')?'hidden':''});mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){hb.classList.remove('open');mm.classList.remove('open');document.body.style.overflow=''})});if('serviceWorker' in navigator)navigator.serviceWorker.register('/sw.js');</script>
+</body>
+</html>
