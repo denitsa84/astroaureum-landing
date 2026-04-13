@@ -10,7 +10,7 @@ const articles = [
   { slug:"12-casas-astrologicas", title:"Las 12 Casas Astrologicas: Mapa de tu Vida", category:"Guia", prompt:"Escribe un articulo de blog de 600 palabras sobre las 12 casas astrologicas. Explica brevemente que area de vida representa cada casa (1-12), por que importan, y como interpretarlas. Tono: educativo, elegante, premium. NO uses emojis. Incluye subtitulos con ##." }
 ];
 
-const OPENROUTER_KEY = "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";
+const OPENROUTER_KEY = "YOUR_OPENROUTER_KEY";
 
 async function gen(prompt) {
   const r = await fetch("https://openrouter.ai/api/v1/chat/completions", {
