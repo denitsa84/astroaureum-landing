@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lecturas Astrologicas · 9 Tradiciones · Astro Aureum</title>
     <meta name="description" content="37 lecturas astrologicas personalizadas en 9 tradiciones: Occidental, Vedica, Cabalistica, China, Helenistica, Human Design y mas. Calculos reales con Swiss Ephemeris.">
+    <meta name="keywords" content="lecturas astrologicas, carta natal, sinastria, astrologia vedica, astrologia cabalistica, astrologia china, human design, Swiss Ephemeris, astro aureum">
+    <meta name="author" content="Astro Aureum">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://astroaureum.com/lecturas.html">
 
@@ -43,7 +45,7 @@
     }
     </script>
 
-    <!-- Google Fonts (same as index.html) -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -62,7 +64,7 @@
 
     <style>
         /* ============================================
-           VARIABLES — Same as index.html
+           VARIABLES — Astro Aureum Design System
            ============================================ */
         :root {
             --bg-space: #08011B;
@@ -114,6 +116,9 @@
             scroll-behavior: smooth;
         }
 
+        /* ============================================
+           TYPOGRAPHY
+           ============================================ */
         h1 {
             font-family: var(--font-display);
             font-weight: 800;
@@ -148,7 +153,7 @@
         a:hover { color: var(--electric-blue); }
 
         /* ============================================
-           NAVBAR — Same as index.html
+           NAVBAR
            ============================================ */
         nav {
             position: fixed;
@@ -183,6 +188,91 @@
             letter-spacing: 0.5px;
         }
         .nav-links a:hover { color: var(--electric-blue); }
+        .nav-links a.nav-active {
+            color: var(--golden-yellow);
+            text-shadow: 0 0 10px rgba(255, 237, 138, 0.4);
+        }
+
+        /* ============================================
+           HAMBURGER MENU
+           ============================================ */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            z-index: 1100;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--golden-yellow);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger span:nth-child(1) { margin-bottom: 6px; }
+        .hamburger span:nth-child(3) { margin-top: 6px; }
+
+        .hamburger.open span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 6px);
+        }
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -6px);
+        }
+
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(8, 1, 27, 0.97);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            z-index: 1050;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 35px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-overlay.open {
+            display: flex;
+            opacity: 1;
+        }
+
+        .mobile-overlay a {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--cosmic-cream);
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+
+        .mobile-overlay a:hover {
+            color: var(--electric-blue);
+        }
+
+        .mobile-overlay a.nav-active {
+            color: var(--golden-yellow);
+            text-shadow: 0 0 10px rgba(255, 237, 138, 0.4);
+        }
 
         /* ============================================
            HERO
@@ -237,7 +327,7 @@
         }
 
         /* ============================================
-           AUDIENCE BUTTONS — CTA style
+           AUDIENCE BUTTONS
            ============================================ */
         .audience-btns {
             display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;
@@ -459,7 +549,7 @@
         }
 
         /* ============================================
-           FOOTER — Same as index.html
+           FOOTER
            ============================================ */
         footer {
             padding: 50px 40px;
@@ -522,16 +612,21 @@
         @media (max-width: 768px) {
             nav { padding: 15px 20px; }
             .nav-links { display: none; }
+            .hamburger { display: flex; }
             .hero { padding: 100px 20px 50px; min-height: 70vh; }
+            .hero h1 { font-size: clamp(2rem, 8vw, 3rem); }
+            .hero p { font-size: 1.1rem; }
             .audience-btns { gap: 8px; }
             .audience-btn { padding: 10px 20px; font-size: 0.85rem; }
             .filter-bar { top: 56px; }
+            .pill { font-size: 0.72rem; padding: 5px 12px; }
+            footer { padding: 40px 20px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR — Same as index.html -->
+    <!-- NAVBAR -->
     <nav>
         <a href="/" class="nav-logo">&#10022; Astro Aureum</a>
         <div class="nav-links">
@@ -539,11 +634,25 @@
             <a href="/#como-funciona">Como Funciona</a>
             <a href="/#precios">Precios</a>
             <a href="/#testimonios">Testimonios</a>
-            <a href="/lecturas.html">9 Tradiciones</a>
-            <a href="/aureum-books/">Aureum Books</a>
-            <a href="/cuenta.html">Cuenta</a>
+            <a href="/lecturas.html" class="nav-active">9 Tradiciones</a>
+            <a href="/aureum-books.html">Aureum Books</a>
         </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </nav>
+
+    <!-- MOBILE OVERLAY -->
+    <div class="mobile-overlay" id="mobile-overlay">
+        <a href="/#sincronia">Sincronicidad</a>
+        <a href="/#como-funciona">Como Funciona</a>
+        <a href="/#precios">Precios</a>
+        <a href="/#testimonios">Testimonios</a>
+        <a href="/lecturas.html" class="nav-active">9 Tradiciones</a>
+        <a href="/aureum-books.html">Aureum Books</a>
+    </div>
 
     <!-- HERO -->
     <section class="hero">
@@ -590,7 +699,8 @@
     <div class="grid-container">
     <div class="grid" id="product-grid">
 
-    <!-- OCCIDENTAL -->
+    <!-- ========== OCCIDENTAL (7) ========== -->
+
     <article class="card fade-up" data-id="occ-natal" data-tradition="Occidental" data-type="single" data-price="89">
         <span class="badge" style="background:var(--trad-occidental)">Occidental</span>
         <h3>Carta Natal Completa</h3>
@@ -696,7 +806,8 @@
         <div class="card-cross">Tambien te interesa: <a href="#occ-natal">Carta Natal Completa</a>, <a href="#ved-kundli">Kundli Completo</a></div>
     </article>
 
-    <!-- CABALISTICA -->
+    <!-- ========== CABALISTICA (6) ========== -->
+
     <article class="card fade-up" data-id="cab-natal" data-tradition="Cabalistica" data-type="single" data-price="139">
         <span class="badge" style="background:var(--trad-cabalistica)">Cabalistica</span>
         <h3>Carta Cabalistica</h3>
@@ -787,7 +898,8 @@
         <div class="card-cross">Tambien te interesa: <a href="#alm-karmica">Astrologia Karmica</a>, <a href="#cab-natal">Carta Cabalistica</a></div>
     </article>
 
-    <!-- VEDICA -->
+    <!-- ========== VEDICA (6) ========== -->
+
     <article class="card fade-up" data-id="ved-kundli" data-tradition="Vedica" data-type="single" data-price="139">
         <span class="badge" style="background:var(--trad-vedica)">Vedica</span>
         <h3>Kundli Completo</h3>
@@ -878,7 +990,8 @@
         <div class="card-cross">Tambien te interesa: <a href="#esp-eleccional">Astrologia Eleccional</a>, <a href="#ved-kundli">Kundli Completo</a></div>
     </article>
 
-    <!-- CHINA -->
+    <!-- ========== CHINA (5) ========== -->
+
     <article class="card fade-up" data-id="chi-bazi" data-tradition="China" data-type="single" data-price="139">
         <span class="badge" style="background:var(--trad-china)">China</span>
         <h3>Ba Zi (Cuatro Pilares)</h3>
@@ -954,7 +1067,8 @@
         <div class="card-cross">Tambien te interesa: <a href="#chi-bazi">Ba Zi (Cuatro Pilares)</a>, <a href="#ved-kundli">Kundli Completo</a></div>
     </article>
 
-    <!-- ESPECIALIZADA -->
+    <!-- ========== ESPECIALIZADA (4) ========== -->
+
     <article class="card fade-up" data-id="esp-business" data-tradition="Especializada" data-type="single" data-price="175">
         <span class="badge" style="background:var(--trad-especializada)">Especializada</span>
         <h3>Horoscopo Business</h3>
@@ -1015,7 +1129,8 @@
         <div class="card-cross">Tambien te interesa: <a href="#ved-muhurta">Muhurta</a>, <a href="#occ-solar">Revolucion Solar</a></div>
     </article>
 
-    <!-- ALMA -->
+    <!-- ========== ALMA (3) ========== -->
+
     <article class="card fade-up" data-id="alm-karmica" data-tradition="Alma" data-type="single" data-price="149">
         <span class="badge" style="background:var(--trad-alma)">Alma</span>
         <h3>Astrologia Karmica</h3>
@@ -1061,7 +1176,8 @@
         <div class="card-cross">Tambien te interesa: <a href="#alm-karmica">Astrologia Karmica</a>, <a href="#alm-espiritual">Astrologia Espiritual</a></div>
     </article>
 
-    <!-- CELESTIAL -->
+    <!-- ========== CELESTIAL (3) ========== -->
+
     <article class="card fade-up" data-id="cel-mapa" data-tradition="Celestial" data-type="single" data-price="149">
         <span class="badge" style="background:var(--trad-celestial)">Celestial</span>
         <h3>Mapa Celestial del Alma</h3>
@@ -1107,7 +1223,8 @@
         <div class="card-cross">Tambien te interesa: <a href="#hel-natal">Carta Helenistica</a>, <a href="#cel-mapa">Mapa Celestial del Alma</a></div>
     </article>
 
-    <!-- HELENISTICA -->
+    <!-- ========== HELENISTICA (1) ========== -->
+
     <article class="card fade-up" data-id="hel-natal" data-tradition="Helenistica" data-type="single" data-price="139">
         <span class="badge" style="background:var(--trad-helenistica)">Helenistica</span>
         <h3>Carta Helenistica</h3>
@@ -1123,7 +1240,8 @@
         <div class="card-cross">Tambien te interesa: <a href="#occ-natal">Carta Natal Completa</a>, <a href="#cel-estrellas">Estrellas Fijas</a></div>
     </article>
 
-    <!-- HUMAN DESIGN -->
+    <!-- ========== HUMAN DESIGN (3) ========== -->
+
     <article class="card fade-up" data-id="hd-design" data-tradition="Human Design" data-type="single" data-price="175">
         <span class="badge" style="background:var(--trad-humandesign)">Human Design</span>
         <h3>Human Design Completo</h3>
@@ -1172,25 +1290,25 @@
     </div><!-- /grid -->
     </div><!-- /grid-container -->
 
-    <!-- FOOTER — Same as index.html -->
+    <!-- FOOTER -->
     <footer>
         <div class="footer-logo-text">&#10022; Astro Aureum</div>
         <div class="footer-links">
             <a href="/">Inicio</a>
             <a href="/lecturas.html">9 Tradiciones</a>
-            <a href="/aureum-books/">Aureum Books</a>
-            <a href="/politica-privacidad.html">Politica de Privacidad</a>
-            <a href="/politica-cookies.html">Politica de Cookies</a>
+            <a href="/aureum-books.html">Aureum Books</a>
+            <a href="/politica-privacidad.html">Privacidad</a>
+            <a href="/politica-cookies.html">Cookies</a>
         </div>
         <p class="footer-copy">&copy; 2026 Astro Aureum &mdash; Tu Guia Cosmica. Todos los derechos reservados.<br>Las lecturas astrologicas son de naturaleza interpretativa y no sustituyen el consejo profesional medico, legal o financiero.</p>
     </footer>
 
-    <!-- CANVAS STARS — Fixed background (same as index.html) -->
+    <!-- CANVAS STARS — Fixed background -->
     <canvas id="stars" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none;"></canvas>
 
     <script>
         // ============================================
-        // CANVAS STARS — Fixed background
+        // CANVAS STARS — Fixed background (150 stars, 4 colors)
         // ============================================
         (function() {
             var canvas = document.getElementById('stars');
@@ -1274,7 +1392,7 @@
         })();
 
         // ============================================
-        // SCROLL ANIMATIONS (Fade Up)
+        // SCROLL ANIMATIONS (IntersectionObserver, threshold 0.1)
         // ============================================
         var observer = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
@@ -1285,6 +1403,40 @@
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+
+        // ============================================
+        // HAMBURGER MENU
+        // ============================================
+        (function() {
+            var hamburger = document.getElementById('hamburger');
+            var overlay = document.getElementById('mobile-overlay');
+
+            function toggleMenu() {
+                hamburger.classList.toggle('open');
+                overlay.classList.toggle('open');
+                document.body.style.overflow = overlay.classList.contains('open') ? 'hidden' : '';
+            }
+
+            function closeMenu() {
+                hamburger.classList.remove('open');
+                overlay.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+
+            hamburger.addEventListener('click', toggleMenu);
+
+            // Close on link click
+            overlay.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('click', closeMenu);
+            });
+
+            // Close on Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && overlay.classList.contains('open')) {
+                    closeMenu();
+                }
+            });
+        })();
 
         // ============================================
         // FILTERS
@@ -1360,13 +1512,26 @@
                 });
             });
 
-            // Smooth scroll for cross-sell links
+            // Smooth scroll for cross-sell links with highlight animation
             document.querySelectorAll('.card-cross a').forEach(function(a) {
                 a.addEventListener('click', function(e) {
                     var id = a.getAttribute('href').replace('#', '');
                     var target = document.querySelector('[data-id="' + id + '"]');
                     if (target) {
                         e.preventDefault();
+                        // Ensure target card is visible (reset filters if hidden)
+                        if (target.classList.contains('hidden')) {
+                            document.querySelectorAll('.audience-btn').forEach(function(b) { b.classList.remove('active'); });
+                            document.querySelector('.audience-btn[data-audience="all"]').classList.add('active');
+                            document.querySelectorAll('#tradition-filters .pill').forEach(function(p) { p.classList.remove('active'); });
+                            document.querySelector('#tradition-filters .pill[data-tradition="all"]').classList.add('active');
+                            document.querySelectorAll('#price-filters .pill').forEach(function(p) { p.classList.remove('active'); });
+                            document.querySelector('#price-filters .pill[data-price="all"]').classList.add('active');
+                            activeAudience = 'all';
+                            activeTradition = 'all';
+                            activePrice = 'all';
+                            applyFilters();
+                        }
                         target.scrollIntoView({ behavior: 'smooth', block: 'center' });
                         target.style.borderColor = 'var(--golden-yellow)';
                         target.style.boxShadow = '0 0 40px rgba(255, 237, 138, 0.3)';
