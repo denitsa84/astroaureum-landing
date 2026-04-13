@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto_Serif:ital,wght@0,400;0,700;1,400&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#ffd8e5",
+                    "on-secondary": "#00363d",
+                    "background": "#180e2b",
+                    "primary-fixed": "#f5e482",
+                    "primary-fixed-dim": "#d8c769",
+                    "outline-variant": "#4a4738",
+                    "error-container": "#93000a",
+                    "error": "#ffb4ab",
+                    "on-primary-fixed": "#201c00",
+                    "on-secondary-container": "#99e9f8",
+                    "on-secondary-fixed": "#001f24",
+                    "on-tertiary-fixed": "#380921",
+                    "secondary-fixed-dim": "#83d3e1",
+                    "on-surface-variant": "#ccc6b3",
+                    "surface-dim": "#180e2b",
+                    "on-error-container": "#ffdad6",
+                    "on-tertiary": "#511e37",
+                    "surface": "#180e2b",
+                    "on-surface": "#ebddff",
+                    "outline": "#96917f",
+                    "on-secondary-fixed-variant": "#004f58",
+                    "inverse-on-surface": "#352b49",
+                    "surface-container": "#241a38",
+                    "on-primary-container": "#71650d",
+                    "surface-container-highest": "#3a2f4e",
+                    "tertiary": "#ffffff",
+                    "on-background": "#ebddff",
+                    "on-tertiary-fixed-variant": "#6c344e",
+                    "primary": "#ffffff",
+                    "surface-container-low": "#201633",
+                    "tertiary-fixed": "#ffd8e5",
+                    "surface-tint": "#d8c769",
+                    "tertiary-fixed-dim": "#fdb1cf",
+                    "on-error": "#690005",
+                    "primary-container": "#f5e482",
+                    "secondary-fixed": "#9feffe",
+                    "surface-container-high": "#2f2543",
+                    "inverse-surface": "#ebddff",
+                    "surface-variant": "#3a2f4e",
+                    "surface-bright": "#3e3453",
+                    "surface-container-lowest": "#120825",
+                    "secondary": "#83d3e1",
+                    "secondary-container": "#006b78",
+                    "on-primary": "#383000",
+                    "on-tertiary-container": "#8f516c",
+                    "inverse-primary": "#6b5f05",
+                    "on-primary-fixed-variant": "#514700"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #180e2b;
+            color: #ebddff;
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .serif-display { font-family: 'Noto Serif', serif; }
+        .celestial-gradient {
+            background: radial-gradient(circle at center, rgba(245, 228, 130, 0.05) 0%, rgba(24, 14, 43, 0) 70%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#180e2b]/60 backdrop-blur-xl shadow-[0_4px_60px_rgba(24,14,43,0.08)]">
+<nav class="flex justify-between items-center px-8 py-6 max-w-none w-full">
+<div class="flex items-center gap-6">
+<button class="text-[#FFED8A] hover:opacity-80 transition-opacity duration-300 scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<div class="hidden md:flex gap-8">
+<a class="text-[#FFED8A] border-b-2 border-[#FFED8A] pb-1 font-['Inter'] text-sm tracking-widest uppercase" href="#">The Archive</a>
+<a class="text-slate-300 font-['Inter'] hover:text-[#FFED8A] transition-colors text-sm tracking-widest uppercase" href="#">Manuscripts</a>
+</div>
+</div>
+<div class="text-2xl font-['Noto_Serif'] font-bold tracking-[0.2em] text-[#FFED8A] uppercase">AUREUM BOOKS</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex gap-8">
+<a class="text-slate-300 font-['Inter'] hover:text-[#FFED8A] transition-colors text-sm tracking-widest uppercase" href="#">Rare Finds</a>
+</div>
+<button class="text-[#FFED8A] hover:opacity-80 transition-opacity duration-300 scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</button>
+</div>
+</nav>
+</header>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden px-6">
+<div class="absolute inset-0 z-0 bg-[url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?q=80&amp;w=2342&amp;auto=format&amp;fit=crop')] bg-cover bg-center opacity-20 grayscale brightness-50" data-alt="stunning deep space nebula with swirling cosmic dust and distant shimmering stars in shades of violet and deep blue"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#180e2b]/40 to-[#180e2b]"></div>
+<div class="relative z-10 text-center max-w-4xl mx-auto space-y-12">
+<div class="space-y-4">
+<span class="font-label text-xs tracking-[0.4em] text-primary-fixed uppercase opacity-80">Established in the Heavens</span>
+<h1 class="serif-display text-5xl md:text-8xl font-bold text-primary leading-tight tracking-tight">Curating the <br/><span class="italic text-primary-fixed">Extraordinary</span></h1>
+</div>
+<p class="font-body text-lg md:text-xl text-on-surface/70 max-w-2xl mx-auto leading-relaxed">
+                    A celestial collection of rare editions, lost manuscripts, and gold-foiled artifacts gathered from the furthest corners of time.
+                </p>
+<div class="pt-8">
+<button class="bg-primary-container text-on-primary px-10 py-5 rounded-full font-label text-sm tracking-widest uppercase font-bold hover:opacity-90 transition-all hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(245,228,130,0.2)]">
+                        Explore the Archive
+                    </button>
+</div>
+</div>
+<!-- Orbit Divider -->
+<div class="absolute bottom-12 left-0 w-full flex items-center justify-center gap-4 opacity-30">
+<div class="h-[1px] w-32 bg-gradient-to-r from-transparent to-primary"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_white]"></div>
+<div class="h-[1px] w-32 bg-gradient-to-l from-transparent to-primary"></div>
+</div>
+</section>
+<!-- Featured Collection: Celestial Editions -->
+<section class="py-32 px-8 bg-surface-container-low relative">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+<div class="max-w-xl space-y-6">
+<h2 class="serif-display text-4xl md:text-5xl text-primary font-bold">Celestial Editions</h2>
+<p class="text-on-surface/60 text-lg">Hand-bound in cosmic midnight silk and detailed with 24k gold leafing. These are not merely books, but celestial maps of the human soul.</p>
+</div>
+<a class="text-primary-fixed border-b border-primary-fixed/30 pb-1 text-sm tracking-widest uppercase hover:text-primary transition-colors" href="#">View All Editions</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+<!-- Book 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] bg-surface-container-highest rounded-lg relative overflow-hidden mb-8 shadow-2xl transition-transform duration-500 group-hover:-translate-y-4">
+<img alt="Ancient celestial manuscript" class="w-full h-full object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-700" data-alt="close-up of an ancient leather bound book with intricate gold foil celestial patterns and star maps on its cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlApRWNCBnSF4phKX9MI_YFNDzLsiLA6L7dqZwoeRivuPUZ2zu6Q11Tqe9pkul5ek5Mtvp4TRkuORtLyfV8ArZA1lghJbqiHene-9hpDuPoCzTHnNlgzu6_2gC-z5EfFPNon6x22oByTZSqGZBByEydMy9GQIwKkhoK-lvUWEcLfXJn8XbZ97rAQRA6Gx9d7P5_8bS_iuMpWTdr8LLmcAuw6p0J5pUK-BVNFZDV4qJZ3X_gx0JgLPs0R4UEIN_E4DwXUCzS6hrhA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#180e2b]/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<div class="space-y-2">
+<span class="text-primary-fixed text-[10px] tracking-[0.3em] uppercase opacity-60">Volume I</span>
+<h3 class="serif-display text-2xl text-primary group-hover:text-primary-fixed transition-colors">The Alchemist's Horizon</h3>
+<p class="text-on-surface/50 text-sm italic">Celestial Gold Inlay &amp; Calfskin</p>
+</div>
+</div>
+<!-- Book 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] bg-surface-container-highest rounded-lg relative overflow-hidden mb-8 shadow-2xl transition-transform duration-500 group-hover:-translate-y-4">
+<img alt="Rare celestial book" class="w-full h-full object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-700" data-alt="top-view of a vintage hardcover book with gold leaf lettering on the spine resting on dark velvet fabric" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnB8Lte1EqLgji9-h6c0w1-Pcznb6T2Yvfn2ZF0TMd_uzs1Kh4i54we4ip7qOpRBPQksgQTo0gPyuUklfc0D8e_t1CiJhi971rZByBDg_D5O0yp-eSmSsHmP-wVCe1azOlcgC3Ptf6E1V3CT0au8V5J14G0rQOrzy4MPfHxJvGD_3pBp5Y22dW9-7HZYEeRyew_4TpktpMWRypTCQmWtnBAJ-HGyoQiOB7RdtGF7yjh1-NDNfTF8Uf8qU8i6PluMkCWVSwbrjk0w"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#180e2b]/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<div class="space-y-2">
+<span class="text-primary-fixed text-[10px] tracking-[0.3em] uppercase opacity-60">Limited Release</span>
+<h3 class="serif-display text-2xl text-primary group-hover:text-primary-fixed transition-colors">Echoes of Andromeda</h3>
+<p class="text-on-surface/50 text-sm italic">Stellar Dust Pigment &amp; Vellum</p>
+</div>
+</div>
+<!-- Book 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] bg-surface-container-highest rounded-lg relative overflow-hidden mb-8 shadow-2xl transition-transform duration-500 group-hover:-translate-y-4">
+<img alt="Manuscript collection" class="w-full h-full object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-700" data-alt="artistic composition of stacked ancient books with deckled edges and exposed binding in soft moody library lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqqZpJd445PmM0dUhkRROUGnKm-czeAIHhr9Y1W-H4OIIJJEeJYA8Go9O6Gt69s3NvJl6h5rDpuwkgnAA8BwKUyPeM1WLdjw6GGmg7Ja9Ga3RWflwoDEoGwOPcgsdYo92Ob-tKbkkMIkN2kzhAssGSQ3iomCNUBuaJJvPL1FpFw_2_2xLbFUnn1KrNT5ytijWCHYeuviLUu_nEoT_WK2gr1UzaO2qTPp6aF9THXSQuB7JcmE98J2NVhgw2myM9tBIamWfYCggJ_Q"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#180e2b]/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<div class="space-y-2">
+<span class="text-primary-fixed text-[10px] tracking-[0.3em] uppercase opacity-60">Curator's Choice</span>
+<h3 class="serif-display text-2xl text-primary group-hover:text-primary-fixed transition-colors">Nocturnal Cartography</h3>
+<p class="text-on-surface/50 text-sm italic">Embossed Midnight Linen</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- The Curator's Note -->
+<section class="py-40 relative overflow-hidden">
+<div class="absolute -left-20 top-1/4 w-96 h-96 bg-primary-container/5 rounded-full blur-[100px]"></div>
+<div class="max-w-4xl mx-auto px-8 relative z-10">
+<div class="text-center mb-16">
+<span class="material-symbols-outlined text-primary-fixed text-4xl" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div class="space-y-12">
+<h2 class="serif-display text-3xl md:text-5xl text-center italic text-primary-fixed leading-relaxed">"Books are the telescopes through which we view the souls of those who walked before us."</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 font-body text-on-surface/70 leading-loose">
+<p>We believe that every exceptional book possesses its own gravity. It draws you in, warping time and space until you are no longer in your study, but standing on the precipice of a forgotten dynasty or drifting through a silent nebula. Aureum Books was born from a desire to capture that weight.</p>
+<p>Our curation process is more akin to archeology than retail. We seek the editions that have survived fires, revolutions, and the indifferent passage of centuries. Each volume in our archive is selected for its physical beauty and its intellectual radiance.</p>
+</div>
+<div class="text-center pt-8">
+<div class="font-serif italic text-primary text-xl">The Curator</div>
+<div class="font-label text-[10px] tracking-[0.3em] uppercase opacity-40 mt-1">Founding Archon</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter: Join the Circle -->
+<section class="py-32 px-8">
+<div class="max-w-5xl mx-auto bg-surface-container rounded-3xl p-12 md:p-24 relative overflow-hidden">
+<div class="absolute inset-0 celestial-gradient opacity-40"></div>
+<div class="relative z-10 flex flex-col md:flex-row items-center gap-16">
+<div class="flex-1 space-y-6">
+<h2 class="serif-display text-4xl text-primary font-bold">Join the Circle</h2>
+<p class="text-on-surface/60 max-w-sm">Be the first to know when a new manuscript arrives from the void. Exclusive first access to Limited Celestial Editions.</p>
+</div>
+<div class="flex-1 w-full space-y-4">
+<form class="flex flex-col gap-4">
+<input class="bg-surface-container-lowest border-none outline-none focus:ring-1 focus:ring-primary-fixed/50 rounded-lg px-6 py-4 text-primary font-body placeholder:text-on-surface/30" placeholder="Your celestial coordinate (email)" type="email"/>
+<button class="bg-primary text-background px-8 py-4 rounded-lg font-label text-xs tracking-widest uppercase font-bold hover:bg-primary-fixed transition-colors">Initiate</button>
+</form>
+<p class="text-[10px] text-on-surface/30 tracking-widest uppercase text-center md:text-left">Privacy is our sacred oath.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-[#FFED8A]/10 bg-[#180e2b] flex flex-col items-center justify-center py-20 px-4 space-y-8">
+<div class="text-[#FFED8A] font-bold text-xl tracking-[0.3em] uppercase">AUREUM BOOKS</div>
+<div class="flex flex-wrap justify-center gap-8 md:gap-16">
+<a class="text-slate-500 hover:text-[#FFED8A] font-['Inter'] text-xs tracking-widest uppercase hover:translate-y-[-2px] transition-transform duration-200" href="#">Privacy Policy</a>
+<a class="text-slate-500 hover:text-[#FFED8A] font-['Inter'] text-xs tracking-widest uppercase hover:translate-y-[-2px] transition-transform duration-200" href="#">Terms of Service</a>
+<a class="text-slate-500 hover:text-[#FFED8A] font-['Inter'] text-xs tracking-widest uppercase hover:translate-y-[-2px] transition-transform duration-200" href="#">Shipping &amp; Returns</a>
+<a class="text-slate-500 hover:text-[#FFED8A] font-['Inter'] text-xs tracking-widest uppercase hover:translate-y-[-2px] transition-transform duration-200" href="#">Contact Us</a>
+</div>
+<div class="pt-8">
+<div class="flex justify-center gap-6 mb-8">
+<span class="material-symbols-outlined text-slate-500 hover:text-primary-fixed cursor-pointer transition-colors" data-icon="auto_stories">auto_stories</span>
+<span class="material-symbols-outlined text-slate-500 hover:text-primary-fixed cursor-pointer transition-colors" data-icon="stars">stars</span>
+<span class="material-symbols-outlined text-slate-500 hover:text-primary-fixed cursor-pointer transition-colors" data-icon="history_edu">history_edu</span>
+</div>
+<p class="text-slate-500 text-[10px] tracking-[0.2em] uppercase text-center opacity-60">© 2024 AUREUM BOOKS. CURATED BY THE STARS.</p>
+</div>
+</footer>
+<!-- NavigationDrawer (Hidden by Default, Triggered by Menu) -->
+<aside class="fixed inset-y-0 left-0 w-80 z-[60] flex flex-col p-6 bg-[#180e2b] shadow-2xl shadow-black transform -translate-x-full transition-transform duration-300 hidden" id="drawer">
+<div class="flex justify-between items-center mb-12">
+<div class="text-[#FFED8A] font-black tracking-widest text-lg">AUREUM</div>
+<button class="text-slate-400 hover:text-[#FFED8A]">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-4 p-4 text-[#FFED8A] bg-[#FFED8A]/10 rounded-lg font-['Noto_Serif'] font-medium ease-in-out duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+<span>The Archive</span>
+</a>
+<a class="flex items-center gap-4 p-4 text-slate-400 hover:text-[#FFED8A] hover:bg-[#FFED8A]/5 font-['Noto_Serif'] font-medium ease-in-out duration-300 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="stars">stars</span>
+<span>Celestial Editions</span>
+</a>
+<a class="flex items-center gap-4 p-4 text-slate-400 hover:text-[#FFED8A] hover:bg-[#FFED8A]/5 font-['Noto_Serif'] font-medium ease-in-out duration-300 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+<span>Manuscripts</span>
+</a>
+<a class="flex items-center gap-4 p-4 text-slate-400 hover:text-[#FFED8A] hover:bg-[#FFED8A]/5 font-['Noto_Serif'] font-medium ease-in-out duration-300 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="diamond">diamond</span>
+<span>Rare Finds</span>
+</a>
+<a class="flex items-center gap-4 p-4 text-slate-400 hover:text-[#FFED8A] hover:bg-[#FFED8A]/5 font-['Noto_Serif'] font-medium ease-in-out duration-300 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+<span>About the Curator</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-[#FFED8A]/10">
+<button class="w-full flex items-center justify-center gap-2 py-4 text-[#FFED8A] font-label text-xs tracking-widest uppercase">
+<span class="material-symbols-outlined text-sm" data-icon="logout">logout</span>
+                Logout
+            </button>
+</div>
+</aside>
+</body></html>
