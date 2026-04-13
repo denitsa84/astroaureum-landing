@@ -2,421 +2,122 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Planes Premium | Astro Aureum - Tu Guia Cosmica Personal</title>
-<meta name="description" content="Elige tu plan cosmico en Astro Aureum. Carta natal, horoscopo personalizado, chat con IA astrologica y mas. Prueba gratis 7 dias.">
-<meta name="keywords" content="astrologia premium, carta natal, horoscopo personalizado, planes astrologia">
-<link rel="canonical" href="https://astroaureum.com/precios-premium">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Preguntas Frecuentes | Astro Aureum</title>
+<meta name="description" content="Preguntas frecuentes sobre Astro Aureum. Lecturas astrologicas, pagos, privacidad, carta natal y mas.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="manifest" href="/manifest.json">
-<meta name="theme-color" content="#08011B">
-<meta property="og:title" content="Planes Premium | Astro Aureum">
-<meta property="og:description" content="Desbloquea todo el poder de la astrologia con Astro Aureum Premium.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://astroaureum.com/precios-premium">
-<meta property="og:image" content="https://astroaureum.com/assets/og-pricing.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#D4A843">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0PZTB2PF7T"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-0PZTB2PF7T');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","name":"Planes Premium Astro Aureum","description":"Elige tu plan cosmico","offers":[{"@type":"Offer","name":"Explorador","price":"0","priceCurrency":"EUR"},{"@type":"Offer","name":"Cosmico","price":"9.99","priceCurrency":"EUR"},{"@type":"Offer","name":"Estelar","price":"19.99","priceCurrency":"EUR"}]}
-</script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
+:root{--bg-space:#08011B;--electric-blue:#A0F0FF;--golden-yellow:#FFED8A;--love-rose:#FFB3D1;--aura-pink:#FFD6F5;--cosmic-cream:#FFF9EA;--pure-white:#FFFFFF;--glow-gold:0 0 20px rgba(255,237,138,0.5);--glow-love:0 0 20px rgba(255,179,209,0.6);--gradient-gold-pink:linear-gradient(135deg,#FFED8A 0%,#FFB3D1 100%);--font-display:'Playfair Display',serif;--font-body:'Inter',sans-serif}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#08011B;--gold:#D4A843;--gold-light:#FFED8A;--blue:#A0F0FF;--pink:#FFB3D1;--cream:#FFF9EA;--glass:rgba(255,255,255,.06);--glass-border:rgba(255,255,255,.1);--radius:16px}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--cream);overflow-x:hidden;line-height:1.6}
-h1,h2,h3,h4{font-family:'Playfair Display',serif}
-a{color:inherit;text-decoration:none}
-canvas#stars{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
-.wrap{position:relative;z-index:1}
-
-/* NAV */
-nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(8,1,27,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--glass-border);padding:0 24px}
-.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
-.logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.nav-links{display:flex;gap:24px;font-size:.85rem;font-weight:500}
-.nav-links a{transition:color .3s}
-.nav-links a:hover{color:var(--gold)}
-.nav-links a.active{color:var(--gold)}
-.menu-btn{display:none;background:none;border:none;color:var(--cream);font-size:1.5rem;cursor:pointer}
-
-/* HERO */
-.hero{padding:120px 24px 40px;text-align:center}
-.hero h1{font-size:clamp(2rem,5vw,3.5rem);background:linear-gradient(135deg,var(--gold),var(--gold-light),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:12px}
-.hero p{font-size:1.1rem;opacity:.8;max-width:560px;margin:0 auto}
-
-/* TOGGLE */
-.toggle-wrap{display:flex;align-items:center;justify-content:center;gap:16px;margin:40px 0 48px}
-.toggle-label{font-size:.95rem;font-weight:500;opacity:.7;transition:opacity .3s}
-.toggle-label.active{opacity:1;color:var(--gold)}
-.toggle{position:relative;width:56px;height:30px;cursor:pointer}
-.toggle input{display:none}
-.toggle-track{position:absolute;inset:0;background:var(--glass);border:1px solid var(--glass-border);border-radius:15px;transition:background .3s}
-.toggle-thumb{position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-light));transition:transform .3s}
-.toggle input:checked~.toggle-thumb{transform:translateX(26px)}
-.badge-save{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--bg);font-size:.7rem;font-weight:700;padding:4px 10px;border-radius:20px;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
-
-/* CARDS */
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto;padding:0 24px}
-.card{background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--glass-border);border-radius:var(--radius);padding:36px 28px;text-align:center;transition:transform .3s,border-color .3s;position:relative;overflow:hidden}
-.card:hover{transform:translateY(-6px)}
-.card.highlight{border-color:var(--gold);box-shadow:0 0 40px rgba(212,168,67,.15)}
-.card.highlight::before{content:"MAS POPULAR";position:absolute;top:16px;right:-32px;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--bg);font-size:.65rem;font-weight:700;padding:4px 40px;transform:rotate(45deg);letter-spacing:1px}
-.card-icon{font-size:2.2rem;margin-bottom:12px}
-.card h3{font-size:1.4rem;margin-bottom:4px}
-.card .tier{font-size:.75rem;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin-bottom:16px}
-.price{font-size:2.8rem;font-weight:700;font-family:'Playfair Display',serif}
-.price .currency{font-size:1.2rem;vertical-align:super}
-.price .period{font-size:.85rem;font-weight:400;opacity:.6}
-.price-annual{display:none}
-.annual .price-monthly{display:none}
-.annual .price-annual{display:block}
-.card ul{text-align:left;margin:24px 0;list-style:none;font-size:.88rem}
-.card li{padding:6px 0;display:flex;align-items:center;gap:8px}
-.card li::before{content:"";display:inline-block;width:18px;height:18px;background:var(--gold);mask:url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E") center/contain no-repeat;-webkit-mask:url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E") center/contain no-repeat;flex-shrink:0}
-.btn{display:inline-block;width:100%;padding:14px;border-radius:12px;font-size:.95rem;font-weight:600;border:none;cursor:pointer;transition:transform .2s,box-shadow .2s;text-align:center}
-.btn:hover{transform:translateY(-2px)}
-.btn-outline{background:transparent;border:2px solid var(--glass-border);color:var(--cream)}
-.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
-.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--bg);box-shadow:0 4px 24px rgba(212,168,67,.3)}
-.btn-gold:hover{box-shadow:0 6px 32px rgba(212,168,67,.45)}
-.btn-pink{background:linear-gradient(135deg,var(--pink),#ff8ab5);color:var(--bg);box-shadow:0 4px 24px rgba(255,179,209,.25)}
-
-/* COMPARISON TABLE */
-.compare{max-width:1000px;margin:80px auto;padding:0 24px}
-.compare h2{text-align:center;font-size:2rem;margin-bottom:32px;color:var(--gold-light)}
-.table-wrap{overflow-x:auto;border-radius:var(--radius);border:1px solid var(--glass-border);background:var(--glass);backdrop-filter:blur(20px)}
-table{width:100%;border-collapse:collapse;font-size:.88rem}
-th,td{padding:14px 18px;text-align:center;border-bottom:1px solid var(--glass-border)}
-th{font-family:'Playfair Display',serif;font-weight:600;color:var(--gold)}
-th:first-child,td:first-child{text-align:left}
-th.hl{background:rgba(212,168,67,.08)}
-td.hl{background:rgba(212,168,67,.04)}
-.ck{color:var(--gold);font-size:1.1rem}
-.no{opacity:.3}
-
-/* TESTIMONIALS */
-.testimonials{max-width:1100px;margin:80px auto;padding:0 24px}
-.testimonials h2{text-align:center;font-size:2rem;margin-bottom:36px;color:var(--gold-light)}
-.test-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.test-card{background:var(--glass);backdrop-filter:blur(16px);border:1px solid var(--glass-border);border-radius:var(--radius);padding:24px;font-size:.88rem}
-.test-card .stars-r{color:var(--gold);margin-bottom:8px}
-.test-card p{opacity:.85;margin-bottom:12px;font-style:italic}
-.test-card .author{font-weight:600;font-size:.8rem;color:var(--gold)}
-
-/* FAQ */
-.faq{max-width:720px;margin:80px auto;padding:0 24px}
-.faq h2{text-align:center;font-size:2rem;margin-bottom:32px;color:var(--gold-light)}
-.faq-item{border-bottom:1px solid var(--glass-border);padding:16px 0}
-.faq-q{display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-weight:600;font-size:.95rem}
-.faq-q::after{content:"+";font-size:1.3rem;color:var(--gold);transition:transform .3s}
-.faq-item.open .faq-q::after{transform:rotate(45deg)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s;font-size:.88rem;opacity:.75;line-height:1.7}
-.faq-item.open .faq-a{max-height:300px;padding-top:12px}
-
-/* GUARANTEE */
-.guarantee{text-align:center;margin:64px auto;max-width:500px;padding:32px 24px;background:var(--glass);border:1px solid var(--gold);border-radius:var(--radius)}
-.guarantee-icon{font-size:3rem;margin-bottom:12px}
-.guarantee h3{font-size:1.2rem;color:var(--gold-light);margin-bottom:8px}
-.guarantee p{font-size:.88rem;opacity:.75}
-
-/* FINAL CTA */
-.final-cta{text-align:center;padding:64px 24px;margin:40px auto;max-width:700px}
-.final-cta h2{font-size:clamp(1.6rem,4vw,2.4rem);margin-bottom:16px;color:var(--gold-light)}
-.final-cta p{opacity:.7;margin-bottom:28px;font-size:1rem}
-.final-cta .btn{max-width:320px;margin:0 auto}
-
-/* FOOTER */
-footer{border-top:1px solid var(--glass-border);padding:48px 24px 24px;margin-top:40px}
-.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;font-size:.82rem}
-.footer-col h4{color:var(--gold);font-size:.9rem;margin-bottom:12px}
-.footer-col a{display:block;opacity:.6;padding:3px 0;transition:opacity .3s}
-.footer-col a:hover{opacity:1;color:var(--gold)}
-.footer-bottom{text-align:center;margin-top:32px;padding-top:20px;border-top:1px solid var(--glass-border);font-size:.75rem;opacity:.4}
-
-/* MOBILE */
-@media(max-width:900px){
-.nav-links{display:none;position:absolute;top:64px;left:0;width:100%;background:rgba(8,1,27,.97);flex-direction:column;padding:20px;gap:16px}
-.nav-links.open{display:flex}
-.menu-btn{display:block}
-.cards{grid-template-columns:1fr;max-width:420px}
-.test-grid{grid-template-columns:1fr 1fr}
-.footer-inner{grid-template-columns:1fr 1fr}
-}
-@media(max-width:600px){
-.test-grid{grid-template-columns:1fr}
-.footer-inner{grid-template-columns:1fr}
-table{font-size:.78rem}
-th,td{padding:10px 8px}
-}
+body{background-color:var(--bg-space);background-image:radial-gradient(ellipse at 15% 85%,rgba(160,240,255,0.05) 0%,transparent 50%),radial-gradient(ellipse at 85% 15%,rgba(255,237,138,0.04) 0%,transparent 50%),radial-gradient(ellipse at 50% 50%,rgba(255,179,209,0.03) 0%,transparent 60%);color:var(--pure-white);font-family:var(--font-body);overflow-x:hidden;scroll-behavior:smooth}
+h1{font-family:var(--font-display);font-weight:800;font-size:clamp(2rem,5vw,3.5rem);line-height:1.1;color:var(--golden-yellow);text-shadow:0 0 15px rgba(255,237,138,0.5)}
+h2{font-family:var(--font-display);font-weight:700;font-size:clamp(1.5rem,3.5vw,2.5rem);color:var(--golden-yellow);margin-bottom:20px}
+h3{font-family:var(--font-display);font-weight:700;font-size:1.15rem;color:var(--pure-white)}
+p{font-size:1rem;line-height:1.8;color:var(--cosmic-cream);font-weight:300}
+a{color:var(--aura-pink);text-decoration:none;transition:all 0.3s}a:hover{color:var(--electric-blue)}
+nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(8,1,27,0.8);backdrop-filter:blur(15px);border-bottom:1px solid rgba(255,237,138,0.1)}
+.nav-logo{font-family:var(--font-display);font-size:1.5rem;font-weight:800;color:var(--golden-yellow);text-shadow:0 0 10px rgba(255,237,138,0.4);text-decoration:none}
+.nav-links{display:flex;gap:25px}.nav-links a{color:var(--cosmic-cream);font-size:0.85rem;font-weight:500}.nav-links a:hover{color:var(--electric-blue)}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;z-index:1001}.hamburger span{display:block;width:24px;height:2px;background:var(--golden-yellow);transition:all 0.3s}.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}.hamburger.open span:nth-child(2){opacity:0}.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mobile-overlay{display:none;position:fixed;inset:0;background:rgba(8,1,27,0.95);backdrop-filter:blur(25px);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:25px}.mobile-overlay.open{display:flex}.mobile-overlay a{color:var(--cosmic-cream);font-family:var(--font-display);font-size:1.2rem;font-weight:700}
+.hero{min-height:45vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:130px 20px 50px}
+.hero-badge{display:inline-block;background:rgba(160,240,255,0.1);border:1px solid rgba(160,240,255,0.3);border-radius:50px;padding:8px 24px;font-size:0.8rem;color:var(--golden-yellow);letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;font-weight:600}
+.hero p{font-size:1.1rem;color:var(--aura-pink);max-width:500px;margin:15px auto 0}
+#faq-search{margin-top:25px;padding:14px 28px;border-radius:50px;border:1px solid rgba(160,240,255,0.2);background:rgba(255,249,234,0.03);color:var(--cosmic-cream);font-size:1rem;width:100%;max-width:400px;outline:none;font-family:var(--font-body)}
+#faq-search:focus{border-color:var(--golden-yellow)}
+.section{max-width:800px;margin:0 auto;padding:20px 20px 60px}
+.faq-item{background:rgba(255,249,234,0.03);backdrop-filter:blur(20px);border:1px solid rgba(255,237,138,0.15);border-radius:16px;padding:20px 24px;margin-bottom:12px;cursor:pointer;transition:all 0.3s}
+.faq-item:hover{border-color:var(--golden-yellow);box-shadow:0 0 20px rgba(255,237,138,0.1)}
+.faq-answer{display:none;margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,237,138,0.1)}
+.faq-item.open .faq-answer{display:block}
+.faq-toggle{float:right;color:var(--golden-yellow);font-size:1.2rem;font-weight:700}
+.btn-cta{display:inline-block;background:var(--gradient-gold-pink);border:none;color:#000;font-family:var(--font-body);font-weight:700;font-size:1rem;border-radius:50px;padding:16px 36px;box-shadow:var(--glow-gold);transition:all 0.3s;cursor:pointer;text-transform:uppercase;letter-spacing:1px;text-decoration:none}.btn-cta:hover{transform:scale(1.05) translateY(-2px);box-shadow:var(--glow-love);color:#000}
+footer{padding:50px 40px;text-align:center;border-top:1px solid rgba(255,237,138,0.1);background:rgba(8,1,27,0.8)}
+.footer-logo{font-family:var(--font-display);font-size:1.8rem;font-weight:800;color:var(--golden-yellow);margin-bottom:15px}
+.footer-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}.footer-links a{color:var(--aura-pink);font-size:0.85rem}
+.footer-copy{color:rgba(255,249,234,0.4);font-size:0.75rem}
+@media(max-width:768px){nav{padding:15px 20px}.nav-links{display:none}.hamburger{display:flex}.hero{padding:100px 20px 40px}}
 </style>
 </head>
 <body>
-<canvas id="stars"></canvas>
-<div class="wrap">
-
-<!-- NAV -->
+<canvas id="stars" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none"></canvas>
 <nav>
-<div class="nav-inner">
-<a href="/" class="logo">Astro Aureum</a>
-<button class="menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+<a href="/" class="nav-logo">&#10022; Astro Aureum</a>
 <div class="nav-links">
-<a href="/carta-natal">Carta Natal Gratis</a>
-<a href="/horoscopo">Horoscopo Diario</a>
-<a href="/lecturas">Lecturas</a>
-<a href="/precios-premium" class="active">Premium</a>
-<a href="/blog">Blog</a>
-<a href="/aureum-books">Aureum Books</a>
+<a href="/carta-natal-gratis.html">Carta Natal</a>
+<a href="/horoscopo-diario.html">Horoscopo</a>
+<a href="/lecturas.html">Lecturas</a>
+<a href="/precios-premium.html">Premium</a>
+<a href="/blog/">Blog</a>
+<a href="/aureum-books.html">Aureum Books</a>
 </div>
-</div>
+<button class="hamburger" id="hb"><span></span><span></span><span></span></button>
 </nav>
+<div class="mobile-overlay" id="mm">
+<a href="/">Inicio</a><a href="/carta-natal-gratis.html">Carta Natal</a><a href="/lecturas.html">Lecturas</a><a href="/precios-premium.html">Premium</a><a href="/blog/">Blog</a>
+</div>
 
-<!-- HERO -->
 <section class="hero">
-<h1>Elige tu Plan Cosmico</h1>
-<p>Desbloquea la sabiduria de las estrellas. Astrologia personalizada con inteligencia artificial para transformar tu vida.</p>
+<div class="hero-badge">&#10022; Ayuda</div>
+<h1>Preguntas Frecuentes</h1>
+<p>Todo lo que necesitas saber sobre Astro Aureum</p>
+<input type="text" id="faq-search" placeholder="Buscar pregunta...">
 </section>
 
-<!-- TOGGLE -->
-<div class="toggle-wrap">
-<span class="toggle-label active" id="lbl-month">Mensual</span>
-<label class="toggle">
-<input type="checkbox" id="billing-toggle">
-<div class="toggle-track"></div>
-<div class="toggle-thumb"></div>
-</label>
-<span class="toggle-label" id="lbl-annual">Anual</span>
-<span class="badge-save">Ahorra 40%</span>
-</div>
+<section class="section">
+<h2>Sobre Astro Aureum</h2>
+<div class="faq-item"><h3>Que es Astro Aureum? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>Astro Aureum es la plataforma de astrologia mas completa del mundo. Ofrecemos 37 lecturas personalizadas en 9 tradiciones astrologicas (Occidental, Vedica, Cabalistica, China, Helenistica, Human Design, Celestial, Alma, Especializada), calculadas con Swiss Ephemeris y enriquecidas con inteligencia artificial.</p></div></div>
+<div class="faq-item"><h3>Como funcionan las lecturas? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>Introduces tu fecha, hora y lugar de nacimiento. Nuestro sistema calcula las posiciones planetarias exactas con Swiss Ephemeris y genera una lectura personalizada unica para ti. La recibes por email en minutos.</p></div></div>
+<div class="faq-item"><h3>Que tan precisas son? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>Utilizamos Swiss Ephemeris, las tablas astronomicas mas precisas del mundo, con precision de segundos de arco. No usamos tablas genericas ni estimaciones.</p></div></div>
+<div class="faq-item"><h3>Que tradiciones ofrecen? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>9 tradiciones: Occidental, Vedica, Cabalistica, China, Especializada, Alma, Celestial, Helenistica y Human Design. Cada una ofrece una perspectiva unica.</p></div></div>
+<div class="faq-item"><h3>En que idiomas estan disponibles? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>25+ idiomas: espanol, ingles, bulgaro, portugues, frances, aleman, italiano, ruso, arabe, japones, chino, coreano y mas.</p></div></div>
 
-<!-- PRICING CARDS -->
-<div class="cards" id="pricing-cards">
+<h2 style="margin-top:40px">Pagos y Suscripciones</h2>
+<div class="faq-item"><h3>Que metodos de pago aceptan? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>Tarjetas de credito/debito (Visa, Mastercard, Amex) y PayPal a traves de Stripe, la plataforma de pagos mas segura del mundo.</p></div></div>
+<div class="faq-item"><h3>Puedo cancelar mi suscripcion? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>Si, puedes cancelar en cualquier momento sin penalizacion. Tu acceso continua hasta el final del periodo facturado.</p></div></div>
+<div class="faq-item"><h3>Ofrecen reembolsos? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>Garantia de 30 dias. Si no estas satisfecho, contactanos y te devolvemos el 100% sin preguntas.</p></div></div>
+<div class="faq-item"><h3>Es seguro pagar? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>100% seguro. Usamos Stripe con encriptacion SSL de 256 bits. Nunca almacenamos datos de tu tarjeta.</p></div></div>
 
-<!-- EXPLORADOR -->
-<div class="card">
-<div class="card-icon">&#9733;</div>
-<h3>Explorador</h3>
-<div class="tier">Plan Gratuito</div>
-<div class="price price-monthly">Gratis</div>
-<div class="price price-annual">Gratis</div>
-<ul>
-<li>Carta natal basica</li>
-<li>Horoscopo generico diario</li>
-<li>3 mensajes de chat por dia</li>
-<li>Acceso al blog completo</li>
-<li>Comunidad publica</li>
-</ul>
-<a href="/registro" class="btn btn-outline">Empezar Gratis</a>
-</div>
+<h2 style="margin-top:40px">Carta Natal y Horoscopo</h2>
+<div class="faq-item"><h3>Necesito saber mi hora de nacimiento? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>La hora mejora la precision del Ascendente y las casas, pero no es obligatoria. Sin hora, calculamos Sol, Luna estimada y planetas.</p></div></div>
+<div class="faq-item"><h3>Diferencia entre gratis y premium? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>La gratis muestra Sol, Luna y Ascendente. La premium incluye 12 planetas, 12 casas, aspectos, nodos lunares y hasta 8,000 palabras de analisis.</p></div></div>
+<div class="faq-item"><h3>Como funciona el horoscopo diario? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>Se genera cada manana basado en transitos planetarios reales. Cubre amor, dinero y salud para cada signo.</p></div></div>
+<div class="faq-item"><h3>Que es la sinastria? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>La sinastria compara dos cartas natales para revelar la compatibilidad cosmica entre dos personas. Analiza aspectos emocionales, fisicos y karmicos.</p></div></div>
 
-<!-- COSMICO -->
-<div class="card highlight">
-<div class="card-icon">&#10024;</div>
-<h3>Cosmico</h3>
-<div class="tier">Lo Mas Popular</div>
-<div class="price price-monthly"><span class="currency">&euro;</span>9.99<span class="period">/mes</span></div>
-<div class="price price-annual"><span class="currency">&euro;</span>71.88<span class="period">/ano</span></div>
-<ul>
-<li>Todo lo del plan Explorador</li>
-<li>Carta natal completa y detallada</li>
-<li>Horoscopo personalizado diario</li>
-<li>Chat ilimitado con IA</li>
-<li>Transitos y progresiones</li>
-<li>Compatibilidad de parejas</li>
-<li>Academia de astrologia</li>
-</ul>
-<a href="/checkout?plan=cosmico" class="btn btn-gold">Prueba Gratis 7 Dias</a>
-</div>
+<h2 style="margin-top:40px">Privacidad</h2>
+<div class="faq-item"><h3>Mis datos estan seguros? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>Si. Cumplimos con GDPR. Tus datos de nacimiento solo se usan para calcular tu carta. Nunca vendemos informacion personal.</p></div></div>
+<div class="faq-item"><h3>Puedo eliminar mi cuenta? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>Si, contactanos a hola@astroaureum.com y eliminaremos todos tus datos en 48 horas.</p></div></div>
 
-<!-- ESTELAR -->
-<div class="card">
-<div class="card-icon">&#127775;</div>
-<h3>Estelar</h3>
-<div class="tier">Experiencia Completa</div>
-<div class="price price-monthly"><span class="currency">&euro;</span>19.99<span class="period">/mes</span></div>
-<div class="price price-annual"><span class="currency">&euro;</span>143.88<span class="period">/ano</span></div>
-<ul>
-<li>Todo lo del plan Cosmico</li>
-<li>1 lectura premium al mes</li>
-<li>Prediccion anual personalizada</li>
-<li>Soporte VIP por WhatsApp</li>
-<li>Todas las tradiciones (vedica, china, maya)</li>
-<li>Acceso anticipado a funciones</li>
-</ul>
-<a href="/checkout?plan=estelar" class="btn btn-pink">Prueba Gratis 7 Dias</a>
-</div>
-</div>
-
-<!-- COMPARISON TABLE -->
-<section class="compare">
-<h2>Compara los Planes</h2>
-<div class="table-wrap">
-<table>
-<thead>
-<tr><th>Funcionalidad</th><th>Explorador</th><th class="hl">Cosmico</th><th>Estelar</th></tr>
-</thead>
-<tbody>
-<tr><td>Carta natal basica</td><td><span class="ck">&#10003;</span></td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td></tr>
-<tr><td>Carta natal completa</td><td><span class="no">&#8212;</span></td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td></tr>
-<tr><td>Horoscopo generico</td><td><span class="ck">&#10003;</span></td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td></tr>
-<tr><td>Horoscopo personalizado</td><td><span class="no">&#8212;</span></td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td></tr>
-<tr><td>Chat con IA (mensajes/dia)</td><td>3</td><td class="hl">Ilimitado</td><td>Ilimitado</td></tr>
-<tr><td>Transitos y progresiones</td><td><span class="no">&#8212;</span></td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td></tr>
-<tr><td>Compatibilidad de parejas</td><td><span class="no">&#8212;</span></td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td></tr>
-<tr><td>Academia de astrologia</td><td><span class="no">&#8212;</span></td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td></tr>
-<tr><td>Lectura premium mensual</td><td><span class="no">&#8212;</span></td><td class="hl"><span class="no">&#8212;</span></td><td><span class="ck">&#10003;</span></td></tr>
-<tr><td>Prediccion anual</td><td><span class="no">&#8212;</span></td><td class="hl"><span class="no">&#8212;</span></td><td><span class="ck">&#10003;</span></td></tr>
-<tr><td>Soporte VIP WhatsApp</td><td><span class="no">&#8212;</span></td><td class="hl"><span class="no">&#8212;</span></td><td><span class="ck">&#10003;</span></td></tr>
-<tr><td>Todas las tradiciones</td><td><span class="no">&#8212;</span></td><td class="hl"><span class="no">&#8212;</span></td><td><span class="ck">&#10003;</span></td></tr>
-<tr><td>Acceso al blog</td><td><span class="ck">&#10003;</span></td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td></tr>
-</tbody>
-</table>
+<div style="text-align:center;margin-top:50px">
+<p style="color:var(--aura-pink);margin-bottom:15px">Tienes mas preguntas?</p>
+<a href="mailto:hola@astroaureum.com" class="btn-cta">CONTACTANOS</a>
 </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="testimonials">
-<h2>Lo que Dicen Nuestros Usuarios Premium</h2>
-<div class="test-grid">
-<div class="test-card">
-<div class="stars-r">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-<p>Desde que tengo el plan Cosmico, entiendo mis transitos y tomo mejores decisiones. La carta natal completa fue reveladora.</p>
-<div class="author">Maria L. &middot; Plan Cosmico</div>
-</div>
-<div class="test-card">
-<div class="stars-r">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-<p>El horoscopo personalizado es otro nivel. Nada que ver con los genericos. Vale cada centimo de la suscripcion.</p>
-<div class="author">Carlos R. &middot; Plan Cosmico</div>
-</div>
-<div class="test-card">
-<div class="stars-r">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-<p>La lectura premium mensual del plan Estelar me ha ayudado a preparar cada mes con intencion. El soporte VIP es increible.</p>
-<div class="author">Ana P. &middot; Plan Estelar</div>
-</div>
-<div class="test-card">
-<div class="stars-r">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-<p>Probe la prueba gratuita y ya no pude dejarlo. La compatibilidad de parejas me ayudo a entender mi relacion.</p>
-<div class="author">Lucia M. &middot; Plan Cosmico</div>
-</div>
-</div>
-</section>
-
-<!-- FAQ -->
-<section class="faq">
-<h2>Preguntas Frecuentes</h2>
-<div class="faq-item">
-<div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Puedo cancelar en cualquier momento?</div>
-<div class="faq-a">Si, puedes cancelar tu suscripcion en cualquier momento desde tu perfil. No hay contratos ni penalizaciones. Tu acceso premium continuara hasta el final del periodo pagado.</div>
-</div>
-<div class="faq-item">
-<div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Como funciona la prueba gratuita de 7 dias?</div>
-<div class="faq-a">Al suscribirte a Cosmico o Estelar, tienes 7 dias completos para explorar todas las funciones sin cargo. Si no cancelas antes de que termine, se cobrara automaticamente.</div>
-</div>
-<div class="faq-item">
-<div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Que metodos de pago aceptan?</div>
-<div class="faq-a">Aceptamos tarjetas Visa, Mastercard, American Express, Apple Pay, Google Pay y PayPal. Todos los pagos se procesan de forma segura con encriptacion SSL.</div>
-</div>
-<div class="faq-item">
-<div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Puedo cambiar de plan en cualquier momento?</div>
-<div class="faq-a">Si, puedes subir o bajar de plan cuando quieras. Al subir de plan, se prorratea el monto. Al bajar, el cambio aplica al siguiente ciclo de facturacion.</div>
-</div>
-<div class="faq-item">
-<div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Que incluye la garantia de devolucion?</div>
-<div class="faq-a">Ofrecemos 30 dias de garantia de devolucion completa. Si no estas satisfecho, te devolvemos el 100% de tu dinero sin preguntas.</div>
-</div>
-<div class="faq-item">
-<div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Mis datos estan seguros?</div>
-<div class="faq-a">Absolutamente. Usamos encriptacion de grado bancario para proteger tus datos. Nunca compartimos tu informacion personal con terceros. Cumplimos con GDPR y LOPD.</div>
-</div>
-</section>
-
-<!-- GUARANTEE -->
-<div class="guarantee">
-<div class="guarantee-icon">&#128170;</div>
-<h3>Garantia de Devolucion de 30 Dias</h3>
-<p>Si no estas 100% satisfecho con tu plan premium, te devolvemos tu dinero completo. Sin preguntas, sin complicaciones.</p>
-</div>
-
-<!-- FINAL CTA -->
-<section class="final-cta">
-<h2>Las Estrellas Te Esperan</h2>
-<p>Unete a miles de personas que ya transformaron su vida con astrologia personalizada. Comienza tu prueba gratuita hoy.</p>
-<a href="/checkout?plan=cosmico" class="btn btn-gold">Comienza tu Prueba Gratis</a>
-</section>
-
-<!-- FOOTER -->
 <footer>
-<div class="footer-inner">
-<div class="footer-col">
-<h4>Producto</h4>
-<a href="/carta-natal">Carta Natal Gratis</a>
-<a href="/horoscopo">Horoscopo Diario</a>
-<a href="/lecturas">Lecturas</a>
-<a href="/precios-premium">Premium</a>
-<a href="/compatibilidad">Compatibilidad</a>
+<div class="footer-logo">&#10022; Astro Aureum</div>
+<div class="footer-links">
+<a href="/">Inicio</a><a href="/lecturas.html">Lecturas</a><a href="/aureum-books.html">Aureum Books</a><a href="/programa-referidos.html">Referidos</a><a href="/politica-privacidad.html">Privacidad</a>
 </div>
-<div class="footer-col">
-<h4>Recursos</h4>
-<a href="/blog">Blog</a>
-<a href="/academia">Academia</a>
-<a href="/aureum-books">Aureum Books</a>
-<a href="/glosario">Glosario Astrologico</a>
-</div>
-<div class="footer-col">
-<h4>Compania</h4>
-<a href="/sobre-nosotros">Sobre Nosotros</a>
-<a href="/contacto">Contacto</a>
-<a href="/empleo">Empleo</a>
-<a href="/afiliados">Programa de Afiliados</a>
-</div>
-<div class="footer-col">
-<h4>Legal</h4>
-<a href="/privacidad">Politica de Privacidad</a>
-<a href="/terminos">Terminos de Uso</a>
-<a href="/cookies">Politica de Cookies</a>
-<a href="/reembolsos">Politica de Reembolsos</a>
-</div>
-</div>
-<div class="footer-bottom">&copy; 2026 Astro Aureum. Todos los derechos reservados.</div>
+<p class="footer-copy">&copy; 2026 Astro Aureum &mdash; Tu Guia Cosmica. Todos los derechos reservados.</p>
 </footer>
 
-</div>
-
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Que es Astro Aureum?","acceptedAnswer":{"@type":"Answer","text":"Plataforma de astrologia con 37 lecturas en 9 tradiciones, Swiss Ephemeris e IA."}},{"@type":"Question","name":"Que tan precisas son las lecturas?","acceptedAnswer":{"@type":"Answer","text":"Usamos Swiss Ephemeris con precision de segundos de arco."}},{"@type":"Question","name":"Puedo cancelar mi suscripcion?","acceptedAnswer":{"@type":"Answer","text":"Si, cancela en cualquier momento sin penalizacion."}},{"@type":"Question","name":"Ofrecen reembolsos?","acceptedAnswer":{"@type":"Answer","text":"Garantia de 30 dias con devolucion del 100%."}}]}
+</script>
 <script>
-/* Stars Canvas */
-(function(){
-const c=document.getElementById('stars'),x=c.getContext('2d');
-let w,h,pts=[];
-function resize(){w=c.width=window.innerWidth;h=c.height=window.innerHeight;pts=[];for(let i=0;i<150;i++)pts.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.5+.3,s:Math.random()*.5+.2,o:Math.random()})}
-function draw(){x.clearRect(0,0,w,h);for(const p of pts){p.o+=p.s*.01;const a=.3+Math.abs(Math.sin(p.o))*.7;x.beginPath();x.arc(p.x,p.y,p.r,0,Math.PI*2);x.fillStyle=`rgba(255,237,138,${a})`;x.fill()}requestAnimationFrame(draw)}
-resize();draw();window.addEventListener('resize',resize)
-})();
-
-/* Billing Toggle */
-const toggle=document.getElementById('billing-toggle');
-const lblM=document.getElementById('lbl-month');
-const lblA=document.getElementById('lbl-annual');
-const cardsEl=document.getElementById('pricing-cards');
-toggle.addEventListener('change',function(){
-if(this.checked){cardsEl.classList.add('annual');lblA.classList.add('active');lblM.classList.remove('active')}
-else{cardsEl.classList.remove('annual');lblM.classList.add('active');lblA.classList.remove('active')}
-});
-
-/* Service Worker */
-if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js').catch(()=>{})}
-
-/* GA4 */
-(function(){
-var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';document.head.appendChild(s);
-window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');
-})();
-
-/* PostHog */
-!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-posthog.init('phc_XXXXXXXXXX',{api_host:'https://app.posthog.com'});
+var c=document.getElementById('stars'),x=c.getContext('2d'),s=[];function I(){c.width=innerWidth;c.height=innerHeight;s=[];for(var i=0;i<150;i++)s.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.5+.5,a:Math.random()*.8+.2,sp:Math.random()*.3+.1,cl:['#A0F0FF','#FFED8A','#FFD6F5','#FFB3D1'][Math.floor(Math.random()*4)]})}function D(){x.clearRect(0,0,c.width,c.height);s.forEach(function(p){x.beginPath();x.arc(p.x,p.y,p.r,0,Math.PI*2);x.fillStyle=p.cl;x.globalAlpha=p.a+Math.sin(Date.now()*.001*p.sp)*.3;x.fill()});requestAnimationFrame(D)}I();D();addEventListener('resize',I);
+document.querySelectorAll('.faq-item').forEach(function(item){item.addEventListener('click',function(){var a=this.querySelector('.faq-answer');var t=this.querySelector('.faq-toggle');this.classList.toggle('open');t.textContent=this.classList.contains('open')?'-':'+'})});
+document.getElementById('faq-search').addEventListener('input',function(){var q=this.value.toLowerCase();document.querySelectorAll('.faq-item').forEach(function(item){item.style.display=item.textContent.toLowerCase().includes(q)?'':'none'})});
+var hb=document.getElementById('hb'),mm=document.getElementById('mm');hb.addEventListener('click',function(){hb.classList.toggle('open');mm.classList.toggle('open');document.body.style.overflow=mm.classList.contains('open')?'hidden':''});mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){hb.classList.remove('open');mm.classList.remove('open');document.body.style.overflow=''})});
+if('serviceWorker' in navigator)navigator.serviceWorker.register('/sw.js');
 </script>
 </body>
 </html>

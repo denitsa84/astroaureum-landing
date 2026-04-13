@@ -2,302 +2,122 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Compartir - Astro Aureum</title>
-<meta name="description" content="Genera tu tarjeta astral personalizada y compartela en redes sociales. Unete al reto viral #MiCartaAstral.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Preguntas Frecuentes | Astro Aureum</title>
+<meta name="description" content="Preguntas frecuentes sobre Astro Aureum. Lecturas astrologicas, pagos, privacidad, carta natal y mas.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="manifest" href="/manifest.json">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#D4A843">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0PZTB2PF7T"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-0PZTB2PF7T');</script>
-<script>!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);posthog.init('phc_ATLBRaiNlfge5Ph0oGyy320CnPl66Q2Xgc7lRX0uoU3',{api_host:'https://us.i.posthog.com'})</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--dark:#08011B;--gold:#D4A843;--gold-light:#FFED8A;--blue:#A0F0FF;--pink:#FFB3D1;--cream:#FFF9EA;--glass:rgba(212,168,67,.06);--glass-border:rgba(212,168,67,.18)}
-body{background:var(--dark);color:var(--cream);font-family:'Inter',system-ui,sans-serif;line-height:1.6;overflow-x:hidden}
-canvas#stars{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
-.container{max-width:1100px;margin:0 auto;padding:0 1.5rem;position:relative;z-index:1}
-
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,1,27,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--glass-border);padding:.8rem 0}
-nav .container{display:flex;align-items:center;justify-content:space-between;max-width:1200px}
-.logo{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--gold);text-decoration:none;font-weight:700}
-.nav-links{display:flex;gap:1.5rem;list-style:none;flex-wrap:wrap;align-items:center}
-.nav-links a{color:var(--cream);text-decoration:none;font-size:.85rem;opacity:.8;transition:all .3s}
-.nav-links a:hover{color:var(--gold);opacity:1}
-.nav-toggle{display:none;background:none;border:none;color:var(--gold);font-size:1.5rem;cursor:pointer}
-
-.hero{padding:8rem 0 3rem;text-align:center}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);color:var(--gold);margin-bottom:1rem}
-.hero p{color:var(--blue);font-size:1.1rem;max-width:600px;margin:0 auto}
-
-.glass-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:1.5rem;padding:2rem;backdrop-filter:blur(12px)}
-.btn-gold{display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--dark);padding:.9rem 2rem;border-radius:2rem;text-decoration:none;font-weight:600;font-size:.95rem;border:none;cursor:pointer;transition:transform .3s,box-shadow .3s}
-.btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(212,168,67,.3)}
-
-/* CARD GENERATOR */
-.generator{padding:3rem 0}
-.generator h2{font-family:'Playfair Display',serif;text-align:center;color:var(--gold);font-size:1.8rem;margin-bottom:2rem}
-.gen-layout{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
-.gen-options{display:flex;flex-direction:column;gap:1rem}
-.gen-options label{font-size:.9rem;color:var(--blue);font-weight:500}
-.type-select{display:flex;gap:.75rem;flex-wrap:wrap}
-.type-btn{padding:.7rem 1.5rem;border-radius:2rem;border:1px solid var(--glass-border);background:transparent;color:var(--cream);font-size:.85rem;cursor:pointer;transition:all .3s;font-family:'Inter',sans-serif}
-.type-btn.active,.type-btn:hover{background:var(--gold);color:var(--dark);border-color:var(--gold)}
-.sign-select{width:100%;padding:.9rem 1.2rem;background:rgba(8,1,27,.6);border:1px solid var(--glass-border);border-radius:.75rem;color:var(--cream);font-size:.9rem;font-family:'Inter',sans-serif;appearance:none;cursor:pointer}
-.sign-select option{background:var(--dark);color:var(--cream)}
-
-/* PREVIEW CARD */
-.preview-card{aspect-ratio:1/1.2;border-radius:1.5rem;overflow:hidden;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;background:linear-gradient(135deg,#08011B 0%,#1a0a3e 50%,#08011B 100%);border:2px solid var(--gold)}
-.preview-card .zodiac-symbol{font-size:5rem;margin-bottom:1rem;filter:drop-shadow(0 0 20px rgba(212,168,67,.5))}
-.preview-card .card-title{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--gold-light);margin-bottom:.5rem}
-.preview-card .card-subtitle{color:var(--blue);font-size:.95rem;margin-bottom:1rem}
-.preview-card .card-brand{color:rgba(212,168,67,.6);font-size:.75rem;position:absolute;bottom:1rem}
-.preview-card .stars-decoration{position:absolute;top:0;left:0;right:0;bottom:0;pointer-events:none;overflow:hidden}
-.preview-card .mini-star{position:absolute;width:3px;height:3px;background:var(--gold-light);border-radius:50%;opacity:.5}
-
-/* SHARE BUTTONS */
-.share-section{padding:2rem 0}
-.share-section h3{font-family:'Playfair Display',serif;text-align:center;color:var(--gold);font-size:1.3rem;margin-bottom:1.5rem}
-.share-grid{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-.s-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.5rem;border-radius:2rem;text-decoration:none;font-size:.85rem;font-weight:500;transition:transform .3s;border:none;cursor:pointer;color:#fff}
-.s-btn:hover{transform:translateY(-2px)}
-.s-wa{background:#25D366}.s-ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}.s-tw{background:#1DA1F2}.s-fb{background:#1877F2}.s-tt{background:#010101;border:1px solid #333}.s-cp{background:var(--glass);border:1px solid var(--glass-border);color:var(--cream)}
-
-/* VIRAL CHALLENGE */
-.challenge{padding:4rem 0}
-.challenge-card{text-align:center;padding:3rem 2rem}
-.challenge-card h2{font-family:'Playfair Display',serif;font-size:2rem;color:var(--gold);margin-bottom:.5rem}
-.hashtag{font-family:'Playfair Display',serif;font-size:2.5rem;background:linear-gradient(135deg,var(--gold),var(--pink),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:1.5rem}
-.challenge-card p{color:rgba(255,249,234,.75);max-width:550px;margin:0 auto 2rem;font-size:1rem;line-height:1.7}
-.challenge-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin-top:2rem;text-align:center}
-.challenge-steps div{padding:1rem}
-.challenge-steps .num{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--gold-light);font-weight:700}
-.challenge-steps p{color:var(--blue);font-size:.9rem;margin-top:.5rem}
-
-/* CTA */
-.cta-section{text-align:center;padding:3rem 0}
-.cta-section h2{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--gold);margin-bottom:1rem}
-.cta-section p{color:var(--blue);margin-bottom:2rem}
-
-footer{border-top:1px solid var(--glass-border);padding:3rem 0 2rem;margin-top:3rem}
-footer .container{max-width:1200px}
-.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2rem;margin-bottom:2rem}
-.footer-col h4{font-family:'Playfair Display',serif;color:var(--gold);margin-bottom:1rem;font-size:.95rem}
-.footer-col a{display:block;color:rgba(255,249,234,.6);text-decoration:none;font-size:.85rem;margin-bottom:.5rem;transition:color .3s}
-.footer-col a:hover{color:var(--gold)}
-.footer-bottom{text-align:center;color:rgba(255,249,234,.4);font-size:.8rem;padding-top:1.5rem;border-top:1px solid var(--glass-border)}
-
-@media(max-width:768px){
-  .nav-links{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(8,1,27,.95);padding:1rem;border-bottom:1px solid var(--glass-border)}
-  .nav-links.open{display:flex}
-  .nav-toggle{display:block}
-  .gen-layout{grid-template-columns:1fr}
-}
+:root{--bg-space:#08011B;--electric-blue:#A0F0FF;--golden-yellow:#FFED8A;--love-rose:#FFB3D1;--aura-pink:#FFD6F5;--cosmic-cream:#FFF9EA;--pure-white:#FFFFFF;--glow-gold:0 0 20px rgba(255,237,138,0.5);--glow-love:0 0 20px rgba(255,179,209,0.6);--gradient-gold-pink:linear-gradient(135deg,#FFED8A 0%,#FFB3D1 100%);--font-display:'Playfair Display',serif;--font-body:'Inter',sans-serif}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{background-color:var(--bg-space);background-image:radial-gradient(ellipse at 15% 85%,rgba(160,240,255,0.05) 0%,transparent 50%),radial-gradient(ellipse at 85% 15%,rgba(255,237,138,0.04) 0%,transparent 50%),radial-gradient(ellipse at 50% 50%,rgba(255,179,209,0.03) 0%,transparent 60%);color:var(--pure-white);font-family:var(--font-body);overflow-x:hidden;scroll-behavior:smooth}
+h1{font-family:var(--font-display);font-weight:800;font-size:clamp(2rem,5vw,3.5rem);line-height:1.1;color:var(--golden-yellow);text-shadow:0 0 15px rgba(255,237,138,0.5)}
+h2{font-family:var(--font-display);font-weight:700;font-size:clamp(1.5rem,3.5vw,2.5rem);color:var(--golden-yellow);margin-bottom:20px}
+h3{font-family:var(--font-display);font-weight:700;font-size:1.15rem;color:var(--pure-white)}
+p{font-size:1rem;line-height:1.8;color:var(--cosmic-cream);font-weight:300}
+a{color:var(--aura-pink);text-decoration:none;transition:all 0.3s}a:hover{color:var(--electric-blue)}
+nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(8,1,27,0.8);backdrop-filter:blur(15px);border-bottom:1px solid rgba(255,237,138,0.1)}
+.nav-logo{font-family:var(--font-display);font-size:1.5rem;font-weight:800;color:var(--golden-yellow);text-shadow:0 0 10px rgba(255,237,138,0.4);text-decoration:none}
+.nav-links{display:flex;gap:25px}.nav-links a{color:var(--cosmic-cream);font-size:0.85rem;font-weight:500}.nav-links a:hover{color:var(--electric-blue)}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;z-index:1001}.hamburger span{display:block;width:24px;height:2px;background:var(--golden-yellow);transition:all 0.3s}.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}.hamburger.open span:nth-child(2){opacity:0}.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mobile-overlay{display:none;position:fixed;inset:0;background:rgba(8,1,27,0.95);backdrop-filter:blur(25px);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:25px}.mobile-overlay.open{display:flex}.mobile-overlay a{color:var(--cosmic-cream);font-family:var(--font-display);font-size:1.2rem;font-weight:700}
+.hero{min-height:45vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:130px 20px 50px}
+.hero-badge{display:inline-block;background:rgba(160,240,255,0.1);border:1px solid rgba(160,240,255,0.3);border-radius:50px;padding:8px 24px;font-size:0.8rem;color:var(--golden-yellow);letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;font-weight:600}
+.hero p{font-size:1.1rem;color:var(--aura-pink);max-width:500px;margin:15px auto 0}
+#faq-search{margin-top:25px;padding:14px 28px;border-radius:50px;border:1px solid rgba(160,240,255,0.2);background:rgba(255,249,234,0.03);color:var(--cosmic-cream);font-size:1rem;width:100%;max-width:400px;outline:none;font-family:var(--font-body)}
+#faq-search:focus{border-color:var(--golden-yellow)}
+.section{max-width:800px;margin:0 auto;padding:20px 20px 60px}
+.faq-item{background:rgba(255,249,234,0.03);backdrop-filter:blur(20px);border:1px solid rgba(255,237,138,0.15);border-radius:16px;padding:20px 24px;margin-bottom:12px;cursor:pointer;transition:all 0.3s}
+.faq-item:hover{border-color:var(--golden-yellow);box-shadow:0 0 20px rgba(255,237,138,0.1)}
+.faq-answer{display:none;margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,237,138,0.1)}
+.faq-item.open .faq-answer{display:block}
+.faq-toggle{float:right;color:var(--golden-yellow);font-size:1.2rem;font-weight:700}
+.btn-cta{display:inline-block;background:var(--gradient-gold-pink);border:none;color:#000;font-family:var(--font-body);font-weight:700;font-size:1rem;border-radius:50px;padding:16px 36px;box-shadow:var(--glow-gold);transition:all 0.3s;cursor:pointer;text-transform:uppercase;letter-spacing:1px;text-decoration:none}.btn-cta:hover{transform:scale(1.05) translateY(-2px);box-shadow:var(--glow-love);color:#000}
+footer{padding:50px 40px;text-align:center;border-top:1px solid rgba(255,237,138,0.1);background:rgba(8,1,27,0.8)}
+.footer-logo{font-family:var(--font-display);font-size:1.8rem;font-weight:800;color:var(--golden-yellow);margin-bottom:15px}
+.footer-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}.footer-links a{color:var(--aura-pink);font-size:0.85rem}
+.footer-copy{color:rgba(255,249,234,0.4);font-size:0.75rem}
+@media(max-width:768px){nav{padding:15px 20px}.nav-links{display:none}.hamburger{display:flex}.hero{padding:100px 20px 40px}}
 </style>
 </head>
 <body>
-<canvas id="stars"></canvas>
-
+<canvas id="stars" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none"></canvas>
 <nav>
-  <div class="container">
-    <a href="/" class="logo">Astro Aureum</a>
-    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
-    <ul class="nav-links">
-      <li><a href="/carta-natal-gratis.html">Carta Natal Gratis</a></li>
-      <li><a href="/horoscopo-diario.html">Horoscopo Diario</a></li>
-      <li><a href="/lecturas.html">Lecturas</a></li>
-      <li><a href="/precios-premium.html">Premium</a></li>
-      <li><a href="/blog/">Blog</a></li>
-      <li><a href="https://aureum.books">Aureum Books</a></li>
-    </ul>
-  </div>
+<a href="/" class="nav-logo">&#10022; Astro Aureum</a>
+<div class="nav-links">
+<a href="/carta-natal-gratis.html">Carta Natal</a>
+<a href="/horoscopo-diario.html">Horoscopo</a>
+<a href="/lecturas.html">Lecturas</a>
+<a href="/precios-premium.html">Premium</a>
+<a href="/blog/">Blog</a>
+<a href="/aureum-books.html">Aureum Books</a>
+</div>
+<button class="hamburger" id="hb"><span></span><span></span><span></span></button>
 </nav>
+<div class="mobile-overlay" id="mm">
+<a href="/">Inicio</a><a href="/carta-natal-gratis.html">Carta Natal</a><a href="/lecturas.html">Lecturas</a><a href="/precios-premium.html">Premium</a><a href="/blog/">Blog</a>
+</div>
 
-<main>
-  <section class="hero">
-    <div class="container">
-      <h1>Comparte tu Magia Astral</h1>
-      <p>Genera tarjetas personalizadas con tu signo, carta natal o horoscopo y compartelas con el mundo</p>
-    </div>
-  </section>
+<section class="hero">
+<div class="hero-badge">&#10022; Ayuda</div>
+<h1>Preguntas Frecuentes</h1>
+<p>Todo lo que necesitas saber sobre Astro Aureum</p>
+<input type="text" id="faq-search" placeholder="Buscar pregunta...">
+</section>
 
-  <!-- CARD GENERATOR -->
-  <section class="generator">
-    <div class="container">
-      <h2>Genera tu Tarjeta</h2>
-      <div class="gen-layout">
-        <div class="glass-card gen-options">
-          <div>
-            <label>Tipo de tarjeta</label>
-            <div class="type-select">
-              <button class="type-btn active" onclick="setType(this,'signo')">Mi Signo</button>
-              <button class="type-btn" onclick="setType(this,'carta')">Mi Carta</button>
-              <button class="type-btn" onclick="setType(this,'horoscopo')">Mi Horoscopo</button>
-            </div>
-          </div>
-          <div>
-            <label>Tu signo zodiacal</label>
-            <select class="sign-select" id="signSelect" onchange="updatePreview()">
-              <option value="aries" data-symbol="&#9800;">Aries</option>
-              <option value="tauro" data-symbol="&#9801;">Tauro</option>
-              <option value="geminis" data-symbol="&#9802;">Geminis</option>
-              <option value="cancer" data-symbol="&#9803;">Cancer</option>
-              <option value="leo" data-symbol="&#9804;">Leo</option>
-              <option value="virgo" data-symbol="&#9805;">Virgo</option>
-              <option value="libra" data-symbol="&#9806;">Libra</option>
-              <option value="escorpio" data-symbol="&#9807;">Escorpio</option>
-              <option value="sagitario" data-symbol="&#9808;">Sagitario</option>
-              <option value="capricornio" data-symbol="&#9809;">Capricornio</option>
-              <option value="acuario" data-symbol="&#9810;">Acuario</option>
-              <option value="piscis" data-symbol="&#9811;">Piscis</option>
-            </select>
-          </div>
-          <button class="btn-gold" style="align-self:flex-start;margin-top:1rem" onclick="updatePreview()">Generar Tarjeta</button>
-        </div>
+<section class="section">
+<h2>Sobre Astro Aureum</h2>
+<div class="faq-item"><h3>Que es Astro Aureum? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>Astro Aureum es la plataforma de astrologia mas completa del mundo. Ofrecemos 37 lecturas personalizadas en 9 tradiciones astrologicas (Occidental, Vedica, Cabalistica, China, Helenistica, Human Design, Celestial, Alma, Especializada), calculadas con Swiss Ephemeris y enriquecidas con inteligencia artificial.</p></div></div>
+<div class="faq-item"><h3>Como funcionan las lecturas? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>Introduces tu fecha, hora y lugar de nacimiento. Nuestro sistema calcula las posiciones planetarias exactas con Swiss Ephemeris y genera una lectura personalizada unica para ti. La recibes por email en minutos.</p></div></div>
+<div class="faq-item"><h3>Que tan precisas son? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>Utilizamos Swiss Ephemeris, las tablas astronomicas mas precisas del mundo, con precision de segundos de arco. No usamos tablas genericas ni estimaciones.</p></div></div>
+<div class="faq-item"><h3>Que tradiciones ofrecen? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>9 tradiciones: Occidental, Vedica, Cabalistica, China, Especializada, Alma, Celestial, Helenistica y Human Design. Cada una ofrece una perspectiva unica.</p></div></div>
+<div class="faq-item"><h3>En que idiomas estan disponibles? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>25+ idiomas: espanol, ingles, bulgaro, portugues, frances, aleman, italiano, ruso, arabe, japones, chino, coreano y mas.</p></div></div>
 
-        <div class="preview-card" id="previewCard">
-          <div class="stars-decoration" id="miniStars"></div>
-          <div class="zodiac-symbol" id="zodiacSymbol">&#9800;</div>
-          <div class="card-title" id="cardTitle">Mi Signo</div>
-          <div class="card-subtitle" id="cardSubtitle">Aries</div>
-          <div class="card-brand">astroaureum.com</div>
-        </div>
-      </div>
-    </div>
-  </section>
+<h2 style="margin-top:40px">Pagos y Suscripciones</h2>
+<div class="faq-item"><h3>Que metodos de pago aceptan? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>Tarjetas de credito/debito (Visa, Mastercard, Amex) y PayPal a traves de Stripe, la plataforma de pagos mas segura del mundo.</p></div></div>
+<div class="faq-item"><h3>Puedo cancelar mi suscripcion? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>Si, puedes cancelar en cualquier momento sin penalizacion. Tu acceso continua hasta el final del periodo facturado.</p></div></div>
+<div class="faq-item"><h3>Ofrecen reembolsos? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>Garantia de 30 dias. Si no estas satisfecho, contactanos y te devolvemos el 100% sin preguntas.</p></div></div>
+<div class="faq-item"><h3>Es seguro pagar? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>100% seguro. Usamos Stripe con encriptacion SSL de 256 bits. Nunca almacenamos datos de tu tarjeta.</p></div></div>
 
-  <!-- SHARE BUTTONS -->
-  <section class="share-section">
-    <div class="container">
-      <h3>Comparte tu Tarjeta</h3>
-      <div class="share-grid">
-        <button class="s-btn s-wa" onclick="shareWA()">WhatsApp</button>
-        <button class="s-btn s-ig" onclick="shareIG()">Instagram</button>
-        <button class="s-btn s-tw" onclick="shareTW()">Twitter</button>
-        <button class="s-btn s-fb" onclick="shareFB()">Facebook</button>
-        <button class="s-btn s-tt" onclick="shareTT()">TikTok</button>
-        <button class="s-btn s-cp" onclick="copyShareLink()">Copiar Enlace</button>
-      </div>
-      <p id="shareMsg" style="text-align:center;color:var(--blue);margin-top:1rem;font-size:.85rem;opacity:0;transition:opacity .3s"></p>
-    </div>
-  </section>
+<h2 style="margin-top:40px">Carta Natal y Horoscopo</h2>
+<div class="faq-item"><h3>Necesito saber mi hora de nacimiento? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>La hora mejora la precision del Ascendente y las casas, pero no es obligatoria. Sin hora, calculamos Sol, Luna estimada y planetas.</p></div></div>
+<div class="faq-item"><h3>Diferencia entre gratis y premium? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>La gratis muestra Sol, Luna y Ascendente. La premium incluye 12 planetas, 12 casas, aspectos, nodos lunares y hasta 8,000 palabras de analisis.</p></div></div>
+<div class="faq-item"><h3>Como funciona el horoscopo diario? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>Se genera cada manana basado en transitos planetarios reales. Cubre amor, dinero y salud para cada signo.</p></div></div>
+<div class="faq-item"><h3>Que es la sinastria? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>La sinastria compara dos cartas natales para revelar la compatibilidad cosmica entre dos personas. Analiza aspectos emocionales, fisicos y karmicos.</p></div></div>
 
-  <!-- VIRAL CHALLENGE -->
-  <section class="challenge">
-    <div class="container">
-      <div class="glass-card challenge-card">
-        <h2>Reto Viral</h2>
-        <div class="hashtag">#MiCartaAstral</div>
-        <p>Unete al reto viral que esta conquistando las redes. Comparte tu carta astral, etiqueta a tus amigos y descubre quien mas comparte tu energia cosmica.</p>
-        <div class="challenge-steps">
-          <div>
-            <div class="num">1</div>
-            <p>Genera tu tarjeta astral personalizada arriba</p>
-          </div>
-          <div>
-            <div class="num">2</div>
-            <p>Compartela en tus stories con #MiCartaAstral</p>
-          </div>
-          <div>
-            <div class="num">3</div>
-            <p>Etiqueta a 3 amigos para que descubran su carta</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<h2 style="margin-top:40px">Privacidad</h2>
+<div class="faq-item"><h3>Mis datos estan seguros? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>Si. Cumplimos con GDPR. Tus datos de nacimiento solo se usan para calcular tu carta. Nunca vendemos informacion personal.</p></div></div>
+<div class="faq-item"><h3>Puedo eliminar mi cuenta? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>Si, contactanos a hola@astroaureum.com y eliminaremos todos tus datos en 48 horas.</p></div></div>
 
-  <!-- CTA -->
-  <section class="cta-section">
-    <div class="container">
-      <h2>Aun no tienes tu Carta Natal?</h2>
-      <p>Descubre tu mapa astral completo de forma gratuita y empieza a compartir tu magia.</p>
-      <a href="/carta-natal-gratis.html" class="btn-gold">Crear Mi Carta Natal Gratis</a>
-    </div>
-  </section>
-</main>
+<div style="text-align:center;margin-top:50px">
+<p style="color:var(--aura-pink);margin-bottom:15px">Tienes mas preguntas?</p>
+<a href="mailto:hola@astroaureum.com" class="btn-cta">CONTACTANOS</a>
+</div>
+</section>
 
 <footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h4>Servicios</h4>
-        <a href="/carta-natal-gratis.html">Carta Natal Gratis</a>
-        <a href="/horoscopo-diario.html">Horoscopo Diario</a>
-        <a href="/lecturas.html">Lecturas</a>
-        <a href="/precios-premium.html">Premium</a>
-      </div>
-      <div class="footer-col">
-        <h4>Comunidad</h4>
-        <a href="/blog/">Blog</a>
-        <a href="/programa-referidos.html">Programa de Referidos</a>
-        <a href="/compartir.html">Compartir</a>
-        <a href="https://aureum.books">Aureum Books</a>
-      </div>
-      <div class="footer-col">
-        <h4>Soporte</h4>
-        <a href="/faq.html">Preguntas Frecuentes</a>
-        <a href="mailto:hola@astroaureum.com">Contacto</a>
-        <a href="/privacidad.html">Privacidad</a>
-        <a href="/terminos.html">Terminos</a>
-      </div>
-      <div class="footer-col">
-        <h4>Siguenos</h4>
-        <a href="#">Instagram</a>
-        <a href="#">TikTok</a>
-        <a href="#">Twitter</a>
-        <a href="#">Facebook</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 Astro Aureum. Todos los derechos reservados.</p>
-    </div>
-  </div>
+<div class="footer-logo">&#10022; Astro Aureum</div>
+<div class="footer-links">
+<a href="/">Inicio</a><a href="/lecturas.html">Lecturas</a><a href="/aureum-books.html">Aureum Books</a><a href="/programa-referidos.html">Referidos</a><a href="/politica-privacidad.html">Privacidad</a>
+</div>
+<p class="footer-copy">&copy; 2026 Astro Aureum &mdash; Tu Guia Cosmica. Todos los derechos reservados.</p>
 </footer>
 
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Que es Astro Aureum?","acceptedAnswer":{"@type":"Answer","text":"Plataforma de astrologia con 37 lecturas en 9 tradiciones, Swiss Ephemeris e IA."}},{"@type":"Question","name":"Que tan precisas son las lecturas?","acceptedAnswer":{"@type":"Answer","text":"Usamos Swiss Ephemeris con precision de segundos de arco."}},{"@type":"Question","name":"Puedo cancelar mi suscripcion?","acceptedAnswer":{"@type":"Answer","text":"Si, cancela en cualquier momento sin penalizacion."}},{"@type":"Question","name":"Ofrecen reembolsos?","acceptedAnswer":{"@type":"Answer","text":"Garantia de 30 dias con devolucion del 100%."}}]}
+</script>
 <script>
-const c=document.getElementById('stars'),x=c.getContext('2d');
-function resize(){c.width=window.innerWidth;c.height=window.innerHeight}
-resize();window.addEventListener('resize',resize);
-const stars=Array.from({length:200},()=>({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.5+.5,a:Math.random(),s:Math.random()*.005+.002}));
-function drawStars(){x.clearRect(0,0,c.width,c.height);stars.forEach(s=>{s.a+=s.s;if(s.a>1)s.s*=-1;if(s.a<0)s.s*=-1;x.beginPath();x.arc(s.x,s.y,s.r,0,Math.PI*2);x.fillStyle=`rgba(255,237,138,${Math.abs(s.a)})`;x.fill()});requestAnimationFrame(drawStars)}
-drawStars();
-
-// Mini stars in preview card
-const miniStarsEl=document.getElementById('miniStars');
-for(let i=0;i<30;i++){const d=document.createElement('div');d.className='mini-star';d.style.left=Math.random()*100+'%';d.style.top=Math.random()*100+'%';d.style.animationDelay=Math.random()*2+'s';miniStarsEl.appendChild(d)}
-
-let currentType='signo';
-const typeLabels={signo:'Mi Signo',carta:'Mi Carta Natal',horoscopo:'Mi Horoscopo de Hoy'};
-
-function setType(btn,type){
-  document.querySelectorAll('.type-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  currentType=type;
-  updatePreview();
-}
-
-function updatePreview(){
-  const sel=document.getElementById('signSelect');
-  const opt=sel.options[sel.selectedIndex];
-  document.getElementById('zodiacSymbol').textContent=opt.dataset.symbol;
-  document.getElementById('cardTitle').textContent=typeLabels[currentType];
-  document.getElementById('cardSubtitle').textContent=opt.textContent;
-}
-
-function getShareText(){
-  const sel=document.getElementById('signSelect');
-  return encodeURIComponent('Descubre mi energia cosmica! Soy '+sel.options[sel.selectedIndex].textContent+' #MiCartaAstral https://astroaureum.com/compartir.html');
-}
-function shareWA(){window.open('https://wa.me/?text='+getShareText(),'_blank')}
-function shareTW(){window.open('https://twitter.com/intent/tweet?text='+getShareText(),'_blank')}
-function shareFB(){window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('https://astroaureum.com/compartir.html'),'_blank')}
-function shareIG(){alert('Guarda tu tarjeta como captura de pantalla y compartela en Instagram Stories con #MiCartaAstral')}
-function shareTT(){alert('Guarda tu tarjeta y subela como video o imagen en TikTok con #MiCartaAstral')}
-function copyShareLink(){navigator.clipboard.writeText('https://astroaureum.com/compartir.html').then(()=>{const m=document.getElementById('shareMsg');m.textContent='Enlace copiado!';m.style.opacity='1';setTimeout(()=>m.style.opacity='0',2500)})}
-
-if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js').catch(()=>{})}
+var c=document.getElementById('stars'),x=c.getContext('2d'),s=[];function I(){c.width=innerWidth;c.height=innerHeight;s=[];for(var i=0;i<150;i++)s.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.5+.5,a:Math.random()*.8+.2,sp:Math.random()*.3+.1,cl:['#A0F0FF','#FFED8A','#FFD6F5','#FFB3D1'][Math.floor(Math.random()*4)]})}function D(){x.clearRect(0,0,c.width,c.height);s.forEach(function(p){x.beginPath();x.arc(p.x,p.y,p.r,0,Math.PI*2);x.fillStyle=p.cl;x.globalAlpha=p.a+Math.sin(Date.now()*.001*p.sp)*.3;x.fill()});requestAnimationFrame(D)}I();D();addEventListener('resize',I);
+document.querySelectorAll('.faq-item').forEach(function(item){item.addEventListener('click',function(){var a=this.querySelector('.faq-answer');var t=this.querySelector('.faq-toggle');this.classList.toggle('open');t.textContent=this.classList.contains('open')?'-':'+'})});
+document.getElementById('faq-search').addEventListener('input',function(){var q=this.value.toLowerCase();document.querySelectorAll('.faq-item').forEach(function(item){item.style.display=item.textContent.toLowerCase().includes(q)?'':'none'})});
+var hb=document.getElementById('hb'),mm=document.getElementById('mm');hb.addEventListener('click',function(){hb.classList.toggle('open');mm.classList.toggle('open');document.body.style.overflow=mm.classList.contains('open')?'hidden':''});mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){hb.classList.remove('open');mm.classList.remove('open');document.body.style.overflow=''})});
+if('serviceWorker' in navigator)navigator.serviceWorker.register('/sw.js');
 </script>
 </body>
 </html>

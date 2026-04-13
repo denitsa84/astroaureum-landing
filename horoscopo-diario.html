@@ -1,369 +1,123 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- Google Analytics GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0PZTB2PF7T"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0PZTB2PF7T');</script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, viewport-fit=cover">
-  <title>Horoscopo del Dia | Astro Aureum</title>
-  <meta name="description" content="Tu horoscopo diario gratis para los 12 signos. Amor, dinero, salud y numero de la suerte.">
-  <meta property="og:title" content="Horoscopo del Dia | Astro Aureum">
-  <meta property="og:description" content="Tu horoscopo diario gratis. Amor, dinero, salud y numero de la suerte para los 12 signos.">
-  <meta property="og:image" content="https://astroaureum.com/og-image.jpg">
-  <meta property="og:url" content="https://astroaureum.com/horoscopo-diario.html">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="manifest" href="/manifest.json">
-  <meta name="theme-color" content="#D4A843">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17991329624"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','AW-17991329624');</script>
-  <script>!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageviewId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);posthog.init('phc_ATLBRaiNlfge5Ph0oGyy320CnPl66Q2Xgc7lRX0uoU3',{api_host:'https://eu.i.posthog.com',person_profiles:'identified_only'});</script>
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{background:#06050E;color:#fff;font-family:'Inter',sans-serif;min-height:100vh}
-    .container{max-width:900px;margin:0 auto;padding:20px}
-    .brand{text-align:center;padding:24px 0 8px}
-    .brand h1{font-family:'Cinzel',serif;color:#D4A843;font-size:1.4rem;letter-spacing:2px}
-    .brand a{color:#c9b8e8;text-decoration:none;font-size:.85rem}
-    .cosmic-energy{text-align:center;background:linear-gradient(145deg,rgba(123,79,191,.12),rgba(212,168,67,.08));border:1px solid rgba(212,168,67,.2);border-radius:16px;padding:24px;margin:20px 0 28px}
-    .cosmic-energy h2{font-family:'Cinzel',serif;color:#D4A843;font-size:1.5rem;margin-bottom:8px}
-    .cosmic-energy .date{color:#F7D96E;font-size:1rem;margin-bottom:8px}
-    .cosmic-energy .energy{color:#c9b8e8;font-size:.95rem;line-height:1.5}
-    .cosmic-energy .moon-phase{font-size:2rem;margin-bottom:8px}
-    .signs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin-bottom:32px}
-    .sign-card{background:linear-gradient(145deg,rgba(123,79,191,.08),rgba(212,168,67,.04));border:1px solid rgba(212,168,67,.15);border-radius:14px;padding:18px 12px;text-align:center;cursor:pointer;transition:all .3s}
-    .sign-card:hover{border-color:#D4A843;transform:translateY(-3px);box-shadow:0 8px 24px rgba(212,168,67,.15)}
-    .sign-card.active{border-color:#D4A843;background:rgba(212,168,67,.1)}
-    .sign-card .symbol{font-size:2.2rem;margin-bottom:6px;display:block}
-    .sign-card .name{color:#fff;font-weight:600;font-size:.9rem}
-    .sign-card .dates{color:#c9b8e8;font-size:.7rem;margin-top:2px}
-    .sign-card .element{font-size:.65rem;color:#F7D96E;margin-top:4px}
-    .reading{display:none;animation:fadeIn .5s ease}
-    .reading.active{display:block}
-    @keyframes fadeIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
-    .reading-card{background:linear-gradient(145deg,#1a1333,#0d0b1a);border:2px solid #D4A843;border-radius:20px;padding:32px;margin-bottom:24px}
-    .reading-card .header{text-align:center;margin-bottom:20px}
-    .reading-card .header .big-symbol{font-size:3rem}
-    .reading-card .header h2{font-family:'Cinzel',serif;color:#D4A843;font-size:1.5rem;margin:8px 0 4px}
-    .reading-card .header .subtitle{color:#c9b8e8;font-size:.9rem}
-    .reading-card .categories{display:grid;gap:16px}
-    .cat{background:rgba(255,255,255,.03);border-radius:12px;padding:16px}
-    .cat .cat-title{display:flex;align-items:center;gap:8px;margin-bottom:8px;font-weight:600;color:#F7D96E;font-size:.95rem}
-    .cat p{color:#c9b8e8;font-size:.9rem;line-height:1.5}
-    .lucky-row{display:flex;gap:16px;justify-content:center;margin-top:16px;flex-wrap:wrap}
-    .lucky-item{background:rgba(212,168,67,.1);border:1px solid rgba(212,168,67,.2);border-radius:10px;padding:10px 18px;text-align:center}
-    .lucky-item .label{color:#c9b8e8;font-size:.75rem;display:block}
-    .lucky-item .value{color:#F7D96E;font-weight:700;font-size:1.1rem}
-    .share-row{display:flex;gap:8px;justify-content:center;margin-top:20px;flex-wrap:wrap}
-    .share-btn{padding:8px 16px;border:none;border-radius:8px;color:#fff;font-weight:600;cursor:pointer;font-size:.85rem;transition:transform .2s}
-    .share-btn:hover{transform:scale(1.05)}
-    .cta-box{background:linear-gradient(135deg,rgba(123,79,191,.2),rgba(212,168,67,.15));border:1px solid #D4A843;border-radius:16px;padding:28px;text-align:center;margin-top:24px}
-    .horo-lead{background:linear-gradient(145deg,#1a1333,#0d0b1a);border:1px solid rgba(212,168,67,.3);border-radius:16px;padding:28px;margin:24px 0;text-align:center}
-    .horo-lead h3{font-family:'Cinzel',serif;color:#D4A843;font-size:1.1rem;margin-bottom:8px}
-    .horo-lead p{color:#c9b8e8;font-size:.9rem;margin-bottom:16px;line-height:1.5}
-    .horo-lead input{width:100%;padding:14px 16px;background:rgba(255,255,255,.05);border:1px solid rgba(212,168,67,.2);border-radius:10px;color:#fff;font-size:.95rem;outline:none;box-sizing:border-box;margin-bottom:8px;font-family:inherit}
-    .horo-lead input:focus{border-color:#D4A843}
-    .horo-lead .hl-submit{width:100%;padding:14px;background:linear-gradient(135deg,#D4A843,#F7D96E);color:#0d0b1a;border:none;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;transition:transform .2s;font-family:inherit}
-    .horo-lead .hl-submit:hover{transform:scale(1.03)}
-    .horo-lead .hl-submit:disabled{opacity:.6;cursor:not-allowed;transform:none}
-    .horo-lead .hl-success{color:#D4A843;font-size:.9rem;margin-top:8px;display:none}
-    .horo-lead .hl-privacy{color:#6B5B8D;font-size:.75rem;margin-top:8px}
-    .cta-box h3{font-family:'Cinzel',serif;color:#D4A843;font-size:1.2rem;margin-bottom:8px}
-    .cta-box p{color:#c9b8e8;font-size:.95rem;margin-bottom:16px}
-    .cta-btn{display:inline-block;background:linear-gradient(135deg,#D4A843,#F7D96E);color:#0d0b1a;padding:14px 32px;border-radius:12px;font-weight:700;text-decoration:none;transition:transform .2s}
-    .cta-btn:hover{transform:scale(1.05)}
-    .back-link{text-align:center;margin-top:20px}
-    .back-link a{color:#c9b8e8;text-decoration:none;font-size:.9rem}
-    @media(max-width:480px){.signs-grid{grid-template-columns:repeat(3,1fr)}.reading-card{padding:20px}.lucky-row{gap:10px}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Preguntas Frecuentes | Astro Aureum</title>
+<meta name="description" content="Preguntas frecuentes sobre Astro Aureum. Lecturas astrologicas, pagos, privacidad, carta natal y mas.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#D4A843">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0PZTB2PF7T"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-0PZTB2PF7T');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg-space:#08011B;--electric-blue:#A0F0FF;--golden-yellow:#FFED8A;--love-rose:#FFB3D1;--aura-pink:#FFD6F5;--cosmic-cream:#FFF9EA;--pure-white:#FFFFFF;--glow-gold:0 0 20px rgba(255,237,138,0.5);--glow-love:0 0 20px rgba(255,179,209,0.6);--gradient-gold-pink:linear-gradient(135deg,#FFED8A 0%,#FFB3D1 100%);--font-display:'Playfair Display',serif;--font-body:'Inter',sans-serif}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{background-color:var(--bg-space);background-image:radial-gradient(ellipse at 15% 85%,rgba(160,240,255,0.05) 0%,transparent 50%),radial-gradient(ellipse at 85% 15%,rgba(255,237,138,0.04) 0%,transparent 50%),radial-gradient(ellipse at 50% 50%,rgba(255,179,209,0.03) 0%,transparent 60%);color:var(--pure-white);font-family:var(--font-body);overflow-x:hidden;scroll-behavior:smooth}
+h1{font-family:var(--font-display);font-weight:800;font-size:clamp(2rem,5vw,3.5rem);line-height:1.1;color:var(--golden-yellow);text-shadow:0 0 15px rgba(255,237,138,0.5)}
+h2{font-family:var(--font-display);font-weight:700;font-size:clamp(1.5rem,3.5vw,2.5rem);color:var(--golden-yellow);margin-bottom:20px}
+h3{font-family:var(--font-display);font-weight:700;font-size:1.15rem;color:var(--pure-white)}
+p{font-size:1rem;line-height:1.8;color:var(--cosmic-cream);font-weight:300}
+a{color:var(--aura-pink);text-decoration:none;transition:all 0.3s}a:hover{color:var(--electric-blue)}
+nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(8,1,27,0.8);backdrop-filter:blur(15px);border-bottom:1px solid rgba(255,237,138,0.1)}
+.nav-logo{font-family:var(--font-display);font-size:1.5rem;font-weight:800;color:var(--golden-yellow);text-shadow:0 0 10px rgba(255,237,138,0.4);text-decoration:none}
+.nav-links{display:flex;gap:25px}.nav-links a{color:var(--cosmic-cream);font-size:0.85rem;font-weight:500}.nav-links a:hover{color:var(--electric-blue)}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;z-index:1001}.hamburger span{display:block;width:24px;height:2px;background:var(--golden-yellow);transition:all 0.3s}.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}.hamburger.open span:nth-child(2){opacity:0}.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mobile-overlay{display:none;position:fixed;inset:0;background:rgba(8,1,27,0.95);backdrop-filter:blur(25px);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:25px}.mobile-overlay.open{display:flex}.mobile-overlay a{color:var(--cosmic-cream);font-family:var(--font-display);font-size:1.2rem;font-weight:700}
+.hero{min-height:45vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:130px 20px 50px}
+.hero-badge{display:inline-block;background:rgba(160,240,255,0.1);border:1px solid rgba(160,240,255,0.3);border-radius:50px;padding:8px 24px;font-size:0.8rem;color:var(--golden-yellow);letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;font-weight:600}
+.hero p{font-size:1.1rem;color:var(--aura-pink);max-width:500px;margin:15px auto 0}
+#faq-search{margin-top:25px;padding:14px 28px;border-radius:50px;border:1px solid rgba(160,240,255,0.2);background:rgba(255,249,234,0.03);color:var(--cosmic-cream);font-size:1rem;width:100%;max-width:400px;outline:none;font-family:var(--font-body)}
+#faq-search:focus{border-color:var(--golden-yellow)}
+.section{max-width:800px;margin:0 auto;padding:20px 20px 60px}
+.faq-item{background:rgba(255,249,234,0.03);backdrop-filter:blur(20px);border:1px solid rgba(255,237,138,0.15);border-radius:16px;padding:20px 24px;margin-bottom:12px;cursor:pointer;transition:all 0.3s}
+.faq-item:hover{border-color:var(--golden-yellow);box-shadow:0 0 20px rgba(255,237,138,0.1)}
+.faq-answer{display:none;margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,237,138,0.1)}
+.faq-item.open .faq-answer{display:block}
+.faq-toggle{float:right;color:var(--golden-yellow);font-size:1.2rem;font-weight:700}
+.btn-cta{display:inline-block;background:var(--gradient-gold-pink);border:none;color:#000;font-family:var(--font-body);font-weight:700;font-size:1rem;border-radius:50px;padding:16px 36px;box-shadow:var(--glow-gold);transition:all 0.3s;cursor:pointer;text-transform:uppercase;letter-spacing:1px;text-decoration:none}.btn-cta:hover{transform:scale(1.05) translateY(-2px);box-shadow:var(--glow-love);color:#000}
+footer{padding:50px 40px;text-align:center;border-top:1px solid rgba(255,237,138,0.1);background:rgba(8,1,27,0.8)}
+.footer-logo{font-family:var(--font-display);font-size:1.8rem;font-weight:800;color:var(--golden-yellow);margin-bottom:15px}
+.footer-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}.footer-links a{color:var(--aura-pink);font-size:0.85rem}
+.footer-copy{color:rgba(255,249,234,0.4);font-size:0.75rem}
+@media(max-width:768px){nav{padding:15px 20px}.nav-links{display:none}.hamburger{display:flex}.hero{padding:100px 20px 40px}}
+</style>
 </head>
 <body>
-  <div class="container">
-    <div class="brand">
-      <h1>ASTRO AUREUM</h1>
-      <a href="https://astroaureum.com">astroaureum.com</a>
-    </div>
+<canvas id="stars" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none"></canvas>
+<nav>
+<a href="/" class="nav-logo">&#10022; Astro Aureum</a>
+<div class="nav-links">
+<a href="/carta-natal-gratis.html">Carta Natal</a>
+<a href="/horoscopo-diario.html">Horoscopo</a>
+<a href="/lecturas.html">Lecturas</a>
+<a href="/precios-premium.html">Premium</a>
+<a href="/blog/">Blog</a>
+<a href="/aureum-books.html">Aureum Books</a>
+</div>
+<button class="hamburger" id="hb"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-overlay" id="mm">
+<a href="/">Inicio</a><a href="/carta-natal-gratis.html">Carta Natal</a><a href="/lecturas.html">Lecturas</a><a href="/precios-premium.html">Premium</a><a href="/blog/">Blog</a>
+</div>
 
-    <div class="cosmic-energy">
-      <div class="moon-phase" id="moon-phase"></div>
-      <h2>Energia Cosmica del Dia</h2>
-      <div class="date" id="today-date"></div>
-      <div class="energy" id="cosmic-msg"></div>
-    </div>
+<section class="hero">
+<div class="hero-badge">&#10022; Ayuda</div>
+<h1>Preguntas Frecuentes</h1>
+<p>Todo lo que necesitas saber sobre Astro Aureum</p>
+<input type="text" id="faq-search" placeholder="Buscar pregunta...">
+</section>
 
-    <h3 style="text-align:center;color:#fff;margin-bottom:16px;font-family:'Cinzel',serif;">Selecciona tu Signo</h3>
-    <div class="signs-grid" id="signs-grid"></div>
+<section class="section">
+<h2>Sobre Astro Aureum</h2>
+<div class="faq-item"><h3>Que es Astro Aureum? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>Astro Aureum es la plataforma de astrologia mas completa del mundo. Ofrecemos 37 lecturas personalizadas en 9 tradiciones astrologicas (Occidental, Vedica, Cabalistica, China, Helenistica, Human Design, Celestial, Alma, Especializada), calculadas con Swiss Ephemeris y enriquecidas con inteligencia artificial.</p></div></div>
+<div class="faq-item"><h3>Como funcionan las lecturas? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>Introduces tu fecha, hora y lugar de nacimiento. Nuestro sistema calcula las posiciones planetarias exactas con Swiss Ephemeris y genera una lectura personalizada unica para ti. La recibes por email en minutos.</p></div></div>
+<div class="faq-item"><h3>Que tan precisas son? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>Utilizamos Swiss Ephemeris, las tablas astronomicas mas precisas del mundo, con precision de segundos de arco. No usamos tablas genericas ni estimaciones.</p></div></div>
+<div class="faq-item"><h3>Que tradiciones ofrecen? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>9 tradiciones: Occidental, Vedica, Cabalistica, China, Especializada, Alma, Celestial, Helenistica y Human Design. Cada una ofrece una perspectiva unica.</p></div></div>
+<div class="faq-item"><h3>En que idiomas estan disponibles? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>25+ idiomas: espanol, ingles, bulgaro, portugues, frances, aleman, italiano, ruso, arabe, japones, chino, coreano y mas.</p></div></div>
 
-    <div class="reading" id="reading"></div>
+<h2 style="margin-top:40px">Pagos y Suscripciones</h2>
+<div class="faq-item"><h3>Que metodos de pago aceptan? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>Tarjetas de credito/debito (Visa, Mastercard, Amex) y PayPal a traves de Stripe, la plataforma de pagos mas segura del mundo.</p></div></div>
+<div class="faq-item"><h3>Puedo cancelar mi suscripcion? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>Si, puedes cancelar en cualquier momento sin penalizacion. Tu acceso continua hasta el final del periodo facturado.</p></div></div>
+<div class="faq-item"><h3>Ofrecen reembolsos? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>Garantia de 30 dias. Si no estas satisfecho, contactanos y te devolvemos el 100% sin preguntas.</p></div></div>
+<div class="faq-item"><h3>Es seguro pagar? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>100% seguro. Usamos Stripe con encriptacion SSL de 256 bits. Nunca almacenamos datos de tu tarjeta.</p></div></div>
 
-    <!-- CTA: Carta Natal Gratis -->
-    <div class="cta-box" style="border-color: #A0F0FF; background: linear-gradient(135deg, rgba(160,240,255,0.1), rgba(212,168,67,0.08));">
-      <h3>&#9788; Calcula tu Carta Natal GRATIS</h3>
-      <p>Descubre tu Sol, Luna y Ascendente al instante. Calculos reales con Swiss Ephemeris.</p>
-      <a href="/carta-natal-gratis.html" class="cta-btn">Calcular Gratis Ahora</a>
-    </div>
+<h2 style="margin-top:40px">Carta Natal y Horoscopo</h2>
+<div class="faq-item"><h3>Necesito saber mi hora de nacimiento? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>La hora mejora la precision del Ascendente y las casas, pero no es obligatoria. Sin hora, calculamos Sol, Luna estimada y planetas.</p></div></div>
+<div class="faq-item"><h3>Diferencia entre gratis y premium? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>La gratis muestra Sol, Luna y Ascendente. La premium incluye 12 planetas, 12 casas, aspectos, nodos lunares y hasta 8,000 palabras de analisis.</p></div></div>
+<div class="faq-item"><h3>Como funciona el horoscopo diario? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>Se genera cada manana basado en transitos planetarios reales. Cubre amor, dinero y salud para cada signo.</p></div></div>
+<div class="faq-item"><h3>Que es la sinastria? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>La sinastria compara dos cartas natales para revelar la compatibilidad cosmica entre dos personas. Analiza aspectos emocionales, fisicos y karmicos.</p></div></div>
 
-    <!-- CTA: Premium -->
-    <div class="cta-box">
-      <h3>&#x2728; Horoscopo Personalizado Diario</h3>
-      <p>El horoscopo generico es solo un vistazo. Con Premium recibes predicciones basadas en TU carta natal completa, no solo tu signo solar.</p>
-      <a href="/precios-premium.html" class="cta-btn">Ver Planes Premium</a>
-    </div>
+<h2 style="margin-top:40px">Privacidad</h2>
+<div class="faq-item"><h3>Mis datos estan seguros? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>Si. Cumplimos con GDPR. Tus datos de nacimiento solo se usan para calcular tu carta. Nunca vendemos informacion personal.</p></div></div>
+<div class="faq-item"><h3>Puedo eliminar mi cuenta? <span class="faq-toggle">+</span></h3><div class="faq-answer"><p>Si, contactanos a hola@astroaureum.com y eliminaremos todos tus datos en 48 horas.</p></div></div>
 
-    <!-- Navigation links -->
-    <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:24px 0;">
-      <a href="/" style="color:#c9b8e8;text-decoration:none;font-size:.85rem;padding:8px 16px;border:1px solid rgba(212,168,67,0.2);border-radius:8px;">Inicio</a>
-      <a href="/carta-natal-gratis.html" style="color:#c9b8e8;text-decoration:none;font-size:.85rem;padding:8px 16px;border:1px solid rgba(212,168,67,0.2);border-radius:8px;">Carta Natal Gratis</a>
-      <a href="/lecturas.html" style="color:#c9b8e8;text-decoration:none;font-size:.85rem;padding:8px 16px;border:1px solid rgba(212,168,67,0.2);border-radius:8px;">Lecturas</a>
-      <a href="/blog/" style="color:#c9b8e8;text-decoration:none;font-size:.85rem;padding:8px 16px;border:1px solid rgba(212,168,67,0.2);border-radius:8px;">Blog</a>
-      <a href="/compartir.html" style="color:#c9b8e8;text-decoration:none;font-size:.85rem;padding:8px 16px;border:1px solid rgba(212,168,67,0.2);border-radius:8px;">Compartir</a>
-      <a href="/faq.html" style="color:#c9b8e8;text-decoration:none;font-size:.85rem;padding:8px 16px;border:1px solid rgba(212,168,67,0.2);border-radius:8px;">FAQ</a>
-    </div>
+<div style="text-align:center;margin-top:50px">
+<p style="color:var(--aura-pink);margin-bottom:15px">Tienes mas preguntas?</p>
+<a href="mailto:hola@astroaureum.com" class="btn-cta">CONTACTANOS</a>
+</div>
+</section>
 
-    <div style="text-align:center;padding:20px 0;border-top:1px solid rgba(212,168,67,0.1);margin-top:20px;">
-      <p style="color:#6B5B8D;font-size:.75rem;">&copy; 2026 Astro Aureum &mdash; Tu Guia Cosmica</p>
-    </div>
-  </div>
+<footer>
+<div class="footer-logo">&#10022; Astro Aureum</div>
+<div class="footer-links">
+<a href="/">Inicio</a><a href="/lecturas.html">Lecturas</a><a href="/aureum-books.html">Aureum Books</a><a href="/programa-referidos.html">Referidos</a><a href="/politica-privacidad.html">Privacidad</a>
+</div>
+<p class="footer-copy">&copy; 2026 Astro Aureum &mdash; Tu Guia Cosmica. Todos los derechos reservados.</p>
+</footer>
 
-  <script>
-    var signs = [
-      { id:'aries', symbol:'\u2648', name:'Aries', dates:'21 Mar - 19 Abr', element:'Fuego', compat:'Leo' },
-      { id:'tauro', symbol:'\u2649', name:'Tauro', dates:'20 Abr - 20 May', element:'Tierra', compat:'Virgo' },
-      { id:'geminis', symbol:'\u264A', name:'Geminis', dates:'21 May - 20 Jun', element:'Aire', compat:'Libra' },
-      { id:'cancer', symbol:'\u264B', name:'Cancer', dates:'21 Jun - 22 Jul', element:'Agua', compat:'Escorpio' },
-      { id:'leo', symbol:'\u264C', name:'Leo', dates:'23 Jul - 22 Ago', element:'Fuego', compat:'Sagitario' },
-      { id:'virgo', symbol:'\u264D', name:'Virgo', dates:'23 Ago - 22 Sep', element:'Tierra', compat:'Capricornio' },
-      { id:'libra', symbol:'\u264E', name:'Libra', dates:'23 Sep - 22 Oct', element:'Aire', compat:'Acuario' },
-      { id:'escorpio', symbol:'\u264F', name:'Escorpio', dates:'23 Oct - 21 Nov', element:'Agua', compat:'Piscis' },
-      { id:'sagitario', symbol:'\u2650', name:'Sagitario', dates:'22 Nov - 21 Dic', element:'Fuego', compat:'Aries' },
-      { id:'capricornio', symbol:'\u2651', name:'Capricornio', dates:'22 Dic - 19 Ene', element:'Tierra', compat:'Tauro' },
-      { id:'acuario', symbol:'\u2652', name:'Acuario', dates:'20 Ene - 18 Feb', element:'Aire', compat:'Geminis' },
-      { id:'piscis', symbol:'\u2653', name:'Piscis', dates:'19 Feb - 20 Mar', element:'Agua', compat:'Cancer' }
-    ];
-
-    var horoscopes = {
-      aries: [
-        { love:'Hoy Venus ilumina tu sector de relaciones. Si tienes pareja, una conversacion profunda fortalecera el vinculo. Si estas soltero/a, alguien captara tu atencion.', money:'Las finanzas mejoran. Un proyecto que iniciaste podria dar frutos esta semana. Confia en tu instinto para las decisiones economicas.', health:'Tu energia esta alta pero cuidado con el exceso. Dedica tiempo a estirar y respirar. Tu cuerpo te lo agradecera.' },
-        { love:'Marte activa tu pasion. Es un dia para expresar lo que sientes sin filtros. El romanticismo esta en el aire si te atreves a dar el primer paso.', money:'Evita gastos impulsivos hoy. La paciencia sera tu mejor aliada financiera. Un ingreso extra podria aparecer a fin de mes.', health:'Canaliza tu energia en ejercicio fisico. Correr, boxear o bailar son ideales para ti hoy. Evita el cafe despues de las 4pm.' },
-        { love:'La Luna te pide que escuches mas y hables menos en el amor. Tu pareja necesita sentirse escuchada. La empatia abrira puertas que la fuerza no puede.', money:'Buen dia para negociar. Tu carisma natural te ayudara a cerrar acuerdos favorables. No tengas miedo de pedir lo que mereces.', health:'Atencion a la tension en cuello y hombros. Un masaje o bano caliente hara maravillas. Medita 10 minutos antes de dormir.' },
-        { love:'Jupiter trae expansion al amor. Podrias conocer a alguien de otra cultura o pais. Las relaciones a distancia tienen buena energia hoy.', money:'Inversiones a largo plazo estan favorecidas. No busques ganancias rapidas. La estrategia paciente sera la ganadora.', health:'Tu vitalidad es envidiable hoy. Aprovecha para establecer nuevas rutinas saludables. El deporte al aire libre te recarga.' }
-      ],
-      tauro: [
-        { love:'Venus te sonrie hoy. La sensualidad y el romance estan a flor de piel. Sorprende a tu pareja con algo hecho con tus manos. Tu toque personal vale mas que cualquier regalo.', money:'La estabilidad financiera que buscas esta mas cerca. Un aumento o nueva fuente de ingresos se perfila. Sigue siendo constante.', health:'Cuida tu garganta y tu alimentacion. Tu cuerpo te pide comida real, no procesada. Cocinar te relaja y te nutre el alma.' },
-        { love:'Hoy la Luna llena activa tus emociones. Podrias sentirte mas vulnerable de lo normal. Dejate abrazar y no tengas miedo de mostrar tu lado suave.', money:'No es dia de decisiones financieras grandes. Espera hasta manana cuando tu mente este mas clara. Revisa tus suscripciones y cancela lo innecesario.', health:'El estres se acumula en tu cuerpo. Necesitas movimiento suave: yoga, caminata o natacion. Tu jardin interior necesita atencion.' },
-        { love:'Mercurio mejora la comunicacion en pareja. Di lo que sientes con calma y claridad. Las palabras correctas pueden sanar heridas viejas hoy.', money:'Un proyecto creativo podria convertirse en fuente de ingresos. No subestimes tus talentos artisticos. Alguien podria ofrecerte una oportunidad.', health:'Tu energia es estable y constante. Mantiene tus horarios regulares de sueno y comida. La rutina es tu medicina.' },
-        { love:'Pluton transforma tu sector amoroso. Una relacion podria profundizarse significativamente o una toxica podria terminar. Confia en el proceso de cambio.', money:'Herencias, deudas o recursos compartidos estan en foco. Resuelve temas financieros pendientes. La claridad en el dinero trae paz.', health:'Atencion al sistema digestivo. Come despacio y mastica bien. Los probioticos y la fibra son tus aliados esta semana.' }
-      ],
-      geminis: [
-        { love:'Mercurio activa tu encanto natural. Las palabras fluyen y tu ingenio seduce. Si buscas pareja, las apps de citas estan favorecidas. Si la tienes, sorprendela con poesia.', money:'Ideas brillantes para ganar dinero llegan hoy. Anotalas todas, incluso las que parecen locas. Alguna podria ser de oro.', health:'Tu mente va a mil por hora. Necesitas calmar los pensamientos antes de dormir. Prueba escribir un diario o escuchar ASMR.' },
-        { love:'La dualidad de Geminis se activa en el amor. Podrias sentir que quieres dos cosas opuestas. No te presiones: la claridad vendra sola.', money:'Buen dia para firmar contratos o cerrar acuerdos. Tu habilidad verbal te da ventaja en negociaciones. Lee la letra pequena.', health:'Cuida tus manos, brazos y sistema nervioso. Pausas cada hora frente a la pantalla. Estiramiento de munecas y hombros.', },
-        { love:'Venus y Mercurio crean una combinacion magica. Tus conversaciones hoy pueden enamorar. Un mensaje inesperado podria cambiar tu estado de animo.', money:'Los negocios relacionados con comunicacion, escritura o redes sociales estan favorecidos. Tu creatividad es tu moneda mas valiosa.', health:'Diversifica tu rutina de ejercicio. Tu cuerpo se aburre de lo mismo. Prueba algo nuevo: escalada, paddel, o danza.' },
-        { love:'Hoy necesitas espacio para pensar. No es que no ames, es que necesitas procesar. Comunica esto a tu pareja para evitar malentendidos.', money:'Informacion valiosa llega a traves de conversaciones casuales. Escucha atentamente en reuniones sociales. Una oportunidad se esconde en las palabras de alguien.', health:'Tu sistema respiratorio necesita atencion. Aire fresco, respiraciones profundas y menos tiempo en espacios cerrados.' }
-      ],
-      cancer: [
-        { love:'La Luna, tu regente, esta en fase favorable. Tu intuicion en el amor es infalible hoy. Sigue tu corazon, no tu cabeza. El hogar y la pareja se benefician de tu ternura.', money:'El ahorro es tu fuerte hoy. Evita prestar dinero a otros. Tu seguridad financiera viene primero. Un proyecto familiar podria generar ingresos.', health:'Tu estomago refleja tus emociones. Come ligero si estas estresado/a. La sopa casera y el te de manzanilla son tu medicina.' },
-        { love:'Nostalgias del pasado podrían visitarte. Un ex podria reaparecer o un recuerdo te hara sonreir. Vive el presente, aprende del pasado, pero no te quedes ahi.', money:'Las inversiones en el hogar estan favorecidas. Remodelacion, decoracion o comprar electrodomesticos. Tu casa es tu santuario de prosperidad.', health:'El agua es tu elemento. Banos de sal, natacion o simplemente beber mas agua. Tu cuerpo te lo pide a gritos.' },
-        { love:'Tu lado protector se activa. Cuidado con ser demasiado controlador/a en el amor. El amor verdadero necesita espacio para respirar.', money:'Luna nueva trae nuevos comienzos financieros. Es buen momento para abrir una cuenta de ahorro o iniciar un proyecto. Plantaa semillas economicas.', health:'Tu estado de animo afecta tu salud directamente. Rodeate de personas positivas y evita las noticias negativas. La alegria es tu mejor vitamina.' },
-        { love:'Hoy la empatia es tu superpoder. Podrias percibir exactamente lo que tu pareja necesita sin que te lo diga. Actua desde el amor, no desde el miedo.', money:'Un familiar podria necesitar ayuda economica. Ayuda solo si puedes hacerlo sin comprometer tu estabilidad. El equilibrio es clave.', health:'Cuida tu pecho y tu sistema linfatico. Ejercicios suaves y drenaje linfatico son ideales. Duerme al menos 8 horas.' }
-      ],
-      leo: [
-        { love:'El Sol ilumina tu corazon hoy. Tu carisma esta al maximo y atraes admiracion sin esfuerzo. En pareja, tu generosidad sera correspondida con creces.', money:'Proyectos creativos tienen potencial de monetizacion. Tu talento merece ser valorado y pagado. No regales tu trabajo.', health:'Tu corazon necesita atencion: tanto fisico como emocional. Cardio moderado y momentos de gratitud. Rie mas.' },
-        { love:'Cuidado con el orgullo en el amor. A veces pedir perdon no es debilidad, es valentia. Tu pareja necesita ver tu lado humano, no solo tu lado brillante.', money:'Gastos en lujo podrian tentarte. Preguntate si realmente lo necesitas o solo lo quieres para impresionar. La verdadera riqueza no se exhibe.', health:'Tu espalda necesita atencion. Mejora tu postura, especialmente frente al escritorio. Pilates o yoga para la columna.' },
-        { love:'Tu brillo natural atrae como un iman. Si estas soltero/a, alguien podria quedar fascinado/a contigo hoy. Deja que te conozcan mas alla de la superficie.', money:'El reconocimiento profesional trae recompensas financieras. Tu liderazgo no pasa desapercibido. Un ascenso o bonus podria estar cerca.', health:'Energia radiante hoy. Aprovecha para hacer esa actividad fisica que has pospuesto. Tu cuerpo puede con todo.' },
-        { love:'La Luna activa tu romanticismo. Sorprende con un gesto dramatico pero sincero. Flores, cena a la luz de las velas o un mensaje largo y bonito.', money:'Inversiones en arte, moda o entretenimiento estan favorecidas. Tu ojo para lo bello puede convertirse en ganancias. Confia en tu gusto.', health:'Atencion al corazon y la circulacion. Reduce el sodio y aumenta los alimentos ricos en potasio. Bananas, aguacate y espinacas.' }
-      ],
-      virgo: [
-        { love:'Mercurio afina tu comunicacion en el amor. Hoy puedes expresar exactamente lo que necesitas. Tu pareja apreciara tu claridad y honestidad.', money:'Tu ojo para el detalle te salva de un error financiero. Revisa facturas, contratos y estados de cuenta. Encontraras algo que necesita correccion.', health:'Tu salud intestinal es clave hoy. Probioticos, fibra y agua son tu formula magica. Evita el gluten si te causa molestias.' },
-        { love:'Deja de analizar tanto el amor. No todo se puede entender con la mente. Hoy practica sentir sin juzgar. Tu corazon tiene respuestas que tu cerebro no comprende.', money:'El orden en tus finanzas trae abundancia. Hoy es perfecto para hacer presupuestos, organizar recibos y planificar el mes.', health:'El perfeccionismo genera ansiedad. Date permiso de ser imperfecto/a hoy. La meditacion mindfulness es tu mejor herramienta.' },
-        { love:'Un acto de servicio dice mas que mil palabras para ti. Prepara el desayuno, arregla algo en casa o ayuda con un proyecto. El amor se demuestra con actos.', money:'Tu habilidad analitica brilla en el trabajo. Presentaciones, informes y analisis de datos son tus arenas de poder. Destaca sin presumir.', health:'Rutinas saludables son tu fortaleza. Mantiene tus habitos y no te dejes tentar por modas pasajeras. Lo que funciona, funciona.' },
-        { love:'Venus suaviza tu tendencia critica. Hoy mira a tu pareja con ojos de compasion, no de evaluacion. Nadie es perfecto y eso esta bien.', money:'Oportunidades en salud, bienestar o servicios de organizacion. Tu talento natural para ordenar el caos tiene valor de mercado. Exploralo.', health:'Tu sistema nervioso necesita descanso. Banos calientes con lavanda, musica suave y apagar pantallas antes de dormir.' }
-      ],
-      libra: [
-        { love:'Venus, tu planeta regente, esta en posicion favorable. La armonia en tus relaciones mejora notablemente. Si estas soltero/a, una persona elegante y culta podria aparecer.', money:'Las asociaciones y colaboraciones estan favorecidas. No intentes hacerlo todo solo/a. Un socio/a de negocios podria multiplicar tus ingresos.', health:'El equilibrio es tu clave. Ni mucho ni poco de todo. Moderacion en comida, ejercicio y trabajo. Tu cuerpo busca balance.' },
-        { love:'La indecision podria complicar tu vida amorosa. No dejes que el miedo a elegir mal te paralice. A veces la mejor decision es la que tomas con valentia.', money:'Comparar precios y negociar te ahorra dinero hoy. Tu sentido de justicia te ayuda a obtener tratos justos. No aceptes menos de lo que mereces.', health:'Atencion a los rinones y la zona lumbar. Bebe mas agua, reduce el sodio y haz estiramientos de espalda baja.' },
-        { love:'La belleza te rodea hoy. Visita un museo, escucha musica hermosa o simplemente aprecia a quien amas. Compartir momentos esteticos fortalece tu vinculo.', money:'El arte, el diseno y la moda estan favorecidos financieramente. Si trabajas en algo creativo, hoy es tu dia de brillar.', health:'Tu piel refleja tu estado interior. Cuida tu rutina facial, hidratatela y come alimentos ricos en antioxidantes. Brillas de adentro hacia afuera.' },
-        { love:'Hoy la diplomacia es tu arma secreta. Un conflicto de pareja se resuelve con elegancia si usas tus palabras con sabiduria. Eres el/la mediador/a nato/a del zodiaco.', money:'Contratos y acuerdos legales estan favorecidos. Si necesitas firmar algo importante, hoy es un buen dia. Consulta los detalles con calma.', health:'El yoga y la meditacion son perfectos para ti hoy. Busca clases que combinen movimiento fluido con respiracion consciente.' }
-      ],
-      escorpio: [
-        { love:'Pluton intensifica tus emociones. Tu mirada penetrante hipnotiza hoy. En el amor, buscas profundidad y autenticidad. Las relaciones superficiales no te satisfacen.', money:'Transformacion financiera en camino. Un ciclo de escasez podria terminar y dar paso a la abundancia. Confia en tu poder de regeneracion.', health:'Desintoxicacion emocional y fisica. Suelta rencores, bebe agua con limon y haz ejercicio intenso. Libera lo que ya no sirve.' },
-        { love:'Los celos podrian asomarse hoy. Antes de reaccionar, preguntate: es real la amenaza o es mi inseguridad? La confianza es el afrodisiaco mas potente.', money:'Investigaciones financieras revelan oportunidades ocultas. Busca inversiones alternativas, criptomonedas o mercados que otros ignoran. Tu intuicion economica es tu sexto sentido.', health:'Tu energia sexual es tu fuerza vital. Canalizala creativamente si no tienes pareja. Kundalini yoga puede ayudarte a transformarla.' },
-        { love:'Un secreto podria salir a la luz. Si es tuyo, es mejor que lo reveles tu antes de que lo descubran. La verdad duele pero libera. Y en Escorpio, la libertad es todo.', money:'Herencias, seguros o recursos compartidos estan en foco. Es buen momento para reorganizar finanzas conjuntas. Claridad en el dinero compartido.', health:'Tu sistema reproductivo necesita atencion. Chequeos regulares y no ignores las senales de tu cuerpo. La prevencion es poder.' },
-        { love:'Hoy tu magnetismo esta al maximo. No necesitas hacer nada especial, tu presencia habla por si sola. Deja que el amor te encuentre en vez de buscarlo desesperadamente.', money:'Buen dia para eliminar deudas o reestructurar pagos. Tu poder de regeneracion financiera es admirable. De las cenizas, creas oro.', health:'Ejercicio intenso como crossfit, artes marciales o HIIT son ideales para tu energia. Necesitas sudar y liberar tension.' }
-      ],
-      sagitario: [
-        { love:'Jupiter expande tu corazon. Podrias enamorarte de alguien de otra cultura o en un viaje. El amor llega por caminos inesperados. Mantente abierto/a a la sorpresa.', money:'La suerte esta de tu lado en finanzas. Pero no abuses: Jupiter amplifica tanto ganancias como perdidas. Se optimista pero inteligente.', health:'Tu higado y caderas necesitan atencion. Reduce el alcohol, come ligero y estira las caderas despues de estar sentado/a mucho tiempo.' },
-        { love:'Tu honestidad brutal podria herir hoy. Antes de decir "la verdad", preguntate si es necesaria, amable y oportuna. El filtro diplomatico no te quita autenticidad.', money:'Viajes de negocios o clientes internacionales estan favorecidos. Tu vision global es tu ventaja competitiva. Piensa en grande, actua localmente.', health:'Necesitas movimiento y aire libre. Una caminata por la naturaleza o andar en bici te recarga como nada mas. Eres un animal salvaje: necesitas espacio.' },
-        { love:'La aventura es tu lenguaje del amor. Planea algo espontaneo: un viaje de fin de semana, probar un restaurante exotico o aprender algo juntos.', money:'La educacion es tu mejor inversion. Cursos, libros o mentores que amplien tu vision. El conocimiento se convierte en dinero a largo plazo.', health:'Tu optimismo natural es tu mejor medicina. Pero no ignores los sintomas por pensar que "ya pasara". Atiende las senales tempranas.' },
-        { love:'La filosofia del amor te ocupa hoy. Reflexionas sobre que significa realmente amar y ser amado/a. Comparte estas reflexiones con tu pareja: la profundidad une.', money:'Publicaciones, cursos online o ensenar lo que sabes podria generar ingresos. Tu conocimiento tiene valor. Comparte y cobra por ello.', health:'El deporte te conecta contigo mismo/a. Escalada, surf, senderismo o cualquier actividad al aire libre. Tu cuerpo necesita libertad.' }
-      ],
-      capricornio: [
-        { love:'Saturno te ensena la paciencia en el amor. Las relaciones que construyes lentamente son las que duran toda la vida. No tengas prisa. Lo bueno tarda.', money:'Tu disciplina financiera da frutos. Los ahorros crecen, las deudas bajan. Estas construyendo un futuro solido ladrillo a ladrillo. Sigue asi.', health:'Tus huesos y articulaciones necesitan calcio y vitamina D. Sol por la manana, lacteos o suplementos. Tu estructura corporal te sostiene: cuidala.' },
-        { love:'Hoy suelta el control en el amor. No puedes planificarlo todo, y eso esta bien. A veces el caos trae las mejores sorpresas romanticas.', money:'Reconocimiento profesional puede traer un aumento o promocion. Tu trabajo habla por si solo. No necesitas presumir: los resultados lo hacen por ti.', health:'El estres cronico es tu enemigo. Agenda tiempo de descanso como si fuera una reunion importante. Tu cuerpo necesita que le des permiso de parar.' },
-        { love:'Tu lado tierno emerge hoy. Dejalo salir sin miedo. Mostrar vulnerabilidad no es debilidad para un Capricornio: es la forma mas valiente de amar.', money:'Propiedades, bienes raices o inversiones a largo plazo estan favorecidos. Tu vision a futuro es tu mayor activo financiero. Piensa a 10 anos.', health:'La rigidez fisica refleja rigidez mental. Estira tu cuerpo y estiraras tu mente. Yoga, tai chi o simplemente bailar en tu cuarto.' },
-        { love:'Un compromiso serio podria presentarse. Ya sea mudarse juntos, un anillo o una decision de vida en pareja. Saturno aprueba las decisiones maduras y bien pensadas.', money:'Los negocios familiares o tradicionales tienen buena energia. Tu respeto por la tradicion combinado con tu ambicion crea imperio. Honra tus raices.', health:'Atencion a las rodillas y la piel. Hidratacion interna y externa. Coloquenos y cremas nutritivas. Tu cuerpo necesita mantenimiento como un buen reloj.' }
-      ],
-      acuario: [
-        { love:'Urano trae sorpresas al amor. Podrias conocer a alguien completamente diferente a tu "tipo". El universo te pide que rompas patrones y te abras a lo inesperado.', money:'Ideas innovadoras tienen potencial de dinero. Tecnologia, redes sociales o proyectos comunitarios. Tu vision del futuro es monetizable. Patenta tus ideas.', health:'Tu sistema nervioso necesita desconexion digital. Al menos 2 horas sin pantallas antes de dormir. Tu cerebro necesita reiniciarse.' },
-        { love:'Tu necesidad de independencia podria confundir a tu pareja. Explica que necesitar espacio no significa no amar. Tu forma de amar es diferente: y esta bien.', money:'Crowdfunding, economia colaborativa o proyectos comunitarios estan favorecidos. Tu red de contactos es tu mayor activo. Nutrela.', health:'Circulacion y tobillos necesitan atencion. Camina, usa medias de compresion si pasas mucho tiempo de pie, y eleva las piernas por la noche.' },
-        { love:'Hoy conectas a nivel mental antes que fisico. Una conversacion brillante te enamora mas que cualquier gesto romantico. Busca a alguien que desafie tu mente.', money:'La tecnologia es tu aliada financiera. Apps de inversion, automatizacion de procesos o crear contenido digital. El futuro es digital y tu ya vives ahi.', health:'Experimenta con biohacking o nuevas tendencias de bienestar. Tu mente curiosa necesita probar cosas nuevas. Ayuno intermitente, meditacion con neurofeedback o crioterapia.' },
-        { love:'Tu humanitarismo brilla en el amor. Hoy podrias conectar con alguien a traves de una causa social o voluntariado. El amor que nace de la compasion es el mas duradero.', money:'Ingresos de fuentes no convencionales. Regalias, derechos digitales, NFTs o consultoria futurista. No te limites a las fuentes de ingreso tradicionales.', health:'La meditacion y el mindfulness son tus herramientas mas poderosas. Tu mente hiperactiva necesita momentos de quietud para funcionar mejor.' }
-      ],
-      piscis: [
-        { love:'Neptuno te envuelve en romanticismo puro. Hoy ves el amor con ojos de poeta. Cuidado con idealizar demasiado: ama a la persona real, no a la que imaginas.', money:'La creatividad es tu fuente de ingresos. Musica, arte, escritura, terapia o espiritualidad. Monetiza tus dones unicos. El mundo necesita lo que tu ofreces.', health:'Tus pies son tu punto debil. Masajes podales, buenos zapatos y caminar descalzo/a por la hierba. La reflexologia te hara maravillas.' },
-        { love:'Tu empatia te hace sentir las emociones de tu pareja como propias. Hoy practica poner limites emocionales saludables. Puedes amar sin absorber el dolor ajeno.', money:'Cuidado con prestar dinero a quienes no lo devuelven. Tu generosidad es hermosa pero necesita limites. No sacrifiques tu estabilidad por otros.', health:'El agua es tu medicina. Banos de mar, piscina, banos de tina con sales. El agua limpia tu energia y restaura tu paz interior.' },
-        { love:'Los suenos de anoche podrian contener mensajes sobre tu vida amorosa. Presta atencion a los simbolos y emociones oniricas. Tu subconsciente sabe cosas que tu mente consciente ignora.', money:'La intuicion financiera esta aguda hoy. Si algo "no se siente bien" en un negocio, alejate. Tu sexto sentido es mas preciso que cualquier analisis de mercado.', health:'Tu sistema inmunologico necesita apoyo. Vitamina C, descanso adecuado y reducir el estres. Eres como una esponja: absorbes todo, incluso las enfermedades de otros.' },
-        { love:'Hoy el universo conspira para conectarte con tu alma gemela. Ya sea que la conozcas hoy o profundices con quien ya tienes. La magia del amor esta activa.', money:'Manifestacion y ley de atraccion estan potenciadas. Visualiza tu abundancia con detalle y emocion. Lo que imaginas con sentimiento, se materializa.', health:'Tu espiritualidad es tu medicina. Meditacion, oracion, conexion con lo divino. Cuando tu espiritu esta sano, tu cuerpo sigue.' }
-      ]
-    };
-
-    // Seed-based random for consistent daily results
-    function seededRandom(seed) {
-      var x = Math.sin(seed) * 10000;
-      return x - Math.floor(x);
-    }
-
-    var today = new Date();
-    var dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / 86400000);
-    var months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
-    var days = ['Domingo','Lunes','Martes','Miercoles','Jueves','Viernes','Sabado'];
-
-    // Set date
-    document.getElementById('today-date').textContent = days[today.getDay()] + ', ' + today.getDate() + ' de ' + months[today.getMonth()] + ' ' + today.getFullYear();
-
-    // Moon phase
-    var moonPhases = ['\uD83C\uDF11','\uD83C\uDF12','\uD83C\uDF13','\uD83C\uDF14','\uD83C\uDF15','\uD83C\uDF16','\uD83C\uDF17','\uD83C\uDF18'];
-    var moonCycle = 29.5;
-    var knownNewMoon = new Date(2024, 0, 11);
-    var daysSinceNew = (today - knownNewMoon) / 86400000;
-    var moonPhaseIdx = Math.floor((daysSinceNew % moonCycle) / moonCycle * 8) % 8;
-    var moonNames = ['Luna Nueva','Luna Creciente','Cuarto Creciente','Gibosa Creciente','Luna Llena','Gibosa Menguante','Cuarto Menguante','Luna Menguante'];
-    document.getElementById('moon-phase').textContent = moonPhases[moonPhaseIdx];
-
-    // Cosmic message
-    var cosmicMsgs = [
-      'La energia de hoy favorece los nuevos comienzos. ' + moonNames[moonPhaseIdx] + ' amplifica tu intuicion.',
-      'Dia de reflexion y conexion interna. ' + moonNames[moonPhaseIdx] + ' te invita a escuchar tu voz interior.',
-      'La creatividad fluye con fuerza hoy. ' + moonNames[moonPhaseIdx] + ' potencia tu imaginacion.',
-      'Energia de transformacion en el aire. ' + moonNames[moonPhaseIdx] + ' te pide soltar lo viejo.',
-      'Las relaciones estan favorecidas hoy. ' + moonNames[moonPhaseIdx] + ' ilumina tus conexiones.',
-      'Dia de accion y determinacion. ' + moonNames[moonPhaseIdx] + ' te da el empuje que necesitas.',
-      'La paz interior es tu prioridad hoy. ' + moonNames[moonPhaseIdx] + ' te abraza con calma cosmica.'
-    ];
-    document.getElementById('cosmic-msg').textContent = cosmicMsgs[dayOfYear % cosmicMsgs.length];
-
-    // Render sign cards
-    var grid = document.getElementById('signs-grid');
-    signs.forEach(function(s) {
-      var card = document.createElement('div');
-      card.className = 'sign-card';
-      card.onclick = function() { showReading(s); };
-      card.innerHTML = '<span class="symbol">' + s.symbol + '</span><span class="name">' + s.name + '</span><div class="dates">' + s.dates + '</div><div class="element">' + s.element + '</div>';
-      grid.appendChild(card);
-    });
-
-    var currentSign = null;
-
-    function showReading(sign) {
-      // Remove active from all cards
-      document.querySelectorAll('.sign-card').forEach(function(c) { c.classList.remove('active'); });
-      event.currentTarget.classList.add('active');
-
-      currentSign = sign;
-      var h = horoscopes[sign.id];
-      var idx = dayOfYear % h.length;
-      var reading = h[idx];
-      var luckyNum = Math.floor(seededRandom(dayOfYear + sign.id.charCodeAt(0)) * 49) + 1;
-      var luckyNum2 = Math.floor(seededRandom(dayOfYear + sign.id.charCodeAt(1) + 100) * 49) + 1;
-
-      var el = document.getElementById('reading');
-      el.innerHTML = '<div class="reading-card">' +
-        '<div class="header"><div class="big-symbol">' + sign.symbol + '</div>' +
-        '<h2>' + sign.name + '</h2><div class="subtitle">' + sign.dates + ' | ' + sign.element + '</div></div>' +
-        '<div class="categories">' +
-        '<div class="cat"><div class="cat-title">\u2764\uFE0F Amor</div><p>' + reading.love + '</p></div>' +
-        '<div class="cat"><div class="cat-title">\uD83D\uDCB0 Dinero</div><p>' + reading.money + '</p></div>' +
-        '<div class="cat"><div class="cat-title">\uD83C\uDF3F Salud</div><p>' + reading.health + '</p></div>' +
-        '</div>' +
-        '<div class="lucky-row">' +
-        '<div class="lucky-item"><span class="label">Numero</span><span class="value">' + luckyNum + '</span></div>' +
-        '<div class="lucky-item"><span class="label">2do Numero</span><span class="value">' + luckyNum2 + '</span></div>' +
-        '<div class="lucky-item"><span class="label">Signo Compatible</span><span class="value">' + sign.compat + '</span></div>' +
-        '</div></div>' +
-        '<div class="share-row">' +
-        '<button class="share-btn" style="background:#25D366" onclick="shareHoroscope(\'whatsapp\')">WhatsApp</button>' +
-        '<button class="share-btn" style="background:#1877F2" onclick="shareHoroscope(\'facebook\')">Facebook</button>' +
-        '<button class="share-btn" style="background:#000" onclick="shareHoroscope(\'twitter\')">X</button>' +
-        '<button class="share-btn" style="background:#0088cc" onclick="shareHoroscope(\'telegram\')">Telegram</button>' +
-        '</div>' +
-        '<div class="horo-lead" id="horo-lead">' +
-        '<h3>\u2728 Recibe tu horoscopo diario por email</h3>' +
-        '<p>Cada manana en tu bandeja: predicciones de amor, dinero y salud para ' + sign.name + '. Gratis.</p>' +
-        '<form onsubmit="submitHoroLead(event)">' +
-        '<input type="email" id="hl-email" placeholder="tu@email.com" required>' +
-        '<button type="submit" class="hl-submit" id="hl-submit">\u2728 Suscribirme gratis</button>' +
-        '</form>' +
-        '<div class="hl-success" id="hl-success">\u2714 Suscrito! Recibiras tu horoscopo cada manana.</div>' +
-        '<div class="hl-privacy">Sin spam. Cancela cuando quieras.</div>' +
-        '</div>';
-
-      el.classList.add('active');
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-      if (typeof posthog !== 'undefined') posthog.capture('horoscope_viewed', { sign: sign.id });
-      if (typeof gtag !== 'undefined') gtag('event', 'horoscope_view', { event_category: 'engagement', event_label: sign.id });
-    }
-
-    function submitHoroLead(e) {
-      e.preventDefault();
-      var btn = document.getElementById('hl-submit');
-      var email = document.getElementById('hl-email').value.trim();
-      if (!email || !currentSign) return;
-      btn.disabled = true;
-      btn.textContent = 'Suscribiendo...';
-      fetch('/api/quiz-lead', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: '', email: email, moonSign: currentSign.name, source: 'horoscopo-diario' })
-      })
-      .then(function(r) { return r.json(); })
-      .then(function(d) {
-        document.querySelector('#horo-lead form').style.display = 'none';
-        document.getElementById('hl-success').style.display = 'block';
-        if (typeof posthog !== 'undefined') posthog.capture('horoscope_lead_captured', { email: email, sign: currentSign.id });
-        if (typeof gtag !== 'undefined') gtag('event', 'generate_lead', { event_category: 'horoscope', event_label: currentSign.id });
-      })
-      .catch(function(err) {
-        btn.disabled = false;
-        btn.textContent = '\u2728 Suscribirme gratis';
-        alert('Error. Intentalo de nuevo.');
-      });
-    }
-
-    function shareHoroscope(platform) {
-      if (!currentSign) return;
-      var text = 'Mi horoscopo de hoy ' + currentSign.symbol + ' ' + currentSign.name + ' \u2728\nVe el tuyo gratis:';
-      var url = 'https://astroaureum.com/horoscopo-diario.html';
-      var encoded = encodeURIComponent(text + '\n' + url);
-      switch (platform) {
-        case 'whatsapp': window.open('https://api.whatsapp.com/send?text=' + encoded, '_blank'); break;
-        case 'facebook': window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url), '_blank'); break;
-        case 'twitter': window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(url), '_blank'); break;
-        case 'telegram': window.open('https://t.me/share/url?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(text), '_blank'); break;
-      }
-      if (typeof posthog !== 'undefined') posthog.capture('horoscope_shared', { platform: platform, sign: currentSign.id });
-    }
-
-    // Service Worker
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/sw.js').catch(function() {});
-      });
-    }
-  </script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Que es Astro Aureum?","acceptedAnswer":{"@type":"Answer","text":"Plataforma de astrologia con 37 lecturas en 9 tradiciones, Swiss Ephemeris e IA."}},{"@type":"Question","name":"Que tan precisas son las lecturas?","acceptedAnswer":{"@type":"Answer","text":"Usamos Swiss Ephemeris con precision de segundos de arco."}},{"@type":"Question","name":"Puedo cancelar mi suscripcion?","acceptedAnswer":{"@type":"Answer","text":"Si, cancela en cualquier momento sin penalizacion."}},{"@type":"Question","name":"Ofrecen reembolsos?","acceptedAnswer":{"@type":"Answer","text":"Garantia de 30 dias con devolucion del 100%."}}]}
+</script>
+<script>
+var c=document.getElementById('stars'),x=c.getContext('2d'),s=[];function I(){c.width=innerWidth;c.height=innerHeight;s=[];for(var i=0;i<150;i++)s.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.5+.5,a:Math.random()*.8+.2,sp:Math.random()*.3+.1,cl:['#A0F0FF','#FFED8A','#FFD6F5','#FFB3D1'][Math.floor(Math.random()*4)]})}function D(){x.clearRect(0,0,c.width,c.height);s.forEach(function(p){x.beginPath();x.arc(p.x,p.y,p.r,0,Math.PI*2);x.fillStyle=p.cl;x.globalAlpha=p.a+Math.sin(Date.now()*.001*p.sp)*.3;x.fill()});requestAnimationFrame(D)}I();D();addEventListener('resize',I);
+document.querySelectorAll('.faq-item').forEach(function(item){item.addEventListener('click',function(){var a=this.querySelector('.faq-answer');var t=this.querySelector('.faq-toggle');this.classList.toggle('open');t.textContent=this.classList.contains('open')?'-':'+'})});
+document.getElementById('faq-search').addEventListener('input',function(){var q=this.value.toLowerCase();document.querySelectorAll('.faq-item').forEach(function(item){item.style.display=item.textContent.toLowerCase().includes(q)?'':'none'})});
+var hb=document.getElementById('hb'),mm=document.getElementById('mm');hb.addEventListener('click',function(){hb.classList.toggle('open');mm.classList.toggle('open');document.body.style.overflow=mm.classList.contains('open')?'hidden':''});mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){hb.classList.remove('open');mm.classList.remove('open');document.body.style.overflow=''})});
+if('serviceWorker' in navigator)navigator.serviceWorker.register('/sw.js');
+</script>
 </body>
 </html>

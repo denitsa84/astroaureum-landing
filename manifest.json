@@ -1,66 +1,19 @@
 {
-  "name": "Astro Aureum — Tu Guía Cósmica",
+  "name": "Astro Aureum — Tu Guia Cosmica",
   "short_name": "Astro Aureum",
-  "description": "La plataforma de astrología más completa del mundo. 9 tradiciones ancestrales, 37 servicios personalizados, 13 packs con descuento. Quiz lunar y horóscopo diario gratis.",
   "start_url": "/",
-  "id": "astro-aureum-pwa",
   "display": "standalone",
   "background_color": "#06050E",
   "theme_color": "#06050E",
-  "orientation": "portrait-primary",
-  "scope": "/",
   "icons": [
-    {
-      "src": "favicon-32.png",
-      "sizes": "32x32",
-      "type": "image/png"
-    },
-    {
-      "src": "favicon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "apple-touch-icon.png",
-      "sizes": "180x180",
-      "type": "image/png"
-    },
-    {
-      "src": "favicon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
+    {"src": "/favicon-32.png", "sizes": "32x32", "type": "image/png"},
+    {"src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png"},
+    {"src": "/favicon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "/favicon-512.png", "sizes": "512x512", "type": "image/png"}
   ],
-  "screenshots": [
-    {
-      "src": "og-image.jpg",
-      "sizes": "1200x630",
-      "type": "image/jpeg",
-      "form_factor": "wide",
-      "label": "Astro Aureum - Tu Guía Cósmica"
-    }
-  ],
-  "categories": ["lifestyle", "entertainment", "education"],
-  "lang": "es",
-  "dir": "ltr",
-  "prefer_related_applications": false,
   "shortcuts": [
-    {
-      "name": "Horoscopo del Dia",
-      "url": "/horoscopo-diario.html",
-      "icons": [{"src": "/favicon-192.png", "sizes": "192x192"}]
-    },
-    {
-      "name": "Carta Natal Gratis",
-      "url": "/carta-natal-gratis.html",
-      "icons": [{"src": "/favicon-192.png", "sizes": "192x192"}]
-    },
-    {
-      "name": "Lecturas",
-      "url": "/lecturas.html",
-      "icons": [{"src": "/favicon-192.png", "sizes": "192x192"}]
-    }
+    {"name": "Horoscopo del Dia", "url": "/horoscopo-diario.html", "icons": [{"src": "/favicon-192.png", "sizes": "192x192"}]},
+    {"name": "Carta Natal Gratis", "url": "/carta-natal-gratis.html", "icons": [{"src": "/favicon-192.png", "sizes": "192x192"}]},
+    {"name": "Lecturas", "url": "/lecturas.html", "icons": [{"src": "/favicon-192.png", "sizes": "192x192"}]}
   ]
 }
