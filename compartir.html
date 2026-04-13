@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Comparte tu Mapa Estelar | Astro Aureum</title>
 <meta name="description" content="Genera una tarjeta cosmica con tu signo zodiacal y compartela en redes sociales. Instagram, WhatsApp, TikTok, Twitter.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -47,8 +47,14 @@ footer{padding:50px 40px;text-align:center;border-top:1px solid rgba(255,237,138
 .footer-copy{color:rgba(255,249,234,0.4);font-size:0.75rem}
 @media(max-width:768px){nav{padding:15px 20px}.nav-links{display:none}.hamburger{display:flex}.hero{padding:100px 20px 30px}.card-symbol{font-size:4rem}.card-name{font-size:1.6rem}}
 </style>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Astro Aureum">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="/mobile-app.css">
 </head>
 <body>
+<div class="splash-screen" id="splash"><div class="splash-logo">Astro Aureum</div><div class="splash-tagline">Tu Guia Cosmica</div></div>
 <canvas id="stars" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none"></canvas>
 <nav>
 <a href="/" class="nav-logo">&#10022; Astro Aureum</a>
@@ -112,5 +118,13 @@ var c=document.getElementById('stars'),x=c.getContext('2d'),st=[];function I(){c
 var hb=document.getElementById('hb'),mm=document.getElementById('mm');hb.addEventListener('click',function(){hb.classList.toggle('open');mm.classList.toggle('open');document.body.style.overflow=mm.classList.contains('open')?'hidden':''});mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){hb.classList.remove('open');mm.classList.remove('open');document.body.style.overflow=''})});
 if('serviceWorker' in navigator)navigator.serviceWorker.register('/sw.js');
 </script>
+<nav class="bottom-nav"><div class="bottom-nav-inner">
+<a href="/"><span class="bottom-nav-icon">&#9733;</span><span class="bottom-nav-label">Inicio</span></a>
+<a href="/carta-natal-gratis.html"><span class="bottom-nav-icon">&#9737;</span><span class="bottom-nav-label">Carta</span></a>
+<a href="/horoscopo-diario.html"><span class="bottom-nav-icon">&#9789;</span><span class="bottom-nav-label">Hoy</span></a>
+<a href="/lecturas.html"><span class="bottom-nav-icon">&#10022;</span><span class="bottom-nav-label">Lecturas</span></a>
+<a href="/precios-premium.html"><span class="bottom-nav-icon">&#9830;</span><span class="bottom-nav-label">Premium</span></a>
+</div></nav>
+<script>window.addEventListener('load',function(){setTimeout(function(){var s=document.getElementById('splash');if(s)s.classList.add('hidden')},600)});</script>
 </body>
 </html>

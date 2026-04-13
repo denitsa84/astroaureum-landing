@@ -1,19 +1,28 @@
 {
   "name": "Astro Aureum — Tu Guia Cosmica",
   "short_name": "Astro Aureum",
+  "description": "Tu guia cosmica personal. Carta natal, horoscopo diario, sinastria y lecturas premium en 9 tradiciones astrologicas.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#06050E",
-  "theme_color": "#06050E",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "portrait-primary",
+  "background_color": "#08011B",
+  "theme_color": "#08011B",
+  "categories": ["lifestyle", "entertainment", "spirituality"],
+  "lang": "es",
+  "dir": "ltr",
   "icons": [
     {"src": "/favicon-32.png", "sizes": "32x32", "type": "image/png"},
-    {"src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png"},
-    {"src": "/favicon-192.png", "sizes": "192x192", "type": "image/png"},
-    {"src": "/favicon-512.png", "sizes": "512x512", "type": "image/png"}
+    {"src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png", "purpose": "any"},
+    {"src": "/favicon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
+    {"src": "/favicon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
   ],
   "shortcuts": [
-    {"name": "Horoscopo del Dia", "url": "/horoscopo-diario.html", "icons": [{"src": "/favicon-192.png", "sizes": "192x192"}]},
-    {"name": "Carta Natal Gratis", "url": "/carta-natal-gratis.html", "icons": [{"src": "/favicon-192.png", "sizes": "192x192"}]},
-    {"name": "Lecturas", "url": "/lecturas.html", "icons": [{"src": "/favicon-192.png", "sizes": "192x192"}]}
-  ]
+    {"name": "Horoscopo del Dia", "short_name": "Horoscopo", "url": "/horoscopo-diario.html", "icons": [{"src": "/favicon-192.png", "sizes": "192x192"}]},
+    {"name": "Carta Natal Gratis", "short_name": "Carta Natal", "url": "/carta-natal-gratis.html", "icons": [{"src": "/favicon-192.png", "sizes": "192x192"}]},
+    {"name": "Lecturas", "short_name": "Lecturas", "url": "/lecturas.html", "icons": [{"src": "/favicon-192.png", "sizes": "192x192"}]},
+    {"name": "Oferta Sinastria", "short_name": "Sinastria", "url": "/sinastria-oferta.html", "icons": [{"src": "/favicon-192.png", "sizes": "192x192"}]}
+  ],
+  "prefer_related_applications": false
 }

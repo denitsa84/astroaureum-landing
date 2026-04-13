@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Horoscopo del Dia | Astro Aureum</title>
 <meta name="description" content="Horoscopo diario para los 12 signos del zodiaco. Amor, dinero y salud. Predicciones basadas en transitos planetarios reales.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -54,8 +54,14 @@ footer{padding:40px 20px;text-align:center;border-top:1px solid rgba(255,237,138
 .footer-copy{color:rgba(255,249,234,0.4);font-size:0.7rem}
 @media(max-width:768px){.signs-grid{grid-template-columns:repeat(3,1fr);gap:10px}.cta-cards{grid-template-columns:1fr}.sign-symbol{font-size:2rem}}
 </style>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Astro Aureum">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="/mobile-app.css">
 </head>
 <body>
+<div class="splash-screen" id="splash"><div class="splash-logo">Astro Aureum</div><div class="splash-tagline">Tu Guia Cosmica</div></div>
 <canvas id="stars" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none"></canvas>
 
 <div class="brand">ASTRO AUREUM</div>
@@ -146,5 +152,13 @@ gtag('event','horoscope_viewed',{sign:s.n});
 var c=document.getElementById('stars'),x=c.getContext('2d'),st=[];function I(){c.width=innerWidth;c.height=innerHeight;st=[];for(var j=0;j<150;j++)st.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.5+.5,a:Math.random()*.8+.2,sp:Math.random()*.3+.1,cl:['#A0F0FF','#FFED8A','#FFD6F5','#FFB3D1'][Math.floor(Math.random()*4)]})}function D(){x.clearRect(0,0,c.width,c.height);st.forEach(function(p){x.beginPath();x.arc(p.x,p.y,p.r,0,Math.PI*2);x.fillStyle=p.cl;x.globalAlpha=p.a+Math.sin(Date.now()*.001*p.sp)*.3;x.fill()});requestAnimationFrame(D)}I();D();addEventListener('resize',I);
 if('serviceWorker' in navigator)navigator.serviceWorker.register('/sw.js');
 </script>
+<nav class="bottom-nav"><div class="bottom-nav-inner">
+<a href="/"><span class="bottom-nav-icon">&#9733;</span><span class="bottom-nav-label">Inicio</span></a>
+<a href="/carta-natal-gratis.html"><span class="bottom-nav-icon">&#9737;</span><span class="bottom-nav-label">Carta</span></a>
+<a href="/horoscopo-diario.html" class="active"><span class="bottom-nav-icon">&#9789;</span><span class="bottom-nav-label">Hoy</span></a>
+<a href="/lecturas.html"><span class="bottom-nav-icon">&#10022;</span><span class="bottom-nav-label">Lecturas</span></a>
+<a href="/precios-premium.html"><span class="bottom-nav-icon">&#9830;</span><span class="bottom-nav-label">Premium</span></a>
+</div></nav>
+<script>window.addEventListener('load',function(){setTimeout(function(){var s=document.getElementById('splash');if(s)s.classList.add('hidden')},600)});</script>
 </body>
 </html>

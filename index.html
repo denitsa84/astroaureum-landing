@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Programa de Referidos | Astro Aureum</title>
 <meta name="description" content="Gana recompensas compartiendo Astro Aureum. Invita amigos y gana Premium gratis, lecturas y mas.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -42,8 +42,14 @@ footer{padding:50px 40px;text-align:center;border-top:1px solid rgba(255,237,138
 .footer-copy{color:rgba(255,249,234,0.4);font-size:0.75rem}
 @media(max-width:768px){nav{padding:15px 20px}.nav-links{display:none}.hamburger{display:flex}.hero{padding:100px 20px 40px}.grid-3,.grid-2{grid-template-columns:1fr}}
 </style>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Astro Aureum">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="/mobile-app.css">
 </head>
 <body>
+<div class="splash-screen" id="splash"><div class="splash-logo">Astro Aureum</div><div class="splash-tagline">Tu Guia Cosmica</div></div>
 <canvas id="stars" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none"></canvas>
 <nav>
 <a href="/" class="nav-logo">&#10022; Astro Aureum</a>
@@ -58,5 +64,13 @@ footer{padding:50px 40px;text-align:center;border-top:1px solid rgba(255,237,138
 <section class="section" style="text-align:center"><div class="glass-card" style="max-width:600px;margin:0 auto;border-color:var(--golden-yellow)"><h2 style="margin-bottom:15px">Programa de Afiliados</h2><p>Eres influencer o creador? Gana <strong style="color:var(--golden-yellow)">20% de comision</strong> por cada venta.</p><p style="color:var(--golden-yellow);font-weight:600;margin-top:10px">20% comision &middot; Tracking &middot; Pagos mensuales</p><a href="mailto:hola@astroaureum.com?subject=Programa%20de%20Afiliados" class="btn-cta" style="margin-top:20px">APLICAR AHORA</a></div></section>
 <footer><div class="footer-logo">&#10022; Astro Aureum</div><div class="footer-links"><a href="/">Inicio</a><a href="/lecturas.html">Lecturas</a><a href="/aureum-books.html">Aureum Books</a><a href="/faq.html">FAQ</a><a href="/politica-privacidad.html">Privacidad</a></div><p class="footer-copy">&copy; 2026 Astro Aureum &mdash; Tu Guia Cosmica.</p></footer>
 <script>var c=document.getElementById('stars'),x=c.getContext('2d'),s=[];function I(){c.width=innerWidth;c.height=innerHeight;s=[];for(var i=0;i<150;i++)s.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.5+.5,a:Math.random()*.8+.2,sp:Math.random()*.3+.1,cl:['#A0F0FF','#FFED8A','#FFD6F5','#FFB3D1'][Math.floor(Math.random()*4)]})}function D(){x.clearRect(0,0,c.width,c.height);s.forEach(function(p){x.beginPath();x.arc(p.x,p.y,p.r,0,Math.PI*2);x.fillStyle=p.cl;x.globalAlpha=p.a+Math.sin(Date.now()*.001*p.sp)*.3;x.fill()});requestAnimationFrame(D)}I();D();addEventListener('resize',I);var hb=document.getElementById('hb'),mm=document.getElementById('mm');hb.addEventListener('click',function(){hb.classList.toggle('open');mm.classList.toggle('open');document.body.style.overflow=mm.classList.contains('open')?'hidden':''});mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){hb.classList.remove('open');mm.classList.remove('open');document.body.style.overflow=''})});if('serviceWorker' in navigator)navigator.serviceWorker.register('/sw.js');</script>
+<nav class="bottom-nav"><div class="bottom-nav-inner">
+<a href="/" class="active"><span class="bottom-nav-icon">&#9733;</span><span class="bottom-nav-label">Inicio</span></a>
+<a href="/carta-natal-gratis.html"><span class="bottom-nav-icon">&#9737;</span><span class="bottom-nav-label">Carta</span></a>
+<a href="/horoscopo-diario.html"><span class="bottom-nav-icon">&#9789;</span><span class="bottom-nav-label">Hoy</span></a>
+<a href="/lecturas.html"><span class="bottom-nav-icon">&#10022;</span><span class="bottom-nav-label">Lecturas</span></a>
+<a href="/precios-premium.html"><span class="bottom-nav-icon">&#9830;</span><span class="bottom-nav-label">Premium</span></a>
+</div></nav>
+<script>window.addEventListener('load',function(){setTimeout(function(){var s=document.getElementById('splash');if(s)s.classList.add('hidden')},600)});</script>
 </body>
 </html>
