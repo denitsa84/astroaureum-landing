@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Horoscopo del Dia | Astro Aureum</title>
-<meta name="description" content="Horoscopo diario para los 12 signos del zodiaco. Amor, dinero y salud. Predicciones basadas en transitos planetarios reales.">
+<title>Daily Horoscope | Astro Aureum</title>
+<meta name="description" content="Horoscope diario para los 12 signos del zodiaco. Love, dinero y salud. Predicciones basadas en transitos planetarios reales.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="manifest" href="/manifest.json">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0PZTB2PF7T"></script>
@@ -59,8 +59,8 @@ footer{padding:40px 20px;text-align:center;border-top:1px solid rgba(255,237,138
 <meta name="apple-mobile-web-app-title" content="Astro Aureum">
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="/mobile-app.css">
-<link rel="alternate" hreflang="es" href="https://astroaureum.com/horoscopo-diario.html" />
-<link rel="alternate" hreflang="x-default" href="https://astroaureum.com/horoscopo-diario.html" />
+<link rel="alternate" hreflang="es" href="https://astroaureum.com/horoscopo.html" />
+<link rel="alternate" hreflang="x-default" href="https://astroaureum.com/horoscopo.html" />
 <link rel="alternate" hreflang="bg" href="https://astroaureum.com/bg/horoscopo.html" />
 <link rel="alternate" hreflang="en" href="https://astroaureum.com/en/horoscopo.html" />
 <link rel="alternate" hreflang="pt" href="https://astroaureum.com/pt/horoscopo.html" />
@@ -74,11 +74,11 @@ footer{padding:40px 20px;text-align:center;border-top:1px solid rgba(255,237,138
 <link rel="alternate" hreflang="zh" href="https://astroaureum.com/zh/horoscopo.html" />
 </head>
 <body>
-<div class="splash-screen" id="splash"><div class="splash-logo">Astro Aureum</div><div class="splash-tagline">Tu Guia Cosmica</div></div>
+<div class="splash-screen" id="splash"><div class="splash-logo">Astro Aureum</div><div class="splash-tagline">Your Cosmic Guide</div></div>
 <canvas id="stars" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none"></canvas>
 
 <div class="brand">ASTRO AUREUM</div>
-<div class="brand-sub">Tu Guia Cosmica</div>
+<div class="brand-sub">Your Cosmic Guide</div>
 
 <div class="cosmic-energy">
 <div class="moon-phase" id="moon-phase"></div>
@@ -92,20 +92,20 @@ footer{padding:40px 20px;text-align:center;border-top:1px solid rgba(255,237,138
 
 <div class="cta-cards">
 <div class="cta-card" style="border-color:var(--electric-blue)">
-<h2 style="color:var(--electric-blue);font-size:1.2rem;margin-bottom:10px">Carta Natal Gratis</h2>
-<p style="font-size:0.85rem;margin-bottom:15px">Descubre tu Sol, Luna y Ascendente con precision</p>
-<a href="/carta-natal-gratis.html" class="btn-secondary">CALCULAR GRATIS</a>
+<h2 style="color:var(--electric-blue);font-size:1.2rem;margin-bottom:10px">Free Birth Chart</h2>
+<p style="font-size:0.85rem;margin-bottom:15px">Discover your Sun, Moon and Rising with precision</p>
+<a href="/en/carta-natal.html" class="btn-secondary">CALCULATE FREE</a>
 </div>
 <div class="cta-card" style="border-color:var(--golden-yellow)">
-<h2 style="font-size:1.2rem;margin-bottom:10px">Lectura Premium</h2>
-<p style="font-size:0.85rem;margin-bottom:15px">37 lecturas en 9 tradiciones desde &euro;12</p>
-<a href="/lecturas.html" class="btn-cta">VER LECTURAS</a>
+<h2 style="font-size:1.2rem;margin-bottom:10px">Premium Reading</h2>
+<p style="font-size:0.85rem;margin-bottom:15px">37 readings in 9 traditions from &euro;12</p>
+<a href="/en/lecturas.html" class="btn-cta">VIEW READINGS</a>
 </div>
 </div>
 
 <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;padding:0 20px 30px;max-width:700px;margin:0 auto">
-<a href="/" class="btn-secondary" style="font-size:0.8rem;padding:10px 20px">Inicio</a>
-<a href="/lecturas.html" class="btn-secondary" style="font-size:0.8rem;padding:10px 20px">Lecturas</a>
+<a href="/en/" class="btn-secondary" style="font-size:0.8rem;padding:10px 20px">Home</a>
+<a href="/en/lecturas.html" class="btn-secondary" style="font-size:0.8rem;padding:10px 20px">Readings</a>
 <a href="/precios-premium.html" class="btn-secondary" style="font-size:0.8rem;padding:10px 20px">Premium</a>
 <a href="/blog/" class="btn-secondary" style="font-size:0.8rem;padding:10px 20px">Blog</a>
 <a href="/aureum-books.html" class="btn-secondary" style="font-size:0.8rem;padding:10px 20px">Aureum Books</a>
@@ -113,8 +113,8 @@ footer{padding:40px 20px;text-align:center;border-top:1px solid rgba(255,237,138
 
 <footer>
 <div class="footer-logo">&#10022; Astro Aureum</div>
-<div class="footer-links"><a href="/">Inicio</a><a href="/lecturas.html">Lecturas</a><a href="/aureum-books.html">Books</a><a href="/faq.html">FAQ</a><a href="/politica-privacidad.html">Privacidad</a></div>
-<p class="footer-copy">&copy; 2026 Astro Aureum &mdash; Tu Guia Cosmica.</p>
+<div class="footer-links"><a href="/en/">Home</a><a href="/en/lecturas.html">Readings</a><a href="/aureum-books.html">Books</a><a href="/faq.html">FAQ</a><a href="/politica-privacidad.html">Privacy</a></div>
+<p class="footer-copy">&copy; 2026 Astro Aureum &mdash; Your Cosmic Guide.</p>
 </footer>
 <script>
 var SIGNS=[
@@ -122,7 +122,7 @@ var SIGNS=[
 {n:'Tauro',s:'\u2649',d:'Apr 20 - May 20',e:'Tierra',c:'Escorpio',h:[['La estabilidad emocional te favorece. Tu pareja valora tu presencia.','Oportunidad de negocio en el horizonte. Escucha antes de decidir.','Excelente dia para cuidar tu alimentacion. Tu cuerpo lo agradecera.'],['Un encuentro casual podria encender una chispa romantica.','Revisa tus suscripciones. Hay gastos que puedes eliminar.','Dolor de cabeza posible. Hidrátate bien durante el dia.'],['Tu lealtad sera recompensada en el amor. Paciencia cosmica.','Buen momento para planificar inversiones a largo plazo.','Energia moderada. No te exijas demasiado fisicamente.'],['Conversation profunda con alguien especial te espera.','Recibes noticias positivas sobre dinero pendiente.','Tu sistema inmune esta fuerte. Aprovecha para activarte.']]},
 {n:'Geminis',s:'\u264A',d:'May 21 - Jun 20',e:'Aire',c:'Sagitario',h:[['Tu encanto verbal esta al maximo. Usalo para reconectar con alguien.','Ideas brillantes para generar ingresos extras. Anotalas.','Tu mente necesita estimulo. Lee algo que te inspire.'],['Cuidado con los malentendidos en pareja. Se claro.','Dia favorable para cerrar tratos y negociaciones.','Tension muscular en cuello y hombros. Relajate.'],['Mercurio te favorece en la comunicacion romantica.','No prestes dinero hoy. Protege tus recursos.','Energia mental alta pero fisicamente necesitas pausa.'],['Sorpresas agradables en el amor. Dejate llevar.','Un ingreso inesperado alegra tu semana.','Excelente dia para caminar al aire libre.']]},
 {n:'Cancer',s:'\u264B',d:'Jun 21 - Jul 22',e:'Agua',c:'Capricornio',h:[['Tu intuicion romantica esta afinada. Confia en lo que sientes.','El hogar puede generar oportunidades economicas. Piensalo.','Tu energia emocional necesita cuidado. Tomate un tiempo.'],['La Luna te conecta profundamente con tu pareja.','Gastos del hogar requieren atencion. Planifica.','Duerme bien. Tu cuerpo procesa emociones durante el sueno.'],['Un familiar te da un consejo valioso sobre el amor.','Estabilidad financiera en camino. Ten paciencia.','Cocinar algo nutritivo sera terapeutico hoy.'],['Nostalgia romantica. Un recuerdo te trae claridad.','Buen dia para ahorrar. Cada euro cuenta.','Tu estomago pide atencion. Alimentacion ligera.']]},
-{n:'Leo',s:'\u264C',d:'Jul 23 - Aug 22',e:'Fuego',c:'Acuario',h:[['Tu carisma brilla con fuerza. El amor te busca hoy.','Proyectos creativos pueden convertirse en dinero.','Tu energia vital esta radiante. Compártela con otros.'],['Drama romantico innecesario. Elige la paz.','Inversion en ti mismo da los mejores rendimientos.','Necesitas mas agua y menos cafe. Tu cuerpo te lo pide.'],['El Sol te da coraje para declarar tus sentimientos.','Un reconocimiento profesional trae recompensa economica.','Deportes al aire libre te recargan de energia.'],['Generosidad en el amor es recompensada doblemente.','Controla gastos en entretenimiento. Se moderado.','Tu corazon (fisico) necesita ejercicio cardiovascular.']]},
+{n:'Leo',s:'\u264C',d:'Jul 23 - Aug 22',e:'Fuego',c:'Acuario',h:[['Tu carisma brilla con fuerza. El amor te busca hoy.','Proyectos creativos pueden convertirse en dinero.','Your vital energy esta radiante. Compártela con otros.'],['Drama romantico innecesario. Elige la paz.','Inversion en ti mismo da los mejores rendimientos.','Necesitas mas agua y menos cafe. Tu cuerpo te lo pide.'],['El Sol te da coraje para declarar tus sentimientos.','Un reconocimiento profesional trae recompensa economica.','Deportes al aire libre te recargan de energia.'],['Generosidad en el amor es recompensada doblemente.','Controla gastos en entretenimiento. Se moderado.','Tu corazon (fisico) necesita ejercicio cardiovascular.']]},
 {n:'Virgo',s:'\u264D',d:'Aug 23 - Sep 22',e:'Tierra',c:'Piscis',h:[['Analizar demasiado el amor lo aleja. Siente mas, piensa menos.','Tu ojo para los detalles te hace destacar en el trabajo. Recompensa proxima.','Rutina de bienestar es tu superpoder hoy.'],['Alguien valora tu atencion al detalle. Romantico.','Buen dia para organizar finanzas y hacer presupuesto.','Dolor de estomago si comes estresado. Relájate al comer.'],['Mercurio te ayuda a expresar lo que sientes con claridad.','Un error pasado se corrige y trae beneficio economico.','Yoga o pilates son perfectos para ti hoy.'],['Pequeños gestos de amor tienen gran impacto.','Ahorro inteligente: revisa gastos hormiga.','Tu piel necesita atencion. Hidratacion es clave.']]},
 {n:'Libra',s:'\u264E',d:'Sep 23 - Oct 22',e:'Aire',c:'Aries',h:[['Equilibrio perfecto entre dar y recibir amor hoy.','Asociaciones comerciales favorecidas. Busca socios.','Tu bienestar depende del equilibrio. No te sobrecargues.'],['Venus te embellece. Aprovecha para una cita especial.','Decision financiera importante. Consulta antes de actuar.','Tension en la espalda baja. Estiramientos necesarios.'],['Conversaciones romanticas profundas y reveladoras.','El arte de negociar te beneficia economicamente.','Dia ideal para spa o autocuidado.'],['Un compromiso romantico se fortalece.','Equilibra ingresos y gastos. Revisa tus cuentas.','Musica relajante mejora tu estado animico.']]},
 {n:'Escorpio',s:'\u264F',d:'Oct 23 - Nov 21',e:'Agua',c:'Tauro',h:[['Intensidad emocional al maximo. Canalízala positivamente.','Transformacion financiera en proceso. Confía.','Tu poder de regeneracion esta activo. Sana viejas heridas.'],['Celos sin fundamento. Trabaja la confianza.','Inversion en educacion da frutos a largo plazo.','Necesitas desintoxicacion: cuerpo y mente.'],['Una revelacion romantica te sorprende gratamente.','Herencia o dinero inesperado posible.','Tu sistema reproductivo necesita atencion preventiva.'],['Perdonar te libera. Hazlo hoy, por ti.','Pluton te empuja a reinventar tu relacion con el dinero.','Hidroterapia o bano caliente te beneficia enormemente.']]},
@@ -157,7 +157,7 @@ var s=SIGNS[i];var h=s.h[horoscopeIndex];
 var seed=dayOfYear*37+i*13;var nums=[];for(var j=0;j<5;j++){seed=(seed*1103515245+12345)&0x7fffffff;nums.push((seed%49)+1)}
 document.querySelectorAll('.sign-card').forEach(function(c,ci){c.classList.toggle('active',ci===i)});
 var rd=document.getElementById('reading');
-rd.innerHTML='<div class="reading-card"><div class="reading-symbol">'+s.s+'</div><div class="reading-name">'+s.n+'</div><div class="reading-meta">'+s.d+' &middot; '+s.e+'</div><div class="reading-cat"><div class="reading-cat-title">\u2764 Amor</div><div class="reading-cat-text">'+h[0]+'</div></div><div class="reading-cat"><div class="reading-cat-title">\uD83D\uDCB0 Dinero</div><div class="reading-cat-text">'+h[1]+'</div></div><div class="reading-cat"><div class="reading-cat-title">\uD83C\uDF3F Salud</div><div class="reading-cat-text">'+h[2]+'</div></div><div style="text-align:center;margin-top:15px"><div style="font-size:0.8rem;color:var(--aura-pink);margin-bottom:8px">Numeros de la suerte</div><div class="reading-lucky">'+nums.map(function(n){return'<div class="lucky-num">'+n+'</div>'}).join('')+'</div><div class="reading-compat">Signo compatible: <strong style="color:var(--golden-yellow)">'+s.c+'</strong></div><div class="share-row"><a href="https://wa.me/?text=Mi+horoscopo+de+'+s.n+'+en+astroaureum.com/horoscopo-diario.html" target="_blank" class="share-btn share-wa">WhatsApp</a><a href="https://www.facebook.com/sharer/sharer.php?u=https://astroaureum.com/horoscopo-diario.html" target="_blank" class="share-btn share-fb">Facebook</a><a href="https://twitter.com/intent/tweet?text=Mi+horoscopo+de+'+s.n+'&url=https://astroaureum.com/horoscopo-diario.html&via=AstroAureum" target="_blank" class="share-btn share-tw">Twitter/X</a></div></div></div>';
+rd.innerHTML='<div class="reading-card"><div class="reading-symbol">'+s.s+'</div><div class="reading-name">'+s.n+'</div><div class="reading-meta">'+s.d+' &middot; '+s.e+'</div><div class="reading-cat"><div class="reading-cat-title">\u2764 Love</div><div class="reading-cat-text">'+h[0]+'</div></div><div class="reading-cat"><div class="reading-cat-title">\uD83D\uDCB0 Money</div><div class="reading-cat-text">'+h[1]+'</div></div><div class="reading-cat"><div class="reading-cat-title">\uD83C\uDF3F Health</div><div class="reading-cat-text">'+h[2]+'</div></div><div style="text-align:center;margin-top:15px"><div style="font-size:0.8rem;color:var(--aura-pink);margin-bottom:8px">Lucky numbers</div><div class="reading-lucky">'+nums.map(function(n){return'<div class="lucky-num">'+n+'</div>'}).join('')+'</div><div class="reading-compat">Compatible sign: <strong style="color:var(--golden-yellow)">'+s.c+'</strong></div><div class="share-row"><a href="https://wa.me/?text=Mi+horoscopo+de+'+s.n+'+en+astroaureum.com/horoscopo-diario.html" target="_blank" class="share-btn share-wa">WhatsApp</a><a href="https://www.facebook.com/sharer/sharer.php?u=https://astroaureum.com/horoscopo-diario.html" target="_blank" class="share-btn share-fb">Facebook</a><a href="https://twitter.com/intent/tweet?text=Mi+horoscopo+de+'+s.n+'&url=https://astroaureum.com/horoscopo-diario.html&via=AstroAureum" target="_blank" class="share-btn share-tw">Twitter/X</a></div></div></div>';
 rd.style.display='block';rd.scrollIntoView({behavior:'smooth',block:'start'});
 gtag('event','horoscope_viewed',{sign:s.n});
 }
@@ -166,10 +166,10 @@ var c=document.getElementById('stars'),x=c.getContext('2d'),st=[];function I(){c
 if('serviceWorker' in navigator)navigator.serviceWorker.register('/sw.js');
 </script>
 <nav class="bottom-nav"><div class="bottom-nav-inner">
-<a href="/"><span class="bottom-nav-icon">&#9733;</span><span class="bottom-nav-label">Inicio</span></a>
-<a href="/carta-natal-gratis.html"><span class="bottom-nav-icon">&#9737;</span><span class="bottom-nav-label">Carta</span></a>
-<a href="/horoscopo-diario.html" class="active"><span class="bottom-nav-icon">&#9789;</span><span class="bottom-nav-label">Hoy</span></a>
-<a href="/lecturas.html"><span class="bottom-nav-icon">&#10022;</span><span class="bottom-nav-label">Lecturas</span></a>
+<a href="/en/"><span class="bottom-nav-icon">&#9733;</span><span class="bottom-nav-label">Home</span></a>
+<a href="/en/carta-natal.html"><span class="bottom-nav-icon">&#9737;</span><span class="bottom-nav-label">Carta</span></a>
+<a href="/en/horoscopo.html" class="active"><span class="bottom-nav-icon">&#9789;</span><span class="bottom-nav-label">Hoy</span></a>
+<a href="/en/lecturas.html"><span class="bottom-nav-icon">&#10022;</span><span class="bottom-nav-label">Readings</span></a>
 <a href="/precios-premium.html"><span class="bottom-nav-icon">&#9830;</span><span class="bottom-nav-label">Premium</span></a>
 </div></nav>
 <script>window.addEventListener('load',function(){setTimeout(function(){var s=document.getElementById('splash');if(s)s.classList.add('hidden')},600)});</script>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Calcula tu Carta Natal GRATIS | Astro Aureum</title>
-<meta name="description" content="Calcula tu carta natal gratis con Swiss Ephemeris. Descubre tu signo solar, lunar y ascendente. Precision cientifica, 9 tradiciones astrologicas.">
+<title>Calculate your Birth Chart FREE | Astro Aureum</title>
+<meta name="description" content="Calcula tu carta natal gratis con Swiss Ephemeris. Discover tu signo solar, lunar y ascendente. Precision cientifica, 9 tradiciones astrologicas.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="manifest" href="/manifest.json">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0PZTB2PF7T"></script>
@@ -67,8 +67,8 @@ footer{padding:50px 40px;text-align:center;border-top:1px solid rgba(255,237,138
 <meta name="apple-mobile-web-app-title" content="Astro Aureum">
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="/mobile-app.css">
-<link rel="alternate" hreflang="es" href="https://astroaureum.com/carta-natal-gratis.html" />
-<link rel="alternate" hreflang="x-default" href="https://astroaureum.com/carta-natal-gratis.html" />
+<link rel="alternate" hreflang="es" href="https://astroaureum.com/carta-natal.html" />
+<link rel="alternate" hreflang="x-default" href="https://astroaureum.com/carta-natal.html" />
 <link rel="alternate" hreflang="bg" href="https://astroaureum.com/bg/carta-natal.html" />
 <link rel="alternate" hreflang="en" href="https://astroaureum.com/en/carta-natal.html" />
 <link rel="alternate" hreflang="pt" href="https://astroaureum.com/pt/carta-natal.html" />
@@ -82,59 +82,59 @@ footer{padding:50px 40px;text-align:center;border-top:1px solid rgba(255,237,138
 <link rel="alternate" hreflang="zh" href="https://astroaureum.com/zh/carta-natal.html" />
 </head>
 <body>
-<div class="splash-screen" id="splash"><div class="splash-logo">Astro Aureum</div><div class="splash-tagline">Tu Guia Cosmica</div></div>
+<div class="splash-screen" id="splash"><div class="splash-logo">Astro Aureum</div><div class="splash-tagline">Your Cosmic Guide</div></div>
 <canvas id="stars" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none"></canvas>
 <nav>
-<a href="/" class="nav-logo">&#10022; Astro Aureum</a>
-<div class="nav-links"><a href="/carta-natal-gratis.html" style="color:var(--golden-yellow);text-shadow:0 0 8px rgba(255,237,138,0.4)">&#9788; Carta Natal Gratis</a><a href="/sinastria-oferta.html" style="color:var(--golden-yellow);text-shadow:0 0 8px rgba(255,237,138,0.4)">&#10022; Oferta Sinastria</a><a href="/horoscopo-diario.html">Horoscopo</a><a href="/lecturas.html">Lecturas</a><a href="/precios-premium.html">Premium</a><a href="/blog/">Blog</a><a href="/aureum-books.html">Aureum Books</a></div>
+<a href="/en/" class="nav-logo">&#10022; Astro Aureum</a>
+<div class="nav-links"><a href="/en/carta-natal.html" style="color:var(--golden-yellow);text-shadow:0 0 8px rgba(255,237,138,0.4)">&#9788; Free Birth Chart</a><a href="/sinastria-oferta.html" style="color:var(--golden-yellow);text-shadow:0 0 8px rgba(255,237,138,0.4)">&#10022; Offer Sinastria</a><a href="/en/horoscopo.html">Horoscope</a><a href="/en/lecturas.html">Readings</a><a href="/precios-premium.html">Premium</a><a href="/blog/">Blog</a><a href="/aureum-books.html">Aureum Books</a></div>
 <button class="hamburger" id="hb"><span></span><span></span><span></span></button>
 </nav>
-<div class="mobile-overlay" id="mm"><a href="/carta-natal-gratis.html" style="color:var(--golden-yellow)">&#9788; Carta Natal Gratis</a><a href="/sinastria-oferta.html" style="color:var(--golden-yellow)">&#10022; Oferta Sinastria</a><a href="/">Inicio</a><a href="/horoscopo-diario.html">Horoscopo</a><a href="/lecturas.html">Lecturas</a><a href="/precios-premium.html">Premium</a><a href="/blog/">Blog</a><a href="/aureum-books.html">Aureum Books</a></div>
+<div class="mobile-overlay" id="mm"><a href="/en/carta-natal.html" style="color:var(--golden-yellow)">&#9788; Free Birth Chart</a><a href="/sinastria-oferta.html" style="color:var(--golden-yellow)">&#10022; Offer Sinastria</a><a href="/en/">Home</a><a href="/en/horoscopo.html">Horoscope</a><a href="/en/lecturas.html">Readings</a><a href="/precios-premium.html">Premium</a><a href="/blog/">Blog</a><a href="/aureum-books.html">Aureum Books</a></div>
 
 <section class="hero">
 <div class="hero-badge">SWISS EPHEMERIS</div>
-<h1>Calcula tu Carta Natal GRATIS</h1>
-<p>Descubre tu signo solar, lunar y ascendente con precision astronomica real</p>
+<h1>Calculate your Birth Chart FREE</h1>
+<p>Discover your sun, moon and rising signs with real astronomical precision</p>
 </section>
 
 <section class="section">
 <form class="glass-card" id="natal-form">
-<div class="form-group"><label class="form-label">Tu nombre</label><input type="text" class="form-input" id="f-name" placeholder="Como te llamas?" required></div>
-<div class="form-group"><label class="form-label">Tu email (para recibir tu carta)</label><input type="email" class="form-input" id="f-email" placeholder="tu@email.com" required></div>
+<div class="form-group"><label class="form-label">Your name</label><input type="text" class="form-input" id="f-name" placeholder="What is your name?" required></div>
+<div class="form-group"><label class="form-label">Your email (to receive your chart)</label><input type="email" class="form-input" id="f-email" placeholder="tu@email.com" required></div>
 <div class="form-row">
-<div class="form-group"><label class="form-label">Fecha de nacimiento</label><input type="date" class="form-input" id="f-date" required></div>
-<div class="form-group"><label class="form-label">Hora de nacimiento</label><input type="time" class="form-input" id="f-time"><div class="check-row"><input type="checkbox" id="no-time" onchange="document.getElementById('f-time').disabled=this.checked"><label for="no-time">No la se</label></div></div>
+<div class="form-group"><label class="form-label">Date of birth</label><input type="date" class="form-input" id="f-date" required></div>
+<div class="form-group"><label class="form-label">Time of birth</label><input type="time" class="form-input" id="f-time"><div class="check-row"><input type="checkbox" id="no-time" onchange="document.getElementById('f-time').disabled=this.checked"><label for="no-time">I do not know</label></div></div>
 </div>
 <div class="form-row">
-<div class="form-group"><label class="form-label">Ciudad de nacimiento</label><input type="text" class="form-input" id="f-city" placeholder="Ej: Madrid"></div>
-<div class="form-group"><label class="form-label">Pais</label><select class="form-input" id="f-country"><option value="">Selecciona</option><option>Espana</option><option>Mexico</option><option>Argentina</option><option>Colombia</option><option>Chile</option><option>Peru</option><option>Estados Unidos</option><option>Reino Unido</option><option>Francia</option><option>Alemania</option><option>Italia</option><option>Brasil</option><option>Portugal</option><option>Bulgaria</option><option>Rusia</option><option>India</option><option>Japon</option><option>China</option><option>Otro</option></select></div>
+<div class="form-group"><label class="form-label">City of birth</label><input type="text" class="form-input" id="f-city" placeholder="Ej: Madrid"></div>
+<div class="form-group"><label class="form-label">Country</label><select class="form-input" id="f-country"><option value="">Select</option><option>Espana</option><option>Mexico</option><option>Argentina</option><option>Colombia</option><option>Chile</option><option>Peru</option><option>Estados Unidos</option><option>Reino Unido</option><option>Francia</option><option>Alemania</option><option>Italia</option><option>Brasil</option><option>Portugal</option><option>Bulgaria</option><option>Rusia</option><option>India</option><option>Japon</option><option>China</option><option>Otro</option></select></div>
 </div>
-<button type="submit" class="btn-cta">CALCULAR MI CARTA NATAL</button>
+<button type="submit" class="btn-cta">CALCULATE MY BIRTH CHART</button>
 </form>
 </section>
 
 <div class="stats-bar">
 <div class="stat"><div class="stat-num">10K+</div><div class="stat-label">Cartas calculadas</div></div>
 <div class="stat"><div class="stat-num">&#10022;</div><div class="stat-label">Swiss Ephemeris</div></div>
-<div class="stat"><div class="stat-num">9</div><div class="stat-label">Tradiciones</div></div>
+<div class="stat"><div class="stat-num">9</div><div class="stat-label">Traditions</div></div>
 </div>
 
-<section class="section"><h2>Que Descubriras</h2></section>
+<section class="section"><h2>What You Will Discover</h2></section>
 <div class="discover-grid">
-<div class="discover-card"><div class="discover-icon">&#9737;</div><div class="discover-name">Sol</div><div class="discover-desc">Tu esencia y personalidad</div></div>
-<div class="discover-card"><div class="discover-icon">&#9789;</div><div class="discover-name">Luna</div><div class="discover-desc">Tus emociones profundas</div></div>
-<div class="discover-card"><div class="discover-icon">&uarr;</div><div class="discover-name">Ascendente</div><div class="discover-desc">Tu imagen al mundo</div></div>
-<div class="discover-card"><div class="discover-icon">&#9792;</div><div class="discover-name">Venus</div><div class="discover-desc">Tu forma de amar</div></div>
-<div class="discover-card"><div class="discover-icon">&#9794;</div><div class="discover-name">Marte</div><div class="discover-desc">Tu energia vital</div></div>
-<div class="discover-card"><div class="discover-icon">&#9791;</div><div class="discover-name">Mercurio</div><div class="discover-desc">Tu comunicacion</div></div>
+<div class="discover-card"><div class="discover-icon">&#9737;</div><div class="discover-name">Sol</div><div class="discover-desc">Your essence and personality</div></div>
+<div class="discover-card"><div class="discover-icon">&#9789;</div><div class="discover-name">Luna</div><div class="discover-desc">Your deep emotions</div></div>
+<div class="discover-card"><div class="discover-icon">&uarr;</div><div class="discover-name">Ascendant</div><div class="discover-desc">Your image to the world</div></div>
+<div class="discover-card"><div class="discover-icon">&#9792;</div><div class="discover-name">Venus</div><div class="discover-desc">Your way of loving</div></div>
+<div class="discover-card"><div class="discover-icon">&#9794;</div><div class="discover-name">Marte</div><div class="discover-desc">Your vital energy</div></div>
+<div class="discover-card"><div class="discover-icon">&#9791;</div><div class="discover-name">Mercurio</div><div class="discover-desc">Your communication</div></div>
 </div>
 
-<div id="spinner"><div class="spinner-wheel">&#9737;</div><div class="spinner-text">Calculando tu carta natal con Swiss Ephemeris...</div></div>
+<div id="spinner"><div class="spinner-wheel">&#9737;</div><div class="spinner-text">Calculating your birth chart with Swiss Ephemeris...</div></div>
 
 <div id="results">
 <!-- CHART WHEEL -->
 <div style="text-align:center;margin-bottom:30px">
-<h2 style="margin-bottom:5px">Tu Carta Natal</h2>
+<h2 style="margin-bottom:5px">Your Birth Chart</h2>
 <p style="font-size:0.9rem;color:var(--aura-pink)" id="r-chart-name"></p>
 </div>
 <div style="display:flex;justify-content:center;margin-bottom:30px">
@@ -145,10 +145,10 @@ footer{padding:50px 40px;text-align:center;border-top:1px solid rgba(255,237,138
 <div style="max-width:600px;margin:0 auto 30px;background:rgba(255,249,234,0.03);border:1px solid rgba(255,237,138,0.15);border-radius:20px;padding:20px;overflow-x:auto">
 <table style="width:100%;border-collapse:collapse;font-size:0.85rem">
 <thead><tr style="border-bottom:1px solid rgba(255,237,138,0.15)">
-<th style="text-align:left;padding:8px;color:var(--golden-yellow)">Planeta</th>
-<th style="text-align:left;padding:8px;color:var(--golden-yellow)">Signo</th>
-<th style="text-align:center;padding:8px;color:var(--golden-yellow)">Grado</th>
-<th style="text-align:left;padding:8px;color:var(--golden-yellow)">Significado</th>
+<th style="text-align:left;padding:8px;color:var(--golden-yellow)">Planet</th>
+<th style="text-align:left;padding:8px;color:var(--golden-yellow)">Sign</th>
+<th style="text-align:center;padding:8px;color:var(--golden-yellow)">Degree</th>
+<th style="text-align:left;padding:8px;color:var(--golden-yellow)">Meaning</th>
 </tr></thead>
 <tbody id="planet-table"></tbody>
 </table>
@@ -161,25 +161,25 @@ footer{padding:50px 40px;text-align:center;border-top:1px solid rgba(255,237,138
 <div class="result-element" id="r-element"></div>
 <div class="result-desc" id="r-desc"></div>
 <div class="result-extra">
-<div class="result-extra-item"><div class="result-extra-label">Luna estimada</div><div class="result-extra-value" id="r-moon"></div></div>
-<div class="result-extra-item"><div class="result-extra-label">Ascendente</div><div class="result-extra-value" id="r-rising"></div></div>
+<div class="result-extra-item"><div class="result-extra-label">Estimated Moon</div><div class="result-extra-value" id="r-moon"></div></div>
+<div class="result-extra-item"><div class="result-extra-label">Ascendant</div><div class="result-extra-value" id="r-rising"></div></div>
 </div>
 <div style="margin-top:20px;padding:20px;background:rgba(160,240,255,0.05);border:1px solid rgba(160,240,255,0.15);border-radius:16px">
-<p style="color:var(--electric-blue);font-size:0.85rem;margin-bottom:5px;font-weight:600">Esta es una version simplificada</p>
-<p style="font-size:0.85rem;margin:0">La carta natal completa incluye las 12 casas, aspectos exactos, nodos lunares, Quiron, Lilith y predicciones de 12 meses basadas en tus transitos personales.</p>
+<p style="color:var(--electric-blue);font-size:0.85rem;margin-bottom:5px;font-weight:600">This is a simplified version</p>
+<p style="font-size:0.85rem;margin:0">The complete birth chart includes the 12 houses, exact aspects, lunar nodes, Chiron, Lilith and 12-month predictions based on your personal transits.</p>
 </div>
-<p style="color:var(--aura-pink);font-size:0.9rem;margin:20px 0 15px">Quieres tu carta COMPLETA con aspectos reales y predicciones?</p>
-<a href="/lecturas.html" class="btn-cta" style="width:auto;padding:16px 40px">VER CARTA NATAL COMPLETA &mdash; desde &euro;89</a>
+<p style="color:var(--aura-pink);font-size:0.9rem;margin:20px 0 15px">Want your COMPLETE chart with real aspects and predictions?</p>
+<a href="/en/lecturas.html" class="btn-cta" style="width:auto;padding:16px 40px">VIEW COMPLETE BIRTH CHART &mdash; from €89</a>
 </div>
 </div>
 
 <footer>
 <div class="footer-logo">&#10022; Astro Aureum</div>
-<div class="footer-links"><a href="/">Inicio</a><a href="/lecturas.html">Lecturas</a><a href="/aureum-books.html">Aureum Books</a><a href="/faq.html">FAQ</a><a href="/politica-privacidad.html">Privacidad</a></div>
-<p class="footer-copy">&copy; 2026 Astro Aureum &mdash; Tu Guia Cosmica.</p>
+<div class="footer-links"><a href="/en/">Home</a><a href="/en/lecturas.html">Readings</a><a href="/aureum-books.html">Aureum Books</a><a href="/faq.html">FAQ</a><a href="/politica-privacidad.html">Privacy</a></div>
+<p class="footer-copy">&copy; 2026 Astro Aureum &mdash; Your Cosmic Guide.</p>
 </footer>
 <script>
-var SIGNS=[{n:'Aries',s:'\u2648',e:'Fuego',d:'Lider natural, valiente y apasionado. Tu energia es inagotable y tu espiritu pionero te impulsa a conquistar nuevos territorios.',m:[3,21],mx:[4,19]},{n:'Tauro',s:'\u2649',e:'Tierra',d:'Estable, sensual y determinado. Valoras la seguridad y el placer. Tu conexion con la naturaleza te da una fuerza inquebrantable.',m:[4,20],mx:[5,20]},{n:'Geminis',s:'\u264A',e:'Aire',d:'Curioso, comunicativo y versatil. Tu mente rapida y tu don para las palabras te convierten en el mensajero del zodiaco.',m:[5,21],mx:[6,20]},{n:'Cancer',s:'\u264B',e:'Agua',d:'Intuitivo, protector y emocional. Tu hogar es tu santuario y tu capacidad de nutrir a otros es tu mayor don cosmico.',m:[6,21],mx:[7,22]},{n:'Leo',s:'\u264C',e:'Fuego',d:'Creativo, generoso y magnetico. El Sol te ilumina con carisma natural y un corazon que brilla como el oro.',m:[7,23],mx:[8,22]},{n:'Virgo',s:'\u264D',e:'Tierra',d:'Analitico, perfeccionista y servicial. Tu mente detallista y tu deseo de mejorar el mundo te hacen indispensable.',m:[8,23],mx:[9,22]},{n:'Libra',s:'\u264E',e:'Aire',d:'Diplomatico, armonioso y estetico. Buscas el equilibrio en todo y tu sentido de la justicia guia tus decisiones.',m:[9,23],mx:[10,22]},{n:'Escorpio',s:'\u264F',e:'Agua',d:'Intenso, transformador y misterioso. Tu poder emocional es profundo y tu capacidad de renacer de las cenizas es legendaria.',m:[10,23],mx:[11,21]},{n:'Sagitario',s:'\u2650',e:'Fuego',d:'Aventurero, filosofo y optimista. Tu flecha apunta siempre al horizonte, buscando verdades y experiencias que expandan tu alma.',m:[11,22],mx:[12,21]},{n:'Capricornio',s:'\u2651',e:'Tierra',d:'Ambicioso, disciplinado y sabio. La montana es tu metafora: paso a paso, con paciencia, alcanzas las cimas mas altas.',m:[12,22],mx:[1,19]},{n:'Acuario',s:'\u2652',e:'Aire',d:'Visionario, independiente y humanitario. Tu mente vive en el futuro y tu corazon late por la colectividad.',m:[1,20],mx:[2,18]},{n:'Piscis',s:'\u2653',e:'Agua',d:'Empatico, intuitivo y artistico. Nadas entre dos mundos, el visible y el invisible, con una sensibilidad que trasciende lo terrenal.',m:[2,19],mx:[3,20]}];
+var SIGNS=[{n:'Aries',s:'\u2648',e:'Fuego',d:'Lider natural, valiente y apasionado. Tu energia es inagotable y tu espiritu pionero te impulsa a conquistar nuevos territorios.',m:[3,21],mx:[4,19]},{n:'Tauro',s:'\u2649',e:'Tierra',d:'Estable, sensual y determinado. Valoras la seguridad y el placer. Tu conexion con la naturaleza te da una fuerza inquebrantable.',m:[4,20],mx:[5,20]},{n:'Geminis',s:'\u264A',e:'Aire',d:'Curioso, comunicativo y versatil. Tu mente rapida y tu don para las words te convierten en el mensajero del zodiaco.',m:[5,21],mx:[6,20]},{n:'Cancer',s:'\u264B',e:'Agua',d:'Intuitivo, protector y emocional. Tu hogar es tu santuario y tu capacidad de nutrir a otros es tu mayor don cosmico.',m:[6,21],mx:[7,22]},{n:'Leo',s:'\u264C',e:'Fuego',d:'Creativo, generoso y magnetico. El Sol te ilumina con carisma natural y un corazon que brilla como el oro.',m:[7,23],mx:[8,22]},{n:'Virgo',s:'\u264D',e:'Tierra',d:'Analitico, perfeccionista y servicial. Tu mente detallista y tu deseo de mejorar el mundo te hacen indispensable.',m:[8,23],mx:[9,22]},{n:'Libra',s:'\u264E',e:'Aire',d:'Diplomatico, armonioso y estetico. Buscas el equilibrio en todo y tu sentido de la justicia guia tus decisiones.',m:[9,23],mx:[10,22]},{n:'Escorpio',s:'\u264F',e:'Agua',d:'Intenso, transformador y misterioso. Tu poder emocional es profundo y tu capacidad de renacer de las cenizas es legendaria.',m:[10,23],mx:[11,21]},{n:'Sagitario',s:'\u2650',e:'Fuego',d:'Aventurero, filosofo y optimista. Tu flecha apunta siempre al horizonte, buscando verdades y experiencias que expandan tu alma.',m:[11,22],mx:[12,21]},{n:'Capricornio',s:'\u2651',e:'Tierra',d:'Ambicioso, disciplinado y sabio. La montana es tu metafora: paso a paso, con paciencia, alcanzas las cimas mas altas.',m:[12,22],mx:[1,19]},{n:'Acuario',s:'\u2652',e:'Aire',d:'Visionario, independiente y humanitario. Tu mente vive en el futuro y tu corazon late por la colectividad.',m:[1,20],mx:[2,18]},{n:'Piscis',s:'\u2653',e:'Agua',d:'Empatico, intuitivo y artistico. Nadas entre dos mundos, el visible y el invisible, con una sensibilidad que trasciende lo terrenal.',m:[2,19],mx:[3,20]}];
 
 function getSun(m,d){for(var i=0;i<SIGNS.length;i++){var s=SIGNS[i];if(s.n==='Capricornio'){if((m===12&&d>=22)||(m===1&&d<=19))return s}else{if(m===s.m[0]&&d>=s.m[1])return s;if(m===s.mx[0]&&d<=s.mx[1])return s}}return SIGNS[0]}
 
@@ -190,7 +190,7 @@ var ELEM_COLORS={Fuego:'#FF6B4A',Tierra:'#8BC34A',Aire:'#64B5F6',Agua:'#4FC3F7'}
 var SIGN_COLORS=['#FF6B4A','#8BC34A','#64B5F6','#4FC3F7','#FF6B4A','#8BC34A','#64B5F6','#4FC3F7','#FF6B4A','#8BC34A','#64B5F6','#4FC3F7'];
 var PLANET_GLYPHS=['\u2609','\u263D','\u263F','\u2640','\u2642','\u2643','\u2644','\u2645','\u2646','\u2647'];
 var PLANET_NAMES=['Sol','Luna','Mercurio','Venus','Marte','Jupiter','Saturno','Urano','Neptuno','Pluton'];
-var PLANET_MEANINGS=['Tu esencia','Tus emociones','Tu comunicacion','Tu amor','Tu energia','Tu expansion','Tus limites','Tu originalidad','Tu espiritualidad','Tu transformacion'];
+var PLANET_MEANINGS=['Tu esencia','Tus emociones','Your communication','Tu amor','Tu energia','Tu expansion','Tus limites','Tu originalidad','Tu espiritualidad','Tu transformacion'];
 
 function drawChart(sunIdx,moonIdx,yr,mo,dy){
 var svg=document.getElementById('chart-wheel');
@@ -368,10 +368,10 @@ document.getElementById('results').style.display='block';
 document.getElementById('r-chart-name').textContent='Carta natal de '+name+' \u2022 '+d+'/'+m+'/'+y;
 document.getElementById('r-symbol').textContent=sun.s;
 document.getElementById('r-sign').textContent=sun.n;
-document.getElementById('r-element').textContent=sun.e+' \u00b7 Signo Solar';
+document.getElementById('r-element').textContent=sun.e+' \u00b7 Sign Solar';
 document.getElementById('r-desc').textContent=sun.d;
 document.getElementById('r-moon').textContent=moon.s+' '+moon.n;
-document.getElementById('r-rising').textContent=document.getElementById('no-time').checked?'Necesita hora exacta':'Calculando...';
+document.getElementById('r-rising').textContent=document.getElementById('no-time').checked?'Requires exact time':'Calculating...';
 drawChart(sunIdx,moonIdx,y,m,d);
 document.getElementById('results').scrollIntoView({behavior:'smooth'});
 fetch('https://astro-connect.vercel.app/api/quiz-lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:name,email:email,moonSign:sun.n,source:'carta-natal-gratis'})}).catch(function(){});
@@ -385,10 +385,10 @@ var hb=document.getElementById('hb'),mm=document.getElementById('mm');hb.addEven
 if('serviceWorker' in navigator)navigator.serviceWorker.register('/sw.js');
 </script>
 <nav class="bottom-nav"><div class="bottom-nav-inner">
-<a href="/"><span class="bottom-nav-icon">&#9733;</span><span class="bottom-nav-label">Inicio</span></a>
-<a href="/carta-natal-gratis.html" class="active"><span class="bottom-nav-icon">&#9737;</span><span class="bottom-nav-label">Carta</span></a>
-<a href="/horoscopo-diario.html"><span class="bottom-nav-icon">&#9789;</span><span class="bottom-nav-label">Hoy</span></a>
-<a href="/lecturas.html"><span class="bottom-nav-icon">&#10022;</span><span class="bottom-nav-label">Lecturas</span></a>
+<a href="/en/"><span class="bottom-nav-icon">&#9733;</span><span class="bottom-nav-label">Home</span></a>
+<a href="/en/carta-natal.html" class="active"><span class="bottom-nav-icon">&#9737;</span><span class="bottom-nav-label">Carta</span></a>
+<a href="/en/horoscopo.html"><span class="bottom-nav-icon">&#9789;</span><span class="bottom-nav-label">Hoy</span></a>
+<a href="/en/lecturas.html"><span class="bottom-nav-icon">&#10022;</span><span class="bottom-nav-label">Readings</span></a>
 <a href="/precios-premium.html"><span class="bottom-nav-icon">&#9830;</span><span class="bottom-nav-label">Premium</span></a>
 </div></nav>
 <script>window.addEventListener('load',function(){setTimeout(function(){var s=document.getElementById('splash');if(s)s.classList.add('hidden')},600)});</script>

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Calcula tu Carta Natal GRATIS | Astro Aureum</title>
+<title>Calculez votre Theme Natal GRATUIT | Astro Aureum</title>
 <meta name="description" content="Calcula tu carta natal gratis con Swiss Ephemeris. Descubre tu signo solar, lunar y ascendente. Precision cientifica, 9 tradiciones astrologicas.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="manifest" href="/manifest.json">
@@ -67,8 +67,8 @@ footer{padding:50px 40px;text-align:center;border-top:1px solid rgba(255,237,138
 <meta name="apple-mobile-web-app-title" content="Astro Aureum">
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="/mobile-app.css">
-<link rel="alternate" hreflang="es" href="https://astroaureum.com/carta-natal-gratis.html" />
-<link rel="alternate" hreflang="x-default" href="https://astroaureum.com/carta-natal-gratis.html" />
+<link rel="alternate" hreflang="es" href="https://astroaureum.com/carta-natal.html" />
+<link rel="alternate" hreflang="x-default" href="https://astroaureum.com/carta-natal.html" />
 <link rel="alternate" hreflang="bg" href="https://astroaureum.com/bg/carta-natal.html" />
 <link rel="alternate" hreflang="en" href="https://astroaureum.com/en/carta-natal.html" />
 <link rel="alternate" hreflang="pt" href="https://astroaureum.com/pt/carta-natal.html" />
@@ -82,34 +82,34 @@ footer{padding:50px 40px;text-align:center;border-top:1px solid rgba(255,237,138
 <link rel="alternate" hreflang="zh" href="https://astroaureum.com/zh/carta-natal.html" />
 </head>
 <body>
-<div class="splash-screen" id="splash"><div class="splash-logo">Astro Aureum</div><div class="splash-tagline">Tu Guia Cosmica</div></div>
+<div class="splash-screen" id="splash"><div class="splash-logo">Astro Aureum</div><div class="splash-tagline">Votre Guide Cosmique</div></div>
 <canvas id="stars" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none"></canvas>
 <nav>
-<a href="/" class="nav-logo">&#10022; Astro Aureum</a>
-<div class="nav-links"><a href="/carta-natal-gratis.html" style="color:var(--golden-yellow);text-shadow:0 0 8px rgba(255,237,138,0.4)">&#9788; Carta Natal Gratis</a><a href="/sinastria-oferta.html" style="color:var(--golden-yellow);text-shadow:0 0 8px rgba(255,237,138,0.4)">&#10022; Oferta Sinastria</a><a href="/horoscopo-diario.html">Horoscopo</a><a href="/lecturas.html">Lecturas</a><a href="/precios-premium.html">Premium</a><a href="/blog/">Blog</a><a href="/aureum-books.html">Aureum Books</a></div>
+<a href="/fr/" class="nav-logo">&#10022; Astro Aureum</a>
+<div class="nav-links"><a href="/fr/carta-natal.html" style="color:var(--golden-yellow);text-shadow:0 0 8px rgba(255,237,138,0.4)">&#9788; Theme Natal Gratis</a><a href="/sinastria-oferta.html" style="color:var(--golden-yellow);text-shadow:0 0 8px rgba(255,237,138,0.4)">&#10022; Oferta Sinastria</a><a href="/fr/horoscopo.html">Horoscope</a><a href="/fr/lecturas.html">Lectures</a><a href="/precios-premium.html">Premium</a><a href="/blog/">Blog</a><a href="/aureum-books.html">Aureum Books</a></div>
 <button class="hamburger" id="hb"><span></span><span></span><span></span></button>
 </nav>
-<div class="mobile-overlay" id="mm"><a href="/carta-natal-gratis.html" style="color:var(--golden-yellow)">&#9788; Carta Natal Gratis</a><a href="/sinastria-oferta.html" style="color:var(--golden-yellow)">&#10022; Oferta Sinastria</a><a href="/">Inicio</a><a href="/horoscopo-diario.html">Horoscopo</a><a href="/lecturas.html">Lecturas</a><a href="/precios-premium.html">Premium</a><a href="/blog/">Blog</a><a href="/aureum-books.html">Aureum Books</a></div>
+<div class="mobile-overlay" id="mm"><a href="/fr/carta-natal.html" style="color:var(--golden-yellow)">&#9788; Theme Natal Gratis</a><a href="/sinastria-oferta.html" style="color:var(--golden-yellow)">&#10022; Oferta Sinastria</a><a href="/fr/">Accueil</a><a href="/fr/horoscopo.html">Horoscope</a><a href="/fr/lecturas.html">Lectures</a><a href="/precios-premium.html">Premium</a><a href="/blog/">Blog</a><a href="/aureum-books.html">Aureum Books</a></div>
 
 <section class="hero">
 <div class="hero-badge">SWISS EPHEMERIS</div>
-<h1>Calcula tu Carta Natal GRATIS</h1>
-<p>Descubre tu signo solar, lunar y ascendente con precision astronomica real</p>
+<h1>Calculez votre Theme Natal GRATUIT</h1>
+<p>Decouvrez votre signe solaire, lunaire et ascendant avec une precision astronomique reelle</p>
 </section>
 
 <section class="section">
 <form class="glass-card" id="natal-form">
-<div class="form-group"><label class="form-label">Tu nombre</label><input type="text" class="form-input" id="f-name" placeholder="Como te llamas?" required></div>
+<div class="form-group"><label class="form-label">Votre nom</label><input type="text" class="form-input" id="f-name" placeholder="Como te llamas?" required></div>
 <div class="form-group"><label class="form-label">Tu email (para recibir tu carta)</label><input type="email" class="form-input" id="f-email" placeholder="tu@email.com" required></div>
 <div class="form-row">
-<div class="form-group"><label class="form-label">Fecha de nacimiento</label><input type="date" class="form-input" id="f-date" required></div>
-<div class="form-group"><label class="form-label">Hora de nacimiento</label><input type="time" class="form-input" id="f-time"><div class="check-row"><input type="checkbox" id="no-time" onchange="document.getElementById('f-time').disabled=this.checked"><label for="no-time">No la se</label></div></div>
+<div class="form-group"><label class="form-label">Date de naissance</label><input type="date" class="form-input" id="f-date" required></div>
+<div class="form-group"><label class="form-label">Heure de naissance</label><input type="time" class="form-input" id="f-time"><div class="check-row"><input type="checkbox" id="no-time" onchange="document.getElementById('f-time').disabled=this.checked"><label for="no-time">No la se</label></div></div>
 </div>
 <div class="form-row">
-<div class="form-group"><label class="form-label">Ciudad de nacimiento</label><input type="text" class="form-input" id="f-city" placeholder="Ej: Madrid"></div>
-<div class="form-group"><label class="form-label">Pais</label><select class="form-input" id="f-country"><option value="">Selecciona</option><option>Espana</option><option>Mexico</option><option>Argentina</option><option>Colombia</option><option>Chile</option><option>Peru</option><option>Estados Unidos</option><option>Reino Unido</option><option>Francia</option><option>Alemania</option><option>Italia</option><option>Brasil</option><option>Portugal</option><option>Bulgaria</option><option>Rusia</option><option>India</option><option>Japon</option><option>China</option><option>Otro</option></select></div>
+<div class="form-group"><label class="form-label">Ville de naissance</label><input type="text" class="form-input" id="f-city" placeholder="Ej: Madrid"></div>
+<div class="form-group"><label class="form-label">Pays</label><select class="form-input" id="f-country"><option value="">Selecciona</option><option>Espana</option><option>Mexico</option><option>Argentina</option><option>Colombia</option><option>Chile</option><option>Peru</option><option>Estados Unidos</option><option>Reino Unido</option><option>Francia</option><option>Alemania</option><option>Italia</option><option>Brasil</option><option>Portugal</option><option>Bulgaria</option><option>Rusia</option><option>India</option><option>Japon</option><option>China</option><option>Otro</option></select></div>
 </div>
-<button type="submit" class="btn-cta">CALCULAR MI CARTA NATAL</button>
+<button type="submit" class="btn-cta">CALCULER MON THEME NATAL</button>
 </form>
 </section>
 
@@ -134,7 +134,7 @@ footer{padding:50px 40px;text-align:center;border-top:1px solid rgba(255,237,138
 <div id="results">
 <!-- CHART WHEEL -->
 <div style="text-align:center;margin-bottom:30px">
-<h2 style="margin-bottom:5px">Tu Carta Natal</h2>
+<h2 style="margin-bottom:5px">Tu Theme Natal</h2>
 <p style="font-size:0.9rem;color:var(--aura-pink)" id="r-chart-name"></p>
 </div>
 <div style="display:flex;justify-content:center;margin-bottom:30px">
@@ -169,14 +169,14 @@ footer{padding:50px 40px;text-align:center;border-top:1px solid rgba(255,237,138
 <p style="font-size:0.85rem;margin:0">La carta natal completa incluye las 12 casas, aspectos exactos, nodos lunares, Quiron, Lilith y predicciones de 12 meses basadas en tus transitos personales.</p>
 </div>
 <p style="color:var(--aura-pink);font-size:0.9rem;margin:20px 0 15px">Quieres tu carta COMPLETA con aspectos reales y predicciones?</p>
-<a href="/lecturas.html" class="btn-cta" style="width:auto;padding:16px 40px">VER CARTA NATAL COMPLETA &mdash; desde &euro;89</a>
+<a href="/fr/lecturas.html" class="btn-cta" style="width:auto;padding:16px 40px">VER CARTA NATAL COMPLETA &mdash; desde &euro;89</a>
 </div>
 </div>
 
 <footer>
 <div class="footer-logo">&#10022; Astro Aureum</div>
-<div class="footer-links"><a href="/">Inicio</a><a href="/lecturas.html">Lecturas</a><a href="/aureum-books.html">Aureum Books</a><a href="/faq.html">FAQ</a><a href="/politica-privacidad.html">Privacidad</a></div>
-<p class="footer-copy">&copy; 2026 Astro Aureum &mdash; Tu Guia Cosmica.</p>
+<div class="footer-links"><a href="/fr/">Accueil</a><a href="/fr/lecturas.html">Lectures</a><a href="/aureum-books.html">Aureum Books</a><a href="/faq.html">FAQ</a><a href="/politica-privacidad.html">Confidentialite</a></div>
+<p class="footer-copy">&copy; 2026 Astro Aureum &mdash; Votre Guide Cosmique.</p>
 </footer>
 <script>
 var SIGNS=[{n:'Aries',s:'\u2648',e:'Fuego',d:'Lider natural, valiente y apasionado. Tu energia es inagotable y tu espiritu pionero te impulsa a conquistar nuevos territorios.',m:[3,21],mx:[4,19]},{n:'Tauro',s:'\u2649',e:'Tierra',d:'Estable, sensual y determinado. Valoras la seguridad y el placer. Tu conexion con la naturaleza te da una fuerza inquebrantable.',m:[4,20],mx:[5,20]},{n:'Geminis',s:'\u264A',e:'Aire',d:'Curioso, comunicativo y versatil. Tu mente rapida y tu don para las palabras te convierten en el mensajero del zodiaco.',m:[5,21],mx:[6,20]},{n:'Cancer',s:'\u264B',e:'Agua',d:'Intuitivo, protector y emocional. Tu hogar es tu santuario y tu capacidad de nutrir a otros es tu mayor don cosmico.',m:[6,21],mx:[7,22]},{n:'Leo',s:'\u264C',e:'Fuego',d:'Creativo, generoso y magnetico. El Sol te ilumina con carisma natural y un corazon que brilla como el oro.',m:[7,23],mx:[8,22]},{n:'Virgo',s:'\u264D',e:'Tierra',d:'Analitico, perfeccionista y servicial. Tu mente detallista y tu deseo de mejorar el mundo te hacen indispensable.',m:[8,23],mx:[9,22]},{n:'Libra',s:'\u264E',e:'Aire',d:'Diplomatico, armonioso y estetico. Buscas el equilibrio en todo y tu sentido de la justicia guia tus decisiones.',m:[9,23],mx:[10,22]},{n:'Escorpio',s:'\u264F',e:'Agua',d:'Intenso, transformador y misterioso. Tu poder emocional es profundo y tu capacidad de renacer de las cenizas es legendaria.',m:[10,23],mx:[11,21]},{n:'Sagitario',s:'\u2650',e:'Fuego',d:'Aventurero, filosofo y optimista. Tu flecha apunta siempre al horizonte, buscando verdades y experiencias que expandan tu alma.',m:[11,22],mx:[12,21]},{n:'Capricornio',s:'\u2651',e:'Tierra',d:'Ambicioso, disciplinado y sabio. La montana es tu metafora: paso a paso, con paciencia, alcanzas las cimas mas altas.',m:[12,22],mx:[1,19]},{n:'Acuario',s:'\u2652',e:'Aire',d:'Visionario, independiente y humanitario. Tu mente vive en el futuro y tu corazon late por la colectividad.',m:[1,20],mx:[2,18]},{n:'Piscis',s:'\u2653',e:'Agua',d:'Empatico, intuitivo y artistico. Nadas entre dos mundos, el visible y el invisible, con una sensibilidad que trasciende lo terrenal.',m:[2,19],mx:[3,20]}];
@@ -385,10 +385,10 @@ var hb=document.getElementById('hb'),mm=document.getElementById('mm');hb.addEven
 if('serviceWorker' in navigator)navigator.serviceWorker.register('/sw.js');
 </script>
 <nav class="bottom-nav"><div class="bottom-nav-inner">
-<a href="/"><span class="bottom-nav-icon">&#9733;</span><span class="bottom-nav-label">Inicio</span></a>
-<a href="/carta-natal-gratis.html" class="active"><span class="bottom-nav-icon">&#9737;</span><span class="bottom-nav-label">Carta</span></a>
-<a href="/horoscopo-diario.html"><span class="bottom-nav-icon">&#9789;</span><span class="bottom-nav-label">Hoy</span></a>
-<a href="/lecturas.html"><span class="bottom-nav-icon">&#10022;</span><span class="bottom-nav-label">Lecturas</span></a>
+<a href="/fr/"><span class="bottom-nav-icon">&#9733;</span><span class="bottom-nav-label">Accueil</span></a>
+<a href="/fr/carta-natal.html" class="active"><span class="bottom-nav-icon">&#9737;</span><span class="bottom-nav-label">Carta</span></a>
+<a href="/fr/horoscopo.html"><span class="bottom-nav-icon">&#9789;</span><span class="bottom-nav-label">Hoy</span></a>
+<a href="/fr/lecturas.html"><span class="bottom-nav-icon">&#10022;</span><span class="bottom-nav-label">Lectures</span></a>
 <a href="/precios-premium.html"><span class="bottom-nav-icon">&#9830;</span><span class="bottom-nav-label">Premium</span></a>
 </div></nav>
 <script>window.addEventListener('load',function(){setTimeout(function(){var s=document.getElementById('splash');if(s)s.classList.add('hidden')},600)});</script>

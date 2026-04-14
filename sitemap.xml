@@ -1,212 +1,397 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <!-- Pagina principal -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://astroaureum.com/</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://astroaureum.com/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://astroaureum.com/" />
+    <xhtml:link rel="alternate" hreflang="bg" href="https://astroaureum.com/bg/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://astroaureum.com/en/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://astroaureum.com/pt/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://astroaureum.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://astroaureum.com/de/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://astroaureum.com/it/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://astroaureum.com/ru/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://astroaureum.com/tr/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://astroaureum.com/ar/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://astroaureum.com/ja/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://astroaureum.com/zh/" />
   </url>
-
-  <!-- Paginas de producto -->
   <url>
-    <loc>https://astroaureum.com/sincronicidad/</loc>
-    <lastmod>2026-03-31</lastmod>
+    <loc>https://astroaureum.com/sinastria-oferta.html</loc>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://astroaureum.com/sinastria-oferta.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://astroaureum.com/sinastria-oferta.html" />
+    <xhtml:link rel="alternate" hreflang="bg" href="https://astroaureum.com/bg/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://astroaureum.com/en/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://astroaureum.com/pt/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://astroaureum.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://astroaureum.com/de/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://astroaureum.com/it/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://astroaureum.com/ru/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://astroaureum.com/tr/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://astroaureum.com/ar/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://astroaureum.com/ja/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://astroaureum.com/zh/" />
   </url>
-  <url>
-    <loc>https://astroaureum.com/sinastria/</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Horoscopo diario -->
-  <url>
-    <loc>https://astroaureum.com/horoscopo-diario.html</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Quiz lunar -->
-  <url>
-    <loc>https://astroaureum.com/quiz-lunar.html</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Aureum Books -->
-  <url>
-    <loc>https://astroaureum.com/aureum-books.html</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://astroaureum.com/aureum-books/</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Secciones de la pagina principal -->
-  <url>
-    <loc>https://astroaureum.com/#catalog</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://astroaureum.com/#horoscopo-diario</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://astroaureum.com/#packs</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://astroaureum.com/#como-funciona</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://astroaureum.com/#testimonios</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://astroaureum.com/#faq</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Carta Natal Gratis (pagina de alto trafico) -->
   <url>
     <loc>https://astroaureum.com/carta-natal-gratis.html</loc>
-    <lastmod>2026-04-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.95</priority>
-  </url>
-
-  <!-- Lecturas - Catalogo de 37 productos -->
-  <url>
-    <loc>https://astroaureum.com/lecturas.html</loc>
-    <lastmod>2026-04-13</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://astroaureum.com/carta-natal-gratis.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://astroaureum.com/carta-natal-gratis.html" />
+    <xhtml:link rel="alternate" hreflang="bg" href="https://astroaureum.com/bg/carta-natal.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://astroaureum.com/en/carta-natal.html" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://astroaureum.com/pt/carta-natal.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://astroaureum.com/fr/carta-natal.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://astroaureum.com/de/carta-natal.html" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://astroaureum.com/it/carta-natal.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://astroaureum.com/ru/carta-natal.html" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://astroaureum.com/tr/carta-natal.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://astroaureum.com/ar/carta-natal.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://astroaureum.com/ja/carta-natal.html" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://astroaureum.com/zh/carta-natal.html" />
   </url>
-
-  <!-- Precios Premium / Suscripcion -->
+  <url>
+    <loc>https://astroaureum.com/horoscopo-diario.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://astroaureum.com/horoscopo-diario.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://astroaureum.com/horoscopo-diario.html" />
+    <xhtml:link rel="alternate" hreflang="bg" href="https://astroaureum.com/bg/horoscopo.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://astroaureum.com/en/horoscopo.html" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://astroaureum.com/pt/horoscopo.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://astroaureum.com/fr/horoscopo.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://astroaureum.com/de/horoscopo.html" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://astroaureum.com/it/horoscopo.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://astroaureum.com/ru/horoscopo.html" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://astroaureum.com/tr/horoscopo.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://astroaureum.com/ar/horoscopo.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://astroaureum.com/ja/horoscopo.html" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://astroaureum.com/zh/horoscopo.html" />
+  </url>
+  <url>
+    <loc>https://astroaureum.com/lecturas.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://astroaureum.com/lecturas.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://astroaureum.com/lecturas.html" />
+    <xhtml:link rel="alternate" hreflang="bg" href="https://astroaureum.com/bg/lecturas.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://astroaureum.com/en/lecturas.html" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://astroaureum.com/pt/lecturas.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://astroaureum.com/fr/lecturas.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://astroaureum.com/de/lecturas.html" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://astroaureum.com/it/lecturas.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://astroaureum.com/ru/lecturas.html" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://astroaureum.com/tr/lecturas.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://astroaureum.com/ar/lecturas.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://astroaureum.com/ja/lecturas.html" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://astroaureum.com/zh/lecturas.html" />
+  </url>
   <url>
     <loc>https://astroaureum.com/precios-premium.html</loc>
-    <lastmod>2026-04-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Blog -->
-  <url>
-    <loc>https://astroaureum.com/blog/</loc>
-    <lastmod>2026-04-13</lastmod>
-    <changefreq>daily</changefreq>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
-
-  <!-- FAQ -->
   <url>
-    <loc>https://astroaureum.com/faq.html</loc>
-    <lastmod>2026-04-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Programa de Referidos -->
-  <url>
-    <loc>https://astroaureum.com/programa-referidos.html</loc>
-    <lastmod>2026-04-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Compartir Carta / Social Sharing -->
-  <url>
-    <loc>https://astroaureum.com/compartir.html</loc>
-    <lastmod>2026-04-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <!-- Servicios (detalle de producto) -->
-  <url>
-    <loc>https://astroaureum.com/servicios.html</loc>
-    <lastmod>2026-04-13</lastmod>
+    <loc>https://astroaureum.com/aureum-books.html</loc>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- Idiomas -->
   <url>
-    <loc>https://astroaureum.com/es/</loc>
-    <lastmod>2026-03-31</lastmod>
+    <loc>https://astroaureum.com/blog/</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/compartir.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/programa-referidos.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/faq.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/bg/</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/bg/carta-natal.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/bg/horoscopo.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/bg/lecturas.html</loc>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://astroaureum.com/en/</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/en/carta-natal.html</loc>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://astroaureum.com/bg/</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://astroaureum.com/en/horoscopo.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://astroaureum.com/fr/</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://astroaureum.com/de/</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://astroaureum.com/it/</loc>
-    <lastmod>2026-03-31</lastmod>
+    <loc>https://astroaureum.com/en/lecturas.html</loc>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://astroaureum.com/pt/</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/pt/carta-natal.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/pt/horoscopo.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/pt/lecturas.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/fr/</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/fr/carta-natal.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/fr/horoscopo.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/fr/lecturas.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/de/</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/de/carta-natal.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/de/horoscopo.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/de/lecturas.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/it/</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/it/carta-natal.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/it/horoscopo.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/it/lecturas.html</loc>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://astroaureum.com/ru/</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/ru/carta-natal.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/ru/horoscopo.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/ru/lecturas.html</loc>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://astroaureum.com/tr/</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/tr/carta-natal.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/tr/horoscopo.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/tr/lecturas.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/ar/</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/ar/carta-natal.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/ar/horoscopo.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/ar/lecturas.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/ja/</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/ja/carta-natal.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/ja/horoscopo.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/ja/lecturas.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/zh/</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/zh/carta-natal.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/zh/horoscopo.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://astroaureum.com/zh/lecturas.html</loc>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
