@@ -268,7 +268,7 @@ addText(cx+hr*Math.cos(hm),cy+hr*Math.sin(hm),(i+1).toString(),isAngle?'rgba(255
 }
 
 // ASC/DSC/MC/IC labels
-var labels=[{a:0,t:'ASC'},{a:180,t:'DSC'},{a:270,t:'MC'},{a:90,t:'IC'}];
+var labels=[{a:0,t:'MC'},{a:180,t:'IC'},{a:270,t:'ASC'},{a:90,t:'DSC'}];
 labels.forEach(function(lb){
 var la=(lb.a-90)*Math.PI/180;
 var lx=cx+(R2+10)*Math.cos(la),ly=cy+(R2+10)*Math.sin(la);
