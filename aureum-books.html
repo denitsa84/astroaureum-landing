@@ -1487,7 +1487,7 @@ footer {
             <div class="bundle-item"><span>&#10022;</span> Guia de Retrogrados</div>
             <div class="bundle-item"><span>&#10022;</span> Signos Vol. 2: Relaciones</div>
         </div>
-        <a href="https://astroaureum.com/#contacto" class="btn-cta" style="position:relative;z-index:2">QUIERO LA BIBLIOTECA COMPLETA</a>
+        <a href="javascript:buyBundle()" class="btn-cta" style="position:relative;z-index:2">QUIERO LA BIBLIOTECA COMPLETA</a>
         <p class="bundle-note">&#10022; Acceso inmediato a los 16 libros &middot; Pago seguro</p>
     </div>
 </section>
@@ -1677,7 +1677,7 @@ function openM(i){
     '<div class="mb-fmts"><div class="mb-fmts-h">Formatos disponibles</div>'+b.fm.map(function(f){return '<div class="mb-fmt"><span class="mb-fmt-n">'+fI[f]+' '+fN[f]+'</span><span class="mb-fmt-p">&euro;'+(b.pr*fM[f]).toFixed(2)+'</span></div>';}).join('')+'</div>'+
     '<div class="mb-langs"><div class="mb-langs-h">Idiomas</div><div class="mb-pills">'+b.ln.map(function(l){return '<span class="mb-pill">'+l+'</span>';}).join('')+'</div></div>'+
     '<div class="mb-pr-row">'+(b.op?'<span class="mb-old">&euro;'+b.op+'</span>':'')+'<span class="mb-price">&euro;'+b.pr+'</span>'+(sv?'<span class="mb-save">-'+sv+'%</span>':'')+'</div>'+
-    '<button class="mb-buy" onclick="window.open(\'https://astroaureum.com/#contacto\',\'_blank\')">COMPRAR AHORA</button>'+
+    '<button class="mb-buy" onclick="buyBook('+i+')">COMPRAR AHORA</button>'+
     '<button class="mb-prev" onclick="alert(\'Proximamente: Preview del capitulo 1\')">LEER CAPITULO 1 GRATIS</button>'+
     '<div class="mb-author"><div class="mb-author-n">Denitsa Georgieva &mdash; Shivani Devi Bramayani</div><div class="mb-author-b">Aureum Books &middot; astroaureum.com</div></div>';
   ov.classList.add('open');document.body.style.overflow='hidden';
@@ -1685,6 +1685,42 @@ function openM(i){
 
 function closeM(){document.getElementById('mOv').classList.remove('open');document.body.style.overflow='';}
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeM();});
+
+// Book IDs matching backend catalog (order must match books[] array)
+var BOOK_IDS=['signos-vol1','carta-natal','sinastria','transitos-2026','casas-astrologicas','astrologia-lunar','nodos-lunares','principiantes','meditaciones','cristales','tarot-astrologia','planner-2026','rituales-lunares','revolucion-solar','retrogrados','signos-vol2','signos-vol1','signos-vol2'];
+
+async function buyBook(idx){
+  var bookId=BOOK_IDS[idx];
+  if(!bookId){alert('Libro no disponible');return}
+  var email=prompt('Introduce tu email para enviarte el libro PDF despues de la compra:');
+  if(!email||!email.includes('@')){alert('Email invalido');return}
+  var btn=event.target;var prev=btn.textContent;btn.textContent='Cargando...';btn.disabled=true;
+  try{
+    var r=await fetch('https://astroaureum.com/api/stripe/book-checkout',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({bookId:bookId,email:email,language:'es'})
+    });
+    var data=await r.json();
+    if(data.url){window.location.href=data.url}
+    else{alert(data.error||'Error al procesar');btn.textContent=prev;btn.disabled=false}
+  }catch(err){alert('Error de conexion');btn.textContent=prev;btn.disabled=false}
+}
+
+async function buyBundle(){
+  var email=prompt('Introduce tu email para recibir los 16 libros PDF:');
+  if(!email||!email.includes('@')){alert('Email invalido');return}
+  try{
+    var r=await fetch('https://astroaureum.com/api/stripe/book-checkout',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({bookId:'biblioteca-completa',email:email,language:'es'})
+    });
+    var data=await r.json();
+    if(data.url){window.location.href=data.url}
+    else{alert(data.error||'Error al procesar')}
+  }catch(err){alert('Error de conexion')}
+}
 </script>
 <nav class="bottom-nav"><div class="bottom-nav-inner">
 <a href="/"><span class="bottom-nav-icon">&#9733;</span><span class="bottom-nav-label">Inicio</span></a>
